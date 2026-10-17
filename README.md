@@ -22,3 +22,8 @@ reproducibility materials.
   existence of squares obtained by concatenating arbitrarily many **strictly
   increasing distinct nonzero square blocks**. Complete two-page paper,
   compiled PDF, and independent integer-verification script.
+
+- [A077187](papers/A077187/): computer-assisted partial existence theorems
+  for decimal mountain concatenations, covering smooth multiplicative orders
+  ord_p(10) = 2^a 3^b 5^c with b <= 8. The unrestricted conjecture remains OPEN;
+  includes the new 486-phase cyclotomic norm tower and exact gcd certificates.

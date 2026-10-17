@@ -1,0 +1,122 @@
+\documentclass[9pt]{extarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,microtype}
+\usepackage[margin=0.73in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Norm}{Norm}
+\newcommand{\cat}{\mathbin{\Vert}}
+\title{A Cubic Norm-Tower Certificate for the $3^8$ Multiplicative-Order Class in Decimal Mountain Concatenations (OEIS A077187)}
+\author{Qichao Wang}
+\date{October 17, 2026 --- computer-assisted partial theorem}
+\linespread{0.97}
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
+\begin{document}\maketitle
+\begin{abstract}
+For prime $p$ with $\ord_p(10)=3^8 2^a5^c$, we establish existence of a mountain concatenation divisible by $p$, conditional only on explicit, reproducible exact-integer computations and the affine-monodromy lemma from the preceding project stages. A cubic relative-norm tower computes the 486 exact cyclotomic norms without large Sylvester resultants. A complete one-shot gcd sieve yields three spurious candidate primes, each eliminated by its true multiplicative-order phase. This is an infinite-subfamily result, not a proof of the full OEIS A077187 conjecture.
+\end{abstract}
+\section{Mountain concatenations and affine drift}
+Define
+\[
+M(k)=1\cat2\cat\cdots\cat k\cat(k-1)\cat\cdots\cat1,\qquad r=\ord_p(10).
+\]
+For $K_e=10^e-1$ let $C_e=1\cat\cdots\cat K_e$, $R_e=K_e\cat\cdots\cat1$, $D_e=\sum_{j=1}^{K_e}\ell_{10}(j)$, $H_e=10^{D_e}$ and $Y_e=H_e^{-1}R_e\pmod p$. Put
+\[
+(U,V)=(C_{2r}-C_r,\;Y_{2r}-Y_r).
+\]
+The previously established affine-monodromy identity \cite{stage7} gives
+\begin{equation}\label{eq:affine}
+(C_{jr},Y_{jr})=(C_r,Y_r)+(j-1)(U,V)\pmod p\quad(j\ge1).
+\end{equation}
+The normalized residues of $M(10^{jr})$ and $M(10^{jr}+1)$ equal respectively $10C_{jr}+Y_{jr}+1$ and $1000C_{jr}+Y_{jr}+121$. Since $p\nmid990$ for the present order family, their slopes $10U+V$ and $1000U+V$ cannot both vanish unless $(U,V)=(0,0)$. Thus nonzero drift produces a witness among $k=10^{jr}$ or $10^{jr}+1$, $1\le j\le p$.
+
+Set $r=6561s$ where $s=2^a5^c$, $t=729$, $m=r/t=9s$ and $\gamma=s^{-1}\pmod t$. Let $\zeta=10^m\pmod p$, of order $t$. The drift coordinates are quadratic in $m$, with coefficients in $\mathbb Q(\zeta)$. Their integer-scaled forms have denominator $D=200t^2$. Set
+\[
+E_0=0,\ E_j=\sum_{h=1}^{j}h10^{h-1}\pmod t,\quad n_j=t/\gcd(j,t),
+\]
+\[
+h_j=\frac{t}{n_j}\sum_{l=0}^{n_j-1}l\zeta^{j(l+1)},\quad
+j_j=\zeta^{-j}h_j^2,\quad
+\alpha_j=\zeta^{\gamma j10^{j-1}}.
+\]
+Write $DU_\gamma=U_0+U_1m+U_2m^2$ and $DV_\gamma=V_0+V_1m+V_2m^2$. The exact full-digit-layer recurrence yields
+$U_0=99t^2$, $V_0=-81t^2$, and
+\begin{align*}
+U_1&=-90t^2+\sum_{j=1}^{t-1}\zeta^{-\gamma E_j}
+ [D(\alpha_j-1)-180t\alpha_j h_j],\\
+U_2&=200\sum_{j=1}^{t-1}\zeta^{-\gamma E_j}(\alpha_j-1)j_j,\\
+V_1&=90t^2+\sum_{j=1}^{t-1}\zeta^{\gamma E_{j-1}}
+ [200t\alpha_jh_j-20th_j],\\
+V_2&=200\sum_{j=1}^{t-1}\zeta^{\gamma E_{j-1}}(1-\alpha_j)j_j.
+\end{align*}
+The exact coefficient code computes these expressions in $\mathbb Z[\zeta_t]$; independent finite-field evaluation checks all primitive phases.
+\section{Algebraic obstruction and exact norm tower}
+Put
+\[
+A=U_2V_0-U_0V_2,\quad B=U_2V_1-U_1V_2,\quad
+C=U_1V_0-U_0V_1,\quad Q_\gamma=A^2-BC.
+\]
+Here $Q_\gamma$ is the resultant in $m$ of $DU_\gamma$ and $DV_\gamma$. Simultaneous zero drift modulo $p$ forces
+\[
+p\mid N_\gamma=
+\left|\Norm_{\mathbb Q(\zeta_t)/\mathbb Q}Q_\gamma\right|_{\{2,3,5\}\text{-free}}.
+\]
+The denominator $D$ is invertible modulo all primes with order divisible by $6561$, and $p$ is unramified in the cyclotomic extension.
+
+\begin{lemma}[Cubic relative norm]\label{lem:tower}
+If $x=\zeta_{3^n}$, $y=x^3$ and $W=A(y)+xB(y)+x^2C(y)$, then
+\[
+\Norm_{\mathbb Q(x)/\mathbb Q(y)}W
+=A^3+yB^3+y^2C^3-3yABC.
+\]
+\end{lemma}
+\begin{proof}
+Multiply the three conjugates $A+xB+x^2C$, $A+\omega xB+\omega^2x^2C$, and $A+\omega^2xB+\omega x^2C$ where $\omega^3=1$ and $1+\omega+\omega^2=0$.
+\end{proof}
+Iterating the lemma computes the exact norm in degrees $486\to162\to54\to18\to6\to2\to1$; the final quadratic norm of $a+b\zeta_3$ is $a^2-ab+b^2$. The complete certificate comprises 486 nonzero exact integer norms; all are computed using integer operations and checked against independent finite-field identities. Six full norms from the previous $3^7$ stage match byte-for-byte.
+
+\begin{lemma}[One-shot smooth-order sieve]\label{lem:sieve}
+For $N>1$ with $\gcd(N,30)=1$, write
+$W=\lfloor(N-1)/6561\rfloor$ and, when $W\ge1$, choose
+$A=\lfloor\log_2W\rfloor$, $B=\lfloor\log_5W\rfloor$ and $S=2^A5^B$. Any prime $p\mid N$ with $\ord_p(10)=6561\cdot2^a5^c$ divides
+\[
+\gcd\left(N,\;x^2+x+1\right),\qquad x=10^{2187S}\pmod N.
+\]
+\end{lemma}
+\begin{proof}
+As $6561\cdot2^a5^c\mid p-1<N$, both $2^a$ and $5^c$ are bounded by $W$ and divide $S$. Consequently $x$ has exact order three modulo $p$ and satisfies $x^2+x+1\equiv0\pmod p$.
+\end{proof}
+\begin{theorem}[The complete $3^8$ smooth-order subfamily]
+For every prime $p$ with $\ord_p(10)=6561\cdot2^a5^c$ ($a,c\ge0$), there is a positive integer $k$ such that $p\mid M(k)$. Moreover $k$ can be chosen as $10^{jr}$ or $10^{jr}+1$ with $1\le j\le p$.
+\end{theorem}
+\begin{proof}
+For every one of the 486 primitive phases $\gamma$ modulo 729, the exact norm $N_\gamma$ computed using Lemma~\ref{lem:tower} is positive. Applying Lemma~\ref{lem:sieve} to each norm, the 486-entry GMP certificate has exactly six nontrivial rows (all others have gcd 1):
+\[
+\begin{array}{c|c}
+\gamma&\gcd\\\hline
+202&328051\\
+247,266,346,458&52489\\
+698&328051\cdot839809
+\end{array}
+\]
+The prime factors have the following exact multiplicative orders and true phases:
+\[
+\begin{array}{r|r|r|r}
+p&\ord_p(10)&s=\ord_p(10)/6561&s^{-1}\bmod729\\\hline
+52489&26244&4&547\\
+328051&328050&50&452\\
+839809&52488&8&638
+\end{array}
+\]
+In all three \emph{true} phases 547, 452 and 638, the corresponding gcd is 1. Thus none is a genuine simultaneous zero-drift case. As every potential prime must divide one of these gcds, $(U,V)\ne(0,0)$ for the target order class. Equation~\eqref{eq:affine} then yields the asserted witness in at most $p$ phases.
+\end{proof}
+\section{Scope and reproducibility}
+The accompanying program regenerates exact cyclotomic coefficients and all 486 norms, evaluates the 486 gcds using C++/GMP, and checks the apparent factors against their exact orders and phases. A second recurrence verifies three representative drift vectors. This is a computer-assisted \emph{partial} theorem: no proof is asserted for arbitrary $p$, especially when $\ord_p(10)$ contains prime factors outside $\{2,3,5\}$ or $v_3(\ord_p(10))\ge9$. No external referee review or OEIS edit has occurred.
+\begin{thebibliography}{9}
+\bibitem{oeis} OEIS Foundation, \emph{A077187}, \url{https://oeis.org/A077187} (accessed October 17, 2026).
+\bibitem{stage7} Q. Wang, \emph{Eliminating the $3^7$-order exceptional set for decimal mountain concatenations}, exact norm and affine-monodromy certificates, 2026.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,32 @@
+{
+  "theorem": "all primes with ord_p(10)=6561*2^a*5^c have a mountain-concatenation witness",
+  "phases": 486,
+  "norm_digits_min": 5753,
+  "norm_digits_max": 5827,
+  "nontrivial": {
+    "202": "328051",
+    "247": "52489",
+    "266": "52489",
+    "346": "52489",
+    "458": "52489",
+    "698": "275500182259"
+  },
+  "factors_and_true_phase": {
+    "52489": {
+      "order": 26244,
+      "s": 4,
+      "true_phase": 547
+    },
+    "328051": {
+      "order": 328050,
+      "s": 50,
+      "true_phase": 452
+    },
+    "839809": {
+      "order": 52488,
+      "s": 8,
+      "true_phase": 638
+    }
+  },
+  "status": "exact class-specific finite certificate passed; unrestricted conjecture open"
+}
