@@ -1,0 +1,24 @@
+name: A077187 Mobius phase involution
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_mobius_phase_involution.py
+      - papers/A077187/research/mobius_phase_involution_2026-10-18.md
+      - .github/workflows/a077187-mobius-phase.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_mobius_phase_involution.py
+      - .github/workflows/a077187-mobius-phase.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  projective-counts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify projective collision involution and exact phase counts
+        run: python3 papers/A077187/research/audit_mobius_phase_involution.py

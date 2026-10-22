@@ -1,0 +1,32 @@
+name: A077187 fixed v11 infinite-family certificate
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/certify_fixed_v7.py
+      - papers/A077187/research/certify_fixed_v11.py
+      - papers/A077187/research/audit_fixed_v11.py
+      - papers/A077187/research/fixed_v11_linear_spectral_theorem_2026-10-18.md
+      - .github/workflows/a077187-fixed-v11.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/certify_fixed_v7.py
+      - papers/A077187/research/certify_fixed_v11.py
+      - papers/A077187/research/audit_fixed_v11.py
+      - .github/workflows/a077187-fixed-v11.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-v11:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install exact symbolic arithmetic
+        run: python3 -m pip install sympy
+      - name: Independently check all selected prime-field drift vectors
+        run: python3 papers/A077187/research/audit_fixed_v11.py
+      - name: Reproduce the 20 linear norm phases and phase-aware smooth-index exclusion
+        run: python3 papers/A077187/research/certify_fixed_v11.py

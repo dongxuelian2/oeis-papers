@@ -1,0 +1,43 @@
+name: A077187 spectral families paper PDF
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/fixed_v_spectral_families.tex
+      - .github/workflows/a077187-spectral-paper.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/fixed_v_spectral_families.tex
+      - .github/workflows/a077187-spectral-paper.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Build spectral compression research paper
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: fixed_v_spectral_families.tex
+          working_directory: papers/A077187/research
+          latexmk_use_xelatex: false
+      - name: Commit compiled PDF on push
+        if: github.event_name == 'push'
+        run: |
+          test -s papers/A077187/research/fixed_v_spectral_families.pdf
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add papers/A077187/research/fixed_v_spectral_families.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "paper: compile fixed-v spectral compression and infinite families PDF"
+            git pull --rebase origin "$(git branch --show-current)"
+            git push
+          fi

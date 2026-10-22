@@ -1,0 +1,31 @@
+name: A077187 fixed v7 infinite-family certificate
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/certify_fixed_v7.py
+      - papers/A077187/research/audit_fixed_v7.py
+      - papers/A077187/research/fixed_v_spectral_compression_v7_2026-10-18.md
+      - .github/workflows/a077187-fixed-v7.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/certify_fixed_v7.py
+      - papers/A077187/research/audit_fixed_v7.py
+      - .github/workflows/a077187-fixed-v7.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+jobs:
+  exact-v7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install exact symbolic arithmetic
+        run: python3 -m pip install sympy
+      - name: Independently verify the 42-coset spectral formula in prime fields
+        run: python3 papers/A077187/research/audit_fixed_v7.py
+      - name: Recompute all 12 cyclotomic resultants and exact norms
+        run: python3 papers/A077187/research/certify_fixed_v7.py

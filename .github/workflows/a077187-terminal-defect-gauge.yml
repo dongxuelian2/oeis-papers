@@ -1,0 +1,24 @@
+name: A077187 terminal defect phase gauge
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_terminal_defect_gauge_u4.py
+      - papers/A077187/research/terminal_defect_universal_orbit_gauge_2026-10-18.md
+      - .github/workflows/a077187-terminal-defect-gauge.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_terminal_defect_gauge_u4.py
+      - .github/workflows/a077187-terminal-defect-gauge.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  terminal-gauge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify fixed rational terminal window and real smooth-u4 primes
+        run: python3 papers/A077187/research/audit_terminal_defect_gauge_u4.py

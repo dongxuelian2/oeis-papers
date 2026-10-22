@@ -1,0 +1,24 @@
+name: A077187 Lucas orbit norm identities
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_lucas_orbit_norm.py
+      - papers/A077187/research/lucas_orbit_norm_zero_drift_2026-10-18.md
+      - .github/workflows/a077187-lucas-orbit-norm.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_lucas_orbit_norm.py
+      - .github/workflows/a077187-lucas-orbit-norm.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  orbit-norm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Lucas determinants, cyclic subgroup roots and singular windows
+        run: python3 papers/A077187/research/audit_lucas_orbit_norm.py

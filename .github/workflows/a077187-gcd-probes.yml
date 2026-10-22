@@ -1,0 +1,29 @@
+name: A077187 arbitrary-order GMP GCD probes
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/probe_universal_scalar_gcd.cpp
+      - .github/workflows/a077187-gcd-probes.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/probe_universal_scalar_gcd.cpp
+      - .github/workflows/a077187-gcd-probes.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-gcd-probes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile arbitrary-order exact GMP experiment
+        working-directory: papers/A077187/research
+        run: g++ -O3 -std=c++17 probe_universal_scalar_gcd.cpp -lgmpxx -lgmp -o probe
+      - name: Verify scalar, slope and vector identities on selected high powers
+        working-directory: papers/A077187/research
+        run: ./probe 174 272 696 808 936 1014 2058 2662 4107 4624

@@ -1,0 +1,39 @@
+name: A077187 reduced phases and analytic involution
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/certify_involutive_families.py
+      - papers/A077187/research/certify_fixed_v7.py
+      - papers/A077187/research/certify_fixed_v11.py
+      - papers/A077187/research/audit_fixed_v7.py
+      - papers/A077187/research/audit_reduced_spectral.py
+      - papers/A077187/research/zero_drift_tail_gauge_2026_10_18.py
+      - .github/workflows/a077187-reduced-phases.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/certify_involutive_families.py
+      - papers/A077187/research/certify_fixed_v7.py
+      - papers/A077187/research/certify_fixed_v11.py
+      - papers/A077187/research/audit_fixed_v7.py
+      - papers/A077187/research/audit_reduced_spectral.py
+      - papers/A077187/research/zero_drift_tail_gauge_2026_10_18.py
+      - .github/workflows/a077187-reduced-phases.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install exact symbolic arithmetic
+        run: python3 -m pip install sympy
+      - name: Verify explicit invariants and all even-branch indices
+        run: python3 papers/A077187/research/certify_involutive_families.py
+      - name: Independently compare reduced cosets and complete digit layers
+        run: python3 papers/A077187/research/audit_reduced_spectral.py
+      - name: Verify rational tail gauges and squareclass independence
+        run: python3 papers/A077187/research/zero_drift_tail_gauge_2026_10_18.py --examples --symbolic

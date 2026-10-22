@@ -1,0 +1,192 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,microtype,array}
+\usepackage[margin=0.80in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\DeclareMathOperator{\ord}{ord}
+\newcommand{\cat}{\mathbin{\Vert}}
+\title{A Factorization-Free Certificate for Decimal Mountain Concatenations\\
+at Multiplicative Orders at Most 744}
+\author{Qichao Wang}
+\date{October 18, 2026 \quad\textit{computer-assisted partial result}}
+\begin{document}\maketitle
+\begin{abstract}
+Let \(M(k)=1\cat2\cat\cdots\cat k\cat(k-1)\cat\cdots\cat1\).
+We certify that every prime \(p\ne2,5\) with
+\(\ord_p(10)\le744\) divides at least one \(M(k)\).
+Our finite computation factors neither \(10^r-1\) nor the large
+cyclotomic norms appearing in previous research stages.
+Instead, we combine two elementary infinite-family arguments
+with exact affine-state computations modulo \(10^r-1\),
+covering 77 remaining multiplicative orders.
+The program checks complete small integer gcd obstructions,
+including a nonprimitive-order contaminant at \(r=696\).
+This is a bounded-order result, not a solution for all primes.
+\end{abstract}
+\section{Digit-layer dynamics}
+For \(k\ge0\), let \(C_k=1\cat2\cat\cdots\cat k\),
+\(R_k=k\cat(k-1)\cat\cdots\cat1\), and let \(D(k)\) be
+the total decimal digit count from 1 through \(k\).
+For a modulus \(n\) coprime to 10 put
+\[
+ S_d=(C_{10^d-1},Y_{10^d-1}),\qquad
+ Y_k=10^{-D(k)}R_k\pmod n.
+\]
+Within a full \(d\)-digit layer define
+\[
+ L=10^{d-1},\quad q=10^d,\quad m=9L,\quad
+ A=q^m,\quad B=q-1,\quad
+ G=\sum_{i=0}^{m-1}q^i,\quad J=\sum_{i=0}^{m-1}iq^i.
+\]
+The state transition, valid over any such residue ring, is
+\begin{equation}
+ (C,Y)\longmapsto
+ \bigl(AC+BG-J,\ A^{-1}(Y+LG+J)\bigr).
+ \label{eq:layer}
+\end{equation}
+Only the invertible quantity \(A\) is divided by:
+the expression does not presume \(q-1\) is a unit.
+
+For a prime \(p\ge7\), \(p\ne11\), set
+\[
+ r=\ord_p(10)=u\,v,\quad u=2^a5^c,\quad (v,10)=1,\quad
+ T=\operatorname{lcm}(r,\ord_v(10)),\quad\ord_1(10)=1.
+\]
+Earlier affine-monodromy lemmas imply
+\[
+ S_{jT}=S_T+(j-1)(U,V),\quad
+ (U,V)=S_{2T}-S_T\quad(j\ge1).
+ \label{eq:drift}
+\]
+The normalized mountain residues at \(10^{jT}\) and
+\(10^{jT}+1\) are respectively
+\(10C_{jT}+Y_{jT}+1\) and \(1000C_{jT}+Y_{jT}+121\).
+If \((U,V)\ne(0,0)\), their slopes
+\(10U+V\) and \(1000U+V\) cannot both vanish
+because \(p\nmid990\).
+A linear congruence yields \(1\le j\le p\) and a
+divisible mountain at one of the two offsets.
+
+\section{A factorization-free exact-order obstruction}
+Fix any integer \(r\ge2\), and set \(N_r=10^r-1\).
+The residue class of 10 has exact order \(r\) in
+\(\mathbb Z/N_r\mathbb Z\), since \(0<10^h-1<N_r\)
+for \(1\le h<r\).
+Compute the states in \eqref{eq:layer} in that ring and put
+\begin{equation}
+ (U_r,V_r)=S_{2T}-S_T,\qquad
+ H_r=\gcd(N_r,U_r,V_r).
+ \label{eq:gcd}
+\end{equation}
+For every prime \(p\) of exact order \(r\),
+reduction of these integer-ring states modulo \(p\)
+gives the prime-field drift. Consequently
+\begin{equation}
+ (U,V)\equiv(0,0)\pmod p
+ \quad\Longrightarrow\quad p\mid H_r.
+ \label{eq:obstruction}
+\end{equation}
+
+Computing \eqref{eq:gcd} does not require building the huge
+\(m=9\cdot10^{d-1}\). Put \(h=r/\gcd(r,d)\) and
+write \(m=th+b\), \(0\le b<h\). Since \(q^h=1\),
+\[
+ G=tG_h+G_b,\qquad
+ J=tJ_h+hG_h\binom{t}{2}+thG_b+J_b.
+\]
+Use modular powering to find
+\(m\bmod hN_r\), hence \(t\bmod N_r\) and \(b\).
+Binary splitting evaluates \(G_h,J_h,G_b,J_b\)
+with \(O(\log r)\) residue-ring operations.
+As \(N_r\) is odd, \(\binom t2\bmod N_r\)
+is determined by \(t\bmod N_r\).
+Thus the entire check uses exact arithmetic without
+factoring the repunit \(N_r\).
+
+\begin{theorem}[Certified bounded-order existence]
+For every prime \(p\ne2,5\) with
+\(\ord_p(10)\le744\), some positive \(k\) satisfies
+\(p\mid M(k)\).
+For \(p\ge7,\ p\ne11\) we may take
+\(k=10^{jT}\) or \(10^{jT}+1\) with \(1\le j\le p\).
+\end{theorem}
+\begin{proof}
+The cases \(p=3\) and \(p=11\) follow respectively
+from \(3\mid M(3)=12321\) and \(11\mid M(2)=121\).
+For every other \(p\), partition its order \(r\le744\)
+according to \(u=2^{v_2(r)}5^{v_5(r)}\) and \(v=r/u\).
+
+If \(u\mid20\), the previously proved elementary
+finite-defect transfer gives a perfect-square
+first-window polynomial with a subgroup root.
+If \(u\nmid20\) and \(v\mid9\), the elementary invariant
+\[
+ U+V=9\cdot100^{-1}\pmod p\ne0
+\]
+gives nonzero drift.
+
+Exactly 77 order values \(2\le r\le744\) lie in
+neither elementary family. For all 77,
+the included programs compute \(H_r\) in
+\eqref{eq:gcd} and completely factor this
+\emph{small} integer by trial division. They check
+\(\ord_q(10)\ne r\) for every prime factor \(q\mid H_r\).
+Therefore no prime \(p\) of exact order \(r\)
+can satisfy \eqref{eq:obstruction}, and its drift
+must be nonzero. The two-offset lemma gives the witness.
+\end{proof}
+
+\section{Certificate, audit, and limitations}
+The 77 exceptional-to-the-elementary-family orders
+consist of 42 previously checked order classes \(r\le500\),
+31 new classes \(501\le r\le744\), and four former
+high-\(3\)-power cases:
+\[
+\begin{array}{c|rrrr}
+r&216&432&648&675\\\hline
+H_r&243&243&729&243
+\end{array}
+\]
+Some representative new values are
+\[
+\begin{array}{r|rrrrrrrr}
+r&504&536&584&624&664&696&725&744\\\hline
+H_r&567&99&657&351&9&189&9&27
+\end{array}
+\]
+At \(r=696\), \(H_r=189=3^3\cdot7\);
+the extra factor \(7\) is harmless because
+\(\ord_7(10)=6\ne696\).
+The program therefore tests exact orders of
+all gcd prime divisors, rather than assuming the
+false stronger assertion that every gcd factor divides
+\(990r\).
+
+The 35 additional exact \((r,T,H_r)\) rows are
+pinned with SHA-256
+\[
+\texttt{211b961ab1c7c1762aa39df1e16415a0e56296ef5b4a1a9a9ffbec3d305d5aa3}.
+\]
+An independent prime-field recurrence verifies
+\[
+\begin{array}{r|r|r|r}
+r&p&U_r\bmod p&V_r\bmod p\\\hline
+584&1753&1438&1332\\
+664&1993&1889&1956\\
+696&13921&13258&9689
+\end{array}
+\]
+The exact, standard-library Python programs are
+\texttt{certify\_orders\_le500.py},
+\texttt{certify\_orders\_le744.py},
+and \texttt{audit\_order\_744\_prime\_field.py},
+in the accompanying \texttt{research/} directory.
+
+The bounded-order proof requires independent auditing of
+the two previously obtained elementary lemmas and of
+the short exact-arithmetic programs.
+It neither proves universal nonzero drift
+nor resolves OEIS A077187 for all primes.
+\end{document}

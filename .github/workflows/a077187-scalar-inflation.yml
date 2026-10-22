@@ -1,0 +1,27 @@
+name: A077187 scalar gcd and order-inflation audit
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_scalar_gcd_and_inflation.py
+      - papers/A077187/research/certify_orders_le500.py
+      - .github/workflows/a077187-scalar-inflation.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_scalar_gcd_and_inflation.py
+      - papers/A077187/research/certify_orders_le500.py
+      - .github/workflows/a077187-scalar-inflation.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-scalar-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recompute all 179 scalar and vector gcd identities and 8 order-inflation checks
+        run: python3 papers/A077187/research/audit_scalar_gcd_and_inflation.py

@@ -1,0 +1,27 @@
+name: A077187 structural algebra audit
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_global_block_geometry.py
+      - papers/A077187/research/audit_twisted_reflection.py
+      - .github/workflows/a077187-global-geometry.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_global_block_geometry.py
+      - papers/A077187/research/audit_twisted_reflection.py
+      - .github/workflows/a077187-global-geometry.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  algebra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check local integrability, mirrored blocks and offset abundance
+        run: python3 papers/A077187/research/audit_global_block_geometry.py
+      - name: Check whole-period twisted reflection and cyclic digit-profile law
+        run: python3 papers/A077187/research/audit_twisted_reflection.py

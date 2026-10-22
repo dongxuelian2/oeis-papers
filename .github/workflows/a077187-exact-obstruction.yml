@@ -1,0 +1,24 @@
+name: A077187 exact cyclotomic obstruction
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/cyclotomic_exact_obstruction_2026-10-18.md
+      - papers/A077187/research/exact_cyclotomic_obstruction.py
+      - .github/workflows/a077187-exact-obstruction.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/exact_cyclotomic_obstruction.py
+      - .github/workflows/a077187-exact-obstruction.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-obstruction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independently certify cyclotomic primitive-order obstruction
+        run: python3 papers/A077187/research/exact_cyclotomic_obstruction.py

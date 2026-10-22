@@ -1,0 +1,24 @@
+name: A077187 u8 transient trace and norm
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_u8_singular_trace_norm.py
+      - papers/A077187/research/u8_singular_norm_structure_2026-10-18.md
+      - .github/workflows/a077187-u8-trace-norm.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_u8_singular_trace_norm.py
+      - .github/workflows/a077187-u8-trace-norm.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-u8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exact cyclotomic polynomial and original finite-field trace check
+        run: python3 papers/A077187/research/audit_u8_singular_trace_norm.py

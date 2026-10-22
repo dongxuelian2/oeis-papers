@@ -1,0 +1,37 @@
+name: A077187 witness phase-density theorem
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_quantitative_witness_density.py
+      - papers/A077187/research/probe_scalar_gcd.cpp
+      - papers/A077187/research/audit_fermat_lucas_double_norm.py
+      - .github/workflows/a077187-phase-density.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_quantitative_witness_density.py
+      - papers/A077187/research/probe_scalar_gcd.cpp
+      - .github/workflows/a077187-phase-density.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  algebra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check exact half-density and anti-diagonal counts
+        run: python3 papers/A077187/research/audit_quantitative_witness_density.py
+      - name: Audit Fermat-Lucas double norm over all block phases
+        run: python3 papers/A077187/research/audit_fermat_lucas_double_norm.py
+      - name: Build exact scalar-GCD falsification probe
+        run: |
+          g++ -O3 -std=c++17 papers/A077187/research/probe_scalar_gcd.cpp -lgmpxx -lgmp -o /tmp/scalar_probe
+          /tmp/scalar_probe 2 100
+      - name: Test selected nontrivial formal order classes
+        run: |
+          for r in 112 152 168 272 312 336; do
+            /tmp/scalar_probe "$r" "$r"
+          done

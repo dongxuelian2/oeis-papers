@@ -1,0 +1,56 @@
+name: Reproduce A077187 stage 8 certificate and PDF
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/main.tex
+      - papers/A077187/*.py
+      - papers/A077187/*.cpp
+      - papers/A077187/run_sieves.sh
+      - .github/workflows/a077187-certificate.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install exact arithmetic dependencies
+        run: |
+          python -m pip install --user numpy sympy
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libgmp-dev libgmpxx4ldbl
+      - name: Rebuild all 486 exact norm certificates
+        working-directory: papers/A077187
+        run: python generate_norms_parallel.py
+      - name: Compute full-range one-shot GMP sieve
+        working-directory: papers/A077187
+        run: bash run_sieves.sh
+      - name: Audit all 486 phases and direct decimal recurrence
+        working-directory: papers/A077187
+        run: python verify_all.py
+      - name: Compile research paper
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          working_directory: papers/A077187
+          latexmk_use_xelatex: false
+      - name: Commit reproducible certificate and PDF
+        run: |
+          test -s papers/A077187/main.pdf
+          test "$(find papers/A077187 -maxdepth 1 -name 'norm_gamma_*.txt' | wc -l)" -eq 486
+          test "$(wc -l <papers/A077187/all_486_gmp.tsv)" -eq 486
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add papers/A077187/main.pdf papers/A077187/norm_gamma_*.txt papers/A077187/all_486_gmp.tsv papers/A077187/verified_summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m "proof: publish 486 certified norms, independent GMP sieve and PDF"
+            git push
+          fi

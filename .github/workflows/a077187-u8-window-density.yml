@@ -1,0 +1,24 @@
+name: A077187 u8 positive-density first-window obstruction
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_u8_positive_density_window_failure.py
+      - papers/A077187/research/u8_single_window_density_one_thirtysecond_2026-10-18.md
+      - .github/workflows/a077187-u8-window-density.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_u8_positive_density_window_failure.py
+      - .github/workflows/a077187-u8-window-density.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify u8 discriminant independence and genuine field-level windows
+        run: python3 papers/A077187/research/audit_u8_positive_density_window_failure.py

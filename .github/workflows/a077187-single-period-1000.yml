@@ -1,0 +1,42 @@
+name: A077187 single-period order 1000 audit
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/single_period_order_1000.cpp
+      - papers/A077187/research/audit_order_1000_prime_field.py
+      - papers/A077187/research/audit_cyclotomic_order_1000.py
+      - .github/workflows/a077187-single-period-1000.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/single_period_order_1000.cpp
+      - papers/A077187/research/audit_order_1000_prime_field.py
+      - papers/A077187/research/audit_cyclotomic_order_1000.py
+      - .github/workflows/a077187-single-period-1000.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-1000:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GMP build libraries
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libgmp-dev g++
+      - name: Recompute exact 35-class GMP certificate and hash
+        working-directory: papers/A077187/research
+        run: |
+          g++ -O3 -std=c++17 single_period_order_1000.cpp -lgmpxx -lgmp -o order1000
+          ./order1000 > order1000_rows.tsv
+          echo "actual SHA256: $(sha256sum order1000_rows.tsv)"
+          test "$(sha256sum order1000_rows.tsv | cut -d' ' -f1)" = "f4098f7f7113f0941c5423a33de3e9bf0c0a335c2e4d901b28851fab1495cddc"
+      - name: Independent field witnesses
+        run: python3 papers/A077187/research/audit_order_1000_prime_field.py
+      - name: Independent cyclotomic coprimality
+        run: python3 papers/A077187/research/audit_cyclotomic_order_1000.py papers/A077187/research/order1000_rows.tsv

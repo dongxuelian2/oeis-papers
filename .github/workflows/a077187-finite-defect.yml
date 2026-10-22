@@ -1,0 +1,25 @@
+name: A077187 finite-defect multiplier audit
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_finite_defect_multipliers.py
+      - .github/workflows/a077187-finite-defect.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_finite_defect_multipliers.py
+      - .github/workflows/a077187-finite-defect.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-multiplier-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact finite-defect ratios across smooth parts 8 through 125
+        run: python3 papers/A077187/research/audit_finite_defect_multipliers.py

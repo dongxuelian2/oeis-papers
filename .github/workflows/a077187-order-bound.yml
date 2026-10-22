@@ -1,0 +1,88 @@
+name: A077187 exact order-bound certificates
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/certify_orders_le500.py
+      - papers/A077187/research/certify_orders_le744.py
+      - papers/A077187/research/audit_order_744_prime_field.py
+      - papers/A077187/research/order_bound_744.tex
+      - papers/A077187/research/audit_cyclotomic_spots.py
+      - papers/A077187/research/single_period_order_1000.cpp
+      - papers/A077187/research/audit_order_1000_prime_field.py
+      - papers/A077187/research/audit_cyclotomic_order_1000.py
+      - papers/A077187/research/order_bound_1000.tex
+      - .github/workflows/a077187-order-bound.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/certify_orders_le500.py
+      - papers/A077187/research/certify_orders_le744.py
+      - papers/A077187/research/audit_order_744_prime_field.py
+      - papers/A077187/research/order_bound_744.tex
+      - papers/A077187/research/audit_cyclotomic_spots.py
+      - papers/A077187/research/single_period_order_1000.cpp
+      - papers/A077187/research/audit_order_1000_prime_field.py
+      - papers/A077187/research/audit_cyclotomic_order_1000.py
+      - papers/A077187/research/order_bound_1000.tex
+      - .github/workflows/a077187-order-bound.yml
+  workflow_dispatch:
+
+concurrency:
+  group: a077187-bound-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  exact-order-bound:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify 42 order classes with exact arithmetic (stdlib only)
+        run: python3 papers/A077187/research/certify_orders_le500.py
+      - name: Audit cyclotomic modulus reduction and negative controls
+        run: python3 papers/A077187/research/audit_cyclotomic_spots.py
+      - name: Verify 35 additional exact classes and exhaust order <= 744
+        run: python3 papers/A077187/research/certify_orders_le744.py
+      - name: Independently check high-order finite-field drift vectors
+        run: python3 papers/A077187/research/audit_order_744_prime_field.py
+      - name: Build and verify 35 single-period GMP certificates (745 <= r <= 1000)
+        run: |
+          cd papers/A077187/research
+          g++ -O3 -std=c++17 single_period_order_1000.cpp -lgmpxx -lgmp -o order1000
+          ./order1000 > order1000_rows.tsv
+          test "$(sha256sum order1000_rows.tsv | cut -d' ' -f1)" = "f4098f7f7113f0941c5423a33de3e9bf0c0a335c2e4d901b28851fab1495cddc"
+      - name: Independent prime-field check of new orders
+        run: python3 papers/A077187/research/audit_order_1000_prime_field.py
+      - name: Independent cyclotomic coprimality for all new order classes
+        run: |
+          python3 papers/A077187/research/audit_cyclotomic_order_1000.py papers/A077187/research/order1000_rows.tsv
+
+  bounded-order-pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Compile bounded-order research note
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: order_bound_1000.tex
+          working_directory: papers/A077187/research
+          latexmk_use_xelatex: false
+      - name: Commit generated PDF (push only)
+        if: github.event_name == 'push'
+        run: |
+          test -s papers/A077187/research/order_bound_1000.pdf
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add papers/A077187/research/order_bound_1000.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "paper: compile verified order<=1000 proof note PDF"
+            git pull --rebase origin "$(git branch --show-current)"
+            git push
+          fi

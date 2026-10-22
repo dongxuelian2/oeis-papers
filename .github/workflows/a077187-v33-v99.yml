@@ -1,0 +1,34 @@
+name: A077187 nine-torsion spectral lifting
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/certify_fixed_v33_v99.py
+      - papers/A077187/research/audit_fixed_v33_v99.py
+      - papers/A077187/research/nine_torsion_lift_v33_v99_2026-10-18.md
+      - .github/workflows/a077187-v33-v99.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/certify_fixed_v33_v99.py
+      - papers/A077187/research/audit_fixed_v33_v99.py
+      - .github/workflows/a077187-v33-v99.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  nine-torsion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install symbolic cyclotomic polynomial generator
+        run: python3 -m pip install sympy
+      - name: Independently verify original 20 exact v11 linear resultant norms
+        run: python3 papers/A077187/research/certify_fixed_v11.py
+      - name: Check all 7607 v33-v99 phase-index exclusions
+        run: python3 papers/A077187/research/certify_fixed_v33_v99.py
+      - name: Check 15 direct finite-field recurrences vs spectral folding
+        run: python3 papers/A077187/research/audit_fixed_v33_v99.py

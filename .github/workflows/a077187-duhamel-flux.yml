@@ -1,0 +1,23 @@
+name: A077187 finite defect Duhamel flux
+on:
+  push:
+    branches:
+      - research/a077187-smooth-order-v3-le8-20261017
+    paths:
+      - papers/A077187/research/audit_defect_duhamel_flux.py
+      - .github/workflows/a077187-duhamel-flux.yml
+  pull_request:
+    paths:
+      - papers/A077187/research/audit_defect_duhamel_flux.py
+      - .github/workflows/a077187-duhamel-flux.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-flux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact layerwise finite-defect flux and u8 conjugate-phase obstruction
+        run: python3 papers/A077187/research/audit_defect_duhamel_flux.py
