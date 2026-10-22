@@ -41,3 +41,12 @@ Previously accepted manuscripts (A075000-A075002, A181373 and
 A083468-A083469) retain their original authorship and are unchanged.
 The A077306 research note restates the accepted A075001 existence result
 and is not a separate manuscript.
+
+- [A069862](papers/A069862/): gives an **exact finite arithmetic minimum formula for every positive index**,
+  using multiplicative-order phases, quadratic residue classes, CRT, and ceilings.
+  The formula includes a finite minimum over explicitly computed candidates.
+  Also proves infinitely many witnesses and the bound a(n)<10^n-n for n>=2,
+  and gives simpler least-length formulas
+  on two infinite families (including a(n)=n for decimal-smooth moduli and
+  a(n)=2n-1 on a 7-denominator family), with a companion prime-power theorem.
+  The a(n)=2 classification is prior work of David Wasserman (2005), A069860.
