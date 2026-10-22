@@ -1,0 +1,42 @@
+name: A006716 support-14 complete root classification
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_sparse_roots_14.cpp
+      - papers/A006716/verify_leading_pairs.py
+      - .github/workflows/a006716-support14.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  leading-pairs:
+    name: Exact six-digit prefix restriction
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independently regenerate all 243 exact interval cases
+        run: python papers/A006716/verify_leading_pairs.py
+
+  support14:
+    needs: leading-pairs
+    name: Full support-14 check, units ${{ matrix.unit }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        unit: [1, 2, 3, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install exact integer headers
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libboost-dev
+      - name: Compile root-classification certificate
+        run: g++ -std=c++17 -O3 papers/A006716/verify_sparse_roots_14.cpp -o /tmp/a006716_sparse14
+      - name: Exhaust one entire units-digit class
+        run: /tmp/a006716_sparse14 ${{ matrix.unit }}

@@ -1,0 +1,47 @@
+name: A006716 support-18 exact top-four search
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_sparse_roots_18.cpp
+      - .github/workflows/a006716-support18.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  four-prefix:
+    name: Audit exact four-digit leading mask
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install arbitrary-precision headers
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libboost-dev
+      - name: Compile root verifier
+        run: g++ -std=c++17 -O3 papers/A006716/verify_sparse_roots_18.cpp -o /tmp/a006716_r18
+      - name: Check exact prefix mask and preimage projections
+        run: /tmp/a006716_r18 --mask-only
+      - name: Independently check ten-digit rational intervals
+        run: python papers/A006716/verify_top_four_gaps.py
+
+  exhaustive:
+    needs: four-prefix
+    name: Exhaust support 18, units ${{ matrix.unit }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        unit: [1, 2, 3, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Boost arbitrary-precision headers
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libboost-dev
+      - name: Compile root verifier
+        run: g++ -std=c++17 -O3 papers/A006716/verify_sparse_roots_18.cpp -o /tmp/a006716_r18
+      - name: Enumerate exact support-18 candidates
+        run: /tmp/a006716_r18 ${{ matrix.unit }}

@@ -1,0 +1,22 @@
+name: A006716 sixth-highest gap exact theorem audit
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_top_six_gaps.py
+      - .github/workflows/a006716-top-six-gap.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact sixteen-digit prefix intersection and every short-square exception
+        run: python papers/A006716/verify_top_six_gaps.py

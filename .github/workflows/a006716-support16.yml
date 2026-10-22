@@ -1,0 +1,31 @@
+name: A006716 support-16 exact integer search
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_sparse_roots_16.cpp
+      - .github/workflows/a006716-support16.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  support16:
+    name: Exact r16, root units ${{ matrix.unit }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        unit: [1, 2, 3, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Boost multiprecision headers
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libboost-dev
+      - name: Compile root support-16 verifier
+        run: g++ -std=c++17 -O3 papers/A006716/verify_sparse_roots_16.cpp -o /tmp/a006716_sparse16
+      - name: Complete exact root tree using triple-prefix sieve
+        run: /tmp/a006716_sparse16 ${{ matrix.unit }}

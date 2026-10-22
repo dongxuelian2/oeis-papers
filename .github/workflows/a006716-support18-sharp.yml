@@ -1,0 +1,31 @@
+name: A006716 support-18 sharper independent check
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_sparse_roots_18_sharp.cpp
+      - .github/workflows/a006716-support18-sharp.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-heavy:
+    name: Sharp global-gap r18, units ${{ matrix.unit }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        unit: [7, 8]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Boost
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libboost-dev
+      - name: Compile independent exact integer verifier
+        run: g++ -std=c++17 -O3 papers/A006716/verify_sparse_roots_18_sharp.cpp -o /tmp/a006716_r18_sharp
+      - name: Exhaust root units-digit shard with sharpened universal gap limits
+        run: /tmp/a006716_r18_sharp ${{ matrix.unit }}

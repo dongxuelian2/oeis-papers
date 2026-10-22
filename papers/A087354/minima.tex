@@ -1,0 +1,143 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,microtype}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\cat}{\mathbin{\Vert}}
+\title{Certified Least Values for OEIS A087354 at Indices 20--25}
+\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}
+\and Daoyu Dong\\{\small University of Electronic Science and Technology of China, Chengdu, China}}
+\date{October 22, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+OEIS A087354 asks for the least perfect square that is a decimal
+concatenation of $n$ nonzero perfect-square blocks, allowing repetitions.
+We determine the formerly unlisted value $a(20)$ and the values
+$a(22),\ldots,a(25)$ using exact-integer, exhaustive branch-and-bound
+certificates, and independently reproduce the reported value $a(21)$.
+The proof combines a digit-length reduction with a complete prefix-square
+interval test. This is an exact finite determination, \emph{not} an
+all-index closed form or an analytic formula for general $a(n)$.
+\end{abstract}
+
+\section{New exact values}
+Let $a(n)$ be the minimum positive square $S$ whose usual decimal
+representation is a concatenation of exactly $n$ positive squares.
+A one-digit nonzero square is in $D=\{1,4,9\}$, and a two-digit
+square is in $E=\{16,25,36,49,64,81\}$.
+
+\begin{theorem}\label{thm:values}
+The following values are exact:
+\begin{center}\small
+\begin{tabular}{@{}rllr@{}}\toprule
+$n$ & $a(n)$ & $\sqrt{a(n)}$ & digits\\\midrule
+20 & \texttt{111125911149919941444} & \texttt{10541627538} &21\\
+21 & \texttt{444411911999914911441} & \texttt{21081079479} &21\\
+22 & \texttt{11199444494448114419449} & \texttt{105827427893} &23\\
+23 & \texttt{144949449149149194448144} & \texttt{380722272988} &24\\
+24 & \texttt{1111425414199449191191449} & \texttt{1054241629893} &25\\
+25 & \texttt{41914991191911941194149136} & \texttt{6474178804444} &26\\\bottomrule
+\end{tabular}
+\end{center}
+The value at $n=21$ was already noted on the OEIS page; the other
+five values are new determinations relative to the cited OEIS entry
+as accessed on October 22, 2026 \cite{oeis}.
+\end{theorem}
+
+\section{Digit-length reduction and exact pruning}
+Every admissible $S$ has at least $n$ decimal digits because each square
+block has at least one digit. Each value displayed in
+Theorem~\ref{thm:values} has at most $n+1$ digits. Thus, to prove
+minimality, it suffices to examine lengths $L=n$ and $L=n+1$
+(and only $L=n$ for the 21-digit candidate at $n=21$).
+
+For $L=n$, every block is in $D$. For $L=n+1$, precisely one block
+is in $E$ and all remaining $n-1$ blocks are in $D$: more than one
+extra digit or a block of three or more digits would exceed $n+1$.
+Consequently the complete \emph{candidate languages} are
+\[
+ \mathcal W_{n,n}=D^n,\qquad
+ \mathcal W_{n,n+1}=\bigcup_{j=0}^{n-1}D^j E D^{n-1-j}.
+\]
+Here each word means the decimal concatenation of its integer blocks.
+The two finite languages describe \emph{all} possible candidates in
+the relevant length ranges, including repeated blocks.
+
+\begin{lemma}[Square-interval exclusion]\label{lem:interval}
+Let $p$ be the integer represented by a prefix of $d$ digits of a
+putative $L$-digit square, where $0\leq d\leq L$. Every decimal
+completion of that prefix belongs to
+\[
+ I_{p,d,L}=[p10^{L-d},(p+1)10^{L-d}-1]\cap\mathbb Z.
+\]
+In particular, no completion is a square if
+\[
+ \left\lceil\sqrt{p10^{L-d}}\right\rceil
+ > \left\lfloor\sqrt{(p+1)10^{L-d}-1}\right\rfloor.
+\]
+For searching up to a known admissible upper bound $U$, the same
+assertion holds with the right endpoint replaced by
+$\min\{(p+1)10^{L-d}-1,U\}$.
+\end{lemma}
+\begin{proof}
+The interval is exactly the set of nonnegative integers extending the
+prefix with $L-d$ decimal digits. An integer square exists in an
+integer interval $[A,B]$ precisely if the least integer square root
+at least $\sqrt A$ is no larger than the greatest integer square root
+at most $\sqrt B$. Intersecting with $[0,U]$ does not discard any
+candidate not exceeding $U$.
+\end{proof}
+
+\section{Reproducible exhaustive certificate}
+For each $n$ listed, the verifier starts with prefix $p=0$, $d=0$
+digits, and $k=0$ blocks, and extends only by allowed blocks in
+$D$ and (if one extra digit remains) $E$. Before visiting the
+children it applies Lemma~\ref{lem:interval}; an empty square-root
+interval prunes the whole subtree. At $k=n$, a leaf is accepted only
+if $d=L$ and $p$ is a perfect square. The integer upper bound $U$ is
+set to the claimed value. A second branch-and-bound limit, the least
+square already found, can only remove larger values. Thus the search
+is exhaustive for all squares $\leq U$ at each admissible digit length.
+The independent block-partition routine verifies the $n$-block
+representation of each proposed value, so each upper bound is valid.
+These facts prove Theorem~\ref{thm:values} by finite exhaustion.
+
+In particular, for $n=20$ the first witness is
+\[
+\begin{split}
+10541627538^2={}&1\cat1\cat1\cat1\cat25\cat9\cat1\cat1\cat1\cat4\\
+ &\cat9\cat9\cat1\cat9\cat9\cat4\cat1\cat4\cat4\cat4.\end{split}
+\]
+There are no eligible 20-digit squares, and every 21-digit eligible
+square smaller than this value is excluded. A complete per-length
+search trace and the remaining factorizations are generated by
+\texttt{verify\_minima.py} and \texttt{verify\_minima.cpp}.
+
+The C++ implementation is an independent fast audit with native
+128-bit integers; a floating-point square root is used \emph{only}
+as a provisional estimate and is adjusted by exact integer-square
+comparisons before any accept/reject decision. The Python version
+uses \texttt{math.isqrt} throughout, without floating point. Both
+implementations agree on all six values and all complete search
+counts. Running the Python script with \texttt{--extended} includes
+the more expensive $n=25$ case.
+
+\paragraph{Scope.} This note does not prove any all-index formula for
+$a(n)$. For each index treated, the bound $L\leq n+1$ follows from
+an explicit witness; we do not assume it for arbitrary $n$.
+It remains open here whether this bound, or a tractable exact
+closed formula, holds at every index. The earlier separate
+\href{https://github.com/dongxuelian2/oeis-papers/tree/main/papers/A087354}{existence manuscript}
+proves that all indices are defined but not their minima.
+
+\begin{thebibliography}{9}
+\bibitem{oeis} OEIS Foundation Inc.,
+\emph{A087354: Smallest square which is the concatenation of $n$
+nonzero squares}, \url{https://oeis.org/A087354},
+accessed October 22, 2026.
+\end{thebibliography}
+\end{document}

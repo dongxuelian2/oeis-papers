@@ -1,0 +1,22 @@
+name: A006716 global fourth-gap exact prefix audit
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_top_four_gaps.py
+      - .github/workflows/a006716-top-four-gap.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  top-four:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Certify fourth-highest nonzero root gap
+        run: python papers/A006716/verify_top_four_gaps.py

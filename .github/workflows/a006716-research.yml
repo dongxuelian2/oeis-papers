@@ -1,0 +1,40 @@
+name: A006716 repeated-block research audit
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_repetition.py
+      - papers/A006716/verify_local_sieve.py
+      - papers/A006716/verify_sparse_roots.cpp
+      - papers/A006716/verify_sparse_roots_13.cpp
+      - papers/A006716/verify_sparse_roots.py
+      - .github/workflows/a006716-research.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  modular-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify repeated-square modular claims
+        run: python papers/A006716/verify_repetition.py
+      - name: Verify local-square counts and all-length construction
+        run: python papers/A006716/verify_local_sieve.py
+      - name: Install Boost multiprecision headers
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libboost-dev
+      - name: Compile exact sparse-root certificate
+        run: g++ -std=c++17 -O3 papers/A006716/verify_sparse_roots.cpp -o /tmp/a006716_sparse
+      - name: Exhaust every root support 1 through 12
+        run: /tmp/a006716_sparse
+      - name: Compile independent support-13 verifier
+        run: g++ -std=c++17 -O3 papers/A006716/verify_sparse_roots_13.cpp -o /tmp/a006716_sparse13
+      - name: Exhaust exact support 13 and recertify support 12
+        run: /tmp/a006716_sparse13
+      - name: Independently audit gap lemmas and supports up to 4
+        run: python papers/A006716/verify_sparse_roots.py

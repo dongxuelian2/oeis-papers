@@ -22,6 +22,24 @@ This proves that every index has a value in all three OEIS sequences:
 
 These are **existence results only**, not formulas for the minimum terms.
 
+## Exact minima (new supplement, October 22, 2026)
+
+A separate [minimum-value supplement](MINIMA.md) determines new exact
+A087354 values at n=20,22,23,24,25 and independently confirms the
+previously reported n=21 value. The reduction is to n- or (n+1)-digit
+square concatenations, and a complete exact-integer interval-pruning
+certificate; the result is **not** a closed formula for arbitrary n.
+
+- [minima.tex](minima.tex): self-contained two-page paper.
+- [minima.pdf](minima.pdf): typeset PDF (built by the dedicated GitHub Action).
+- [verify_minima.py](verify_minima.py): Python exact integer certificate;
+  use `--extended` for the more expensive n=25 full check.
+- [verify_minima.cpp](verify_minima.cpp): fast independent full audit,
+  verified locally with g++ -std=c++17 -O3.
+
+The original `main.tex` and `main.pdf` remain unchanged and continue
+to prove universal existence, rather than minima.
+
 ## Exact square-extension lemma
 
 Let \(X\ge1\). Because the multiplicative group of rationals of the form \(q=2^u5^v\) with \(u,v\in\mathbb Z\) is dense in the positive reals, select \(q>1\) with

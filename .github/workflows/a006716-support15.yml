@@ -1,0 +1,41 @@
+name: A006716 support-15 independent full search
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_sparse_roots_15.cpp
+      - papers/A006716/verify_top_three_gaps.py
+      - .github/workflows/a006716-support15.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  top-three-proof:
+    name: Eight-digit rational gap proof
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check all exact interval obstructions
+        run: python papers/A006716/verify_top_three_gaps.py
+
+  support15:
+    name: Exact support-15 enumeration, units ${{ matrix.unit }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        unit: [1, 2, 3, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Boost integer headers
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libboost-dev
+      - name: Compile exact-integer search
+        run: g++ -std=c++17 -O3 papers/A006716/verify_sparse_roots_15.cpp -o /tmp/a006716_support15
+      - name: Exhaust entire final-digit class (report all actual roots)
+        run: /tmp/a006716_support15 ${{ matrix.unit }}

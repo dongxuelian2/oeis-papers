@@ -1,0 +1,22 @@
+name: A006716 global root-gap theorem audit
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_high_gap.py
+      - .github/workflows/a006716-global-gap.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check high-span gap theorem consequences
+        run: python papers/A006716/verify_high_gap.py

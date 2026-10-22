@@ -1,0 +1,22 @@
+name: A006716 fifth-highest gap exact theorem audit
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_top_five_gaps.py
+      - .github/workflows/a006716-top-five-gap.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enumerate exact fourteen-digit square-prefix intervals and short-square cases
+        run: python papers/A006716/verify_top_five_gaps.py

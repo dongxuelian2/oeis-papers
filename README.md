@@ -25,7 +25,7 @@ reproducibility materials.
 - [A087354 (also A391022 and A391189)](papers/A087354/): proves all-index
   existence of squares obtained by concatenating arbitrarily many **strictly
   increasing distinct nonzero square blocks**. Complete two-page paper,
-  compiled PDF, and independent integer-verification script.
+  compiled PDF, and independent integer-verification script. A separate\n  [exact-minimum supplement](papers/A087354/MINIMA.md) certifies five new\n  values at n=20,22,23,24,25 by a finite square-prefix search, with\n  Python/C++ verifiers and a two-page LaTeX paper.
 
 - [A006063 / A096680 / A096904](papers/A006063/): exact cube-sum permutation membership and multiplicity classifications, 109 core witness certificates, Hall obstructions, and an exponential cube-root lower bound on permutation counts. Includes independent checks and a PDF research note.
 

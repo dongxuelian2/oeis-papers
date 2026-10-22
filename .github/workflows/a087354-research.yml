@@ -1,0 +1,29 @@
+name: A087354 extended exact-minimum research checks
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A087354/verify_minima_extended.cpp
+      - papers/A087354/verify_minima_root_cutoff.cpp
+      - .github/workflows/a087354-research.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile exact minimum verifier
+        run: g++ -std=c++17 -O3 papers/A087354/verify_minima_extended.cpp -o /tmp/a087354_extended_check
+      - name: Verify n=26..30 and n=36
+        run: /tmp/a087354_extended_check
+      - name: Compile square-root cutoff verifier
+        run: g++ -std=c++17 -O3 papers/A087354/verify_minima_root_cutoff.cpp -o /tmp/a087354_root_check
+      - name: Verify exact minima at n=31..34
+        run: /tmp/a087354_root_check

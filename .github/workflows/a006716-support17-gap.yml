@@ -1,0 +1,27 @@
+name: A006716 support-17 gap-pruned independent check
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A006716/verify_sparse_roots_17_gap.cpp
+      - .github/workflows/a006716-support17-gap.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit7:
+    name: Exact r17 units 7 with global gap caps
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Boost integer headers
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libboost-dev
+      - name: Compile independently gap-pruned verifier
+        run: g++ -std=c++17 -O3 papers/A006716/verify_sparse_roots_17_gap.cpp -o /tmp/a006716_r17_gap
+      - name: Verify entire root units-7 class
+        run: /tmp/a006716_r17_gap 7

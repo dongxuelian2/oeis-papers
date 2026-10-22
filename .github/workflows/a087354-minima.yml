@@ -1,0 +1,44 @@
+name: Build A087354 minimum-value supplement PDF
+
+on:
+  push:
+    branches:
+      - research/a087354-exact-minimum-20261022
+    paths:
+      - papers/A087354/minima.tex
+      - .github/workflows/a087354-minima.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  minima:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Build and typeset supplement
+        uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: papers/A087354
+          root_file: minima.tex
+
+      - name: Commit generated PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git add papers/A087354/minima.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Build A087354 certified minima PDF [skip ci]"
+            git push
+          fi
+
+      - name: Exact minima certificate
+        run: |
+          g++ -std=c++17 -O3 papers/A087354/verify_minima.cpp -o /tmp/a087354-check
+          /tmp/a087354-check
+          python papers/A087354/verify_minima.py
