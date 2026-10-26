@@ -14,4 +14,4 @@ factor count as the index. Change OFFSET from 1,2 to 0,2 to align them.
 The theorem proves existence for every factor count independently of this edit.
 
 LINKS (PDF pinned to the verified manuscript commit):
-Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/65c8b996088719bb16bae3300c9e362e0f2c60c7/papers/A088862-A090335/main.pdf">Prefix-Free Divisor Representations with Prescribed Prime Factorization</a>, 2026.
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/5f85923b9e3aec1b0fdb490b4c62fa70d370c773/papers/A088862-A090335/main.pdf">Prefix-Free Divisor Representations with Prescribed Prime Factorization</a>, 2026.

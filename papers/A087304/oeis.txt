@@ -14,4 +14,4 @@ the forbidden regular language digits(n)0*. On an edge labeled a, update
 D_(l+1)(v)=min(10*D_l(u)+a); minimize over accepting states and 1 <= l <= B.
 
 LINKS (PDF pinned to the verified manuscript commit):
-Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/65c8b996088719bb16bae3300c9e362e0f2c60c7/papers/A087304/main.pdf">Nontrivial Multiples Preserving the Nonzero Digit Product and an Exact Finite Formula for OEIS A087304</a>, 2026.
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/5f85923b9e3aec1b0fdb490b4c62fa70d370c773/papers/A087304/main.pdf">Nontrivial Multiples Preserving the Nonzero Digit Product and an Exact Finite Formula for OEIS A087304</a>, 2026.

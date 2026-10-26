@@ -18,4 +18,4 @@ a(81)=57600, from the partition (2,1,1) of 4, giving 2^8*3^2*5^2.
 The five partition candidates for exponent 4 are compared in the paper.
 
 LINKS (PDF pinned to the verified manuscript commit):
-Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/65c8b996088719bb16bae3300c9e362e0f2c60c7/papers/A346644/main.pdf">Every Denominator Occurs in the Mean of the Divisors with Exact Minima at Prime-Power Indices</a>, 2026.
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/5f85923b9e3aec1b0fdb490b4c62fa70d370c773/papers/A346644/main.pdf">Every Denominator Occurs in the Mean of the Divisors with Exact Minima at Prime-Power Indices</a>, 2026.

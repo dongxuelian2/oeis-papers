@@ -20,4 +20,4 @@ q=nextprime(max(p_(t-1),ceilroot(ceil(L/C),e_t)-1)). Minimize C*q^e_t<U.
 For t=1 use C=1,p_0=1. Explicit bounds for every tuple are in the paper.
 
 LINKS (PDF pinned to the verified manuscript commit):
-Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/65c8b996088719bb16bae3300c9e362e0f2c60c7/papers/A086558/main.pdf">Prescribed Decimal Prefixes and Prime Signatures: Existence and Minimum Formulas for OEIS A086558</a>, 2026.
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/5f85923b9e3aec1b0fdb490b4c62fa70d370c773/papers/A086558/main.pdf">Prescribed Decimal Prefixes and Prime Signatures: Existence and Minimum Formulas for OEIS A086558</a>, 2026.
