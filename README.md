@@ -1,76 +1,57 @@
 # OEIS papers
 
-This repository contains OEIS-related mathematical papers, their sources, and
-reproducibility materials.
+Mathematical papers and research notes, ordered by OEIS sequence number. Each entry uses the sequence's OEIS description; sequences treated in the same paper are grouped together.
 
-- [October 26 existence and minimum results](papers/EXISTENCE_BATCH_2026-10-26.md):
-  five existence questions across eight OEIS entries, with exact minimum
-  formulas for several families and three all-index finite minimum reductions.
-- [A088862 / A090335](papers/A088862-A090335/): prefix-free divisor
-  representations with every prescribed prime signature, in every base,
-  with explicit witness bounds.
-- [A087304](papers/A087304/): infinitely many nontrivial multiples preserving
-  the nonzero digit product, and an exact finite digit recurrence for the minimum.
-- [A086558](papers/A086558/): all-index existence with the required decimal
-  prefix and prime signature, a finite prime-parameter minimum formula,
-  and a simpler formula at prime-power indices.
-- [A346644](papers/A346644/): every denominator occurs in the mean of the
-  divisors; an elementary existence proof, a divisor-preserving normal form,
-  and an exact finite allocation minimum for every index (with simpler
-  prime-power partition formulas).
-- [A115038 / A115039 / A115041](papers/A115038-A115041/): an elementary
-  existence correction for the three encodings of one question, with an
-  exact finite minimum reduction using odd prime powers.
+- **[A006063 / A096680 / A096904](papers/A006063/)**
+  - [A006063](https://oeis.org/A006063): Values of n admitting a permutation of 1, ..., n such that i + p_i is a cube for every i.
+  - [A096680](https://oeis.org/A096680): Values of n admitting more than one such cube-sum permutation.
+  - [A096904](https://oeis.org/A096904): Number of such permutations for each n.
 
-- [A075000-A075002](papers/A075000-A075002/): proves the existence statements for
-  OEIS A075000, A075001, and A075002.
+- **[A069862](papers/A069862/)**
+  - [A069862](https://oeis.org/A069862): Smallest k such that n divides the concatenation of numbers from (n+1) to (n+k), where (n+1) is on the most significant side.
 
-- [A181373](papers/A181373/): an elementary constructive proof that every prime
-  except 2 and 5 divides all digit rotations of some concatenation 123...m.
-  Includes an explicit witness bound and verification program.
+- **[A075000 / A075001 / A075002](papers/A075000-A075002/)**
+  - [A075000](https://oeis.org/A075000): Smallest number such that n*a(n) is a concatenation of n consecutive integers; or 0 if no such number exists.
+  - [A075001](https://oeis.org/A075001): Smallest k such that concatenating n consecutive integers starting at k gives a multiple of n; 0 if none exists.
+  - [A075002](https://oeis.org/A075002): a(n) = smallest k such that A007908(k) is divisible by n.
 
-- [A075018](papers/A075018/): proves that the four-term descending concatenation
-  is divisible by every positive modulus for infinitely many starting points.
-  A stronger even-base theorem handles any fixed block count and ordering,
-  independently of the modulus. Includes PDF, LaTeX and independent checks.
-- [A077183-A077185](papers/A077183-A077185/): proves the 2005 conjecture
-  that exactly the primes 2 and 5 fail to divide any descending decimal
-  prefix k||...||1. Stronger theorem for all bases and primes,
-  with two-page PDF, LaTeX and independently verified witness code.
-- [A083468-A083469](papers/A083468-A083469/): proves universal existence for
-  descending concatenations and derives exact **minimal** values at all
-  power-of-ten indices: A083468(10^r) is the concatenation
-  (2*10^r-1)||...||10^r; the A083469 quotient follows directly.
-- [A087354 (also A391022 and A391189)](papers/A087354/): proves all-index
-  existence of squares obtained by concatenating arbitrarily many **strictly
-  increasing distinct nonzero square blocks**. Complete two-page paper,
-  compiled PDF, and independent integer-verification script.
+- **[A075018](papers/A075018/)**
+  - [A075018](https://oeis.org/A075018): Smallest k such that the concatenation k, k-1,k-2,k-3 is divisible by n; or 0 if no such number exists.
 
-- [A006063 / A096680 / A096904](papers/A006063/): exact cube-sum permutation membership and multiplicity classifications, 109 core witness certificates, Hall obstructions, and an exponential cube-root lower bound on permutation counts. Includes independent checks and a PDF research note.
+- **[A077183 / A077185](papers/A077183-A077185/)**
+  - [A077183](https://oeis.org/A077183): Least k such that the reverse concatenation k, k-1, ..., 1 is divisible by prime(n); 0 if no such k exists.
+  - [A077185](https://oeis.org/A077185): a(n) = A000422(A077183(n))/prime(n).
 
-## Authors of manuscripts not yet submitted to OEIS
+- **[A083468 / A083469](papers/A083468-A083469/)**
+  - [A083468](https://oeis.org/A083468): Smallest multiple of n which is the reverse concatenation of n consecutive numbers; or 0 if no such number exists.
+  - [A083469](https://oeis.org/A083469): Smallest k such that n*k is a reverse concatenation of n consecutive natural numbers.
 
-The manuscripts for **A006063/A096680**, **A075018**, **A077183/A077185**
-and **A087354** (including the related square-concatenation sequences)
-are credited to Qichao Wang (Hebei University of Technology) and
-Daoyu Dong / 董道豫 (University of Electronic Science and Technology of China).
-Both authors appear on the LaTeX title pages and regenerated PDFs.
+- **[A086558](papers/A086558/)**
+  - [A086558](https://oeis.org/A086558): Smallest n-digit number beginning with n and having prime signature of n, or 0 if no such number exists.
 
-Previously accepted manuscripts (A075000-A075002, A181373 and
-A083468-A083469) retain their original authorship and are unchanged.
-The A077306 research note restates the accepted A075001 existence result
-and is not a separate manuscript.
+- **[A087304](papers/A087304/)**
+  - [A087304](https://oeis.org/A087304): Smallest nontrivial multiple of n preserving the product of its nonzero digits; 0 if none exists.
 
-- [A069862](papers/A069862/): gives an **exact finite arithmetic minimum formula for every positive index**,
-  using multiplicative-order phases, quadratic residue classes, CRT, and ceilings.
-  The formula includes a finite minimum over explicitly computed candidates.
-  Also proves infinitely many witnesses and the bound a(n)<10^n-n for n>=2,
-  and gives simpler least-length formulas
-  on two infinite families (including a(n)=n for decimal-smooth moduli and
-  a(n)=2n-1 on a 7-denominator family), with a companion prime-power theorem.
-  The a(n)=2 classification is prior work of David Wasserman (2005), A069860.
+- **[A087354 / A391022 / A391189](papers/A087354/)**
+  - [A087354](https://oeis.org/A087354): Smallest square which is the concatenation of n nonzero squares.
+  - [A391022](https://oeis.org/A391022): Minimal square obtained by concatenating n distinct nonzero squares in ascending order.
+  - [A391189](https://oeis.org/A391189): a(n) = least integer m such that concatenating n distinct nonzero squares <= m^2 in ascending order yields a perfect square.
 
-- [A382357 / A382360](papers/A382357-A382360/): proves the greedy valuation
-  sequence is a permutation of the positive integers. The general theorem
-  covers every integer base, fixed valuation jump and finite legal seed.
-  Also proves the paired-power formula and an exact five-term block.
+- **[A088862 / A090335](papers/A088862-A090335/)**
+  - [A088862](https://oeis.org/A088862): Smallest number with exactly n prime factors (possibly with repetitions) such that in binary representation the divisors >1 form a prefix code.
+  - [A090335](https://oeis.org/A090335): Smallest number with exactly n distinct prime factors such that in binary representation the divisors >1 form a prefix code.
+
+- **[A115038 / A115039 / A115041](papers/A115038-A115041/)**
+  - [A115038](https://oeis.org/A115038): a(n) is the smallest x such that x^2 + prime(n) is a perfect power.
+  - [A115039](https://oeis.org/A115039): a(n) is the greatest k such that A115038(n)^2 + prime(n) is a k-th power.
+  - [A115041](https://oeis.org/A115041): a(n) = y where A115038(x)^2 + prime(n) = y^A115039(n).
+
+- **[A181373](papers/A181373/)**
+  - [A181373](https://oeis.org/A181373): Least m > 0 such that prime(n) divides 123...m and all cyclic digit permutations; 0 if none exists.
+
+- **[A346644](papers/A346644/)**
+  - [A346644](https://oeis.org/A346644): Least k >= 1 such that sigma(k)/tau(k) has denominator n or zero if no k exists.
+
+- **[A382357 / A382360](papers/A382357-A382360/)**
+  - [A382357](https://oeis.org/A382357): Lexicographically earliest sequence of distinct positive integers such that the 2-adic valuations of adjacent terms differ exactly by one.
+  - [A382360](https://oeis.org/A382360): a(n) is the unique k such that A382357(k) = 2^n.
