@@ -7,72 +7,53 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{corollary}{Corollary}
 \newcommand{\den}{\operatorname{den}}
-\title{Every Denominator Occurs in the Mean of the Divisors\\with Exact Minima at Prime-Power Indices}
+\title{An All-Index Minimum Formula for the Denominator\\of the Mean of the Divisors}
 \author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
 Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
 \date{October 26, 2026}
 \linespread{0.98}
-\hypersetup{pdftitle={Every Denominator Occurs in the Mean of the Divisors},pdfauthor={Qichao Wang and Daoyu Dong}}
+\hypersetup{pdftitle={An All-Index Minimum Formula for OEIS A346644},pdfauthor={Qichao Wang and Daoyu Dong}}
 \begin{document}
 \maketitle
 \begin{abstract}
-For every positive integer $n$ there is an integer $K$ for which the
-reduced denominator of $\sigma(K)/\tau(K)$ is exactly $n$. This proves
-the existence conjecture recorded in OEIS A346644. For every odd prime
-$q$ and every $s\ge1$, the least such $K$ at denominator $q^s$ is given
-by a finite minimum over the partitions of $s$, using the first primes
-not congruent to $1$ modulo $q$. The remaining prime-power family has
-the closed formula $a(2^s)=2^{2^s-1}$. In particular $a(q)=2^{q-1}$
-for every prime $q$.
+We give an exact finite arithmetic minimum formula for every term of
+OEIS A346644. Every integer whose divisor mean has reduced denominator
+$n$ has a divisor with that same denominator whose exponent-plus-one
+values are supported on the primes of $n$ and whose local prime-power
+means are reduced. This normal form yields a triangular allocation
+formula, including all cross-factor cancellations, and an exact evaluator
+that searches factorizations rather than consecutive integers. An
+elementary construction supplies an explicit finite bound without
+Dirichlet's theorem. The earlier prime-power partition formulas become
+special cases; in particular $a(2^s)=2^{2^s-1}$. The all-index expression
+retains finite minimization and is not claimed to be an elementary
+closed form without it.
 \end{abstract}
 
-\section{A witness for every denominator}
+\section{Definition}
 Let $\sigma(K)$ be the sum of the positive divisors of $K$ and $\tau(K)$
 their number. Define
 \[
  a(n)=\min\{K\ge1:\den(\sigma(K)/\tau(K))=n\}.
 \]
 OEIS A346644 \cite{oeis} records this sequence with zero as an escape
-value and conjectures that every index has a witness.
+value and conjectures that every index has a witness. The existence
+result below is elementary; the subsequent normal form and allocation
+formula determine the minimum itself for every index.
 
-\begin{theorem}[Universal denominator construction]\label{thm:exist}
-Write $n=2^a m$ with $m$ odd, and put
-\[
- u=2^a,\qquad A=2^u-1,\qquad h=mA.
-\]
-For any odd prime $p\equiv-1\pmod n$, the integer
-\begin{equation}\label{eq:K}
- K=2^{u-1}p^{h-1}
-\end{equation}
-satisfies $\den(\sigma(K)/\tau(K))=n$. Such a prime exists for every $n$.
-\end{theorem}
-\begin{proof}
-Dirichlet's theorem \cite{dirichlet} supplies infinitely many primes
-$p\equiv-1\pmod n$, since $\gcd(-1,n)=1$; choose an odd one. For $n=1$
-the congruence is vacuous. The factors in \eqref{eq:K} are coprime, so
-\[
- \tau(K)=uh=umA=nA,\qquad
- \sigma(K)=A S,\quad S=1+p+\cdots+p^{h-1}.
-\]
-The integer $h$ is odd. Reducing the alternating sum modulo $n$ gives
-$S\equiv1\pmod n$. Hence
-\[
- \frac{\sigma(K)}{\tau(K)}=\frac{S}{n},\qquad \gcd(S,n)=1.
-\]
-This also covers $n=1$, for which $u=A=h=K=1$.
-\end{proof}
+\input{minimum}
 
 \section{Exact least values at every prime power}
-For a prime $q$, write $v_q$ for its valuation. A factor $p^e$ of $K$
+A factor $p^e$ of $K$
 contributes
 \[
- c_q(p,e)=v_q(e+1)-v_q(1+p+\cdots+p^e)
+ c_q(p,e+1)=v_q(e+1)-v_q(1+p+\cdots+p^e)
 \]
 to the denominator valuation before taking its positive part.
 
 \begin{lemma}\label{lem:positive}
-If $c_q(p,e)>0$, then $p\not\equiv1\pmod q$ and
-$c_q(p,e)\le v_q(e+1)$. For any prime $p\not\equiv1\pmod q$ and
+If $c_q(p,e+1)>0$, then $p\not\equiv1\pmod q$ and
+$c_q(p,e+1)\le v_q(e+1)$. For any prime $p\not\equiv1\pmod q$ and
 integer $b\ge1$,
 \begin{equation}\label{eq:replace}
  \den\left(\frac{1+p+\cdots+p^{q^b-1}}{q^b}\right)=q^b.
@@ -81,7 +62,7 @@ integer $b\ge1$,
 \begin{proof}
 The inequality follows immediately from the nonnegative numerator
 valuation. If $q$ is odd and $p\equiv1\pmod q$, lifting the exponent gives
-$v_q((p^{e+1}-1)/(p-1))=v_q(e+1)$, so $c_q(p,e)=0$.
+$v_q((p^{e+1}-1)/(p-1))=v_q(e+1)$, so $c_q(p,e+1)=0$.
 For $q=2$ and odd $p$, if $e$ is even both valuations are zero; if $e$
 is odd, the elementary $2$-adic lifting formula gives
 \[
@@ -112,7 +93,7 @@ sum coprime to $q$, by \eqref{eq:replace}. Its reduced denominator is
 exactly $q^s$.
 
 Conversely, let $K=\prod p_i^{e_i}$ have reduced denominator $q^s$.
-The sum of all $c_q(p_i,e_i)$ is $s$, so the sum over its positive
+The sum of all $c_q(p_i,e_i+1)$ is $s$, so the sum over its positive
 terms is at least $s$. By Lemma~\ref{lem:positive}, the corresponding
 primes are admissible and their values $a_i=v_q(e_i+1)$ have sum at
 least $s$. Choose integers $0\le b_i\le a_i$ with total $s$, discard the
@@ -123,8 +104,8 @@ integer $K'\le K$ has denominator exactly $q^s$ by
 For a fixed list of positive $b_i$, use the smallest admissible primes
 and assign larger exponents to smaller primes. The latter follows from
 $x^Ay^B\le x^By^A$ when $x\le y$ and $A\ge B$. This gives
-\eqref{eq:minimum}. There are sufficiently many admissible primes by
-Dirichlet's theorem, applied to $-1$ modulo the odd prime $q$.
+\eqref{eq:minimum}. There are sufficiently many admissible primes by the elementary
+argument at the end of Section~\ref{sec:all-minima}.
 
 For $q=2$, the only admissible prime is $2$. The same replacement
 argument requires the exponent of $2$ to be at least $2^s-1$.
@@ -139,18 +120,25 @@ At denominator $81$ the partition $(2,1,1)$ gives
 $2^8 3^2 5^2=57600$, smaller than the value $108900$ from $(1,1,1,1)$;
 comparison with the other three partitions proves $a(81)=57600$.
 
-The supplied verifier independently computes divisor sums and counts
-from integer factorizations, enumerates initial minima, checks the
-published values, and evaluates \eqref{eq:minimum}. Large constructive
-witnesses are checked modulo their symbolic divisor count, avoiding
-expansion of enormous powers.
+\section{Verification and scope}
+The standard-library program \texttt{minimum.py} evaluates the exact
+minimum using the normal form and integer branch bounds. Its separate
+\texttt{triangular\_candidates} generator implements the allocation
+formula directly for fixed prime tuples. The independent audit in
+\texttt{verify\_minimum.py} checks divisor-preserving normalization for
+all $K\le50000$, and compares every minimum occurring at $K\le10^6$
+against a sieve built by summing actual divisors. All 39 published terms
+agree, and complete bounded candidate sets are compared in both
+directions with direct enumeration. The older \texttt{verify.py} remains
+an independent control for the original witnesses and prime-power cases.
+
+The universal claims follow from the proofs, not from these finite
+checks. The formula uses finite minimization, valuations and weak
+compositions; no simpler elementary expression is asserted. No OEIS
+editorial acceptance or exhaustive literature-priority review is claimed.
 
 \begin{thebibliography}{9}
 \bibitem{oeis} B. Cloitre, OEIS A346644,
 \url{https://oeis.org/A346644}, accessed October 26, 2026.
-\bibitem{dirichlet} P. G. L. Dirichlet, \emph{There are infinitely many
-prime numbers in all arithmetic progressions with first term and
-difference coprime} (1837), translated by R. Stephan,
-arXiv:0808.1408v2, \url{https://arxiv.org/abs/0808.1408v2}.
 \end{thebibliography}
 \end{document}
