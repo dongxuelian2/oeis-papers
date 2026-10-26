@@ -15,8 +15,9 @@ reproducibility materials.
   prefix and prime signature, a finite prime-parameter minimum formula,
   and a simpler formula at prime-power indices.
 - [A346644](papers/A346644/): every denominator occurs in the mean of the
-  divisors; exact partition formulas at odd prime-power indices and
-  `a(2^s)=2^(2^s-1)`.
+  divisors; an elementary existence proof, a divisor-preserving normal form,
+  and an exact finite allocation minimum for every index (with simpler
+  prime-power partition formulas).
 - [A115038 / A115039 / A115041](papers/A115038-A115041/): an elementary
   existence correction for the three encodings of one question, with an
   exact finite minimum reduction using odd prime powers.

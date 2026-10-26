@@ -40,6 +40,8 @@ jobs:
         run: python3 papers/A086558/verify.py
       - name: Denominator construction and partition minima
         run: python3 papers/A346644/verify.py
+      - name: All-index denominator minima and independent exhaustive controls
+        run: python3 papers/A346644/verify_minimum.py
       - name: Perfect-power minimum and companions
         run: python3 papers/A115038-A115041/verify.py
 

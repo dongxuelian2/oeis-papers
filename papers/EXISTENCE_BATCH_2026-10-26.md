@@ -10,7 +10,7 @@ repository's joint credit to Qichao Wang and Daoyu Dong.
 | [A088862 / A090335](A088862-A090335/) | Every prime signature has infinitely many representatives with prefix-free divisor representations, in every base; an explicit witness bound is supplied. | The notes establish existence and a bound. The general least-value problem remains open here. |
 | [A087304](A087304/) | Infinitely many nontrivial multiples preserve the nonzero digit product. | Exact all-index finite digit recurrence with a proved state-count bound. |
 | [A086558](A086558/) | Every index has a number with its prescribed length, prefix and prime signature. | Exact all-index finite prime-parameter minimum; one integer root and one next-prime operation suffice at prime-power indices. |
-| [A346644](A346644/) | Every positive integer occurs as the reduced denominator of the mean of an integer's divisors. | Exact partition formula at every odd prime-power index; `a(2^s)=2^(2^s-1)`, hence `a(q)=2^(q-1)` for every prime `q`. |
+| [A346644](A346644/) | Every positive integer occurs as the reduced denominator of the mean of an integer's divisors. | Exact finite allocation minimum for every index, including composite indices; a divisor-preserving normal form and elementary witness bound. Prime-power partition formulas remain special cases. |
 | [A115038 / A115039 / A115041](A115038-A115041/) | The shared conjecture follows from the standard difference-of-squares identity and `5^2+2=3^3`. | Exact finite minimum over odd prime-power candidates; both companion values follow. |
 
 The finite minimum formulas specify bounded ranges or a bounded number of
@@ -42,8 +42,8 @@ All sources below were inspected on October 26, 2026.
   for every real `x>396738`. The same proposition supplies the explicit
   prime clusters for the prefix-code theorem.
 - [A346644](https://oeis.org/A346644) records the denominator-existence
-  conjecture. The existence proof uses
-  [Dirichlet's theorem](https://arxiv.org/abs/0808.1408v2).
+  conjecture. The updated existence proof is elementary and does not require
+  Dirichlet's theorem; the all-index minimum formula includes cross-factor cancellation.
 - [A115038](https://oeis.org/A115038), [A115039](https://oeis.org/A115039)
   and [A115041](https://oeis.org/A115041) repeat the same existence conjecture.
 
@@ -72,6 +72,7 @@ python3 papers/A088862-A090335/verify.py
 python3 papers/A087304/verify.py
 python3 papers/A086558/verify.py
 python3 papers/A346644/verify.py
+python3 papers/A346644/verify_minimum.py
 python3 papers/A115038-A115041/verify.py
 ```
 
@@ -80,6 +81,6 @@ claimed finite certificates and minima. The A086558 verifier additionally
 checks logarithmic inequalities numerically as regression controls; the
 paper proves their infinite range analytically. Each `main.tex` can be
 compiled twice with `pdflatex -interaction=nonstopmode -halt-on-error main.tex`.
-The new workflow runs all five verifiers and compiles all five papers.
+The workflow runs all six verifiers and compiles all five papers.
 
-The complete local results are recorded in [the verification record](EXISTENCE_BATCH_VERIFICATION_2026-10-26.txt).
+The original batch results are recorded in [the verification record](EXISTENCE_BATCH_VERIFICATION_2026-10-26.txt); the all-index A346644 extension has its own [verification record](A346644/VERIFICATION.txt).

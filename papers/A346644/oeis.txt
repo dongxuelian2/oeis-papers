@@ -1,21 +1,44 @@
 Proposed COMMENTS for A346644:
 
-Every term exists. Write n=2^a*m with m odd, set u=2^a, A=2^u-1, h=m*A,
-and choose an odd prime p == -1 (mod n), which exists by Dirichlet's theorem.
-Then K=2^(u-1)*p^(h-1) has sigma(K)/tau(K) = (1+p+...+p^(h-1))/n,
-whose numerator is 1 modulo n. Its reduced denominator is n.
+Every term exists, with an elementary witness: write n=Product q_i^a_i
+(q_i increasing), let ell_i be the i-th prime, and set U_0=1,
+b_i=a_i+v_(q_i)(sigma(U_(i-1))), U_i=U_(i-1)*ell_i^(q_i^b_i-1).
+Then the reduced denominator of sigma(U_s)/tau(U_s) is n.
+
+Every witness K has a divisor K' with the same denominator such that,
+for each prime-power factor p^(m-1) of K', m has only prime factors
+dividing n and gcd(m,1+p+...+p^(m-1))=1. Consequently every a(n) has
+this normal form. Its odd part is always a square, and a(n) is a square
+when n is odd. For 2^a || n, a>=1, v_2(v_2(a(n))+1)=a.
 
 Proposed FORMULA:
 
-a(1)=1. a(2^s)=2^(2^s-1) for s >= 0.
-For odd prime q, let ell_i(q) be the i-th prime not congruent to 1 modulo q.
-Then a(q^s)=min_{b_1>=...>=b_t>=1, sum(b_i)=s}
-Product_{i=1..t} ell_i(q)^(q^b_i-1), for s >= 1.
+a(1)=1. For n>1, let U be the elementary witness above and consider every
+tuple of distinct primes 2<=p_1<...<p_t<=U, 1<=t<=floor(log_2(U)).
+Start m_i=1. Process primes q|n in increasing order. At each stage set
+G={i:p_i=q} union {i:p_i not congruent to 0 or 1 mod q, ord_q(p_i) does not divide m_i},
+N={i:p_i not congruent to 0 or 1 mod q, ord_q(p_i) divides m_i},
+B=v_q(n)+Sum_{i in N} v_q(p_i^ord_q(p_i)-1).
+Branch over every allocation b_i>=0 (i in G) with Sum b_i=B, replacing
+m_i by m_i*q^b_i on G. An empty G gives no branch. For q=2, simply
+G={i:p_i=2}, N=empty, B=v_2(n). Then a(n) is the minimum of all final
+products Product p_i^(m_i-1). Every such product has denominator n,
+and the normal-form theorem proves the minimum is represented.
+This is a finite arithmetic minimization formula, not an elementary
+expression without minimization. Any verified witness may replace U.
+
+a(2^s)=2^(2^s-1) for s>=0. For odd prime q, let ell_i(q) be the i-th
+prime not congruent to 1 modulo q. Then
+ a(q^s)=min_{b_1>=...>=b_t>=1, sum(b_i)=s} Product ell_i(q)^(q^b_i-1).
 In particular a(q)=2^(q-1) for every prime q.
 
 Proposed EXAMPLE:
+a(30)=115200=2^9*3^2*5^2, with tau=90 and sigma=1023*13*31;
+the gcd of sigma and tau is 3. Cross-factor cancellation is essential.
+a(40)=6480000, a(42)=1843200, a(45)=3600, a(60)=4706440200.
 a(81)=57600, from the partition (2,1,1) of 4, giving 2^8*3^2*5^2.
-The five partition candidates for exponent 4 are compared in the paper.
 
-LINKS (PDF pinned to the verified manuscript commit):
-Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/5f85923b9e3aec1b0fdb490b4c62fa70d370c773/papers/A346644/main.pdf">Every Denominator Occurs in the Mean of the Divisors with Exact Minima at Prime-Power Indices</a>, 2026.
+LINKS:
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/ef02937142257b6ee0bb6a7fae2919cc298b3f9e/papers/A346644/main.pdf">An All-Index Minimum Formula for the Denominator of the Mean of the Divisors</a>, 2026.
+<a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/ef02937142257b6ee0bb6a7fae2919cc298b3f9e/papers/A346644/b346644.txt">Table of n, a(n) for n=1..200</a>.
+This draft has not been submitted to or accepted by OEIS.
