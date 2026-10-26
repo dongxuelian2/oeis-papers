@@ -1,0 +1,17 @@
+A334595 update draft, not submitted, 2026-10-26
+
+Both conjectures are true. The right diagonal is the binomial
+transform y_j=sum(i=0..j,binomial(j,i)*b_i) mod2 of the input
+bits read least significant first. The Pascal transform is its
+own inverse over F2: its square has entries binomial(j,i)*2^(j-i).
+
+Output one therefore has unique inverse with only the leading
+input bit one, proving a(n)=1 iff n is a power of2. For L>=2,
+output 2^L-1 has invalid inverse of length1. Output 2^L-2 has
+unique valid inverse n=2^(L-1)+1, giving the block maximum.
+Thus strict record positions are1 and2^m+1 for m>=1, with values
+1 and2^(m+1)-2.
+
+Full all-index proof, acknowledgment of the linked MathOverflow
+binomial observation, and complete8191-term official-data check:
+papers/A334595/main.tex and verify.py.

@@ -1,0 +1,18 @@
+A048702 update draft (not submitted), 2026-10-26
+
+Both conjectures in FORMULA and both Maple formulas marked unproved
+are valid for all n >= 1. A proof follows from the carry recurrence:
+put L=floor(log_2(n)) and t=v_2(n); then a(0)=0 and
+a(n)=2*a(n-1)+1 if n=2^L, otherwise a(n)=a(n-1)+2^(L-t).
+The weighted sum satisfies this same recurrence. The floor sum follows
+by summing 2^(-t)=1-sum(j=1..t,2^(-j)). The second Maple expression
+counts the indices of each exact 2-adic valuation within a length block.
+
+More generally, for any base b >= 2, concatenate the base-b digits of n
+with their reversal and divide by b+1 to obtain A_b(n). For n >= 1,
+A_b(n)=b^L*sum(i=1..n,b^(-v_b(i)))
+      =n*b^L-(b-1)*sum(j=1..L,b^(L-j)*floor(n/b^j)),
+where L=floor(log_b(n)) and v_b(i)=max{t>=0:b^t divides i}.
+
+Proof and reproducible independent verification: papers/A048702/main.tex
+and papers/A048702/verify.py in the oeis-papers repository.

@@ -1,0 +1,15 @@
+A237930 update draft, not submitted, 2026-10-26
+
+The six-class conjecture is true: for primes p=11,13,23,61,71,73
+mod84, quadratic reciprocity gives Legendre symbols (3/p)=1 and
+(7/p)=-1. Divisibility of a(n)=(7*3^n-1)/2 by such p would imply
+7*3^n=1 modp, whose Legendre symbol is instead -1. This proves
+the exclusion for every n>=0.
+
+For any odd p!=3,7, put t=ord_p(3). If 3^h=7^(-1) modp has a
+solution 0<=h<t, then p divides a(n) exactly for n=h modt;
+otherwise p never divides the sequence. The prime2 divides exactly
+at odd n, prime3 only at n=0, and prime7 never.
+
+Full proof and independent Euler-criterion/exponent-cycle tests:
+papers/A237930/main.tex and verify.py.

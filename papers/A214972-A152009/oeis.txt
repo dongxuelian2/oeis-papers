@@ -1,0 +1,22 @@
+A214972 proposed FORMULA:
+The jump conjecture is true: a(n)=#{r>=1:s(r)<=n}, where
+s(1)=1 and s(r+1)=floor((3*s(r)+3)/2) are the A152009 terms.
+Indeed a(n)>=r+1 iff floor(2*(n-1)/3)>=s(r), equivalent to
+n>=1+ceil(3*s(r)/2)=s(r+1).
+
+A152009 proposed FORMULA:
+The proposed recurrence s(1)=1, s(r+1)=floor((3*s(r)+3)/2) is true.
+After removing the first survivor, deleting positions 1 mod3 maps
+old index j to 1+ceil(3*j/2); successive recorded first terms iterate this map.
+
+A152009 proposed COMMENTS:
+The convergence conjecture holds deterministically for every nonempty deletion
+set with infinite complement. After r>=2*k-1 transforms the first k values
+are exactly the triangular numbers. If the deletion set starts with the first
+k triangular numbers, one transform preserves them and makes the next term
+at least the (k+1)-st triangular number; a second transform makes that term
+exact. This specifies the natural domain where infinite iteration is defined.
+
+LINKS:
+See the accompanying manuscript main.pdf, with full proofs and independent checks.
+This is a draft; it has not been submitted to OEIS.

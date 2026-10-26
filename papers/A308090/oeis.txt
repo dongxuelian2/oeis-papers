@@ -1,0 +1,9 @@
+A308090 proposed update (not submitted)
+
+COMMENTS
+For every n>=1, a(n)=n+1 if n+1 is prime at least 5, and a(n)=1 otherwise. This proves the official converse conjecture and the prime-indicator identity.
+
+CORRECTION / SCOPE
+The single-sum observation is false without qualifications: n=7 gives 8 dividing 2^7+7!, although 8 is composite.
+
+Complete proof and reproducible exact verifier are supplied in main.tex and verify.py. Publication links can be pinned after a reviewable repository commit exists; no placeholder URL is asserted.

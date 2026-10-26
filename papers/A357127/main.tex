@@ -1,0 +1,68 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{Prime Pairing and a Corrected GCD Conjecture for A357127}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the prime-pair involution conjectured in OEIS A357127 and characterize all its nonunit values: they are exactly the primes congruent to 1 modulo 3, each occurring twice. The entry's second conjecture is false even after excluding the unit value; we give a counterexample and an exact replacement formula for the gcd of each pair.
+\end{abstract}
+\section{Definitions and pairing}
+For $n\ge2$, let $P^+(N)$ denote the largest prime factor of $N$ and put
+\[
+ a(n)=\begin{cases}P^+(n^3-1),&P^+(n^3-1)>n,\\1,&\text{otherwise}.\end{cases}
+\]
+This is the definition in A357127 through A081257~\cite{oeis,source}. Since $n^3-1=(n-1)(n^2+n+1)$ and all factors of $n-1$ are less than $n$, the same definition results by replacing $n^3-1$ with $f(n)=n^2+n+1$.
+\begin{theorem}
+If $a(n)=p>1$, then $p\equiv1\pmod3$ and
+\[
+ m=p-n-1\ge2,\qquad m\ne n,\qquad a(m)=p.
+\]
+Conversely, every prime $p\equiv1\pmod3$ occurs exactly twice, at the two roots of $x^2+x+1$ modulo $p$ represented in $\{2,\ldots,p-1\}$. Thus the first recorded conjecture holds at every nonunit term.
+\end{theorem}
+\begin{proof}
+The prime $p>n\ge2$ divides $f(n)$. If $p=3$, then $n=2$ and $f(n)=7$, a contradiction. Modulo $p$, the residue of $n$ is a nontrivial cube root of unity: $n^3\equiv1$, and $n\not\equiv1$, since $f(1)=3$ and $p\ne3$. Its order is 3, so $p\equiv1\pmod3$.
+
+The second root is $m\equiv-n-1\pmod p$. It has representative $m=p-n-1$. The possibilities $m=0,1$ would respectively give $f(-1)=1\equiv0$ or $f(-2)=3\equiv0$, both impossible. Thus $2\le m<p$. The roots are distinct because a repeated root of $x^2+x+1$ would require $p=3$.
+
+Since $p\mid f(m)$ and $m<p$, we have $f(m)<p^2$. No prime factor larger than $p$ can divide $f(m)$, for it would coexist with the factor $p$ and make the product exceed $p^2$. Hence $a(m)=p$. The map $n\mapsto p-n-1$ is an involution.
+
+Conversely, for a prime $p\equiv1\pmod3$, the cyclic group $(\mathbb Z/p\mathbb Z)^\times$ has exactly two elements of order 3, which are exactly the two roots of $f$; neither has representative 0 or 1. For either representative $2\le n<p$, the preceding size argument shows $a(n)=p$. No further occurrence is possible because $a(n)=p$ requires $n<p$ and $f(n)\equiv0\pmod p$. This proves the classification and exact multiplicity.
+\end{proof}
+\section{The second conjecture and its exact correction}
+The entry conjectures, for distinct indices with the same value, that this value equals both the polynomial gcd and the sum of the indices plus 1. As written this fails already at unit terms $a(16)=a(18)=1$. More substantively, it fails for a nonunit pair:
+\[
+ a(35)=a(61)=97,\quad f(35)=1261=13\cdot97,\quad
+ f(61)=3783=3\cdot13\cdot97.
+\]
+The sum identity $35+61+1=97$ holds, but the polynomial gcd is 1261.
+\begin{theorem}
+For any distinct pair with $a(n)=a(m)=p>1$,
+\[
+ n+m+1=p,\qquad
+ \gcd(f(n),f(m))=p\gcd\left(\frac{f(n)}p,m-n\right).
+\]
+In particular the conjectured gcd equality holds exactly when the last gcd is 1.
+\end{theorem}
+\begin{proof}
+The first theorem identifies the unique paired index, giving $n+m+1=p$. Then
+\[
+ f(m)-f(n)=(m-n)(m+n+1)=p(m-n).
+\]
+Divide both arguments of the gcd by $p$ and subtract to obtain the formula.
+\end{proof}
+\section{Validation and scope}
+The verifier reproduces all 64 displayed terms, independently compares the cubic and quadratic definitions through $n=5000$, checks every nonunit pair and corrected gcd there, enumerates roots for every prime through 1000, and checks both counterexamples and the 100-row table. Trial-division factorization can become expensive; these are exact finite controls, not a claim of efficient factorization or the proof of infinite scope. The proposed pattern concerning new record primes and A256148 is not established here. No OEIS edit has been submitted, and no literature-priority claim is made.
+\begin{thebibliography}{2}
+\bibitem{oeis} OEIS Foundation Inc., A357127, \url{https://oeis.org/A357127}, accessed October 26, 2026.
+\bibitem{source} OEIS Foundation Inc., A081257, \url{https://oeis.org/A081257}, accessed October 26, 2026.
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,139 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Even-Block Partitions: Modular Periodicity and Bessel Moments}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the number of partitions of a $2n$-element set into even blocks, we prove
+eventual periodicity modulo every positive integer by an explicit finite
+differential module. We also prove the proposed Bessel moment formula and
+the stated six-term eventual period modulo 10. These resolve the two
+conjectures recorded in OEIS A005046.
+\end{abstract}
+
+\section{A finite differential module}
+Let $a(n)$ count partitions of $\{1,\ldots,2n\}$ into even blocks, with
+$a(0)=1$. Choosing the block containing 1 gives the exact recurrence
+\[
+ a(n)=\sum_{j=1}^n\binom{2n-1}{2j-1}a(n-j).
+\]
+The exponential formula for set partitions, or this recurrence, gives
+\[
+ F(x)=\exp(\cosh x-1)=\sum_{n\ge0}a(n)\frac{x^{2n}}{(2n)!}.
+\]
+Define integer polynomials $P_0(s,c)=1$ and
+\[
+ P_{r+1}=L P_r,\qquad L=c\partial_s+s\partial_c+s.
+\]
+Here the final $s$ denotes multiplication. The chain and product rules give
+\[
+ F^{(r)}(x)=F(x)P_r(\sinh x,\cosh x),\qquad a(n)=P_{2n}(0,1).
+\]
+
+\begin{theorem}
+For every integer $m\ge1$, the sequence $a(n)\bmod m$ is eventually periodic.
+For $m\ge2$ its values are obtained by iteration of one explicitly defined
+linear map on a module with $m^{m^2}$ elements. In particular, a preperiod
+$u\ge0$ and period $v\ge1$ exist with $u+v\le m^{m^2}$.
+\end{theorem}
+\begin{proof}
+Work over $R=\mathbb Z/m\mathbb Z$ and form the finite free $R$-module
+\[
+ V_m=R[s,c]/(s^m,c^m-1).
+\]
+Its basis consists of the $m^2$ monomials $s^ic^j$ with $0\le i,j<m$.
+The derivation $\delta=c\partial_s+s\partial_c$ preserves the ideal:
+\[
+ \delta(s^m)=m s^{m-1}c=0,\qquad
+ \delta(c^m-1)=m c^{m-1}s=0.
+\]
+Multiplication by $s$ also preserves it, so $L$ and $B=L^2$ are well-defined
+linear maps on $V_m$. Evaluation $\varepsilon(P)=P(0,1)$ is well-defined
+because both ideal generators vanish there. Thus
+\[
+ a(n)\equiv\varepsilon(B^n1)\pmod m.
+\]
+There are only $m^{m^2}$ possible states. Among the first $m^{m^2}+1$
+states two coincide; applying $B$ repeatedly propagates the equality
+forever. Their indices give $u,v$ and the stated bound. For $m=1$ the
+sequence is identically zero. This proves Bala's 2023 conjecture~\cite{oeis}.
+\end{proof}
+The construction is an exact finite algorithm for arbitrary $m$, although its
+state bound is deliberately coarse. It does not assume a prime modulus or
+divide by factorials modulo $m$.
+
+\section{The period modulo ten}
+The small quotient rings yield short certificates for the example in the entry.
+In $V_2$ direct application of $L$ gives
+\[
+ P_0=1,\quad P_2=c,\quad P_4=1+c,\quad P_6=1.
+\]
+Thus $a(n+3)=a(n)\pmod2$ for every $n\ge0$.
+In $V_5$ the corresponding calculation gives
+\[
+ P_2=c+s^2,\qquad
+ P_4=c+3c^2+4s^2+s^2c+s^4,\qquad P_6=c+s^2.
+\]
+Consequently $a(n+2)=a(n)\pmod5$ for $n\ge1$. The Chinese remainder
+theorem and the first six positive-index values now give
+\[
+ a(n)\bmod10=(1,4,1,9,6,9)_{\,1+((n-1)\bmod6)},\qquad n\ge1.
+\]
+Its least eventual period is 6: the displayed block has no period 1, 2 or 3.
+
+\section{The Bessel moment formula}
+Define the modified Bessel values, for integers $k\ge0$, by their absolutely
+convergent series
+\[
+ I_k(1)=\sum_{j\ge0}\frac{1}{2^{2j+k}j!(j+k)!}.
+\]
+\begin{theorem}
+For every integer $n\ge1$,
+\[
+ a(n)=2e^{-1}\sum_{k=1}^{\infty} k^{2n}I_k(1).
+\]
+At $n=0$ the corresponding identity is
+$1=e^{-1}\bigl(I_0(1)+2\sum_{k\ge1}I_k(1)\bigr)$.
+\end{theorem}
+\begin{proof}
+Multiply the absolutely convergent series for $\exp(e^x/2)$ and
+$\exp(e^{-x}/2)$ and collect terms with difference of indices equal to $k$.
+This gives the Laurent expansion
+\[
+ e^{\cosh x}=\sum_{k\in\mathbb Z} I_{|k|}(1)e^{kx}.
+\]
+All regroupings and derivatives are valid locally uniformly for complex $x$.
+Indeed, on $|x|\le R$, the absolute value of an $r$-th derivative of the
+double-series term with indices $p,q$ is at most
+\[
+ \frac{(p+q)^r e^{R(p+q)}}{2^{p+q}p!q!},
+\]
+whose sum is $\sum_{t\ge0}t^r e^{Rt}/t!<\infty$
+(with the usual constant-term interpretation when $r=0$).
+Differentiating $2n$ times at zero and multiplying by $e^{-1}$ gives the
+claim, since the $k=0$ term vanishes for $n>0$ and opposite indices agree.
+This proves Yanev's 2026 conjecture~\cite{oeis}.
+\end{proof}
+
+\section{Verification and scope}
+The standard-library verifier compares the partition recurrence with a stored
+132-term official prefix and with literal set partitions through ten elements.
+It independently implements the finite differential modules modulo 2 through
+32 through index 250, verifies the two whole-polynomial cycle certificates,
+and checks the Bessel formula numerically for $1\le n\le12$.
+Numerical agreement is a consistency check; convergence and equality are proved
+above. The formulas are attributed to their OEIS proposers. No claim of an
+exhaustive literature-priority search or of OEIS acceptance is made.
+\begin{thebibliography}{9}
+\bibitem{oeis} The OEIS Foundation, A005046, with conjectures by
+P. Bala (April 12, 2023) and V. Yanev (February 9, 2026),
+\url{https://oeis.org/A005046}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

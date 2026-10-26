@@ -1,0 +1,14 @@
+OEIS A308620 draft, not submitted
+
+The conjectured GF is exact. The conjectured signature applies from
+n=12, with a one-unit exception at n=11 (actual42, predicted41).
+
+Proof: let D=(1-x)^2-x^5 and E=1-x^2-x^5. Summing the five
+binomial components Q,R,Rbar,S,Sbar in Burger et al., Theorem3,
+Eq4.2 gives respectively x^4/D, x*(1-x)/D, x*(1+x)/E,
+x^7/((1-x)*D), x^7/((1-x)*E). Here the barred sums use
+sum(j>=0,binomial(floor(j/2)+h,h)*x^j)=(1+x)/(1-x^2)^(h+1).
+The full GF is x/(1-x)+Q+(R+Rbar+S+Sbar)/2, which simplifies
+to the rational expression conjectured in the entry. Equivalently,
+(1-2x+2x^3-x^4-2x^5+2x^6+x^10)*G(x)
+=2x-2x^2-2x^3+3x^4-4x^6+x^7-x^9+x^11.

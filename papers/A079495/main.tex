@@ -1,0 +1,153 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.82in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\title{Squared Digit Sums Are Equidistributed Modulo Their Base}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\hypersetup{pdftitle={Squared Digit Sums and OEIS A079495},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For every integer base $b\ge2$, each residue of the squared digit sum
+modulo $b$ has natural density $1/b$. The increasing sequence of
+positions of any one residue therefore has asymptotic slope $b$.
+This proves the all-base density and slope conjecture stated in
+OEIS A079495, including composite bases. We also give exact finite
+digit recurrences for every counting function and every sequence
+term, and an exact count on ternary length blocks.
+\end{abstract}
+
+\section{The question and the full statement}
+For the base-$b$ digits of $n\ge0$, let $s_b(n)$ be the sum of their
+squares, with $s_b(0)=0$. Write
+\[
+ C_{b,r}(N)=\#\{0\le n<N:s_b(n)\equiv r\pmod b\},
+ \qquad 0\le r<b.
+\]
+OEIS A079495 \cite{target} lists the positions of residue zero for
+$b=3$, starting with zero. Its comments conjecture density $1/b$
+and positional slope $b$ in every base. The related digit-sum
+entry A079498 \cite{linear} already contains a proof for ordinary
+digit sums; the present argument treats squared digits.
+
+\begin{theorem}\label{thm:density}
+For every fixed $b\ge2$ and $0\le r<b$,
+\[
+ C_{b,r}(N)=\frac Nb+o(N)\qquad(N\longrightarrow\infty).
+\]
+If $a_{b,r}(j)$ is the $j$th nonnegative integer with residue $r$,
+indexed by $j\ge1$, then
+\[
+ \lim_{j\to\infty}\frac{a_{b,r}(j)}j=b.
+\]
+\end{theorem}
+\begin{proof}
+Put $\zeta=\exp(2\pi i/b)$ and
+\[
+ \lambda_\ell=\frac1b\sum_{d=0}^{b-1}\zeta^{\ell d^2},
+ \qquad 1\le\ell<b,\qquad
+ \rho=\max_{1\le\ell<b}|\lambda_\ell|.
+\]
+Every summand has modulus one. The terms for $d=0$ and $d=1$
+are $1$ and $\zeta^\ell$, which are distinct. Strictness in the
+triangle inequality therefore gives $\rho<1$. This uses no
+primality assumption on $b$.
+
+For a complete block of $k$ unrestricted digits, character
+orthogonality gives the exact count
+\begin{equation}\label{eq:fourier}
+ C_{b,r}(b^k)=\frac{b^k}{b}
+ \left(1+\sum_{\ell=1}^{b-1}\zeta^{-\ell r}\lambda_\ell^k\right).
+\end{equation}
+Its discrepancy from $b^k/b$ is at most
+$(b-1)b^{k-1}\rho^k$. More generally a block
+$[A b^k,(A+1)b^k)$ fixes the leading digits of $A$ and has
+$k$ unrestricted trailing digits. Adding $s_b(A)$ merely shifts
+the residue, so the same discrepancy bound holds for every such
+block. For $k=0$ use the bound $(b-1)/b$ directly.
+
+The base-$b$ expansion of $N$ decomposes $[0,N)$ into at most
+$b-1$ such blocks of each size $b^k$, $0\le k\le L$, where
+$L=\lfloor\log_b N\rfloor$. Consequently
+\begin{equation}\label{eq:error}
+ \left|C_{b,r}(N)-\frac Nb\right|
+ \le\frac{(b-1)^2}{b}\sum_{k=0}^{L}(b\rho)^k,
+\end{equation}
+where the $k=0$ summand is one, also when $\rho=0$.
+If $b\rho<1$ this is bounded; if $b\rho=1$ it is
+$O_b(\log(N+1))$; if $b\rho>1$ it is
+$O_b(N^{1+\log_b\rho})$. In the last case the exponent is
+strictly smaller than one. All three cases prove density $1/b$.
+
+In particular each residue occurs infinitely often. At its $j$th
+position, $C_{b,r}(a_{b,r}(j)+1)=j$, so
+$j=(a_{b,r}(j)+1)/b+o(a_{b,r}(j)+1)$. Division and inversion
+give the asserted slope.
+\end{proof}
+
+\section{Exact finite counts and sequence terms}
+Let $V_k(r)=C_{b,r}(b^k)$. Entirely in integer arithmetic,
+\begin{equation}\label{eq:dp}
+ V_0(r)=\begin{cases}1,&r=0,\\0,&r\ne0,\end{cases}
+ \qquad
+ V_{k+1}(r)=\sum_{d=0}^{b-1}V_k(r-d^2\bmod b).
+\end{equation}
+To count below an arbitrary $N$, read its digits from left to right.
+At a position having digit $c$ and $k$ positions to its right,
+let $u$ be the squared sum of its already fixed prefix. For each
+$0\le d<c$, add
+\[
+ V_k(r-u-d^2\bmod b).
+\]
+Then fix the actual digit $c$ and update $u\leftarrow u+c^2$.
+The disjoint first-differing-digit cases partition $[0,N)$, proving
+this exact digit formula. Leading zeros cause no change in $s_b$.
+
+These counts also compute every sequence term: take a length $k$
+with $V_k(r)\ge j$ and perform binary search for the least $N$
+with $C_{b,r}(N)\ge j$; then $a_{b,r}(j)=N-1$.
+Theorem~\ref{thm:density} proves that such a finite $k$ always
+exists. This is a finite digit algorithm, not an elementary closed
+expression for the $j$th position.
+
+\begin{corollary}
+For base three, the number of A079495 terms below $3^k$ is
+\[
+ V_k(0)=
+ \begin{cases}
+  3^{k-1},&k\text{ odd},\\[2pt]
+  \bigl(3^k+2(-3)^{k/2}\bigr)/3,&k\text{ even}.
+ \end{cases}
+\]
+The even case includes $k=0$, when the value is one.
+\end{corollary}
+\begin{proof}
+For $\zeta=\exp(2\pi i/3)$, the digit squares are $0,1,1$
+modulo three, so $\lambda_1=(1+2\zeta)/3=i/\sqrt3$ and
+$\lambda_2=-i/\sqrt3$. Substitute these values into
+\eqref{eq:fourier} with $r=0$.
+\end{proof}
+
+\section{Scope and independent checks}
+The accompanying \texttt{verify.py} compares every integer-prefix
+count for bases 2 through 16 and $0\le N\le5000$ with direct
+digit extraction. It compares all 63 displayed A079495 terms,
+checks the exact ternary block counts through length 100 by
+integer convolution, and independently checks sequence selection
+for each residue in each tested base. The all-base and asymptotic
+claims follow from the proof, not finite numerical ratios.
+No literature priority or OEIS acceptance is asserted.
+
+\begin{thebibliography}{9}
+\bibitem{target} C. Alves, OEIS A079495,
+\url{https://oeis.org/A079495}, accessed October 26, 2026.
+\bibitem{linear} C. Alves, OEIS A079498, including M. Dekking's
+April 18, 2019 proof for ordinary digit sums,
+\url{https://oeis.org/A079498}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

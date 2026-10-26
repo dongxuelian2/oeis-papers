@@ -1,0 +1,176 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\title{Palindromic Proper-Divisor Residues at Every Modulus}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\linespread{0.96}
+\hypersetup{pdftitle={Existence and Exact Finite Minima for OEIS A393833},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For every $n\ge1$, we construct an integer with exactly $2n+2$
+positive divisors whose $2n+1$ proper-divisor residues modulo $n$
+form a palindrome. This proves the existence conjecture in OEIS
+A393833. The construction needs no prime-distribution theorem:
+a prime divisor of a suitable cyclotomic value suffices. An explicit
+witness bound makes every minimum a finite arithmetic minimization
+over ordered multiplicative partitions of $2n+2$ and prime tuples.
+An exact factorization search implements that formula.
+\end{abstract}
+
+\section{An elementary witness for every index}
+For $K>1$ with ordered divisors
+$1=d_1<d_2<\cdots<d_D=K$, let its proper-divisor residue list be
+$(d_1\bmod n,\ldots,d_{D-1}\bmod n)$. OEIS A393833 asks for the
+least such $K$ with $D=2n+2$ and a palindromic list, and conjectures
+that it exists at every positive index.
+
+\begin{lemma}\label{lem:prime}
+For every $n\ge2$ there is an odd prime $p\equiv1\pmod n$.
+More explicitly, every prime divisor of $\Phi_n(2n)$ has these
+properties, where $\Phi_n$ denotes the $n$th cyclotomic polynomial.
+\end{lemma}
+\begin{proof}
+For $n>1$, the monic integer polynomial $\Phi_n$ has constant term
+one. Its roots have absolute value one, so
+\[
+ \Phi_n(2n)=\prod_{\zeta\text{ primitive }n\text{th root}}(2n-\zeta)>1;
+\]
+indeed its absolute value is at least $(2n-1)^{\varphi(n)}>1$,
+and it is positive. Choose a prime $p$ dividing this value.
+No prime divisor of $2n$ divides the value, by its constant term.
+Thus $p$ is odd and $p\nmid n$.
+Over $\mathbf F_p$, the polynomial $X^n-1$ is square-free, since
+its derivative is $nX^{n-1}$. The factorization
+$X^n-1=\prod_{d\mid n}\Phi_d(X)$ therefore has pairwise coprime
+factors modulo $p$. The residue of $2n$ is a root of $\Phi_n$,
+so its multiplicative order is exactly $n$: an order $d<n$ would
+also make it a root of a factor of $X^d-1$, contradicting that
+coprimality. The order divides $p-1$, proving $p\equiv1\pmod n$.
+\end{proof}
+
+\begin{theorem}\label{thm:witness}
+Let $n\ge1$, and let $p$ be any odd prime congruent to one modulo
+$n$. Then
+\[
+ K=2p^n
+\]
+has exactly $2n+2$ divisors and its proper-divisor residues form a
+palindrome. Thus A393833 has a positive value at every index.
+\end{theorem}
+\begin{proof}
+Since $p>2$, its ordered divisors are
+\[
+ 1,2,p,2p,p^2,2p^2,\ldots,p^n,2p^n.
+\]
+There are $2(n+1)$ of them. After deleting the final divisor,
+their residues alternate $1,2,1,2,\ldots,1$ modulo $n$, a list
+of odd length and hence a palindrome. For $n=1$ use $p=3$;
+for $n\ge2$, Lemma~\ref{lem:prime} supplies a suitable prime.
+\end{proof}
+
+Define $p_n$ to be the least odd prime congruent to one modulo $n$
+and $B_n=2p_n^n$. This is an explicit finite arithmetic construction:
+$p_1=3$, and for $n\ge2$ one need test primes only up to
+$\Phi_n(2n)$ by Lemma~\ref{lem:prime}. Consequently
+\begin{equation}\label{eq:bound}
+ a(n)\le B_n\le2\Phi_n(2n)^n\qquad(n\ge2).
+\end{equation}
+
+\section{An exact finite minimum formula}
+Put $D=2n+2$. An ordered multiplicative partition of $D$ is a tuple
+$(f_1,\ldots,f_t)$ with $f_i\ge2$ and $\prod_i f_i=D$;
+order is retained. There are finitely many, with
+$1\le t\le\lfloor\log_2 D\rfloor$. For such a tuple and primes
+$q_1<\cdots<q_t$, form
+\[
+ M(\mathbf q,\mathbf f)=\prod_{i=1}^t q_i^{f_i-1},\qquad
+ \mathcal D(\mathbf q,\mathbf f)=
+ \operatorname{sort}\left\{\prod_{i=1}^t q_i^{j_i}:0\le j_i<f_i\right\}.
+\]
+The latter list has exactly $D$ elements; write them as
+$c_1<\cdots<c_D$. Define the finite candidate set
+\begin{align*}
+ \mathcal C_n=\bigl\{M(\mathbf q,\mathbf f):\;&
+ \prod_i f_i=D,\quad q_1<\cdots<q_t\le B_n,\\
+ &M(\mathbf q,\mathbf f)\le B_n,\quad
+ c_i\equiv c_{D-i}\pmod n\ (1\le i<D)\bigr\}.
+\end{align*}
+\begin{theorem}\label{thm:min}
+For every $n\ge1$, the exact least value is
+\[
+ \boxed{a(n)=\min\mathcal C_n.}
+\]
+In particular the zero escape value never occurs. Any independently
+verified witness can replace $B_n$ throughout the formula.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:witness} places $B_n$ in $\mathcal C_n$, using
+the ordered bases $(2,p_n)$ and factors $(2,n+1)$.
+Every member has exactly $D$ divisors, and the displayed congruences
+are exactly the palindrome condition on the proper-divisor list.
+Conversely a least admissible integer is at most $B_n$.
+Its unique prime factorization has distinct increasing bases $q_i$
+and positive exponents $f_i-1$ with $\prod_i f_i=D$; all its bases
+are at most $B_n$. Thus it belongs to the candidate set.
+\end{proof}
+
+This formula is a finite arithmetic minimization, not a claim of an
+elementary closed expression without a minimum. The substantive new
+global input is the explicit witness and bound, which removes the
+unbounded existence search in the original definition.
+
+\section{Certified pruning and implementation}
+Two elementary facts greatly shorten the factor-pattern search.
+First, any admissible $K$ satisfies
+\begin{equation}\label{eq:necessary}
+ K/q_1\equiv1\pmod n,
+\end{equation}
+because its largest proper divisor must have the same residue as
+its first proper divisor, one. Hence any partial factorization $V$
+whose smallest prime is $q_1$ can be discarded as soon as
+$\gcd(V/q_1,n)>1$; multiplication cannot repair this obstruction.
+
+Second, define $E(R)=\sum_{\ell^a\parallel R}a(\ell-1)$ for
+prime $\ell$. For any multiplicative partition $R=\prod f_i$,
+\begin{equation}\label{eq:exponents}
+ \sum_i(f_i-1)\ge E(R).
+\end{equation}
+Indeed $(uv-1)\ge(u-1)+(v-1)$ for integers $u,v\ge2$;
+splitting every factor into primes proves the inequality.
+At a partial factorization $V$, choose the next exponent $e=f-1$,
+where $f\mid R$, $f>1$, and the next prime $q$. Every completion
+then has value at least $Vq^{e+E(R/f)}$. With current verified
+upper bound $H$, one need enumerate only
+\[
+ q\le\left\lfloor\bigl((H-1)/V\bigr)^{1/(e+E(R/f))}\right\rfloor.
+\]
+All roots and powers in the evaluator use integer arithmetic.
+It enumerates every divisor $f>1$ of the remaining divisor count,
+so it retains all ordered exponent patterns, including those whose
+exponents increase with their bases. It applies \eqref{eq:necessary}
+before the final sorted-divisor palindrome check. Validated published
+terms may initialize $H$; they serve only as witnesses, and every
+smaller candidate is still excluded by the complete search.
+
+The independent verification uses a divisor sieve through $K=200000$,
+compares all minima it encounters with the factor-pattern evaluator,
+checks all 13 terms stated in the official entry and its comments,
+and checks the explicit witnesses through $n=100$. A b-file gives
+exact computed minima through $n=12$, including an index absent
+from the entry's displayed data. These finite checks supplement the
+proofs; the proofs establish existence and the finite formula at
+every positive index.
+
+\begin{thebibliography}{9}
+\bibitem{oeis} The OEIS Foundation Inc.,
+\href{https://oeis.org/A393833}{A393833}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

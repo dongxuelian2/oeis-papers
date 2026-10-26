@@ -1,0 +1,24 @@
+OEIS A340138 update draft (not submitted)
+
+NAME CORRECTION
+a(1)=0; a(n+1) is the least unused nonnegative integer containing
+the decimal digital root of a(n) among its digits.
+(This immediate-predecessor indexing agrees with the entry's program
+and all its displayed terms; the existing a(n-1) reference does not.)
+
+COMMENTS
+The sequence is a permutation of the nonnegative integers. The same
+construction gives a permutation in every integer base b>=2.
+
+PROOF
+All steps exist because infinitely many numbers contain a specified
+digit. Some positive digital root r occurs infinitely often. Every
+number M containing digit r must then appear: otherwise infinitely
+many terms immediately after root-r predecessors would be distinct
+unused candidates <=M, an impossibility. For each other digital root
+s, infinitely many numbers have digit r and root s: take decimal
+words r followed by L>=1 zeros and digit d, with 0<=d<=8 and
+r+d == s mod 9. All such numbers appear, so every root occurs
+infinitely often. Every positive integer contains a nonzero digit s,
+and is forced to appear by the first argument. Zero is the initial
+term, and repetitions are excluded by the rule.

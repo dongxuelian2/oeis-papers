@@ -1,0 +1,129 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=.8in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{The Exponential Formula and Three Functional Identities of A092635}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[.3em]Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We prove the Euler-polynomial exponential formula proposed for
+A092635 and all three functional identities conjectured in its
+2024 update. The arguments use the formal asymptotic expansion
+of the gamma ratio defining the sequence, oddness of its logarithm,
+and the gamma recurrence. The identities hold to every order;
+no convergence of the generally divergent generating series is
+assumed.
+\end{abstract}
+\section{Definition and exponential formula}
+OEIS A092635~\cite{oeis} defines the coefficients $a_j$ by
+\[
+ F(t)=\frac{\pi t}{16^t}\binom{2t}{t}^{\!2}
+ \sim G\bigl(1/(8t)\bigr),\qquad
+ G(x)=\sum_{j\ge0}a_jx^j,\quad a_0=1.
+\]
+All series identities below are formal. Define the integers $b_j$ by
+\[
+ B(z)=\frac2{1+e^{4z}}=\sum_{j\ge0}b_j\frac{z^j}{j!}.
+\]
+The entry proposes $G(x)=\exp(\sum_{j\ge1}b_jx^j/j)$ and its
+coefficient recurrence; it separately conjectures three identities
+for $H(x)=xG(x)$.
+\begin{theorem}
+In $\mathbb Q[[x]]$,
+\[
+ G(x)=\exp\left(\sum_{j\ge1}\frac{b_j}{j}x^j\right),
+ \qquad
+ a_m=\frac1m\sum_{j=1}^m b_j a_{m-j}\quad(m\ge1).
+\]
+Here $b_j=(-4)^jE_j(1)$, with Euler polynomials defined by
+$2e^{uz}/(e^z+1)=\sum E_j(u)z^j/j!$.
+\end{theorem}
+\begin{proof}
+Let $B_{2k}$ be the Bernoulli numbers in Stirling's logarithmic
+expansion~\cite{dlmf},
+\[
+ \log\Gamma(t+1)\sim
+ (t+\tfrac12)\log t-t+\tfrac12\log(2\pi)
+ +\sum_{k\ge1}\frac{B_{2k}}{2k(2k-1)t^{2k-1}}.
+\]
+Substitution in $\log F(t)$ cancels the elementary terms and gives
+\[
+ \log G(x)=\sum_{k\ge1}
+ \frac{2B_{2k}(2^{-(2k-1)}-2)8^{2k-1}}
+ {2k(2k-1)}x^{2k-1}.
+\]
+On the other hand, use
+$2/(1+e^w)=2/(e^w-1)-4/(e^{2w}-1)$ and the Bernoulli
+generating function. For $j\ge1$ it gives
+\[
+ b_j=\frac{2(1-2^{j+1})4^jB_{j+1}}{j+1}.
+\]
+This is zero for positive even $j$, and its odd coefficients
+match $j[x^j]\log G(x)$ exactly. Hence the proposed exponential
+formula holds. Formal logarithmic differentiation gives the
+coefficient recurrence. Finally
+$B(z)=2e^{-4z}/(1+e^{-4z})$ is the defining Euler-polynomial
+generating function at $u=1$, with argument $-4z$.
+\end{proof}
+
+\section{The three reciprocal and substitution identities}
+\begin{theorem}
+For $H(x)=xG(x)$ the following three conjectures hold as formal
+Laurent-series identities:
+\[
+ H(x)=-\frac{x^2}{H(-x)},\qquad
+ H(x)=-H\left(\frac{-x}{1+4x}\right),\qquad
+ H(x)=\frac{x^2}{H(x/(1-4x))}.
+\]
+\end{theorem}
+\begin{proof}
+The logarithm derived above contains only odd powers. Thus
+$G(x)G(-x)=1$, or $H(x)H(-x)=-x^2$, proving the first identity.
+This is a formal conclusion about coefficients; it does not
+evaluate the analytic gamma expression at negative $t$.
+
+The gamma duplication formula gives, for positive $t$,
+\[
+ F(t)=t\left(\frac{\Gamma(t+1/2)}{\Gamma(t+1)}\right)^2.
+\]
+The recurrence $\Gamma(t+1)=t\Gamma(t)$ therefore yields the
+exact identity
+\[
+ F(t)F(t-1/2)=\frac{t-1/2}{t}.
+\]
+Asymptotic expansions at positive infinity are unique and may be
+multiplied and shifted by a fixed constant. With $x=1/(8t)$ this
+becomes the formal identity
+\[
+ G(x)G\left(\frac{x}{1-4x}\right)=1-4x.
+\]
+Multiplying by $x^2/(1-4x)$ proves
+$H(x)H(x/(1-4x))=x^2$, the third assertion.
+Combine it with the first to obtain
+$H(x/(1-4x))=-H(-x)$. Replacing $x$ by $-x$ proves the second
+assertion. All substituted series have zero constant term, so
+their formal compositions are defined.
+\end{proof}
+\paragraph{Verification and scope.}
+The standard-library verifier computes the Euler coefficients and
+the proposed exponential recurrence exactly with rational arithmetic,
+and compares all 301 published coefficients. Independently, the
+exact gamma recurrence
+$F(t+1)/F(t)=(t+1/2)^2/(t(t+1))$ determines each next asymptotic
+coefficient by coefficient comparison; the verifier reconstructs
+all 301 terms that way as a separate control. It verifies all
+three identities through degree 100 using exact formal operations.
+The proof establishes the identities at every order. We do not
+claim convergence, new authorship of Stirling's formula, or OEIS
+acceptance of an update.
+\begin{thebibliography}{2}
+\bibitem{oeis} M. Somos, OEIS A092635, including the proposals of
+P. Bala (2015) and P. D. Hanna (2024),
+\url{https://oeis.org/A092635}, accessed October 26, 2026.
+\bibitem{dlmf} NIST Digital Library of Mathematical Functions,
+equation 5.11.1, logarithmic Stirling expansion,
+\url{https://dlmf.nist.gov/5.11.E1}.
+\end{thebibliography}\end{document}

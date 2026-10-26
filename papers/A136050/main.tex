@@ -1,0 +1,72 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.82in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\title{A Digit-Sum Congruence for Products of Twin Primes}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the congruence conjecture in OEIS A136050: the decimal digit
+sum of the product of any twin-prime pair other than $(3,5)$ is
+congruent to eight modulo nine. The proof is elementary and applies
+to every such pair; it makes no assertion about the infinitude of
+twin primes.
+\end{abstract}
+
+Let $s(N)$ denote the decimal digit sum of a positive integer $N$.
+OEIS A136050 lists $s(p(p+2))$ over the twin-prime pairs in increasing
+order, beginning with $s(3\cdot5)=6$. Its comment dated December 2,
+2016 conjectures that each subsequent term is one less than a
+multiple of nine.
+
+\begin{theorem}
+If $p,p+2$ are prime and $p>3$, then
+\[
+ s(p(p+2))\equiv8\pmod9.
+\]
+In particular, every term of A136050 except its initial term belongs
+to $\{8,17,26,35,\ldots\}$.
+\end{theorem}
+\begin{proof}
+Both primes are odd. Among $p,p+1,p+2$ one number is divisible by
+three, and it cannot be either prime since $p>3$. Thus $p+1$ is
+divisible by both two and three, giving $p=6m-1$ for an integer
+$m\ge1$. Consequently
+\[
+ p(p+2)=(6m-1)(6m+1)=36m^2-1\equiv-1\pmod9.
+\]
+For every decimal expansion $N=\sum_j d_j10^j$,
+\[
+ N\equiv\sum_j d_j=s(N)\pmod9,
+\]
+which proves the claim. Since the positive digit sum is eight modulo
+nine, its least possible value is eight.
+\end{proof}
+
+The exceptional pair $(3,5)$ gives $6$, exactly the stated first
+term. This settles the entire recorded congruence question. It does
+not imply that every value $8+9j$ occurs, nor does it assume or prove
+that there are infinitely many twin primes.
+
+The accompanying \texttt{verify.py} compares all 5000 official
+b-file terms with a prime-sieve computation of the twin pairs and
+with two independent digit-sum implementations. A trial-division
+prime enumeration independently checks all 342 twin pairs through
+20000. Every one of the 14870 noninitial twin pairs through
+2000000 satisfies the theorem. These finite audits check the
+implementation; the argument above holds for every pair.
+
+\begin{thebibliography}{1}
+\bibitem{oeis} The OEIS Foundation Inc.,
+\href{https://oeis.org/A136050}{A136050} and its
+\href{https://oeis.org/A136050/b136050.txt}{5000-term b-file},
+accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

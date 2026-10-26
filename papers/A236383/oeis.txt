@@ -1,0 +1,24 @@
+A236383 update draft (not submitted), 2026-10-26
+
+The existence conjecture is true for every positive n. Let D be the
+number of decimal digits of 4(n+1)^2, and choose the least d>=D with
+d odd and 5d+2n=0 (mod 11); then D<=d<=D+21. Put C=(10^d+1)/11,
+k=n+5C, x=5(2n+5C)/11, and y=x+n^2. The binomial expansion gives
+C=d (mod11), so x is integral. Both x and y have d digits, and
+k^2=10^d*x+y. Thus a(n)<=n+5C.
+
+An exact finite minimum formula follows by considering all lengths
+1..d and all roots of r^2=n^2 modulo 10^length+1 in the interval
+ceil(sqrt((10^length+1)*10^(length-1)+n^2))
+through floor(sqrt((10^length+1)*(10^length-1-n^2)+n^2)).
+All roots are explicitly listed at odd prime powers and combined
+by CRT. The first nonempty length gives the minimum; no larger
+length can give a smaller k.
+
+The complete published 245-term b-file is reproduced and a new
+300-term table is supplied. An independent exhaustive scan of
+k=1..1000000 agrees on all 659 attained indices and their minima.
+
+Proof and verifier: papers/A236383/main.tex and verify.py in the
+oeis-papers repository. No elementary expression without finite
+minimization is asserted.

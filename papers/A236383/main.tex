@@ -1,0 +1,166 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\title{Squares Whose Equal-Length Halves Differ by a Square}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\hypersetup{pdftitle={All-Index Existence and Exact Minima for OEIS A236383},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For every positive integer $n$, we construct a square whose decimal
+expansion is the concatenation of equal-length positive integers
+$x,y$ with $y-x=n^2$. This proves the existence conjecture in OEIS
+A236383. An odd decimal length in one prescribed residue class
+modulo $22$ suffices. Its size is bounded by the number of digits
+of $4(n+1)^2$ plus $21$. We then give an exact finite minimum
+formula using square roots of $n^2$ modulo $10^d+1$, with explicit
+prime-power root lists and the Chinese remainder theorem.
+\end{abstract}
+
+\section{A uniform elementary construction}
+OEIS A236383 \cite{oeis} defines $a(n)$ as the least positive $k$
+such that $k^2$ concatenates two positive equal-length integers
+$x,y$ with $y=x+n^2$. Thus, for some $d\ge1$,
+\begin{equation}\label{eq:def}
+ k^2=10^d x+y=(10^d+1)x+n^2,\qquad
+ 10^{d-1}\le x\le y<10^d.
+\end{equation}
+The entry conjectures existence for every $n\ge1$.
+
+\begin{lemma}\label{lem:eleven}
+For every positive odd $d$, the integer
+$C_d=(10^d+1)/11$ satisfies $C_d\equiv d\pmod{11}$.
+\end{lemma}
+\begin{proof}
+Since $d$ is odd, the binomial expansion of $(-1+11)^d+1$
+is congruent to $11d$ modulo $121$. Divide by $11$.
+\end{proof}
+
+Let $D$ be the number of decimal digits of $4(n+1)^2$, and let
+$d_*$ be the least integer $d\ge D$ satisfying
+\begin{equation}\label{eq:length}
+ d\text{ odd},\qquad 5d+2n\equiv0\pmod{11}.
+\end{equation}
+The two conditions specify exactly one residue class modulo $22$,
+so $D\le d_*\le D+21$.
+
+\begin{theorem}\label{thm:witness}
+Put $d=d_*$, $B=10^d$, $M=B+1$, and $C=M/11$. Then
+\begin{equation}\label{eq:construction}
+ k=n+5C,\qquad x=\frac{5(2n+5C)}{11},\qquad y=x+n^2
+\end{equation}
+are positive integers satisfying \eqref{eq:def}. In particular
+$a(n)$ exists at every positive index, and $a(n)\le n+5C$.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:eleven} and \eqref{eq:length} show that
+$2n+5C\equiv0\pmod{11}$, proving integrality of $x$.
+Moreover,
+\[
+ k^2-n^2=5C(2n+5C)=Mx.
+\]
+It remains to check both length inequalities, which congruence
+alone would not guarantee. The expression for $x$ is
+\[
+ x=\frac{25}{121}M+\frac{10}{11}n.
+\]
+Since $25/121>1/10$, it gives $x>B/10=10^{d-1}$.
+Also $B\ge10^D>4(n+1)^2$, and therefore
+\[
+ \frac{96}{121}M>(n+1)^2>
+ n^2+\frac{10}{11}n+1.
+\]
+Rearranging gives $y=x+n^2<M-1=B$. Thus $x,y$ both have
+exactly $d$ digits and all conditions in \eqref{eq:def} hold.
+There is no exception when $11\mid n$: the prescribed residue
+class for $d$ then simply has $11\mid d$.
+\end{proof}
+
+\section{The exact least value at every index}
+For $1\le d\le d_*$ put $B_d=10^d$, $M_d=B_d+1$, and let
+\[
+ R_d(n)=\{0\le r<M_d:r^2\equiv n^2\pmod{M_d}\}.
+\]
+If $B_d-1-n^2<10^{d-1}$, set $\mathcal K_d(n)=\varnothing$.
+Otherwise define the exact integer endpoints
+\begin{align*}
+ L_d(n)&=\left\lceil\sqrt{M_d10^{d-1}+n^2}\right\rceil,\\
+ H_d(n)&=\left\lfloor\sqrt{M_d(B_d-1-n^2)+n^2}\right\rfloor,\\
+ \mathcal K_d(n)&=R_d(n)\cap[L_d(n),H_d(n)].
+\end{align*}
+\begin{theorem}\label{thm:min}
+For every positive $n$,
+\[
+ \boxed{a(n)=\min\bigcup_{d=1}^{d_*}\mathcal K_d(n).}
+\]
+The union is nonempty and all root lists are given by the finite
+prime-power expressions below. The evaluator can stop at the first
+$d$ with $\mathcal K_d(n)\ne\varnothing$.
+\end{theorem}
+\begin{proof}
+For fixed $d$, \eqref{eq:def} is equivalent to the displayed
+congruence and the two bounds on $k^2$. Any valid $k$ satisfies
+\[
+ k^2\le M_d(B_d-1-n^2)+n^2<B_d^2,
+\]
+so $k<M_d$; no translates of the root residues are missing.
+Theorem~\ref{thm:witness} supplies a candidate at $d=d_*$.
+For any admissible length $d$, \eqref{eq:def} implies that $k^2$
+has $2d$ digits, so $k$ has exactly $d$ digits. A larger $d$ can
+therefore never give a smaller root $k$. This also proves the
+stopping rule and excludes all lengths beyond $d_*$.
+\end{proof}
+
+\section{Explicit local root lists}
+Every $M_d$ is odd. For an odd prime power $p^e\parallel M_d$,
+write $n=p^v u$ with $p\nmid u$. If $2v\ge e$, the complete
+list of roots modulo $p^e$ is
+\begin{equation}\label{eq:zero}
+ r=j p^{\lceil e/2\rceil},\qquad 0\le j<p^{\lfloor e/2\rfloor}.
+\end{equation}
+If $2v<e$, the complete list is
+\begin{equation}\label{eq:nonzero}
+ r=p^v\bigl(\varepsilon u+j p^{e-2v}\bigr)\pmod{p^e},
+ \qquad\varepsilon\in\{-1,1\},\quad0\le j<p^v.
+\end{equation}
+To verify completeness, in the first case $r^2\equiv0$ is
+equivalent to $p^{\lceil e/2\rceil}\mid r$. In the second case
+any root must have valuation $v$; after division by $p^{2v}$,
+the equation is $z^2\equiv u^2\pmod{p^{e-2v}}$.
+The factors $z-u,z+u$ cannot both be divisible by the odd prime
+$p$, since $p\nmid2u$. Thus $z\equiv u$ or $-u$ modulo that
+prime power; its lifts give precisely \eqref{eq:nonzero}.
+The Chinese remainder theorem combines these local lists to form
+all of $R_d(n)$. This avoids a scan of consecutive $k$ values.
+
+The formula is an exact finite arithmetic expression involving
+factorization, explicit root lists, integer square roots and a
+finite minimum. We do not assert an elementary closed expression
+without that final minimum. Existence and the length bound are
+proved for every $n$, rather than inferred from the finite tests.
+
+\section{Independent verification}
+The exact root evaluator reproduces all 245 official b-file terms.
+An independent exhaustive scan of $1\le k\le1000000$ finds 659
+attained indices and their minima; all agree with the evaluator,
+including all 245 published indices. Further checks compare the
+prime-power and composite root lists with direct residue enumeration.
+The explicit construction is checked through $n=1000$, at powers
+$11^1,\ldots,11^{20}$, and at a 101-digit index. The accompanying
+300-term table extends the official published range. These checks
+validate the implementations of the all-index results above.
+
+\begin{thebibliography}{9}
+\bibitem{oeis} The OEIS Foundation Inc.,
+\href{https://oeis.org/A236383}{A236383} and its
+\href{https://oeis.org/A236383/b236383.txt}{245-term b-file},
+accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

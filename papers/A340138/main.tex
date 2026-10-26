@@ -1,0 +1,96 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.84in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{The Greedy Digital-Root Sequence Is a Permutation}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\hypersetup{pdftitle={A Permutation Proof for OEIS A340138},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the permutation conjecture for OEIS A340138. The argument
+uses the finite set of digital roots: any root occurring infinitely
+often forces every other root to do so, and then every positive
+integer must appear. The same proof applies in every integer base
+at least two. We explicitly resolve an indexing inconsistency in
+the entry by following its published terms and Mathematica program.
+\end{abstract}
+
+\section{The precise sequence}
+For an integer base $b\ge2$, let $\operatorname{dr}_b(0)=0$, and
+for $x>0$ let
+\[
+ \operatorname{dr}_b(x)=1+((x-1)\bmod(b-1))\in\{1,\ldots,b-1\}.
+\]
+This is the usual iterated digit sum. Start with $a_b(1)=0$ and,
+for $n\ge1$, take $a_b(n+1)$ to be the least unused nonnegative
+integer containing the digit $\operatorname{dr}_b(a_b(n))$ in its
+ordinary base-$b$ expansion. Thus $a_b(2)=b$.
+
+At $b=10$ these are exactly the displayed terms and the Mathematica
+program in OEIS A340138 \cite{oeis}. The entry's prose instead
+puts $a(n-1)$ in the rule for $a(n+1)$ while specifying only $a(1)$;
+that rule is not initialized and disagrees with its program. We use
+the immediate-predecessor indexing above, as established by both
+the program and data. The permutation assertion below concerns
+that published sequence; it does not silently supply an unspecified
+initial value for a different two-step rule.
+
+\begin{theorem}
+For every $b\ge2$, the sequence $(a_b(n))_{n\ge1}$ is a permutation
+of the nonnegative integers. In particular the permutation
+conjecture in A340138 is true for its published sequence.
+\end{theorem}
+\begin{proof}
+Every stage is well-defined: infinitely many base-$b$ integers
+contain any specified digit, while only finitely many have been
+used. Terms are distinct by construction, and every term after
+the initial zero is positive.
+
+For $1\le r<b$, let $\mathcal C_r$ be the positive integers
+containing the digit $r$. If the digital root $r$ occurs at
+infinitely many terms, then every $M\in\mathcal C_r$ must appear.
+Indeed, if $M$ stayed unused, every step immediately following
+a term of root $r$ would choose an unused member at most $M$.
+The infinitely many such choices are distinct, contradicting
+the finiteness of $\{1,\ldots,M\}$.
+
+At least one positive root $r$ occurs infinitely often, since
+the set of possible positive roots is finite. Fix any other
+root $s\in\{1,\ldots,b-1\}$, and choose the unique
+$d\in\{0,\ldots,b-2\}$ satisfying
+$r+d\equiv s\pmod{b-1}$. For every $L\ge1$, the base-$b$ word
+\[
+ r\,\underbrace{0\cdots0}_{L\text{ zeros}}\,d
+\]
+represents a distinct positive member of $\mathcal C_r$ with
+digital root $s$. The preceding paragraph forces all these
+integers to appear. Therefore $s$ also occurs infinitely often.
+This proves that every positive root recurs infinitely often.
+
+Finally every positive integer contains at least one nonzero
+digit $s$, so it belongs to $\mathcal C_s$ and must appear.
+The initial zero already appears exactly once. This proves the
+permutation assertion.
+\end{proof}
+
+\section{Independent verification and scope}
+The accompanying \texttt{verify.py} compares all 10,000 published
+decimal terms with an exact implementation. A separate direct
+candidate scan, using repeated digit sums rather than the modular
+digital-root formula, verifies the first 200 terms in bases 2
+through 16. The constructive root-propagation words are checked
+for every pair of roots in those bases and lengths 1 through 20.
+These computations validate the implementation and the intended
+indexing; the proof establishes the entire infinite permutation.
+No finite computation is used to infer surjectivity.
+
+\begin{thebibliography}{1}
+\bibitem{oeis} M. De Vlieger, OEIS A340138,
+\url{https://oeis.org/A340138}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,13 @@
+OEIS A260056 draft, not submitted
+
+Both conjectures follow from the polynomial definition.
+T(n,k)=sum(i=ceil(k/2),k,binomial(i,k-i)*binomial(n+1,i+1)).
+Proof: expand (1+x+x^2)^j=sum(i,binomial(j,i)*x^i*(1+x)^i),
+extract x^k and sum j=0..n using the hockey-stick identity.
+For fixed k this is a polynomial in n of exact degree k+1, so the
+(k+2)-nd finite difference vanishes and the preceding one equals1.
+
+The alternating antidiagonal sum c(m)=sum(k=0,m,(-1)^k*T(m-k,k))
+has g.f. F(z,-z)=1/((1-z)^2*(1+z^2)), where
+F(t,x)=1/((1-t)*(1-t*(1+x+x^2))). Thus c(m)=A004524(m+3).
+Explicitly c(4q)=2q+1 and c(4q+r)=2q+2 for r=1,2,3.
