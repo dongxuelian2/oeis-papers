@@ -1,0 +1,52 @@
+name: A382357 greedy valuation permutation
+
+on:
+  pull_request:
+    paths:
+      - 'papers/A382357-A382360/**'
+      - '.github/workflows/a382357-valuation.yml'
+  push:
+    branches: [main, proof/a382357-greedy-valuation-permutation-20261026]
+    paths:
+      - 'papers/A382357-A382360/**'
+      - '.github/workflows/a382357-valuation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent generators, crossing inequalities and power blocks
+        run: python3 papers/A382357-A382360/verify.py
+
+  paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-recommended lmodern
+      - name: Compile the mathematical note twice
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          folder = Path('papers/A382357-A382360')
+          for _ in range(2):
+              subprocess.run(['pdflatex', '-interaction=nonstopmode', '-halt-on-error', 'main.tex'], cwd=folder, check=True, stdout=subprocess.DEVNULL)
+          log = (folder / 'main.log').read_text()
+          issues = [line for line in log.splitlines() if any(token in line for token in ('Warning', 'Overfull', 'Underfull', 'undefined'))]
+          if issues:
+              raise SystemExit(str(issues))
+          print('Paper compiled without layout or reference warnings')
+          PY
