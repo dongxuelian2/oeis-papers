@@ -1,0 +1,8 @@
+2026-10-26
+Command: python3 papers/A334595/verify.py
+PASS all 8191 published terms against independent XOR and binomial implementations
+PASS both conjectures and unique block maxima for all n=1..65535
+PASS self-inverse Pascal transform on every binary vector of lengths 1..10
+
+Two-pass pdflatex build: 2 page(s), no Warning/Overfull/Underfull lines.
+All final pages rendered with pdftoppm and visually inspected.

@@ -1,0 +1,11 @@
+2026-10-26
+python3 papers/A005046/verify.py: PASS
+132 official prefix terms; literal partitions through 10 elements;
+finite differential modules modulo 2..32 through n=250;
+exact whole-polynomial mod-2/mod-5 cycle certificates;
+Bessel numerical consistency n=1..12 with absolute error below 1e-40.
+
+main.tex compiled twice with pdflatex: PASS, 2 pages.
+No warnings, overfull/underfull boxes, undefined references, or missing characters.
+Both final PDF pages rendered with pdftoppm and visually inspected: PASS.
+Independent mathematical review: greedy-round2/cross-review.md.

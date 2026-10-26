@@ -1,0 +1,20 @@
+A248521 proposed FORMULA:
+a(n)=ceil(Pi/(2*arctan(1/n)))-1 for n>=1.
+The asymptotic conjecture is true, more precisely a(n)=Pi*n/2+O(1).
+
+A248520 proposed FORMULA:
+Put beta=1-2/Pi, L=floor((n-1)/beta)+1 and U=floor(n/beta).
+a(n)=min{k in [L,U]: k-floor(cot(Pi/(2*(k+1))))=n}.
+The interval contains two or three integers.
+The asymptotic conjecture is true, more precisely a(n)=Pi*n/(Pi-2)+O(1).
+
+COMMENTS for both:
+With F(k)=floor(cot(Pi/(2*k))), every difference F(k+1)-F(k) is 0 or 1.
+This follows from the derivative bound 0<f'(x)<=Pi/4<1 for x>=2,
+where f(x)=cot(Pi/(2*x)); F(1)=0 and F(2)=1 handle the initial step.
+The counts through N telescope to F(N+1) for A248521 and N-F(N+1)
+for A248520. Since F(N+1)=2*N/Pi+O(1), both conjectured slopes follow.
+
+LINKS:
+See accompanying main.pdf for exact proofs and rationally certified evaluation.
+This is a draft; it has not been submitted to OEIS.

@@ -1,0 +1,136 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.82in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\title{Records and Unit Values of an XOR-Triangle Boundary}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove both conjectures in OEIS A334595: its record positions are
+one and $2^m+1$ for $m\ge1$, and its value equals one exactly at
+powers of two. The right boundary of an XOR triangle is a
+binomial transform over the field with two elements. Its inverse
+is the same transform, which determines every value, every
+fixed-length image, and the unique maximum of each length block.
+\end{abstract}
+
+\section{The boundary transform}
+For $n\ge1$, form the XOR triangle whose first row is the ordinary
+binary expansion of $n$. Each entry in a subsequent row is the
+sum modulo two of the two entries above it. Read the right boundary
+from the upper right corner to the bottom as a binary word;
+its integer value is $a(n)$ in OEIS A334595.
+
+Write $n=\sum_{i=0}^{L-1}b_i2^i$, with $b_{L-1}=1$, and let
+$y_j$ be the rightmost entry in row $j$, starting with $j=0$.
+Repeated addition of neighboring entries gives
+\begin{equation}\label{eq:transform}
+ y_j=\sum_{i=0}^{j}\binom ji b_i\pmod2,
+ \qquad
+ a(n)=\sum_{j=0}^{L-1}y_j2^{L-1-j}.
+\end{equation}
+Pascal's identity proves the first expression inductively.
+This is a finite explicit all-index formula, independent of
+constructing the interior of the triangle.
+
+\begin{lemma}\label{lem:inverse}
+The map $T:(b_i)\mapsto(y_j)$ in \eqref{eq:transform} is its own
+inverse on every fixed length $L$ over $\mathbf F_2$.
+\end{lemma}
+\begin{proof}
+For $0\le i\le j<L$, the coefficient of $b_i$ in $(T^2b)_j$ is
+\[
+ \sum_{k=i}^j\binom jk\binom ki
+ =\binom ji\sum_{k=i}^j\binom{j-i}{k-i}
+ =\binom ji2^{j-i}.
+\]
+Modulo two this equals one for $j=i$ and zero for $j>i$.
+\end{proof}
+
+\section{All values equal to one}
+\begin{theorem}
+For every positive integer $n$, $a(n)=1$ if and only if $n$ is a
+power of two.
+\end{theorem}
+\begin{proof}
+On length $L$, output one has boundary vector
+$(y_0,\ldots,y_{L-1})=(0,\ldots,0,1)$.
+Its inverse under $T$ is that same vector: for $j<L-1$ every
+input summand is zero, and at $j=L-1$ the diagonal entry is one.
+Thus $b_{L-1}=1$ is its only nonzero input bit, giving
+$n=2^{L-1}$. Conversely this input clearly gives output one.
+\end{proof}
+
+\section{Every record position and value}
+\begin{theorem}\label{thm:records}
+For every $L\ge2$, the maximum of $a(n)$ on
+$2^{L-1}\le n<2^L$ is $2^L-2$, attained uniquely at
+$n=2^{L-1}+1$. Therefore the strict record positions of A334595
+are exactly
+\[
+ 1,\quad 2^m+1\quad(m\ge1),
+\]
+with respective record values $1$ and $2^{m+1}-2$.
+\end{theorem}
+\begin{proof}
+All outputs are represented by $L$ bits, so at most $2^L-1$.
+The all-one boundary vector has inverse with
+\[
+ b_0=1,\qquad b_j=\sum_{i=0}^j\binom ji=2^j=0\pmod2
+ \quad(j\ge1).
+\]
+For $L\ge2$ its leading input bit is zero; hence output $2^L-1$
+is impossible on this input length. The next possible output,
+$2^L-2$, has vector $(1,\ldots,1,0)$. It differs from the
+all-one vector only in its last coordinate, so its inverse has
+exactly the first and last coordinates equal to one.
+This is the valid input $n=2^{L-1}+1$, unique by
+Lemma~\ref{lem:inverse}. It is therefore the unique block maximum.
+
+The first input in each block is $2^{L-1}$ and has output one
+by the preceding theorem. The second input already attains the
+block maximum, which exceeds the maxima of all previous length
+blocks. No later input in that block can set a new strict record.
+The initial block consists of $n=1$ with output one.
+\end{proof}
+
+The fixed-length image itself also has an exact description:
+it consists of the $L$-bit words $y$, allowing leading zeros,
+that satisfy
+\[
+ \sum_{i=0}^{L-1}\binom{L-1}{i}y_i=1\pmod2.
+\]
+This is precisely the condition that their unique inverse has
+leading bit one. Thus no exceptional word or index is hidden in
+the characterization above.
+
+\section{Source and independent checks}
+The entry's linked MathOverflow discussion concerns fixed points
+of a related boundary rotation. Gerry Myerson's May 2, 2020
+comment observes the binomial nature of XOR differences. We use
+that standard transform explicitly and prove the two specific
+conjectures still stated in A334595; no priority for the transform
+itself is claimed.
+The verifier compares all 8191 official terms with direct triangle
+construction and an independent binomial-coefficient implementation.
+It checks both conjectures and the unique block maxima through
+$n=65535$, and verifies $T^2=I$ on every binary vector of lengths
+one through ten. The all-index conclusions follow from the proofs.
+
+\begin{thebibliography}{2}
+\bibitem{oeis} The OEIS Foundation Inc.,
+\href{https://oeis.org/A334595}{A334595} and its
+\href{https://oeis.org/A334595/b334595.txt}{8191-term b-file},
+accessed October 26, 2026.
+\bibitem{mo} DSM and contributors,\ \emph{Number triangle},
+\url{https://mathoverflow.net/questions/359138/number-triangle},
+May 2020, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

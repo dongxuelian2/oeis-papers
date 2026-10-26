@@ -1,0 +1,25 @@
+OEIS A079495 update draft (not submitted)
+
+COMMENTS
+For every integer base b>=2 and each residue r modulo b, the squared
+digit sum takes residue r with natural density 1/b. The increasing
+position sequence for each residue has asymptotic slope b. This
+proves the density and slope conjecture, including composite bases.
+
+FORMULA
+Let V_k(r) count length-k base-b words (leading zeros allowed) whose
+squared digit sum is r modulo b. Then V_0(r)=[r=0] and
+V_(k+1)(r)=sum(d=0,b-1,V_k((r-d^2) mod b)).
+In base 3 the number of terms below 3^k is 3^(k-1) for odd k and
+(3^k+2*(-3)^(k/2))/3 for even k (including k=0).
+
+PROOF
+Put z=exp(2*Pi*i/b) and lambda_l=(1/b)*sum(d=0,b-1,z^(l*d^2)).
+For 1<=l<b we have |lambda_l|<1, since the terms for d=0 and d=1
+are distinct unit complex numbers. On any aligned block of b^k
+integers, Fourier inversion bounds the count discrepancy from b^k/b
+by (b-1)*b^(k-1)*rho^k, where rho=max(l=1,b-1,|lambda_l|)<1.
+Fixed leading digits only shift the target residue. Decompose [0,N)
+into at most b-1 aligned blocks of each size b^k. The total discrepancy
+is at most ((b-1)^2/b)*sum(k=0,floor(log_b(N)),(b*rho)^k)=o(N).
+Inverting the counting asymptotic proves positional slope b.

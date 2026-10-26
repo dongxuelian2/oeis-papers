@@ -1,0 +1,31 @@
+OEIS A195608 update draft (not submitted)
+
+COMMENTS
+The three structural conjectures follow from the exact membership
+criterion below. The third needs m>1: A001969 is indexed from 1, so
+the displayed difference is undefined for the first block {1}.
+
+FORMULA
+Let t(k) be the parity of the number of 1's in the binary expansion
+of k, with t(0)=0. The set enumerated by this sequence is exactly
+{2*k+1: k>=0, t(k)=0} union
+{2*k: k>=1, t(k-1)=t(k)=0}.
+
+PROOF
+Write E(n)=A001969(n)=2*(n-1)+t(n-1). Put T(n)=sum(j=0,n-1,t(j));
+then T(2*k)=k and T(2*k+1)=k+t(k). Hence sum(j=1,n,E(j)) equals
+n*(n-1)+T(n). Substitution in 4*sum(j=1,n,E(j))=E(n)*E(n+1)
+gives t(k)=0 for n=2*k+1, and t(k-1)=t(k)=0 for n=2*k.
+The binary parity word has no 000 or 111, since t(2*r) and
+t(2*r+1) are opposite. Its zeros have gaps 1,2,3 and runs of size
+1 or 2. An adjacent pair of zeros gives three consecutive selected
+indices, while an isolated zero gives one. The selected-index gaps
+are exactly 1,4,6. At every noninitial block start m=2*k+1, we have
+t(k)=0 and t(k-1)=1, whence E(m+1)=4*k+3 and E(m-1)=4*k-2.
+
+PYTHON
+def member(n):
+    if n < 1: return False
+    k = n // 2
+    if n % 2: return k.bit_count() % 2 == 0
+    return k.bit_count() % 2 == 0 and (k-1).bit_count() % 2 == 0

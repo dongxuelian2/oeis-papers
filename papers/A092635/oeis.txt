@@ -1,0 +1,15 @@
+OEIS A092635 update draft, not submitted
+
+The proposed exponential formula and its coefficient recurrence hold
+at every order. Let G(x)=sum a(n)x^n. Logarithmic Stirling expansion
+gives log G(x)=sum(j>=1,b(j)*x^j/j), where
+2/(1+exp(4z))=sum(j>=0,b(j)*z^j/j!). Explicitly
+b(j)=2*(1-2^(j+1))*4^j*Bernoulli(j+1)/(j+1) for j>=1.
+The positive even b(j) vanish, so G(x)*G(-x)=1.
+
+All3functional conjectures for H(x)=x*G(x) are true as formal
+identities. Writing F(t)=t*(Gamma(t+1/2)/Gamma(t+1))^2 gives
+F(t)*F(t-1/2)=(t-1/2)/t. With x=1/(8t), this proves
+H(x)*H(x/(1-4x))=x^2. Oddness of log G proves
+H(x)*H(-x)=-x^2; combining these gives
+H(x)=-H(-x/(1+4x)). No convergence is required.

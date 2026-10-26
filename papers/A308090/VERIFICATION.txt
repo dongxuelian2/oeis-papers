@@ -1,0 +1,6 @@
+Validation date: 2026-10-26
+Standard-library verifier completed with all assertions passing.
+Two final pdflatex passes succeeded without warnings, undefined references, overfull or underfull boxes.
+Final PDF: 1 page(s). Every final page rendered with pdftoppm at 90 dpi and visually inspected: no clipping, overlapping text, or illegible formulas.
+Table: 100 exact consecutive indices, validated by verifier.
+OEIS drafts are not submitted.

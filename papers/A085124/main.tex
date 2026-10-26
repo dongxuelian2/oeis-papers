@@ -1,0 +1,66 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{Zero Classification and Exact Finite Minima for OEIS A085124}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove that a positive integer has a multiple whose decimal digit product is a positive multiple of that integer if and only if it is 7-smooth and is not divisible by 10. This settles the existence conjecture recorded in OEIS A085124. A finite automaton gives the exact minimum at every index, with a proved bound on its number of digits. The minimum formula retains finite minimization.
+\end{abstract}
+\section{An elementary construction}
+Let $P(k)$ be the product of the decimal digits of a positive integer $k$. OEIS A085124~\cite{oeis} defines
+\[
+ a(n)=\min\{k\ge1:n\mid k,\quad 0<P(k),\quad n\mid P(k)\},
+\]
+with zero when the set is empty.
+\begin{lemma}
+For $p\in\{2,5\}$ and $e\ge1$, there is a zero-free decimal word of length $e$ whose value is divisible by $p^e$.
+\end{lemma}
+\begin{proof}
+Start with the empty suffix of value zero. Given a suffix of length $j-1$ and value $s$ divisible by $p^{j-1}$, select its new leftmost digit $t\in\{1,\ldots,p\}$ so that
+\[
+ s+t10^{j-1}\equiv0\pmod{p^j}.
+\]
+After division by $p^{j-1}$ the coefficient of $t$ is coprime to $p$, so exactly one of these $p$ nonzero digits works. Induction proves the assertion.
+\end{proof}
+\begin{theorem}
+For every $n\ge1$, $a(n)>0$ if and only if $n$ is 7-smooth and $10\nmid n$.
+\end{theorem}
+\begin{proof}
+A positive digit product has no prime factor greater than 7. A multiple of 10 ends in zero and has zero digit product. These prove necessity.
+
+Conversely write $n=2^a3^b5^c7^d$ with $\min(a,c)=0$. Put $C=2^a5^c$ and $m=n/C$, so $\gcd(m,10)=1$. If $C>1$, apply the lemma to its unique prime base to obtain a zero-free suffix $T$ of length $a+c$ divisible by $C$. Otherwise put $T=1$. Let $W$ consist of $a$ digits 2, $b$ digits 3, $c$ digits 5, and $d$ digits 7, and concatenate $B=WT$. The block $B$ is nonempty and zero-free, $n\mid P(B)$, and $C\mid B$, since both $T$ and $10^{|T|}$ are divisible by $C$.
+
+Put $L=|B|$ and $h=\operatorname{ord}_m(10^L)$ if $m>1$, or $h=1$ if $m=1$. Repeating $B$ exactly $R=mh$ times yields
+\[
+ K=B\sum_{j=0}^{R-1}10^{Lj}.
+\]
+This is divisible by $C$. Modulo $m$, the geometric sum consists of $m$ equal groups of length $h$, so it is divisible by $m$. Finally $P(K)=P(B)^R$ is a positive multiple of $n$. Thus $K$ is a witness.
+\end{proof}
+\section{The all-index minimum}
+For an admissible $n$, let $e=(a,b,c,d)$ and index its coordinates by $p\in\{2,3,5,7\}$. Use ordinary automaton states $(r,f)$, where $0\le r<n$ and $0\le f_p\le e_p$, together with an extra initial vertex. Reading a digit $t\in\{1,\ldots,9\}$ gives
+\[
+ (r,f)\longmapsto\left((10r+t)\bmod n,\ (\min(e_p,f_p+v_p(t)))_p\right).
+\]
+The extra initial vertex has the outgoing transitions of $(0,0)$ but is never accepting. The only accepting ordinary state is $(0,e)$.
+\begin{theorem}
+Let $N=n(a+1)(b+1)(c+1)(d+1)$. The value $a(n)$ is the integer represented by the shortest accepted word, with ties broken lexicographically. Its length is at most $N$. Breadth-first search with digits in ascending order computes it exactly.
+\end{theorem}
+\begin{proof}
+The residue coordinate enforces divisibility of the represented integer; the other coordinates enforce divisibility of its positive digit product. The initial vertex enforces a nonempty word, including at $n=1$. Thus accepted words are exactly the required decimal expansions. They are nonempty by the construction above. Among such expansions length followed by lexicographic order is precisely numerical order.
+
+If a shortest accepting path repeated an ordinary state, deleting the intervening cycle would yield a shorter nonempty accepting path. There are $N$ ordinary states, proving the digit bound and hence finiteness of the formula.
+\end{proof}
+\section{Reproducible checks and scope}
+The accompanying standard-library Python program compares the first 50 displayed OEIS terms, checks 51 independent minima from a direct integer scan through 200000 for indices at most 200, and verifies all 73 admissible constructive witnesses through index 500. These finite checks validate the implementation; the theorems establish the infinite assertions. The exact formula uses finite-state minimization and is not an elementary expression without it. No claim of an OEIS submission is made.
+\begin{thebibliography}{1}
+\bibitem{oeis} OEIS Foundation Inc., \emph{A085124}, \url{https://oeis.org/A085124}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

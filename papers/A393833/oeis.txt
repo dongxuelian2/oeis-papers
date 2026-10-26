@@ -1,0 +1,20 @@
+A393833 update draft (not submitted), 2026-10-26
+
+The existence conjecture is true for every n >= 1. If p is any odd
+prime congruent to 1 modulo n, then K=2*p^n has exactly 2n+2 divisors.
+Its proper divisors, in increasing order, are 1,2,p,2p,...,p^n, giving
+residues 1,2,...,1 modulo n, an odd-length palindrome.
+
+Such a prime exists elementarily: for n>=2, any prime divisor q of
+Phi_n(2n) is odd, does not divide n, and the order of 2n modulo q is n.
+Thus q=1 (mod n). For n=1 take p=3. If p_n is the least odd prime
+congruent to 1 modulo n, then a(n)<=2*p_n^n. This bound yields an
+exact finite minimum formula over the ordered multiplicative
+partitions of 2n+2 and increasing prime tuples.
+
+New term filling a gap in the entry: a(10)=51874849202=2*11^10.
+The accompanying factor-pattern search excludes every smaller
+candidate and reproduces all 13 values stated in the official entry.
+
+Proof and reproducible verifier: papers/A393833/main.tex and
+papers/A393833/verify.py in the oeis-papers repository.

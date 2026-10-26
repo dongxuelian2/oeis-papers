@@ -1,0 +1,79 @@
+name: Parallel OEIS proof batch
+
+on:
+  pull_request:
+    paths:
+      - 'papers/A005046/**'
+      - 'papers/A092635/**'
+      - 'papers/A136050/**'
+      - 'papers/A237930/**'
+      - 'papers/A260056/**'
+      - 'papers/A308090/**'
+      - 'papers/A308620/**'
+      - 'papers/A334595/**'
+      - 'papers/A334958/**'
+      - 'papers/A357127/**'
+      - 'papers/A048702/**'
+      - 'papers/A079495/**'
+      - 'papers/A084043/**'
+      - 'papers/A085124/**'
+      - 'papers/A195608/**'
+      - 'papers/A214972-A152009/**'
+      - 'papers/A236383/**'
+      - 'papers/A248520-A248521/**'
+      - 'papers/A340138/**'
+      - 'papers/A393833/**'
+      - 'research/parallel-20261026/**'
+      - '.github/workflows/parallel-oeis-batch-20261026.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'papers/A005046/**'
+      - 'papers/A092635/**'
+      - 'papers/A136050/**'
+      - 'papers/A237930/**'
+      - 'papers/A260056/**'
+      - 'papers/A308090/**'
+      - 'papers/A308620/**'
+      - 'papers/A334595/**'
+      - 'papers/A334958/**'
+      - 'papers/A357127/**'
+      - 'papers/A048702/**'
+      - 'papers/A079495/**'
+      - 'papers/A084043/**'
+      - 'papers/A085124/**'
+      - 'papers/A195608/**'
+      - 'papers/A214972-A152009/**'
+      - 'papers/A236383/**'
+      - 'papers/A248520-A248521/**'
+      - 'papers/A340138/**'
+      - 'papers/A393833/**'
+      - 'research/parallel-20261026/**'
+      - '.github/workflows/parallel-oeis-batch-20261026.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All twenty problems' exact implementation audits
+        run: python3 research/parallel-20261026/verify_batch.py
+  papers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-recommended lmodern
+      - name: Compile all twenty papers twice and reject warnings
+        run: python3 research/parallel-20261026/verify_batch.py --compile-papers

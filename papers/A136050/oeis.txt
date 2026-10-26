@@ -1,0 +1,9 @@
+A136050 update draft, not submitted, 2026-10-26
+
+The conjecture is true. Every twin-prime pair (p,p+2) other than
+(3,5) is (6m-1,6m+1), hence its product is 36m^2-1=-1 mod9.
+Decimal digit sum preserves residue modulo9, proving every
+noninitial term is one less than a multiple of9. The exceptional
+first pair gives digit sum6. No assumption of twin-prime infinitude
+is needed. Proof and full5000-term official-data comparison are
+in papers/A136050/main.tex and verify.py.

@@ -1,0 +1,59 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Palindromic Multiples Containing Their Modulus: OEIS A084043}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Every positive integer not divisible by 10 has a palindromic multiple containing its own decimal expansion strictly inside the two end digits. This proves the zero classification conjectured in OEIS A084043. A finite pair automaton computes the exact minimum for every index and gives a universal finite digit bound. The exact formula retains finite minimization.
+\end{abstract}
+\section{Existence for every permitted index}
+OEIS A084043~\cite{oeis} asks for the smallest palindromic multiple of $n$ in which the string of $n$ is sandwiched between at least a pair of digits, with zero if none exists. Thus an occurrence must have at least one digit before it and at least one after it.
+\begin{theorem}
+For every positive integer $n$, the value in A084043 is zero if and only if $10\mid n$.
+\end{theorem}
+\begin{proof}
+A multiple of 10 ends in zero and cannot be a positive palindrome with its ordinary decimal expansion.
+
+Suppose $10\nmid n$. Write $n=Cm$, where $C$ is its full power of 2 or 5 (or 1), and $\gcd(m,10)=1$. If $C=p^a>1$, let $S$ be the expansion of $C$ padded on the left with zeros to length $a$; this is possible because $p^a<10^a$. If $C=1$, put $S=1$. The final digit of $S$ is nonzero. Let $D$ be the expansion of $n$ and write $\operatorname{rev}$ for string reversal. Form
+\[
+ B=\operatorname{rev}(S)\,D\,\operatorname{rev}(D)\,S.
+\]
+The block is a palindrome with nonzero leading digit and contains $D$ internally. Its suffix has value $C$ and length at least $a$, so $C\mid B$.
+
+Put $L=|B|$, and $h=\operatorname{ord}_m(10^L)$ if $m>1$, or $h=1$ if $m=1$. Repeating $B$ exactly $R=mh$ times produces the integer
+\[
+ K=B\sum_{j=0}^{R-1}10^{Lj}.
+\]
+Repetition of a palindrome is a palindrome and preserves the required internal occurrence. The integer remains divisible by $C$. Modulo $m$ the geometric sum consists of $m$ groups of length $h$, all with the same residue; its sum is zero. Consequently $n\mid K$, proving sufficiency.
+\end{proof}
+\section{An exact minimum formula}
+Let $d$ be the number of digits of $D$. Construct a deterministic digit automaton as follows. Its ordinary states are $(r,k)$, where $r$ is the residue modulo $n$ and $0\le k\le d+1$. For $k<d$, the string coordinate is the longest prefix of $D$ that is a suffix of the digits read after the first digit. A full occurrence changes this to $k=d$; any subsequent digit changes it to $k=d+1$, which is absorbing for this coordinate. Include a start state and a dead state for a leading zero. The first nonzero digit sets the residue and initializes $k=0$, without attempting a match. The only accepting state is $(0,d+1)$.
+
+This automaton has $Q=n(d+2)+2$ states and accepts exactly the multiples with an internal occurrence: ignoring the first digit ensures a digit on the left, and the pending state $d$ requires a digit on the right. The source program explicitly supplies its transition table $\delta$.
+\begin{theorem}
+On the $Q^2$ ordered state pairs, use the edges
+\[
+ (p,q)\xrightarrow{x}(\delta(p,x),q')
+ \quad\text{whenever}\quad\delta(q',x)=q,
+ \qquad x\in\{0,\ldots,9\}.
+\]
+Give every edge weight 2. A pair $(p,p)$ permits a center of cost 0; a pair $(p,q)$ with $\delta(p,x)=q$ permits a one-digit center $x$ of cost 1. The shortest weighted path from the start--accept pair to a center, with lexicographically smallest represented word among ties, gives the exact value of A084043 at every $n$ not divisible by 10. Its digit length is at most $2Q^2-1$.
+\end{theorem}
+\begin{proof}
+For any states $p,q$, an empty word takes $p$ to $q$ exactly when $p=q$, and a one-digit word $x$ does so exactly when $\delta(p,x)=q$. A longer palindrome has the form $xwx$ for a shorter palindrome $w$. It takes $p$ to $q$ exactly when $w$ takes $\delta(p,x)$ to some $q'$ with $\delta(q',x)=q$. Induction proves the path correspondence, with total weight equal to word length. The original automaton rejects leading zeros.
+
+The existence theorem guarantees a path to a center. No shortest path repeats a pair, since deleting a cycle strictly reduces its weight and preserves its endpoints and center. At most $Q^2-1$ edges and one center digit remain, proving the bound. Minimizing length and then lexicographic order minimizes the represented positive integer. Reverse Dijkstra from all centers followed by lexicographic reconstruction is therefore an exact terminating evaluator.
+\end{proof}
+\section{Reproducible checks and scope}
+The accompanying standard-library Python verifier reproduces all 38 official terms, compares 89 independent minima obtained by enumerating ordinary palindrome halves through seven digits for indices at most 100, and checks constructive witnesses for all 450 permitted indices at most 500. The infinite result follows from the proofs, independently of those finite checks. The minimum formula uses finite graph optimization rather than an elementary expression without minimization. OEIS edits have not been submitted.
+\begin{thebibliography}{1}
+\bibitem{oeis} OEIS Foundation Inc., \emph{A084043}, \url{https://oeis.org/A084043}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

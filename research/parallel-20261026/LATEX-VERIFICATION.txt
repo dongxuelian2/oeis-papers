@@ -1,0 +1,41 @@
+Checking A048702
+PASS A048702: two LaTeX passes, no layout/reference warnings
+Checking A079495
+PASS A079495: two LaTeX passes, no layout/reference warnings
+Checking A084043
+PASS A084043: two LaTeX passes, no layout/reference warnings
+Checking A085124
+PASS A085124: two LaTeX passes, no layout/reference warnings
+Checking A195608
+PASS A195608: two LaTeX passes, no layout/reference warnings
+Checking A214972-A152009
+PASS A214972-A152009: two LaTeX passes, no layout/reference warnings
+Checking A236383
+PASS A236383: two LaTeX passes, no layout/reference warnings
+Checking A248520-A248521
+PASS A248520-A248521: two LaTeX passes, no layout/reference warnings
+Checking A340138
+PASS A340138: two LaTeX passes, no layout/reference warnings
+Checking A393833
+PASS A393833: two LaTeX passes, no layout/reference warnings
+Checking A005046
+PASS A005046: two LaTeX passes, no layout/reference warnings
+Checking A092635
+PASS A092635: two LaTeX passes, no layout/reference warnings
+Checking A136050
+PASS A136050: two LaTeX passes, no layout/reference warnings
+Checking A237930
+PASS A237930: two LaTeX passes, no layout/reference warnings
+Checking A260056
+PASS A260056: two LaTeX passes, no layout/reference warnings
+Checking A308090
+PASS A308090: two LaTeX passes, no layout/reference warnings
+Checking A308620
+PASS A308620: two LaTeX passes, no layout/reference warnings
+Checking A334595
+PASS A334595: two LaTeX passes, no layout/reference warnings
+Checking A334958
+PASS A334958: two LaTeX passes, no layout/reference warnings
+Checking A357127
+PASS A357127: two LaTeX passes, no layout/reference warnings
+PASS complete 20-paper batch

@@ -1,0 +1,10 @@
+A085124 proposed update (not submitted)
+
+COMMENTS
+The stated conjecture holds: a(n)>0 if and only if n is 7-smooth and 10 does not divide n. An elementary proof constructs a zero-free suffix divisible by the full 2- or 5-power in n, prepends the digits supplying a positive product divisible by n, then repeats the block to obtain divisibility by the part coprime to 10.
+
+FORMULA
+For n=2^a*3^b*5^c*7^d with min(a,c)=0, let e=(a,b,c,d). Use a finite automaton with states (r,f), 0<=r<n, 0<=f_p<=e_p, p in {2,3,5,7}. Reading t in {1,...,9} sends (r,f) to ((10*r+t) mod n,(min(e_p,f_p+valuation(t,p)))_p). From an extra nonaccepting initial vertex use the outgoing edges of (0,0), and accept at (0,e). Then a(n) is the shortest lexicographically first accepted word, interpreted as an integer. Its length is at most n*(a+1)*(b+1)*(c+1)*(d+1). For all other n, a(n)=0.
+
+PROOF LOCATION
+README.md and main.tex in this directory contain the complete constructive proof and the exact minimum theorem. Source PDF/repository links should be pinned after the publication commit exists; no placeholder publication URL is asserted here.

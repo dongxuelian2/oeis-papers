@@ -1,0 +1,136 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\title{Four Formulas for Even-Length Binary Palindromes Divided by Three}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\hypersetup{pdftitle={Four Formulas for OEIS A048702},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+OEIS A048702 lists even-length binary palindromes divided by three.
+We prove both conjectured formulas and both formulas marked unproved
+in its Maple section. A single carry calculation establishes a more
+general identity for even-length palindromes in every integer base.
+All statements hold at every index, including the changes of length.
+\end{abstract}
+
+\section{A general base identity}
+Fix an integer base $b\ge2$. For $n\ge1$, write
+$n=\sum_{j=0}^{L}d_jb^j$, where $d_L\ne0$ and
+$L=\lfloor\log_b n\rfloor$, and put
+\[
+ P_b(n)=n b^{L+1}+\sum_{j=0}^{L}d_jb^{L-j},\qquad
+ A_b(n)=\frac{P_b(n)}{b+1},\qquad A_b(0)=0.
+\]
+The integer $P_b(n)$ concatenates the base-$b$ expansion of $n$
+and its reversal. Each symmetric pair of digits contributes a multiple
+of $b+1$, since the two corresponding exponents have opposite parity.
+Thus $A_b(n)$ is an integer. Within each fixed length the first half
+orders the palindromes, and increasing its length increases the whole
+number. Consequently $P_b(1),P_b(2),\ldots$ enumerate all positive
+even-length base-$b$ palindromes in increasing order. In particular,
+$A_2(n)$ is precisely A048702, with the initial zero at index zero.
+
+For positive $i$, let $v_b(i)$ be the greatest $t$ with $b^t\mid i$;
+the base need not be prime.
+\begin{theorem}\label{thm:general}
+For $n\ge1$ and $L=\lfloor\log_b n\rfloor$,
+\begin{align}
+ A_b(n)&=b^L\sum_{i=1}^{n}b^{-v_b(i)},\label{eq:sum}\\
+ &=n b^L-(b-1)\sum_{j=1}^{L}b^{L-j}
+                 \left\lfloor\frac{n}{b^j}\right\rfloor.\label{eq:floor}
+\end{align}
+The same sequence satisfies, with $t=v_b(n)$,
+\begin{equation}\label{eq:rec}
+ A_b(n)=
+ \begin{cases}
+ bA_b(n-1)+1,&n=b^L,\\
+ A_b(n-1)+b^{L-t},&n\ne b^L.
+ \end{cases}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Suppose first that $n$ is not a power of $b$. The two prefixes $n-1,n$
+have the same length $L+1$. In passing from $n-1$ to $n$, exactly
+$t=v_b(n)$ trailing digits equal to $b-1$ become zero, and the preceding
+digit increases by one. The change in the reversed half is
+\[
+ b^{L-t}-(b-1)\sum_{j=0}^{t-1}b^{L-j}
+       =(b+1)b^{L-t}-b^{L+1}.
+\]
+The first half increases by $b^{L+1}$, proving the second branch of
+\eqref{eq:rec}. At $n=b^L$, direct concatenation gives
+\[
+ P_b(n)=b^{2L+1}+1,\qquad P_b(n-1)=b^{2L}-1,
+\]
+where the second formula also gives zero when $L=0$. These identities
+prove the first branch.
+
+Let $F(n)$ denote the right side of \eqref{eq:sum}, and set $F(0)=0$.
+Within a length block its difference is $b^{L-v_b(n)}$. At $n=b^L$
+the scale factor changes from $b^{L-1}$ to $b^L$, and the newly added
+summand contributes one; hence $F(n)=bF(n-1)+1$. Thus $F$ satisfies
+the same recurrence and initial value as $A_b$.
+Finally, for every $t\ge0$,
+\[
+ b^{-t}=1-(b-1)\sum_{j=1}^{t}b^{-j}.
+\]
+Summing this identity over $t=v_b(i)$, and counting the multiples of
+$b^j$ up to $n$, proves \eqref{eq:floor}.
+\end{proof}
+
+\section{The four OEIS formulas}
+The two conjectures in the formula section of A048702 are exactly
+\eqref{eq:sum} and \eqref{eq:floor} at $b=2$. They therefore hold for
+every $n\ge1$. The first Maple formula defines
+$d=2^{\lfloor\log_2 n\rfloor-v_2(n)}$. Here $d=1$ if and only if
+$n$ is a power of two: if $v_2(n)=L$, then $2^L\le n<2^{L+1}$
+forces $n=2^L$. Its two branches are consequently exactly
+\eqref{eq:rec}.
+
+\begin{corollary}\label{cor:maple}
+The second Maple formula also holds for every $n\ge1$:
+\begin{equation}\label{eq:maple}
+ A_2(n)=\frac{2}{3}(4^L-1)+1+
+ \sum_{j=0}^{L}2^{L-j}
+ \left\lfloor\frac{n-2^L+2^j}{2^{j+1}}\right\rfloor,
+ \qquad L=\lfloor\log_2 n\rfloor.
+\end{equation}
+\end{corollary}
+\begin{proof}
+At the beginning of the block,
+$A_2(2^L)=(2^{2L+1}+1)/3=2(4^L-1)/3+1$.
+Write $r=n-2^L$, so $0\le r<2^L$.
+For $0\le j<L$, the number of integers $i$ in
+$2^L<i\le2^L+r$ with $v_2(i)=j$ is
+$\lfloor(r+2^j)/2^{j+1}\rfloor$.
+Each contributes $2^{L-j}$ by \eqref{eq:rec}. The $j=L$ summand
+in \eqref{eq:maple} is zero, so it can be included unchanged.
+\end{proof}
+
+\section{Reproducible checks and scope}
+The proof settles all four statements marked conjectured or unproved
+in A048702 as retrieved on October 26, 2026. The direct palindrome
+definition and its divisibility by three were already recorded there;
+the new contribution is the proof of the four alternative formulas.
+The general-base theorem is an additional consequence.
+The accompanying \texttt{verify.py} uses exact rational arithmetic to
+check the weighted sum, floor sum, carry recurrence and palindrome
+definition for $1\le n\le20000$ in each base $2,\ldots,12$.
+It checks \eqref{eq:maple} in base two, compares all 1001 published
+b-file entries, and independently scans all integers below $2^{18}$
+to verify the palindrome enumeration. These finite checks supplement
+the all-index proofs.
+
+\begin{thebibliography}{9}
+\bibitem{oeis} The OEIS Foundation Inc.,
+\href{https://oeis.org/A048702}{A048702} and
+\href{https://oeis.org/A048701}{A048701}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

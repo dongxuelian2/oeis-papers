@@ -1,0 +1,132 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{The L-Sieve, Triangular Stabilization, and the Jumps of A214972}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the conjectured jump description of A214972, the proposed recurrence
+for A152009, and deterministic convergence of iterated L-sieves to the triangular
+numbers. For any nonempty deletion set with infinite complement, the first $k$
+coordinates stabilize after at most $2k-1$ transforms. No probabilistic assumption
+on the initial set is needed.
+\end{abstract}
+
+\section{The L-sieve as iteration of an increasing map}
+For a nonempty set $A\subset\mathbb N$ with infinite complement, the L-sieve
+starts with the positive integers. It records and removes the first surviving
+term, deletes the terms whose positions in the remaining list belong to $A$,
+and repeats. Let $S(A)$ denote the increasing sequence of recorded terms.
+This is the transform defined in A152009~\cite{oeis152}.
+Write $b_1<b_2<\cdots$ for the complement of $A$ and put $F_A(j)=1+b_j$.
+
+\begin{lemma}\label{lem:iteration}
+The $r$-th recorded term is $S(A)_r=F_A^{\,r-1}(1)$.
+Moreover $S(A)$ is an infinite nonempty set with infinite complement, so its
+L-sieve can be iterated indefinitely.
+\end{lemma}
+\begin{proof}
+If the current survivor list is $L(1),L(2),\ldots$, removing its first term and
+then deleting positions in $A$ leaves $L(1+b_1),L(1+b_2),\ldots$.
+Starting from $L(j)=j$, the successive survivor maps are the iterates of $F_A$;
+the recorded terms are their values at 1. Since $b_j\ge j$, we have
+$F_A(j)\ge j+1$, and the orbit is infinite. As $A$ is nonempty, $b_j\ge j+1$
+for all sufficiently large $j$. The recorded terms consequently have eventual
+gaps at least 2, proving that their complement is infinite.
+\end{proof}
+
+\section{Triangular convergence with a uniform stabilization bound}
+Put $T_j=j(j+1)/2$.
+\begin{theorem}\label{thm:triangular}
+For every nonempty $A\subset\mathbb N$ with infinite complement, every $k\ge1$,
+and every $r\ge2k-1$, the first $k$ terms of $S^r(A)$ are
+$T_1,\ldots,T_k$. In particular $S^r(A)$ converges coordinatewise to the
+triangular numbers, which form a fixed point of $S$.
+\end{theorem}
+\begin{proof}
+Suppose an increasing set $A$ begins with $T_1,\ldots,T_k$. For $j<k$,
+exactly $j$ deleted positions lie at most $T_{j+1}-1=T_j+j$, and the last
+of these positions is smaller than that endpoint. Thus
+$b_{T_j}=T_{j+1}-1$, or $F_A(T_j)=T_{j+1}$.
+For $j=k$, at least $k$ deleted positions lie below the $T_k$-th retained
+position, so $F_A(T_k)\ge T_{k+1}$.
+Lemma~\ref{lem:iteration} now shows that $S(A)$ begins with
+$T_1,\ldots,T_k$ and that its next term is at least $T_{k+1}$.
+In this new deletion set exactly $k$ positions lie at most $T_{k+1}-1$,
+so one more application gives $S^2(A)_{k+1}=T_{k+1}$.
+
+Every first transform starts with $T_1=1$. Applying the preceding argument
+inductively extends the stabilized prefix by one coordinate every two
+transforms. A single transform preserves any already triangular prefix,
+which gives the assertion for every later $r$, not just odd $r$.
+The same complement calculation for all $j$ proves that the entire triangular
+sequence is a fixed point.
+\end{proof}
+The entry phrases convergence for a random positive sequence. The theorem
+provides a deterministic version on the natural domain of infinite iteration.
+The domain condition matters: deleting every positive position leaves no
+second recorded term, so such inputs cannot support an infinite transform.
+Repeated or unordered deletion indices, when allowed, are interpreted as a set.
+
+\section{Exact recurrence and all jumps}
+For an integer $d\ge2$, let $A_d=\{1,1+d,1+2d,\ldots\}$ and write
+$s^{(d)}_r=S(A_d)_r$. The $j$-th retained position is
+$b_j=j+\lceil j/(d-1)\rceil=\lceil dj/(d-1)\rceil$.
+Lemma~\ref{lem:iteration} gives the exact recurrence
+\begin{equation}\label{eq:sieve}
+ s^{(d)}_1=1,\qquad
+ s^{(d)}_{r+1}=1+\left\lceil\frac{d\,s^{(d)}_r}{d-1}\right\rceil.
+\end{equation}
+In particular, for $d=3$ this is the proposed A152009 formula
+\[
+ s_1=1,\qquad s_{r+1}=\left\lfloor\frac{3s_r+3}{2}\right\rfloor.
+\]
+Define $h_d(0)=0$ and, for $n\ge1$,
+\[
+ h_d(n)=1+h_d\!\left(\left\lfloor\frac{(d-1)(n-1)}d\right\rfloor\right).
+\]
+The argument on the right is nonnegative and smaller than $n$.
+\begin{theorem}\label{thm:jumps}
+For every $n\ge0$,
+\[
+ h_d(n)=\#\{r\ge1:s^{(d)}_r\le n\}.
+\]
+Consequently $h_d(n)-h_d(n-1)$ is 1 exactly at the L-sieve values
+$s^{(d)}_r$, and is zero elsewhere. The case $d=3$ proves the conjecture
+in A214972~\cite{oeis214}.
+\end{theorem}
+\begin{proof}
+Induct on $r$ to prove $h_d(n)\ge r$ if and only if $n\ge s^{(d)}_r$.
+For $r=1$ both conditions mean $n\ge1$. For $r+1$, the recurrence and
+induction give
+\[
+ h_d(n)\ge r+1\iff
+ \left\lfloor\frac{(d-1)(n-1)}d\right\rfloor\ge s^{(d)}_r
+ \iff n\ge1+\left\lceil\frac{d s^{(d)}_r}{d-1}\right\rceil.
+\]
+The last threshold is \eqref{eq:sieve}. The thresholds strictly increase,
+so counting them yields the claimed formula and jump description.
+\end{proof}
+
+\section{Independent checks}
+The accompanying standard-library verifier compares direct recursion with
+threshold counting, reconstructs L-sieve terms by literal deletion, checks the
+published A152009 values, and tests triangular stabilization on exhaustive
+finite deletion sets and several infinite periodic sets. These finite controls
+check the implementation; the theorems prove the unbounded statements.
+The recurrence and conjectures are credited to the OEIS entries; no claim of
+an exhaustive literature-priority search or OEIS acceptance is made.
+\begin{thebibliography}{9}
+\bibitem{oeis152} J. W. Layman, OEIS A152009 (2008),
+\url{https://oeis.org/A152009}, accessed October 26, 2026.
+\bibitem{oeis214} C. Kimberling, OEIS A214972 (2012),
+\url{https://oeis.org/A214972}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

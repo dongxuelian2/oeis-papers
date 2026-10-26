@@ -1,0 +1,9 @@
+2026-10-26
+Command: python3 papers/A237930/verify.py
+PASS exact CRT classification of all six residue classes modulo 84
+PASS independent Euler-criterion checks for all 4513 prohibited primes below 200000
+PASS complete exponent cycles for prohibited primes below 5000: 134995 residues
+PASS all 1001 official terms, independent affine recurrence and exponential formula
+
+Two-pass pdflatex build: 2 page(s), no Warning/Overfull/Underfull lines.
+All final pages rendered with pdftoppm and visually inspected.

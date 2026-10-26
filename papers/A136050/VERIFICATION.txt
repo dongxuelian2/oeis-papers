@@ -1,0 +1,8 @@
+2026-10-26
+Command: python3 papers/A136050/verify.py
+PASS all 5000 official terms and every stated congruence
+PASS independent trial-primality enumeration of 342 pairs through 20000
+PASS conjecture for all 14870 noninitial twin pairs through 2000000
+
+Two-pass pdflatex build: 1 page(s), no Warning/Overfull/Underfull lines.
+All final pages rendered with pdftoppm and visually inspected.

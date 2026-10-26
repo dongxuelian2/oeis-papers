@@ -1,0 +1,139 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{Exact Counts and Densities for Two Cotangent-Floor Sequences}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the two asymptotic conjectures in OEIS A248520 and A248521.
+Their counting functions telescope exactly. The increasing-step sequence has
+an explicit inverse-cotangent formula; the constant-step sequence has an exact
+minimum over at most three consecutive integers. Both asymptotics have bounded
+additive error.
+\end{abstract}
+
+Put $f(x)=\cot(\pi/(2x))$ for $x\ge1$ and $F(k)=\lfloor f(k)\rfloor$.
+Let $a_1(n)$ list the positive integers $k$ with $F(k+1)-F(k)=1$,
+and let $a_0(n)$ list those with difference zero. These are A248521 and
+A248520 respectively~\cite{one,zero}. Write $\alpha=2/\pi$ and
+$\beta=1-\alpha$.
+
+\begin{lemma}\label{lem:step}
+Every difference $F(k+1)-F(k)$ is either zero or one. For every $x>1$,
+\[
+ \alpha(x-1)<f(x)<\alpha x.
+\]
+\end{lemma}
+\begin{proof}
+With $u=\pi/(2x)$, differentiation gives
+$f'(x)=\alpha(u/\sin u)^2$. On $(0,\pi/2]$, the function
+$u/\sin u$ is increasing: its derivative has numerator
+$\sin u-u\cos u$, whose derivative is $u\sin u>0$ and whose limit at zero
+is zero. Thus $f'$ is decreasing, $f'(x)>\alpha$, and
+$f'(x)\le f'(2)=\pi/4<1$ when $x\ge2$.
+Consequently $0<f(k+1)-f(k)<1$ for $k\ge2$; also $F(1)=0$ and $F(2)=1$.
+These facts prove the difference assertion. Integrating $f'>\alpha$ from
+1, where $f(1)=0$, gives the lower bound. The upper bound follows from
+$\tan u>u$ for $0<u<\pi/2$.
+\end{proof}
+
+\begin{theorem}[Exact counting functions and both conjectures]\label{thm:density}
+For $N\ge1$,
+\[
+ \#\{n:a_1(n)\le N\}=F(N+1),\qquad
+ \#\{n:a_0(n)\le N\}=N-F(N+1).
+\]
+Both sequences are infinite, with
+\[
+ a_1(n)=\frac\pi2 n+O(1),\qquad
+ a_0(n)=\frac\pi{\pi-2}n+O(1).
+\]
+In particular both asymptotic equivalences conjectured by V. Kotesovec in
+the entries are true.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:step} partitions the positive positions into zero and one
+steps. Summing the one steps from 1 to $N$ gives $F(N+1)-F(1)=F(N+1)$,
+and subtraction gives the zero count. The bounds in the lemma imply
+$F(N+1)=\alpha N+O(1)$ and $N-F(N+1)=\beta N+O(1)$.
+Both coefficients are positive, proving infinitude. Evaluating the counts
+at the $n$-th position of the respective sequence gives
+$n=\alpha a_1(n)+O(1)$ or $n=\beta a_0(n)+O(1)$, as required.
+\end{proof}
+
+\begin{theorem}[Exact values]\label{thm:exact}
+For every $n\ge1$,
+\begin{equation}\label{eq:one}
+ a_1(n)=\left\lceil\frac\pi{2\arctan(1/n)}\right\rceil-1.
+\end{equation}
+Put
+\[
+ L_n=\left\lfloor\frac{n-1}{\beta}\right\rfloor+1,\qquad
+ U_n=\left\lfloor\frac n\beta\right\rfloor.
+\]
+Then
+\begin{equation}\label{eq:zero}
+ a_0(n)=\min\{k\in\{L_n,\ldots,U_n\}:k-F(k+1)=n\}.
+\end{equation}
+The candidate interval contains two or three integers, so this is a bounded
+explicit formula, not a search over an unbounded sequence prefix.
+\end{theorem}
+\begin{proof}
+The first position $m$ with $F(m)\ge n$ satisfies
+$f(m)\ge n$, or $m\ge\pi/(2\arctan(1/n))$.
+Since all steps have size at most one, the $n$-th one step occurs at
+$m-1$, proving \eqref{eq:one}, including $n=1$.
+
+Write $Z(N)=N-F(N+1)$. The strict bounds on $f$ imply
+\[
+ \beta N-\alpha<Z(N)<\beta N+1.
+\]
+At $N=a_0(n)$ the right inequality gives $N>(n-1)/\beta$, so
+$N\ge L_n$. Since $U_n>n/\beta-1$, the left inequality gives
+$Z(U_n)>n-1$. This integer count is at least $n$, proving $a_0(n)\le U_n$.
+The count increases in steps of zero or one, so the first $k$ with count $n$
+is exactly the required term. Finally $2<1/\beta<3$, whence
+$U_n-L_n+1$ is either 2 or 3.
+\end{proof}
+
+\section{Certified evaluation and independent checks}
+The verifier encloses $\pi$ using Machin's identity
+$\pi=16\arctan(1/5)-4\arctan(1/239)$. It evaluates \eqref{eq:one}
+by rational enclosures for $\pi$ and $\arctan(1/n)$, and evaluates $F$
+by separate rational sine and cosine
+series with alternating remainder bounds. The formula for $a_0$ is then
+checked against the literal zero-step definition. All floor and ceiling
+operations are certified by matching lower and upper rational bounds;
+ambiguous intervals are refined.
+
+For completeness, refinement terminates. The exceptional exact boundaries
+$F(1)=0$, $F(2)=1$, and $a_1(1)=1$ are handled symbolically. If
+$\cot(\pi/(2k))=m$ were an integer $m\ge2$, then the root of unity
+$z=e^{\pi i/k}=(m+i)/(m-i)$ would satisfy
+\[
+ z+z^{-1}=\frac{2(m^2-1)}{m^2+1}=2-\frac4{m^2+1}.
+\]
+This rational algebraic integer lies strictly between 1 and 2, a contradiction.
+Thus no remaining cotangent floor or inverse-cotangent ceiling lies on an
+integer boundary. The linear bounds involving $\beta$ are irrational for
+nonzero numerator, since $\pi$ is irrational; the zero numerator is exact.
+
+The supplied official-table prefixes and direct step computations provide
+independent finite controls, not the proof of either asymptotic. All arithmetic
+uses the Python standard library. The results prove the statements recorded
+in the cited entries; they do not assert an exhaustive literature-priority
+review or editorial acceptance by OEIS.
+\begin{thebibliography}{9}
+\bibitem{zero} C. Kimberling, OEIS A248520 (2014),
+\url{https://oeis.org/A248520}, accessed October 26, 2026.
+\bibitem{one} C. Kimberling, OEIS A248521 (2014),
+\url{https://oeis.org/A248521}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

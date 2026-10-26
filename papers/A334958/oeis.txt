@@ -1,0 +1,9 @@
+A334958 proposed update (not submitted)
+
+COMMENTS
+For H_n=sum(k=1..n,(-1)^(k+1)/k)=u/v in lowest terms, a(n)=n!/v. Hence a(n)=n!*product(p<=n,p^min(0,v_p(H_n))), proving the displayed valuation-product conjecture. Also n!/lcm(1,...,n) divides a(n).
+
+CORRECTION / SCOPE
+The separate claims about infinitely many equalities and infinitely many ratio identities remain open here. This result completes the stated valuation-product problem, not every attached question.
+
+Complete proof and reproducible exact verifier are supplied in main.tex and verify.py. Publication links can be pinned after a reviewable repository commit exists; no placeholder URL is asserted.
