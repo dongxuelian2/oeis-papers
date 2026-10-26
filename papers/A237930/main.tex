@@ -1,0 +1,114 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.82in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\title{Six Forbidden Prime Classes in an Exponential Sequence}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the six excluded prime residue classes conjectured in
+OEIS A237930. Each excluded prime makes three a quadratic residue
+and seven a quadratic nonresidue, which prevents it from dividing
+any term $(7\cdot3^n-1)/2$. We also give the exact finite
+multiplicative-order criterion for every other odd prime.
+\end{abstract}
+
+\section{The six forbidden classes}
+Write
+\[
+ A(n)=3^{n+1}+\frac{3^n-1}{2}=\frac{7\cdot3^n-1}{2},\qquad n\ge0.
+\]
+The April 13, 2020 comment in OEIS A237930 conjectures that no
+prime congruent to $11,13,23,61,71,$ or $73$ modulo $84$ divides
+any term. The listed classes are interpreted as six integers;
+the missing comma between $61$ and $71$ in the entry is typographical.
+
+For an odd prime $p$ and integer $a$ coprime to $p$, denote the
+Legendre symbol by $\left(\frac ap\right)$.
+\begin{theorem}
+For every $n\ge0$, no prime divisor of $A(n)$ is congruent to any of
+\[
+ 11,13,23,61,71,73\pmod{84}.
+\]
+\end{theorem}
+\begin{proof}
+Quadratic reciprocity and its supplementary laws give
+\[
+ \left(\frac3p\right)=
+ \begin{cases}1,&p\equiv1,11\pmod{12},\\-1,&p\equiv5,7\pmod{12},\end{cases}
+ \qquad
+ \left(\frac7p\right)=(-1)^{(p-1)/2}\left(\frac p7\right).
+\]
+The nonzero squares modulo seven are $1,2,4$. Applying these
+rules to the unit classes modulo $84$ gives
+\[
+ \left(\frac3p\right)=1,\quad\left(\frac7p\right)=-1
+ \quad\Longleftrightarrow\quad
+ p\equiv11,13,23,61,71,73\pmod{84}.
+\]
+For transparency, the associated local residues are
+\[
+\begin{array}{c|rrrrrr}
+ p\bmod84&11&13&23&61&71&73\\\hline
+ p\bmod12&11&1&11&1&11&1\\
+ p\bmod7&4&6&2&5&1&3\\
+ p\bmod4&3&1&3&1&3&1
+\end{array}
+\]
+If such a $p$ divided $A(n)$, then $7\cdot3^n\equiv1\pmod p$.
+Taking Legendre symbols would give
+\[
+ 1=\left(\frac7p\right)\left(\frac3p\right)^n=-1,
+\]
+which is impossible.
+\end{proof}
+
+\section{The exact incidence condition for other primes}
+The obstruction proves precisely the six-class conjecture; it
+need not characterize all primes that never divide the sequence.
+An exact finite test for each remaining prime is as follows.
+The prime $2$ divides $A(n)$ exactly when $n$ is odd, since
+$7\cdot3^n-1\equiv0\pmod4$ exactly then. The prime $3$ divides
+only $A(0)=3$, and $7$ divides no term.
+
+For an odd prime $p\ne3,7$, put $t=\operatorname{ord}_p(3)$.
+If the finite set
+\[
+ H_p=\{0\le h<t:3^h\equiv7^{-1}\pmod p\}
+\]
+contains an element $h$, it is unique, and
+\[
+ p\mid A(n)\quad\Longleftrightarrow\quad n\equiv h\pmod t.
+\]
+If $H_p$ is empty, $p$ divides no term. This follows immediately
+from the periodic and distinct powers $3^0,\ldots,3^{t-1}$.
+Thus the sequence's individual prime-divisibility questions are
+also completely decidable by finite arithmetic.
+
+\section{Independent checks}
+The accompanying verifier first classifies all unit residues modulo
+$84$, then checks the two quadratic symbols by the independent
+Euler criterion for all relevant primes through $200000$.
+This includes 4513 primes in the excluded classes.
+For every excluded prime below $5000$, it independently traverses
+the entire orbit of powers of three and checks absence of a
+solution; these cycles contain 134995 residues in total.
+All 1001 official sequence terms agree with the exponential formula
+and the independent affine recurrence $A(0)=3$,
+$A(n+1)=3A(n)+1$. The all-index exclusion is proved above,
+not inferred from those finite tests.
+
+\begin{thebibliography}{1}
+\bibitem{oeis} The OEIS Foundation Inc.,
+\href{https://oeis.org/A237930}{A237930} and its
+\href{https://oeis.org/A237930/b237930.txt}{b-file},
+accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

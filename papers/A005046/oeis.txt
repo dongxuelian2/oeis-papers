@@ -1,0 +1,16 @@
+Proposed update for https://oeis.org/A005046 (not submitted).
+
+The eventual-periodicity conjecture is true for every modulus m. Put
+P_0=1 and P_{r+1}=(c*d/ds+s*d/dc+s)P_r. Then a(n)=P_{2n}(0,1).
+Modulo m, the operator descends to the finite ring
+(Z/mZ)[s,c]/(s^m,c^m-1), so its orbit is eventually periodic.
+For m=2, P_6=P_0 in this quotient; for m=5, P_6=P_2.
+Consequently the stated period 6 modulo 10 holds from n=1.
+
+The Bessel formula is also true. Expanding exp(e^x/2)*exp(e^-x/2)
+gives exp(cosh(x))=sum_{k in Z} I_|k|(1)*exp(k*x). Locally uniform
+absolute convergence of every derivative justifies differentiation 2n
+times at zero, giving the stated identity for n>0.
+
+Proof source: main.tex and main.pdf in this directory. Original conjectures
+remain credited to Peter Bala (2023) and Velin Yanev (2026).

@@ -1,0 +1,94 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=.82in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Column Differences and Alternating Antidiagonals of A260056}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[.3em]Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We prove both conjectures recorded in OEIS A260056. Every column is
+an explicit polynomial in the row index, of degree exactly one more
+than the column index. This proves the conjectured finite-difference
+recurrence and its minimal order. Alternating antidiagonal sums have
+a rational generating function that identifies them with the stated
+shift of A004524. All assertions hold at every row and column.
+\end{abstract}
+Let
+\[
+ T(n,k)=[x^k]\sum_{j=0}^n(1+x+x^2)^j\quad(n,k\ge0),
+\]
+with coefficients outside a row taken as zero. This is the polynomial
+definition of A260056~\cite{target}. The entry conjectures that column
+$k$ has vanishing differences of order $k+2$, and that its alternating
+antidiagonal sums equal A004524 shifted by three.
+\begin{theorem}
+For every $n,k\ge0$,
+\begin{equation}\label{eq:column}
+ T(n,k)=\sum_{i=\lceil k/2\rceil}^{k}
+   \binom{i}{k-i}\binom{n+1}{i+1}.
+\end{equation}
+Consequently
+\[
+ \sum_{m=0}^{k+2}(-1)^m\binom{k+2}{m}T(n+m,k)=0.
+\]
+As a polynomial in $n$, column $k$ has degree exactly $k+1$;
+no lower positive difference order vanishes identically.
+\end{theorem}
+\begin{proof}
+Expand $(1+x+x^2)^j=\sum_{i=0}^j\binom ji x^i(1+x)^i$.
+Its coefficient of $x^k$ is
+$\sum_i\binom ji\binom i{k-i}$, where only
+$\lceil k/2\rceil\le i\le k$ contribute. Sum over $j$ and apply
+$\sum_{j=0}^n\binom ji=\binom{n+1}{i+1}$ to obtain
+\eqref{eq:column}, including when $i>n$.
+The summand $i=k$ has degree $k+1$ and leading coefficient
+$1/(k+1)!$; every other summand has smaller degree.
+Each forward difference lowers the degree of a nonconstant
+polynomial by exactly one. Thus the $(k+2)$nd difference is zero
+and the $(k+1)$st difference is the nonzero constant one.
+The displayed signed form differs from the forward-difference
+convention only by the global sign $(-1)^{k+2}$.
+\end{proof}
+\begin{theorem}
+Define $c(m)=\sum_{k=0}^m(-1)^kT(m-k,k)$. Then for every $m\ge0$,
+\[
+ c(m)=\mathrm{A004524}(m+3),\qquad
+ c(4q+r)=2q+\begin{cases}1,&r=0,\\2,&r=1,2,3,\end{cases}
+ \quad 0\le r<4.
+\]
+\end{theorem}
+\begin{proof}
+The row definition gives the bivariate generating function
+\[
+ F(t,x)=\sum_{n,k\ge0}T(n,k)t^nx^k
+ =\frac1{(1-t)(1-t(1+x+x^2))}.
+\]
+Substitution $(t,x)=(z,-z)$ is legitimate as a formal series
+and weights each term by $(-1)^kz^{n+k}$. Hence
+\[
+ \sum_{m\ge0}c(m)z^m=F(z,-z)
+ =\frac1{(1-z)^2(1+z^2)}.
+\]
+A004524~\cite{comparison} has generating function
+$z^3/((1-z)^2(1+z^2))$ and initial coefficients zero through
+index two, proving the stated shift. Alternatively, the displayed
+four residue-class formulas have the same generating function,
+which verifies the identification without relying on a numerical
+comparison of terms.
+\end{proof}
+\paragraph{Validation and scope.}
+The standard-library verifier independently constructs rows using
+trinomial convolution, checks the closed column formula through row
+100 and column 40, audits the finite-difference identities, checks
+every antidiagonal through 100, and compares the complete published
+100-row flattened table. The arguments prove the two conjectures
+for all indices; finite checks validate the implementation.
+\begin{thebibliography}{2}
+\bibitem{target} W. Schulte, OEIS A260056,
+\url{https://oeis.org/A260056}, accessed October 26, 2026.
+\bibitem{comparison} The OEIS Foundation, A004524,
+\url{https://oeis.org/A004524}, accessed October 26, 2026.
+\end{thebibliography}\end{document}

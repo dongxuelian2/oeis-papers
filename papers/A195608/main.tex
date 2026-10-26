@@ -1,0 +1,149 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.82in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newcommand{\tm}{t}
+\title{A Binary Characterization of OEIS A195608}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\hypersetup{pdftitle={A Binary Characterization of OEIS A195608},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We characterize every index at which the sum of the first $n$ evil
+numbers equals one quarter of the product of the $n$th and $(n+1)$st
+evil numbers. The binary digit parity of two adjacent integers decides
+membership. This proves the three structural conjectures in OEIS
+A195608: the gaps are exactly $1,4,6$, the maximal consecutive blocks
+have length one or three, and each block start other than the initial
+index has the stated neighboring-evil-number difference equal to five.
+The initial index is an explicit boundary exception to the wording of
+the third conjecture, since the referenced evil-number sequence starts
+at index one.
+\end{abstract}
+
+\section{An exact membership criterion}
+Let $\tm(k)$ be the parity of the number of ones in the binary
+expansion of $k\ge0$. Then
+\[
+ \tm(2k)=\tm(k),\qquad \tm(2k+1)=1-\tm(k).
+\]
+Write $E(n)$ for the $n$th nonnegative evil number, using the
+one-based indexing of OEIS A001969 \cite{evil}. Exactly one of $2k$
+and $2k+1$ has even binary digit sum, so
+\begin{equation}\label{eq:evil}
+ E(n)=2(n-1)+\tm(n-1)\qquad(n\ge1).
+\end{equation}
+Let $\mathcal S$ consist of the positive integers $n$ satisfying
+\begin{equation}\label{eq:def}
+ \sum_{j=1}^n E(j)=\frac{E(n)E(n+1)}4.
+\end{equation}
+Its increasing enumeration is OEIS A195608 \cite{target}.
+
+\begin{theorem}\label{thm:membership}
+For every $k\ge0$,
+\[
+ 2k+1\in\mathcal S\quad\Longleftrightarrow\quad \tm(k)=0.
+\]
+For every $k\ge1$,
+\[
+ 2k\in\mathcal S\quad\Longleftrightarrow\quad
+ \tm(k-1)=\tm(k)=0.
+\]
+Thus the entire set, with no search for the original summatory
+identity, is
+\[
+ \mathcal S=\{2k+1:k\ge0,\ \tm(k)=0\}
+ \;\cup\;\{2k:k\ge1,\ \tm(k-1)=\tm(k)=0\}.
+\]
+\end{theorem}
+\begin{proof}
+Put $T(n)=\sum_{j=0}^{n-1}\tm(j)$. Pairing consecutive terms gives
+$T(2k)=k$ and $T(2k+1)=k+\tm(k)$. Equation~\eqref{eq:evil} gives
+\[
+ \sum_{j=1}^n E(j)=n(n-1)+T(n).
+\]
+For $n=2k+1$, put $u=\tm(k)$. Then
+$\tm(n-1)=u$, $\tm(n)=1-u$, and subtracting four times the left
+side of \eqref{eq:def} from its right-hand product gives
+\[
+ E(n)E(n+1)-4\sum_{j=1}^n E(j)=-2u.
+\]
+This vanishes precisely when $u=0$.
+
+For $n=2k$, put $u=\tm(2k-1)=1-\tm(k-1)$ and
+$v=\tm(2k)=\tm(k)$. The corresponding difference is
+\[
+ (4k-2)v+4ku+uv-4k.
+\]
+For $(u,v)=(0,0),(0,1),(1,0),(1,1)$ its values are,
+respectively, $-4k,-2,0,4k-1$. Since $k\ge1$, only $(u,v)=(1,0)$
+works, giving the stated condition.
+\end{proof}
+
+\section{All three structural questions}
+OEIS A195608 lists three conjectures \cite{target}: its first
+differences take only the values $1,4,6$; its maximal consecutive
+blocks have size one or three; and at a block's first index $m$,
+$E(m+1)-E(m-1)=5$. The last expression is defined only for $m\ge2$.
+Our result resolves these statements with that necessary boundary
+qualification.
+
+\begin{corollary}\label{cor:blocks}
+The maximal consecutive blocks in $\mathcal S$ have length one or
+three. The differences of successive terms of its increasing
+enumeration are exactly $1,4,6$. The initial block is $\{1\}$.
+Every later block starts at an odd integer $m$ and satisfies
+\[
+ E(m+1)-E(m-1)=5.
+\]
+\end{corollary}
+\begin{proof}
+Every pair $\tm(2r),\tm(2r+1)$ consists of opposite bits. Therefore
+neither $000$ nor $111$ occurs in the parity sequence. Consecutive
+zero positions are at distance one, two, or three. A run of zero
+positions has length at most two.
+
+By Theorem~\ref{thm:membership}, a single zero at $k$ produces the
+odd member $2k+1$. Two adjacent zeros at $k,k+1$ produce exactly
+the three consecutive members $2k+1,2k+2,2k+3$. All even members
+arise in this way. Thus all maximal blocks have length one or three.
+Zero-position gaps of two and three produce member gaps four and
+six; a zero-position gap of one is filled by its even member and
+produces two gaps of one. All three differences occur, as the
+initial terms $1,7,11,12,13$ demonstrate.
+
+A noninitial block begins at $m=2k+1$ where $k\ge1$,
+$\tm(k)=0$, and $\tm(k-1)=1$. Now
+\[
+ E(m+1)=4k+2+\tm(2k+1)=4k+3,
+ \qquad
+ E(m-1)=4k-2+\tm(2k-1)=4k-2.
+\]
+Their difference is five. At the initial block $m=1$, $E(0)$ is
+outside the domain of A001969; no assertion involving it is needed.
+\end{proof}
+
+\section{Reproducibility and scope}
+The accompanying \texttt{verify.py} independently generates evil
+numbers by testing binary digit parity and tests the original
+integer equality \eqref{eq:def}. It compares this computation with
+the theorem for every index through one million, checks the complete
+first 10,000 published terms, and checks all complete blocks and
+block-start differences in the same interval. A second independent
+generation uses the binary substitution $0\mapsto01$, $1\mapsto10$.
+These finite audits validate the implementation; the proofs above
+cover every positive index.
+
+\begin{thebibliography}{9}
+\bibitem{target} V. Shevelev, OEIS A195608, The On-Line Encyclopedia
+of Integer Sequences, \url{https://oeis.org/A195608}, accessed
+October 26, 2026.
+\bibitem{evil} The OEIS Foundation, OEIS A001969,
+\url{https://oeis.org/A001969}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

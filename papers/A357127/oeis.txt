@@ -1,0 +1,9 @@
+A357127 proposed update (not submitted)
+
+COMMENTS
+Every nonunit value is a prime p congruent to 1 modulo 3 and occurs exactly twice, at n and p-n-1. This proves Conjecture 1 at every index.
+
+CORRECTION / SCOPE
+Conjecture 2 is false: a(35)=a(61)=97, but gcd(35^2+35+1,61^2+61+1)=1261. The exact replacement is p*gcd((n^2+n+1)/p,m-n) for the paired indices. The separate record-prime observation is not proved.
+
+Complete proof and reproducible exact verifier are supplied in main.tex and verify.py. Publication links can be pinned after a reviewable repository commit exists; no placeholder URL is asserted.

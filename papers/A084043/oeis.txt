@@ -1,0 +1,10 @@
+A084043 proposed update (not submitted)
+
+COMMENTS
+The conjecture holds for every n: a(n)=0 if and only if 10 divides n. Write n=C*m with C its full power of 2 or 5 (or 1), gcd(m,10)=1. Pad the decimal expansion S of C on the left to length max(1,valuation(C,2)+valuation(C,5)); its last digit is nonzero. With D the expansion of n, B=reverse(S) D reverse(D) S is a palindromic multiple of C containing D internally. If L is its length and h=ord_m(10^L) (h=1 for m=1), repeating B exactly m*h times yields a palindromic multiple of n.
+
+FORMULA
+For 10 not dividing n, a finite deterministic automaton can enforce divisibility by n and an interior occurrence of its digit string. With d digits in n it has Q=n*(d+2)+2 states, including an initial state and a leading-zero dead state. Its pair graph has edges (p,q) -> (delta(p,x),q') whenever delta(q',x)=q. Edges cost 2; centers cost 0 when p=q and cost 1 when delta(p,x)=q for some digit x. The shortest accepted palindrome, with ties broken lexicographically, gives a(n), and its length is at most 2*Q^2-1.
+
+PROOF LOCATION
+README.md and main.tex in this directory contain the complete construction, explicit automaton, and exact finite minimum theorem. No OEIS edit has been submitted.

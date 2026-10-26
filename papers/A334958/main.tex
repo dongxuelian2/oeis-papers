@@ -1,0 +1,67 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{An Exact Denominator Formula for OEIS A334958}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the valuation-product conjecture for the gcd of consecutive factorial-scaled alternating harmonic sums in OEIS A334958. An exact reduced-denominator formula proves all of the displayed gcd identities simultaneously and establishes the accompanying divisibility observation. Separate infinitude observations are left open.
+\end{abstract}
+\section{An exact denominator formula}
+For $n\ge1$ put
+\[
+ H'_n=\sum_{k=1}^n\frac{(-1)^{k+1}}k,\qquad A_n=n!H'_n,\qquad B_n=n!-A_n.
+\]
+Both $A_n$ and $B_n$ are integers. The sequence in A334958~\cite{oeis} is $a(n)=\gcd(A_n,A_{n+1})$.
+\begin{theorem}
+Write $H'_n=u_n/v_n$ in lowest terms with $v_n>0$. Then for every $n\ge1$,
+\begin{align*}
+ a(n)&=\frac{n!}{v_n}
+ =n!\prod_{p\le n}p^{\min(0,v_p(H'_n))}\\
+ &=\gcd(A_n,n!)=\gcd(B_n,n!)=\gcd(A_n,B_n)
+ =\gcd(B_n,B_{n+1}),
+\end{align*}
+where the product is over primes. In addition,
+\[
+ \frac{n!}{\operatorname{lcm}(1,\ldots,n)}\ \mid\ a(n).
+\]
+\end{theorem}
+\begin{proof}
+The defining sums give
+\[
+ A_{n+1}=(n+1)A_n+(-1)^{n+2}n!.
+\]
+Consequently $\gcd(A_n,A_{n+1})=\gcd(A_n,n!)$.
+As $A_n=n!u_n/v_n$ is integral and $\gcd(u_n,v_n)=1$, we have $v_n\mid n!$ and
+\[
+ \gcd(A_n,n!)=\frac{n!}{v_n}\gcd(u_n,v_n)=\frac{n!}{v_n}.
+\]
+All primes of $v_n$ are at most $n$, and
+$\min(0,v_p(H'_n))=-v_p(v_n)$. This proves the valuation-product formula exactly as conjectured in the entry.
+
+The relation $B_n=n!-A_n$ gives the remaining same-index gcd equalities. Also
+\[
+ B_{n+1}=(n+1)B_n-(-1)^{n+2}n!,
+\]
+which proves the consecutive-$B$ equality by the same Euclidean step.
+
+Finally the common denominator $L_n=\operatorname{lcm}(1,\ldots,n)$ makes $L_n H'_n$ integral, so $v_n\mid L_n$. Thus
+$a(n)=(n!/L_n)(L_n/v_n)$, proving the divisibility observation involving A025527~\cite{lcm}.
+\end{proof}
+\section{Scope and reproducibility}
+The standard-library verifier compares all 29 displayed official terms, independently computes the alternating sum as an exact rational number, and checks the recurrence, denominator, prime-valuation product, every displayed gcd equality, and the divisibility formula for $1\le n\le500$. The included table gives 100 exact terms. Integer sizes grow rapidly and no bit-polynomial complexity claim is made.
+
+The entry also suggests that equality with A025527 and an associated ratio identity occur infinitely often. Neither infinitude assertion is proved here. The completed problem is the explicit all-index valuation-product conjecture, together with the stated divisibility observation; the result is not represented as resolving every question attached to this sequence. No OEIS submission or literature-priority claim is made.
+\begin{thebibliography}{2}
+\bibitem{oeis} OEIS Foundation Inc., A334958, \url{https://oeis.org/A334958}, accessed October 26, 2026.
+\bibitem{lcm} OEIS Foundation Inc., A025527, \url{https://oeis.org/A025527}, accessed October 26, 2026.
+\end{thebibliography}
+
+\end{document}

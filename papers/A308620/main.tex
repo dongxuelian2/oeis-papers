@@ -1,0 +1,108 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=.8in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{The Rational Generating Function of A308620}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[.3em]Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We derive the generating function conjectured for the steady-state
+counts of the evolutionary spatial prisoner's dilemma on a path.
+The proof starts from the established exact count, rather than a
+fit to finitely many values. It proves the proposed order-ten
+recurrence with its correct starting index: the recurrence applies
+from index 12, and fails by one at index 11.
+\end{abstract}
+\section{The exact counting formula}
+Write $a(n)$ for A308620~\cite{oeis}, $n\ge1$. The counts are for
+path states modulo reflection. Burger, van der Merwe and van Vuuren
+prove the following formula in Theorem 3, equation (4.2) of
+\cite{paper}; it is also the entry's Maple evaluator:
+\[
+ a(n)=1+Q_n+\tfrac12(R_n+\bar R_n+S_n+\bar S_n),
+\]
+where, with empty sums zero,
+\begin{align*}
+ Q_n&=\sum_{i=1}^{\lfloor(n+1)/5\rfloor}\binom{n-3i}{2i-1},\\
+ R_n&=\sum_{i=1}^{\lfloor(n+4)/5\rfloor}\binom{n-3i+2}{2i-2},
+ &\bar R_n&=\sum_{i=1}^{\lfloor(n+4)/5\rfloor}
+ \binom{\lfloor(n-5i+4)/2\rfloor+i-1}{i-1},\\
+ S_n&=\sum_{i=1}^{\lfloor(n-2)/5\rfloor}\binom{n-3i-2}{2i},
+ &\bar S_n&=\sum_{i=1}^{\lfloor(n-2)/5\rfloor}
+ \binom{\lfloor(n-5i-2)/2\rfloor+i}{i}.
+\end{align*}
+This established theorem supplies the connection to the game:
+nontrivial steady states have defection runs of length at least
+two, internal cooperation runs of length at least three, and
+endpoint cooperation runs of length at least two. The terms above
+count their run-length compositions and reflection-fixed cases.
+We prove the subsequent generating-function conjecture, not a new
+claim of authorship for this state classification.
+
+\section{Summation and recurrence}
+Put $D=(1-x)^2-x^5$, $E=1-x^2-x^5$, and let each capital letter
+also denote the generating function over $n\ge1$ of its subscripted
+sequence. The elementary identity
+$\sum_{j\ge0}\binom{j+h}{h}x^j=(1-x)^{-h-1}$ gives
+\begin{align*}
+ Q&=\sum_{i\ge1}\frac{x^{5i-1}}{(1-x)^{2i}}=\frac{x^4}{D},
+ &R&=\frac{x(1-x)}{D},&S&=\frac{x^7}{(1-x)D},\\
+ \bar R&=\frac{x(1+x)}{E},
+ &\bar S&=\frac{x^7}{(1-x)E}.
+\end{align*}
+For the barred sums, pair the two powers $x^{2j}$ and $x^{2j+1}$
+to obtain
+$\sum_{j\ge0}\binom{\lfloor j/2\rfloor+h}{h}x^j
+=(1+x)/(1-x^2)^{h+1}$.
+All the sums are formal: every coefficient receives finitely many
+contributions, so rearrangement requires no analytic convergence.
+
+\begin{theorem}
+The ordinary generating function is exactly
+\[
+ G(x)=\sum_{n\ge1}a(n)x^n
+ =2x-\frac{x^2(-2+2x+x^2-2x^3+3x^5+x^7+x^9)}
+ {(x^5+x^2-1)(x^5-x^2+2x-1)}.
+\]
+For every $n\ge12$,
+\[
+ a(n)=2a(n-1)-2a(n-3)+a(n-4)+2a(n-5)
+       -2a(n-6)-a(n-10).
+\]
+At $n=11$ the right side is 41 whereas $a(11)=42$.
+\end{theorem}
+\begin{proof}
+Substitute the five rational expressions above into
+$G=x/(1-x)+Q+(R+\bar R+S+\bar S)/2$ and combine fractions.
+An equivalent polynomial identity, which also certifies the algebra,
+is
+\begin{align*}
+ &(1-2x+2x^3-x^4-2x^5+2x^6+x^{10})G(x)\\
+ &\hspace{1cm}=2x-2x^2-2x^3+3x^4-4x^6+x^7-x^9+x^{11}.
+\end{align*}
+The denominator is $DE$. Coefficients above degree 11 give the
+recurrence. The coefficient at degree 11 is one, explaining its
+explicit exception there. This proves both official conjectures
+with the required initial-index qualification.
+\end{proof}
+\paragraph{Validation.}
+The verifier computes the original binomial formula through
+$n=1000$, checks every recurrence instance and the entire rational
+polynomial identity in that range, and compares all 40 published
+terms. A separate binary-word enumeration through length 18 checks
+the run conditions and counts reversal orbits directly, independently
+of the binomial formula. Finite checks validate the implementation;
+the formal identities prove the all-index claims. No OEIS submission
+or literature-priority claim is made.
+\begin{thebibliography}{2}
+\bibitem{oeis} R. J. Mathar, OEIS A308620,
+\url{https://oeis.org/A308620}, accessed October 26, 2026.
+\bibitem{paper} A. P. Burger, M. van der Merwe and J. H. van Vuuren,
+An asymptotic analysis of the evolutionary spatial prisoner's dilemma
+on a path, Discrete Applied Mathematics 160 (2012), 2075--2088,
+Theorem 3 and equation (4.2), author-hosted copy:
+\url{https://www.vuuren.co.za/papers/GamesPaths.pdf}.
+\end{thebibliography}\end{document}
