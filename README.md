@@ -50,3 +50,8 @@ and is not a separate manuscript.
   on two infinite families (including a(n)=n for decimal-smooth moduli and
   a(n)=2n-1 on a 7-denominator family), with a companion prime-power theorem.
   The a(n)=2 classification is prior work of David Wasserman (2005), A069860.
+
+- [A382357 / A382360](papers/A382357-A382360/): proves the greedy valuation
+  sequence is a permutation of the positive integers. The general theorem
+  covers every integer base, fixed valuation jump and finite legal seed.
+  Also proves the paired-power formula and an exact five-term block.
