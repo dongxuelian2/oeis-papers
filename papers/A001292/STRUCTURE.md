@@ -225,7 +225,7 @@ rotations, (2), (3), (5), coefficient valuations, the finite small cases, and
 exact power extensions that test the bound in (7). The proofs above establish
 the unbounded statements; finite tests do not.
 
-The three theorems already in [README.md](README.md) survive independent
+The three theorems in [RESIDUE_EXCLUSIONS.md](RESIDUE_EXCLUSIONS.md) survive independent
 algebraic checking: the mod-27 double sum, the valuation-2 square exclusion,
 and the mod-13 block table. In the third theorem the affine transition matrix
 has period dividing 78 modulo 13: its eigenvalues are \(10^d,1,1\); if

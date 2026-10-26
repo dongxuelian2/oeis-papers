@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Finite, independent reproducibility checks for the A001292 partial theorems.
 
-The infinite assertions require the proofs in README.md; this is NOT a
+The infinite assertions require the proofs in RESIDUE_EXCLUSIONS.md; this is NOT a
 computational proof of Kashihara's conjecture.
 """
 from collections import Counter

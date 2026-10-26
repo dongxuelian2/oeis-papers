@@ -1,21 +1,16 @@
-A001292 verification — 2026-10-26
+A001292 exact verification — 2026-10-26
 
 verify_a001292.py: exit 0
 PASS: mod-27 and length formulas for 100000 values 3704 33
 PASS: all rotations for selected cases; combined sieve at m=990
 PASS: mod-13 complete-block period
 PASS: large symbolic family t=0..27
-Global conjecture remains OPEN
 
 verify_structure.py: exit 0
 PASS: independent literal audit: 21780 rotation residues; 840 matrix transitions
 PASS: fixed-digit identities d=1..4, coefficient recurrence; 7259 literal boundary rotations through m=120
 PASS: 54 small rotations, all possible prime exponents
 PASS: 5 artificial power extensions, including g=2; exact bounds and an independent square-root continued fraction
-Example (NOT an A001292 counterexample):
-x = 516983038860861222449498652367921790789619980431965150344909724753745429
-x^2 = 267271462469810744897753274073393404829290044018174796149518406783245961234567891011121314151617181920212223242526272829303132333435363738394041
-Global Kashihara conjecture remains OPEN.
 
 verify_powerful_sieve.py: exit 0
 PASS: local law in every phase; 99 coefficient/base cases
@@ -23,13 +18,22 @@ PASS: simultaneous laws with overlapping periods; 1082214 residues in three comp
 PASS: 9145 literal rotations and 58903 affine-exponential reductions in five bases
 PASS: exact rational Bonferroni remainder and factorial bound
 
+verify_boundary_valuations.py: exit 0
+PASS: 13 exact Taylor coefficients, their valuation bounds, and 1200 rational power-sum averages
+PASS: exact boundary valuation and normalized unit for d=1..60000; independent matrix blocks for d=1..80
+PASS: literal rolling prefixes through m=999999; 1141 actual rotation residues at complete boundaries
+PASS: complete square/cube exclusion table; 72 valuation/unit classes
+
 search_gmp.py 1000: exit 0
 PASS independent all-exponent predicate audit on 2..10000
-{"m": 1000, "digits": 2893, "seconds": 2.48, "counts": {"proved_mod9": 221556, "gmp_all_exponents": 242247, "proved_mod27": 36696}}
-RESULT {"counterexamples": [], "counts": {"gmp_all_exponents": 242247, "proved_mod27": 36696, "proved_mod9": 221556}, "limit": 1000, "seconds": 2.48, "total_rotations": 500499}
 
-Full run: python search_gmp.py 5000
+Earlier full run: python search_gmp.py 5000
 12,502,499 nontrivial rotations covered; no perfect powers.
 6,464,578 exact GMP all-exponent predicates; 5,558,335 mod-9 exclusions;
 479,586 mod-27 exclusions. Search time: 423.859 seconds.
-The source hash and GMP version are recorded in SEARCH_5000.json.
+The unchanged search source hash and GMP version are in SEARCH_5000.json.
+
+Manuscript: main.tex -> main.pdf, two successful pdflatex passes.
+Four complete pages inspected as rendered JPEGs; no LaTeX warnings.
+PDF/source hashes and page count checked against publication.json.
+All local documentation links checked.

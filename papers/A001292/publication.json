@@ -1,0 +1,10 @@
+{
+  "source": "main.tex",
+  "pdf": "main.pdf",
+  "source_sha256": "be1992d3bace0641f9097238a3effea4ed6feb025f25e3d81ab3332c8ce034e9",
+  "pdf_sha256": "7880a7d783e567afd758148ed80a1473c68e10b28850254f064430c9a0d7fa62",
+  "pages": 4,
+  "checked_at": "2026-10-26",
+  "build": "pdflatex, twice; JPEG review of every page",
+  "status": "partial results; Kashihara conjecture open"
+}

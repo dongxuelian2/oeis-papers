@@ -27,5 +27,19 @@ jobs:
           python papers/A001292/verify_structure.py
       - name: Verify the powerful-value sieve
         run: python papers/A001292/verify_powerful_sieve.py
+      - name: Verify the complete-boundary valuation formulas
+        run: python papers/A001292/verify_boundary_valuations.py
       - name: Check all possible exponents through m equals 1000
         run: python papers/A001292/search_gmp.py 1000
+
+  manuscript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require the committed manuscript PDF
+        run: git ls-files --error-unmatch papers/A001292/main.pdf
+      - name: Compile the current manuscript
+        uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: papers/A001292
+          root_file: main.tex
