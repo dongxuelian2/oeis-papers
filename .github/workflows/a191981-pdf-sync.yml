@@ -1,0 +1,33 @@
+name: Rebuild A191981 research manuscript PDF
+on:
+  push:
+    branches: [research/a191981-unique-representations-20261026]
+    paths:
+      - 'papers/A191981/main.tex'
+      - '.github/workflows/a191981-pdf-sync.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: papers/A191981
+          root_file: main.tex
+      - name: Run exact-integer certificates
+        run: |
+          python3 papers/A191981/verify.py
+          python3 papers/A191981/verify_intersection.py
+      - name: Commit current manuscript PDF
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f papers/A191981/main.pdf
+          git diff --cached --quiet || git commit -m 'Rebuild PDF for complete A191981 intersection theorem'
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase "origin/$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"

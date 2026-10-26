@@ -18,7 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verify integer arithmetic
-        run: python3 papers/A191981/verify.py
+        run: |
+          python3 papers/A191981/verify.py
+          python3 papers/A191981/verify_intersection.py
       - name: Compile manuscript
         uses: xu-cheng/latex-action@v4
         with:
