@@ -31,6 +31,17 @@ These rules apply throughout `oeis-papers`. Keep the repository a clear, navigab
 - Avoid multiple indistinguishable “final” PDFs, duplicated versions of a single paper, and temporary build outputs. Fix stale internal links when reorganizing files.
 - Keep root-level material limited to the repository index, shared instructions, shared configuration, and genuinely cross-paper documentation. Put sequence-specific material in its paper directory.
 
+## Manuscript length and readability
+
+- **Make each paper as short and easy to read as the mathematics permits.** Prioritize a clear mathematical argument over page count, but remove unnecessary repetition, generic background, verbose commentary, administrative notes, and long verification narratives.
+- Present the problem and principal results early. State notation and hypotheses close to their first use; explain the main proof idea before lengthy technical details where that improves comprehension.
+- Organize the main text around a small number of meaningful lemmas and theorems, with a logical progression and short, direct proofs. Prefer a simple constructive argument or unified lemma over repetitive case-by-case exposition when both are rigorous.
+- Include enough reasoning for a mathematician to verify each essential inference. **Never shorten a paper by omitting necessary hypotheses, nontrivial proof steps, edge cases, or the precise role of computer-assisted certificates.**
+- Put extensive enumerations, large tables, raw logs, exploratory attempts, implementation details, and independent audits in supplementary files, linking to them from the manuscript only when necessary for the logical proof.
+- Use standard mathematical notation consistently. Keep formulas, displays, examples, and tables where they actually clarify the argument; avoid redundant definitions and restating the same theorem in several places.
+- Keep the introduction and abstract concise and substantive. Give a direct conclusion rather than repeating a discussion of scope, limitations, or the contents of the repository.
+- Check the compiled PDF as a reader would: legible equations, reasonable spacing, minimal cross-reference friction, and no unnecessary sections. Readability and correctness take precedence over an arbitrary page limit.
+
 ## Mathematical claims and verification
 
 - Separate proved results, computer-assisted conclusions, finite experiments, conjectures, and work in progress. State precisely which claims use finite certificates or external results.
