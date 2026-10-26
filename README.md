@@ -3,6 +3,24 @@
 This repository contains OEIS-related mathematical papers, their sources, and
 reproducibility materials.
 
+- [October 26 existence and minimum results](papers/EXISTENCE_BATCH_2026-10-26.md):
+  five existence questions across eight OEIS entries, with exact minimum
+  formulas for several families and three all-index finite minimum reductions.
+- [A088862 / A090335](papers/A088862-A090335/): prefix-free divisor
+  representations with every prescribed prime signature, in every base,
+  with explicit witness bounds.
+- [A087304](papers/A087304/): infinitely many nontrivial multiples preserving
+  the nonzero digit product, and an exact finite digit recurrence for the minimum.
+- [A086558](papers/A086558/): all-index existence with the required decimal
+  prefix and prime signature, a finite prime-parameter minimum formula,
+  and a simpler formula at prime-power indices.
+- [A346644](papers/A346644/): every denominator occurs in the mean of the
+  divisors; exact partition formulas at odd prime-power indices and
+  `a(2^s)=2^(2^s-1)`.
+- [A115038 / A115039 / A115041](papers/A115038-A115041/): an elementary
+  existence correction for the three encodings of one question, with an
+  exact finite minimum reduction using odd prime powers.
+
 - [A075000-A075002](papers/A075000-A075002/): proves the existence statements for
   OEIS A075000, A075001, and A075002.
 

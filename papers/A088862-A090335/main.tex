@@ -1,0 +1,147 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype,booktabs}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega}
+\title{Prefix-Free Divisor Representations with Prescribed Prime Factorization}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\hypersetup{pdftitle={Prefix-Free Divisor Representations with Prescribed Prime Factorization},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For every integer base $b\ge2$ and every finite list of positive prime
+exponents, infinitely many integers with precisely that prime signature
+have prefix-free base-$b$ representations of all their divisors greater
+than one. This proves the existence conjectures recorded in OEIS A088862
+and A090335. If the exponents sum to $r\ge1$, a witness is smaller than
+$b^{r^3+32r}$. The construction separates divisor lengths and leading
+values by choosing all prime factors in one short multiplicative interval.
+\end{abstract}
+
+\section{The two existence questions}
+A finite collection of words is prefix-free if no word is a proper prefix
+of another. Integer representations have no leading zeros. OEIS A088862
+asks for the smallest integer with a prescribed total number $\Om(N)$ of
+prime factors and prefix-free binary divisor representations; A090335
+uses the number $\om(N)$ of distinct prime factors instead
+\cite{a88862,a90335}. Both entries record the conjecture that a witness
+exists for every prescribed count.
+
+We use $r$ for the actual factor count. The displayed lists and synthesized
+b-files currently begin with $1$, of factor count zero, while their
+published first offset is $1$; their names, formulas and examples use the
+factor count itself. Our statements include every count $r\ge0$ and thus
+apply to either indexing convention. No list value is changed here.
+
+\begin{lemma}[Separation interval]\label{lem:separate}
+Fix $b\ge2$, $r\ge1$ and an integer $k\ge2$. Suppose that every prime factor,
+with multiplicity, of an integer $N$ belongs to
+\begin{equation}\label{eq:interval}
+ I_{b,r,k}=\bigl(b^{k-1/r},\ b^{k-1/(r+1)}\bigr),
+ \qquad \Om(N)=r.
+\end{equation}
+Then the base-$b$ representations of the divisors of $N$ greater than one
+are prefix-free.
+\end{lemma}
+\begin{proof}
+A divisor $d$ with $i=\Om(d)\in\{1,\ldots,r\}$ satisfies
+\begin{equation}\label{eq:layer}
+ b^{ik-i/r}<d<b^{ik-i/(r+1)}.
+\end{equation}
+Since $i/r\le1$, this places $d$ strictly between $b^{ik-1}$ and $b^{ik}$,
+so its representation has exactly $ik$ digits. Two distinct divisors in
+the same layer have the same length and cannot be proper prefixes.
+
+Let $u,v$ belong to layers $i<j$. The integer represented by the first
+$ik$ digits of $v$ is $\lfloor v/b^{(j-i)k}\rfloor$. But
+\[
+ \frac{v}{b^{(j-i)k}}<b^{ik-j/(r+1)}
+ <b^{ik-i/r}<u,
+\]
+because $r(j-i)>i$ for $1\le i<j\le r$. The leading digits of $v$ therefore
+cannot equal $u$.
+\end{proof}
+
+\newpage
+\begin{lemma}[Enough primes, with an explicit scale]\label{lem:primes}
+For every $b\ge2$, $r\ge1$ and integer $k\ge r^2+32$, the interval
+$I_{b,r,k}$ contains at least $r$ distinct primes.
+\end{lemma}
+\begin{proof}
+Dusart's Proposition 6.8 \cite{dusart} states that for $x>396738$ there
+is a prime in $(x,x(1+1/(25\log^2x))]$. Put
+\[
+ L=b^{k-1/r},\quad U=b^{k-1/(r+1)},\quad
+ \varepsilon=\frac1{25\log^2L}.
+\]
+Here $L\ge2^{32}>396738$. Starting at $L$, apply this result successively
+at the prime just found. The $r$-th prime is at most
+$L(1+\varepsilon)^r<L\exp(r\varepsilon)$. Also
+\[
+ 25(k-1/r)^2\log^3b>\frac{25}{8}r^4>r^2(r+1),
+\]
+where $\log2>1/2$ and $k-1/r>r^2$ were used. Consequently
+\[
+ r\varepsilon<\frac{\log b}{r(r+1)}=\log(U/L).
+\]
+All $r$ primes lie strictly below $U$, as required.
+\end{proof}
+
+\begin{theorem}[Arbitrary prime signature]\label{thm:main}
+Let $e_1,\ldots,e_t$ be positive integers and $r=e_1+\cdots+e_t$.
+For each base $b\ge2$ there are infinitely many choices of distinct primes
+$p_1,\ldots,p_t$ for which $N=\prod_{i=1}^t p_i^{e_i}$ has prefix-free
+base-$b$ representations of its divisors greater than one. One such $N$
+satisfies $N<b^{r^3+32r}$.
+\end{theorem}
+\begin{proof}
+Take any $k\ge r^2+32$. Lemma~\ref{lem:primes} supplies at least $r\ge t$
+distinct primes in $I_{b,r,k}$. Their product with the specified exponents
+satisfies Lemma~\ref{lem:separate}. For $k=r^2+32$,
+$N<b^{rk-r/(r+1)}<b^{r^3+32r}$. As $k$ tends to infinity the chosen primes,
+and hence $N$, are unbounded.
+\end{proof}
+
+\begin{corollary}
+For every prescribed factor count $r\ge0$, both existence questions in
+A088862 and A090335 have affirmative answers. For $r\ge1$ each admits
+infinitely many witnesses. In the first problem witnesses can be prime
+powers $p^r$; in the second they can be squarefree products of $r$ primes.
+\end{corollary}
+\begin{proof}
+For $r=0$ use $N=1$, whose set of divisors greater than one is empty.
+For $r\ge1$ apply Theorem~\ref{thm:main} respectively to the exponent lists
+$(r)$ and $(1,\ldots,1)$. A nonempty set of positive integers has a least
+element.
+\end{proof}
+
+\section{Exact arithmetic and verification}
+Interval membership can be checked without logarithms or floating-point
+roots: an integer $p$ lies in $I_{b,r,k}$ exactly when
+\[
+ p^r>b^{kr-1},\qquad p^{r+1}<b^{k(r+1)-1}.
+\]
+The accompanying standard-library Python program constructs small
+witnesses using these two integer inequalities. It independently
+enumerates divisors and compares their digit strings, tests repeated
+and mixed exponent lists, and verifies the initial published values.
+The explicit bound uses Dusart's theorem; the finite checks audit the
+construction and the transcription of the OEIS definitions.
+
+\begin{thebibliography}{9}
+\bibitem{a88862} R. Zumkeller, OEIS A088862,
+\url{https://oeis.org/A088862}, accessed October 26, 2026.
+\bibitem{a90335} R. Zumkeller, OEIS A090335,
+\url{https://oeis.org/A090335}, accessed October 26, 2026.
+\bibitem{dusart} P. Dusart, \emph{Estimates of some functions over primes
+without R.H.}, arXiv:1002.0442v1 (2010), Proposition 6.8,
+\url{https://arxiv.org/abs/1002.0442v1}.
+\end{thebibliography}
+\end{document}
