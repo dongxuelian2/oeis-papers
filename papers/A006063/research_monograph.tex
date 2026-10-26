@@ -1,0 +1,4703 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{multicol}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newcommand{\good}{\mathcal{G}}
+\newcommand{\cubes}{\mathcal{C}}
+\title{Cube-Sum Permutations: Global Involutions, Reflection Entropy, and Algebraic Families}
+\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}\\[0.4em]Daoyu Dong\\{\small University of Electronic Science and Technology of China, Chengdu, China}\\[0.4em]{\small Independent mathematical and computational review requested}}
+\date{October 18, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $P(n)$ count permutations $p$ of $[1,n]$
+for which every $i+p(i)$ is an integer cube.
+We prove that every odd $n\ge70001$ admits
+a legal involution with exactly one fixed
+point, while every even $n\ge230000$
+admits one with no fixed points.
+These parity-minimal involutions have
+uniform cube-root entropy:
+\[
+\liminf_{n\to\infty}
+\frac{\log J_{\min}(n)}{(2n)^{1/3}}
+\ge\frac{\log2}{4}.
+\]
+The proof uses two short explicit
+seed permutations, finite parity-specific
+odd-cube reflection closures, and a
+uniform gap induction, with no
+bipartite matching search.
+We also establish exponential numbers
+of parity-minimal involutions along
+explicit infinite subsequences
+using taxicab equal-cube identities.
+We develop further global, threshold-free structure:
+the cube-sum graph admits a partial matching
+of size $n-O(n^{2/3})$ for every $n$,
+and all Hall obstructions can be restricted
+to independent sets spanning the two
+boundary regions. The undirected cycle-cover
+expansion gives a parity determinant over
+$\mathbb F_2$, while a single valid matching
+factors exact counting through the strongly
+connected components of its alternation graph.
+An explicit four-reflection permutation
+on $171$ elements yields the affine
+renormalization
+\[
+P(343n+171)\ge P(n)^{343},
+\]
+and an entropy monotonicity theorem along
+its multiplicative orbits.
+Separately, an elementary weighted identity
+of cubes gives a fully algebraic
+exponential-subsequence construction
+\[
+P(681707u^3)\ge2^{148877u^3-1}
+\qquad(u\ge1).
+\]
+For the finite A006063 existence theorem, a
+unimodular block-order matrix gives a
+single symbolic determinant formula for
+all $57$ residual cubic-word/output-order
+shapes. Six additional explicit algebraic
+families supply $25$ further base lengths.
+Every one of the $57$ shapes also admits an
+infinite cubic dilation family.
+The earlier endpoint-multiset and $191$
+augmenting-word certificates are retained
+as independent redundant checks;
+Hall and
+alternating-cycle certificates classify
+the related multiplicity sequence A096680.
+This last classification remains
+computer-assisted, unlike the global
+structural and algebraic constructions.
+All certificates and independent exact
+checkers accompany the manuscript;
+literature priority and external
+mathematical review remain open.
+\end{abstract}
+
+\section{The reflection principle}
+Write $\cubes=\{k^3:k=2,3,\dots\}$ and let $P(n)$ be the
+number of cube-sum permutations of $\{1,\dots,n\}$.
+By convention the empty permutation is permitted only in the
+general extension lemma; our classification concerns $n\ge1$.
+Let $\good=\{n\ge1:P(n)>0\}$.
+
+\begin{lemma}[Reflection and counting]\label{lem:reflect}
+If $0\le m<n$ and $c=m+n+1$ is a cube, every valid
+permutation $p$ on $\{1,\dots,m\}$ extends to a valid permutation
+$q$ on $\{1,\dots,n\}$ via
+\[
+q_i=\begin{cases}
+p_i,&i\le m,\\ c-i,&m<i\le n.
+\end{cases}
+\]
+For different admissible cubes $c$, the images of these
+extensions are disjoint. In particular,
+\begin{equation}\label{eq:count}
+P(n)\ge\!\!\!\!\sum_{\substack{c\in\cubes\\n+1\le c\le 2n}}
+P(c-n-1),
+\end{equation}
+with the convention $P(0)=1$.
+\end{lemma}
+\begin{proof}
+Because $c=m+n+1$, reflection $i\mapsto c-i$
+permutes precisely the new interval $\{m+1,\dots,n\}$,
+and $i+q_i=c$ there. Old indices retain their cube sums.
+The embedding is injective for each $c$ and two different
+$c$ yield different last entries $q_n=c-n$. The claimed
+sum counts disjoint families.
+\end{proof}
+
+\begin{lemma}[The cube-gap bound]\label{lem:gap}
+For each $n\ge365$ some cube $c$ satisfies
+$n+174\le c\le2n$.
+For each $n\ge556$ some cube $c$ satisfies
+$n+176\le c\le2n$.
+\end{lemma}
+\begin{proof}
+For $365\le n\le555$, take $c=729$.
+For $n\ge556$, let $k$ be the least integer with
+$k^3\ge n+176$; then $k\ge10$ and
+$n\ge(k-1)^3-175$. Thus
+\[
+2n-k^3\ge k^3-6k^2+6k-352\ge0.
+\]
+The final polynomial equals $108$ at $k=10$ and
+has strictly positive successive differences
+$3k^2-9k+1$ for $k\ge10$.
+Hence the second assertion holds and implies the first
+for $n\ge556$.
+\end{proof}
+
+\section{Global graph structure, factorization, and parity}
+\label{sec:graph}
+
+The cube-sum condition is symmetric in its two indices.
+This observation gives a conceptual interpretation of
+existence, multiplicity, exact counting, and parity that
+does not refer to any numerical threshold.
+
+Let $G_n$ be the undirected graph on $[1,n]$,
+with an edge $\{i,j\}$ whenever $i\ne j$
+and $i+j$ is a perfect cube. At a vertex $i$,
+allow a loop exactly when $2i$ is a cube.
+A \emph{spanning cycle-cover configuration}
+is a decomposition of its vertices into
+disjoint allowed loops, single edges
+(dimer components), and unoriented simple
+cycles of length at least three.
+
+\begin{lemma}[Arithmetic location of fixed points]
+\label{lem:fixedpoints}
+In any cube-sum permutation, a fixed point
+$p(i)=i$ can occur only at
+\[
+\boxed{i=4r^3\qquad(r\ge1).}
+\]
+Consequently a valid involution of odd
+length must have at least one fixed point
+at such an index. In particular, a
+cube-sum permutation of odd length
+$n<4$ cannot be an involution.
+\end{lemma}
+\begin{proof}
+At a fixed point $2i=k^3$.
+The cube on the right is even, so
+$k=2r$, whence $i=4r^3$.
+An involution partitions its vertices
+into fixed points and transpositions;
+when $n$ is odd at least one fixed
+point is necessary.
+\end{proof}
+
+\begin{theorem}[Independent-set Hall criterion]
+\label{thm:independent-hall}
+A cube-sum permutation exists on $[1,n]$
+if and only if every vertex set $I$ of
+$G_n$ containing no internal edge
+\emph{or loop} satisfies
+\begin{equation}\label{eq:independent-hall}
+\boxed{|N_{G_n}(I)|\ge |I|,}
+\end{equation}
+where $N_{G_n}(I)$ includes all vertices
+adjacent to some vertex of $I$.
+Thus the full family of Hall inequalities
+can be reduced to \emph{independent}
+vertex sets in the symmetric cube-sum graph.
+\end{theorem}
+\begin{proof}
+The bipartite double cover of $G_n$
+has a perfect matching precisely when
+Hall's inequality $|N(S)|\ge|S|$
+holds for every $S\subseteq[1,n]$.
+Its perfect matchings are exactly
+the cube-sum permutations.
+Hence the proposed condition is necessary.
+
+Conversely, suppose Hall's inequality
+fails for some $S$. Put
+$I=S\setminus N(S)$.
+No two vertices of $I$ can be adjacent,
+nor can $I$ contain a loop: otherwise
+one of those vertices would lie in
+$N(S)$.
+Moreover $N(I)\cap S=\varnothing$,
+because any edge from $I$ to $S$
+would again contradict $I\cap N(S)=
+\varnothing$. Thus
+\[
+|N(I)|\le |N(S)\setminus S|
+=|N(S)|-|N(S)\cap S|
+<|S|-|N(S)\cap S|=|I|.
+\]
+So an independent Hall obstruction
+exists whenever any Hall obstruction
+exists. This proves sufficiency.
+\end{proof}
+
+In particular, every negative
+certificate supplied for $n<173$ in
+the associated JSON is already an
+independent vertex set: none of its
+members are adjacent to each other
+or carry a permitted loop.
+The criterion is global and does not
+depend on any conjectural cutoff.
+
+\begin{theorem}[Uniform near-perfect partial matchings]
+\label{thm:nearperfect}
+For every integer $n\ge7$, write
+\[
+k=\lfloor(n+1)^{1/3}\rfloor,\qquad
+g(k)=(k+1)^3-k^3=3k^2+3k+1.
+\]
+There is an explicitly constructible
+cube-sum \emph{partial permutation}
+matching at least
+\begin{equation}\label{eq:nearperfect}
+\boxed{\displaystyle
+n-\left\lfloor\frac{g(k)}2\right\rfloor}
+\end{equation}
+indices to distinct values within $[1,n]$.
+Consequently the maximum matching of
+the cube-sum bipartite graph has
+deficiency $O(n^{2/3})$ for \emph{every}
+$n$, including lengths where no
+complete cube-sum permutation exists.
+\end{theorem}
+\begin{proof}
+Choose whichever of the consecutive cubes
+$c_-=k^3$ and $c_+=(k+1)^3$
+is closest to $n+1$, and denote it by $c$.
+Their gap is $g(k)$, hence
+$\delta=|c-(n+1)|\le\lfloor g(k)/2\rfloor$.
+Since $n\ge7$, $c_-\ge8$.
+If $c_+>2n$, then
+$c_+-(n+1)\ge n$ while
+$(n+1)-c_-\le n-7$, so the nearer
+cube must be $c_-$. Thus the chosen
+$c$ lies in $[2,2n]$.
+
+The interval
+\[
+J_c=[\max(1,c-n),\ \min(n,c-1)]
+\cap\mathbb Z
+\]
+has precisely $n-\delta$ elements.
+It is invariant under $i\mapsto c-i$.
+On this interval set $p(i)=c-i$,
+giving a bijection $J_c\to J_c$
+with the constant cube sum $i+p(i)=c$.
+Therefore it defines a partial perfect
+matching of size $n-\delta$.
+The claimed bound follows.
+\end{proof}
+
+\begin{theorem}[Localization of Hall obstructions]
+\label{thm:obstruction-localization}
+For $n\ge7$ let
+\[
+K=\lfloor(2n)^{1/3}\rfloor,\qquad
+G=3K^2+3K+1.
+\]
+Every nonempty subset $S\subseteq[1,n]$
+with diameter
+$\operatorname{diam}(S)=\max S-\min S$
+satisfying
+\[
+\boxed{\operatorname{diam}(S)\le n-G}
+\]
+automatically obeys Hall's condition
+$|N(S)|\ge|S|$ in the symmetric
+cube-sum bipartite graph.
+Consequently \emph{every} independent
+Hall obstruction must satisfy
+\[
+\boxed{\operatorname{diam}(S)>n-G,}
+\]
+and must contain vertices from both
+the lower and upper boundary regions
+of width at most $G$.
+\end{theorem}
+\begin{proof}
+Write $a=\min S$, $b=\max S$.
+The candidate integer interval
+\[
+[b+1,a+n]
+\]
+has $n-(b-a)\ge G$ consecutive
+integers, all between $2$ and $2n$.
+Within this range there cannot be
+$G$ consecutive noncubes: the
+difference between consecutive cubes
+is $3j^2+3j+1\le G$ for
+$j\le K$, while the initial integers
+$2,\dots,7$ also give fewer than
+$G$ noncubes.
+Consequently some perfect cube $c$
+lies in $[b+1,a+n]$.
+
+For every $i\in S$ we then have
+$1\le c-i\le n$, and all
+$c-i$ are distinct.
+Thus $i\mapsto c-i$ is an injection
+of $S$ into its neighborhood $N(S)$,
+proving Hall's condition.
+The contrapositive gives the claimed
+diameter restriction. The latter implies
+$\min S<G$ and $\max S>n-G+1$,
+so a Hall obstruction has to meet
+both boundary regions.
+\end{proof}
+
+These theorems supply a completely
+noncomputational approach to the
+existence question. Instead of
+checking all subsets, one need only
+understand \emph{long-spanning
+independent sets} whose vertices
+reach both ends of $[1,n]$.
+Eliminating those obstructions by a
+uniform argument would remove the
+remaining finite matching certificates;
+the near-perfect bound alone does
+not yet yield such an elimination.
+
+\begin{theorem}[Arithmetic codegrees and expansion]
+\label{thm:arith-expansion}
+Let $H_n$ be the cube-sum bipartite graph
+with left and right vertices $[1,n]$.
+For distinct left vertices $i\ne j$,
+their number of common right neighbors
+satisfies
+\begin{equation}\label{eq:codegree}
+\boxed{\displaystyle
+|N(i)\cap N(j)|\le\tau(|i-j|),}
+\end{equation}
+where $\tau(d)$ is the number of
+positive divisors of $d$.
+Write
+\[
+\delta_n=\min_i|N(i)|,\quad
+\Delta_n=\max_i|N(i)|,\quad
+D_n=\max_{1\le d<n}\tau(d).
+\]
+For every nonempty $S\subseteq[1,n]$,
+with $s=|S|$,
+\begin{equation}\label{eq:second-moment-expansion}
+\boxed{\displaystyle
+|N(S)|\ge
+\frac{s\,\delta_n^2}
+{\Delta_n+(s-1)D_n}.}
+\end{equation}
+In particular, for each fixed
+$\varepsilon>0$ there exist constants
+$c_\varepsilon>0$ and $N_\varepsilon$
+such that any Hall-deficient set
+$S$ in $H_n$, for $n\ge N_\varepsilon$,
+must satisfy
+\begin{equation}\label{eq:hall-size}
+\boxed{\displaystyle
+|S|\ge c_\varepsilon
+n^{2/3-\varepsilon}.}
+\end{equation}
+\end{theorem}
+\begin{proof}
+If $v$ is adjacent to distinct left
+vertices $i>j$, there are cube roots
+$a>b$ with
+$i+v=a^3$, $j+v=b^3$.
+Therefore
+\[
+i-j=a^3-b^3
+=(a-b)(a^2+ab+b^2).
+\]
+The positive integer $h=a-b$
+must divide $i-j$.
+For a fixed $h>0$, the function
+$b\mapsto(b+h)^3-b^3$ is strictly
+increasing, hence at most one
+$b$ solves the equation.
+This proves \eqref{eq:codegree}.
+
+For a set $S$ of $s$ left vertices,
+put $r_v=|\{i\in S:i\sim v\}|$.
+Then
+\[
+\sum_v r_v
+=\sum_{i\in S}|N(i)|\ge s\delta_n,
+\]
+whereas the codegree estimate gives
+\[
+\sum_v r_v^2
+=\sum_{i\in S}|N(i)|
++2\!\!\sum_{\substack{i<j\\i,j\in S}}
+|N(i)\cap N(j)|
+\le s\Delta_n+s(s-1)D_n.
+\]
+Cauchy--Schwarz on the nonzero $r_v$
+now yields \eqref{eq:second-moment-expansion}.
+
+For completeness, because the possible
+right neighbors of $i$ correspond
+precisely to cubes in $[i+1,i+n]$,
+\[
+|N(i)|
+=\lfloor(i+n)^{1/3}\rfloor
+ -\lfloor i^{1/3}\rfloor.
+\]
+Concavity of $x^{1/3}$ implies
+\[
+\delta_n\ge
+(2^{1/3}-1)n^{1/3}-1,
+\qquad
+\Delta_n\le\lfloor(2n)^{1/3}\rfloor.
+\]
+The classical elementary divisor bound
+$\tau(d)=O_\varepsilon(d^\varepsilon)$
+gives $D_n=O_\varepsilon(n^\varepsilon)$
+for every fixed $\varepsilon>0$.
+If $S$ violates Hall, so
+$|N(S)|<s$, formula
+\eqref{eq:second-moment-expansion}
+forces
+\[
+s>1+\frac{\delta_n^2-\Delta_n}{D_n}.
+\]
+Since $\delta_n^2$ grows like
+$n^{2/3}$ and $\Delta_n=O(n^{1/3})$,
+this implies \eqref{eq:hall-size}.
+\end{proof}
+
+Combining Theorem~\ref{thm:arith-expansion}
+with independent-set reduction and
+Theorem~\ref{thm:obstruction-localization}
+gives a two-dimensional localization
+of any possible Hall obstruction:
+it must \emph{both} contain
+$n^{2/3-o(1)}$ vertices and
+span a range of length
+$n-O(n^{2/3})$. These constraints
+hold whether or not an all-length
+existence threshold is already known.
+They do not, by themselves, rule out
+the remaining large independent sets.
+
+\begin{theorem}[Undirected cycle-cover expansion]
+\label{thm:cyclecover}
+If $\mathfrak F_n$ denotes the set of
+spanning cycle-cover configurations of $G_n$,
+and $c(F)$ is the number of its cycles
+of length at least three, then
+\begin{equation}\label{eq:cyclecover}
+\boxed{P(n)=\sum_{F\in\mathfrak F_n}2^{c(F)}.}
+\end{equation}
+Thus $P(n)>0$ if and only if $G_n$
+has a spanning union of loops, dimers,
+and simple cycles. In particular,
+\[
+\boxed{P(n)\equiv I(n)\pmod 2,}
+\]
+where $I(n)$ counts valid involutions.
+\end{theorem}
+\begin{proof}
+Every valid permutation decomposes uniquely
+into fixed points, transpositions, and
+directed cycles of length at least three.
+The first correspond to permitted loops,
+the second to undirected dimer edges,
+and each longer undirected cycle admits
+exactly two orientations. Choices on
+different components are independent,
+giving \eqref{eq:cyclecover}.
+All terms with $c(F)>0$ are even,
+whereas configurations with $c(F)=0$
+are exactly the involutions.
+\end{proof}
+
+Let $H_n$ be the symmetric $n$-by-$n$
+zero-one matrix with
+$(H_n)_{ij}=1$ precisely when $i+j$
+is a perfect cube.
+
+\begin{corollary}[Efficient parity via binary algebra]
+\label{cor:parity}
+\[
+\boxed{P(n)=\operatorname{per}(H_n),\qquad
+P(n)\bmod2=\det(H_n)\bmod2.}
+\]
+In particular $P(n)$ is odd exactly
+when $H_n$ is nonsingular over
+$\mathbb F_2$, and its parity can be
+computed by polynomial-time Gaussian
+elimination without enumerating
+any permutations. Moreover,
+\[
+\det(H_n)=1\pmod2
+\quad\Longrightarrow\quad
+\text{there exists a legal involution}
+\]
+since the number of such involutions
+is then odd. The converse need not hold.
+\end{corollary}
+\begin{proof}
+The permanent expansion enumerates
+the admissible permutations. In
+characteristic two every permutation
+sign in the determinant is $+1$,
+so determinant and permanent coincide.
+\end{proof}
+
+Even more structure appears once any
+single legal permutation has been found.
+For such a permutation $p$, define the
+directed \emph{alternation graph} $D_p$
+with vertex set $[1,n]$ and a
+non-loop arc $i\to j$ when
+$i+p(j)$ is a cube. Let
+$\mathcal S(D_p)$ be its strongly
+connected components, and let
+$B_C$ be the square zero-one matrix
+indexed by $i,j\in C$, with
+$(B_C)_{ij}=1$ if $i+p(j)$
+is a cube (including all diagonal entries).
+
+\begin{theorem}[Exact strong-component factorization]
+\label{thm:sccfactor}
+For \emph{every} legal reference permutation
+$p$ of length $n$,
+\begin{equation}\label{eq:sccfactor}
+\boxed{\displaystyle
+P(n)=\prod_{C\in\mathcal S(D_p)}
+\operatorname{per}(B_C).}
+\end{equation}
+In particular $P(n)=1$ precisely when
+every strong component is a singleton;
+and every nontrivial component contributes
+at least two possible permutations.
+\end{theorem}
+\begin{proof}
+Any second legal permutation $q$
+determines a permutation
+$f=p^{-1}\circ q$ of $[1,n]$,
+and its arcs $i\to f(i)$ are
+allowed by the extended alternation
+graph with the identity loops included.
+Every cycle of $f$ lies entirely
+inside one strongly connected
+component of $D_p$.
+Hence $f$ restricts to independent
+permutations within the components,
+and their numbers multiply.
+Conversely, any such collection of
+internal permutation choices assembles
+into a legal $q$.
+The factorization follows.
+A nontrivial strong component contains
+a directed cycle, which can be toggled
+against the identity on that component,
+proving the final assertion.
+\end{proof}
+
+This theorem explains the previously
+computed $P(236)=512$ from nine
+independent directed five-cycles and
+$191$ singleton components.
+It also unifies the alternating-cycle
+criterion of Lemma~\ref{lem:cycle}
+with exact counting.
+The companion verifier
+\texttt{global\_graph\_audit.py} checks
+the parity identity and component
+factorization in concrete, bounded-size
+instances using exact binary arithmetic.
+
+\section{Threshold-free renormalization and counting entropy}
+\label{sec:renormalization}
+
+The specific all-$n$ threshold is not needed for
+a powerful global closure property of the
+cube-sum permutation family.
+
+\begin{lemma}[Independent-fiber renormalization]
+\label{lem:renorm-general}
+Fix an integer exponent $d\ge2$ and an odd
+positive integer $t$; set
+$L=t^d$, $A=(L-1)/2$, and
+$T_t(m)=Lm+A$.
+Let $P_d(m)$ denote the number of permutations
+of $[1,m]$ whose index-image sums are
+positive perfect $d$th powers.
+Then for every nonnegative integer $m$,
+\begin{equation}\label{eq:renorm-general}
+\boxed{P_d(T_t(m))\ge P_d(A)P_d(m)^L,}
+\end{equation}
+with $P_d(0)=1$. Moreover,
+\[
+2T_t(m)+1=L(2m+1),\qquad
+T_s(T_t(m))=T_{st}(m).
+\]
+\end{lemma}
+\begin{proof}
+Partition $[1,T_t(m)]$ into a prefix
+$[1,A]$ and the remaining $m$ consecutive
+blocks of length $L$.
+Choose an arbitrary valid permutation on
+the prefix, and choose independently
+$L$ valid permutations
+$p_1,\ldots,p_L$ of $[1,m]$.
+At $x=A+(i-1)L+r$, $1\le r\le L$, define
+\[
+q(x)=A+(p_r(i)-1)L+(L+1-r).
+\]
+This permutes the remaining interval
+and satisfies
+\[
+x+q(x)=L(i+p_r(i)).
+\]
+Each right-hand side is a perfect $d$th
+power, since $L=t^d$.
+Different prefix permutations and
+different tuples of $p_r$ produce
+different full permutations, yielding
+\eqref{eq:renorm-general}.
+The identities for $T_t$ follow directly
+from its affine definition.
+\end{proof}
+
+\begin{lemma}[A four-interval $171$-permutation]
+\label{lem:171}
+The following involution is a cube-sum
+permutation of $[1,171]$:
+\[
+p(i)=
+\begin{cases}
+8-i,&1\le i\le7,\\
+27-i,&8\le i\le19,\\
+64-i,&20\le i\le44,\\
+216-i,&45\le i\le171.
+\end{cases}
+\]
+\end{lemma}
+\begin{proof}
+The four displayed intervals are
+pairwise disjoint and partition $[1,171]$.
+Each is invariant under its indicated
+reflection, whose index-image sum is,
+respectively, $2^3,3^3,4^3$, or $6^3$.
+\end{proof}
+
+\begin{theorem}[Cubic affine closure and entropy monotonicity]
+\label{thm:renorm}
+For every integer $m\ge1$,
+\[
+\boxed{P(343m+171)\ge P(m)^{343}.}
+\]
+Set $T(m)=343m+171$. Then for each
+positive integer $k$,
+\[
+T^k(m)=343^k\Bigl(m+\frac12\Bigr)-\frac12,
+\qquad
+\boxed{P(T^k(m))\ge P(m)^{343^k}.}
+\]
+For $P(m)>0$, define the normalized entropy
+\[
+h(m)=\frac{\log P(m)}{m+\frac12}.
+\]
+It is nondecreasing on each orbit:
+\[
+\boxed{h(T^k(m))\ge h(m).}
+\]
+Consequently, without requiring any
+eventual-existence theorem,
+\begin{equation}\label{eq:globalentropy}
+\boxed{\displaystyle
+\limsup_{n\to\infty}\frac{\log P(n)}n
+\ge\sup_{\substack{m\ge1\\P(m)>0}}
+\frac{\log P(m)}{m+\frac12}.}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Apply Lemma~\ref{lem:renorm-general}
+with $d=3$, $t=7$, $L=343$, and
+$A=(343-1)/2=171$.
+Lemma~\ref{lem:171} gives $P(171)\ge1$.
+Iterating the inequality and the affine
+composition law yields the second display.
+Since $T^k(m)+1/2=343^k(m+1/2)$,
+the entropy inequality follows on
+taking logarithms.
+For each fixed $m$ with $P(m)>0$,
+the orbit $T^k(m)$ tends to infinity,
+so its entropy gives a lower bound
+for the global limsup. Taking the
+supremum over all such $m$ proves
+\eqref{eq:globalentropy}, interpreted
+in the extended-real sense if necessary.
+\end{proof}
+
+The transformation $2m+1\mapsto343(2m+1)$
+is a multiplicative renormalization of
+the odd coordinate $2m+1$.
+In particular the set of admissible
+lengths is closed under
+$m\mapsto343m+171$, independently of
+the numerical threshold in
+Theorem~\ref{thm:exist}.
+The explicit arithmetic verifier
+\texttt{renormalization.py} checks both
+the four-block seed and independent
+fiber choices without relying on the
+large finite-certificate archive.
+
+\section{A single-seed eventual existence theorem}
+\label{sec:one-seed}
+There is a substantially more conceptual route
+to \emph{eventual existence} than proving the
+sharp cutoff at $173$. It uses only one
+seven-element permutation, seven rounds of
+integer reflection closure, and a uniform
+cubic gap inequality. In particular, this
+proof never invokes a bipartite matching
+algorithm or any of the earlier $173$--$364$
+permutation certificates.
+
+Let $\mathcal R_0=\{7\}$ and define a
+sequence of finite sets recursively by
+\begin{equation}\label{eq:sevenrounds}
+\mathcal R_{j+1}=\mathcal R_j\cup
+\{k^3-m-1:\ m\in\mathcal R_j,\
+m<k^3-m-1\le10975,\ k\ge2\}.
+\end{equation}
+
+\begin{lemma}[Seven-round arithmetic certificate]
+\label{lem:sevenrounds}
+For $j=0,\ldots,7$ the exact cardinalities
+$|\mathcal R_j|$ are
+\[
+1,\ 21,\ 189,\ 995,\ 3280,\ 6588,\ 8533,\ 8924.
+\]
+Moreover,
+\[
+\boxed{[8915,10975]\cap\mathbb Z
+\subseteq\mathcal R_7.}
+\]
+\end{lemma}
+\begin{proof}
+This is a bounded integer-only calculation,
+reproduced by \texttt{one\_seed\_eventual.py}.
+For each member $m$ and each integer
+$k\ge2$ with $k^3\le21950$,
+form $n=k^3-m-1$ and insert it
+when $m<n\le10975$. After seven
+simultaneous rounds the cardinalities
+are exactly those displayed and all
+$2061$ required lengths are present.
+The computation tests only elementary
+integer identities and finite set
+membership, not the existence of
+matchings. Independently, the verifier
+\texttt{one\_seed\_interval\_proof.py}
+operates entirely on unions of integer
+intervals. For every current interval
+$[a,b]$ and cube $c$, it restricts to
+\[
+\ell=\max(a,c-10976),\qquad
+h=\min(b,\lfloor(c-2)/2\rfloor)
+\]
+and, if $\ell\le h$, adds the reflected
+interval $[c-h-1,c-\ell-1]$.
+The exact numbers of disjoint intervals
+after rounds $0$ through $7$ are
+\[
+1,\ 21,\ 186,\ 870,\ 2077,\ 2037,\ 1031,\ 770.
+\]
+The last interval of the final union
+is exactly $[8915,10975]$, which proves
+the finite coverage using \emph{interval
+arithmetic alone}. Both verifiers
+reproduce the same seven-stage cardinalities.
+This finite check is separate from, and
+much weaker than, a search for perfect
+matchings.
+\end{proof}
+
+\begin{theorem}[Eventual existence from one permutation]
+\label{thm:single-seed}
+The explicit permutation
+\[
+\boxed{p=(7,6,5,4,3,2,1)}
+\]
+at length $7$, whose cube sums all equal
+$8$, together with the reflection-extension
+lemma, proves that
+\[
+\boxed{P(n)>0\quad\text{for every }n\ge8915.}
+\]
+Thus eventual existence requires only one
+elementary starting permutation and
+the seven-round arithmetic certificate,
+without locating the optimal cutoff.
+\end{theorem}
+\begin{proof}
+Each element of $\mathcal R_j$ is a
+length possessing a valid cube-sum
+permutation, by induction on $j$
+using Lemma~\ref{lem:reflect}.
+Therefore the finite interval
+$8915\le n\le10975$ is covered.
+
+For $n\ge10976$, let $k$ be the
+least integer such that
+$k^3\ge n+8916$ and put
+$m=k^3-n-1$. Then $m\ge8915$,
+and $k\ge28$.
+We prove $k^3\le2n$.
+If $k=28$, this follows from
+$n\ge10976$, since $28^3=21952$.
+If $k\ge29$, minimality gives
+$n\ge(k-1)^3-8915$, whence
+\[
+\begin{aligned}
+2n-k^3
+&\ge 2((k-1)^3-8915)-k^3\\
+&=k^3-6k^2+6k-17832\\
+&\ge1685>0.
+\end{aligned}
+\]
+The last polynomial equals $1685$
+at $k=29$ and is strictly increasing
+for all larger integer $k$.
+Thus $8915\le m<n$.
+By strong induction $P(m)>0$,
+so reflection through the cube $k^3$
+produces a valid permutation of length
+$n$. This proves the theorem.
+\end{proof}
+
+\begin{theorem}[Eventual existence of involutions]
+\label{thm:involution-tail}
+Let $I_4(n)$ denote the number of
+cube-sum \emph{involutions} of $[1,n]$
+satisfying $p(4)=4$, where an
+involution obeys $p^2=\mathrm{id}$.
+Then
+\[
+\boxed{I_4(n)\ge F(n)>0
+\qquad\text{for every }n\ge8915.}
+\]
+More strongly,
+\begin{equation}\label{eq:involution-entropy}
+\boxed{\displaystyle
+\liminf_{n\to\infty}
+\frac{\log I_4(n)}{(2n)^{1/3}}
+\ge\frac{\log2}{2}.}
+\end{equation}
+In particular, the cube-sum graph
+admits a spanning configuration
+consisting entirely of loops and
+disjoint dimers at every $n\ge8915$.
+\end{theorem}
+\begin{proof}
+The sole starting permutation
+$p(i)=8-i$ on $[1,7]$ is an
+involution and fixes the index $4$.
+Every suffix reflection $i\mapsto
+c-i$ in Lemma~\ref{lem:reflect}
+is itself an involution of the new
+interval, which is disjoint from
+all previously defined positions.
+Thus every constructed permutation
+in the one-seed reflection tree
+is an involution fixing $4$.
+Theorem~\ref{thm:single-seed}
+proves $F(n)>0$ for $n\ge8915$,
+and the uniqueness of reflection
+histories proved in
+Lemma~\ref{lem:reflection-count}
+gives $I_4(n)\ge F(n)$.
+Finally, Theorem~\ref{thm:treeentropy}
+supplies \eqref{eq:involution-entropy}.
+The undirected loop-and-dimer
+formulation follows by decomposing
+an involution into fixed points and
+transpositions.
+\end{proof}
+
+This separates two logically different
+facts. The $236$-element cube-sum graph
+admits $512$ ordinary permutations but
+no involutions, by
+Theorem~\ref{thm:236}. Nevertheless,
+the one-seed method proves that
+noninvolutive obstructions cannot
+persist for all large lengths.
+It does so without any matching
+solver or sharp-cutoff data.
+
+\section{Parity-optimal fixed-point structure}
+\label{sec:minimal-fixed-points}
+
+The single-seed eventual-involution theorem
+can be strengthened from the existence of
+an involution to the existence of an
+involution with the \emph{minimum possible
+number of fixed points}. This does not
+follow from the $173$-threshold theorem
+or from general perfect $2$-matchings:
+it uses parity-preserving odd-cube
+reflections and two tiny explicit seeds.
+
+A reflection step from $m$ to $n$
+through an \emph{odd} cube $c=k^3$
+satisfies
+\[
+n=c-m-1\equiv m\pmod2.
+\]
+Its new interval reflection
+$i\mapsto c-i$ has no fixed point,
+since $c/2\notin\mathbb Z$.
+Thus the parity of the length and
+the exact set of fixed points
+are preserved under every odd-cube
+extension.
+
+\begin{lemma}[Two parity-specific finite closures]
+\label{lem:parity-closures}
+Starting from the involution
+$p_7(i)=8-i$ on $[1,7]$ and allowing
+strict extensions through \emph{odd}
+cubes only, the reachable lengths
+include \emph{every odd integer}
+in
+\[
+\boxed{[70001,100001].}
+\]
+Starting from the fixed-point-free
+involution $p_{26}(i)=27-i$
+on $[1,26]$, the same odd-cube
+reflection rule reaches \emph{every
+even integer} in
+\[
+\boxed{[230000,302000].}
+\]
+\end{lemma}
+\begin{proof}
+This is an exact finite integer
+calculation, reproduced by
+\texttt{parity\_minimal\_involutions.py}.
+For each seed $a$ and even or odd
+candidate $n$ of matching parity,
+iterate the rule
+\[
+R_a(a)=1,\quad
+R_a(n)=
+\bigvee_{\substack{k\ge3\ \mathrm{odd}\\
+a\le k^3-n-1<n}}
+R_a(k^3-n-1).
+\]
+The two consecutive-parity intervals
+contain respectively $15001$
+and $36001$ certified lengths.
+The last smaller parity-compatible
+lengths which are \emph{not} reachable
+below the respective interval
+endpoints are $69601$ (odd)
+and $228026$ (even).
+A second, algorithmically
+independent checker
+\texttt{parity\_interval\_proof.py}
+works with \emph{unions of integer
+intervals} in the coordinate
+$t=(n-p)/2$ where $p\in\{0,1\}$
+is the length parity. An odd-cube
+reflection becomes $t\mapsto d-t$
+with $d=(k^3-1-2p)/2$.
+For every current interval $[a,b]$,
+the strict-extension constraints
+give the exactly reflected interval
+\[
+\left[d-\min\left(b,
+\left\lfloor\tfrac{d-1}{2}\right\rfloor\right),
+d-\max(a,d-T_{\max})\right]
+\]
+when the lower and upper source
+bounds are consistent, with
+$T_{\max}=(H-p)/2$.
+After just twelve simultaneous
+rounds, the merged unions contain
+both claimed parity-specific
+coverage intervals. The resulting
+numbers of reachable parity lengths
+are respectively $41057$ and
+$121707$, in $2997$ and $7047$
+disjoint integer intervals.
+The first checker also reconstructs
+full involutions at the endpoints
+and verifies the exact fixed
+point sets. Neither checker uses
+a matching solver or the
+sharp-threshold certificates.
+\end{proof}
+
+\begin{theorem}[Eventual parity-minimal involutions]
+\label{thm:minimal-fixed}
+For every odd integer $n\ge70001$
+there exists a legal cube-sum involution
+on $[1,n]$ whose \emph{unique} fixed
+point is $4$. For every even integer
+$n\ge230000$ there exists a legal
+cube-sum involution of $[1,n]$
+with \emph{no fixed point}.
+Equivalently,
+\[
+\boxed{\displaystyle
+\begin{array}{ll}
+n\ge70001\ \text{odd}:&
+\min_{p^2=\mathrm{id}}\#\mathrm{Fix}(p)=1,\\
+n\ge230000\ \text{even}:&
+\min_{p^2=\mathrm{id}}\#\mathrm{Fix}(p)=0,
+\end{array}}
+\]
+where the minima are over legal
+cube-sum involutions.
+\end{theorem}
+\begin{proof}
+The preceding lemma supplies
+the finite intervals and the
+corresponding minimal-fixed-point
+involutions, because odd-cube
+reflections preserve the set of
+fixed points.
+
+For either parity put
+$(M,H)=(70001,100001)$ or
+$(230000,302000)$, respectively.
+If $n>H$ has the required parity,
+take the \emph{least odd} $k$
+with
+\[
+k^3\ge n+M+1,\qquad
+m=k^3-n-1.
+\]
+Then $m\ge M$, and $m$ has the
+same parity as $n$. We show
+$m<n$. Since $k$ is the least
+such odd root,
+$n\ge(k-2)^3-M$.
+Therefore
+\[
+2n-k^3\ge
+2(k-2)^3-k^3-2M
+=k^3-12k^2+24k-16-2M.
+\]
+For the odd case $n\ge100003$,
+hence $k\ge57$, and the final
+polynomial is increasing for
+$k\ge57$ and is $7555>0$
+at $k=57$.
+For the even case $n\ge302002$,
+we have $k\ge83$; its value
+at $k=83$ is $31095>0$ and
+the polynomial is again increasing.
+Consequently $k^3\le2n$,
+and $M\le m<n$.
+
+Strong induction within the
+fixed parity now produces a
+minimal-fixed-point involution
+at $m$, followed by the
+odd-cube suffix reflection
+from $m$ to $n$. This adds
+no fixed points. The parity
+lower bounds (one fixed point
+for odd $n$, none for even $n$)
+are tautological for involutions,
+so the achieved counts are minimal.
+\end{proof}
+
+\begin{corollary}[Odd-cube perfect matchings for every large even length]
+\label{cor:odd-cube-matching}
+For every even $n\ge230000$, there
+is a fixed-point-free involution
+$p$ such that \emph{every}
+$i+p(i)$ is an \emph{odd}
+perfect cube. Equivalently,
+the odd and even integers of
+$[1,n]$ can be paired bijectively
+using edges whose endpoint sums
+are odd cubes.
+
+For every odd $n\ge70001$
+there is a cube-sum involution
+with exactly one fixed point
+at $4$, whose cube sums are
+odd at \emph{all} indices
+$i\ge8$; the first seven sums
+are all $8$.
+\end{corollary}
+\begin{proof}
+The even seed $p_{26}(i)=27-i$
+has only the odd cube sum $27$,
+and every subsequent extension
+uses an odd cube. The final
+involution is fixed-point-free,
+so each transposition joins
+an odd integer to an even
+integer.
+
+The odd seed $p_7(i)=8-i$
+has precisely seven positions
+with the even cube sum $8$,
+and later odd-cube reflections
+introduce no further even
+cube sums. Theorem~\ref{thm:minimal-fixed}
+supplies the required constructions
+at all sufficiently large lengths.
+\end{proof}
+
+Define $J_{\min}(n)$ to count
+legal cube-sum involutions
+with no fixed point when $n$
+is even, or with exactly one
+fixed point at $4$ when $n$
+is odd.
+
+\begin{theorem}[Uniform entropy of minimally fixed involutions]
+\label{thm:minimal-entropy}
+For all sufficiently large $n$,
+\[
+\boxed{J_{\min}(n)\ge
+\exp\bigl(\Omega(n^{1/3})\bigr).}
+\]
+More precisely,
+\begin{equation}\label{eq:minimal-entropy}
+\boxed{\displaystyle
+\liminf_{n\to\infty}
+\frac{\log J_{\min}(n)}{(2n)^{1/3}}
+\ge\frac{\log2}{4}.}
+\end{equation}
+\end{theorem}
+\begin{proof}
+For $a\in\{7,26\}$, let
+$F_a^{\rm odd}(n)$ count the
+distinct strict-reflection
+histories from seed $a$ which
+use \emph{odd} cube roots only.
+All such histories have the
+seed's parity and fixed-point
+structure; their permutations
+are distinct by
+Lemma~\ref{lem:reflection-count}.
+Theorem~\ref{thm:minimal-fixed}
+implies $F_a^{\rm odd}(n)\ge1$
+on its corresponding parity
+tail $n\ge M_a$.
+
+Fix $s\ge2$, let $\rho_s$
+solve
+$\sum_{h=1}^{s}\rho_s^{-h}=1$,
+and set
+\[
+B_s=
+\max\{8(s-1)^2+24(s-1)+15,\ 4s+80\}.
+\]
+For $n\ge M_a$, put
+$k=\lfloor(2n)^{1/3}\rfloor$.
+We prove by strong induction
+\[
+F_a^{\rm odd}(n)
+\ge\rho_s^{(k-B_s)/4}.
+\]
+This is immediate if $k<B_s$
+by positivity. Otherwise,
+let $q$ be the largest odd
+integer with $q\le k$ and
+use the $s$ distinct odd cubes
+\[
+c_j=(q-2j)^3,\qquad 0\le j<s.
+\]
+Their predecessors
+$m_j=c_j-n-1$ have the same
+parity as $n$. Since
+$2n<(k+1)^3$ and
+$q\ge k-1$,
+\[
+\begin{aligned}
+2m_j-(k-4j-4)^3
+&\ge 2(k-2j-1)^3
+ -(k+1)^3-1
+ -(k-4j-4)^3\\
+&=3k^2-(24j^2+72j+45)k\\
+&\qquad+
+48j^3+168j^2+180j+60
+\ge0.
+\end{aligned}
+\]
+The last inequality holds by
+$k\ge B_s\ge8j^2+24j+15$.
+As $k-4s\ge80$, it follows
+that $m_j\ge80^3/2
+=256000\ge M_a$.
+Also $c_j\le k^3\le2n$,
+so $m_j<n$.
+Writing $K(m)=\lfloor(2m)^{1/3}\rfloor$,
+we have
+$K(m_j)\ge k-4(j+1)$.
+Consequently, strong induction
+and the exact reflection
+counting recurrence give
+\[
+\begin{aligned}
+F_a^{\rm odd}(n)
+&\ge\sum_{j=0}^{s-1}F_a^{\rm odd}(m_j)\\
+&\ge\rho_s^{(k-B_s)/4}
+\sum_{j=0}^{s-1}\rho_s^{-(j+1)}
+=\rho_s^{(k-B_s)/4}.
+\end{aligned}
+\]
+For fixed $s$, the constant
+$B_s$ is independent of $n$.
+Letting $n\to\infty$ in
+each parity, followed by
+$s\to\infty$ and
+$\rho_s\uparrow2$, proves
+\eqref{eq:minimal-entropy},
+because $J_{\min}(n)$ dominates
+the corresponding $F_a^{\rm odd}(n)$.
+\end{proof}
+
+This shows that the minimal
+fixed-point restriction costs
+at most a change in the proved
+cube-root entropy coefficient:
+it does not destroy uniform
+superpolynomial combinatorial
+multiplicity. The direct
+taxicab family in
+Section~\ref{sec:taxicab-involutions}
+separately establishes stronger
+\emph{linear} entropy on
+an infinite subsequence.
+
+\begin{corollary}[Efficient one-seed construction]
+\label{cor:single-seed-alg}
+For every $n\ge8915$, a cube-sum
+permutation of length $n$ is
+constructible using $O(n)$
+unit-cost arithmetic operations
+and $O(\log\log n)$ reflection
+layers beyond a fixed finite lookup.
+\end{corollary}
+\begin{proof}
+For $n\ge10976$, take the least
+cube $k^3\ge n+8916$ as in the
+theorem. Its predecessor satisfies
+\[
+8915\le m=k^3-n-1
+=O(n^{2/3}),
+\]
+since consecutive cubes differ by
+$O(k^2)=O(n^{2/3})$.
+Hence $\log m\le(2/3)\log n+O(1)$,
+which yields $O(\log\log n)$
+recursive stages before reaching
+the finite interval. Every reflection
+writes its newly added positions
+exactly once, so the output work
+is $O(n)$; exact cube roots add
+only polylogarithmic overhead.
+The finite interval is traced through
+at most seven predecessor links,
+ending at the sole seed of length $7$.
+\end{proof}
+
+Theorem~\ref{thm:single-seed} is weaker
+numerically than the fully classified
+cutoff in Theorem~\ref{thm:exist},
+but stronger conceptually in a different
+direction: it establishes eventual
+existence without any large explicit
+matching witness. The residual finite
+verification concerns \emph{reflection
+reachability only}, not bipartite
+matching, and is entirely independent
+of the sharp-threshold classification.
+A completely computation-free proof
+of eventual existence would still
+require eliminating this last
+seven-round finite arithmetic check.
+
+\section{Monotone signed Waring representations}
+\label{sec:signed-waring}
+The reflection orbit has a direct reformulation
+as an additive-number-theoretic problem.
+The important feature is not just the
+presence of signed cubes, but the
+\emph{monotonicity of every intermediate
+partial reflection}.
+
+\begin{proposition}[Reflection paths and alternating cubes]
+\label{prop:signed-waring}
+Fix any positive starting length $a$ and
+set $x_0=2a+1$.
+A sequence of $r$ strict reflection
+extensions from $a$ to $n$ exists if
+and only if there are integers
+$k_1,\ldots,k_r\ge2$ for which
+\[
+x_j=2k_j^3-x_{j-1}>x_{j-1}
+\qquad(1\le j\le r),
+\]
+and $x_r=2n+1$.
+Equivalently,
+\[
+\boxed{\displaystyle
+2n+1=(-1)^r(2a+1)
++2\sum_{j=1}^{r}(-1)^{r-j}k_j^3,}
+\]
+where the intermediate quantities
+specified by the recursion must be
+strictly increasing positive odd integers.
+\end{proposition}
+\begin{proof}
+Writing $x_j=2n_j+1$,
+the reflection condition
+$n_{j-1}+n_j+1=k_j^3$
+is equivalent to
+$x_{j-1}+x_j=2k_j^3$.
+The strict extension $n_j>n_{j-1}$
+is exactly $x_j>x_{j-1}$.
+Iterating this affine identity
+gives the alternating sum formula.
+Conversely every such increasing
+sequence recovers the necessary
+reflection predecessors and cubes.
+\end{proof}
+
+For the canonical seed $a=7$, a path
+of exactly seven reflections reaches
+$n$ precisely when it admits
+\[
+\boxed{\displaystyle
+n+8=
+k_7^3-k_6^3+k_5^3-k_4^3+
+k_3^3-k_2^3+k_1^3}
+\]
+with the corresponding strictly
+increasing intermediate odd coordinates.
+This converts the global question
+about \emph{bounded reflection depth}
+into an explicit restricted
+signed-Waring representation problem.
+It is stronger than mere eventual
+existence: Theorem~\ref{thm:single-seed}
+proves a growing but
+$O(\log\log n)$-bounded depth,
+not a universal depth of seven.
+
+Experiments with exact interval arithmetic
+suggest that the seven-step orbit already
+covers every length $n\ge8915$,
+but this stronger unbounded statement
+is \emph{not proved here}. It would
+require a uniform theorem about
+alternating cubic representations
+with their intermediate-order
+constraints, rather than an
+unbounded numerical extrapolation.
+
+\section{The reflection tree as a standalone counting model}
+\label{sec:reflection-tree}
+
+The one-seed construction contains not merely one
+permutation for every sufficiently large length,
+but a recursively countable subfamily
+whose size itself grows uniformly.
+
+Let $F(7)=1$, and for $n>7$ define
+\begin{equation}\label{eq:reflection-tree}
+\boxed{\displaystyle
+F(n)=
+\sum_{\substack{7\le m<n\\m+n+1=k^3\ \text{for some }k\ge2}}
+F(m).}
+\end{equation}
+We regard $F(n)$ as zero at lengths not
+reachable from the seven-element seed.
+
+\begin{lemma}[Exact reflection-history enumeration]
+\label{lem:reflection-count}
+For every $n\ge7$, $F(n)$ equals exactly
+the number of distinct cube-sum permutations
+obtainable from the seed
+$(7,6,5,4,3,2,1)$ by a finite sequence
+of strict reflection extensions.
+In particular,
+\[
+\boxed{0\le F(n)\le P(n),\qquad
+F(n)>0\ \ (n\ge8915).}
+\]
+\end{lemma}
+\begin{proof}
+Every strictly increasing history has
+a unique final predecessor $m<n$,
+and its last extension uses the cube
+$c=m+n+1$. The final entry of the
+permutation is then
+\[
+p_n=c-n=m+1.
+\]
+Thus the last predecessor $m$ can be
+recovered uniquely from $p_n$, while
+the previous permutation is recovered
+by restricting to its first $m$
+positions. Hence two distinct
+reflection histories cannot produce
+the same final permutation.
+The recursive count is exactly
+\eqref{eq:reflection-tree}.
+The eventual positivity is
+Theorem~\ref{thm:single-seed}.
+\end{proof}
+
+\begin{theorem}[Uniform entropy inside one reflection tree]
+\label{thm:treeentropy}
+Fix $s\ge2$ and let $\rho_s\in(1,2)$
+be determined by
+$\sum_{h=1}^{s}\rho_s^{-h}=1$.
+Put
+\[
+B_s^\ast=\max\{2s^2+4s-1,\ 2s+27\},
+\qquad K(n)=\lfloor\sqrt[3]{2n}\rfloor.
+\]
+For every $n\ge8915$,
+\[
+\boxed{\displaystyle
+F(n)\ge\rho_s^{(K(n)-B_s^\ast)/2}.}
+\]
+Consequently,
+\begin{equation}\label{eq:tree-entropy}
+\boxed{\displaystyle
+\liminf_{n\to\infty}
+\frac{\log F(n)}{(2n)^{1/3}}
+\ge\frac{\log2}{2}.}
+\end{equation}
+The same bound holds for $P(n)$,
+but this proof uses only the
+seven-element seed, its seven-round
+arithmetic reachability certificate,
+and elementary cubic inequalities.
+\end{theorem}
+\begin{proof}
+Write $k=K(n)$, $\rho=\rho_s$,
+and $B=B_s^\ast$. If $k<B$,
+the right-hand side of the claimed
+inequality is at most $1$,
+and $F(n)\ge1$ by
+Lemma~\ref{lem:reflection-count}.
+
+If $k\ge B$, for $j=0,\ldots,s-1$
+take $c_j=(k-j)^3$ and
+$m_j=c_j-n-1$. The polynomial
+inequality in the proof of
+Theorem~\ref{thm:entropy}
+(applied with the same $j,k$)
+gives
+\[
+K(m_j)\ge k-2j-2.
+\]
+Since $k-2s\ge27$, this
+guarantees $m_j\ge
+\lceil27^3/2\rceil>8915$.
+Also $c_j\le k^3\le2n$,
+so $m_j<n$.
+By strong induction, the exact
+recurrence \eqref{eq:reflection-tree}
+therefore yields
+\[
+\begin{aligned}
+F(n)&\ge\sum_{j=0}^{s-1}F(m_j)\\
+&\ge \rho^{(k-B)/2}
+\sum_{j=0}^{s-1}\rho^{-(j+1)}
+=\rho^{(k-B)/2}.
+\end{aligned}
+\]
+Finally, for every fixed $s$,
+$B_s^\ast$ does not depend on $n$,
+and $\rho_s\uparrow2$ as $s\to\infty$.
+The limit inferior is at least
+$(\log\rho_s)/2$ for each $s$,
+which proves \eqref{eq:tree-entropy}.
+\end{proof}
+
+The reflection-tree recurrence
+is a useful independent combinatorial
+object: its members are explicit
+permutations, not merely abstract
+paths or potential matchings.
+Unlike a claim that every large
+permutation can be generated by
+reflection (which is false, for
+example at $n=173$ from this seed),
+this theorem counts a rigorously
+defined \emph{subfamily} only.
+
+\section{The entropy barrier of pure reflection}
+\label{sec:reflection-barrier}
+
+The reflection-tree estimates admit a sharp
+structural complement: its combinatorial entropy
+has exactly the cube-root growth \emph{order}.
+Consequently, the exponentially many
+permutations in the independent-cycle constructions
+cannot be produced from finitely many seeds by
+suffix reflections alone.
+
+\begin{theorem}[Strict ordering of reflection cubes]
+\label{thm:cube-order}
+Consider any chain of strict reflection extensions
+\[
+n_0<n_1<\cdots<n_r=n
+\]
+whose step from $n_{j-1}$ to $n_j$
+uses the cube $c_j=n_{j-1}+n_j+1$.
+Then
+\[
+\boxed{c_1<c_2<\cdots<c_r\le2n.}
+\]
+If the initial seed permutation is fixed,
+the set $\{c_1,\ldots,c_r\}$ uniquely
+determines the entire history and its
+final permutation.
+\end{theorem}
+\begin{proof}
+The step from $n_{j-1}$ to $n_j$
+is strict, hence
+$c_j=n_{j-1}+n_j+1\le2n_j\le2n$.
+For consecutive steps,
+\[
+c_{j+1}-c_j
+=n_{j+1}-n_{j-1}>0.
+\]
+Once the starting length $n_0$ and
+the strictly increasing list of cubes
+are specified, every subsequent
+length is uniquely determined by
+$n_j=c_j-n_{j-1}-1$.
+The reflected permutation is then
+uniquely determined by the starting
+permutation and these successive
+lengths. A set of cubes therefore
+determines at most one history.
+\end{proof}
+
+\begin{theorem}[Optimal cube-root order for the one-seed tree]
+\label{thm:reflection-barrier}
+Let $F(n)$ count cube-sum permutations
+obtained by strict reflection extensions
+from the unique seed
+$(7,6,5,4,3,2,1)$.
+For all $n\ge7$,
+\begin{equation}\label{eq:reflection-upper}
+\boxed{\displaystyle
+F(n)\le 2^{K(n)-1},
+\qquad K(n)=\lfloor(2n)^{1/3}\rfloor.}
+\end{equation}
+Together with
+Theorem~\ref{thm:treeentropy}, this yields
+\[
+\boxed{\displaystyle
+\log F(n)=\Theta(n^{1/3})\qquad(n\to\infty).}
+\]
+The same upper estimate holds with a
+factor $S$ for the union of strict-reflection
+descendants of any fixed finite collection
+of $S$ initial cube-sum permutations:
+\begin{equation}\label{eq:finite-seeds-upper}
+\boxed{\displaystyle
+|\mathcal R_{\mathcal S}(n)|
+\le S\,2^{K(n)-1}.}
+\end{equation}
+\end{theorem}
+\begin{proof}
+All possible strict reflection cubes up to
+length $n$ are among
+$2^3,3^3,\ldots,K(n)^3$,
+a list of $K(n)-1$ cubes.
+By Theorem~\ref{thm:cube-order},
+every reflection history from a fixed
+seed corresponds injectively to a subset
+of these cube roots (including the empty
+subset for the initial length).
+There are at most $2^{K(n)-1}$ such
+subsets. Summing over $S$ seeds gives
+\eqref{eq:finite-seeds-upper}.
+Theorem~\ref{thm:treeentropy} provides a
+strictly positive lower liminf for
+$\log F(n)/(2n)^{1/3}$ as $n\to\infty$,
+and the upper bound gives a finite
+limsup. Hence the logarithm is
+$\Theta(n^{1/3})$.
+\end{proof}
+
+\begin{corollary}[A strict entropy separation]
+\label{cor:entropy-separation}
+For any fixed finite family of
+cube-sum seed permutations,
+\[
+\lim_{n\to\infty}
+\frac1n\log\bigl(
+1+|\mathcal R_{\mathcal S}(n)|\bigr)=0.
+\]
+By contrast, the entire legal family
+has positive upper exponential entropy:
+\[
+\boxed{\displaystyle
+\limsup_{n\to\infty}
+\frac{\log P(n)}n
+\ge\frac{148877\log2}{681707}>0.}
+\]
+Consequently, no fixed finite-seed
+strict-reflection scheme can capture a
+positive fraction of the exponential-scale
+freedom exhibited by the independent
+three-cycle family.
+\end{corollary}
+\begin{proof}
+The upper estimate
+\eqref{eq:finite-seeds-upper} gives
+$\log(1+|\mathcal R_{\mathcal S}(n)|)
+=O(n^{1/3})=o(n)$.
+The lower bound for the full family
+is Theorem~\ref{thm:three-cycle}.
+In particular, on its explicit
+subsequence $n=681707u^3$,
+the logarithm of the full permutation
+count is at least a positive constant
+times $n$, while the reflected
+finite-seed subfamily has logarithm
+$o(n)$.
+\end{proof}
+
+More generally, with perfect $d$th
+powers in place of cubes, the strictly
+increasing-root proof gives at most
+\[
+S\,2^{\lfloor(2n)^{1/d}\rfloor-1}
+\]
+permutations from $S$ fixed seeds.
+The exponent $n^{1/d}$ is a
+\emph{methodological upper bound}
+for reflection-only generation, not
+an upper bound for all admissible
+power-sum permutations.
+
+\begin{theorem}[Fibonacci majorant for the reflection tree]
+\label{thm:fibonacci-majorant}
+Let $F(n)$ be the number of
+strict-reflection descendants of the
+seven-point seed, as in
+\eqref{eq:reflection-tree}, and
+$K(n)=\lfloor(2n)^{1/3}\rfloor$.
+With $\mathrm{Fib}_1=\mathrm{Fib}_2=1$
+and $\mathrm{Fib}_{j+2}=
+\mathrm{Fib}_{j+1}+\mathrm{Fib}_{j}$,
+\begin{equation}\label{eq:fibonacci-majorant}
+\boxed{\displaystyle
+F(n)\le\mathrm{Fib}_{K(n)-2}
+\qquad(K(n)\ge3),}
+\end{equation}
+and $F(n)\le1$ when $K(n)=2$.
+In particular, writing
+$\varphi=(1+\sqrt5)/2$,
+\begin{equation}\label{eq:fibonacci-entropy}
+\boxed{\displaystyle
+\limsup_{n\to\infty}
+\frac{\log F(n)}{(2n)^{1/3}}
+\le\log\varphi.}
+\end{equation}
+Combined with
+Theorem~\ref{thm:treeentropy},
+\[
+\boxed{\displaystyle
+\frac{\log2}{2}\le
+\liminf_{n\to\infty}\frac{\log F(n)}{(2n)^{1/3}}
+\le
+\limsup_{n\to\infty}\frac{\log F(n)}{(2n)^{1/3}}
+\le\log\varphi.}
+\]
+\end{theorem}
+\begin{proof}
+Write $k=K(n)$, and let
+$m=(k-j)^3-n-1\ge7$
+be any valid strict predecessor
+appearing in \eqref{eq:reflection-tree}.
+Necessarily $j\ge0$ and
+$(k-j)^3>n\ge k^3/2$,
+so $k-2j>0$. Moreover,
+\[
+\begin{aligned}
+2m
+&=2(k-j)^3-2n-2\\
+&\le2(k-j)^3-k^3-2\\
+&=(k-2j)^3-6j^2(k-j)-2\\
+&<(k-2j)^3.
+\end{aligned}
+\]
+Thus the integer cube-root height of
+every predecessor satisfies
+\[
+\boxed{K(m)\le k-(2j+1).}
+\]
+
+Define $B_\ell=0$ for $\ell\le1$,
+$B_2=1$, and for $\ell\ge3$ set
+\[
+B_\ell=\sum_{j\ge0} B_{\ell-2j-1}.
+\]
+All sums here are finite. The recurrence
+gives $B_3=B_4=1$ and
+$B_\ell=B_{\ell-1}+B_{\ell-2}$
+for every $\ell\ge5$;
+hence $B_\ell=\mathrm{Fib}_{\ell-2}$
+for every $\ell\ge3$.
+In particular $B_\ell$ is
+nondecreasing for $\ell\ge2$.
+
+Strong induction on $n$ gives
+$F(n)\le B_{K(n)}$: the seed
+$n=7$ has height $K(7)=2$ and
+$F(7)=B_2=1$; other lengths
+with height two have $F(n)=0$;
+and for $K(n)=k\ge3$,
+\[
+F(n)\le
+\sum_{j\ge0}B_{K(m_j)}
+\le\sum_{j\ge0}B_{k-(2j+1)}
+=B_k.
+\]
+This proves the finite inequality.
+Finally Binet's formula implies
+$\log\mathrm{Fib}_k=k\log\varphi+O(1)$,
+so \eqref{eq:fibonacci-entropy}
+follows. The lower inequality is
+Theorem~\ref{thm:treeentropy}.
+\end{proof}
+
+This replaces the coarse
+$2^{K(n)-1}$ encoding ceiling
+with a strict Fibonacci bound.
+It captures the important fact that
+the distinct predecessor branches
+do not just consume one increasing
+cube root: they reduce the available
+height by the odd increments
+$1,3,5,\ldots$.
+It remains an open question whether
+the exact upper or lower limiting
+coefficients can be attained.
+
+\section{A dimension barrier for bounded reflection depth}
+\label{sec:depth-barrier}
+
+Even though the seven-element seed reaches
+every sufficiently large length, a genuinely
+\emph{uniformly bounded} number of reflections
+is a separate Diophantine question.
+There is an elementary counting obstruction
+to any bound of at most three reflections.
+
+\begin{theorem}[Reflection-depth sparsity]
+\label{thm:reflection-depth}
+Fix one cube-sum permutation as an initial
+seed, and let $\mathcal D_r(N)$ be the
+set of output lengths at most $N$
+obtainable from it by at most $r$
+strict reflection extensions.
+For $K=\lfloor(2N)^{1/3}\rfloor$,
+\begin{equation}\label{eq:depth-sum}
+\boxed{\displaystyle
+|\mathcal D_r(N)|
+\le \sum_{j=0}^{r}\binom{K-1}{j}.}
+\end{equation}
+For each fixed $r\le2$,
+\[
+\boxed{\displaystyle
+|\mathcal D_r(N)|=O(N^{r/3})=o(N),}
+\]
+and for three or fewer reflections,
+\begin{equation}\label{eq:three-depth}
+\boxed{\displaystyle
+|\mathcal D_3(N)|\le
+\frac N3+O(N^{2/3}).}
+\end{equation}
+In particular, no one-seed reflection
+construction of depth at most three
+can cover every sufficiently large length.
+At least four strict reflections are
+necessary for any one-seed, bounded-depth
+cofinite construction.
+\end{theorem}
+\begin{proof}
+By Theorem~\ref{thm:cube-order}, a
+history producing a length $n\le N$
+uses a strictly increasing sequence
+of cubes chosen from the $K-1$
+possible cubes $2^3,\dots,K^3$.
+A history with exactly $j$ steps
+is thus encoded by a $j$-element
+subset, and there are at most
+$\binom{K-1}{j}$ choices.
+Summing yields \eqref{eq:depth-sum}.
+For fixed $r\le2$ this is
+$O(K^r)=O(N^{r/3})$.
+For $r=3$, the sum is
+\[
+\binom{K-1}{3}+O(K^2)
+=\frac{K^3}{6}+O(K^2)
+\le\frac N3+O(N^{2/3}),
+\]
+because $K^3\le2N$.
+Thus at least $(2/3+o(1))N$
+of the first $N$ lengths cannot be
+reached in at most three steps.
+\end{proof}
+
+More generally, if a fixed finite
+family of $S$ initial permutations
+is allowed, the right side of
+\eqref{eq:depth-sum} is multiplied
+by at most $S$. This makes clear
+why the counting barrier does not
+extend unchanged to arbitrarily
+many input seeds.
+
+The numerical seven-round closure
+in Lemma~\ref{lem:sevenrounds}
+raises the sharper question whether
+\emph{a fixed depth of seven} already
+suffices for all sufficiently large
+lengths. The present theorem does
+not prove this; it places a rigorous
+lower bound of four on any such
+single-seed uniform depth.
+
+\section{A hand-checkable finite interval proof}
+\label{sec:finite-interval-proof}
+
+We give a standalone \emph{finite algebraic}
+certificate for every base length $173\le n\le364$.
+It is independent of the augmenting-path
+search, Hall tests, and permutation matching
+algorithms. Unlike the global theory, this
+part still uses an explicit finite case table:
+the numerical expressions below can each
+be verified solely by integer arithmetic.
+
+\begin{lemma}[Boundary cancellation criterion]
+\label{lem:endpoint-cancellation}
+Let $n\ge1$ and choose a positive integer $t$,
+endpoints $0=b_0<b_1<\cdots<b_t=n$,
+and perfect cubes $c_1,\dots,c_t$.
+Define
+\[
+L_j=c_j-b_j,\qquad R_j=c_j-b_{j-1}.
+\]
+Suppose that $1\le L_j<R_j\le n+1$
+for all $j$. Then the piecewise formula
+\[
+\boxed{p(i)=c_j-i\quad
+\text{whenever }b_{j-1}<i\le b_j}
+\]
+is a cube-sum permutation of $[1,n]$
+\emph{if and only if}
+\begin{equation}\label{eq:endpoint-cancellation}
+\boxed{
+\{1,R_1,\ldots,R_t\}_{\rm multi}
+=
+\{n+1,L_1,\ldots,L_t\}_{\rm multi}.}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The $j$th input segment is mapped
+bijectively onto the consecutive integers
+$[L_j,R_j-1]$, with $i+p(i)=c_j$.
+Let $f(x)$ count the number of
+image segments containing the integer
+$x$, for $1\le x\le n$.
+Set $f(0)=f(n+1)=0$.
+The difference $f(x)-f(x-1)$ is
+the number of left boundaries at $x$
+minus the number of right boundaries
+at $x$, where the image intervals
+are half-open $[L_j,R_j)$.
+The multiset identity
+\eqref{eq:endpoint-cancellation}
+is precisely the assertion that
+this difference is $1$ at $x=1$,
+$-1$ at $x=n+1$, and $0$ at all
+other integers. Hence $f(x)=1$
+at every $1\le x\le n$:
+the image intervals partition $[1,n]$.
+Conversely, a partition has precisely
+those boundary differences, and thus
+satisfies the stated multiset identity.
+\end{proof}
+
+\begin{lemma}[Reflected-block rearrangement]\label{lem:main-block-rearrange}
+Choose positive input-block lengths
+$\ell_1,\ldots,\ell_t$ of sum $n$ and an arbitrary
+output order $\pi$ of these $t$ blocks.
+Let $A_j$ be the sum of input lengths before
+block $j$, and let $B_j$ be the sum of output
+lengths before block $j$ in order $\pi$.
+If all numbers
+\[
+  C_j=1+A_j+B_j+\ell_j
+\]
+are perfect cubes, then on input block $j$
+the reflection $p(i)=C_j-i$ gives a cube-sum
+permutation of $[1,n]$.
+\end{lemma}
+\begin{proof}
+The input block is $[A_j+1,A_j+\ell_j]$,
+which maps exactly to the prescribed output
+block $[B_j+1,B_j+\ell_j]$.
+Those output blocks partition $[1,n]$
+by construction. Each index sum is $C_j$.
+\end{proof}
+
+\paragraph{Family I (four blocks).}
+Let $U<V$ be integer cubes and put
+\[
+a=2U-V-1,\qquad b=2V-3U+1.
+\]
+If $a,b>0$, use input lengths $(a,b,a,b)$
+and output order $(3,4,1,2)$.
+Lemma~\ref{lem:main-block-rearrange} gives the cubic
+sums $(U,V,U,V)$ and length $2(V-U)$.
+The pairs $(U,V)=(64,125),(125,216),(216,343)$
+yield lengths $122,182,254$ respectively.
+
+\paragraph{Family II (five blocks).}
+For cubes $X<Y<Z$, define
+\[
+a=2Y-Z-1,\quad
+b=X+2Z-4Y+1,\quad c=Y-X.
+\]
+If $a,b,c>0$, the lengths $(a,b,c,a,c)$
+in output order $(4,2,5,1,3)$ produce
+sums $(Y,X,Z,Y,Z)$ and total length
+$2Y-X-1$. With $(Y,Z)=(64,125)$ and
+$X=27,8$, the results are $n=100,119$.
+
+\paragraph{Family III (six blocks).}
+For integer cubes $X,W,Y,Z$, put
+\[
+\begin{aligned}
+a&=2Y-Z-1,& b&=X-2a-1,\\
+c&=W+2a-2X+1,& d&=Y+X-W-2a-1.
+\end{aligned}
+\]
+If these are positive, choose lengths
+$(a,b,c,d,a,d)$ and output order
+$(5,2,3,6,1,4)$. The cubic sums are
+$(Y,X,W,Z,Y,Z)$ and the length is
+$2Z-2Y+X-W$. Taking $(Y,Z)=(64,125)$,
+the choices $(X,W)=(8,64),(27,64),(8,27)$
+give $n=66,85,103$, respectively.
+
+\paragraph{Family IV (twelve blocks and three binary switches).}
+Let $X,T,Q$ be integers and put
+\[
+\begin{aligned}
+u&=X-7,&v&=T-2X+7,&w&=X+27-T,\\
+z&=Q+2T-2X-121,&h&=X+152-T-Q.
+\end{aligned}
+\]
+Assume $u,v,z\ge0$ and $w,h>0$.
+Use input lengths
+\[
+(3,u,v,w,3,w,z,h,3,27,3,h)
+\]
+and output block order
+\[
+(11,2,3,6,9,4,7,12,5,10,1,8).
+\]
+The reflected-block lemma computes the twelve
+nominal index-image sums as
+\[
+(125,X,T,64,125,64,Q,216,125,216,125,216).
+\]
+When the second, third, or seventh block is nonempty,
+its nominal sum $X$, $T$, or $Q$, respectively,
+must be a cube. Any zero-length block is omitted
+from both orders and imposes no cube condition.
+The total length is
+\[
+n=276+X-T-Q.
+\]
+Take $X\in\{7,8\}$, choose
+$T\in\{2X-7,27\}$, and independently choose
+$Q\in\{121-2T+2X,125\}$. All eight resulting
+length choices satisfy the positivity and cube
+conditions. The $2^3$ distinct lengths are
+\[
+\boxed{131,132,150,151,155,156,174,175}.
+\]
+This is one symbolic rearrangement construction
+with three optional empty blocks, not eight
+separate finite endpoint certificates.
+
+\paragraph{Family V (15 blocks, two constrained switches).}
+Take $\alpha,\beta\in\{0,1\}$ with
+$\alpha\le\beta$ and
+$t\in\{0,7+4\beta+2\alpha\}$.
+Define the ordered input block lengths
+\[
+\begin{gathered}
+\ell_1=2\beta,\quad
+\ell_2=7-\alpha-4\beta-\alpha\beta,\quad
+\ell_3=\alpha,\quad\ell_4=\alpha\beta,\\
+\ell_5=13+4\beta,\quad\ell_6=\alpha,\quad
+\ell_7=23-4\beta-\alpha,\quad\ell_8=13+4\beta,\\
+\ell_9=48-\alpha-45\beta+\alpha\beta,\quad
+\ell_{10}=2\beta,\quad\ell_{11}=\beta(39-\alpha),\\
+\ell_{12}=t,\quad\ell_{13}=30+\alpha-t,\quad
+\ell_{14}=13+4\beta,\quad
+\ell_{15}=91+\alpha-t.
+\end{gathered}
+\]
+The output block order is
+\[
+(10,4,6,2,8,3,11,1,9,14,7,12,15,5,13).
+\]
+All lengths are nonnegative, with empty blocks omitted.
+Because $\alpha\beta=\alpha$, the nominal reflected
+sums are
+\[
+\begin{gathered}
+21+43\beta,\ 8,\ 28-\alpha,\ 8,\ 216,\\
+21+2\alpha+4\beta,\ 125,\ 64,\ 125,\ 105-41\beta,\\
+125,\ 209-2\alpha-4\beta+t,\ 343,\ 216,\ 343.
+\end{gathered}
+\]
+Every \emph{nonempty} block has a cubic sum:
+blocks $1,10,11$ are used only if $\beta=1$;
+blocks $3,4,6$ are used only if
+$\alpha=\beta=1$; and block $12$ is empty
+if $t=0$, otherwise its sum is $216$.
+The total length is
+\[
+\boxed{n=238+\alpha+2\beta-t},
+\]
+so the three allowed pairs
+$(\alpha,\beta)=(0,0),(0,1),(1,1)$
+with their two possible $t$ values give
+\[
+\boxed{228,229,231,238,240,241}.
+\]
+This is a symbolic cubic-sum construction;
+it does not require verifying six separate endpoint lists.
+
+\paragraph{Family VI (ten blocks, nested binary degeneration).}
+Let $\alpha,\beta\in\{0,1\}$ with $\beta\le\alpha$.
+Use input block lengths
+\[
+\begin{gathered}
+(7,\ 12\alpha,\ 159-24\alpha-99\beta,\
+14\beta,\ 28\beta,\ 63\beta,\\
+10+24\alpha-6\beta,\ 8\beta,\
+159-24\alpha-107\beta,\
+10+24\alpha+93\beta)
+\end{gathered}
+\]
+and output order $(1,2,8,5,6,9,4,10,3,7)$.
+Direct substitution into the reflected-block lemma
+gives the ten nominal sums
+\[
+\begin{gathered}
+8,\ 8+19\alpha,\ 343,\
+167-12\alpha+61\beta,\
+167-12\alpha-30\beta,\\
+167-12\alpha+61\beta,\ 512,\
+177+12\alpha+27\beta,\ 343,\ 512.
+\end{gathered}
+\]
+Block $2$ is nonempty only when $\alpha=1$
+and has cubic sum $27$; blocks $4,5,6,8$
+are nonempty only when $\beta=\alpha=1$
+and have sums $216,125,216,216$. Other
+nonempty blocks have constant cube sums;
+all empty blocks are omitted. Since
+\[
+n=345+12\alpha-6\beta,
+\]
+the three admissible choices give the
+lengths $345,357,351$, using one
+parametric construction rather than
+three independent endpoint lists.
+
+\subsection{Universal unimodular determinant construction}
+\label{subsec:unimodular-factory}
+The remaining $57$ integer witnesses admit a common
+algebraic formula, without separately testing
+their endpoint cancellation identities.
+For an output-block order $\pi$ on $t$ labels,
+write $\rho(i)=\pi^{-1}(i)$ and set
+\[
+M_{ji}=[i<j]+[\rho(i)<\rho(j)]+[i=j],
+\quad 1\le i,j\le t.
+\]
+Here brackets denote indicator functions.
+
+\begin{lemma}[Unimodular block-order matrices]
+\label{lem:unimodular-block}
+For every finite output-block order $\pi$,
+$\det M\in\{0,1\}$.
+\end{lemma}
+\begin{proof}
+With $\boldsymbol1$ denoting the all-ones
+vector, write $M=\boldsymbol1\boldsymbol1^T+K$.
+The matrix $K$ is skew-symmetric, and for
+$i<j$ its $(i,j)$ entry is $-1$ exactly
+when $\rho(i)<\rho(j)$, and $0$ otherwise.
+It is therefore an oriented chord-intersection
+matrix: place first chord endpoints in
+input order around one arc of a circle,
+and second endpoints in output order around
+the complementary arc.
+
+Recall that an even-order chord-intersection
+matrix has Pfaffian $0$ or $\pm1$.
+Indeed, thickening the chord diagram into an
+oriented ribbon surface, the chord loops form an
+integral homology basis. Their intersection form
+is integrally congruent to a direct sum of
+unimodular symplectic pairs
+$\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$
+and zero blocks from the boundary radical.
+Its full Pfaffian is thus $0$ or $\pm1$.
+
+If $t$ is even, $\operatorname{adj}(K)$ is
+skew-symmetric; the rank-one determinant
+identity gives
+\[
+\det M=\det K+
+\boldsymbol1^T\operatorname{adj}(K)\boldsymbol1
+=\operatorname{Pf}(K)^2\in\{0,1\}.
+\]
+If $t$ is odd, $\det K=0$. Adjoin a new
+chord crossing all original chords, whose
+skew matrix is
+\[
+H=\begin{pmatrix}
+0&\boldsymbol1^T\\
+-\boldsymbol1&K
+\end{pmatrix}.
+\]
+The same rank-one and bordered determinant
+identities give
+\[
+\det M=\boldsymbol1^T\operatorname{adj}(K)
+\boldsymbol1=\det H=\operatorname{Pf}(H)^2
+\in\{0,1\}.
+\]
+\end{proof}
+
+\begin{theorem}[Symbolic determinant families]
+\label{thm:unimodular-block-factory}
+Fix $\pi$ with $\det M=1$.
+For arbitrary integer cube roots
+$k_1,\ldots,k_t\ge2$, let
+$d=(k_j^3-1)_{j=1}^t$. Define
+\[
+\ell_j=\det M^{(j)}(d),
+\]
+where $M^{(j)}(d)$ is obtained from $M$
+by replacing column $j$ with $d$.
+If every $\ell_j>0$, then with
+$N=\sum_j\ell_j$ there is a permutation
+of $[1,N]$ with cube sums $k_j^3$ on
+successive input blocks of these lengths.
+\end{theorem}
+\begin{proof}
+By the preceding lemma and Cramer's rule,
+$M\ell=d$ holds identically over the integers.
+If $A_j,B_j$ are the input and output block
+prefix lengths, this is precisely
+\[
+k_j^3=1+A_j+B_j+\ell_j.
+\]
+Reflection $p(i)=k_j^3-i$ maps the
+$j$th input block bijectively to the
+$j$th block in output order $\pi$.
+The output blocks partition $[1,N]$.
+\end{proof}
+
+The $57$ cubic-root words and block orders
+in Appendix~\ref{app:algebraic-shapes}
+are therefore a collection of \emph{symbolic}
+families, rather than $57$ independently
+postulated endpoint identities.
+For each printed root word,
+integer determinant evaluation gives
+$\det M=1$, $\ell_j\ge1$, and the
+specified length $N$ (the smallest
+$\ell_j$ across the full table equals $1$).
+The separate exact
+\texttt{verify\_unimodular\_factory.py}
+checks these finite positivity conditions.
+The $57$ parameter choices remain finite data:
+this is not a case-free proof of their existence.
+
+\begin{theorem}[Uniform cubic dilation]
+\label{thm:unimodular-dilation}
+Under Theorem~\ref{thm:unimodular-block-factory},
+put $v=M^{-1}\boldsymbol1$ and
+$\varepsilon=t\bmod2$. For every integer $h\ge1$,
+\[
+\ell_j(h)=\ell_j+
+(h^3-1)(\ell_j+v_j)>0
+\]
+defines another cube-sum permutation, with
+root word $(hk_1,\ldots,hk_t)$, of length
+\[
+\boxed{N(h)=(N+\varepsilon)h^3-\varepsilon.}
+\]
+\end{theorem}
+\begin{proof}
+Pfaffian minor expansions in the preceding
+chord-diagram proof imply
+$v_j\in\{-1,0,1\}$: the Cramer minors
+are signed Pfaffians of chord diagrams
+with a marked chord deleted, divided
+by a nonzero Pfaffian of absolute value $1$.
+Moreover $\sum_j v_j=\varepsilon$.
+Indeed, $Mv=\boldsymbol1$ and skew symmetry
+give $S^2=S$ for $S=\boldsymbol1^Tv$.
+If $t$ is even, $K$ is invertible and
+$v=K^{-1}\boldsymbol1$ yields $S=0$.
+If $t$ is odd, invertibility of $M$ and
+singularity of $K$ exclude $S=0$:
+a kernel vector of $K$ has nonzero pairing
+with $\boldsymbol1$. Thus $S=1$.
+
+Since $\ell_j\ge1$ and $v_j\ge-1$,
+all displayed scaled lengths are positive.
+Finally
+\[
+M\ell(h)=h^3M\ell+(h^3-1)\boldsymbol1
+=h^3(k_j^3)_{j=1}^t-\boldsymbol1.
+\]
+The determinant construction applies again.
+Summing the lengths gives the formula
+for $N(h)$.
+\end{proof}
+
+\begin{lemma}[Affine-word rigidity]\label{lem:rigid}
+Fix a finite list of integer cubes $C_1,\ldots,C_t$.
+Suppose all breakpoints $b_j(n)$ are affine
+functions of $n$ with $b_0(n)=0$ and $b_t(n)=n$.
+The resulting fixed-cube reflection word can
+be a valid permutation for at most two distinct
+values of $n$.
+\end{lemma}
+\begin{proof}
+Every legal permutation satisfies the sum identity
+\[
+ \sum_{j=1}^{t} C_j\bigl(b_j(n)-b_{j-1}(n)\bigr)
+ =\sum_{i=1}^n(i+p(i))=n(n+1).
+\]
+Its left side is affine in $n$; its right
+side is a monic quadratic. The equality
+cannot hold for three distinct values.
+\end{proof}
+The obstruction concerns \emph{fixed} cube sums
+and affine endpoints only, not varying cube
+sums or composition of reflection templates.
+
+In total these \emph{six symbolic identities}
+give twenty-five base lengths
+\[
+66,85,100,103,119,122,131,132,150,151,155,156,174,175,182,228,229,231,238,240,241,254,345,351,357
+\]
+without twenty-five separate endpoint-table checks.
+
+\begin{theorem}[Reduced finite arithmetic certificate]
+\label{thm:finite-interval-atlas}
+The $57$ cubic-root words and output
+block orders in Appendix~\ref{app:algebraic-shapes},
+together with six additional symbolic block
+families, prove that every $n\ge173$ admits
+a cube-sum permutation.
+For each of the $57$ shapes, all reflected
+block lengths are defined by the determinant
+formula of Theorem~\ref{thm:unimodular-block-factory}.
+They are strictly positive and total $795$
+reflected blocks. The older $57$-row endpoint
+atlas is independent redundant evidence.
+\end{theorem}
+\begin{proof}
+The algebraic shape appendix contains
+$10$ lower and $47$ middle parameter sets.
+All its order matrices have determinant $1$,
+and all Cramer-determinant block lengths
+are positive integers. Hence
+Theorem~\ref{thm:unimodular-block-factory}
+constructs each corresponding permutation
+directly, without using the redundant
+endpoint-multiset atlas.
+
+The six preceding formulas establish
+another twelve seeds below $173$, namely
+$66,85,100,103,119,122,131,132,150,151,155,156$,
+and thirteen seeds in the target interval,
+$174,175,182,228,229,231,238,240,241,254,345,351,357$.
+Their permutations are guaranteed by
+the symbolic block-rearrangement lemma.
+Thus $22$ lower and $60$ middle seeds
+have been established without matching.
+
+Starting with these $82$ seeds and
+the empty permutation, we use the
+reflection lemma in strictly increasing
+order of the target length.
+The following predecessor sets give all
+other cases before the uniform tail.
+
+\paragraph{First: 26 reflected lengths below 173.}
+\begin{quote}
+\footnotesize
+\begin{verbatim}
+cube     already constructed predecessors m
+  8      0
+ 27      0,7
+ 64      0,7,19,26
+125      0,7,19,26,37,44,56
+216      44,56,63,66,68,80,82,85,87,
+         100,103,105
+\end{verbatim}
+\end{quote}
+Together with the $10$ exceptional lower seeds
+and the twelve algebraic-template lower seeds,
+these supply $48$ distinct lengths below 173.
+
+\paragraph{Second: 49 reflected lengths in
+$[173,255]\cup[339,364]$.}
+\begin{quote}
+\footnotesize
+\begin{verbatim}
+cube     previously constructed predecessors m
+216      0,7,19,26,37
+343      0,87,98,100,103,105,110,112,
+         115,116,117,118,119,120,121,122,
+         123,124,125,126,128,129,130,131,
+         132,133,135,147,149,150,151,152,
+         155,156,159
+512      147,149,150,151,152,155,156,
+         159,171
+\end{verbatim}
+\end{quote}
+The $47$ upper exceptional rows, the thirteen
+upper algebraic-template lengths and these $49$
+reflections are exactly the $109$ integers
+in $[173,255]\cup[339,364]$.
+There is no circular dependency:
+each predecessor $m$ is strictly smaller
+than its constructed length $n$.
+
+For example, $211=343-131-1$,
+$340=512-171-1$, and $342=343-0-1$.
+The first example replaces a previously
+necessary-looking $53$-segment independent
+row by one suffix reflection.
+
+
+In particular $48$ positive lower lengths
+and the $109$ lengths in
+$[173,255]\cup[339,364]$ are now
+covered. For $256\le n\le338$, let
+$m=511-n\in[173,255]$, so that
+$m<n$ and $m+n+1=512=8^3$.
+Lemma~\ref{lem:reflect} then covers
+all $192$ target base lengths.
+For every $n\ge365$, the existing
+cube-gap inequality of Lemma~\ref{lem:gap}
+and strong induction extend the
+permutations to all later lengths.
+\end{proof}
+
+The primary proof still contains $57$
+selected finite algebraic shapes with a
+positive-length check for each:
+the algebraic templates do not establish
+a completely case-free classification.
+The primary audit script
+\texttt{verify\_unimodular\_factory.py}
+is optional and reads only the cubic-order
+shape table, not the old endpoint table or original
+$191$ augmenting words or a matching
+archive. The older $109$-row table
+is preserved as an independent
+redundant check.
+
+\subsection{Forced reflection peeling at the critical base}
+\label{subsec:forced-reflection-peeling}
+
+\begin{lemma}[Forced neighbor and reflected pair]
+\label{lem:forced-neighbor}
+Let $V$ be a finite set of positive integers, with
+cube-sum adjacency $i\sim j$ whenever $i+j$ is a
+cube. If $i\in V$ has exactly one neighbor $j\in V$,
+every cube-sum permutation $p:V\to V$ satisfies
+$p(i)=j$ and $p(j)=i$. Deleting $i,j$ (or only
+$i$ when $i=j$) therefore preserves exactly the
+number of cube-sum permutations of the induced
+residual vertex set.
+\end{lemma}
+\begin{proof}
+The $i$th row can use only image $j$.
+Since the cube-sum graph is symmetric, column $i$
+can only be supplied by row $j$. Both assignments
+are therefore forced, and restriction or extension
+gives mutually inverse maps between permutations.
+\end{proof}
+
+\begin{theorem}[Three forced bands]
+\label{thm:forced-bands}
+For every $173\le n\le181$, the following
+three successive reflected bands are forced
+in \emph{every} cube-sum permutation:
+\[
+\begin{array}{c|c|c}
+\text{round}&\text{first endpoints }i& i+p(i)\\ \hline
+1 &[125,342-n]&216\\
+2 &[34,215-n]&64\\
+3 &[95,276-n]&216
+\end{array}
+\]
+Here each row is deleted together with its
+reflected images before the next round.
+Exactly $582-3n$ forced reflected pairs are
+identified by these three bands.
+\end{theorem}
+\begin{proof}
+Since $2n<512$, all relevant cube sums
+are $8,27,64,125,216,343$. On the first
+band, cubes up to $125$ give no positive
+neighbor, and $343-i>n$; thus the unique
+neighbor is $216-i$. Their image interval
+is $[n-126,91]$.
+On the second band, the possible $125-i$
+is in this deleted image interval,
+and $216-i>n$, leaving only $64-i$;
+its images form $[n-151,30]$.
+On the third band, the possible $125-i$
+lies in the deleted second image interval,
+and $343-i>n$, leaving $216-i$.
+All partners are distinct and belong to
+the still remaining vertices.
+The band sizes are
+$218-n$, $182-n$, and $182-n$, so their
+sum is $582-3n$.
+\end{proof}
+
+\begin{theorem}[Exact counts at $173,174,175$]
+\label{thm:forced-base}
+For the cube-sum permutation counting function,
+\[
+\boxed{P(173)=1,\quad P(174)=1,\quad P(175)=3.}
+\]
+In particular the existence at $n=173$
+is established without a determinant shape
+or a precomputed endpoint-multiset identity.
+\end{theorem}
+\begin{proof}
+At $n=173$, after the three forced bands
+the additional batches of first endpoints
+and their required cube sums are
+\[
+\begin{array}{c|l}
+\text{round}& \text{first endpoints : cube}\\ \hline
+4&\{4,5\}:8,\ [8,12]:27\\
+5&\{45,46,106,107,108,122\}:216\\
+6&\{31\}:64,\ \{172,173\}:216\\
+7\!-\!15&(92,216),(1,8),(20,125),(111,125),
+(13,125),\\
+& (104,125),(6,8),(123,216),(32,64)
+\end{array}
+\]
+Each first endpoint has exactly one neighbor
+remaining when its round is reached;
+this follows by direct subtraction from the
+six cubes at most $343$. All $173$ vertices
+are removed. Thus the resulting permutation
+is unique, with fixed points $4,32,108$.
+
+At $n=174$, the corresponding rounds are
+\[
+\begin{array}{c|l}
+1\!-\!3&[125,168]:216,\ [34,41]:64,\ [95,102]:216\\
+4&\{4\}:8,\ [8,11]:27\\
+5&\{45,46,47,106,107,108\}:216\\
+6&\{15\}:27,\ \{172,173,174\}:216\\
+7\!-\!19&(113,216),(22,27),(3,125),(94,125),
+(33,125),\\
+&(124,125),(7,27),(105,216),(14,27),
+(112,216),\\
+&(21,27),(2,125),(93,125).
+\end{array}
+\]
+Again every vertex is removed by forced choices,
+so the permutation is unique, with fixed
+points $4,108$.
+
+At $n=175$ the first three bands are
+$[125,167]$, $[34,40]$, $[95,101]$.
+Use rounds $4$--$19$ of the preceding table,
+but omit $\{4\}$ from round $4$ and
+replace its interval $[8,11]$ by $[8,10]$.
+The remaining ten vertices are precisely
+\[
+\{4,11,16,23,41,48,102,114,168,175\}.
+\]
+Their induced cube-sum graph is the loop at
+$4$, the edge $(4,23)$, and the chordless
+nine-cycle
+\[
+23-41-175-168-48-16-11-114-102-23.
+\]
+If $p(4)=4$, the odd cycle has exactly
+two directed cycle covers, one for each
+orientation. Otherwise $p(4)=23$
+forces $p(23)=4$; the eight remaining
+vertices form a path with a unique
+cover by four reciprocal pairs. Thus
+there are exactly $2+1=3$ permutations.
+\end{proof}
+
+\begin{corollary}[One fewer algebraic shape]
+\label{cor:56-plus-forcing}
+The proof of the finite interval $[173,364]$
+may use the $56$ cubic-root/output-order
+shapes in Appendix~\ref{app:reduced-shapes},
+the six algebraic block families generating
+$25$ further seed lengths, and the unique
+forced matching of $173$ from
+Theorem~\ref{thm:forced-base}.
+Together these establish the same $82$
+seed lengths as before. The excluded
+$173$ determinant shape is redundant.
+\end{corollary}
+
+\subsection{The interval-overlap avalanche and its finite obstruction}
+\label{subsec:interval-overlap-avalanche}
+
+\begin{lemma}[Exact cubic reflection of a good interval]
+\label{lem:reflection-overlap}
+Suppose every integer $m\in[a,b]$, $0\le a\le b$,
+has a legal cube-sum permutation. For a cube $c$,
+every integer $n$ in the nonempty interval
+\[
+\bigl[
+\max\{1,\lceil c/2\rceil,c-b-1\},\
+c-a-1
+\bigr]
+\]
+also has a legal cube-sum permutation.
+\end{lemma}
+\begin{proof}
+Take $m=c-n-1$. By the displayed bounds,
+$a\le m\le b$ and $0\le m<n$.
+Keep the old permutation on $[1,m]$ and set
+$p(i)=c-i$ on $[m+1,n]$. The suffix is mapped
+bijectively to itself, with constant sum $c$.
+\end{proof}
+
+\begin{lemma}[Interval-overlap avalanche]
+\label{lem:interval-avalanche}
+Suppose every length in $[a,b]$ is legal,
+where $1\le a\le b$. If a cube $c$ satisfies
+\[
+\boxed{a+b+2\le c\le2b+2},
+\]
+then every length in the larger interval
+$[a,c-a-1]$ is legal.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:reflection-overlap},
+the new interval of lengths includes $b+1$
+because $a\le c-b-2\le b$ and
+$c\le2(b+1)$. It continues through
+$c-a-1\ge b+1$; it therefore meets the
+already established interval immediately,
+with no gap.
+\end{proof}
+
+\begin{theorem}[Infinite avalanche from the finite base]
+\label{thm:interval-avalanche-tail}
+If all lengths $173\le n\le364$ are legal,
+then every length $n\ge173$ is legal,
+without any additional finite certificate.
+\end{theorem}
+\begin{proof}
+For $a=173$, $b=364$, the cube $9^3=729$
+lies in the avalanche window $[539,730]$.
+Consequently $[173,555]$ is legal.
+Assume $[173,k^3-174]$ is legal for $k\ge9$.
+The cube $(k+1)^3$ obeys
+\[
+k^3+1\le(k+1)^3\le2k^3-346,
+\]
+since the last inequality is equivalent to
+\[
+f(k)=k^3-3k^2-3k-347\ge0,
+\]
+with $f(9)=112$ and
+$f(k+1)-f(k)=3k^2-3k-5>0$ for $k\ge9$.
+Lemma~\ref{lem:interval-avalanche}
+extends the good interval through
+$(k+1)^3-174$. Induction on $k$ proves
+the assertion.
+\end{proof}
+
+\paragraph{Why overlap does not by itself remove the finite base.}
+At $n=65$, the domains $[1,63]$ of the
+$64$-reflection and $[60,65]$ of the
+$125$-reflection overlap and jointly cover
+$[1,65]$. Yet
+\[
+S=\{3,40,59,64\},\qquad
+N(S)=\{5,24,61\}
+\]
+under the available cube sums $8,27,64,125$,
+so Hall's inequality fails.
+Likewise no smaller legal length can produce
+$n=173$ by a single suffix reflection:
+the only possible predecessors are
+$m=42$ and $m=169$, via cubes $216,343$.
+For $m=42$, the six-row set
+\[
+[1,2]\cup[20,21]\cup[38,39]
+\]
+has just the four cube-sum neighbors
+$[6,7]\cup[25,26]$.
+For $m=169$, the fourteen-row set
+\[
+\begin{gathered}
+[8,9]\cup[38,39]\cup[45,46]\cup[99,100]\\
+{}\cup[129,130]\cup[136,137]\cup[160,161]
+\end{gathered}
+\]
+has only the twelve neighbors
+\[
+\begin{gathered}
+[18,19]\cup[25,26]\cup[55,56]\\
+{}\cup[79,80]\cup[86,87]\cup[116,117].
+\end{gathered}
+\]
+These are direct Hall obstructions.
+There is also no cube in the interval
+$[513,678]$, the necessary avalanche
+window for extending $[173,338]$ through
+$339$. Thus the avalanche lemma completely
+removes the infinite tail's finite checks,
+but \emph{does not derive the original
+$173$--$364$ base interval without the
+separately constructed finite witnesses}.
+Such a claim would require an additional
+local augmentation or gluing theorem.
+
+\begin{proposition}[A finite parity obstruction at $n=236$]
+\label{prop:236-no-involution-elementary}
+The base length $236$ has cube-sum
+permutations (as certified by its
+$15$-segment atlas row) but admits
+no cube-sum \emph{involution}.
+\end{proposition}
+\begin{proof}
+In the undirected cube-sum graph
+on $[1,236]$, remove the following
+set $S$ of $86$ vertices:
+\[
+\begin{aligned}
+S={}&[1,3]\cup[9,13]\cup[19,24]
+\cup[35,39]\cup[45,49]\\
+&\cup[56,60]\cup[71,74]\cup[81,85]
+\cup[107,115]\\
+&\cup[117,121]\cup[126,130]
+\cup[136,140]\\
+&\cup[147,151]\cup[162,166]
+\cup[172,176]\\
+&\cup[198,201]\cup[208,212],
+\end{aligned}
+\]
+where $[a,b]$ denotes the
+integer interval.
+The only possible edge sums are
+$8,27,64,125,216,343$.
+Direct substitution into
+$j=c-i$ shows that $G_{236}-S$
+has $87$ singleton components,
+one five-vertex component
+$\{14,50,75,141,202\}$, and
+six even components of sizes
+$4,6,10,12,12,14$.
+Of the singleton components,
+only $\{4\}$ admits a loop
+($2\cdot4=8$); the five-vertex
+component has no loop.
+Hence there are $86+1=87$
+odd components which admit
+no internal loop. In any
+involution, at least one
+vertex from each such component
+must be paired with a distinct
+vertex of $S$. Since $|S|=86$,
+this is impossible.
+The atlas row gives ordinary
+permutations, so the involution
+obstruction does not contradict
+their existence.
+\end{proof}
+
+\section{A short, local existence certificate}\label{sec:words}
+The preceding reflection argument is infinite and elementary.
+The finite existence verification can itself be made much more
+transparent than an array of $192$ long permutations:
+we give \emph{one} explicit involution at size $173$,
+then $191$ short alternating-path words.
+Only $1844$ single-digit cube roots are needed.
+
+\begin{lemma}[An explicit order-$173$ involution]\label{lem:seed173}
+There is a cube-sum permutation on $[1,173]$, given on
+each listed interval $I$ by $p(i)=c-i$. Intervals
+paired by a double arrow use the same cube $c$:
+\[
+\begin{array}{c|c}
+\text{intervals }I&c\\\hline
+{[1,7]}&8\\
+{[22,42]}&64\\
+{[106,110]}&216\\
+{[8,12]}\ \longleftrightarrow\ [15,19]&27\\
+{[13,14]}\ \longleftrightarrow\ [111,112]&125\\
+{[20,21]}\ \longleftrightarrow\ [104,105]&125\\
+{[43,103]}\ \longleftrightarrow\ [113,173]&216
+\end{array}
+\]
+\end{lemma}
+\begin{proof}
+The eleven intervals partition $[1,173]$.
+Reflection $i\mapsto c-i$ preserves each of the
+first three intervals and exchanges the two intervals
+in each of the last four rows. Thus it defines an
+involution, and every sum $i+p(i)$ is a cube.
+\end{proof}
+
+\begin{lemma}[An alternating-word extension]\label{lem:words}
+Suppose $p$ is a cube-sum permutation of $[1,n-1]$.
+Let $w=r_1\cdots r_t$ be a finite word of positive
+integer cube roots. Starting from $u_0=n$, define
+$v_j=r_j^3-u_{j-1}$. For $j<t$, require $v_j\in[1,n-1]$
+and let $u_j=p^{-1}(v_j)$. Suppose all these
+$u_0,u_1,\dots,u_{t-1}$ are distinct,
+all $v_1,\dots,v_t$ are distinct, and $v_t=n$.
+Then replacing the old matching edges by
+\[
+q(u_{j-1})=v_j\quad (1\le j\le t),
+\]
+while keeping all other old assignments, yields
+a cube-sum permutation of $[1,n]$.
+\end{lemma}
+\begin{proof}
+The old matching edges removed along this path are
+$u_j\mapsto v_j$ for $j<t$; these form a bijection
+between the old visited left and right vertices.
+Their replacements join $u_{j-1}$ to $v_j$ and have
+sum $r_j^3$ by construction. The new left vertex $n$
+and the new right vertex $n$ are incorporated, without
+repeating any endpoint. Every untouched vertex retains
+its old matching edge.
+\end{proof}
+
+The \texttt{augmenting\_cube\_words.txt} appendix lists
+one word for each $n=174,\dots,364$.
+Every root is a single decimal digit in $\{2,\dots,8\}$.
+The words are checked using Lemma~\ref{lem:words}
+and the predecessor matching obtained from the previous
+word; this is \emph{local} verification, not a
+matching search or a scan to a large cutoff.
+The independent, standard-library-only
+\texttt{verify\_word\_paths.py} checks
+all required edge equalities and endpoint distinctness.
+The seven-line interval seed plus $1844$ root digits
+certifies all $192$ base cases of
+Theorem~\ref{thm:exist}; combined with the
+cube-gap induction this proves existence for
+\emph{every} $n\ge173$.
+The older long witness archives remain as secondary
+independent cross-checks, not as prerequisites
+of this compact proof.
+
+\section{Finite certificates and exact membership}
+Our finite data are provided as UTF-8 JSON arrays of integers.
+A valid witness $p$ is checked solely by
+\[
+\operatorname{sort}(p)=(1,\dots,n),\qquad
+\forall i\quad i+p_i\in\cubes.
+\]
+For a negative instance, let
+$N_n(S)=\{j\in[1,n]:\exists i\in S,\ i+j\in\cubes\}$.
+Hall's marriage theorem gives the immediate obstruction
+\begin{equation}\label{eq:hall}
+|N_n(S)|<|S|\quad\Longrightarrow\quad P(n)=0.
+\end{equation}
+The file \texttt{exact\_classification\_below\_173.json}
+provides $48$ explicit valid permutations and $124$
+explicit Hall-deficient subsets, exactly partitioning
+$1\le n\le172$. Every assertion is directly checked
+by \texttt{verify\_extended.py}. For instance, for $n=172$
+the $27$ left indices
+\[
+\begin{gathered}
+S=\{1,5,8,13,20,31,35,38,42,43,45,92,96,99,\\
+104,111,122,126,129,133,134,136,153,157,160,165,172\}
+\end{gathered}
+\]
+have precisely $26$ distinct possible right neighbors.
+Thus $172\notin\good$, making the threshold below sharp.
+
+For the unbounded tail, only the $109$ witness sizes
+\begin{equation}\label{eq:core}
+173\le n\le255,\qquad 339\le n\le364
+\end{equation}
+require explicit stored permutations.
+Indeed for each $256\le n\le338$, put
+$m=511-n\in[173,255]$; then
+$m+n+1=512=8^3$, so Lemma~\ref{lem:reflect}
+constructs the missing $83$ cases.
+This compresses the previously saved $192$ base cases
+by $83/192>43\%$. All $109$ stored witnesses in
+\texttt{core\_109.json}, and all $192$ reconstructed
+witnesses, are checked with exact integer arithmetic.
+The earlier full $192$-row file is retained as an
+additional independent-format audit source.
+
+There is a further useful compression when the $48$
+verified positive sizes below $173$ are reused.
+An ascending reflection-closure algorithm starts from
+those small solutions and, at each $173\le n\le364$,
+uses any already certified $m<n$ for which $m+n+1$
+is a cube. Precisely $132$ lengths are obtained by
+reflection and only $60$ further lengths need explicit
+witnesses. Here the empty matching is allowed:
+$n=342$ follows directly from $c=343$,
+with $p(i)=343-i$. The $60$ additional
+witnesses are archived in
+\texttt{core\_60\_with\_empty.json}, and
+\texttt{verify\_extended.py} certifies this alternate
+compression independently of the $109$-case presentation.
+
+
+\begin{proposition}[Limit of reflection-only compression]\label{prop:atoms}
+Suppose the empty matching and the $48$ known positive
+lengths below $173$ are provided as initial data. Among proofs of all lengths
+$173,\dots,364$ that use only the reflection extension
+of Lemma~\ref{lem:reflect} and independently supplied
+new full-length seed permutations, at least $60$
+extra seeds are necessary, and $60$ suffice.
+\end{proposition}
+\begin{proof}
+Process $n=173,\dots,364$ in ascending order. If no
+cube $c$ yields a previously certified positive
+predecessor $m=c-n-1\in[0,n-1]$, then reflection
+cannot establish $n$ from earlier data, so a new seed
+is forced. Otherwise choose such a predecessor and
+perform reflection, without adding a seed.
+This deterministic closure rule yields $44$ forced
+seeds in $[173,255]$, none in $[256,338]$ (use
+$c=512$ and $m=511-n$), and $16$ in $[339,364]$.
+Thus $44+16=60$, and the attached short
+integer-only checker reproduces the forced
+index list. Every forced seed is unavoidable by
+the definition of the restricted proof rule.
+\end{proof}
+This is \emph{not} a lower bound on arbitrary
+mathematical proofs. This $60$-seed minimum concerns the
+restricted reflection-only closure with all $48$ positive
+small lengths and the empty seed already available; it is
+distinct from the historical $57$ algebraic shape choices.
+The alternating-path
+extension in Lemma~\ref{lem:words} is a different
+operation and indeed replaces those $57$ large
+independent seeds by one explicit involution
+and a small word table.
+
+\begin{theorem}[Complete A006063 membership]\label{thm:exist}
+For every integer $n\ge173$, $P(n)>0$.
+Below $173$, the complete membership list is
+\begin{align*}
+\good\cap[1,172]=\{&
+7,19,26,37,44,56,63,66,68,80,82,85,87,98,100,\\
+&103,105,110,112,115,116,117,118,119,120,121,\\
+&122,123,124,125,126,127,128,129,130,131,132,\\
+&133,135,147,149,150,151,152,155,156,159,171\}.
+\end{align*}
+In sequence-index notation this gives
+\[
+\boxed{\operatorname{A006063}(j)=j+124\quad(j\ge49).}
+\]
+\end{theorem}
+\begin{proof}
+The exact finite witnesses establish $173\le n\le364$,
+and the Hall certificates settle the smaller sizes.
+For $n\ge365$, Lemma~\ref{lem:gap} gives a cube
+$c\in[n+174,2n]$. The predecessor
+$m=c-n-1$ satisfies $173\le m<n$.
+By strong induction $P(m)>0$, and
+Lemma~\ref{lem:reflect} yields $P(n)>0$.
+There are precisely $48$ positive indices below $173$,
+so the $49$th and all later sequence terms are consecutive.
+\end{proof}
+
+\section{Multiplicity and the second OEIS classification}
+A cube-sum permutation $p$ is a perfect matching in the
+bipartite graph with left and right vertices $1,\dots,n$,
+where $(i,j)$ is an edge exactly when $i+j\in\cubes$.
+For any matching $p$, form a directed graph $D_p$ on the
+left vertices, putting $i\to j$ whenever $i\ne j$
+and $(i,p_j)$ is a cube-sum edge.
+
+\begin{lemma}[Alternating-cycle criterion]\label{lem:cycle}
+For a valid permutation $p$, there exists another distinct
+valid permutation if and only if $D_p$ has a directed cycle.
+\end{lemma}
+\begin{proof}
+Along a directed cycle $i_1\to\dots\to i_t\to i_1$,
+replace $p_{i_s}$ by $p_{i_{s+1}}$ (cyclic indices).
+Every moved pair is an allowed edge, and all right
+vertices remain distinct. Conversely, if $q\ne p$ is
+another valid permutation, the nontrivial cycles of
+the permutation $p^{-1}\circ q$ consist of directed
+cycles in $D_p$. Thus acyclicity is a rigorous
+uniqueness certificate.
+\end{proof}
+
+The file \texttt{second\_solutions.json} records directed
+cycles, not complete duplicate permutations. Direct
+finite checking establishes: among the $48$ positive
+lengths below $173$, exactly
+\[
+E=\{112,115,116,117,119,124,125,126,127,128,129,130,133\}
+\]
+have a directed alternating cycle; every other positive
+length below $173$, as well as $173$ and $174$, has
+an acyclic $D_p$ and therefore a unique permutation.
+
+Furthermore, all $190$ base cases $175\le n\le364$
+have \emph{two distinct} alternating-cycle certificates,
+archived as \texttt{second\_solutions.json} and
+\texttt{third\_solutions.json}. They yield three different
+permutations, counting the original matching.
+To extend the multiplicity assertion:
+for $365\le n\le553$, the cube $729$ gives
+$m=728-n\in[175,363]$. The two exceptional lengths
+$554,555$ have separate pairs of alternating-cycle
+certificates obtained by extending the unique solutions
+at $174,173$ respectively.
+For $n\ge556$, the stronger part of
+Lemma~\ref{lem:gap} gives
+$m=c-n-1\ge175$. Three distinct solutions for $m$
+remain distinct after reflection, finishing an induction.
+
+\begin{theorem}[Complete A096680 membership]\label{thm:multi}
+The positive integers with at least two cube-sum permutations
+are exactly
+\[
+\boxed{E\ \cup\ \{175,176,177,\dots\}.}
+\]
+Moreover $P(n)\ge3$ for every $n\ge175$, while
+$P(173)=P(174)=1$. The sequence terms
+satisfy
+\[
+\boxed{\operatorname{A096680}(j)=j+161\quad(j\ge14).}
+\]
+\end{theorem}
+
+
+\paragraph{Sharpness of the constant three.}
+The bound $P(n)\ge3$ for all $n\ge175$ cannot be
+improved to four: $P(175)=3$ exactly.
+For the stored matching at $175$, the directed
+alternation graph has precisely one nontrivial
+strongly connected component,
+\[
+\{4,11,16,23,41,48,102,114,168,175\},
+\]
+and the other $165$ vertices are singleton components.
+Every cycle of a permutation alternative lies in a
+strongly connected component, so the permanent reduces
+to the $10$-by-$10$ component's allowed-edge matrix
+(including the matching self-edges).
+A direct bitmask dynamic program gives its permanent
+as $3$. This computation is independently reproduced in
+\texttt{verify\_extended.py} using exact integers.
+
+\section{A nine-gadget exceptional case at $n=236$}
+\label{sec:236}
+
+An \emph{involution} is a permutation satisfying
+$p^2=\mathrm{id}$. At $n=236$ there are exactly $512$
+cube-sum permutations, \emph{none} of which is an involution.
+This follows from a short alternating-cycle decomposition,
+not from a general permanent computation.
+
+Define a reference permutation $p$ of $[1,236]$ by
+$p(i)=c-i$ on the following fifteen intervals:
+\[
+\begin{array}{r|r@{\qquad}r|r}
+I&c&I&c\\ \hline
+{[1,7]}&8 &[8,9]&216\\
+{[10,18]}&64 &[19,43]&125\\
+{[44,45]}&216 &[46,70]&125\\
+{[71,81]}&216 &[82,106]&125\\
+{[107,134]}&343 &[135,136]&216\\
+{[137,170]}&343 &[171,172]&216\\
+{[173,197]}&343 &[198,208]&216\\
+{[209,236]}&343 &&
+\end{array}
+\]
+These interval images partition $[1,236]$, and
+every prescribed sum is a cube.
+
+\begin{lemma}[Translation of alternating cycles]
+\label{lem:transport}
+Suppose $p(i)=c_j-i$ on pairwise disjoint
+integer intervals $I_j$ for $1\le j\le r$.
+If $i_j\in I_j$ form a directed alternating
+cycle $i_1\to i_2\to\cdots\to i_r\to i_1$
+for $p$, then every integer shift $t$
+with $i_j+t\in I_j$ for all $j$ produces
+another alternating cycle on $i_j+t$.
+If $t$ ranges through a set $T$ of such
+shifts, the translated cycles are disjoint
+and yield at least $2^{|T|}$ distinct valid
+cube-sum permutations.
+\end{lemma}
+\begin{proof}
+Because $p(i_{j+1}+t)=c_{j+1}-i_{j+1}-t$,
+\[
+(i_j+t)+p(i_{j+1}+t)
+=i_j+c_{j+1}-i_{j+1}
+=i_j+p(i_{j+1}),
+\]
+so every translated alternating edge has
+the same cube sum as its original.
+Since the $I_j$ are pairwise disjoint,
+different shifts cannot share a vertex
+within any $I_j$. The cycles are
+therefore vertex-disjoint and can be
+switched independently.
+\end{proof}
+
+In the present $236$-element template,
+\[
+10\to137\to46\to198\to71\to10
+\]
+is one alternating $5$-cycle, with
+successive cube sums
+\[
+216,\quad216,\quad64,\quad343,\quad125.
+\]
+The five vertices belong respectively to
+the five different reflection blocks
+$[10,18]$, $[137,170]$, $[46,70]$,
+$[198,208]$, $[71,81]$.
+The common shifts $t=0,\dots,8$
+produce nine disjoint alternating cycles
+\emph{by pure algebra}, giving immediately
+\[
+\boxed{P(236)\ge2^9=512}
+\]
+without any matching enumeration.
+The remaining work for the exact count
+is only to exclude further cycles.
+
+\begin{lemma}[Alternating digraph at $236$]\label{lem:236}
+Let $D_p$ be the digraph with an arrow $i\to j$
+whenever $i\ne j$ and $i+p(j)$ is a cube.
+Its strongly connected components comprise
+$191$ singletons and exactly nine five-vertex sets
+\[
+S_t=\{10+t,46+t,71+t,137+t,198+t\},
+\qquad 0\le t\le8.
+\]
+Within each $S_t$ the nontrivial arrows form
+one simple directed $5$-cycle, without chords.
+\end{lemma}
+\begin{proof}
+This is a finite integer check using the only six
+possible cubes $8,27,64,125,216,343$.
+The interval formula specifies every edge; the
+independent \texttt{count\_236.py} verifier checks
+all $236$ rows, the component partition, and
+the five-cycle properties with integer arithmetic.
+It invokes neither a matching solver nor
+a permanent-computation routine.
+\end{proof}
+
+\begin{theorem}[Exact count and involution obstruction]\label{thm:236}
+\[
+\boxed{P(236)=2^9=512.}
+\]
+There is no cube-sum involution on $[1,236]$.
+\end{theorem}
+\begin{proof}
+Given any other cube-sum permutation $q$,
+$f=p^{-1}\circ q$ is a permutation whose arrows
+lie in $D_p$ or are identity loops. Every cycle of
+$f$ is confined to one strongly connected component.
+Each singleton is therefore fixed, while each $S_t$
+has exactly two choices: five fixed points or the
+unique directed $5$-cycle. The choices are independent,
+so there are $2^9$ permutations $q$.
+
+For the central set $S_4=\{14,50,75,141,202\}$,
+the reference permutation restricts to
+\[
+14\mapsto50\mapsto75\mapsto141
+\mapsto202\mapsto14.
+\]
+The only two possible restrictions of $q$ to $S_4$
+are this $5$-cycle and its inverse, neither of
+which is an involution. Thus no $q$ is an involution.
+\end{proof}
+
+The failure of involutivity at $236$ is therefore a
+specific five-cycle obstruction, not a failure of
+cube-sum permutation existence. The proof uses
+only a fifteen-row interval template and an easily
+audited finite graph-decomposition lemma.
+
+\section{A taxicab principle for exponentially many involutions}
+\label{sec:taxicab-involutions}
+
+Positive exponential entropy is not restricted to
+general permutations with odd directed cycles.
+Equal sums of two perfect powers generate
+large families of actual \emph{involutions}.
+The argument is valid for any fixed exponent
+$d\ge2$.
+
+\begin{theorem}[Perfect-power taxicab switching]
+\label{thm:taxicab-switching}
+Fix $d\ge2$, and suppose positive perfect
+$d$th powers $A,B,C,D$ satisfy
+\[
+\boxed{A+B=C+D,\qquad
+\frac32A\le C<\frac12B.}
+\]
+Let $I_d(n)$ count permutations $p$
+of $[1,n]$ with $p^2=\mathrm{id}$
+and every $i+p(i)$ a perfect
+$d$th power. For every positive integer
+$u$, with $T=u^d$,
+\begin{equation}\label{eq:taxicab-involutions}
+\boxed{\displaystyle
+I_d((B-A)T)\ge
+2^{\left\lfloor(AT-1)/2\right\rfloor}.}
+\end{equation}
+There is an injective encoding of the
+$\lfloor(AT-1)/2\rfloor$ binary choices
+into these involutions which multiplies
+Hamming distances by exactly four.
+Consequently,
+\[
+\boxed{\displaystyle
+\limsup_{n\to\infty}
+\frac{\log I_d(n)}n
+\ge\frac{A\log2}{2(B-A)}>0.}
+\]
+\end{theorem}
+\begin{proof}
+Since $A<C<B/2$, we have $B>2A$.
+Put $N=(B-A)T$ and start with
+the two-block reflection involution
+\[
+p(i)=
+\begin{cases}
+AT-i,&1\le i<AT,\\
+BT-i,&AT\le i\le N.
+\end{cases}
+\]
+The two blocks are separately invariant,
+and the sums are the $d$th powers
+$AT=(uA^{1/d})^d$ and
+$BT=(uB^{1/d})^d$.
+
+Write $H=\lfloor(AT-1)/2\rfloor$.
+For each integer $s=1,\ldots,H$,
+consider the four distinct vertices
+\[
+a_s=s,\quad b_s=AT-s,\quad
+c_s=CT-s,\quad
+d_s=(B-C)T+s.
+\]
+Here $a_s,b_s$ belong to the first
+block, while $c_s,d_s$ belong
+to the second block, since
+$H\le AT/2\le(C-A)T$.
+The inequalities $2C<B$ and
+$2H<AT$ imply that the four
+coordinate ranges obtained by varying
+$s$ are pairwise disjoint.
+Thus all $H$ quadruples are
+vertex-disjoint.
+
+The reference involution has
+transpositions
+$(a_s\,b_s)$ and $(c_s\,d_s)$.
+For any chosen quadruple, replace
+these by
+$(a_s\,c_s)$ and $(b_s\,d_s)$.
+The new sums are
+\[
+a_s+c_s=CT,\qquad
+b_s+d_s=(A+B-C)T=DT,
+\]
+both perfect $d$th powers.
+This is again an involution, and
+the independent choices on the $H$
+disjoint quadruples give $2^H$
+different legal involutions.
+
+Changing one choice changes precisely
+the four corresponding permutation
+values, yielding the exact Hamming
+distance multiplier four.
+Finally $H=\frac12AT+O(1)$ and
+$N=(B-A)T$, so taking logarithms
+along the infinite sequence $u\to\infty$
+proves the entropy bound.
+\end{proof}
+
+\begin{corollary}[Two explicit cubic identities]
+\label{cor:taxicab-cubes}
+For every integer $u\ge1$, with $T=u^3$,
+\[
+\boxed{\displaystyle
+I_3(54406T)\ge
+2^{\lfloor(4913T-1)/2\rfloor}.}
+\]
+This follows from the small identity
+\[
+17^3+39^3=26^3+36^3,
+\]
+using $(A,B,C,D)=(4913,59319,17576,46656)$.
+A second identity,
+\[
+99^3+172^3=120^3+163^3,
+\]
+gives the stronger optional numerical estimate
+\[
+\boxed{\displaystyle
+\limsup_{n\to\infty}\frac{\log I_3(n)}n
+\ge\frac{970299\log2}{8236298}>0.}
+\]
+Neither identity is asserted to optimize
+the constant; the structural
+taxicab-switching theorem is independent
+of choosing a special example.
+\end{corollary}
+\begin{proof}
+Each identity and its inequalities
+$\frac32A\le C<B/2$
+are verified by integer multiplication,
+so Theorem~\ref{thm:taxicab-switching}
+applies. In the second case
+$A=970299$, $B=5088448$ and
+$B-A=4118149$, producing
+$A\log2/[2(B-A)]$ as displayed.
+\end{proof}
+
+The construction distinguishes the
+two entropy sources in the cube-sum graph.
+Reflection-only descendants of finitely
+many fixed seeds have zero entropy
+per site by
+Corollary~\ref{cor:entropy-separation}.
+Yet globally there are both ordinary
+permutations \emph{and involutions}
+with positive upper exponential entropy,
+by Theorems~\ref{thm:three-cycle}
+and~\ref{thm:taxicab-switching}.
+The latter needs only a four-term
+equal-power identity; it does not
+assume any eventual-existence threshold.
+
+\begin{corollary}[Linear entropy with parity-minimal fixed points]
+\label{cor:taxicab-minimal-fixed}
+Let $J_0(n)$ count legal fixed-point-free
+cube-sum involutions on $[1,n]$ for
+even $n$, and let $J_1(n)$ count
+legal cube-sum involutions with
+exactly one fixed point for odd $n$.
+For every \emph{odd} positive integer
+$u$, with $T=u^3$,
+\[
+\boxed{\begin{aligned}
+J_0(54406T)&\ge2^{(4913T-1)/2},\\
+J_1(4118149T)&\ge2^{(970299T-1)/2}.
+\end{aligned}}
+\]
+In particular, both parity classes
+admit explicit infinite subsequences
+on which the number of legal
+\emph{minimally fixed} involutions
+grows exponentially in their lengths:
+\[
+\boxed{\begin{aligned}
+\limsup_{\substack{n\to\infty\\n\ {\rm even}}}
+ \frac{\log J_0(n)}n
+ &\ge\frac{4913\log2}{108812}>0,\\
+\limsup_{\substack{n\to\infty\\n\ {\rm odd}}}
+ \frac{\log J_1(n)}n
+ &\ge\frac{970299\log2}{8236298}>0.
+\end{aligned}}
+\]
+\end{corollary}
+\begin{proof}
+Use the two exact identities
+from Corollary~\ref{cor:taxicab-cubes}.
+In Theorem~\ref{thm:taxicab-switching},
+the initial two-block permutation
+has one fixed point in its first
+block if and only if $AT$ is even,
+and one in its second block if
+and only if $BT$ is even.
+No taxicab switch can create or
+remove a fixed point: its four
+distinct endpoints occur in
+two transpositions before and
+after switching, while all
+unselected positions are unchanged.
+
+For $(a,b)=(17,39)$ and odd $u$,
+both $AT=(au)^3$ and
+$BT=(bu)^3$ are odd.
+Thus the baseline and every
+switched involution are
+fixed-point-free, proving
+the even-length bound.
+
+For $(a,b)=(99,172)$ and odd $u$,
+the first cube sum $AT$ is odd,
+while $BT$ is even, so the
+second reflection block has
+exactly one fixed point
+and the first has none.
+All switches preserve this
+single fixed point.
+The lengths are odd in this
+case, so one is the minimum
+possible fixed-point count.
+The entropy assertions follow
+on letting odd $u\to\infty$.
+\end{proof}
+
+\section{A computation-free exponential construction}
+\label{sec:three-cycle}
+A particularly simple weighted identity of four cubes
+produces more permutations than all the previous
+asymptotic constructions, with \emph{no} finite
+matching certificate or eventual-existence theorem.
+
+\begin{proposition}[Weighted-cube odd-cycle principle]
+\label{prop:odd-cycle}
+Let $q\ge1$, and let $A,B,X,Y$ be positive
+cubes such that
+\[
+(q+1)X+qY=A+2qB.
+\]
+For $0\le j\le2q$ put
+\[
+D_j=\left\lceil j/2\right\rceil(B-X)
++\left\lfloor j/2\right\rfloor(B-Y).
+\]
+Assume $A\le D_j\le B-2A$ for $j\ge1$
+and $|D_j-D_k|\ge A$ whenever $j\ne k$.
+Then for every integer $u\ge1$,
+\[
+\boxed{P((B-A)u^3)\ge2^{Au^3-1}.}
+\]
+In fact the family encodes $Au^3-1$ independent
+binary choices, each of which changes precisely
+$2q+1$ permutation positions.
+\end{proposition}
+\begin{proof}
+Put $T=u^3$ and define the two-interval
+reflection $p(i)=AT-i$ for $i<AT$ and
+$p(i)=BT-i$ for $AT\le i\le(B-A)T$.
+The interval hypotheses make this a valid
+permutation with cube sums $AT$ and $BT$.
+For each $1\le s<AT$, let
+$v_j=s+D_jT$ for $0\le j\le2q$.
+The gap conditions place $v_0$ in the first
+reflection block and the other vertices in
+the second, while ensuring that the translated
+cycles for different $s$ are disjoint.
+The edge sums $v_j+p(v_{j+1})$ are
+alternately $XT$ and $YT$ for $j<2q$.
+The final edge is a cube as well, since
+\[
+v_{2q}+p(v_0)
+=(A+2qB-qX-qY)T=XT.
+\]
+Thus the $AT-1$ cycles can be switched
+independently, proving the count and
+Hamming-distance statement.
+\end{proof}
+
+For $q=1$ this recovers the three-cycle
+identity $2X+Y=A+2B$. For $q=2$ it
+becomes $3X+2Y=A+4B$. In particular,
+\[
+3\cdot5^3+2\cdot8^3=3^3+4\cdot7^3
+\]
+gives $(A,B,X,Y)=(27,343,125,512)$
+and offsets $(D_0,\ldots,D_4)
+=(0,218,49,267,98)$, satisfying every
+hypothesis. Consequently
+\[
+\boxed{P(316u^3)\ge2^{27u^3-1}}
+\]
+for every positive integer $u$.
+This unifies the three- and five-cycle
+constructions through one algebraic identity.
+
+\begin{lemma}[Three-cycle identity gadget]
+\label{lem:three-cycle}
+Let $A,B,X,Y$ be positive perfect cubes satisfying
+\[
+A+2B=2X+Y,\qquad
+A+\tfrac12B\le X\le B-A.
+\]
+For every positive integer $u$, put $T=u^3$
+and $N=(B-A)T$. There are at least
+\[
+\boxed{2^{AT-1}}
+\]
+different permutations $p$ of $[1,N]$ for which
+$i+p(i)$ is a perfect cube.
+\end{lemma}
+\begin{proof}
+The displayed inequalities give $B\ge4A$.
+Define a reference permutation by two reflections:
+\[
+p(i)=
+\begin{cases}
+AT-i,&1\le i<AT,\\
+BT-i,&AT\le i\le (B-A)T.
+\end{cases}
+\]
+The first interval maps to itself under the
+first reflection, and the second also maps to
+itself under the second reflection.
+Every original sum is $AT$ or $BT$,
+both perfect cubes.
+
+Set $d_1=B-X$ and $d_2=X-A$.
+The hypotheses imply
+\[
+d_1\ge A,\qquad
+d_2-d_1\ge A,\qquad
+d_2+A=X\le B-A.
+\]
+For every $s=1,\ldots,AT-1$, the triple
+\[
+C_s=(s,\ s+d_1T,\ s+d_2T)
+\]
+lies inside $[1,N]$, with the second
+and third vertices in the second reflection
+interval. The three translated ranges are
+pairwise disjoint by the displayed gap
+inequalities. Thus all $AT-1$ triples are
+pairwise vertex-disjoint.
+
+Along the directed three-cycle
+$s\to s+d_1T\to s+d_2T\to s$,
+the three alternative matching sums are
+\[
+\begin{aligned}
+s+p(s+d_1T)&=XT,\\
+(s+d_1T)+p(s+d_2T)&=(A+2B-2X)T=YT,\\
+(s+d_2T)+p(s)&=XT.
+\end{aligned}
+\]
+Because $T$ and $A,B,X,Y$ are cubes,
+every new sum is a cube. Switching
+any subset of the $AT-1$ disjoint
+cycles yields $2^{AT-1}$ pairwise
+different legal permutations.
+\end{proof}
+
+\begin{theorem}[Explicit high-entropy cube-sum permutations]
+\label{thm:three-cycle}
+For every integer $u\ge1$,
+\begin{equation}\label{eq:three-cycle}
+\boxed{\displaystyle
+P(681707u^3)\ge2^{148877u^3-1}.}
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:three-cycle-rate}
+\boxed{\displaystyle
+\limsup_{n\to\infty}\frac{\log P(n)}n
+\ge \frac{148877\log2}{681707}>0.}
+\end{equation}
+This theorem is entirely computation-free,
+apart from elementary multiplication of
+four displayed integers.
+\end{theorem}
+\begin{proof}
+Apply Lemma~\ref{lem:three-cycle} with
+\[
+\begin{array}{ll}
+A=53^3=148877,&B=94^3=830584,\\
+X=87^3=658503,&Y=79^3=493039.
+\end{array}
+\]
+Indeed,
+\[
+A+2B=1810045=2X+Y,
+\]
+and
+\[
+A+\tfrac12B=564169
+\le X=658503\le681707=B-A.
+\]
+Hence the $AT-1=148877u^3-1$
+explicit cycles are disjoint. More precisely,
+each has the form
+\[
+s\longrightarrow s+172081u^3
+\longrightarrow s+509626u^3
+\longrightarrow s,
+\]
+with alternative sums $(87u)^3,(79u)^3,(87u)^3$.
+No matching search, graph decomposition,
+or auxiliary finite base case is involved.
+Taking logarithms along the sequence
+$n=681707u^3$ proves the second claim.
+\end{proof}
+
+\begin{corollary}[Linear-distance binary permutation codes]
+\label{cor:three-cycle-codes}
+For $N=681707u^3$ there is an injective
+map from $\{0,1\}^{148877u^3-1}$
+into legal cube-sum permutations of $[1,N]$
+that multiplies all Hamming distances by
+exactly three. Its distance enumerator is
+\[
+\bigl(1+z^3\bigr)^{148877u^3-1}.
+\]
+In particular, a greedy binary code
+subfamily has exponentially many legal
+permutations with pairwise Hamming
+distance proportional to $N$.
+\end{corollary}
+\begin{proof}
+Each bit chooses whether to switch one
+of the pairwise disjoint three-cycles.
+A changed bit changes precisely three
+mapped positions. The distance identity
+and polynomial follow immediately.
+The greedy Hamming-ball argument from
+Corollary~\ref{cor:goodcode} applies
+unchanged.
+\end{proof}
+
+\section{Power-block lifting and exponential growth on a subsequence}
+\label{sec:lifting}
+
+The nine disjoint alternating cycles at $236$
+can be amplified by a purely algebraic interval
+construction, yielding exponentially many solutions
+at infinitely many \emph{different} lengths.
+The lifting mechanism works for every perfect-power
+exponent, not only cubes.
+
+\begin{lemma}[Independent-fiber perfect-power tensorization]
+\label{lem:block}
+Fix $d\ge2$ and $M\ge1$, and suppose $P_d(M)>0$.
+For any odd positive integer $t$ put
+$L=t^d$ and $A=(L-1)/2$.
+For each $r\in[1,L]$ choose independently a
+$d$th-power-sum permutation $p_r$ of $[1,M]$.
+Define a permutation $Q$ on the interval
+$I=[A+1,A+ML]$ by
+\begin{equation}\label{eq:lift}
+Q\bigl(A+(i-1)L+r\bigr)
+=A+(p_r(i)-1)L+(L+1-r).
+\end{equation}
+Then every $x+Q(x)$ is a perfect $d$th power,
+and the $L$ independent choices give exactly
+\[
+\boxed{P_d(M)^L}
+\]
+different permutations of $I$.
+
+If instead all fibers use the same $p$ possessing
+$h$ pairwise vertex-disjoint directed alternating
+cycles, then $Q$ has at least $hL$ pairwise
+vertex-disjoint directed alternating cycles.
+\end{lemma}
+\begin{proof}
+The input positions have unique coordinates $(i,r)$.
+For fixed $r$, the map $i\mapsto p_r(i)$ is a
+permutation of $[1,M]$, while the output
+residue $L+1-r$ identifies the original fiber
+$r$ uniquely. Thus \eqref{eq:lift} is a bijection.
+For $x=A+(i-1)L+r$,
+\[
+\begin{aligned}
+x+Q(x)
+ &=2A+L(i+p_r(i)-1)+1\\
+ &=L(i+p_r(i)).
+\end{aligned}
+\]
+If $i+p_r(i)=k_{i,r}^d$, then this sum equals
+$(t k_{i,r})^d$.
+The map from the tuple $(p_1,\ldots,p_L)$ to $Q$
+is injective, since all $p_r(i)$ are recovered
+from the output block indices; hence there are
+exactly $P_d(M)^L$ such interval permutations.
+
+Finally, when every $p_r=p$, an alternating
+edge $i\to j$ of $p$ gives
+$x_{i,r}+Q(x_{j,r})=L(i+p(j))$ for each
+$x_{i,r}=A+(i-1)L+r$, again a perfect power.
+Every original alternating cycle consequently
+lifts to one cycle in each fiber, and disjoint
+fibers and original cycles remain disjoint.
+\end{proof}
+
+\begin{proposition}[Inverse-paired fiber involutions]
+\label{prop:inverse-fibers}
+In the setting of
+Lemma~\ref{lem:block},
+let $I_d(M)$ be the number of
+valid power-sum involutions of length
+$M$. The exact number of lifted
+interval permutations of the form
+\eqref{eq:lift} which themselves
+are involutions is
+\begin{equation}\label{eq:inverse-fibers}
+\boxed{\displaystyle
+I_d(M)\,P_d(M)^{(L-1)/2}.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Write $r'=L+1-r$. Since
+\eqref{eq:lift} sends $(i,r)$
+to $(p_r(i),r')$, its square sends
+$(i,r)$ to
+$(p_{r'}(p_r(i)),r)$.
+Thus the lifted interval permutation
+is an involution if and only if
+\[
+p_{L+1-r}=p_r^{-1}
+\qquad(1\le r\le L).
+\]
+The inverse of any valid power-sum
+permutation is valid, by symmetry
+of the condition $i+p(i)$.
+The $(L-1)/2$ pairs of distinct
+fibers may therefore be chosen
+independently in $P_d(M)$ ways
+each; on the unique central fiber
+$r=(L+1)/2$, the chosen
+permutation must be an involution
+and has $I_d(M)$ choices.
+Injectivity of the fiber encoding
+gives \eqref{eq:inverse-fibers}.
+\end{proof}
+
+\begin{corollary}[Transfer from general multiplicity to involution entropy]
+\label{cor:inverse-transfer}
+Fix $d\ge2$. Suppose valid
+$d$th-power-sum involutions exist
+for every sufficiently large length.
+If some $M$ satisfies
+$I_d(M)>0$ and $P_d(M)\ge2$,
+then
+\[
+\boxed{\displaystyle
+\limsup_{n\to\infty}
+\frac{\log I_d(n)}n
+\ge\frac{\log P_d(M)}{2M+1}>0.}
+\]
+\end{corollary}
+\begin{proof}
+For sufficiently large odd $t$,
+put $L=t^d$, $A=(L-1)/2$
+and $B=A+ML$. Choose a
+valid involution on the prefix
+$[1,A]$. Proposition~\ref{prop:inverse-fibers}
+constructs at least
+$P_d(M)^{(L-1)/2}$ valid involutions
+on the middle interval.
+For the suffix choose the least
+perfect $d$th power
+$C=k^d>(2M+1)L$, and reflect
+$[B+1,C-B-1]$ through $C$.
+This is a legal involution because
+$B+(C-B-1)+1=C$.
+The resulting full size is
+\[
+n=C-B-1
+=\bigl(M+\tfrac12\bigr)L
+ +O(t^{d-1}),
+\]
+since $k=(2M+1)^{1/d}t+O(1)$.
+The prefix and suffix are fixed
+across all middle choices.
+Taking logarithms and dividing
+by $n$ gives the result.
+\end{proof}
+
+This principle shows that
+power-sum involution families
+may have positive linear entropy
+even when the independent local
+choices on the middle blocks are
+\emph{not themselves involutions}:
+inverse-pairing complementary fibers
+is enough, provided one central
+involution exists.
+In the cubic case the explicit
+$316$-element two-reflection
+construction supplies such a
+central involution and several
+alternative ordinary permutations.
+The direct taxicab-switching theorem
+in Section~\ref{sec:taxicab-involutions}
+does not require this eventual
+prefix-existence hypothesis.
+
+\begin{theorem}[An exponential subsequence]
+\label{thm:exponential-subsequence}
+For every odd integer $t\ge9$, define
+\[
+\boxed{n_t=\frac{551t^3-1}{2}.}
+\]
+Then
+\[
+\boxed{P(n_t)\ge
+P\!\left(\frac{t^3-1}{2}\right)512^{t^3}
+\ge 3\cdot 2^{9t^3}.}
+\]
+In particular,
+\[
+\boxed{\displaystyle
+\limsup_{n\to\infty}\frac{\log P(n)}n
+ \ge\frac{18\log2}{551}>0.}
+\]
+\end{theorem}
+\begin{proof}
+Take the explicit $M=236$ permutation
+from Section~\ref{sec:236}, possessing $h=9$
+disjoint alternating $5$-cycles.
+Let $L=t^3$, $A=(L-1)/2$, and
+$B=A+236L=(473L-1)/2$.
+Because $t\ge9$, $A\ge364\ge173$,
+so Theorem~\ref{thm:exist} supplies a valid
+permutation on the prefix $[1,A]$.
+By Theorem~\ref{thm:multi}, $P(A)\ge3$.
+The exact count $P(236)=512$ from
+Theorem~\ref{thm:236} and
+Lemma~\ref{lem:block} provide $512^L$
+distinct valid middle-block permutations
+on $[A+1,B]$, without needing to select
+a preferred alternating-cycle orientation.
+
+Now let $C=(8t)^3=512L$ and set
+\[
+n_t=C-B-1=\frac{551L-1}{2}.
+\]
+The final suffix $[B+1,n_t]$ has exactly
+$39L>0$ elements. Define the permutation
+there by $x\mapsto C-x$.
+It permutes that suffix because
+$C=B+n_t+1$, and every new sum is the cube
+$C$. Combining the three disjoint intervals
+produces a cube-sum permutation on $[1,n_t]$.
+The prefix and middle-block choices are
+independent, while the suffix is fixed.
+Consequently at least $P(A)\,512^L$
+distinct permutations are obtained, and
+$P(A)\ge3$ completes the proof.
+The older $9L$ independent-cycle construction
+is a special subfamily of the new tensorized
+construction.
+\end{proof}
+
+\begin{theorem}[Asymptotically optimal terminal reflection]
+\label{thm:optimized-entropy}
+Let $t\ge9$ be odd and $L=t^3$. Let $k_t$
+be the least integer satisfying
+\[
+k_t^3>473L,
+\]
+and define
+\[
+\boxed{N_t=k_t^3-\frac{473L+1}{2}.}
+\]
+Then
+\[
+\boxed{P(N_t)\ge
+P\!\left(\frac{L-1}{2}\right)512^L
+\ge3\cdot2^{9L}.}
+\]
+Furthermore,
+\[
+N_t=\left(\frac{473}{2}+o(1)\right)L
+\qquad(t\to\infty),
+\]
+and therefore
+\begin{equation}\label{eq:optimized-entropy}
+\boxed{\displaystyle
+\limsup_{n\to\infty}\frac{\log P(n)}n
+\ge\frac{18\log2}{473}.}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Take the $236$-element tensorized gadget
+of Lemma~\ref{lem:block}.
+The valid prefix has length $A=(L-1)/2$
+and the lifted middle block ends at
+$B=(473L-1)/2$.
+The strict inequality $k_t^3>473L=2B+1$
+guarantees the suffix interval
+$[B+1,N_t]$ is nonempty: indeed
+\[
+N_t-B=k_t^3-473L>0.
+\]
+Reflection through the cube $k_t^3$
+permutes that suffix since
+$B+N_t+1=k_t^3$.
+The middle blocks have $512^L$ independent
+choices, the prefix has $P(A)$ choices,
+and the suffix is fixed.
+The first bound follows, and $P(A)\ge3$
+because $A\ge364$.
+By minimality,
+\[
+(k_t-1)^3\le473t^3<k_t^3,
+\]
+so $k_t=473^{1/3}t+O(1)$.
+Thus $k_t^3=473t^3+O(t^2)$ and
+$N_t=(473/2)t^3+O(t^2)$.
+Dividing $9L\log2$ by $N_t$
+establishes \eqref{eq:optimized-entropy}.
+\end{proof}
+
+The fixed terminal cube $(8t)^3$ used
+in Theorem~\ref{thm:exponential-subsequence}
+is convenient for a simple closed formula
+$n_t=(551t^3-1)/2$, but is not
+asymptotically optimal. Selecting the
+\emph{least} admissible terminal cube
+as above shrinks the suffix from
+$39t^3$ to $O(t^2)$, and improves the
+linear entropy coefficient from
+$18\log2/551$ to $18\log2/473$.
+
+\begin{corollary}[Multiplicity forces exponential subsequences]
+\label{cor:amplification}
+Fix $d\ge2$. Suppose $P_d(n)>0$ for all
+sufficiently large $n$ and that $P_d(M)\ge2$
+for some $M\ge1$. Choose any integer $b$
+with $b^d>2M+1$. For all sufficiently large
+odd $t$, define
+\[
+n_t=\Bigl(b^d-M-\tfrac12\Bigr)t^d-\tfrac12.
+\]
+Then
+\[
+P_d(n_t)\ge
+P_d\!\left(\frac{t^d-1}{2}\right)
+P_d(M)^{t^d},
+\]
+and in particular
+\[
+\boxed{\displaystyle
+\limsup_{n\to\infty}\frac{\log P_d(n)}n
+\ge
+\frac{\log P_d(M)}
+{b^d-M-\frac12}>0.}
+\]
+\end{corollary}
+\begin{proof}
+Let $L=t^d$, $A=(L-1)/2$ and $B=A+ML$.
+Eventual existence supplies a valid prefix
+on $[1,A]$ for all sufficiently large odd $t$,
+with $P_d(A)$ possible choices.
+Lemma~\ref{lem:block} gives
+$P_d(M)^L$ independent middle-block choices.
+Now put $C=(bt)^d=b^dL$ and
+$n_t=C-B-1$. Since $b^d>2M+1$,
+the suffix $[B+1,n_t]$ is nonempty;
+reflection $x\mapsto C-x$ permutes it
+and makes every sum equal to $C$.
+The three intervals are invariant under
+the constructed permutation, and their
+choices are independent. Taking logarithms
+and dividing by $n_t$ gives the bound.
+\end{proof}
+
+\begin{theorem}[An exact binary cube-sum permutation code]
+\label{thm:code}
+For each odd $t\ge9$, put $L=t^3$ and
+$n_t=(551L-1)/2$.
+There is an injective map
+\[
+\Phi_t:\{0,1\}^{9L}\longrightarrow
+\{\text{cube-sum permutations of }[1,n_t]\}
+\]
+such that for all bit strings $u,v$,
+\begin{equation}\label{eq:isometric}
+\boxed{d_{\rm H}(\Phi_t(u),\Phi_t(v))
+       =5\,d_{\rm H}(u,v).}
+\end{equation}
+In particular, relative to $\Phi_t(0)$, the
+exact Hamming-distance enumerator of this
+explicit family is
+\[
+\boxed{\sum_{u\in\{0,1\}^{9L}}
+ z^{d_{\rm H}(\Phi_t(u),\Phi_t(0))}
+ =(1+z^5)^{9L}.}
+\]
+\end{theorem}
+\begin{proof}
+The proof of Theorem~\ref{thm:236}
+identifies every $236$-element cube-sum
+permutation with a unique nine-bit vector
+recording which of the nine disjoint directed
+five-cycles have been switched.
+Two different choices on one five-cycle
+change all five mapped values, while
+all untouched components agree.
+Thus their permutation Hamming distance
+is exactly five times the bitwise Hamming
+distance.
+
+Take the $L$ independent base-permutation
+fibers of Lemma~\ref{lem:block}, and concatenate
+their nine-bit selectors into $u\in\{0,1\}^{9L}$.
+Different fibers occupy disjoint input positions,
+so distances add exactly.
+Finally append a fixed valid prefix and the
+fixed cube-reflection suffix of
+Theorem~\ref{thm:exponential-subsequence}.
+Neither changes the Hamming distances.
+The generating polynomial follows because
+each of the $9L$ bits independently contributes
+either distance zero or distance five.
+\end{proof}
+
+\begin{corollary}[Positive-rate, linear-distance families]
+\label{cor:goodcode}
+Let $H_2(x)=-x\log_2x-(1-x)\log_2(1-x)$
+be binary entropy. For every odd $t\ge9$,
+there is a subfamily $\mathcal F_t$ of cube-sum
+permutations on $[1,n_t]$ such that
+\[
+|\mathcal F_t|
+\ge 2^{\,9L(1-H_2(1/4))},
+\qquad
+d_{\min}(\mathcal F_t)>
+\frac{45L}{4}.
+\]
+Consequently both
+$\log|\mathcal F_t|=\Omega(n_t)$ and
+$d_{\min}(\mathcal F_t)=\Omega(n_t)$.
+\end{corollary}
+\begin{proof}
+Greedily select a binary word of length
+$N=9L$, and delete all words within
+Hamming distance $\lfloor N/4\rfloor$
+of the selected word.
+A binary Hamming ball of this radius has
+at most $2^{NH_2(1/4)}$ members, so the
+greedy packing yields at least
+$2^{N(1-H_2(1/4))}$ codewords, with
+pairwise binary distance exceeding $N/4$.
+Applying $\Phi_t$ multiplies all distances
+by exactly five, while preserving cardinality.
+Since $n_t=(551L-1)/2$, both claimed
+linear asymptotics follow.
+\end{proof}
+
+\begin{corollary}[Optimal general terminal choice]
+\label{cor:optimal-general}
+Under the assumptions of
+Corollary~\ref{cor:amplification},
+the stronger universal estimate holds:
+\[
+\boxed{\displaystyle
+\limsup_{n\to\infty}
+\frac{\log P_d(n)}n
+\ge\frac{\log P_d(M)}{M+\frac12}.}
+\]
+\end{corollary}
+\begin{proof}
+Put $L=t^d$ with odd $t$ and
+$B=((2M+1)L-1)/2$. Take the least
+integer $k$ for which
+$k^d>(2M+1)L$. Since
+$k=(2M+1)^{1/d}t+O(1)$, the
+reflected suffix gives a terminal
+size $n=k^d-B-1$ with
+$n=(M+\tfrac12)L+O(t^{d-1})$.
+The independent-fiber middle and
+eventually valid prefix yield
+$P_d(n)\ge P_d(M)^L$.
+Taking logarithms proves the bound.
+\end{proof}
+
+\begin{theorem}[Power-divisor tensor recurrence]\label{thm:divisor-recurrence}
+Fix an exponent $d\ge2$ and a nonnegative
+integer $n$. For any odd positive integer $t$
+such that $L=t^d$ divides $2n+1$, set
+\[
+A=\frac{L-1}{2},\qquad
+q=\frac{2n+1}{L},
+\qquad M_b=b^d-\frac{q+1}{2}.
+\]
+With $P_d(0)=1$, we have
+\begin{equation}\label{eq:divisor-recurrence}
+\boxed{\displaystyle
+P_d(n)\ge P_d(A)
+\!\!\!\sum_{\substack{b\ge2,\ M_b\ge0\\b^d<q}}
+P_d(M_b)^{\,L}.}
+\end{equation}
+For $t=1$, this is exactly the earlier
+one-step interval-reflection counting
+recurrence (now also allowing the empty prefix).
+\end{theorem}
+\begin{proof}
+For each summand choose one permutation on
+$[1,A]$ and, independently, $L$ permutations
+of $[1,M_b]$. Apply
+Lemma~\ref{lem:block} on
+$[A+1,B]$, where $B=A+M_bL$.
+The equation defining $M_b$ gives
+\[
+B+n+1=b^dL=(bt)^d,\qquad
+n-B=(q-b^d)L>0.
+\]
+Thus the final interval $[B+1,n]$ is
+permuted by the reflection
+$x\mapsto(bt)^d-x$. All three pieces
+are valid and disjoint, producing
+$P_d(A)P_d(M_b)^L$ distinct permutations.
+Different $b$ have different last
+entries $p(n)=(bt)^d-n$, so these
+families are disjoint and can be added.
+When $t=1$, $L=1$, $A=0$ and
+$M_b=b^d-n-1$, recovering the reflection
+recurrence.
+\end{proof}
+
+This formula gives a precise arithmetic
+description of the advantage and limitation
+of the tensor construction: a nontrivial
+block scale $t>1$ requires the cubic
+divisibility condition $t^d\mid(2n+1)$.
+It does not, by itself, prove exponential
+growth at \emph{every} length.
+
+\begin{proposition}[Arithmetic sparsity of nontrivial block lifting]
+\label{prop:cubefree}
+The set of positive integers $n$ for which
+some odd integer $t\ge3$ satisfies
+$t^3\mid(2n+1)$ has natural density
+\[
+\boxed{\displaystyle
+1-\frac{8}{7\zeta(3)}
+=0.0492487\ldots.}
+\]
+Thus more than $95\%$ of lengths have no
+nontrivial integral cube scale for the
+particular centered tensor construction
+used in Theorem~\ref{thm:divisor-recurrence}.
+\end{proposition}
+\begin{proof}
+An odd integer is cube-free precisely
+when it is divisible by no prime cube
+$p^3$, with $p$ odd. By
+Möbius inclusion--exclusion, the number
+of positive $n\le X$ for which
+$2n+1$ is cube-free equals
+\[
+\begin{aligned}
+\sum_{\substack{n\le X\\ 2n+1\ {\rm cube\mbox{-}free}}}1
+&=\sum_{\substack{d\le(2X+1)^{1/3}\\d\ {\rm odd}}}
+ \mu(d)\#\{n\le X:d^3\mid2n+1\}\\
+&=X\!\!\sum_{\substack{d\ge1\\d\ {\rm odd}}}
+  \frac{\mu(d)}{d^3}
+  +O(X^{1/3})\\
+&=X\prod_{p\ {\rm odd}}(1-p^{-3})
+  +O(X^{1/3})\\
+&=\frac{8X}{7\zeta(3)}+O(X^{1/3}).
+\end{aligned}
+\]
+Every odd composite $t\ge3$ has an odd
+prime divisor, so $t^3\mid2n+1$
+is possible for some $t\ge3$ exactly
+when $2n+1$ is not cube-free.
+Taking complements proves the claim.
+\end{proof}
+
+This is a limitation of the \emph{specific
+centered tensor construction}, not an
+upper bound on $P(n)$ or a no-go
+theorem for other embeddings.
+In particular, the exponential-in-$n$
+subsequence result cannot by itself
+be promoted to a uniform exponential
+lower bound using the same integral
+scales for every $n$.
+
+\begin{lemma}[A denser finite alternating-cycle gadget]
+\label{lem:362}
+There exists a cube-sum permutation of
+$[1,362]$ admitting at least $40$ pairwise
+vertex-disjoint alternating cycles.
+Consequently,
+\[
+\boxed{P(362)\ge 2^{40}.}
+\]
+\end{lemma}
+\begin{proof}
+An explicit certificate in
+\texttt{certificates/forty\_cycles\_362.json}
+describes a valid permutation using
+$43$ integer interval-reflection rows
+$p(i)=c-i$ and lists $40$ alternating
+directed cycles on $182$ distinct vertices.
+Each listed edge is checked by the
+single integer identity $i+p(j)=k^3$.
+These cycles are vertex-disjoint and can
+be switched independently. The standalone
+\texttt{verify\_362.py} checker directly
+verifies every row and edge without any
+matching solver or permanent algorithm.
+\end{proof}
+
+\begin{theorem}[Improved explicit exponential subsequence]
+\label{thm:362subsequence}
+For every odd integer $t\ge7$, let
+\[
+N_t=\frac{733t^3-1}{2}.
+\]
+Then
+\[
+\boxed{\displaystyle
+P(N_t)\ge
+P\!\left(\frac{t^3-1}{2}\right)
+2^{40t^3}\ge2^{40t^3}.}
+\]
+In particular,
+\[
+\boxed{\displaystyle
+\limsup_{n\to\infty}\frac{\log P(n)}n
+\ge\frac{80\log2}{733}
+>0.0756.}
+\]
+\end{theorem}
+\begin{proof}
+In Theorem~\ref{thm:divisor-recurrence}
+take $d=3$, $M_b=362$, $b=9$.
+Then $b^3=729$ and $q=2\cdot729-2\cdot362-1=733$,
+so $b^3<q$ and $n=N_t$.
+At $t=7$ the prefix length
+$A=(7^3-1)/2=171$ is a known positive
+index from the finite classification.
+For every larger odd $t$, $A\ge364$,
+so the existence theorem applies.
+Hence $P(A)>0$ and
+\[
+P(N_t)\ge P(A)P(362)^{t^3}
+\ge2^{40t^3}.
+\]
+Since $N_t\sim(733/2)t^3$,
+division by $N_t$ gives the stated
+exponential coefficient.
+\end{proof}
+
+The constant here is stronger than
+the earlier $236$-seed coefficient
+$18\log2/551$. It is a rigorously
+certified \emph{lower bound}, not a
+claim of optimal asymptotic entropy.
+
+This gives an \emph{exponential limsup},
+not an exponential lower bound for all $n$.
+In particular, it is logically distinct from
+the uniform, near-critical reflection
+estimates in Section~\ref{sec:entropy}.
+
+\section{Many permutations: an exponential cube-root bound}
+Besides qualitative multiplicity, the reflection family
+yields a strong quantitative statement.
+Let $K(n)=\lfloor\sqrt[3]{2n}\rfloor$, with the floor
+defined using integer comparisons (not floating point).
+
+\begin{lemma}[Three disjoint embeddings]\label{lem:triple}
+If $K(n)=k\ge27$, each of
+$k^3,(k-1)^3,(k-2)^3$ gives a reflection extension
+from a predecessor $m\ge173$ with $m<n$,
+and all three predecessors obey $K(m)\ge k-6$.
+\end{lemma}
+\begin{proof}
+By definition, $k^3\le2n<(k+1)^3$.
+For the smallest of these cubes, set
+$m=(k-2)^3-n-1$. Then
+\[
+2m>2(k-2)^3-(k+1)^3-2
+=k^3-15k^2+21k-19.
+\]
+The right side exceeds $(k-6)^3$ for $k\ge27$, since
+the difference is
+\[
+3k^2-87k+197>0
+\quad (k\ge27).
+\]
+Thus $2m>(k-6)^3\ge21^3$, which implies
+$m\ge173$ and $K(m)\ge k-6$.
+Also $(k-2)^3<k^3\le2n$, so $m<n$.
+The other two cubes give larger predecessors
+and satisfy the same bounds.
+Distinct cubes yield disjoint matching families
+by Lemma~\ref{lem:reflect}.
+\end{proof}
+
+\begin{theorem}[A096904 quantitative bound]\label{thm:many}
+For all integers $n\ge173$, with
+$q(n)=\max\{0,\lfloor(K(n)-27)/6\rfloor\}$,
+\[
+\boxed{P(n)\ge3^{q(n)}}.
+\]
+In particular
+\[
+\log P(n)\ \ge\
+\frac{\log3}{6}(2n)^{1/3}-O(1),
+\]
+so $P(n)$ grows at least exponentially in $n^{1/3}$.
+\end{theorem}
+\begin{proof}
+If $K(n)<27$ then $q(n)=0$, and
+Theorem~\ref{thm:exist} supplies $P(n)\ge1$.
+For $K(n)\ge27$, Lemma~\ref{lem:triple}
+provides three distinct extensions from smaller
+predecessors $m_i\ge173$ with
+$K(m_i)\ge K(n)-6$. Thus
+$q(m_i)\ge q(n)-1$.
+By strong induction and the disjointness of the
+three extension images,
+\[
+P(n)\ge\sum_{i=1}^{3}P(m_i)
+\ge3\cdot3^{\max(0,q(n)-1)}
+\ge3^{q(n)}.
+\]
+The displayed logarithmic asymptotic follows immediately.
+\end{proof}
+
+
+\section{A universal reflection-entropy bound}\label{sec:entropy}
+The fixed three-branch construction above is only
+one instance of a general branching mechanism. In fact,
+one may use \emph{any fixed number} of the largest
+available cubes and obtain a sharp limiting coefficient
+for this family of lower bounds.
+
+For each integer $s\ge2$, let $\rho_s\in(1,2)$
+be the unique solution of
+\begin{equation}\label{eq:rho}
+\sum_{h=1}^{s}\rho_s^{-h}=1,
+\qquad
+B_s=2s^2+4s-1.
+\end{equation}
+Let $K(n)=\lfloor\sqrt[3]{2n}\rfloor$ as before.
+
+\begin{theorem}[Reflection entropy]\label{thm:entropy}
+For all $s\ge2$ and $n\ge173$,
+\begin{equation}\label{eq:entropy}
+\boxed{\displaystyle P(n)\ge
+\rho_s^{\left(K(n)-B_s\right)/2}.}
+\end{equation}
+In particular,
+\begin{equation}\label{eq:liminf}
+\boxed{\displaystyle
+\liminf_{n\to\infty}
+\frac{\log P(n)}{(2n)^{1/3}}
+\ \ge\ \frac{\log 2}{2}.}
+\end{equation}
+Equivalently, for every $\varepsilon>0$ there is
+a constant $C_\varepsilon$ such that
+\[
+P(n)\ge
+\exp\left(\left(\tfrac12\log2-\varepsilon\right)
+(2n)^{1/3}-C_\varepsilon\right)
+\quad(n\ge173).
+\]
+\end{theorem}
+\begin{proof}
+Fix $s$ and write $B=B_s$, $\rho=\rho_s$.
+We prove \eqref{eq:entropy} by strong induction.
+For $K(n)<B$, the right side is at most $1$,
+and $P(n)\ge1$ by Theorem~\ref{thm:exist}.
+
+Now suppose $k=K(n)\ge B$. For each
+$j=0,\dots,s-1$, take the cube
+$c_j=(k-j)^3$ and put $m_j=c_j-n-1$.
+Since $k^3\le2n<(k+1)^3$, the following
+exact polynomial inequality holds:
+\[
+\begin{aligned}
+2m_j-(k-2j-2)^3
+&\ge 2(k-j)^3-(k+1)^3-1
+ -(k-2j-2)^3\\
+&=3k^2-(6j^2+24j+15)k\\
+&\qquad+6j^3+24j^2+24j+6\\
+&\ge0.
+\end{aligned}
+\]
+Dividing the final polynomial by $3$, its
+coefficient of $-k$ is $2j^2+8j+5$ and its
+constant term is positive. Hence the last inequality
+follows from $k\ge B\ge2j^2+8j+5$.
+Also $k-2j-2\ge k-2s\ge8$, so
+$m_j\ge256\ge173$ and
+$K(m_j)\ge k-2(j+1)$.
+Each $c_j\le k^3\le2n$, so $m_j<n$.
+
+The $s$ reflection extensions are pairwise disjoint
+by their distinct last images, as in
+Lemma~\ref{lem:reflect}.
+Using the strong induction hypothesis, we obtain
+\[
+\begin{aligned}
+P(n)
+&\ge\sum_{j=0}^{s-1}P(m_j)\\
+&\ge\sum_{j=0}^{s-1}
+\rho^{(K(m_j)-B)/2}\\
+&\ge\rho^{(k-B)/2}
+\sum_{j=0}^{s-1}\rho^{-(j+1)}
+=\rho^{(k-B)/2}.
+\end{aligned}
+\]
+This proves the first assertion. The $\rho_s$ are
+strictly increasing and converge to $2$, since
+their defining finite geometric sums approach
+$\sum_{h\ge1}2^{-h}=1$. For each fixed $s$,
+$B_s$ is a constant independent of $n$ and
+$K(n)=(2n)^{1/3}+O(1)$.
+Therefore the ratio on the left side of
+\eqref{eq:liminf} is at least
+$\tfrac12\log\rho_s$ in the limit.
+Letting $s\to\infty$ proves \eqref{eq:liminf}.
+\end{proof}
+
+
+\begin{corollary}[Other power sums, conditional on existence]
+For an integer $d\ge2$, let $P_d(n)$ count
+permutations of $[1,n]$ in which every $i+p_i$
+is a perfect $d$th power. If $P_d(n)>0$
+for all sufficiently large $n$, then
+\[
+\liminf_{n\to\infty}
+\frac{\log P_d(n)}{(2n)^{1/d}}
+\ge\frac{\log2}{2}.
+\]
+\end{corollary}
+\begin{proof}
+For any fixed $s$ and $j=0,\ldots,s-1$, write
+$k=\lfloor(2n)^{1/d}\rfloor$ and use
+$c_j=(k-j)^d$, $m_j=c_j-n-1$.
+The binomial theorem gives, uniformly over
+these finitely many $j$,
+\[
+2(k-j)^d-(k+1)^d-(k-2j-2)^d
+= d k^{d-1}+O_{d,s}(k^{d-2})>1
+\]
+for all sufficiently large $k$.
+It follows that $m_j$ is a smaller positive
+length in the eventual-existence range and
+$\lfloor(2m_j)^{1/d}\rfloor\ge k-2j-2$.
+The distinct reflection families obey the
+same $s$-branch induction as
+Theorem~\ref{thm:entropy}, with a suitable
+constant initial offset in $k$.
+The $\rho_s$ tend to $2$ as before.
+\end{proof}
+
+
+\begin{theorem}[A near-critical lower bound with explicit loss]
+\label{thm:critical}
+For $K(n)=\lfloor\sqrt[3]{2n}\rfloor$ and every $n\ge173$,
+\begin{equation}\label{eq:critical}
+\boxed{\displaystyle
+P(n)\ge\frac{127}{K(n)}\,2^{(K(n)-127)/2}.}
+\end{equation}
+More generally, for every real $\varepsilon>0$
+there exists $C_\varepsilon>0$ such that
+\begin{equation}\label{eq:eps}
+\boxed{\displaystyle
+P(n)\ge C_\varepsilon\,
+\frac{2^{K(n)/2}}{K(n)^\varepsilon}
+\qquad(n\ge173).}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Write $k=K(n)$. The exact cubic polynomial
+inequality in the proof of
+Theorem~\ref{thm:entropy} works whenever
+\[
+k\ge B_s=2s^2+4s-1,\qquad
+s\ge2;
+\]
+it supplies $s$ \emph{disjoint} reflection
+embeddings with predecessor indices
+$m_h\in[173,n-1]$ and
+$K(m_h)\ge k-2h$ for $h=1,\dots,s$.
+
+First set $F(k)=2^{k/2}/k$, which is increasing
+for all integer $k\ge3$. For $k\ge128$ choose
+$s=\lfloor\log_2 k\rfloor$.
+Then $s\ge7$ and $k\ge 2^s\ge B_s$:
+the last inequality holds at $s=7$, since
+$128\ge125$, and is preserved upon doubling,
+because $2B_s\ge B_{s+1}$ for all $s\ge7$.
+Moreover $k-2s\ge8$, so every predecessor
+is in the increasing range of $F$.
+By the reflection counting lemma,
+\[
+\begin{aligned}
+\frac{\sum_{h=1}^{s}F(k-2h)}{F(k)}
+&=\sum_{h=1}^{s}\frac{2^{-h}k}{k-2h}\\
+&\ge\sum_{h=1}^{s}2^{-h}
+  \left(1+\frac{2h}{k}\right)\\
+&\ge1-2^{-s}+\frac2k>1,
+\end{aligned}
+\]
+using $\sum_{h=1}^s h2^{-h}\ge1$ for
+$s\ge2$ and $k<2^{s+1}$.
+For $k<128$, Theorem~\ref{thm:exist}
+ensures $P(n)\ge1$.
+Because $F$ is increasing for $k\ge7$,
+this implies
+$P(n)\ge F(k)/F(127)$.
+Strong induction using the above inequality
+extends the same bound to all $k\ge128$.
+Since $F(127)=2^{127/2}/127$,
+this is exactly \eqref{eq:critical}.
+
+For the more general result, fix
+$\varepsilon>0$ and define
+$F_\varepsilon(k)=2^{k/2}/k^\varepsilon$.
+It is increasing for all sufficiently
+large $k$. For sufficiently large $k$,
+set $s=\lceil\log_2(k/\varepsilon)\rceil$,
+so $s=O_\varepsilon(\log k)$,
+$k\ge B_s$ and
+$2^{-s}\le\varepsilon/k$.
+Each predecessor is in the increasing
+range of $F_\varepsilon$. By the
+elementary Bernoulli inequality,
+\[
+\left(\frac{k}{k-2h}\right)^\varepsilon
+\ge1+\frac{2\varepsilon h}{k}.
+\]
+Consequently
+\[
+\begin{aligned}
+\frac{\sum_{h=1}^s F_\varepsilon(k-2h)}
+{F_\varepsilon(k)}
+&\ge 1-2^{-s}
++\frac{2\varepsilon}{k}
+ \sum_{h=1}^s h2^{-h}\\
+&\ge1-2^{-s}+\frac{2\varepsilon}{k}>1.
+\end{aligned}
+\]
+Choose an initial $K_\varepsilon$
+large enough for all these inequalities
+to hold at $k\ge K_\varepsilon$.
+By positivity, the bound
+$P(n)\ge C_\varepsilon F_\varepsilon(k)$
+holds for $k<K_\varepsilon$ on taking
+$C_\varepsilon=2^{-K_\varepsilon/2}$.
+The same strong induction proves it
+for every larger $k$, yielding
+\eqref{eq:eps}.
+\end{proof}
+
+These bounds approach the \emph{critical}
+reflection coefficient $\frac12\log2$
+with a logarithmic (indeed arbitrarily small
+polynomial) loss. Their proofs use no new
+computer-assisted certificate beyond the
+existence theorem.
+
+The coefficient $(\log2)/2$ is a \emph{proved lower
+bound}, not an asserted exact exponential growth rate.
+The argument needs only the qualitative existence
+Theorem~\ref{thm:exist}; it makes no further use of
+numerical matching data.
+
+\section{An efficient constructive algorithm}
+The proof is also algorithmic. Given $n>364$, choose the
+\emph{least} cube $c=k^3\ge n+174$ and put $m=c-n-1$.
+The cube-gap lemma ensures $173\le m<n$. Minimality gives
+\[
+(k-1)^3<n+174\le k^3
+\quad\Longrightarrow\quad
+173\le m\le3k^2-3k+173=O(n^{2/3}).
+\]
+Repeat until the remaining size is in the certified interval
+$173\le m\le364$, then fill each recorded interval by
+the explicit reflection $p_i=c-i$.
+
+\begin{proposition}[Linear-output construction]
+A valid cube-sum permutation of any $n\ge173$ can be
+constructed in $O(n)$ unit-cost arithmetic operations,
+with $O(\log\log n)$ reflection layers.
+\end{proposition}
+\begin{proof}
+The predecessor bound $m=O(n^{2/3})$ implies
+$\log m\le(2/3)\log n+O(1)$, so the number of
+iterations before the fixed-size base is
+$O(\log\log n)$. The returned intervals are disjoint
+and their union, together with the base interval,
+is $\{1,\dots,n\}$. Therefore exactly $n$ entries
+are written. Each exact integer cube root can
+be computed using $O(\log n)$ comparisons,
+which contributes $O(\log n\log\log n)=o(n)$
+additional unit-cost operations.
+\end{proof}
+The accompanying \texttt{construct\_linear.py}
+implements this procedure with exact integer
+cube roots, and can also display the recursion
+plan without allocating the full output.
+
+\section{Reproduction and limitations}
+All programs require only Python 3 standard-library modules:
+\begin{verbatim}
+python papers/A006063/verify.py
+python papers/A006063/independent_match.py
+python papers/A006063/verify_extended.py
+python papers/A006063/construct_linear.py
+python papers/A006063/verify_word_paths.py
+python papers/A006063/count_236.py
+\end{verbatim}
+The archived data consist of $109$ core witnesses,
+the legacy $192$-row all-base cross-check, $48$ small
+positive permutations, $124$ negative Hall sets,
+and compact pairs of alternating-cycle certificates.
+The infinite inductive and counting lemmas are
+mathematical arguments rather than extrapolations
+from numerical experiments.
+
+The status is a \emph{computer-assisted proof candidate}
+pending independent scrutiny of the finite certificate,
+its interpretation, and literature priority.
+The present manuscript does not compute the exact values
+of $P(n)$ in general, nor does it claim external peer review.
+
+
+\clearpage
+\appendix
+
+\clearpage
+\section{The 57 algebraic cubic-order shapes}
+\label{app:algebraic-shapes}
+For each target $n$, the line gives a cube-root
+word $k_1,\ldots,k_t$ and an output-block order
+$\pi$. Its block lengths are not assumed or
+listed: they are the integer determinants
+in Theorem~\ref{thm:unimodular-block-factory}.
+The target length is a checksum for their sum.
+All listed lengths are strictly positive.
+\begin{multicols}{2}
+\scriptsize
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\input{certificates/finite_57_cubic_order_shapes.tex}
+\end{multicols}
+
+\section{Redundant 57-row endpoint atlas}
+\label{app:interval-atlas}
+
+\noindent Each row $n$ lists pairs $b:k$:
+the consecutive input interval ending at $b$
+is mapped by $p(i)=k^3-i$.
+The first interval starts at $1$.
+There are $57$ exceptional rows and $795$
+segments. Six parameterized block families
+prove twenty-five additional base lengths. For every row,
+Lemma~\ref{lem:endpoint-cancellation}
+reduces checking the permutation
+to equality of two lists of integers.
+
+\begin{multicols}{2}
+\scriptsize\ttfamily
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\input{certificates/finite_57_exceptional_atlas.tex}
+\end{multicols}
+
+\clearpage
+\section{All 191 short alternating-path words}
+\noindent The integer at the left is the new size $n$;
+the following one-digit symbols are the successive
+cube roots $r_j$ in Lemma~\ref{lem:words}.
+Together with the explicit seed in
+Lemma~\ref{lem:seed173}, these words form an
+independently and locally checkable existence
+certificate for $173\le n\le364$.
+
+\begin{multicols}{3}
+\scriptsize\ttfamily
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\input{certificates/augmenting_words_table.tex}
+\end{multicols}
+
+\begin{thebibliography}{9}
+\bibitem{oeisA006063}
+N.~J.~A. Sloane et al., \emph{A006063: A card-arranging problem},
+\url{https://oeis.org/A006063}; existence conjecture
+attributed there to Robert Israel (2018).
+\bibitem{oeisA096680}
+Ray Chandler, \emph{A096680: Values with more than one cube-sum
+permutation}, \url{https://oeis.org/A096680}.
+\bibitem{oeisA096904}
+Ray Chandler, \emph{A096904: Number of cube-sum permutations},
+\url{https://oeis.org/A096904}.
+\bibitem{hall}
+P. Hall, On representatives of subsets,
+\emph{J. London Math. Soc.} 10 (1935), 26--30.
+\end{thebibliography}
+
+\clearpage
+\section{Reduced set of 56 algebraic cubic-order shapes}
+\label{app:reduced-shapes}
+The critical length $n=173$ is proved directly
+by forced-reflection peeling rather than from
+the determinant parameter table. For each of
+the remaining $56$ shapes, the block lengths
+are positive integer determinants by
+Theorem~\ref{thm:unimodular-block-factory}.
+The excluded original $57$-shape table
+remains an optional independent audit.
+\begin{multicols}{2}
+\scriptsize
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\input{certificates/finite_56_cubic_order_shapes.tex}
+\end{multicols}
+
+\end{document}

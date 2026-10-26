@@ -1,0 +1,171 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype,booktabs}
+\usepackage[margin=0.74in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\np}{\operatorname{nextprime}}
+\title{Prescribed Decimal Prefixes and Prime Signatures:\\Existence and Minimum Formulas for OEIS A086558}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\linespread{0.96}
+\hypersetup{pdftitle={Prescribed Decimal Prefixes and Prime Signatures},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For every $n\ge1$ there is an $n$-digit integer beginning with the decimal
+digits of $n$ and having the same prime signature as $n$. This proves the
+nonvanishing conjecture in OEIS A086558. We give a finite formula for the
+minimum using ordered prime tuples and one next-prime operation. At every
+prime-power index $n=p^e$ this simplifies to the $e$-th power of the first
+prime above an explicit integer root. The existence proof uses Dusart's
+explicit prime-interval theorem and fifteen small prime certificates.
+\end{abstract}
+\small
+
+\section{The target interval}
+Let $d$ be the decimal length of $n$, and put
+\begin{equation}\label{eq:LU}
+ L=n10^{n-d},\qquad U=(n+1)10^{n-d}.
+\end{equation}
+The integers in $[L,U)$ are exactly the $n$-digit integers beginning
+with $n$. A prime signature is the multiset of positive exponents in
+the prime factorization; the signature of $1$ is empty.
+OEIS A086558 \cite{oeis} takes the least integer in this interval with
+the signature of $n$, assigning zero if the set is empty.
+
+\begin{theorem}\label{thm:exist}
+For every $n\ge1$ this set is nonempty.
+\end{theorem}
+\begin{proof}
+The case $n=1$ has witness $1$. For $n\ge17$, let $p$ be the largest
+prime factor of $n$, let $e=v_p(n)$, and put $C=n/p^e$. Define
+\[
+ x=(L/C)^{1/e}=p10^{(n-d)/e},\qquad
+ y=(U/C)^{1/e}=x(1+1/n)^{1/e}.
+\]
+We will show that $x>396738$ and
+\begin{equation}\label{eq:sufficient}
+ 25\log^2x>e(n+1).
+\end{equation}
+Dusart's Proposition 6.8 \cite{dusart} then supplies a prime
+\[
+ x<q\le x\left(1+\frac{1}{25\log^2x}\right)<y,
+\]
+where the last inequality follows from
+\[
+ (1+1/n)^{1/e}-1\ge\frac{1}{e(n+1)}.
+\]
+Indeed the derivative of $(1+t)^{1/e}$ on $[0,1/n]$ is at least
+$1/(e(1+1/n))$, and integration proves the inequality. Since $q>x>p$,
+the prime $q$ does not divide $C$. Therefore $Cq^e$ lies in $[L,U)$
+and has the same signature as $n$.
+
+For $n\ge64$, use $d\le n/4$, $e\le\log_2 n$, and the fact that
+$n/\log_2n$ increases for $n>\mathrm e$. They give
+\[
+ x\ge10^{3n/(4\log_2n)}\ge10^8>396738.
+\]
+Also $(\log_2n)^3\le4n$ for $n\ge32$: the ratio decreases for
+$\log n>3$ and is $125/32<4$ at $n=32$. Hence $e^3\le4n$.
+Using $d\le n/2$ and $\log10>2$, we obtain
+\[
+ 25\log^2x>\frac{25n^2}{e^2}
+ \ge\frac{25}{4}ne>e(n+1),
+\]
+which proves \eqref{eq:sufficient}. The elementary inequality
+$d\le n/4$ for $n\ge64$ follows on each interval of fixed digit length,
+starting with $d=2$ and $n=64$; for $d\ge3$, $4d\le10^{d-1}$.
+
+For $17\le n\le63$, $e\le5$. If $e=1,2,3,4,5$, respectively,
+the smallest possible $n$ in this range is at least
+$17,18,24,48,32$. Throughout the range $d=2$, so
+$(n-d)/e\ge6$ in every case. Thus $x\ge10^6$ and
+$25\log^2x>25\cdot12^2>5\cdot64\ge e(n+1)$.
+
+The remaining cases $2\le n\le16$ have witnesses $Cq^e$ in the table
+below; the fifteen displayed $q$ are primes, verified by exhaustive
+trial division in the supplied program. Each displayed product has
+the required signature and decimal prefix.
+\begin{center}\small
+\begin{tabular}{rrrr|rrrr}
+\toprule
+$n$&$C$&$q$&$e$&$n$&$C$&$q$&$e$\\\midrule
+2&1&23&1&10&5&200000033&1\\
+3&1&307&1&11&1&11000000021&1\\
+4&1&67&2&12&3&200003&2\\
+5&1&50021&1&13&1&1300000000021&1\\
+6&3&200003&1&14&7&2000000000003&1\\
+7&1&7000003&1&15&5&30000000000011&1\\
+8&1&431&3&16&1&6329&4\\
+9&1&30011&2&&&&\\\bottomrule
+\end{tabular}
+\end{center}
+\end{proof}
+
+\section{An exact finite prime-parameter formula}
+For an integer $z\ge1$, let $\rho_e(z)$ be the least integer $w$ with
+$w^e\ge z$, and let $\np(z)$ be the least prime strictly greater than
+the integer $z$. All roots below are integer roots, including at exact
+power boundaries.
+
+\begin{theorem}[Minimum formula]\label{thm:min}
+Let $n\ge2$ have exponent multiset $\{e_1,\ldots,e_t\}$. For each distinct
+ordering of these exponents, and each increasing tuple of primes
+$p_1<\cdots<p_{t-1}<U$, put
+\[
+ C=\prod_{i=1}^{t-1}p_i^{e_i},\qquad
+ q=\np\left(\max\left\{p_{t-1},
+             \rho_{e_t}(\lceil L/C\rceil)-1\right\}\right).
+\]
+When $t=1$, take $C=1$ and $p_0=1$. Form all candidates $Cq^{e_t}<U$.
+Then A086558$(n)$ is their minimum. The tuple enumeration can be restricted
+by the explicit integer bounds
+\begin{equation}\label{eq:prune}
+ \left(\prod_{i<j}p_i^{e_i}\right)p_j^{e_j+\cdots+e_t}<U
+ \qquad(1\le j<t).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Every candidate belongs to $[L,U)$ and has the prescribed signature,
+because $q$ is distinct from the earlier primes and is the first prime
+meeting both the ordering and lower-value constraints.
+Conversely, factor a genuine minimum as
+$p_1^{e_1}\cdots p_t^{e_t}$ with $p_1<\cdots<p_t$. Its exponent ordering
+is included, its first $t-1$ primes obey \eqref{eq:prune}, and the
+formula's final prime $q$ is at most $p_t$. The corresponding candidate
+is no larger than the genuine minimum, so equality follows. Theorem
+\ref{thm:exist} ensures a candidate exists, and every tuple range is finite.
+\end{proof}
+
+\begin{corollary}[Closed prime-power-index reduction]
+If $n=p^e$ is a prime power, then
+\begin{equation}\label{eq:pp}
+ \mathrm{A086558}(n)=
+ \left[\np\left(\rho_e(n10^{n-d})-1\right)\right]^e.
+\end{equation}
+For $n=1$ the value is $1$.
+\end{corollary}
+For example, at $n=16$, $L=16\cdot10^{14}$ and the first eligible prime
+fourth root is $6329$, giving $6329^4=1604502443050081$.
+Formula~\eqref{eq:pp} follows directly by ordering prime powers. The
+existence theorem guarantees its candidate remains below $U$.
+For $n\ge17$ this also follows from the prime interval in the proof;
+the prime-power cases below $17$ are certified in the table.
+
+The formula uses finite minimization over prime tuples; it is not a
+constant-cost expression in elementary operations. Its evaluator and
+independent trial-division certificates use only the Python standard
+library. Initial formula outputs are compared with the published values.
+
+\begin{thebibliography}{9}
+\bibitem{oeis} A. Murthy, OEIS A086558,
+\url{https://oeis.org/A086558}, accessed October 26, 2026.
+\bibitem{dusart} P. Dusart, \emph{Estimates of some functions over primes
+without R.H.}, arXiv:1002.0442v1 (2010), Proposition 6.8,
+\url{https://arxiv.org/abs/1002.0442v1}.
+\end{thebibliography}
+\end{document}

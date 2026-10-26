@@ -1,0 +1,211 @@
+\section{An all-index arithmetic formula for the minimum}\label{sec:minimum-formula}
+We now determine the minimum itself for every index. The expression below
+uses multiplicative orders, modular square roots, CRT, ceilings, and a
+finite minimum over explicitly constructed residue classes. It is a
+\emph{finite arithmetic formula}, not an elementary expression without
+finite minimization. It does not enumerate concatenation lengths, and no
+unknown earlier sequence values occur in it.
+
+\subsection{Quantities depending only on the index}
+Fix $n\ge2$ and write
+\[
+ n=Rm,\qquad R=2^\alpha5^\beta,\qquad \gcd(m,10)=1,
+ \qquad D=\ell(n+1).
+\]
+For each $D\le d\le n$, put
+\[
+ B_d=10^d,\qquad t_d=\max(n,10^{d-1}-1),\qquad
+ L_d=10^d-1-t_d.
+\]
+The actual $d$-digit endpoints are $t_d+1,\ldots,t_d+L_d$.
+For any $B>1$ and integer $r\ge0$, define the integers
+\begin{equation}\label{eq:ST-closed}
+ S_B(r)=\frac{B^r-1}{B-1},\qquad
+ T_B(r)=\frac{B^{r+1}-(r+1)B+r}{(B-1)^2}.
+\end{equation}
+In particular $S_B(0)=T_B(0)=0$. An explicit, nonrecursive expression
+for the prefix preceding this digit interval is
+\begin{equation}\label{eq:boundary-sum}
+ c_d=\sum_{e=D}^{d-1}
+ \bigl(t_e S_{B_e}(L_e)+T_{B_e}(L_e)\bigr)
+ 10^{\sum_{f=e+1}^{d-1} fL_f}.
+\end{equation}
+The empty sum is zero. This is simply the sum of the complete
+fixed-width words, shifted by the number of digits following them.
+Thus $c_d=F_n(t_d)$. Computation may replace $c_d$ by its residue modulo $n$.
+
+For the remainder of this subsection fix $d$ and abbreviate
+$B=B_d,t=t_d,c=c_d$. Put
+\[
+ E=\max\left(1,\left\lceil\alpha/d\right\rceil,
+                  \left\lceil\beta/d\right\rceil\right),\quad
+ h=\operatorname{ord}_m(B),\quad s=S_B(h),\quad v=T_B(h),
+\]
+where $h=1$ when $m=1$. Equivalently, for $m>1$,
+$h=\operatorname{ord}_m(10)/\gcd(\operatorname{ord}_m(10),d)$.
+For $0\le j<h$ define
+\[
+ V_j=B^jc+tS_B(j)+T_B(j),
+\]
+and the quadratic
+\begin{equation}\label{eq:phase-quadratic}
+ Q_j(z)=hsz^2+\bigl(2(t+j)s+2v-hs\bigr)z+2V_j.
+\end{equation}
+Let $\mathcal R_j$ be a set of disjoint residue classes $(r,q)$,
+with $q\mid m$, whose union is precisely the roots of
+$Q_j(z)\equiv0\pmod m$. The explicit square-root construction below
+gives at most $2^{\omega(m)}$ such classes; for $m=1$ use
+$\mathcal R_j=\{(0,1)\}$.
+
+Write $[x]_u$ for the least nonnegative residue modulo $u$, with
+$[x]_1=0$ and all modular-inverse expressions modulo 1 interpreted as 0.
+Define
+\[
+ \rho=[-B(B-1)^{-1}]_R,\qquad g=\gcd(h,R),\qquad u=R/g.
+\]
+Discard a phase $j$ if $g\nmid\rho-t-j$. For every other phase put
+\[
+ b_j=\left[\frac{\rho-t-j}{g}(h/g)^{-1}\right]_u.
+\]
+For each $(r,q)\in\mathcal R_j$, the CRT combination and the first
+eligible endpoint are the explicit expressions
+\begin{align}
+ w&=r+q[(b_j-r)q^{-1}]_u, & P&=hqu,\label{eq:crt-candidate}\\
+ x_0&=t+j+hw, &
+ X_{d,j,r,q}&=x_0+P\left\lceil\frac{t+E-x_0}{P}\right\rceil.
+ \label{eq:first-candidate}
+\end{align}
+All inverses here exist in the stated moduli.
+Define the finite sets
+\begin{align*}
+ \mathcal E_d={}&\{t+r:1\le r<E,\ r\le L_d,
+          \ n\mid B^rc+tS_B(r)+T_B(r)\},\\
+ \mathcal C_d={}&\{X_{d,j,r,q}:0\le j<h,\ (r,q)\in\mathcal R_j,
+       \ g\mid\rho-t-j,\ X_{d,j,r,q}\le10^d-1\}.
+\end{align*}
+
+\begin{theorem}[All-index minimum formula]\label{thm:minimum-formula}
+For $n\ge2$, the following finite set is nonempty, and
+\begin{equation}\label{eq:minimum-formula}
+ \boxed{\displaystyle
+ a(n)=\min\bigcup_{d=D}^{n}(\mathcal E_d\cup\mathcal C_d)-n.}
+\end{equation}
+Together with $a(1)=1$, this determines the entire sequence. For each
+digit width there are at most three exceptional endpoints and at most
+$h\,2^{\omega(m)}$ progression candidates. All quantities in the formula
+are specified by $n$, with no test of successive lengths up to $a(n)$.
+\end{theorem}
+
+\subsection{Proof of completeness and minimality}
+For a fixed width, write $G(r)=B^rc+tS_B(r)+T_B(r)$, initially for
+nonnegative integers $r$. This is the fixed-width continuation of the
+prefix; it equals the actual concatenation whenever $r\le L_d$.
+Multiplying by $(B-1)^2$ gives
+\begin{equation}\label{eq:nilpotent-identity}
+ (B-1)^2G(r)=\bigl((B-1)^2c+t(B-1)+B\bigr)B^r
+                 -(t+r)(B-1)-B.
+\end{equation}
+Since $B-1$ is a unit modulo $R$ and $R\mid B^r$ for $r\ge E$,
+\begin{equation}\label{eq:smooth-endpoint}
+ R\mid G(r)\quad\Longleftrightarrow\quad t+r\equiv\rho\pmod R
+ \qquad(r\ge E).
+\end{equation}
+The only omitted positive offsets are $1,\ldots,E-1$, exactly those
+tested in $\mathcal E_d$. Because $R\le n<10^d$, we have
+$\alpha<4d$ and $\beta<2d$, so $E\le4$.
+
+Now work modulo the odd number $m$. By definition $B^h\equiv1$.
+Appending $h$ fixed-width blocks maps the state $(C,y)$ to
+$(C+ys+v,y+h)$ modulo $m$. Starting after $j$ blocks and iterating this
+affine map $z$ times gives
+\[
+ G(j+hz)\equiv V_j+z((t+j)s+v)+hs\frac{z(z-1)}2\pmod m.
+\]
+Multiplication by 2 is invertible modulo $m$, so
+\begin{equation}\label{eq:quadratic-equivalence}
+ m\mid G(j+hz)\quad\Longleftrightarrow\quad Q_j(z)\equiv0\pmod m.
+\end{equation}
+Every nonnegative offset has a unique expression $j+hz$ with
+$0\le j<h$ and $z\ge0$. Equation~\eqref{eq:smooth-endpoint} becomes
+$hz\equiv\rho-t-j\pmod R$, which is soluble exactly when the
+stated divisibility by $g$ holds; in that case it is $z\equiv b_j\pmod u$.
+As $q\mid m$ and $u\mid R$, their moduli are coprime.
+Equation~\eqref{eq:crt-candidate} therefore gives exactly all compatible
+solutions $z\equiv w\pmod{qu}$, hence endpoints $x\equiv x_0\pmod P$.
+
+The ceiling in \eqref{eq:first-candidate} selects the least such endpoint
+at least $t+E$. If it exceeds $10^d-1$, that progression has no endpoint
+in the actual digit interval. Otherwise it is the smallest endpoint of
+its progression in the interval. Any selected endpoint has $x-t\ge1$;
+since $x-t\equiv j\pmod h$ and $j<h$, its corresponding $z$ is nonnegative.
+Thus the use of the iterated-map identity is legitimate.
+
+These implications prove both that every retained candidate is divisible
+by $n$ and that every divisible endpoint in this digit interval is either
+in $\mathcal E_d$ or no smaller than a candidate in $\mathcal C_d$.
+Corollary~\ref{cor:uniform} ensures at least one such endpoint before
+$10^n$. Taking the minimum over the stated widths proves
+\eqref{eq:minimum-formula}, including exclusion of \emph{all} shorter
+lengths, not only those of the same digit width.
+
+\subsection{Explicit quadratic classes, including singular roots}
+For completeness, $\mathcal R_j$ need not be treated as an unspecified
+congruence-solving operation. The following gives it by modular square
+roots and CRT for any quadratic $Az^2+Bz+C$ modulo an odd $m$.
+Factor $m=\prod p^e$ and handle each prime power separately.
+First divide $A,B,C$ and $p^e$ by their largest common power of $p$.
+The resulting congruence is equivalent as a condition on the integer
+$z$; its reduced modulus suffices to describe the original solution set.
+If the reduced modulus is 1, the sole class is $(0,1)$.
+Otherwise write it as $p^f$, so at least one coefficient is a unit.
+\begin{enumerate}
+\item If $p\mid A,B$, then $p\nmid C$ and there are no roots.
+\item If $p\mid A$ and $p\nmid B$, let $y$ be the unique root of
+$y^2\equiv B^2-4AC\pmod{p^f}$ satisfying $y\equiv B\pmod p$.
+The sole class is
+\[
+ z\equiv-2C(B+y)^{-1}\pmod{p^f}.
+\]
+The indicated square root exists and is unique by simple-root lifting.
+The denominator is a unit. Substitution verifies the formula;
+conversely a root $z$ gives $y=2Az+B$ and
+$(B+y)z=-2C$, proving completeness.
+\item If $p\nmid A$, put $\delta=[B^2-4AC]_{p^f}$.
+For $\delta=0$, there is one class
+\[
+ z\equiv-B(2A)^{-1}\pmod{p^{\lceil f/2\rceil}}.
+\]
+For $\delta\ne0$ of odd $p$-adic valuation there are no roots.
+Otherwise put $v_p(\delta)=2s<f$. If the unit
+$\delta/p^{2s}$ is not a square modulo $p$, there are no roots.
+If it is, take either unit square root $y$ modulo $p^{f-2s}$.
+The two classes are
+\[
+ z\equiv(-B\mathbin{\pm}p^s y)(2A)^{-1}\pmod{p^{f-s}}.
+\]
+These cases follow from the equivalent square congruence
+$(2Az+B)^2\equiv\delta\pmod{p^f}$.
+\end{enumerate}
+Every prime contributes at most two classes, with moduli powers of that
+prime. Combining them by CRT gives disjoint classes $(r,q)$ with $q\mid m$
+and at most $2^{\omega(m)}$ possibilities. This includes all free higher
+digits of singular roots without enumerating them.
+
+\subsection{An example requiring several digit intervals}
+For $n=451=11\cdot41$, the formula gives the following complete stable
+classes of endpoints. Here $R=1$, so there are no transient exceptions.
+\[
+\begin{array}{c|c|l}
+d&c_d\bmod451&\text{endpoint residue classes}\\\hline
+3&0&451,1902,1133,3794,4345,1066,1287,1748,3179,450\pmod{4510}\\
+4&241&\varnothing\\
+5&196&\varnothing\\
+6&63&2084,555,1501,137,478\pmod{2255}
+\end{array}
+\]
+None of the width-3 classes meets $[452,999]$. The width-4 and width-5
+quadratics have no compatible roots at all. At width 6, the ceiling
+formula gives first endpoints $101304,102030,100721,101612,101953$,
+respectively. Hence the least endpoint is $100721$ and
+$a(451)=100721-451=100270$. The formula explains the long gap by
+whole empty digit intervals, without testing their individual lengths.

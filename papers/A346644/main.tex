@@ -1,0 +1,144 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.76in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\den}{\operatorname{den}}
+\title{An All-Index Minimum Formula for the Denominator\\of the Mean of the Divisors}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\linespread{0.98}
+\hypersetup{pdftitle={An All-Index Minimum Formula for OEIS A346644},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give an exact finite arithmetic minimum formula for every term of
+OEIS A346644. Every integer whose divisor mean has reduced denominator
+$n$ has a divisor with that same denominator whose exponent-plus-one
+values are supported on the primes of $n$ and whose local prime-power
+means are reduced. This normal form yields a triangular allocation
+formula, including all cross-factor cancellations, and an exact evaluator
+that searches factorizations rather than consecutive integers. An
+elementary construction supplies an explicit finite bound without
+Dirichlet's theorem. The earlier prime-power partition formulas become
+special cases; in particular $a(2^s)=2^{2^s-1}$. The all-index expression
+retains finite minimization and is not claimed to be an elementary
+closed form without it.
+\end{abstract}
+
+\section{Definition}
+Let $\sigma(K)$ be the sum of the positive divisors of $K$ and $\tau(K)$
+their number. Define
+\[
+ a(n)=\min\{K\ge1:\den(\sigma(K)/\tau(K))=n\}.
+\]
+OEIS A346644 \cite{oeis} records this sequence with zero as an escape
+value and conjectures that every index has a witness. The existence
+result below is elementary; the subsequent normal form and allocation
+formula determine the minimum itself for every index.
+
+\input{minimum}
+
+\section{Exact least values at every prime power}
+A factor $p^e$ of $K$
+contributes
+\[
+ c_q(p,e+1)=v_q(e+1)-v_q(1+p+\cdots+p^e)
+\]
+to the denominator valuation before taking its positive part.
+
+\begin{lemma}\label{lem:positive}
+If $c_q(p,e+1)>0$, then $p\not\equiv1\pmod q$ and
+$c_q(p,e+1)\le v_q(e+1)$. For any prime $p\not\equiv1\pmod q$ and
+integer $b\ge1$,
+\begin{equation}\label{eq:replace}
+ \den\left(\frac{1+p+\cdots+p^{q^b-1}}{q^b}\right)=q^b.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The inequality follows immediately from the nonnegative numerator
+valuation. If $q$ is odd and $p\equiv1\pmod q$, lifting the exponent gives
+$v_q((p^{e+1}-1)/(p-1))=v_q(e+1)$, so $c_q(p,e+1)=0$.
+For $q=2$ and odd $p$, if $e$ is even both valuations are zero; if $e$
+is odd, the elementary $2$-adic lifting formula gives
+\[
+ v_2((p^{e+1}-1)/(p-1))=v_2(p+1)+v_2(e+1)-1\ge v_2(e+1).
+\]
+Thus positive contribution again requires $p\not\equiv1\pmod q$.
+Finally $p^{q^b}\equiv p\pmod q$ by Fermat's theorem, and $p-1$ is
+invertible modulo $q$. The numerator sum in \eqref{eq:replace} is
+therefore $1$ modulo $q$, proving the asserted reduced denominator.
+\end{proof}
+
+\begin{theorem}[Partition formula]\label{thm:partition}
+Fix an odd prime $q$, and list the primes not congruent to $1$ modulo $q$
+as $\ell_1(q)<\ell_2(q)<\cdots$. For every $s\ge1$,
+\begin{equation}\label{eq:minimum}
+ a(q^s)=\min_{\substack{b_1\ge\cdots\ge b_t\ge1\\b_1+\cdots+b_t=s}}
+       \prod_{i=1}^t\ell_i(q)^{q^{b_i}-1}.
+\end{equation}
+The minimum is over the ordinary integer partitions of $s$. For $q=2$,
+\begin{equation}\label{eq:two}
+ a(2^s)=2^{2^s-1}\qquad(s\ge0).
+\end{equation}
+Consequently $a(q)=2^{q-1}$ for every prime $q$.
+\end{theorem}
+\begin{proof}
+Every candidate in \eqref{eq:minimum} has divisor count $q^s$ and divisor
+sum coprime to $q$, by \eqref{eq:replace}. Its reduced denominator is
+exactly $q^s$.
+
+Conversely, let $K=\prod p_i^{e_i}$ have reduced denominator $q^s$.
+The sum of all $c_q(p_i,e_i+1)$ is $s$, so the sum over its positive
+terms is at least $s$. By Lemma~\ref{lem:positive}, the corresponding
+primes are admissible and their values $a_i=v_q(e_i+1)$ have sum at
+least $s$. Choose integers $0\le b_i\le a_i$ with total $s$, discard the
+zeros, and replace each exponent by $q^{b_i}-1\le e_i$. The resulting
+integer $K'\le K$ has denominator exactly $q^s$ by
+\eqref{eq:replace}. Thus it suffices to minimize such products.
+
+For a fixed list of positive $b_i$, use the smallest admissible primes
+and assign larger exponents to smaller primes. The latter follows from
+$x^Ay^B\le x^By^A$ when $x\le y$ and $A\ge B$. This gives
+\eqref{eq:minimum}. There are sufficiently many admissible primes by the elementary
+argument at the end of Section~\ref{sec:all-minima}.
+
+For $q=2$, the only admissible prime is $2$. The same replacement
+argument requires the exponent of $2$ to be at least $2^s-1$.
+The integer $2^{2^s-1}$ attains denominator $2^s$, since its divisor
+sum is odd; this proves \eqref{eq:two}, including $a(1)=1$.
+For odd prime $q$, the only partition of $1$ is $(1)$ and $\ell_1(q)=2$.
+\end{proof}
+
+For example $a(9)=\min(2^8,2^2 3^2)=36$ and
+$a(25)=\min(2^{24},2^4 3^4)=1296$.
+At denominator $81$ the partition $(2,1,1)$ gives
+$2^8 3^2 5^2=57600$, smaller than the value $108900$ from $(1,1,1,1)$;
+comparison with the other three partitions proves $a(81)=57600$.
+
+\section{Verification and scope}
+The standard-library program \texttt{minimum.py} evaluates the exact
+minimum using the normal form and integer branch bounds. Its separate
+\texttt{triangular\_candidates} generator implements the allocation
+formula directly for fixed prime tuples. The independent audit in
+\texttt{verify\_minimum.py} checks divisor-preserving normalization for
+all $K\le50000$, and compares every minimum occurring at $K\le10^6$
+against a sieve built by summing actual divisors. All 39 published terms
+agree, and complete bounded candidate sets are compared in both
+directions with direct enumeration. The older \texttt{verify.py} remains
+an independent control for the original witnesses and prime-power cases.
+
+The universal claims follow from the proofs, not from these finite
+checks. The formula uses finite minimization, valuations and weak
+compositions; no simpler elementary expression is asserted. No OEIS
+editorial acceptance or exhaustive literature-priority review is claimed.
+
+\begin{thebibliography}{9}
+\bibitem{oeis} B. Cloitre, OEIS A346644,
+\url{https://oeis.org/A346644}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

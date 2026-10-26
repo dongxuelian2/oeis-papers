@@ -1,0 +1,12 @@
+A382357/A382360 verification record
+Date: 2026-10-26
+Base commit: 55c1090a42f08b71ef7a2d6397db16d3aecc389e
+Runtime: Python 3.12.14
+
+PASS: 10080 terms matched independent integer scans across 63 base/jump/seed cases; 1148400 exact rounding controls and 116000 contraction bounds; 500000 binary terms, 67 published terms, 20 published inverse positions; 20 finite last-exit audits and 9 five-term blocks; all labels 1..10000 occur in the checked prefix.
+
+PDF: 3 pages, compiled twice with no layout or reference warnings.
+All three final pages rendered and visually inspected.
+PDF integrity and text extraction passed.
+PDF bytes: 312062
+PDF SHA256: a38cf1b9ad9987a0df82a3301f41e16274bd0d9ec1f540e83b3583664ca5dfee

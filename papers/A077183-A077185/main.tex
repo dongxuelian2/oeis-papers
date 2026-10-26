@@ -1,0 +1,199 @@
+\documentclass[9pt]{extarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.70in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\len}{\mathcal{L}}
+\newcommand{\rev}{\mathcal{R}}
+\title{Prime Divisibility of Descending Concatenations in Arbitrary Bases\\and OEIS A077183--A077185}
+\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}\\[0.4em]Daoyu Dong\\{\small University of Electronic Science and Technology of China, Chengdu, China}}
+\date{October 17, 2026}\linespread{0.97}\setlength{\abovedisplayskip}{6pt}\setlength{\belowdisplayskip}{6pt}\setlength{\abovedisplayshortskip}{3pt}\setlength{\belowdisplayshortskip}{3pt}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $\rev_b(k)$ denote the base-$b$ integer obtained by concatenating
+$k,k-1,\ldots,2,1$ in descending order. We prove that a prime $p$
+divides at least one such integer if and only if $p\nmid b$, and
+that for every prime $p\nmid b$ infinitely many endpoints $k$
+exist. For $p\nmid b(b-1)$ the proof gives an explicit construction
+with $k< b^{2r+1}$, where $r=\ord_p(b)$, using a nonzero affine
+translation over $\mathbb F_p$. In decimal this proves the
+2005 positivity conjecture for OEIS A077183 and the associated
+A077185 quotient sequence: the only zero terms occur at prime indices
+$1$ and $3$. All assertions are independent of finite searches.
+\end{abstract}
+
+\section{Definitions and main theorem}
+For an integer base $b\ge2$, write $\ell_b(t)$ for the number of
+base-$b$ digits of $t\ge1$, and define
+\[
+\len_b(k)=\sum_{t=1}^{k}\ell_b(t),\qquad
+\rev_b(k)=(k)_b\Vert(k-1)_b\Vert\cdots\Vert(1)_b,
+\]
+where the concatenated digits are interpreted as a single integer.
+Set $\rev_b(0)=0$ and $\len_b(0)=0$. Thus
+\begin{equation}\label{eq:prepend}
+\rev_b(k)=\rev_b(k-1)+k\,b^{\len_b(k-1)} \quad(k\ge1).
+\end{equation}
+OEIS A077183 asks for the least $k$ such that the $n$-th prime divides
+$\rev_{10}(k)$, and records zero when there is no such $k$. Its
+companion A077185 is the quotient of this smallest concatenation by
+the same prime \cite{oeis183,oeis185,oeis422}. The 2005 conjecture
+asserts that A077183 has zero terms only at the indices of $2$ and $5$.
+
+\begin{theorem}[Prime dichotomy in every base]\label{thm:base}
+Let $b\ge2$ be an integer and $p$ be a prime. Then
+\[
+\bigl(\exists k\ge1:\ p\mid\rev_b(k)\bigr)
+\quad\Longleftrightarrow\quad p\nmid b.
+\]
+When $p\nmid b$, infinitely many distinct such $k$ exist. If
+$p\nmid b(b-1)$ and $r=\ord_p(b)$, a solution may be chosen satisfying
+\begin{equation}\label{eq:bound}
+1\le k\le b^{2r}-1+(p-1)r < b^{2r+1}.
+\end{equation}
+\end{theorem}
+
+\section{A constant, nonzero translation}
+\begin{lemma}[Fixed-width period step]\label{lem:shift}
+Suppose $p\nmid b(b-1)$ and put $r=\ord_p(b)$.
+Let $d\equiv1\pmod r$, $L=b^{d-1}$, and
+$A=b^{\len_b(L-1)}\pmod p$. Whenever the integers
+$L,L+1,\ldots,L+jr-1$ all have exactly $d$ digits,
+\begin{equation}\label{eq:affine}
+\rev_b(L-1+jr)
+\equiv \rev_b(L-1)+j A\,r(b-1)^{-1}\pmod p.
+\end{equation}
+The coefficient of $j$ is nonzero modulo $p$.
+\end{lemma}
+\begin{proof}
+Write $k=L+i$, where $0\le i$ and $k$ has $d$ digits.
+The exponent in \eqref{eq:prepend} is
+\[
+\len_b(k-1)=\len_b(L-1)+di.
+\]
+Because $d\equiv1\pmod r$ and $b^r\equiv1\pmod p$,
+we have $b^{di}\equiv b^i\pmod p$. Consequently, after adding
+$j r$ new blocks,
+\begin{equation}\label{eq:sum}
+\rev_b(L-1+jr)-\rev_b(L-1)
+\equiv A\sum_{i=0}^{jr-1}(L+i)b^i\pmod p.
+\end{equation}
+The standard geometric identities give
+\begin{equation}\label{eq:geometric}
+\sum_{i=0}^{r-1}b^i\equiv0,\qquad
+\sum_{i=0}^{r-1}i b^i\equiv\frac{r}{b-1}\pmod p.
+\end{equation}
+For completeness, $b^r\equiv1$ implies
+$\sum_{i=0}^{r-1}b^i=(b^r-1)/(b-1)\equiv0$;
+applying a finite geometric derivative gives
+\[
+\sum_{i=0}^{r-1}i b^i
+=\frac{b-rb^r+(r-1)b^{r+1}}{(1-b)^2}
+\equiv\frac{r}{b-1}\pmod p.
+\]
+In each consecutive $r$-term group of \eqref{eq:sum},
+$b^{i+r}\equiv b^i$. The starting offset increases by $r$,
+but its contribution vanishes because $\sum b^i\equiv0$.
+Thus every group contributes exactly $Ar/(b-1)$, proving
+\eqref{eq:affine}. Since $p\nmid b$, $A\ne0$; also
+$r\mid p-1$ and hence $p\nmid r$. Finally $p\nmid b-1$,
+so $Ar/(b-1)\ne0\pmod p$.
+\end{proof}
+
+\section{Proof and explicit witness}
+\begin{proof}[Proof of Theorem~\ref{thm:base}]
+First, if $p\mid b$, then \eqref{eq:prepend} yields
+$\rev_b(k)\equiv\rev_b(k-1)\equiv\cdots\equiv1\pmod p$;
+there is no solution. If $p\mid b-1$, then $b\equiv1\pmod p$,
+so every concatenation obeys
+\[
+\rev_b(k)\equiv1+2+\cdots+k=\frac{k(k+1)}2\pmod p.
+\]
+In particular, for every $s\ge1$, the choice $k=2ps$ is a
+solution, proving infinitude in this case (also when $p=2$).
+
+It remains to suppose $p\nmid b(b-1)$.
+Write $r=\ord_p(b)$, take $d=2r+1$, and set
+\[
+L=b^{2r},\quad m_0=L-1,\quad
+A=b^{\len_b(m_0)}\pmod p,\quad
+\Delta=A\,r(b-1)^{-1}\pmod p.
+\]
+Here $r\mid p-1$, so $\Delta$ is invertible modulo $p$.
+Choose $j$ as the least nonnegative residue satisfying
+\begin{equation}\label{eq:j}
+\boxed{\quad j\equiv-\rev_b(m_0)\Delta^{-1}\pmod p,\quad
+0\le j<p.\quad}
+\end{equation}
+Because $p\mid b^r-1$, we have $p<b^r$; also
+$r<(b-1)b^r$ for all $b\ge2,r\ge1$. Therefore
+\[
+(p-1)r<(b-1)b^{2r},
+\]
+so the integers $L,\ldots,L-1+(p-1)r$ remain inside the
+$d$-digit range $[L,bL-1]$. Applying Lemma~\ref{lem:shift},
+\[
+\rev_b(m_0+jr)\equiv\rev_b(m_0)+j\Delta\equiv0\pmod p.
+\]
+The displayed bound \eqref{eq:bound} follows from $j\le p-1$.
+
+For infinitely many further solutions, repeat the construction with
+$d=1+tr$ for any sufficiently large integer $t$. The same
+constant translation applies, and the $d$-digit window eventually
+contains all $p$ candidates. The resulting endpoints have
+unbounded digit lengths, hence are distinct.
+\end{proof}
+
+\begin{corollary}[Resolution of A077183 and A077185]\label{cor:oeis}
+For all $n\ge1$,
+\[
+\boxed{\mathrm{A077183}(n)>0\iff n\notin\{1,3\}.}
+\]
+The displayed zero values of A077185 are precisely at indices
+$1$ and $3$; all other terms are well-defined positive integers.
+For every prime $p\ge7$ the least endpoint in A077183 is bounded
+by \eqref{eq:bound} with $b=10$ and $r=\ord_p(10)$.
+\end{corollary}
+\begin{proof}
+Apply Theorem~\ref{thm:base} with $b=10$. The prime divisors
+of the base are exactly $2$ and $5$. The exception $p=3$ is
+covered by $3\mid10-1$; indeed $\rev_{10}(2)=21$.
+The index of prime $2$ is $1$ and that of prime $5$ is $3$.
+Since A077185 is the corresponding quotient by a positive prime,
+its terms are positive exactly at the nonexceptional indices.
+\end{proof}
+
+\section{Verification and perspective}
+The accompanying Python script independently reproduces the first
+63 published A077183 endpoints and the first 12 A077185 quotient
+values; it constructs and verifies the modular witness for primes up
+to 101 (and selected additional bases). It never builds the
+astronomically large concatenations for these constructive witnesses:
+modular geometric sums evaluate the blocks exactly. The symbolic
+proof, not the finite calculations, establishes the result.
+
+The proof concerns existence, not a closed form for the \emph{least}
+endpoint or the associated quotient. Its mechanism differs from the
+ascending or cyclic-digit-rotation Champernowne constructions: the
+natural recurrence here prepends an integer block, and the nonzero
+period increment comes directly from a weighted geometric sum.
+
+\begin{thebibliography}{9}
+\bibitem{oeis183} OEIS Foundation Inc., \emph{A077183: Smallest $k$
+for which the reverse concatenation $k,\ldots,1$ is divisible by
+prime($n$)}, \url{https://oeis.org/A077183} (accessed October 17, 2026).
+\bibitem{oeis185} OEIS Foundation Inc., \emph{A077185},
+\url{https://oeis.org/A077185} (accessed October 17, 2026).
+\bibitem{oeis422} OEIS Foundation Inc., \emph{A000422: Reverse
+concatenation of positive integers},
+\url{https://oeis.org/A000422}.
+\bibitem{stephan} R. Stephan, \emph{Factors and Primes in Two
+Smarandache Sequences}, Smarandache Notions Journal \textbf{9}
+(1998), 4--10 (linked from OEIS A077183).
+\end{thebibliography}
+\end{document}

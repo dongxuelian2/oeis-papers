@@ -1,0 +1,904 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{multicol}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\title{Cube-Sum Permutations: Unimodular Block Algebra and 57 Finite Shapes}
+\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}\\[0.4em]Daoyu Dong\\{\small University of Electronic Science and Technology of China, Chengdu, China}}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $P(n)$ count permutations $p$ of $[1,n]$
+such that every $i+p(i)$ is a perfect cube.
+We prove $P(n)>0$ for every $n\ge173$
+from six explicit block-rearrangement families,
+$57$ finite cube-word/output-order shapes, and
+elementary cubic suffix reflection.
+A general algebraic theorem proves that the
+block-order matrix has determinant $0$ or $1$.
+For each of the $57$ shapes the determinant is $1$,
+and a single Cramer-determinant formula yields
+strictly positive integral block lengths.
+The permutation then follows symbolically,
+without separately verifying $57$ endpoint
+multiset equalities. Every such shape also admits
+a uniform infinite cubic dilation
+$N(h)=(N+\varepsilon)h^3-\varepsilon$.
+A symbolic cubic-gap induction completes
+the existence tail for all $n\ge365$.
+The $57$ shape choices and positivity checks
+remain finite casework; this is an algebraic
+parameterization, not a case-free existence proof.
+\end{abstract}
+
+\section{Two elementary lemmas}
+
+\begin{lemma}[Boundary cancellation]\label{lem:balance}
+Let $0=b_0<b_1<\cdots<b_t=n$ and let
+$c_1,\ldots,c_t$ be positive integer cubes.
+Set $L_j=c_j-b_j$ and $R_j=c_j-b_{j-1}$.
+Assume $1\le L_j<R_j\le n+1$.
+Then $p(i)=c_j-i$ for $b_{j-1}<i\le b_j$
+is a cube-sum permutation if and only if
+\[
+\boxed{\{1,R_1,\ldots,R_t\}_{\mathrm{multi}}
+ =\{n+1,L_1,\ldots,L_t\}_{\mathrm{multi}}.}
+\]
+\end{lemma}
+\begin{proof}
+Each input block maps bijectively onto the integer
+interval $[L_j,R_j)$. At an integer $x$, the jump
+in the total interval-coverage count is the
+multiplicity of $x$ as a left endpoint minus
+its multiplicity as a right endpoint.
+The displayed identity makes that jump $1$
+at $x=1$, $-1$ at $x=n+1$, and zero everywhere
+else. Thus coverage is exactly one at
+every $x\in[1,n]$. Reversing this argument
+proves necessity.
+\end{proof}
+
+\begin{lemma}[Growing cubic suffix]\label{lem:suffix}
+Suppose $0\le m<n$, $m+n+1=c$ is a cube,
+and a cube-sum permutation on $[1,m]$ exists
+(the $m=0$ permutation is empty).
+Keep the existing permutation on $[1,m]$
+and set $p(i)=c-i$ for $m<i\le n$.
+Then $p$ is a cube-sum permutation on $[1,n]$.
+\end{lemma}
+\begin{proof}
+The new reflection is a bijection from
+$[m+1,n]$ to itself, and each new sum is $c$.
+\end{proof}
+
+\section{Six algebraic block families and 57 exceptional identities}
+
+\begin{lemma}[Reflected-block rearrangement]\label{lem:rearrange}
+Choose positive input-block lengths
+$\ell_1,\ldots,\ell_t$ of sum $n$ and an arbitrary
+output order $\pi$ of these $t$ blocks.
+Let $A_j$ be the sum of input lengths before
+block $j$, and let $B_j$ be the sum of output
+lengths before block $j$ in order $\pi$.
+If all numbers
+\[
+  C_j=1+A_j+B_j+\ell_j
+\]
+are perfect cubes, then on input block $j$
+the reflection $p(i)=C_j-i$ gives a cube-sum
+permutation of $[1,n]$.
+\end{lemma}
+\begin{proof}
+The input block is $[A_j+1,A_j+\ell_j]$,
+which maps exactly to the prescribed output
+block $[B_j+1,B_j+\ell_j]$.
+Those output blocks partition $[1,n]$
+by construction. Each index sum is $C_j$.
+\end{proof}
+
+\paragraph{Family I (four blocks).}
+Let $U<V$ be integer cubes and put
+\[
+a=2U-V-1,\qquad b=2V-3U+1.
+\]
+If $a,b>0$, use input lengths $(a,b,a,b)$
+and output order $(3,4,1,2)$.
+Lemma~\ref{lem:rearrange} gives the cubic
+sums $(U,V,U,V)$ and length $2(V-U)$.
+The pairs $(U,V)=(64,125),(125,216),(216,343)$
+yield lengths $122,182,254$ respectively.
+
+\paragraph{Family II (five blocks).}
+For cubes $X<Y<Z$, define
+\[
+a=2Y-Z-1,\quad
+b=X+2Z-4Y+1,\quad c=Y-X.
+\]
+If $a,b,c>0$, the lengths $(a,b,c,a,c)$
+in output order $(4,2,5,1,3)$ produce
+sums $(Y,X,Z,Y,Z)$ and total length
+$2Y-X-1$. With $(Y,Z)=(64,125)$ and
+$X=27,8$, the results are $n=100,119$.
+
+\paragraph{Family III (six blocks).}
+For integer cubes $X,W,Y,Z$, put
+\[
+\begin{aligned}
+a&=2Y-Z-1,& b&=X-2a-1,\\
+c&=W+2a-2X+1,& d&=Y+X-W-2a-1.
+\end{aligned}
+\]
+If these are positive, choose lengths
+$(a,b,c,d,a,d)$ and output order
+$(5,2,3,6,1,4)$. The cubic sums are
+$(Y,X,W,Z,Y,Z)$ and the length is
+$2Z-2Y+X-W$. Taking $(Y,Z)=(64,125)$,
+the choices $(X,W)=(8,64),(27,64),(8,27)$
+give $n=66,85,103$, respectively.
+
+\paragraph{Family IV (twelve blocks and three binary switches).}
+Let $X,T,Q$ be integers and put
+\[
+\begin{aligned}
+u&=X-7,&v&=T-2X+7,&w&=X+27-T,\\
+z&=Q+2T-2X-121,&h&=X+152-T-Q.
+\end{aligned}
+\]
+Assume $u,v,z\ge0$ and $w,h>0$.
+Use input lengths
+\[
+(3,u,v,w,3,w,z,h,3,27,3,h)
+\]
+and output block order
+\[
+(11,2,3,6,9,4,7,12,5,10,1,8).
+\]
+The reflected-block lemma computes the twelve
+nominal index-image sums as
+\[
+(125,X,T,64,125,64,Q,216,125,216,125,216).
+\]
+When the second, third, or seventh block is nonempty,
+its nominal sum $X$, $T$, or $Q$, respectively,
+must be a cube. Any zero-length block is omitted
+from both orders and imposes no cube condition.
+The total length is
+\[
+n=276+X-T-Q.
+\]
+Take $X\in\{7,8\}$, choose
+$T\in\{2X-7,27\}$, and independently choose
+$Q\in\{121-2T+2X,125\}$. All eight resulting
+length choices satisfy the positivity and cube
+conditions. The $2^3$ distinct lengths are
+\[
+\boxed{131,132,150,151,155,156,174,175}.
+\]
+This is one symbolic rearrangement construction
+with three optional empty blocks, not eight
+separate finite endpoint certificates.
+
+\paragraph{Family V (15 blocks, two constrained switches).}
+Take $\alpha,\beta\in\{0,1\}$ with
+$\alpha\le\beta$ and
+$t\in\{0,7+4\beta+2\alpha\}$.
+Define the ordered input block lengths
+\[
+\begin{gathered}
+\ell_1=2\beta,\quad
+\ell_2=7-\alpha-4\beta-\alpha\beta,\quad
+\ell_3=\alpha,\quad\ell_4=\alpha\beta,\\
+\ell_5=13+4\beta,\quad\ell_6=\alpha,\quad
+\ell_7=23-4\beta-\alpha,\quad\ell_8=13+4\beta,\\
+\ell_9=48-\alpha-45\beta+\alpha\beta,\quad
+\ell_{10}=2\beta,\quad\ell_{11}=\beta(39-\alpha),\\
+\ell_{12}=t,\quad\ell_{13}=30+\alpha-t,\quad
+\ell_{14}=13+4\beta,\quad
+\ell_{15}=91+\alpha-t.
+\end{gathered}
+\]
+The output block order is
+\[
+(10,4,6,2,8,3,11,1,9,14,7,12,15,5,13).
+\]
+All lengths are nonnegative, with empty blocks omitted.
+Because $\alpha\beta=\alpha$, the nominal reflected
+sums are
+\[
+\begin{gathered}
+21+43\beta,\ 8,\ 28-\alpha,\ 8,\ 216,\\
+21+2\alpha+4\beta,\ 125,\ 64,\ 125,\ 105-41\beta,\\
+125,\ 209-2\alpha-4\beta+t,\ 343,\ 216,\ 343.
+\end{gathered}
+\]
+Every \emph{nonempty} block has a cubic sum:
+blocks $1,10,11$ are used only if $\beta=1$;
+blocks $3,4,6$ are used only if
+$\alpha=\beta=1$; and block $12$ is empty
+if $t=0$, otherwise its sum is $216$.
+The total length is
+\[
+\boxed{n=238+\alpha+2\beta-t},
+\]
+so the three allowed pairs
+$(\alpha,\beta)=(0,0),(0,1),(1,1)$
+with their two possible $t$ values give
+\[
+\boxed{228,229,231,238,240,241}.
+\]
+This is a symbolic cubic-sum construction;
+it does not require verifying six separate endpoint lists.
+
+\paragraph{Family VI (ten blocks, nested binary degeneration).}
+Let $\alpha,\beta\in\{0,1\}$ with $\beta\le\alpha$.
+Use input block lengths
+\[
+\begin{gathered}
+(7,\ 12\alpha,\ 159-24\alpha-99\beta,\
+14\beta,\ 28\beta,\ 63\beta,\\
+10+24\alpha-6\beta,\ 8\beta,\
+159-24\alpha-107\beta,\
+10+24\alpha+93\beta)
+\end{gathered}
+\]
+and output order $(1,2,8,5,6,9,4,10,3,7)$.
+Direct substitution into the reflected-block lemma
+gives the ten nominal sums
+\[
+\begin{gathered}
+8,\ 8+19\alpha,\ 343,\
+167-12\alpha+61\beta,\
+167-12\alpha-30\beta,\\
+167-12\alpha+61\beta,\ 512,\
+177+12\alpha+27\beta,\ 343,\ 512.
+\end{gathered}
+\]
+Block $2$ is nonempty only when $\alpha=1$
+and has cubic sum $27$; blocks $4,5,6,8$
+are nonempty only when $\beta=\alpha=1$
+and have sums $216,125,216,216$. Other
+nonempty blocks have constant cube sums;
+all empty blocks are omitted. Since
+\[
+n=345+12\alpha-6\beta,
+\]
+the three admissible choices give the
+lengths $345,357,351$, using one
+parametric construction rather than
+three independent endpoint lists.
+
+\subsection{Universal unimodular determinant construction}
+\label{subsec:unimodular-factory}
+The remaining $57$ integer witnesses admit a common
+algebraic formula, without separately testing
+their endpoint cancellation identities.
+For an output-block order $\pi$ on $t$ labels,
+write $\rho(i)=\pi^{-1}(i)$ and set
+\[
+M_{ji}=[i<j]+[\rho(i)<\rho(j)]+[i=j],
+\quad 1\le i,j\le t.
+\]
+Here brackets denote indicator functions.
+
+\begin{lemma}[Unimodular block-order matrices]
+\label{lem:unimodular-block}
+For every finite output-block order $\pi$,
+$\det M\in\{0,1\}$.
+\end{lemma}
+\begin{proof}
+With $\boldsymbol1$ denoting the all-ones
+vector, write $M=\boldsymbol1\boldsymbol1^T+K$.
+The matrix $K$ is skew-symmetric, and for
+$i<j$ its $(i,j)$ entry is $-1$ exactly
+when $\rho(i)<\rho(j)$, and $0$ otherwise.
+It is therefore an oriented chord-intersection
+matrix: place first chord endpoints in
+input order around one arc of a circle,
+and second endpoints in output order around
+the complementary arc.
+
+Recall that an even-order chord-intersection
+matrix has Pfaffian $0$ or $\pm1$.
+Indeed, thickening the chord diagram into an
+oriented ribbon surface, the chord loops form an
+integral homology basis. Their intersection form
+is integrally congruent to a direct sum of
+unimodular symplectic pairs
+$\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$
+and zero blocks from the boundary radical.
+Its full Pfaffian is thus $0$ or $\pm1$.
+
+If $t$ is even, $\operatorname{adj}(K)$ is
+skew-symmetric; the rank-one determinant
+identity gives
+\[
+\det M=\det K+
+\boldsymbol1^T\operatorname{adj}(K)\boldsymbol1
+=\operatorname{Pf}(K)^2\in\{0,1\}.
+\]
+If $t$ is odd, $\det K=0$. Adjoin a new
+chord crossing all original chords, whose
+skew matrix is
+\[
+H=\begin{pmatrix}
+0&\boldsymbol1^T\\
+-\boldsymbol1&K
+\end{pmatrix}.
+\]
+The same rank-one and bordered determinant
+identities give
+\[
+\det M=\boldsymbol1^T\operatorname{adj}(K)
+\boldsymbol1=\det H=\operatorname{Pf}(H)^2
+\in\{0,1\}.
+\]
+\end{proof}
+
+\begin{theorem}[Symbolic determinant families]
+\label{thm:unimodular-block-factory}
+Fix $\pi$ with $\det M=1$.
+For arbitrary integer cube roots
+$k_1,\ldots,k_t\ge2$, let
+$d=(k_j^3-1)_{j=1}^t$. Define
+\[
+\ell_j=\det M^{(j)}(d),
+\]
+where $M^{(j)}(d)$ is obtained from $M$
+by replacing column $j$ with $d$.
+If every $\ell_j>0$, then with
+$N=\sum_j\ell_j$ there is a permutation
+of $[1,N]$ with cube sums $k_j^3$ on
+successive input blocks of these lengths.
+\end{theorem}
+\begin{proof}
+By the preceding lemma and Cramer's rule,
+$M\ell=d$ holds identically over the integers.
+If $A_j,B_j$ are the input and output block
+prefix lengths, this is precisely
+\[
+k_j^3=1+A_j+B_j+\ell_j.
+\]
+Reflection $p(i)=k_j^3-i$ maps the
+$j$th input block bijectively to the
+$j$th block in output order $\pi$.
+The output blocks partition $[1,N]$.
+\end{proof}
+
+The $57$ cubic-root words and block orders
+in Appendix~\ref{app:algebraic-shapes}
+are therefore a collection of \emph{symbolic}
+families, rather than $57$ independently
+postulated endpoint identities.
+For each printed root word,
+integer determinant evaluation gives
+$\det M=1$, $\ell_j\ge1$, and the
+specified length $N$ (the smallest
+$\ell_j$ across the full table equals $1$).
+The separate exact
+\texttt{verify\_unimodular\_factory.py}
+checks these finite positivity conditions.
+The $57$ parameter choices remain finite data:
+this is not a case-free proof of their existence.
+
+\begin{theorem}[Uniform cubic dilation]
+\label{thm:unimodular-dilation}
+Under Theorem~\ref{thm:unimodular-block-factory},
+put $v=M^{-1}\boldsymbol1$ and
+$\varepsilon=t\bmod2$. For every integer $h\ge1$,
+\[
+\ell_j(h)=\ell_j+
+(h^3-1)(\ell_j+v_j)>0
+\]
+defines another cube-sum permutation, with
+root word $(hk_1,\ldots,hk_t)$, of length
+\[
+\boxed{N(h)=(N+\varepsilon)h^3-\varepsilon.}
+\]
+\end{theorem}
+\begin{proof}
+Pfaffian minor expansions in the preceding
+chord-diagram proof imply
+$v_j\in\{-1,0,1\}$: the Cramer minors
+are signed Pfaffians of chord diagrams
+with a marked chord deleted, divided
+by a nonzero Pfaffian of absolute value $1$.
+Moreover $\sum_j v_j=\varepsilon$.
+Indeed, $Mv=\boldsymbol1$ and skew symmetry
+give $S^2=S$ for $S=\boldsymbol1^Tv$.
+If $t$ is even, $K$ is invertible and
+$v=K^{-1}\boldsymbol1$ yields $S=0$.
+If $t$ is odd, invertibility of $M$ and
+singularity of $K$ exclude $S=0$:
+a kernel vector of $K$ has nonzero pairing
+with $\boldsymbol1$. Thus $S=1$.
+
+Since $\ell_j\ge1$ and $v_j\ge-1$,
+all displayed scaled lengths are positive.
+Finally
+\[
+M\ell(h)=h^3M\ell+(h^3-1)\boldsymbol1
+=h^3(k_j^3)_{j=1}^t-\boldsymbol1.
+\]
+The determinant construction applies again.
+Summing the lengths gives the formula
+for $N(h)$.
+\end{proof}
+
+\begin{lemma}[Affine-word rigidity]\label{lem:rigid}
+Fix a finite list of integer cubes $C_1,\ldots,C_t$.
+Suppose all breakpoints $b_j(n)$ are affine
+functions of $n$ with $b_0(n)=0$ and $b_t(n)=n$.
+The resulting fixed-cube reflection word can
+be a valid permutation for at most two distinct
+values of $n$.
+\end{lemma}
+\begin{proof}
+Every legal permutation satisfies the sum identity
+\[
+ \sum_{j=1}^{t} C_j\bigl(b_j(n)-b_{j-1}(n)\bigr)
+ =\sum_{i=1}^n(i+p(i))=n(n+1).
+\]
+Its left side is affine in $n$; its right
+side is a monic quadratic. The equality
+cannot hold for three distinct values.
+\end{proof}
+The obstruction concerns \emph{fixed} cube sums
+and affine endpoints only, not varying cube
+sums or composition of reflection templates.
+
+In total these \emph{six symbolic identities}
+give twenty-five base lengths
+\[
+66,85,100,103,119,122,131,132,150,151,155,156,174,175,182,228,229,231,238,240,241,254,345,351,357
+\]
+without twenty-five separate endpoint-table checks.
+
+\paragraph{Redundant 57-row endpoint atlas.}
+
+The appendix records $57$ exceptional rows of the form
+$n\; b_1:k_1\;\cdots\;b_t:k_t$.
+The corresponding cubical sums are $c_j=k_j^3$
+and the first boundary is $b_0=0$.
+For every row, the boundaries increase,
+$1\le L_j<R_j\le n+1$,
+and the multiset equality in
+Lemma~\ref{lem:balance} holds exactly.
+These are $795$ simple integer-interval
+identities. Exactly $10$ listed rows have
+$n<173$ and exactly $47$ have $173\le n\le364$.
+Together with the twenty-five algebraic-template lengths,
+there are $22$ lower and $60$ upper seeds.
+
+The following two lists give every omitted
+base length without further matching data.
+For any tabulated predecessor $m$ under
+cube $c$, define $n=c-m-1$ and apply
+Lemma~\ref{lem:suffix}. The lists are
+ordered by cube, so every predecessor is
+either a seed or was obtained in an earlier row.
+
+\paragraph{First: 26 reflected lengths below 173.}
+\begin{quote}
+\footnotesize
+\begin{verbatim}
+cube     already constructed predecessors m
+  8      0
+ 27      0,7
+ 64      0,7,19,26
+125      0,7,19,26,37,44,56
+216      44,56,63,66,68,80,82,85,87,
+         100,103,105
+\end{verbatim}
+\end{quote}
+Together with the $10$ exceptional lower seeds
+and the twelve algebraic-template lower seeds,
+these supply $48$ distinct lengths below 173.
+
+\paragraph{Second: 49 reflected lengths in
+$[173,255]\cup[339,364]$.}
+\begin{quote}
+\footnotesize
+\begin{verbatim}
+cube     previously constructed predecessors m
+216      0,7,19,26,37
+343      0,87,98,100,103,105,110,112,
+         115,116,117,118,119,120,121,122,
+         123,124,125,126,128,129,130,131,
+         132,133,135,147,149,150,151,152,
+         155,156,159
+512      147,149,150,151,152,155,156,
+         159,171
+\end{verbatim}
+\end{quote}
+The $47$ upper exceptional rows, the thirteen
+upper algebraic-template lengths and these $49$
+reflections are exactly the $109$ integers
+in $[173,255]\cup[339,364]$.
+There is no circular dependency:
+each predecessor $m$ is strictly smaller
+than its constructed length $n$.
+
+For example, $211=343-131-1$,
+$340=512-171-1$, and $342=343-0-1$.
+The first example replaces a previously
+necessary-looking $53$-segment independent
+row by one suffix reflection.
+
+\begin{lemma}[Complete finite interval]\label{lem:base}
+For every integer $173\le n\le364$,
+a cube-sum permutation of $[1,n]$ exists.
+\end{lemma}
+\begin{proof}
+The explicit arithmetic rows and the two
+predecessor tables establish the claim for
+$[173,255]\cup[339,364]$. For each of the
+$83$ remaining lengths $256\le n\le338$,
+take $m=511-n\in[173,255]$.
+Then $m<n$ and $m+n+1=512=8^3$,
+so Lemma~\ref{lem:suffix} applies.
+\end{proof}
+
+\subsection{Forced reflection peeling at the critical base}
+\label{subsec:forced-reflection-peeling}
+
+\begin{lemma}[Forced neighbor and reflected pair]
+\label{lem:forced-neighbor}
+Let $V$ be a finite set of positive integers, with
+cube-sum adjacency $i\sim j$ whenever $i+j$ is a
+cube. If $i\in V$ has exactly one neighbor $j\in V$,
+every cube-sum permutation $p:V\to V$ satisfies
+$p(i)=j$ and $p(j)=i$. Deleting $i,j$ (or only
+$i$ when $i=j$) therefore preserves exactly the
+number of cube-sum permutations of the induced
+residual vertex set.
+\end{lemma}
+\begin{proof}
+The $i$th row can use only image $j$.
+Since the cube-sum graph is symmetric, column $i$
+can only be supplied by row $j$. Both assignments
+are therefore forced, and restriction or extension
+gives mutually inverse maps between permutations.
+\end{proof}
+
+\begin{theorem}[Three forced bands]
+\label{thm:forced-bands}
+For every $173\le n\le181$, the following
+three successive reflected bands are forced
+in \emph{every} cube-sum permutation:
+\[
+\begin{array}{c|c|c}
+\text{round}&\text{first endpoints }i& i+p(i)\\ \hline
+1 &[125,342-n]&216\\
+2 &[34,215-n]&64\\
+3 &[95,276-n]&216
+\end{array}
+\]
+Here each row is deleted together with its
+reflected images before the next round.
+Exactly $582-3n$ forced reflected pairs are
+identified by these three bands.
+\end{theorem}
+\begin{proof}
+Since $2n<512$, all relevant cube sums
+are $8,27,64,125,216,343$. On the first
+band, cubes up to $125$ give no positive
+neighbor, and $343-i>n$; thus the unique
+neighbor is $216-i$. Their image interval
+is $[n-126,91]$.
+On the second band, the possible $125-i$
+is in this deleted image interval,
+and $216-i>n$, leaving only $64-i$;
+its images form $[n-151,30]$.
+On the third band, the possible $125-i$
+lies in the deleted second image interval,
+and $343-i>n$, leaving $216-i$.
+All partners are distinct and belong to
+the still remaining vertices.
+The band sizes are
+$218-n$, $182-n$, and $182-n$, so their
+sum is $582-3n$.
+\end{proof}
+
+\begin{theorem}[Exact counts at $173,174,175$]
+\label{thm:forced-base}
+For the cube-sum permutation counting function,
+\[
+\boxed{P(173)=1,\quad P(174)=1,\quad P(175)=3.}
+\]
+In particular the existence at $n=173$
+is established without a determinant shape
+or a precomputed endpoint-multiset identity.
+\end{theorem}
+\begin{proof}
+At $n=173$, after the three forced bands
+the additional batches of first endpoints
+and their required cube sums are
+\[
+\begin{array}{c|l}
+\text{round}& \text{first endpoints : cube}\\ \hline
+4&\{4,5\}:8,\ [8,12]:27\\
+5&\{45,46,106,107,108,122\}:216\\
+6&\{31\}:64,\ \{172,173\}:216\\
+7\!-\!15&(92,216),(1,8),(20,125),(111,125),
+(13,125),\\
+& (104,125),(6,8),(123,216),(32,64)
+\end{array}
+\]
+Each first endpoint has exactly one neighbor
+remaining when its round is reached;
+this follows by direct subtraction from the
+six cubes at most $343$. All $173$ vertices
+are removed. Thus the resulting permutation
+is unique, with fixed points $4,32,108$.
+
+At $n=174$, the corresponding rounds are
+\[
+\begin{array}{c|l}
+1\!-\!3&[125,168]:216,\ [34,41]:64,\ [95,102]:216\\
+4&\{4\}:8,\ [8,11]:27\\
+5&\{45,46,47,106,107,108\}:216\\
+6&\{15\}:27,\ \{172,173,174\}:216\\
+7\!-\!19&(113,216),(22,27),(3,125),(94,125),
+(33,125),\\
+&(124,125),(7,27),(105,216),(14,27),
+(112,216),\\
+&(21,27),(2,125),(93,125).
+\end{array}
+\]
+Again every vertex is removed by forced choices,
+so the permutation is unique, with fixed
+points $4,108$.
+
+At $n=175$ the first three bands are
+$[125,167]$, $[34,40]$, $[95,101]$.
+Use rounds $4$--$19$ of the preceding table,
+but omit $\{4\}$ from round $4$ and
+replace its interval $[8,11]$ by $[8,10]$.
+The remaining ten vertices are precisely
+\[
+\{4,11,16,23,41,48,102,114,168,175\}.
+\]
+Their induced cube-sum graph is the loop at
+$4$, the edge $(4,23)$, and the chordless
+nine-cycle
+\[
+23-41-175-168-48-16-11-114-102-23.
+\]
+If $p(4)=4$, the odd cycle has exactly
+two directed cycle covers, one for each
+orientation. Otherwise $p(4)=23$
+forces $p(23)=4$; the eight remaining
+vertices form a path with a unique
+cover by four reciprocal pairs. Thus
+there are exactly $2+1=3$ permutations.
+\end{proof}
+
+\begin{corollary}[One fewer algebraic shape]
+\label{cor:56-plus-forcing}
+The proof of the finite interval $[173,364]$
+may use the $56$ cubic-root/output-order
+shapes in Appendix~\ref{app:reduced-shapes},
+the six algebraic block families generating
+$25$ further seed lengths, and the unique
+forced matching of $173$ from
+Theorem~\ref{thm:forced-base}.
+Together these establish the same $82$
+seed lengths as before. The excluded
+$173$ determinant shape is redundant.
+\end{corollary}
+
+\subsection{The interval-overlap avalanche and its finite obstruction}
+\label{subsec:interval-overlap-avalanche}
+
+\begin{lemma}[Exact cubic reflection of a good interval]
+\label{lem:reflection-overlap}
+Suppose every integer $m\in[a,b]$, $0\le a\le b$,
+has a legal cube-sum permutation. For a cube $c$,
+every integer $n$ in the nonempty interval
+\[
+\bigl[
+\max\{1,\lceil c/2\rceil,c-b-1\},\
+c-a-1
+\bigr]
+\]
+also has a legal cube-sum permutation.
+\end{lemma}
+\begin{proof}
+Take $m=c-n-1$. By the displayed bounds,
+$a\le m\le b$ and $0\le m<n$.
+Keep the old permutation on $[1,m]$ and set
+$p(i)=c-i$ on $[m+1,n]$. The suffix is mapped
+bijectively to itself, with constant sum $c$.
+\end{proof}
+
+\begin{lemma}[Interval-overlap avalanche]
+\label{lem:interval-avalanche}
+Suppose every length in $[a,b]$ is legal,
+where $1\le a\le b$. If a cube $c$ satisfies
+\[
+\boxed{a+b+2\le c\le2b+2},
+\]
+then every length in the larger interval
+$[a,c-a-1]$ is legal.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:reflection-overlap},
+the new interval of lengths includes $b+1$
+because $a\le c-b-2\le b$ and
+$c\le2(b+1)$. It continues through
+$c-a-1\ge b+1$; it therefore meets the
+already established interval immediately,
+with no gap.
+\end{proof}
+
+\begin{theorem}[Infinite avalanche from the finite base]
+\label{thm:interval-avalanche-tail}
+If all lengths $173\le n\le364$ are legal,
+then every length $n\ge173$ is legal,
+without any additional finite certificate.
+\end{theorem}
+\begin{proof}
+For $a=173$, $b=364$, the cube $9^3=729$
+lies in the avalanche window $[539,730]$.
+Consequently $[173,555]$ is legal.
+Assume $[173,k^3-174]$ is legal for $k\ge9$.
+The cube $(k+1)^3$ obeys
+\[
+k^3+1\le(k+1)^3\le2k^3-346,
+\]
+since the last inequality is equivalent to
+\[
+f(k)=k^3-3k^2-3k-347\ge0,
+\]
+with $f(9)=112$ and
+$f(k+1)-f(k)=3k^2-3k-5>0$ for $k\ge9$.
+Lemma~\ref{lem:interval-avalanche}
+extends the good interval through
+$(k+1)^3-174$. Induction on $k$ proves
+the assertion.
+\end{proof}
+
+\paragraph{Why overlap does not by itself remove the finite base.}
+At $n=65$, the domains $[1,63]$ of the
+$64$-reflection and $[60,65]$ of the
+$125$-reflection overlap and jointly cover
+$[1,65]$. Yet
+\[
+S=\{3,40,59,64\},\qquad
+N(S)=\{5,24,61\}
+\]
+under the available cube sums $8,27,64,125$,
+so Hall's inequality fails.
+Likewise no smaller legal length can produce
+$n=173$ by a single suffix reflection:
+the only possible predecessors are
+$m=42$ and $m=169$, via cubes $216,343$.
+For $m=42$, the six-row set
+\[
+[1,2]\cup[20,21]\cup[38,39]
+\]
+has just the four cube-sum neighbors
+$[6,7]\cup[25,26]$.
+For $m=169$, the fourteen-row set
+\[
+\begin{gathered}
+[8,9]\cup[38,39]\cup[45,46]\cup[99,100]\\
+{}\cup[129,130]\cup[136,137]\cup[160,161]
+\end{gathered}
+\]
+has only the twelve neighbors
+\[
+\begin{gathered}
+[18,19]\cup[25,26]\cup[55,56]\\
+{}\cup[79,80]\cup[86,87]\cup[116,117].
+\end{gathered}
+\]
+These are direct Hall obstructions.
+There is also no cube in the interval
+$[513,678]$, the necessary avalanche
+window for extending $[173,338]$ through
+$339$. Thus the avalanche lemma completely
+removes the infinite tail's finite checks,
+but \emph{does not derive the original
+$173$--$364$ base interval without the
+separately constructed finite witnesses}.
+Such a claim would require an additional
+local augmentation or gluing theorem.
+
+\section{Existence for every length $n\ge173$}
+
+\begin{theorem}
+For every integer $n\ge173$, there is a
+permutation $p$ of $[1,n]$ for which
+every $i+p(i)$ is a perfect cube.
+\end{theorem}
+\begin{proof}
+The finite interval $[173,364]$ is provided
+by Lemma~\ref{lem:base}, from the
+six explicit block families and $57$
+algebraic cubic-order shapes.
+The interval-overlap avalanche
+Theorem~\ref{thm:interval-avalanche-tail}
+then propagates it to every integer $n\ge173$.
+No further finite construction is required.
+\end{proof}
+
+\paragraph{Exact logical status.}
+The infinite propagation is purely symbolic,
+including the full cube-gap inequality.
+Each of the $57$ finite cubic-order shapes
+is given by an integer Cramer-determinant
+formula with a positive block-length vector,
+not by an appeal to a matching solver.
+The numerical root words, output orders,
+and positivity checks for these $57$ shapes
+are still indispensable \emph{finite case data}.
+The exact audit program
+\texttt{verify\_unimodular\_factory.py}
+is a reproducibility aid, not a hidden
+premise of the interval avalanche theorem.
+The present argument does \emph{not}
+establish a case-free existence proof
+of the original base interval.
+
+\clearpage
+\appendix
+\section{Redundant 57-row endpoint witnesses}
+\label{app:table}
+Every token $b:k$ means $p(i)=k^3-i$
+up to endpoint $b$. For each row, verify
+the same endpoint balance of
+Lemma~\ref{lem:balance}.
+
+\begin{multicols}{2}
+\scriptsize\ttfamily
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\input{certificates/finite_57_exceptional_atlas.tex}
+\end{multicols}
+
+
+\clearpage
+\section{The 57 algebraic cubic-order shapes}
+\label{app:algebraic-shapes}
+For each target $n$, the line gives a cube-root
+word $k_1,\ldots,k_t$ and an output-block order
+$\pi$. Its block lengths are not assumed or
+listed: they are the integer determinants
+in Theorem~\ref{thm:unimodular-block-factory}.
+The target length is a checksum for their sum.
+All listed lengths are strictly positive.
+\begin{multicols}{2}
+\scriptsize
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\input{certificates/finite_57_cubic_order_shapes.tex}
+\end{multicols}
+
+
+\clearpage
+\section{Reduced set of 56 algebraic cubic-order shapes}
+\label{app:reduced-shapes}
+The critical length $n=173$ is proved directly
+by forced-reflection peeling rather than from
+the determinant parameter table. For each of
+the remaining $56$ shapes, the block lengths
+are positive integer determinants by
+Theorem~\ref{thm:unimodular-block-factory}.
+The excluded original $57$-shape table
+remains an optional independent audit.
+\begin{multicols}{2}
+\scriptsize
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\input{certificates/finite_56_cubic_order_shapes.tex}
+\end{multicols}
+
+\end{document}

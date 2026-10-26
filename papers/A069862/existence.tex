@@ -1,0 +1,197 @@
+\section{Existence for every index}\label{sec:existence}
+The local lifting method used for Champernowne prefixes in the repository's
+A075002 manuscript~\cite{prefix} also applies to a prefix starting at $n+1$.
+The essential extra observation is that when $3\mid n$, the removed
+triangular sum $n(n+1)/2$ vanishes modulo~3. We give the full argument
+so that no certificate from another sequence is needed.
+
+\begin{theorem}[All-index existence]\label{thm:existence}
+For every positive integer $n$, there are infinitely many $t>n$ such that
+\[
+ n\mid F_n(t),\qquad F_n(t)=(n+1)\Vert(n+2)\Vert\cdots\Vert t.
+\]
+In particular, $a(n)$ exists for every $n\ge1$.
+\end{theorem}
+
+First put $F_n(n)=0$. In a fixed $d$-digit interval, let $B=10^d$ and
+suppose $t+1,\ldots,t+L$ all lie in that interval. Appending these blocks
+gives, for $L\ge0$,
+\begin{equation}\label{eq:shift}
+ F_n(t+L)-F_n(t)=(B^L-1)F_n(t)+tS_L+T_L,
+\end{equation}
+where $S_L=\sum_{j=0}^{L-1}B^j$ and
+$T_L=\sum_{j=1}^L jB^{L-j}$. The telescoping identity
+\begin{equation}\label{eq:weighted}
+ (B-1)T_L=BS_L-L
+\end{equation}
+will be used only when the indicated division is legitimate.
+
+\begin{lemma}[Two local shifts]\label{lem:shifts}
+Assume the fixed-width condition in \eqref{eq:shift}.
+\begin{enumerate}
+\item Let $p\ge7$ be prime with $p\nmid B(B-1)$, and let
+$h=\operatorname{ord}_p(B)$. If $L=chp^a$, $a\ge0$, and $p\nmid c$, then
+\[
+ F_n(t+L)-F_n(t)\equiv-\frac{chp^a}{B-1}\pmod{p^{a+1}}.
+\]
+For $e\ge1$, every multiple of
+$p^e\operatorname{ord}_{p^e}(B)$ preserves both $F_n(t)$ and $t$
+modulo $p^e$, provided the appended blocks stay in the interval.
+\item If $a=v_3(L)\ge1$, then
+\[
+ F_n(t+L)-F_n(t)\equiv Lt+\frac{L(L+1)}2\pmod{3^{a+1}}.
+\]
+Every multiple of $2\cdot3^e$ preserves both $F_n(t)$ and $t$
+modulo $3^e$, under the same interval condition.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+For the first assertion, the binomial theorem (or LTE) gives
+$B^{chp^a}\equiv1\pmod{p^{a+1}}$, since $B^h\equiv1\pmod p$.
+Thus $S_L\equiv0$ because $B-1$ is a unit. Equations
+\eqref{eq:shift}--\eqref{eq:weighted} give the formula.
+For a multiple of $p^e\operatorname{ord}_{p^e}(B)$, the same identities
+give $B^L=1$, $S_L=T_L=0$ modulo $p^e$ and $p^e\mid L$.
+
+For the second assertion write $B=1+c$ with $9\mid c$. Expansion gives
+\[
+ S_L-L=\sum_{j\ge1}c^j\binom{L}{j+1},\qquad
+ T_L-\frac{L(L+1)}2=\sum_{j\ge1}c^j\binom{L+1}{j+2}.
+\]
+The valuations of the summands are respectively at least
+$2j+a-v_3(j+1)$ and $2j+a-v_3((j+1)(j+2))$, both at least $a+1$.
+Here $v_3(j+1)\le j$, and
+$v_3((j+1)(j+2))\le2j-1$ for $j\ge1$ (check $j=1$ directly;
+for $j\ge2$, $3^{2j}>(j+1)(j+2)$).
+Also $B^L\equiv1\pmod{3^{a+2}}$ by LTE. Substitute in
+\eqref{eq:shift}. If $2\cdot3^e\mid L$, the displayed shift is
+zero modulo $3^e$, and $t$ is preserved as well.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:existence}]
+The case $n=1$ is immediate. Write
+\[
+ n=R\,3^e\prod_{i=1}^s p_i^{e_i},\qquad
+ R=2^\alpha5^\beta,\qquad 7\le p_1<\cdots<p_s.
+\]
+Let $D=\operatorname{lcm}_i\operatorname{ord}_{p_i^{e_i}}(10)$,
+with $D=1$ for an empty product. Choose $d\equiv1\pmod D$ sufficiently
+large, so $d\ge\max(\alpha,\beta)$ and $10^{d-1}>n$.
+Then $B=10^d$ is zero modulo $R$ and is congruent to 10 modulo
+each $p_i^{e_i}$. All step sizes below are consequently independent of $d$.
+
+Define $H_0=2\cdot3^e$ if $e>0$, and $H_0=1$ otherwise; recursively put
+\[
+ H_i=\operatorname{lcm}\bigl(H_{i-1},
+       p_i^{e_i}\operatorname{ord}_{p_i^{e_i}}(10)\bigr).
+\]
+For $1\le a<e$ let $L_a=\operatorname{lcm}(2\cdot3^a,R)$.
+For $0\le a<e_i$ put
+\[
+ J_{i,a}=\operatorname{lcm}
+   \bigl(\operatorname{ord}_{p_i}(10)p_i^a,H_{i-1},R\bigr),
+ \qquad M_0=R3^{\min(e,1)}.
+\]
+An explicit displacement bound is
+\begin{equation}\label{eq:capacity}
+ W=2\sum_{a=1}^{e-1}L_a+
+       \sum_{i=1}^s(p_i-1)\sum_{a=0}^{e_i-1}J_{i,a},
+ \qquad 9\cdot10^{d-1}>M_0+W.
+\end{equation}
+Empty sums are zero. Increase $d$ within its progression to ensure
+\eqref{eq:capacity}, and let $t_0$ be the least multiple of $M_0$
+at least $10^{d-1}$. Every candidate below lies between $t_0$ and
+$t_0+W<10^d$, which proves every required fixed-width condition.
+
+The last block gives $F_n(t_0)\equiv t_0=0\pmod R$.
+If $e>0$, then $3\mid n,t_0$, so
+\[
+ F_n(t_0)\equiv\sum_{j=n+1}^{t_0}j
+   =\frac{t_0(t_0+1)-n(n+1)}2\equiv0\pmod3.
+\]
+At a root modulo $3^a$, $1\le a<e$, choose among endpoints
+$t+jL_a$, $j=0,1,2$. Write $L_a=2c3^a$, where $3\nmid c$.
+Lemma~\ref{lem:shifts} gives
+\[
+ \frac{F_n(t+jL_a)-F_n(t)}{3^a}
+       \equiv jc(2t+1)\pmod3.
+\]
+Since $3\mid F_n(t)$ and $3\mid n$, the triangular identity implies
+$t\equiv0$ or $2\pmod3$. The slope $c(2t+1)$ is therefore a unit.
+Exactly one choice raises the root to $3^{a+1}$. All endpoints remain
+multiples of $R$, preserving the last-block condition. This installs
+$R3^e$; the period $H_0$ preserves the completed 3-part.
+
+Now process $p_i$ in increasing order. Every prime divisor of
+$p_j^{e_j}\operatorname{ord}_{p_j^{e_j}}(10)$ is at most $p_j$,
+since the order divides $p_j^{e_j-1}(p_j-1)$. Thus $p_i\nmid RH_{i-1}$.
+Consequently $J_{i,a}=chp_i^a$ with $h=\operatorname{ord}_{p_i}(10)$
+and $p_i\nmid c$. At a root modulo $p_i^a$ (vacuous for $a=0$),
+Lemma~\ref{lem:shifts} shows that the endpoints
+$t+jJ_{i,a}$, $0\le j<p_i$, sweep all next $p_i$-adic digits,
+with unit normalized slope $-ch/(B-1)$ modulo $p_i$.
+Choose the unique root modulo $p_i^{a+1}$. The multiples of $H_{i-1}$
+preserve all earlier odd prime powers, and those of $R$ preserve
+the last-block condition. After installing $p_i^{e_i}$, the period
+$H_i$ preserves it too. Induction yields $n\mid F_n(t)$.
+
+We have $n<t<10^d$, hence the explicit bound $a(n)\le t-n<10^d-n$.
+There are arbitrarily large admissible $d$; their disjoint digit
+intervals give infinitely many endpoints. This proves the theorem.
+\end{proof}
+
+\begin{corollary}[A uniform bound]\label{cor:uniform}
+For every $n\ge2$,
+\[
+ 1\le a(n)<10^n-n.
+\]
+\end{corollary}
+\begin{proof}
+Retain the notation in the proof, and put $K=\operatorname{lcm}(R,H_s)$.
+Every $L_a$ and $J_{i,a}$ divides $K$, and
+\[
+ K\le 2n\prod_i\varphi(p_i^{e_i})\le2n^2.
+\]
+The elementary inequalities $p^f\ge1+f(p-1)$ and
+$\prod_j(1+x_j)\ge1+\sum_j x_j$ for nonnegative $x_j$ give
+\[
+ 2\max(e-1,0)+\sum_i(p_i-1)e_i\le n-1.
+\]
+Thus $W\le2n^2(n-1)$ and $M_0\le n$.
+Let $b=\lceil\log_2 n\rceil$ and choose
+\[
+ d=1+D\lceil b/D\rceil.
+\]
+Then $d\ge b+1$, so $10^{d-1}\ge10^b\ge n^3>n$ and
+$9\cdot10^{d-1}>n+2n^2(n-1)$. All conditions in the construction hold.
+Also $D\le\prod_i\varphi(p_i^{e_i})\le n-1$ (including the
+empty-product case). If $D\ge b$, then $d=D+1\le n$.
+If $D<b$, then $d\le b+D\le2b-1\le n$; the last inequality holds
+for $n\ge3$, and $n=2$ falls in the first case.
+The constructed endpoint therefore satisfies $n<t<10^d\le10^n$.
+\end{proof}
+
+\begin{proposition}[Exact minimum for every index]\label{prop:algorithm}
+Every value $a(n)$ can be determined in at most $n^3$ modular
+single-block transitions, together with at most $n$ binary block jumps.
+\end{proposition}
+\begin{proof}
+The case $n=1$ is immediate. For $n\ge2$, process digit intervals
+in increasing order, starting with the integer $n+1$ and stopping before
+$10^n$. Within a $d$-digit interval, the state
+$(F_n(t)\bmod n,t\bmod n)$ lies in a set of size $n^2$ and evolves by
+\[
+ (x,y)\longmapsto(10^d x+y+1,\ y+1)\pmod n.
+\]
+Test the residue after each actual appended block. If it is zero,
+the first such endpoint gives the exact minimum. If a state repeats
+before a zero occurs, determinism implies that the remaining orbit
+in this interval has no zero. Jump over the unused part of the interval
+by binary exponentiation of its affine transition and proceed to the
+next digit width. A repeated state occurs within $n^2$ transitions,
+irrespective of whether $10^d$ is invertible modulo $n$.
+There are at most $n$ digit intervals, and Corollary~\ref{cor:uniform}
+guarantees a zero before they end. No guessed numerical search limit
+or assumed general minimum formula is used.
+\end{proof}
+

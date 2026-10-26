@@ -1,0 +1,25 @@
+name: A077306 universal concatenation witness
+on:
+  push:
+    branches:
+      - proof/a077306-all-n-consecutive-concatenations-20261018
+    paths:
+      - papers/A077306/research/**
+      - .github/workflows/a077306-all-n-existence.yml
+  pull_request:
+    paths:
+      - papers/A077306/research/**
+      - .github/workflows/a077306-all-n-existence.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-crt-witness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independently check universal A077306 witness formula
+        run: python3 papers/A077306/research/audit_universal_witness.py

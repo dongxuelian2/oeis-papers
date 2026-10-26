@@ -1,0 +1,188 @@
+%PDF-1.4
+%----
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [8 0 R 10 0 R 12 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+7 0 obj
+<< /Length 5642 >>
+stream
+0.08 0.15 0.27 rg BT /F2 21 Tf 1 0 0 1 53.0 772.9 Tm (CUBE-SUM PERMUTATIONS) Tj ET
+0.22 0.32 0.50 rg BT /F3 11.3 Tf 1 0 0 1 53.0 754.9 Tm (A006063: final proof map, finite certificates, and mathematical audit) Tj ET
+0.13 0.33 0.64 RG 1.4 w 53 735.9 m 542.28 735.9 l S
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 710.9 Tm (19 October 2026 | Consolidation of pull request #13. This note separates the proved) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 697.1 Tm (eventual-existence theorem and exact classifications from the still-experimental higher-start) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 683.3 Tm (involution theorem.) Tj ET
+0.10 0.33 0.63 rg BT /F2 13.2 Tf 1 0 0 1 53.0 655.5 Tm (1. Main theorem and dependency map) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 626.5 Tm (For every integer n >= 173, there exists a permutation p of {1,...,n} with i+p\(i\) a perfect cube) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 612.7 Tm (for every i. Exactly 48 sizes below 173 are admissible; each of the other 124 is excluded by an) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 598.9 Tm (explicit Hall-deficient set. Therefore A006063\(j\)=j+124 for all j>=49.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 576.1 Tm (The proof has three logically distinct layers. \(I\) Establish 82 independent seed sizes using 56) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 562.3 Tm (integer-determinant shape instances, a forced-neighbor proof at n=173, and 25 instances of six) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 548.5 Tm (symbolic block templates. \(II\) Cubic suffix reflection supplies 26 more smaller sizes and 132) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 534.7 Tm (further sizes inside [173,364], covering all 192 target lengths. \(III\) A completely symbolic) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 520.9 Tm (interval-overlap induction extends [173,364] to all n>=173.) Tj ET
+0.94 0.96 0.985 rg 53 488.1 489.28 24 re f
+0.09 0.20 0.37 rg BT /F4 9.2 Tf 1 0 0 1 65.0 498.1 Tm (56 determinant shapes + 1 forced seed + 25 template seeds = 82 seeds) Tj ET
+0.94 0.96 0.985 rg 53 463.1 489.28 24 re f
+0.09 0.20 0.37 rg BT /F4 9.2 Tf 1 0 0 1 65.0 473.1 Tm (60 seeds in [173,364] + 132 reflected lengths = 192 lengths) Tj ET
+0.10 0.33 0.63 rg BT /F2 13.2 Tf 1 0 0 1 53.0 443.1 Tm (2. Universal block construction) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 414.1 Tm (Choose positive input block lengths l[1],...,l[t], and reorder the same blocks in the output by a) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 400.3 Tm (permutation pi. Let A[j] be the total length before input block j, B[j] the total length before) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 386.5 Tm (output block j, and C[j]=1+A[j]+B[j]+l[j]. The map p\(i\)=C[j]-i on input block j sends that block) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 372.7 Tm (bijectively onto its output block. If the C[j] are cubes, the resulting map is a cube-sum) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 358.9 Tm (permutation.) Tj ET
+0.94 0.96 0.985 rg 53 326.1 489.28 24 re f
+0.09 0.20 0.37 rg BT /F4 9.2 Tf 1 0 0 1 65.0 336.1 Tm (M[j,i]=[i<j]+[pos_pi\(i\)<pos_pi\(j\)]+[i=j]) Tj ET
+0.94 0.96 0.985 rg 53 301.1 489.28 24 re f
+0.09 0.20 0.37 rg BT /F4 9.2 Tf 1 0 0 1 65.0 311.1 Tm (M*l=\(k[j]^3-1\), l[j]=det\(M with column j replaced by d\)) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 286.1 Tm (The chord-intersection/Pfaffian argument in the full manuscript shows det\(M\) lies in {0,1}. Each of) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 272.3 Tm (the 56 selected root-word/output-order pairs has determinant 1. Exact integer evaluation) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 258.5 Tm (reconstructs all 784 positive block lengths and verifies the specified total sizes. These selected) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 244.7 Tm (pairs and positivity conditions remain finite case data: the result is not case-free.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 221.9 Tm (Each certified shape also gives a family under scaling cube roots by h: put v=M^{-1}1 and e=t mod) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 208.1 Tm (2. With v[j] in {-1,0,1}, the lengths l[j]\(h\)=l[j]+\(h^3-1\)\(l[j]+v[j]\) remain positive. The new) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 194.3 Tm (total length equals \(N+e\)h^3-e.) Tj ET
+0.10 0.33 0.63 rg BT /F2 13.2 Tf 1 0 0 1 53.0 166.5 Tm (3. Finite base and forced peeling) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 137.5 Tm (The 56 determinant pairs contribute 10 seed sizes below 173 and 46 sizes in [173,364]. Six) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 123.7 Tm (algebraic block-template families contribute 12 and 13 more, respectively. The missing critical) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 109.9 Tm (seed n=173 has a different, forced-neighbor proof. Totals: 22 lower seeds and 60 target-interval) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 96.1 Tm (seeds.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 73.3 Tm (In the undirected cube-sum graph, a vertex i having one neighbor j forces p\(i\)=j and p\(j\)=i.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 59.5 Tm (Removing the pair preserves the count of valid permutations. For n=173 and n=174, repeated forced) Tj ET
+0.65 0.7 0.78 RG 0.6 w 53 41 m 542.28 41 l S
+0.35 0.42 0.51 rg BT /F3 7.5 Tf 1 0 0 1 53 28 Tm (A006063 | Final proof map | 19 Oct 2026) Tj ET
+0.35 0.42 0.51 rg BT /F3 7.5 Tf 1 0 0 1 528.28 28 Tm (1) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 5996 >>
+stream
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 780.9 Tm (removal exhausts the graph; n=175 leaves a 10-vertex loop/edge/odd-cycle core. Hence) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 767.1 Tm (P\(173\)=P\(174\)=1 and P\(175\)=3.) Tj ET
+0.94 0.96 0.985 rg 53 734.3 489.28 24 re f
+0.09 0.20 0.37 rg BT /F4 9.2 Tf 1 0 0 1 65.0 744.3 Tm (P\(173\)=1, P\(174\)=1, P\(175\)=3) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 719.3 Tm (The full 57-shape determinant table and all historical endpoint atlases are redundant alternative) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 705.5 Tm (certificates. The reduced route needs neither the original 191 augmenting words nor a matching) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 691.7 Tm (search in its main inference.) Tj ET
+0.10 0.33 0.63 rg BT /F2 13.2 Tf 1 0 0 1 53.0 663.9 Tm (4. Reflection closure and interval-overlap avalanche) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 634.9 Tm (If G\(m\) denotes existence at size m and c=m+n+1 is a cube with 0<=m<n, retain the permutation on) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 621.1 Tm ([1,m] and append p\(i\)=c-i for i in [m+1,n]. This is a valid permutation at n because the appended) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 607.3 Tm (suffix maps onto itself. The finite closure yields all 48 admissible sizes below 173 and all) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 593.5 Tm (integers 173,...,364. In particular sizes 256,...,338 reflect from m=511-n under cube c=512.) Tj ET
+0.94 0.96 0.985 rg 53 560.7 489.28 24 re f
+0.09 0.20 0.37 rg BT /F4 9.2 Tf 1 0 0 1 65.0 570.7 Tm (G\(m\) and c=m+n+1 cube \(0<=m<n\) => G\(n\)) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 545.7 Tm (Interval lemma: if every n in [a,b] is good and a cube c satisfies a+b+2<=c<=2*b+2, then every n in) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 531.9 Tm ([a,c-a-1] is good. Indeed m=c-n-1 lies in [a,b] for every new n. Starting from [173,364], the cube) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 518.1 Tm (729 yields [173,555]. Successive cubes \(k+1\)^3 extend [173,k^3-174] to [173,\(k+1\)^3-174], k>=9, so) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 504.3 Tm (the upper endpoints diverge. This infinite tail has no new finite certificates.) Tj ET
+0.94 0.96 0.985 rg 53 471.5 489.28 24 re f
+0.09 0.20 0.37 rg BT /F4 9.2 Tf 1 0 0 1 65.0 481.5 Tm (G\([a,b]\), a+b+2<=cube c<=2*b+2 => G\([a,c-a-1]\)) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 456.5 Tm (Interval coverage is not itself a Hall theorem: at n=65 the sets of possible cube reflections cover) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 442.7 Tm (all positions but S={3,40,59,64} has N\(S\)={5,24,61}. A new matching/gluing theorem would be) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 428.9 Tm (required to remove the finite base.) Tj ET
+0.10 0.33 0.63 rg BT /F2 13.2 Tf 1 0 0 1 53.0 401.1 Tm (5. Exact classifications: separate finite certificates) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 372.1 Tm (For n=1,...,172, 48 explicit admissible permutations and 124 individual Hall-deficient sets settle) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 358.3 Tm (membership. These are finite arithmetic certificates; they also establish that 173 is a sharp) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 344.5 Tm (threshold. The main existence theorem alone does not establish the 124 negative cases.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 321.7 Tm (Let P\(n\) be the number of cube-sum permutations. Exactly 13 smaller admissible sizes have an) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 307.9 Tm (alternating-cycle witness; the other 35 positive small sizes have acyclic alternating digraphs and) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 294.1 Tm (are unique. The 13 multiple-solution sizes are 112,115,116,117,119,124,125,126,127,128,129,130,133.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 271.3 Tm (The second- and third-solution archives provide distinct alternatives for n=175,...,364 and the two) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 257.5 Tm (special extension lengths 554 and 555. Symbolic reflection then yields P\(n\)>=3 for n>=175. Thus) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 243.7 Tm (A096680\(j\)=j+161 for j>=14. These multiplicity claims require their own finite certificate checks.) Tj ET
+0.94 0.96 0.985 rg 53 210.9 489.28 24 re f
+0.09 0.20 0.37 rg BT /F4 9.2 Tf 1 0 0 1 65.0 220.9 Tm (A096680\(j\)=j+161 for j>=14; P\(n\)>=3 for all n>=175) Tj ET
+0.10 0.33 0.63 rg BT /F2 13.2 Tf 1 0 0 1 53.0 190.9 Tm (6. Other results and the open four-cube branch) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 161.9 Tm (The long research manuscript contains further independent directions: P\(236\)=512 and no involution) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 148.1 Tm (at n=236, alternating-cycle gadgets, entropy of reflection trees, taxicab switching, parity-minimal) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 134.3 Tm (involutions, exponential constructions, and algorithms. They should be read as separate results,) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 120.5 Tm (not prerequisites of the existence theorem. They have not all received an independent line-by-line) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 106.7 Tm (audit in this consolidation.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 83.9 Tm (A different four-cube involution program studies 199 cases in [467,665]. It has experimentally) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 70.1 Tm (positive general-graph matchings; its structural reductions establish three endpoint planar) Tj ET
+0.65 0.7 0.78 RG 0.6 w 53 41 m 542.28 41 l S
+0.35 0.42 0.51 rg BT /F3 7.5 Tf 1 0 0 1 53 28 Tm (A006063 | Final proof map | 19 Oct 2026) Tj ET
+0.35 0.42 0.51 rg BT /F3 7.5 Tf 1 0 0 1 528.28 28 Tm (2) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 4385 >>
+stream
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 780.9 Tm (embeddings, 26 face templates, fixed deletions of 14/10/16 edges to bipartite graphs, and four) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 767.1 Tm (Phase I correction patterns. A uniform phase-wide Hall proof is NOT currently supplied. This open) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 753.3 Tm (theorem is unnecessary for the already proved existence of arbitrary cube-sum permutations for) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 739.5 Tm (n>=173.) Tj ET
+0.10 0.33 0.63 rg BT /F2 13.2 Tf 1 0 0 1 53.0 711.7 Tm (7. Mathematical correction and independent audit) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 682.7 Tm (Correction in main.tex: the minimal number of additional seeds under the strict reflection-only) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 668.9 Tm (rule, assuming the 48 positive small sizes and empty seed already known, is 60, not 57. Its proof) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 655.1 Tm (explicitly counts 44 seeds in [173,255] and 16 in [339,364], none in [256,338]. The number 57) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 641.3 Tm (described an older, different determinant-shape certificate, not this restricted minimum.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 618.5 Tm (Independent exact checks found zero failures for: all 56 determinants and 784 positive generated) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 604.7 Tm (lengths, the forced peeling cores at 173/174/175, all 48 small positive permutations, all 124) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 590.9 Tm (Hall-deficient sets \(strict deficits 1 through 6\), all 13 smaller alternating-cycle witnesses, and) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 577.1 Tm (acyclicity of the remaining 35 smaller positive cases. The audit does not independently certify) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 563.3 Tm (every other ancillary theorem or all finite large-n multiplicity rows.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 540.5 Tm (The two previous GitHub Actions runs on head 47d3f5a returned action_required, not confirmed) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 526.7 Tm (success. Independent peer review and literature-priority checking remain open tasks; absence of a) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 512.9 Tm (completed CI run is not evidence for or against the mathematics.) Tj ET
+0.10 0.33 0.63 rg BT /F2 13.2 Tf 1 0 0 1 53.0 485.1 Tm (8. Where to read the full proof and reproduce it) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 456.1 Tm (Main proof order: COMPRESSED_FINITE_PROOF.md; UNIMODULAR_BLOCK_FACTORY.md;) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 442.3 Tm (FORCED_REFLECTION_PEELING.md; the six block-template notes; INTERVAL_OVERLAP_AVALANCHE.md. Exact) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 428.5 Tm (finite audit: verify_56_plus_forcing.py. Full membership and multiplicity audit:) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 414.7 Tm (verify_extended.py. High-start branch: FOUR_CUBE_PHASES.md, SMALL_BIPARTITE_CORE.md,) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 400.9 Tm (PHASE_I_FOUR_HALL_PATTERNS.md.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 378.1 Tm (Repository: github.com/dongxuelian2/oeis-papers, pull request #13, papers/A006063/. The principal) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 364.3 Tm (finite root-order parameter table is certificates/finite_56_cubic_order_shapes.txt. For the) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 350.5 Tm (extended result inventory and evidence boundaries, see FINAL_READER_GUIDE.md.) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 327.7 Tm (Conclusion: the n>=173 existence claim is a complete explicit finite-certificate proof followed by) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 313.9 Tm (a symbolic infinite theorem, but it is not a case-free proof. The higher-start uniform four-cube) Tj ET
+0.12 0.17 0.25 rg BT /F1 9.85 Tf 1 0 0 1 53.0 300.1 Tm (involution theorem remains open.) Tj ET
+0.65 0.7 0.78 RG 0.6 w 53 41 m 542.28 41 l S
+0.35 0.42 0.51 rg BT /F3 7.5 Tf 1 0 0 1 53 28 Tm (A006063 | Final proof map | 19 Oct 2026) Tj ET
+0.35 0.42 0.51 rg BT /F3 7.5 Tf 1 0 0 1 528.28 28 Tm (3) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 11 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000135 00000 n 
+0000000207 00000 n 
+0000000282 00000 n 
+0000000352 00000 n 
+0000000420 00000 n 
+0000006113 00000 n 
+0000006275 00000 n 
+0000012322 00000 n 
+0000012485 00000 n 
+0000016922 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+17086
+%%EOF

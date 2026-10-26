@@ -1,0 +1,20 @@
+Proposed COMMENTS for A115038, A115039 and A115041:
+
+The stated existence conjecture follows from ((p-1)/2)^2+p=((p+1)/2)^2
+for every odd prime p, and 5^2+2=3^3 for p=2. Thus all three sequences
+are defined. In particular A115038(1)=5, and
+A115038(n) <= (prime(n)-1)/2 for n >= 2.
+
+Proposed FORMULA for A115038:
+
+For odd prime p, put U=(p-1)/2 and B=(p+1)^2/4. The minimum x is the
+minimum of {U} and the positive square roots of y^r-p which are integers,
+where r runs over odd primes <=floor(log_2(B-1)) and
+ceilroot(p+1,r) <= y <= floorroot(B-1,r). The unique square witness is U;
+every smaller perfect-power witness must have an odd prime exponent.
+
+The corresponding maximal exponent is the gcd of the prime exponents
+in x^2+p; its primitive integer root gives A115041.
+
+LINKS (PDF pinned to the verified manuscript commit):
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/5f85923b9e3aec1b0fdb490b4c62fa70d370c773/papers/A115038-A115041/main.pdf">An Elementary Existence Correction and Finite Minimum Formula for OEIS A115038 and Its Companions</a>, 2026.

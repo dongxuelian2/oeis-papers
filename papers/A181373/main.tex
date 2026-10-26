@@ -1,0 +1,243 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.92in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Cham}{\mathcal{C}}
+\newcommand{\len}{\mathcal{L}}
+\title{Every Prime Except 2 and 5 Divides All Rotations of Some Champernowne Prefix}
+\author{Qichao Wang\\\small Hebei University of Technology, Tianjin, China}
+\date{October 16, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $\Cham(m)$ denote the decimal integer obtained by concatenating
+$1,2,\ldots,m$, and let $\len(m)$ be its number of decimal digits.
+We prove that, for every prime $p\notin\{2,5\}$, some prefix $\Cham(m)$
+and every cyclic digit rotation of that prefix are divisible by $p$.
+This settles the positivity conjecture for OEIS A181373.
+Our proof is elementary and constructive: for $p\ge7$ it supplies an
+$m\le 10^{p-1}+p(p-1)-1$. Moreover, infinitely many such $m$ exist
+for each admissible prime. A second construction in terms of the
+multiplicative order of $10$ gives a sometimes sharper bound.
+\end{abstract}
+
+\section{Introduction}
+Write
+\[
+  \Cham(m)=\underbrace{123456789101112\cdots m}_{\text{concatenated decimal blocks}},
+  \qquad
+  \len(m)=\sum_{k=1}^{m}\bigl(1+\lfloor\log_{10}k\rfloor\bigr).
+\]
+OEIS A007908 records $\Cham(m)$ and A058183 records $\len(m)$
+\cite{oeis7908,oeis58183}. In A181373, the $n$-th term is the least
+$m\ge1$ such that the $n$-th prime divides every cyclic \emph{digit}
+rotation of $\Cham(m)$, or $0$ if no such $m$ exists
+\cite{oeis181373}. Chai Wah Wu proposed in 2023 that the only zero
+terms are those corresponding to $2$ and $5$.
+
+The circular concatenations and their modular divisibility patterns
+have been investigated by Rip\`a and Dalmasso \cite{ripa-dalmasso}
+and later revisited by Rip\`a \cite{ripa-note}. We give a direct
+existence proof by forcing the digit count into a prescribed congruence
+class and then sweeping every residue of a prime field inside a single
+fixed-digit-length block.
+
+\section{A rotation criterion and an affine shift}
+For a decimal integer $N$ of length $D$, cut its first $h$ digits into
+an integer $A$, leaving a suffix $B$ of length $D-h$. Thus
+$N=A10^{D-h}+B$. Moving the first $h$ digits to the end gives
+$R_h=B10^h+A$, whence
+\begin{equation}\label{eq:rotation}
+  R_h=10^hN-A(10^D-1).
+\end{equation}
+This formula remains valid if the rotated digit string begins with zero:
+its integer value is still $R_h$.
+Consequently,
+\begin{equation}\label{eq:criterion}
+   p\mid N\quad\text{and}\quad p\mid(10^D-1)
+   \quad\Longrightarrow\quad
+   p\mid R_h\quad\text{for every }h.
+\end{equation}
+OEIS also records the equivalence between the full-rotation condition
+and simultaneous divisibility in \eqref{eq:criterion}
+\cite{oeis181373}; we only need sufficiency.
+
+\begin{lemma}[Constant-step shift]\label{lem:shift}
+Let $p\ge7$ be prime and let $r$ be a positive integer such that
+$p\nmid r$ and $10^r\equiv1\pmod p$. Suppose $m,m+1,\ldots,m+r$
+are all $d$-digit positive integers, where $d\equiv1\pmod r$.
+Then
+\begin{equation}\label{eq:shift}
+  \Cham(m+r)-\Cham(m)\equiv-\frac{r}{9}\pmod p.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Throughout the fixed-digit-length interval, concatenation satisfies
+\[
+  \Cham(t+1)=10^d\Cham(t)+(t+1).
+\]
+Since $d\equiv1\pmod r$ and $10^r\equiv1\pmod p$,
+we have $10^d\equiv10\pmod p$. Iterating $r$ steps gives
+\[
+  \Cham(m+r)\equiv10^r\Cham(m)
+           +\sum_{i=1}^{r}(m+i)10^{r-i}\pmod p.
+\]
+Set $A=\sum_{i=1}^r i10^{r-i}$.
+As $10\not\equiv1\pmod p$ and $10^r\equiv1\pmod p$,
+\[
+  \sum_{i=1}^{r}10^{r-i}=\frac{10^r-1}{9}\equiv0\pmod p.
+\]
+A telescoping calculation yields
+\[
+  9A=\sum_{i=1}^{r}10^i-r
+      =10\frac{10^r-1}{9}-r\equiv-r\pmod p.
+\]
+Here $9$ is invertible modulo $p$. Removing the term proportional
+to $m$ proves \eqref{eq:shift}.
+\end{proof}
+
+\section{Resolution of the A181373 conjecture}
+\begin{theorem}\label{thm:main}
+For every prime $p\notin\{2,5\}$, there exist infinitely many
+positive integers $m$ for which $p$ divides $\Cham(m)$ and all of
+its cyclic digit rotations. No such $m$ exists for $p=2$ or $p=5$.
+More quantitatively, for every prime $p\ge7$, such an $m$ can be chosen
+with
+\begin{equation}\label{eq:bound}
+  m\le10^{p-1}+p(p-1)-1<10^p.
+\end{equation}
+Consequently, $\mathrm{A181373}(n)>0$ exactly when $n\notin\{1,3\}$.
+\end{theorem}
+\begin{proof}
+Fix a prime $p\ge7$, and put
+\[
+   r=p-1,\qquad d=p,\qquad L=10^{p-1},\qquad
+   H=\len(L-1).
+\]
+By Fermat's little theorem, $10^r\equiv1\pmod p$;
+furthermore $d\equiv1\pmod r$ and $p\nmid r$.
+Choose the unique $\delta\in\{0,1,\ldots,r-1\}$ satisfying
+\begin{equation}\label{eq:delta}
+   \delta\equiv-H-1\pmod r,
+\end{equation}
+and consider $p$ endpoints
+\begin{equation}\label{eq:candidates}
+   m_j=L+\delta+jr,\qquad j=0,1,\ldots,p-1.
+\end{equation}
+All $m_j$ have exactly $d=p$ decimal digits: indeed,
+\[
+   0\le\delta+jr\le(r-1)+(p-1)r=p(p-1)-1
+                         <9\cdot10^{p-1}.
+\]
+(The last inequality is immediate for $p\ge7$.)
+Consequently, by counting all $d$-digit blocks between $L$ and $m_j$,
+\[
+  \len(m_j)=H+d(m_j-L+1)
+            =H+p(\delta+jr+1)\equiv H+\delta+1\equiv0\pmod r.
+\]
+It follows that
+\begin{equation}\label{eq:length}
+   10^{\len(m_j)}\equiv1\pmod p.
+\end{equation}
+
+Applying Lemma~\ref{lem:shift} successively inside this interval,
+using $r=p-1$, shows
+\[
+   \Cham(m_j)\equiv\Cham(m_0)-\frac{jr}{9}
+                  \equiv\Cham(m_0)+\frac{j}{9}\pmod p.
+\]
+As $j$ varies from $0$ to $p-1$, the right side takes every residue
+modulo $p$ exactly once. In fact, choose the unique
+\begin{equation}\label{eq:jchoice}
+   j\equiv-9\Cham(m_0)\pmod p,\qquad 0\le j<p.
+\end{equation}
+For this $j$, we obtain $p\mid\Cham(m_j)$, while
+\eqref{eq:length} and \eqref{eq:criterion} imply that $p$ divides
+all digit rotations of $\Cham(m_j)$. The bound \eqref{eq:bound}
+follows from \eqref{eq:candidates}.
+
+To obtain infinitely many distinct witnesses, use instead
+$d=1+t(p-1)$ for each integer $t\ge1$, with $L=10^{d-1}$.
+The construction above applies without change, and the $d$-digit
+interval accommodates the same $p$ candidate endpoints.
+As $d$ strictly increases, the witnesses are distinct.
+
+For $p=3$, take $m=2$: $\Cham(2)=12$, $\len(2)=2$,
+and $3\mid12$ as well as $3\mid(10^2-1)$.
+Indeed, every $m\equiv0$ or $2\pmod3$ yields
+$\Cham(m)\equiv m(m+1)/2\equiv0\pmod3$ because $10\equiv1\pmod3$;
+thus there are infinitely many witnesses for $3$ as well.
+
+Finally, for $p=2$ or $5$, the first decimal digit of $\Cham(m)$
+is $1$. A digit rotation that moves this digit to the last place
+ends in $1$ and hence cannot be divisible by $2$ or $5$.
+This completes the proof.
+\end{proof}
+
+\begin{corollary}[An order-sensitive bound]\label{cor:order}
+Let $p\ge7$ be prime, and write $r=\ord_p(10)$. There exists a
+witness $m$ with
+\[
+  m\le10^{2r}+pr-1<10^{2r+1}.
+\]
+Thus one may take the smaller of this bound and \eqref{eq:bound}.
+\end{corollary}
+\begin{proof}
+Set $d=2r+1$, $L=10^{2r}$, $H=\len(L-1)$, and choose
+$\delta\in\{0,\ldots,r-1\}$ with $\delta\equiv-H-1\pmod r$.
+Put $m_0=L+\delta$ and consider $m_j=m_0+jr$ for $0\le j<p$.
+Every candidate has digit count divisible by $r$, since
+\[
+  \len(m_j)=H+d(\delta+jr+1)\equiv H+\delta+1\equiv0\pmod r.
+\]
+Moreover, $\delta+(p-1)r\le pr-1$; because $p\mid 10^r-1$,
+we have $p<10^r$, hence $pr<r10^r<9\cdot10^{2r}$.
+Thus all candidates remain $d$-digit integers.
+
+The step in Lemma~\ref{lem:shift} is now $-r/9$, not
+$1/9$ as in the special case $r=p-1$. In particular,
+\[
+  \Cham(m_j)\equiv\Cham(m_0)-jr\,9^{-1}\pmod p.
+\]
+Since $r=\ord_p(10)\mid p-1$, the inverse $r^{-1}\pmod p$
+exists. Choose explicitly
+\begin{equation}\label{eq:order-choice}
+  \boxed{j\equiv 9\,r^{-1}\Cham(m_0)\pmod p,\qquad 0\le j<p.}
+\end{equation}
+Then $p\mid\Cham(m_j)$, while $r\mid\len(m_j)$ implies
+$p\mid10^{\len(m_j)}-1$. The rotation criterion
+\eqref{eq:criterion} completes the construction.
+\end{proof}
+
+\section{Discussion}
+The argument does not determine the least witness $m$ in A181373;
+it proves its existence, gives an explicit (generally nonminimal)
+construction, and establishes infinitely many valid endpoints for
+each admissible prime. The only external tools are elementary
+modular arithmetic and Fermat's little theorem.
+
+\begin{thebibliography}{9}
+\bibitem{oeis181373} OEIS Foundation Inc.,
+\emph{A181373: Least $m$ such that a prime divides a prefix and its cyclic rotations},
+\url{https://oeis.org/A181373}, accessed October 16, 2026.
+\bibitem{oeis7908} OEIS Foundation Inc.,
+\emph{A007908: Concatenation of the positive integers},
+\url{https://oeis.org/A007908}, accessed October 16, 2026.
+\bibitem{oeis58183} OEIS Foundation Inc.,
+\emph{A058183: Number of digits in the concatenation of the first $n$ positive integers},
+\url{https://oeis.org/A058183}, accessed October 16, 2026.
+\bibitem{ripa-dalmasso} M. Rip\`a and E. Dalmasso,
+Patterns related to the Smarandache circular sequence primality problem,
+\emph{Notes on Number Theory and Discrete Mathematics},
+\textbf{18} (2012), no. 1, 29--48.
+\url{https://nntdm.net/volume-18-2012/number-1/29-48/}.
+\bibitem{ripa-note} M. Rip\`a,
+A note on my 2012 paper on patterns related to the Smarandache circular sequence primality problem,
+Zenodo (2025), \url{https://doi.org/10.5281/zenodo.17382562}.
+\end{thebibliography}
+\end{document}

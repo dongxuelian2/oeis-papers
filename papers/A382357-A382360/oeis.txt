@@ -1,0 +1,23 @@
+Proposed COMMENTS for A382357:
+
+The permutation conjecture holds. In fact, for every integer b>=2 and fixed
+jump d>=1, every finite legal seed of distinct positive integers has a greedy
+completion which is a permutation of its compatible valuation class
+v_b(n) == r (mod d). The proof uses the last exits of the valuation levels.
+For b=2,d=1, hypothetical escape would give positive integer crossing counts
+satisfying 4*U_k <= U_(k-2)+U_(k-1)+1. Consecutive pairs of these counts
+strictly contract, a contradiction. See Wang and Dong (2026), Theorem 1.
+
+Proposed FORMULA for A382357:
+
+For m>=1, put x=4^m and t=A382360(2*m). Then
+(a(t-1),a(t),a(t+1),a(t+2),a(t+3)) = (3*x/2,x,2*x,3*x,5*x/2).
+
+Proposed FORMULA update for A382360:
+
+Remove the empirical qualifier from a(2*n+1)=a(2*n)+1, n>=0.
+This follows from the exact new-level induction in Wang and Dong (2026),
+Theorem 2. The positions are all defined by the permutation theorem.
+
+LINKS for both entries (PDF pinned to the verified manuscript commit):
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/4edf98739bf75b65f4eaab36594552601fa1d08a/papers/A382357-A382360/main.pdf">Recurrence of Greedy Valuation Walks and the OEIS A382357 Permutation Conjecture</a>, 2026.

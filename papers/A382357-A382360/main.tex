@@ -1,0 +1,223 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype,booktabs}
+\usepackage[margin=0.84in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\N}{\mathbb N}
+\title{Recurrence of Greedy Valuation Walks\\and the OEIS A382357 Permutation Conjecture}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\hypersetup{pdftitle={Recurrence of Greedy Valuation Walks and the OEIS A382357 Permutation Conjecture},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove that the greedy sequence of distinct positive integers whose
+successive $2$-adic valuations differ by one is a permutation of the
+positive integers, resolving the conjecture in OEIS A382357. More
+generally, for every integer base $b\ge2$, every fixed valuation jump
+$d\ge1$, and every finite legal seed, the resulting sequence lists
+every integer in the compatible valuation residue class. A last-exit
+argument converts hypothetical escape to large valuations into a
+contracting recurrence for positive integer edge-crossing counts.
+For the binary sequence we also prove the empirical pairing formula
+in A382360 and an exact five-term block around each new even power of two.
+\end{abstract}
+
+\section{Definitions and the general statement}
+For an integer $b\ge2$, define $v_b(n)=\max\{k\ge0:b^k\mid n\}$.
+This definition also applies when $b$ is composite. Fix an integer
+$d\ge1$ and a finite seed of distinct positive integers
+$a_1,\ldots,a_T$ satisfying
+\[
+ |v_b(a_{i+1})-v_b(a_i)|=d\qquad(1\le i<T).
+\]
+Thereafter choose $a_{t+1}$ to be the smallest unused positive integer
+whose valuation differs from $v_b(a_t)$ by exactly $d$. There is always
+an available term, since the higher neighboring valuation class is infinite.
+All valuations belong to a single residue class $r\pmod d$, $0\le r<d$.
+Let
+\[
+ \mathcal C_{b,d,r}=\{n\ge1:v_b(n)\equiv r\pmod d\}.
+\]
+
+\begin{theorem}[Recurrence and exhaustive coverage]\label{thm:main}
+For every $b,d$ and finite legal seed above, the full sequence consisting
+of the seed and its greedy continuation lists every member of
+$\mathcal C_{b,d,r}$ exactly once.
+In particular, with $b=2$, $d=1$, and $a_1=1$, it proves that OEIS
+A382357 is a permutation of the positive integers.
+\end{theorem}
+
+The OEIS entry \cite{a382357} records the permutation assertion as a
+conjecture. It already proves that every power of two appears. The
+argument below proves recurrence at every valuation level and therefore
+coverage of all integers in each class.
+
+\section{Queues, last exits, and a contraction}
+Normalize a valuation $r+dj$ to the level $j\ge0$, so the sequence walks
+on the nonnegative integers by steps $\pm1$. Put $\lambda=b^d$ and
+\[
+ h_b(t)=t+\left\lfloor\frac{t-1}{b-1}\right\rfloor\qquad(t\ge1).
+\]
+These are, in increasing order, the positive integers not divisible by $b$.
+At level $j$ the labels are $b^r\lambda^j h_b(t)$, with $t=1,2,\ldots$.
+Each selection uses the smallest unused label at that level. Thus, at
+a level absent from the seed, after $c_j$ visits the next label is
+\begin{equation}\label{eq:queue}
+ Q_j=b^r\lambda^j h_b(c_j+1).
+\end{equation}
+
+\begin{lemma}[Propagation of infinite visits]\label{lem:propagate}
+If one level is visited infinitely often, then every level is visited
+infinitely often, and every compatible integer appears.
+\end{lemma}
+\begin{proof}
+Suppose a level $j$ is visited infinitely often and one neighboring
+level has only finitely many visits. The latter has a fixed smallest
+unused label $M$ after its last visit. At every sufficiently late visit
+to $j$, the next chosen label is at most $M$. Distinctness permits only
+finitely many such choices, a contradiction. Infinite visits thus
+propagate across every edge of the level path. At any level, a fixed
+unused label would bound every subsequent selection from that level,
+again contradicting infinitely many distinct selections.
+\end{proof}
+
+\begin{lemma}[Last-exit inequality]\label{lem:last}
+Suppose every level is visited only finitely many times. Let $K$ be
+the greatest level appearing in the seed, and let $U_j$ be the total
+number of upward crossings from $j$ to $j+1$. Then every $U_j$ with
+$j\ge K$ is a positive integer, and for every $k\ge K+2$,
+\begin{equation}\label{eq:contract}
+ \lambda^2 U_k\le U_{k-2}+U_{k-1}
+                 +\lambda^2-\lambda^2/b-1.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Since each finite set of levels receives finitely many visits, the
+level of the walk tends to infinity. For $j\ge K$, the walk starts
+below or on $j$ and eventually stays above it. Thus the downward
+crossing count is $D_j=U_j-1$, and $U_j\ge1$. At a level $j>K$, which
+does not contain the initial term, every visit is an arrival; hence its
+total visit count is
+\begin{equation}\label{eq:flow}
+ c_j=U_{j-1}+D_j=U_{j-1}+U_j-1.
+\end{equation}
+
+Consider the final departure from level $k\ge K+2$. It must go upward:
+a downward departure would require a later crossing of $k$ on the way
+to infinity. At this instant level $k-1$ has already had all its
+$c_{k-1}$ visits. Level $k+1$ has had at least $U_k-1$ visits, from the
+earlier upward crossings of this edge. Both levels are absent from
+the seed. The greedy comparison using \eqref{eq:queue} therefore gives
+\begin{equation}\label{eq:compare}
+ \lambda^2 h_b(U_k)<h_b(c_{k-1}+1).
+\end{equation}
+The inequality is strict because labels from distinct valuation classes
+are different.
+
+Write $\alpha=b/(b-1)$. The explicit formula for $h_b$ gives
+\[
+ h_b(t)\ge\alpha t-1,\qquad h_b(c+1)\le\alpha c+1.
+\]
+Consequently \eqref{eq:compare} and \eqref{eq:flow} imply
+\begin{align*}
+ \lambda^2 U_k
+ &<c_{k-1}+\frac{\lambda^2+1}{\alpha}\\
+ &=U_{k-2}+U_{k-1}+\lambda^2-\lambda^2/b-1/b.
+\end{align*}
+The quantities other than $1/b$ are integers, since $\lambda=b^d$.
+Rounding down gives \eqref{eq:contract}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+If every level has finite visits, Lemma~\ref{lem:last} applies.
+For a positive integer $M$, define
+\[
+ F(M)=\left\lfloor
+ \frac{2M+\lambda^2-\lambda^2/b-1}{\lambda^2}\right\rfloor.
+\]
+We have $F(M)\le M-1$: indeed
+\[
+ (\lambda^2-2)M-\lambda^2+\lambda^2/b+1
+ \ge\lambda^2/b-1>0.
+\]
+If two consecutive crossing counts are at most $M$, the next two are
+at most $F(M)$, by \eqref{eq:contract}. Starting with
+$M=\max(U_K,U_{K+1})$, after at most $M$ such pairs the positive
+crossing counts are bounded by zero. This contradiction proves that
+some level has infinitely many visits. Lemma~\ref{lem:propagate} then
+gives every compatible integer, and distinctness is part of the rule.
+\end{proof}
+
+For the canonical binary sequence the central inequality reduces to
+\[
+ 4U_k\le U_{k-2}+U_{k-1}+1.
+\]
+Its incompatibility with an infinite positive integer sequence is the
+obstruction to escaping permanently to larger $2$-adic valuations.
+
+\section{Paired powers of two and exact local blocks}
+Return to the canonical binary sequence $a(1),a(2),\ldots$.
+Let $t_j$ be the index of the unique occurrence of $2^j$. These indices
+are OEIS A382360 \cite{a382360}.
+
+\begin{theorem}[Pairing and a five-term block]\label{thm:pairs}
+For every $m\ge0$,
+\begin{equation}\label{eq:pairs}
+ t_{2m+1}=t_{2m}+1.
+\end{equation}
+More precisely, for $m\ge1$ and $x=4^m$, with $t=t_{2m}$,
+\begin{equation}\label{eq:block}
+ (a(t-1),a(t),a(t+1),a(t+2),a(t+3))
+   =(3x/2,\ x,\ 2x,\ 3x,\ 5x/2).
+\end{equation}
+The initial block is $(a(1),a(2),a(3))=(1,2,3)$.
+\end{theorem}
+\begin{proof}
+The first visit to level $j$ uses $2^j$, because labels within that
+level are used in increasing order. Initially the walk visits levels
+$0,1,0$, with labels $1,2,3$.
+
+Suppose the first visits to levels $2m-2$ and $2m-1$ are consecutive,
+and are followed by a return to level $2m-2$. The next visit to
+$2m-1$ is its second visit, with label $3\cdot2^{2m-1}$. At that
+time level $2m-2$ has been visited at least twice. Its next label is
+at least $5\cdot2^{2m-2}$, greater than the unused label
+$2^{2m}=4\cdot2^{2m-2}$. Thus this second visit immediately enters
+the new level $2m$.
+
+Put $x=2^{2m}$. Level $2m-1$ has now been visited exactly twice.
+After choosing $x$, the lower candidate is $5x/2$ and the higher one
+is $2x$, so $2x$ is chosen. The next candidates are $3x$ and $4x$,
+so the walk returns to level $2m$, using $3x$. Its candidates are
+then $5x/2$ and $6x$, so $5x/2$ is chosen. This proves
+\eqref{eq:block}, supplies the consecutive new levels and immediate
+return needed for the next induction step, and establishes
+\eqref{eq:pairs}. All visits used in this induction exist by
+Theorem~\ref{thm:main}.
+\end{proof}
+
+The OEIS formula for A382360 is currently marked empirical; equation
+\eqref{eq:pairs} proves it. The five-term identity gives additional
+local values without requiring a closed formula for the positions $t_{2m}$.
+
+\section{Reproducible checks}
+The proof is independent of finite computation. The supplied verifier
+compares a queue implementation with an independent direct scan for
+the smallest unused eligible integer, including arbitrary finite seeds
+and bases and jumps other than two and one. It checks the displayed
+OEIS prefix, twenty recorded inverse positions, the local blocks, and
+the crossing inequalities on finite first-arrival paths. Separate
+integer audits test the rounding and contraction estimates.
+
+\begin{thebibliography}{9}
+\bibitem{a382357} R. Sigrist, OEIS A382357,
+\url{https://oeis.org/A382357}, accessed October 26, 2026.
+\bibitem{a382360} R. Sigrist, OEIS A382360,
+\url{https://oeis.org/A382360}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

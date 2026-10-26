@@ -1,0 +1,20 @@
+{
+  "max_m": 5000,
+  "base": 10,
+  "total_nontrivial_rotations": 12502499,
+  "largest_digit_length": 18893,
+  "counterexamples": [],
+  "counts": {
+    "gmp_all_exponents": 6464578,
+    "proved_mod27": 479586,
+    "proved_mod9": 5558335
+  },
+  "seconds_search": 423.859,
+  "predicate_audit": "independent integer-root checks on 2..10000",
+  "literal_rotation_audit": "every computed rotation of processed blocks through m=120",
+  "roundtrip_audit": "every processed block",
+  "search_source_sha256": "5f3a799a679cb07f2849df13211f62461b6281011cfbfdcbcc66f7446adec402",
+  "gmp_version": "6.3.0",
+  "command": "python papers/A001292/search_gmp.py 5000",
+  "checked_at": "2026-10-26"
+}

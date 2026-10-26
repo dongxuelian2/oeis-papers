@@ -1,6 +1,23 @@
-# OEIS A001292: rigorous residue-class exclusions for the Kashihara conjecture
+# OEIS A001292: power exclusions and a quantitative powerful-value sieve
 
-**Status: partial rigorous results only (2026-10-16).** Kashihara's global conjecture is **not proved or disproved**. Novelty beyond the references below has **not** been established. These theorems exclude several infinite families of *blocks* `1,2,...,m` and **all of their cyclic rotations**. They do not determine which of the remaining rotations might be perfect powers.
+Kashihara's conjecture remains open. This PR proves infinite modular
+exclusions and a quantitative density-zero theorem covering all power
+exponents. For the first `N` terms of A001292, the number of nontrivial
+perfect powers is
+
+\[
+O\!\left(\frac{N(\log\log N)^2}{\log N}\right).
+\]
+
+The [full sieve proof](POWERFUL_SIEVE.md) establishes the stronger bound
+for powerful values, in every fixed integer base. Its main step is an
+exact joint density for prime factors of valuation one, even when the
+modular periods overlap.
+
+An exact finite search covers **all 12,502,499 nontrivial rotations with
+`m<=5000`**, finding no perfect power. The [search record](SEARCH_5000.json)
+identifies the verifier and separates direct all-exponent checks from
+proved modular exclusions.
 
 The [exact boundary equations](STRUCTURE.md) give a separate structural
 reduction for every rotation and exponent, including coefficient valuations
@@ -10,7 +27,7 @@ their finite checks with `python verify_structure.py`.
 
 ## Problem and previous work
 
-For each integer `m >= 1`, form the decimal word `W_m = 1 || 2 || ... || m`. Let `R_{m,j}` be the decimal integer obtained by cutting the first `j` entire positive-integer blocks and moving them to the end, for `0 <= j < m`. OEIS [A001292](https://oeis.org/A001292) is the increasing enumeration of all these cyclically rotated words. Kashihara's conjecture says that none except `1` is a nontrivial perfect power. Ripà (2022) excluded **all block permutations** for `m == 2,3,5,6 (mod 9)` by digit-sum valuation; this report studies previously unexcluded values `m == 0,8 (mod 9)`.
+For each integer `m >= 1`, form the decimal word `W_m = 1 || 2 || ... || m`. Let `R_{m,j}` be the decimal integer obtained by cutting the first `j` entire positive-integer blocks and moving them to the end, for `0 <= j < m`. OEIS [A001292](https://oeis.org/A001292) is the increasing enumeration of all these cyclically rotated words. Kashihara's conjecture says that none except `1` is a nontrivial perfect power. Ripà (2022) excluded **all block permutations** for `m == 2,3,5,6 (mod 9)` by digit-sum valuation. The residue theorems below extend that exclusion; the powerful-value sieve treats all `m`.
 
 ## Theorem 1: a universal mod-27 formula
 
@@ -119,15 +136,29 @@ Finally, `10 == 6^2 (mod 13)`; so for every rotation, `R_{m_t,j} == 10^L W_{m_t}
 
 ## What remains open
 
-- These are disjoint *infinite exclusions*, not a solution of Kashihara's conjecture.
-- Cases `m == 1,4,7,8,0 (mod 9)` remain in general, except for the explicitly treated subfamilies.
-- A finite modular sieve for arbitrary `m` (even a very long one) is not a global proof unless an actual finite period in `m`, across digit-length transitions, is proved.
-- These claims concern cyclic rotations of **whole integer blocks**; extending the mod-27 statement to all arbitrary block permutations would be unjustified.
-- Novelty search is preliminary. Compare Ripà (2022) and OEIS comments before a formal publication or a claimed first discovery.
+The sieve bounds the size of the exceptional set; Kashihara's conjecture
+requires that set to be empty. The classes `m == 1,4,7,8,0 (mod 9)`
+remain in general, apart from the explicitly excluded subfamilies.
+The mod-27 results concern rotations of whole integer blocks.
 
 ## Verification
 
-Run `python verify_a001292.py`. The script uses modular rolling concatenation, an independent formula check, selected full rotations, and a fast affine-block evaluator allowing astronomically large `m_t` to be tested modulo 13 without constructing their full decimal representation.
+From this directory run:
+
+```sh
+python verify_a001292.py
+python verify_structure.py
+python verify_powerful_sieve.py
+python search_gmp.py 1000
+```
+
+The full search is `python search_gmp.py 5000`. It uses the installed
+64-bit Linux GMP shared library through Python's standard `ctypes` module.
+GMP's [perfect-power predicate](https://gmplib.org/manual/Integer-Roots)
+tests all possible exponents. The source hash in `SEARCH_5000.json` pins
+the script used for the full run.
+
+`verify_a001292.py` uses modular rolling concatenation, an independent formula check, selected full rotations, and a fast affine-block evaluator allowing astronomically large `m_t` to be tested modulo 13 without constructing their full decimal representation.
 
 ## References
 

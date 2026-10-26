@@ -1,0 +1,278 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newcommand{\cat}{\mathbin{\Vert}}
+\newcommand{\ord}{\operatorname{ord}}
+\title{Universal Divisibility of Fixed-Length Consecutive-Integer Concatenations\\and OEIS A075018}
+\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}\\[0.4em]Daoyu Dong\\{\small University of Electronic Science and Technology of China, Chengdu, China}}
+\date{October 17, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove that for every positive integer $N$ there is a positive integer
+$k\ge3$ such that the decimal concatenation
+$k\cat(k-1)\cat(k-2)\cat(k-3)$ is divisible by $N$.
+Consequently, all terms of OEIS A075018 are positive.
+More generally, in any even integer base, for any prescribed number $t$
+of consecutive positive integers, any modulus $N$, and any specified
+permutation of the $t$ blocks, one can find infinitely many
+same-digit-width concatenations divisible by $N$.
+The elementary constructive proof uses a base-supported/coprime
+factorization of $N$, a solvable linear congruence, and the Chinese
+remainder theorem. For the infinite family $N=d10^r$ with $d\mid30$
+and $r\ge2$, we additionally determine the exact least value
+$\mathrm{A075018}(N)=N+3$ and all admissible endpoints.
+\end{abstract}
+
+\section{The OEIS problem}
+The sequence \href{https://oeis.org/A075018}{OEIS A075018}
+asks for the least integer $k\ge3$ such that
+\begin{equation}\label{eq:target}
+ N\mid k\cat_{10}(k-1)\cat_{10}(k-2)\cat_{10}(k-3),
+\end{equation}
+where $N$ is the sequence index and the right-hand side is a
+\emph{decimal concatenation}, not a product. The OEIS convention
+assigns zero if no such $k$ exists \cite{oeis}. We show that this
+zero case is impossible. The OEIS provides numerical values; a
+universal nonvanishing proof is not recorded in its entry at the
+time of preparation.
+
+For positive integers $x_1,\ldots,x_t$ with exactly $d$ base-$b$
+digits each, put $B=b^d$ and define
+\begin{equation}\label{eq:polynomial}
+ x_1\cat_b\cdots\cat_b x_t
+ =\sum_{i=1}^{t}x_i B^{t-i}.
+\end{equation}
+Working within a single digit-length window is essential: it makes
+$B$ constant, so the concatenation becomes an integer polynomial.
+
+\section{A general even-base theorem}
+\begin{theorem}[Arbitrary modulus, length, and block order]\label{thm:general}
+Let $b\ge2$ be an even integer and let $N,t\ge1$ be independent
+positive integers. For every bijection
+$\pi:\{1,\ldots,t\}\longrightarrow\{0,\ldots,t-1\}$,
+there exist infinitely many pairs of positive integers $(d,a)$ such
+that the consecutive integers $a,a+1,\ldots,a+t-1$ all have
+exactly $d$ base-$b$ digits and
+\begin{equation}\label{eq:main}
+  N\mid (a+\pi(1))\cat_b(a+\pi(2))\cat_b\cdots\cat_b(a+\pi(t)).
+\end{equation}
+In particular, the valid concatenated integers have unbounded length.
+\end{theorem}
+\begin{proof}
+Factor $N=qm$, where $q$ is the largest factor of $N$ whose prime
+divisors divide $b$. Then
+\begin{equation}\label{eq:factor}
+\gcd(q,m)=1,\qquad\gcd(b,m)=1,\qquad m\text{ is odd}.
+\end{equation}
+Here $q=1$ or $m=1$ is allowed, with congruences modulo $1$
+understood as vacuous. Put $g=\gcd(t,m)$; because $m$ is odd,
+$g$ is odd and $g\mid t$. Hence
+\begin{equation}\label{eq:obstruction}
+ g\mid\frac{t(t-1)}2.
+\end{equation}
+Indeed, $t(t-1)/2$ is an integer and twice this integer is
+divisible by $g$, while $2$ is invertible modulo $g$.
+It follows from the standard linear congruence criterion that
+\begin{equation}\label{eq:linear}
+ t a+\frac{t(t-1)}2\equiv0\pmod m
+\end{equation}
+has at least one solution $a_0$, and all its solutions constitute
+one residue class modulo $s=m/g$.
+
+The last block in \eqref{eq:main} is $a+\pi(t)$; impose
+\begin{equation}\label{eq:q}
+ a+\pi(t)\equiv0\pmod q.
+\end{equation}
+Since $\gcd(q,s)=1$, the Chinese remainder theorem provides
+an integer $a_*$ satisfying \eqref{eq:linear} and \eqref{eq:q};
+all integers $a\equiv a_*\pmod{qs}$ satisfy both.
+
+Choose an arbitrarily large digit width $d$ with
+\begin{equation}\label{eq:choose_d}
+ q\mid b^d,\qquad b^d\equiv1\pmod m,\qquad
+ (b-1)b^{d-1}\ge qs+t-1.
+\end{equation}
+These conditions can be met simultaneously: the first is automatic
+for all sufficiently large $d$; for $m>1$ the second holds whenever
+$d$ is a multiple of $\ord_m(b)$, and for $m=1$ it is vacuous;
+the third holds eventually because $b\ge2$.
+The interval of allowed first blocks
+\[
+ I_d=[b^{d-1},\,b^d-t]\cap\mathbb Z
+\]
+then contains $(b-1)b^{d-1}-t+1\ge qs$ consecutive integers,
+so it contains an $a\equiv a_*\pmod{qs}$.
+Thus $a,a+1,\ldots,a+t-1$ are all positive and exactly $d$ digits long.
+
+Set $B=b^d$ and let $C$ denote the right-hand concatenation of
+\eqref{eq:main}. Because $q\mid B$, the base-$B$ expansion
+\eqref{eq:polynomial} gives
+\[
+ C\equiv a+\pi(t)\equiv0\pmod q.
+\]
+Because $B\equiv1\pmod m$, the order of the blocks disappears:
+\[
+ C\equiv\sum_{i=1}^{t}(a+\pi(i))
+  =ta+\frac{t(t-1)}2\equiv0\pmod m.
+\]
+As $\gcd(q,m)=1$ and $N=qm$, we conclude $N\mid C$.
+The admissible $d$ are arbitrarily large, producing distinct
+concatenations of unbounded length $td$.
+\end{proof}
+
+\begin{remark}
+The parity assumption on the base is used only to ensure that
+$m$ is odd and hence \eqref{eq:obstruction} holds for every $t$.
+We do not claim the analogous unrestricted result for odd bases.
+The modulus $N$ and the number of blocks $t$ are \emph{independent};
+this differs from the special case $N=t$ of the even-base
+arithmetic-progression divisibility theorem \cite{wang}.
+\end{remark}
+
+\section{Explicit construction for A075018}
+\begin{corollary}\label{cor:oeis}
+For every $N\ge1$ there are infinitely many integers $k\ge3$ for
+which \eqref{eq:target} holds. In particular,
+\[
+ \boxed{\mathrm{A075018}(N)>0\quad\text{for all }N\ge1.}
+\]
+\end{corollary}
+\begin{proof}
+Apply Theorem~\ref{thm:general} with $b=10$, $t=4$,
+and $(\pi(1),\pi(2),\pi(3),\pi(4))=(3,2,1,0)$.
+Then $k=a+3$, so the concatenation is precisely
+$(a+3)\cat(a+2)\cat(a+1)\cat a$.
+\end{proof}
+
+Here is a particularly simple algorithm not requiring a general
+linear-congruence solver. Write
+\[
+ N=qm,\qquad q=2^{v_2(N)}5^{v_5(N)},\qquad\gcd(m,10)=1.
+\]
+As $m$ is odd, $4$ is invertible modulo $m$.
+The desired starting integer $a=k-3$ may be chosen by
+\begin{equation}\label{eq:crt4}
+ a\equiv0\pmod q,\qquad
+ a\equiv-6\cdot4^{-1}\pmod m,
+\end{equation}
+using the Chinese remainder theorem. Let $a_*$ be its least
+nonnegative representative modulo $N$. Take any sufficiently large
+$d$ satisfying
+\begin{equation}\label{eq:width4}
+ q\mid10^d,\quad10^d\equiv1\pmod m,\quad
+ 9\cdot10^{d-1}\ge N+3.
+\end{equation}
+The least $a\ge10^{d-1}$ congruent to $a_*$ modulo $N$ is
+\begin{equation}\label{eq:a_explicit}
+ a=a_*+N\left\lceil\frac{10^{d-1}-a_*}{N}\right\rceil.
+\end{equation}
+Then $10^{d-1}\le a\le10^d-4$ and
+\begin{align*}
+ C&=(a+3)\cat_{10}(a+2)\cat_{10}(a+1)\cat_{10}a,\\
+ C&\equiv a\equiv0\pmod q,\\
+ C&\equiv4a+6\equiv0\pmod m,
+\end{align*}
+so $N\mid C$ and $k=a+3$ is a witness.
+For example, $N=7$ admits $a=2$, giving
+$C=5432=7\cdot776$ and $\mathrm{A075018}(7)=5$.
+The construction need not minimize $k$.
+
+
+\section{Exact least values for an infinite family}\label{sec:minima}
+The general construction is not usually minimal. Nevertheless, for
+a natural infinite family the minimization problem is completely
+solvable, including a description of \emph{all} admissible starting
+integers.
+
+\begin{theorem}[Exact minima and complete witnesses]\label{thm:minima}
+Let $r\ge2$ and let $d$ be any positive divisor of $30$,
+so $d\in\{1,2,3,5,6,10,15,30\}$. Set $N=d10^r$ and
+$C(k)=k\cat_{10}(k-1)\cat_{10}(k-2)\cat_{10}(k-3)$.
+Then for every integer $k\ge4$,
+\[
+ N\mid C(k)\quad\Longleftrightarrow\quad k\equiv3\pmod N.
+\]
+Moreover, $C(3)=3210$ is not divisible by $N$. Thus the complete
+set of admissible endpoints is
+$\{N+3,2N+3,3N+3,\ldots\}$, and
+\[
+ \boxed{\mathrm{A075018}(d10^r)=d10^r+3
+ \quad(d\mid30,\ r\ge2).}
+\]
+\end{theorem}
+\begin{proof}
+Suppose $k\ge4$ and put $x=k-3\ge1$. If $10^r\mid C(k)$,
+then the last $r$ decimal digits of $C(k)$ must all vanish.
+Since its final concatenated block is the ordinary decimal
+representation of the positive integer $x$, this is possible
+only if $x$ has at least $r$ trailing zero digits. In particular,
+$x=t10^r$ for an integer $t\ge1$.
+
+Let $\ell$ denote the number of decimal digits of $t$, and let
+$U(k)=k\cat_{10}(k-1)\cat_{10}(k-2)$. Because the final block
+$x=t10^r$ has $\ell+r$ digits, we have the exact identity
+\[
+ \frac{C(k)}{10^r}=10^\ell U(k)+t.
+\]
+For the prime divisors $2$ and $5$ of $d$, the first summand
+is congruent to $0$. Modulo $3$, decimal concatenation is
+congruent to the sum of its constituent integers:
+\[
+ U(k)\equiv k+(k-1)+(k-2)=3k-3\equiv0\pmod3.
+\]
+Since every $d\mid30$ is squarefree and has only prime
+divisors in $\{2,3,5\}$, it follows that
+\[
+ d\mid (10^\ell U(k)+t)\quad\Longleftrightarrow\quad d\mid t.
+\]
+Consequently, $N=d10^r$ divides $C(k)$ exactly when
+$x=k-3$ is a positive multiple of $N$. Finally,
+$C(3)=3210\equiv10\pmod{100}$, whereas every $N$ in the
+statement is divisible by $100$. So $k=3$ is not admissible,
+and the first admissible endpoint is $N+3$.
+\end{proof}
+
+For example, $\mathrm{A075018}(100)=103$,
+$\mathrm{A075018}(300)=303$,
+$\mathrm{A075018}(1500)=1503$, and
+$\mathrm{A075018}(3000)=3003$.
+The theorem does \emph{not} assert a closed formula for
+$\mathrm{A075018}(N)$ at arbitrary indices $N$.
+
+\section{Verification and context}
+The accompanying Python program checks the 65 displayed terms
+of OEIS A075018 by direct search, validates constructive witnesses
+for many moduli, block counts, and even bases, and checks arbitrary
+permutations. These checks are independent of the universal proof.
+
+The older OEIS A075000--A075002 work \cite{wang} deals with
+related arithmetic-progression concatenations, including divisibility
+by the \emph{number of blocks}. The present theorem allows an
+\emph{arbitrary modulus independent of the block count} and a
+prescribed ordering of the blocks. We make no claim that the
+stronger general theorem is novel before exhaustive prior-art review.
+Outside the exact family of Theorem~\ref{thm:minima}, determining
+the least $k$ remains a separate optimization problem.
+
+\begin{thebibliography}{9}
+\bibitem{oeis}
+OEIS Foundation Inc., \emph{A075018: Smallest $k$ such that the
+concatenation $k,k-1,k-2,k-3$ is divisible by $n$},
+\url{https://oeis.org/A075018} (accessed October 17, 2026).
+\bibitem{wang}
+Q. Wang, \emph{Divisibility of Concatenated Arithmetic Progressions
+and Champernowne Prefixes} (2026), source and reference list at
+\url{https://github.com/dongxuelian2/oeis-papers/tree/main/papers/A075000-A075002}.
+\bibitem{luca}
+F. Luca and B. Teguia Tabuguia, \emph{Concatenations of terms of an
+arithmetic progression}, Journal of Difference Equations and Applications
+\textbf{32} (2026), no.~4, 437--456,
+\url{https://doi.org/10.1080/10236198.2025.2603385}.
+\end{thebibliography}
+\end{document}

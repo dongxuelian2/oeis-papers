@@ -1,0 +1,64 @@
+A069862: draft all-index formula (not submitted to OEIS)
+
+This is a finite arithmetic formula involving modular square roots and a
+finite minimum over explicit progression candidates. It is not claimed to
+be an elementary expression without finite minimization. The source proof
+and explicit prime-power root formulas are in minimum_formula.tex.
+
+a(1) = 1. For n >= 2, write n = R*m, R = 2^alpha*5^beta,
+gcd(m,10) = 1, and D = digits(n+1). Use widths D <= d <= n.
+
+B_d = 10^d, t_d = max(n,10^(d-1)-1), L_d = 10^d-1-t_d.
+S_B(r) = (B^r-1)/(B-1).
+T_B(r) = (B^(r+1)-(r+1)*B+r)/(B-1)^2.
+c_d = Sum_{e=D..d-1} (t_e*S_(B_e)(L_e)+T_(B_e)(L_e))
+                      *10^(Sum_{f=e+1..d-1} f*L_f).
+All divisions in S and T are exact integer divisions; empty sums are 0.
+
+For each width abbreviate B=B_d, t=t_d, c=c_d, and put
+E = max(1,ceil(alpha/d),ceil(beta/d)), h = ord_m(B), s = S_B(h), v = T_B(h).
+Set h=1 if m=1. Then E<=4. Write [x]_u for the least nonnegative
+residue modulo u, with [x]_1=0; modular inverses modulo 1 mean 0.
+
+For each j=0,...,h-1, put
+V_j = B^j*c+t*S_B(j)+T_B(j),
+Q_j(z) = h*s*z^2 + (2*(t+j)*s+2*v-h*s)*z + 2*V_j.
+Find the compressed quadratic root classes (r,q), q|m, such that
+Q_j(z)=0 (mod m) exactly when z=r (mod q) for one of these classes.
+They are given explicitly by the prime-power square-root formulas below,
+followed by CRT, and there are at most 2^omega(m). For m=1 use (0,1).
+
+rho = [-B*(B-1)^(-1)]_R, g = gcd(h,R), u = R/g.
+Discard phase j if g does not divide rho-t-j. Otherwise set
+b_j = [((rho-t-j)/g)*(h/g)^(-1)]_u.
+For each quadratic root class (r,q), set
+w = r+q*[(b_j-r)*q^(-1)]_u, P = h*q*u, x0 = t+j+h*w,
+X = x0+P*ceil((t+E-x0)/P).
+Retain X if X <= 10^d-1. Also retain t+r for 1<=r<E, r<=L_d,
+when n divides B^r*c+t*S_B(r)+T_B(r).
+
+a(n) = min(all retained endpoints over D<=d<=n)-n.
+
+The candidate set is nonempty by the proved bound a(n)<10^n-n.
+Every candidate is valid and every valid endpoint is at least the first
+candidate in its class. Thus the formula gives the exact minimum.
+
+Explicit root classes for A*z^2+B*z+C modulo an odd prime power p^e:
+Divide coefficients and modulus by their largest common p-power (at
+most p^e). If the reduced modulus is 1, use (0,1). Otherwise call it p^f.
+* If p divides A and B, there are no roots (C is then a unit).
+* If p divides A but not B, let y be the square root of B^2-4*A*C
+  modulo p^f with y=B (mod p). Use z=-2*C/(B+y) (mod p^f).
+* If p does not divide A, set delta=[B^2-4*A*C]_(p^f).
+  If delta=0, use z=-B/(2*A) (mod p^ceil(f/2)).
+  If delta has odd p-adic valuation, there are no roots.
+  Otherwise write delta=p^(2*s)*v with v a unit. If v is a nonsquare
+  modulo p, there are no roots. Otherwise take either square root y of v
+  modulo p^(f-2*s) and use the two classes
+  z=(-B +/- p^s*y)/(2*A) (mod p^(f-s)).
+All divisions in these modular expressions use unit inverses.
+
+Example: for n=451, the 3-digit classes do not meet [452,999]; the 4-
+and 5-digit quadratics have no roots. The 6-digit endpoint classes are
+2084,555,1501,137,478 modulo 2255. Their first endpoints >=100000 are
+101304,102030,100721,101612,101953, so a(451)=100721-451=100270.

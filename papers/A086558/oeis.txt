@@ -1,0 +1,23 @@
+Proposed COMMENTS for A086558:
+
+No term is zero. For n >= 17, write n=C*p^e with p the largest prime factor,
+d=length(n), L=n*10^(n-d) and U=(n+1)*10^(n-d). Dusart's explicit prime
+interval bound supplies a prime q in ((L/C)^(1/e),(U/C)^(1/e)), and q>p,
+so C*q^e has the required prefix, length, and signature. The remaining
+indices are covered by fifteen small prime certificates. See Wang and Dong
+(2026) for the complete inequalities and finite cases.
+
+Proposed FORMULA:
+
+For n=p^e a prime power, a(n)=nextprime(ceilroot(n*10^(n-length(n)),e)-1)^e,
+where ceilroot(z,e) is the least integer w with w^e>=z and nextprime(z)
+is the least prime strictly greater than z. Also a(1)=1.
+
+For general n, Theorem 2 gives an exact finite formula: enumerate orderings
+e_1,...,e_t of the exponent multiset and finite increasing prime tuples
+p_1<...<p_(t-1); set C=Product p_i^e_i and
+q=nextprime(max(p_(t-1),ceilroot(ceil(L/C),e_t)-1)). Minimize C*q^e_t<U.
+For t=1 use C=1,p_0=1. Explicit bounds for every tuple are in the paper.
+
+LINKS (PDF pinned to the verified manuscript commit):
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/5f85923b9e3aec1b0fdb490b4c62fa70d370c773/papers/A086558/main.pdf">Prescribed Decimal Prefixes and Prime Signatures: Existence and Minimum Formulas for OEIS A086558</a>, 2026.

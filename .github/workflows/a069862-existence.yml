@@ -1,0 +1,34 @@
+name: A069862 all-index minimum formula
+
+on:
+  push:
+    branches: [paper/a069862-exact-minima-20261022]
+    paths:
+      - 'papers/A069862/**'
+      - '.github/workflows/a069862-existence.yml'
+  pull_request:
+    paths:
+      - 'papers/A069862/**'
+      - '.github/workflows/a069862-existence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Existing exact-family checks
+        run: python3 papers/A069862/verify.py
+      - name: Constructive witnesses and independent geometric-sum audit
+        run: python3 papers/A069862/verify_existence.py
+      - name: Exact minima versus direct enumeration
+        run: python3 papers/A069862/least.py --audit
+      - name: Arithmetic formula, complete quadratic classes, and independent minima
+        run: python3 papers/A069862/minimum_formula.py --audit

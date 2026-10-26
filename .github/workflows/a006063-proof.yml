@@ -1,0 +1,173 @@
+name: A006063 and A096680 proof, classification and PDF
+on:
+  push:
+    branches:
+      - research/a006063-cube-sum-permutations-20261018
+      - research/a006063-structural-proof-entropy-20261018
+    paths:
+      - 'papers/A006063/*.tex'
+      - 'papers/A006063/*.py'
+      - 'papers/A006063/*.md'
+      - 'papers/A006063/certificates/**'
+      - '.github/workflows/a006063-proof.yml'
+  pull_request:
+    paths:
+      - 'papers/A006063/**'
+      - '.github/workflows/a006063-proof.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original 192 witnesses and recursive construction
+        run: python papers/A006063/verify.py
+      - name: Regenerate 192 independent matching witnesses
+        run: python papers/A006063/independent_match.py
+      - name: Check exact membership, Hall witnesses, uniqueness, multiplicity, and counting guards
+        run: python papers/A006063/verify_extended.py
+      - name: Verify minimal word-based mathematical existence certificate
+        run: python papers/A006063/verify_word_paths.py
+      - name: Audit 109 explicit interval endpoint multiset identities
+        run: python papers/A006063/finite_endpoint_identity.py
+      - name: Check the reduced 82-seed arithmetic proof and reflection closure
+        run: python papers/A006063/verify_82_seed_proof.py
+      - name: Audit 74 exceptional identities and three algebraic template families
+        run: python papers/A006063/verify_74_plus_templates.py
+      - name: Audit 70 exceptional identities and fourth eleven-block family
+        run: python papers/A006063/verify_70_plus_templates.py
+      - name: Verify final 66 exceptions and twelve-block three-switch construction
+        run: python papers/A006063/verify_66_plus_templates.py
+      - name: Independently audit 60 exceptions and fifth fifteen-block family
+        run: python papers/A006063/verify_60_plus_templates.py
+      - name: Verify primary 57 exceptions and six symbolic generator families
+        run: python papers/A006063/verify_57_plus_templates.py
+      - name: Reconstruct all 57 exceptions as exact unimodular algebraic families and test cubic dilations
+        run: python papers/A006063/verify_unimodular_factory.py
+      - name: Verify pure forced reflection peeling and exact counts at 173, 174, 175
+        run: python papers/A006063/verify_forced_peeling.py
+      - name: Verify exact 193-path quotient and even-cube matching budget (no solver)
+        run: python papers/A006063/verify_odd_cube_path_quotient.py
+      - name: Verify fixed-108 Tutte obstruction at n 581 without matching solver
+        run: python papers/A006063/verify_tutte_581.py
+      - name: Check exact forced degree-one vertices in all high-start four-cube phases
+        run: python papers/A006063/verify_four_cube_boundary_forcing.py
+      - name: Audit Phase III dual fixed-point odd defects and complete forced cascades
+        run: python papers/A006063/verify_phase_iii_cascade.py
+      - name: Audit 245 even-cube paths and 193 odd-cube transverse quotient
+        run: python papers/A006063/verify_dual_reflection_paths.py
+      - name: Verify three uniform cyclic-color planar rotation systems
+        run: python papers/A006063/verify_three_rotation_planarity.py
+      - name: Verify optimal 14/10/16-edge bipartite deletions via four odd planar faces
+        run: python papers/A006063/verify_small_bipartite_core.py
+      - name: Audit 26 algebraic planar-face word templates and vertex intervals
+        run: python papers/A006063/verify_planar_face_word_templates.py
+      - name: Prove 14-10-16 dual-path near-bipartite theorem in all 199 phase graphs
+        run: python papers/A006063/verify_near_bipartite_phases.py
+      - name: Verify exceptional edges form disjoint same-color matchings and exact Hall balancing
+        run: python papers/A006063/verify_defect_matching_reduction.py
+      - name: Audit primary 56 determinant shapes plus the direct forced-173 theorem
+        run: python papers/A006063/verify_56_plus_forcing.py
+      - name: Audit 70 exceptional identities and all four symbolic template families
+        run: python papers/A006063/verify_70_plus_templates.py
+      - name: Verify exact P(236) and non-involution five-cycle decomposition
+        run: python papers/A006063/count_236.py
+      - name: Check odd-cube block lifting and thousands of disjoint switching cycles
+        run: python papers/A006063/lift_exponential_subsequence.py
+      - name: Independently verify arbitrary fiber permutations and injection
+        run: python papers/A006063/tensorize_fibers.py
+      - name: Verify base and lifted Hamming metric isometries
+        run: python papers/A006063/audit_permutation_code.py
+      - name: Verify optimal terminal cubes and improved exponential code sizes
+        run: python papers/A006063/optimize_terminal_cube.py
+      - name: Independently verify computation-free cubic three-cycle family
+        run: python papers/A006063/audit_three_cycle_identity.py
+      - name: Verify algebraic 343-fold affine renormalization
+        run: python papers/A006063/renormalization.py
+      - name: Verify global cycle-cover parity and strong-component factorization
+        run: python papers/A006063/global_graph_audit.py
+      - name: Prove eventual existence from 7-point seed and seven reflection rounds
+        run: python papers/A006063/one_seed_eventual.py
+      - name: Independently certify seven rounds by symbolic integer-interval algebra
+        run: python papers/A006063/one_seed_interval_proof.py
+      - name: Verify exact one-seed reflection-history counting recurrence
+        run: python papers/A006063/reflection_tree_counts.py
+      - name: Verify reflection entropy ceiling and finite-depth density barrier
+        run: python papers/A006063/reflection_entropy_barrier.py
+      - name: Audit divisor codegree and Hall second-moment expansion
+        run: python papers/A006063/arithmetic_expansion_audit.py
+      - name: Check that all one-seed tail constructions are involutions fixing 4
+        run: python papers/A006063/involution_tail_audit.py
+      - name: Verify parity-optimal zero and one-fixed-point involution tails
+        run: python papers/A006063/parity_minimal_involutions.py
+      - name: Independently prove parity-minimal tails with symbolic interval unions
+        run: python papers/A006063/parity_interval_proof.py
+      - name: Verify taxicab identity and exponential involution switching theorem
+        run: python papers/A006063/taxicab_involution_audit.py
+      - name: Verify inverse-paired tensor powers and involution condition
+        run: python papers/A006063/inverse_fiber_involution_audit.py
+      - name: Check 40 disjoint alternating cycles at n=362
+        run: python papers/A006063/verify_362.py
+      - name: Check power-divisor tensor recurrence and amplified 362-gadget
+        run: python papers/A006063/verify_tensor_recurrence.py
+      - name: Exercise linear-output construction up to one million entries
+        run: python papers/A006063/construct_linear.py
+
+  pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: certificate
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Build reviewed research note
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          working_directory: papers/A006063
+          latexmk_use_xelatex: false
+      - name: Build standalone elementary finite-interval note
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: finite_base_note.tex
+          working_directory: papers/A006063
+          latexmk_use_xelatex: false
+      - name: Verify compiled PDF
+        run: test -s papers/A006063/main.pdf
+      - name: Verify compiled finite-only note
+        run: test -s papers/A006063/finite_base_note.pdf
+      - name: Upload compiled PDF as a workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: a006063-complete-proof
+          path: |
+            papers/A006063/main.pdf
+            papers/A006063/finite_base_note.pdf
+      - name: Commit verified PDF on branch push
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch="$(git branch --show-current)"
+          git fetch origin "$branch"
+          source_tex="$(git hash-object papers/A006063/main.tex)"
+          remote_tex="$(git show "origin/$branch:papers/A006063/main.tex" | git hash-object --stdin)"
+          if [ "$source_tex" != "$remote_tex" ]; then
+            echo "Skip stale PDF: main.tex has changed since checkout."
+            exit 0
+          fi
+          git add papers/A006063/main.pdf papers/A006063/finite_base_note.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "paper: compile A006063 A096680 classification PDF"
+            git pull --rebase origin "$branch"
+            git push
+          fi

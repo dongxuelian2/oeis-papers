@@ -1,0 +1,247 @@
+\section{An elementary witness for every index}\label{sec:elementary}
+Write $v_q$ for the $q$-adic valuation. For $m\ge1$ put
+$S_p(m)=1+p+\cdots+p^{m-1}$, so the mean of the
+divisors of $p^{m-1}$ is $S_p(m)/m$.
+
+\begin{lemma}[Upward numerator primes]\label{lem:upward}
+Let $q,p$ be primes, $p\not\equiv1\pmod q$, and $b\ge1$.
+Every prime divisor of $S_p(q^b)$ is strictly greater than $q$.
+\end{lemma}
+\begin{proof}
+The sum is 1 modulo $p$. It is also 1 modulo $q$: if $p=q$ this is
+immediate, and otherwise Fermat's theorem gives
+$p^{q^b}\equiv p\pmod q$, with $p-1$ invertible modulo $q$.
+If a prime $r$ divides both the sum and $p-1$, reducing the sum modulo
+$r$ gives $r\mid q^b$, contradicting the preceding observation.
+For any other prime divisor $r$, the order of $p$ modulo $r$ is a
+nontrivial divisor of $q^b$. Hence $q\mid r-1$, and $r>q$.
+\end{proof}
+
+\begin{theorem}[Explicit elementary upper bound]\label{thm:elementary}
+Write $n=\prod_{i=1}^s q_i^{a_i}$ with $q_1<\cdots<q_s$, and let
+$\ell_i$ be the $i$-th prime. Define $U_0=1$ and, successively,
+\begin{equation}\label{eq:elementary-bound}
+ b_i=a_i+v_{q_i}(\sigma(U_{i-1})),\qquad
+ U_i=U_{i-1}\ell_i^{q_i^{b_i}-1}.
+\end{equation}
+Then $\den(\sigma(U_s)/\tau(U_s))=n$, so $a(n)\le U_s$.
+For $n=1$ use $U_0=1$.
+\end{theorem}
+\begin{proof}
+Since $\ell_i\le q_i$, the new base prime is not 1 modulo $q_i$ and
+has not been used before. Its divisor count is $q_i^{b_i}$, and by
+Lemma~\ref{lem:upward} its divisor sum has no prime factor at most $q_i$.
+It therefore leaves all smaller denominator valuations unchanged.
+The previous divisor count is supported on $q_1,\ldots,q_{i-1}$,
+so the new net $q_i$-valuation of the denominator is exactly
+$b_i-v_{q_i}(\sigma(U_{i-1}))=a_i$. Later factors do not change this
+valuation. The final divisor count has no primes outside those of $n$,
+which proves the assertion. This construction needs no theorem about
+primes in arithmetic progressions.
+\end{proof}
+
+\section{A divisor-preserving normal form}\label{sec:normal}
+For primes $q,p$ and $m\ge1$, define the signed local contribution
+\[
+ c_q(p,m)=v_q(m)-v_q(S_p(m)).
+\]
+For $K=\prod p_i^{m_i-1}$, the valuation of $q$ in its reduced
+denominator is $\max(0,\sum_i c_q(p_i,m_i))$.
+
+\begin{lemma}[Triangular dependence]\label{lem:triangular}
+For an odd prime $q$, the contributions are as follows, with
+$h=\operatorname{ord}_q(p)$ in the last two cases:
+\begin{equation}\label{eq:local-contributions}
+ c_q(p,m)=
+ \begin{cases}
+ v_q(m),&p=q,\\
+ 0,&p\equiv1\pmod q,\\
+ v_q(m),&p\not\equiv0,1\pmod q,\ h\nmid m,\\
+ -v_q(p^h-1),&p\not\equiv0,1\pmod q,\ h\mid m,
+ \end{cases}
+\end{equation}
+For $q=2$, $c_2(2,m)=v_2(m)$, while for odd $p$ the contribution is
+0 when $m$ is odd and $1-v_2(p+1)$ when $m$ is even.
+Deleting factors of primes smaller than $q$ from $m$ cannot decrease
+$c_q(p,m)$; deleting factors of primes greater than $q$ cannot change it.
+\end{lemma}
+\begin{proof}
+The cases $p=q$ and $h\nmid m$ have numerator valuation zero.
+For $p\equiv1\pmod q$, the odd-prime lifting identity gives
+$v_q(S_p(m))=v_q(m)$. If $h\mid m$ and $p\not\equiv0,1\pmod q$,
+lifting gives $v_q(S_p(m))=v_q(p^h-1)+v_q(m)$.
+The stated 2-adic identity follows from the usual even-exponent
+lifting formula, and an odd number of odd summands is odd.
+Finally $h\mid q-1$. Deleting a smaller prime can only change
+$h\mid m$ to $h\nmid m$, replacing a negative contribution by a
+nonnegative one. Deleting a larger prime changes neither this condition
+nor $v_q(m)$. The assertions for $q=2$ follow from parity.
+\end{proof}
+
+\begin{theorem}[Reduced-factor normal form]\label{thm:normal}
+If $\den(\sigma(K)/\tau(K))=n$, there is a divisor
+$K'=\prod p_i^{m_i-1}$ of $K$ with the same reduced denominator such that
+\begin{enumerate}
+\item every prime divisor of every $m_i$ divides $n$;
+\item $\gcd(m_i,S_{p_i}(m_i))=1$ for every $i$.
+\end{enumerate}
+Consequently the least value $a(n)$ itself has both properties.
+\end{theorem}
+\begin{proof}
+Allow $m_i=1$ to retain a base with exponent zero. Process the prime
+divisors of the original $\tau(K)=\prod m_i$ in increasing order,
+only replacing $m_i$ by divisors of themselves.
+
+At $q=2$, remove all 2-parts from the $m_i$ attached to odd bases.
+If $2\mid n$, retain exactly $v_2(n)$ powers of 2 in the $m_i$ for
+base 2; the original exponent has enough capacity, since every odd
+base contributes nonpositively at 2. If $2\nmid n$, remove its 2-part
+as well. All local means are now reduced at 2, and the denominator has
+the required 2-valuation. Larger denominator primes have not lost
+any signed contribution, by Lemma~\ref{lem:triangular}.
+
+For an odd prime $q$, classify the current factors using
+\eqref{eq:local-contributions}. Call the factors in the first or third
+case active. The fourth-case contributions are constants $-\alpha_i$,
+and the second-case contributions are zero. Remove the $q$-parts of
+$m_i$ from every inactive factor; this changes none of those signed
+contributions. If $q\nmid n$, also remove all active $q$-parts, leaving
+a nonpositive sum and hence denominator valuation zero.
+If $q\mid n$, put $a=v_q(n)$. Earlier steps have only increased the
+signed $q$-sum, so the active capacities satisfy
+\[
+ \sum_{i\ \mathrm{active}}v_q(m_i)\ \ge\ a+\sum_{i\ \mathrm{fourth}}\alpha_i.
+\]
+Retain any allocation of exactly the right-hand side among these
+capacities. The resulting signed sum is exactly $a$.
+Active numerator sums are coprime to $q$, and the other factors now
+have $q$-free $m_i$, so every local mean is reduced at $q$.
+Later steps leave this conclusion and the total $q$-contribution
+unchanged. Earlier denominator valuations also remain unchanged.
+
+At the end, the divisor count is supported on the primes of $n$, all
+local means are reduced, and the total reduced denominator is $n$.
+All exponent changes decreased $m_i$, so $K'\mid K$.
+Applying this to a least $K$ forces $K'=K$.
+\end{proof}
+
+\begin{corollary}\label{cor:square}
+The odd part of $a(n)$ is always a square. If $n$ is odd, $a(n)$ is
+itself a square. If $2^a\Vert n$ with $a\ge1$, then $2\mid a(n)$ and
+\[
+ v_2\bigl(v_2(a(n))+1\bigr)=a.
+\]
+\end{corollary}
+\begin{proof}
+An odd base with even $m_i$ violates local coprimality at 2. Thus every
+odd-base exponent $m_i-1$ is even. If $n$ is odd, all $m_i$ are odd by
+the support restriction. In the remaining case only base 2 can supply
+the required 2-valuation, and all other local contributions at 2 are zero.
+\end{proof}
+
+\section{The exact minimum for every index}\label{sec:all-minima}
+The following is a finite arithmetic formula using multiplicative orders,
+valuations, weak compositions, and a finite minimum. Its stages depend
+only on the factorization of $n$, not on previous sequence values. It is
+not asserted to be an elementary expression without finite minimization.
+
+For $n>1$, fix the explicit witness $U=U_s$ of
+\eqref{eq:elementary-bound} and set $L=\lfloor\log_2 U\rfloor$.
+Take each tuple of distinct primes
+\begin{equation}\label{eq:prime-tuples}
+ 2\le p_1<\cdots<p_t\le U,\qquad 1\le t\le L.
+\end{equation}
+Start with $m_1=\cdots=m_t=1$. For $q=q_1,\ldots,q_s$ in increasing
+order, write $a=v_q(n)$ and use the current $m_i$ to form
+\begin{align*}
+ G_q={}&\{i:p_i=q\}\ \cup
+ \{i:p_i\not\equiv0,1\pmod q,\ \operatorname{ord}_q(p_i)\nmid m_i\},\\
+ N_q={}&\{i:p_i\not\equiv0,1\pmod q,\ \operatorname{ord}_q(p_i)\mid m_i\},\\
+ B_q={}&a+\sum_{i\in N_q}v_q(p_i^{\operatorname{ord}_q(p_i)}-1).
+\end{align*}
+For $q=2$, these definitions simply give $G_2=\{i:p_i=2\}$,
+$N_2=\varnothing$, and $B_2=v_2(n)$.
+For every weak composition
+\begin{equation}\label{eq:allocations}
+ b_i\ge0\ (i\in G_q),\qquad \sum_{i\in G_q}b_i=B_q,
+\end{equation}
+make a branch with $m_i\leftarrow m_iq^{b_i}$ on $G_q$, leaving the
+other $m_i$ unchanged. If $G_q$ is empty, there is no branch.
+Let $\mathcal C(n)$ consist of all products $\prod p_i^{m_i-1}$ obtained
+after the last stage, over the tuples \eqref{eq:prime-tuples} and all
+the specified weak compositions. Exponents zero may be discarded.
+
+\begin{theorem}[All-index minimum formula]\label{thm:all-minimum}
+The set $\mathcal C(n)$ is finite and nonempty, every member has reduced
+divisor-mean denominator $n$, and
+\begin{equation}\label{eq:all-minimum}
+ \boxed{a(1)=1,\qquad a(n)=\min\mathcal C(n)\quad(n>1).}
+\end{equation}
+Any verified witness may replace $U$ in \eqref{eq:prime-tuples}.
+\end{theorem}
+\begin{proof}
+Before the $q$-stage, $m_i$ has only prime factors smaller than $q$.
+Adding $q$-powers changes the active contributions to $b_i$; the
+inactive contributions remain zero or the constants occurring in $B_q$.
+Equation~\eqref{eq:allocations} therefore makes the signed sum exactly
+$a$. At 2 only base 2 receives an even $m_i$, so the same conclusion
+holds. All local means remain reduced at the processed prime.
+Later stages have larger primes and cannot change any earlier signed
+contribution. Since the final divisor count is supported on the primes
+of $n$, every output has denominator exactly $n$.
+
+There are finitely many prime tuples, finitely many stages, and finitely
+many weak compositions at each stage. Thus the set is finite.
+By Theorem~\ref{thm:elementary}, a least value $K=a(n)\le U$ exists.
+Its number of distinct prime factors is at most $\lfloor\log_2 U\rfloor$,
+and each base prime is at most $U$. By Theorem~\ref{thm:normal}, its
+exponent-plus-one values have the required support and local coprimality.
+At every stage, local coprimality forces $b_i=0$ on inactive factors,
+while its denominator valuation forces exactly \eqref{eq:allocations}.
+Its factorization is consequently one of the branches in $\mathcal C(n)$.
+This proves nonemptiness, completeness for the least value, and the
+formula. Only $a(n)\le U$ was needed, giving the last assertion.
+\end{proof}
+
+\subsection{Exact evaluation without scanning successive integers}
+The implementation searches increasing tuples of base primes with
+$m_i$ supported on the primes of $n$ and checks local coprimality.
+For a partial product $V$, let $c_q$ be its current signed contribution
+and put
+\[
+ E=\sum_{q\mid n}\max(0,v_q(n)-c_q)(q-1).
+\]
+Any completion needs at least $E$ additional prime factors counted
+with multiplicity: for every positive $m$ supported on these primes,
+\[
+ m-1\ge\sum_{q\mid n}v_q(m)(q-1),
+\]
+by expanding the product of its prime factors, and additional numerator
+valuations can only increase the required divisor-count contributions.
+If the partial denominator is not already $n$, at least one additional
+factor is required, even if $E=0$. When the next base prime is $p$, the
+completion is therefore at least $Vp^{\max(1,E)}$. This supplies a
+rigorous stopping bound for each prime loop. Exponents obey
+$m_i\le1+\lfloor\log_{p_i}((U-1)/V)\rfloor$ when seeking an improvement
+to a known witness $U$. Every cutoff uses exact integer comparisons.
+
+For smaller starting bounds, the implementation may split a $q$-budget
+among several unused primes not congruent to 1 modulo $q$, using
+Lemma~\ref{lem:upward}. Such primes are elementary to obtain for odd
+$q$: if a finite list exhausted them, a prime divisor not congruent to 1
+modulo $q$ of $q$ times their product minus 1 would be missing from the
+list. The case $q=2$ uses only base 2. These choices affect speed, not
+the completeness theorem; every starting bound is independently checked.
+
+For example, $n=30$ and bases $(2,3,5)$ admit the successive budgets
+$B_2=1$, $B_3=2$, and $B_5=1$. Choosing allocations $(1,0,0)$,
+$(0,1,1)$, and $(1,0,0)$ in base order, with zeros on inactive bases,
+gives final $m=(10,3,3)$, hence
+\[
+ a(30)=2^9 3^2 5^2=115200.
+\]
+The exact evaluator excludes all smaller candidates using the proved
+normal form and bounds. In particular, the minimum cannot be obtained
+by requiring $\tau(K)=n$: here $\tau(K)=90$ and cross-factor cancellation
+is essential. Further examples are
+$a(40)=6480000$, $a(42)=1843200$, $a(45)=3600$, and $a(60)=4706440200$.
