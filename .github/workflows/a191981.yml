@@ -1,0 +1,26 @@
+name: Verify A191981
+on:
+  push:
+    paths:
+      - 'papers/A191981/**'
+      - '.github/workflows/a191981.yml'
+  pull_request:
+    paths:
+      - 'papers/A191981/**'
+      - '.github/workflows/a191981.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mathematical-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify integer arithmetic
+        run: python3 papers/A191981/verify.py
+      - name: Compile manuscript
+        uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: papers/A191981
+          root_file: main.tex
