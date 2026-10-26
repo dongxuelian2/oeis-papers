@@ -21,6 +21,7 @@ jobs:
         run: |
           python3 papers/A191981/verify.py
           python3 papers/A191981/verify_intersection.py
+          python3 papers/A191981/verify_duplicates.py
       - name: Compile manuscript
         uses: xu-cheng/latex-action@v4
         with:
