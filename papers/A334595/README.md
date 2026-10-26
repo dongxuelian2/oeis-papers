@@ -12,7 +12,7 @@ acknowledged; no priority for that standard transform is claimed.
 
 `main.tex` gives the full proof; final `main.pdf` has 2 page(s).
 Run `python3 papers/A334595/verify.py` from the repository root.
-`VERIFICATION.txt` records the exact checks actually run. The unchanged
+The official
 `b334595-published.txt` was downloaded from the official OEIS b-file
 on 2026-10-26 for independent comparison. `oeis.txt` is an update draft,
 not a submission to OEIS. Both LaTeX passes had no Warning, Overfull or

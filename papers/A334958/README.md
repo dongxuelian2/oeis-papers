@@ -10,4 +10,4 @@ The full elementary proof is in `main.tex` and `main.pdf`. `verify.py` uses only
 
 Run `python papers/A334958/verify.py` from the repository root. Large integer sizes and trial-division factorization can require substantial resources; no polynomial runtime in the bit length of the index is asserted. The proof establishes global scope independently of finite verification.
 
-Final PDF: 2 page(s), compiled twice without warnings; every page rendered and visually checked. Actual validation is recorded in `VERIFICATION.txt`.
+Final PDF: 2 page(s), compiled twice without warnings; every page rendered and visually checked.

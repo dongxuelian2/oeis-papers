@@ -47,8 +47,7 @@ def direct(length, base):
 
 
 def main():
-    path = (Path(__file__).resolve().parents[2] /
-            'research/parallel-20261026/greedy/b340138-published.txt')
+    path = Path(__file__).with_name('b340138-published.txt')
     official = []
     for line in path.read_text().splitlines():
         if line.strip() and not line.lstrip().startswith('#'):

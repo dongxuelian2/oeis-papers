@@ -30,5 +30,5 @@ full permutation assertion.
 Run `python3 verify.py`: all 10,000 published terms, an independent
 candidate scan in bases 2..16, and every root-propagation construction
 for those bases are checked. The saved source b-file is
-`../../research/parallel-20261026/greedy/b340138-published.txt`.
+`b340138-published.txt`.
 [oeis.txt](oeis.txt) is an update draft, not a submission.

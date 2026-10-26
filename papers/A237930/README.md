@@ -10,7 +10,7 @@ This does not claim that the six classes exhaust all excluded primes.
 
 `main.tex` gives the full proof; final `main.pdf` has 2 page(s).
 Run `python3 papers/A237930/verify.py` from the repository root.
-`VERIFICATION.txt` records the exact checks actually run. The unchanged
+The official
 `b237930-published.txt` was downloaded from the official OEIS b-file
 on 2026-10-26 for independent comparison. `oeis.txt` is an update draft,
 not a submission to OEIS. Both LaTeX passes had no Warning, Overfull or

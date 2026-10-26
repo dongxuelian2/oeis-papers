@@ -1,4 +1,4 @@
-name: Parallel OEIS proof batch
+name: OEIS twenty-paper proof batch
 
 on:
   pull_request:
@@ -23,7 +23,7 @@ on:
       - 'papers/A248520-A248521/**'
       - 'papers/A340138/**'
       - 'papers/A393833/**'
-      - 'research/parallel-20261026/**'
+      - 'papers/verify_batch_20261026.py'
       - '.github/workflows/parallel-oeis-batch-20261026.yml'
   push:
     branches: [main]
@@ -48,7 +48,7 @@ on:
       - 'papers/A248520-A248521/**'
       - 'papers/A340138/**'
       - 'papers/A393833/**'
-      - 'research/parallel-20261026/**'
+      - 'papers/verify_batch_20261026.py'
       - '.github/workflows/parallel-oeis-batch-20261026.yml'
   workflow_dispatch:
 
@@ -65,7 +65,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: All twenty problems' exact implementation audits
-        run: python3 research/parallel-20261026/verify_batch.py
+        run: python3 papers/verify_batch_20261026.py
   papers:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -76,4 +76,4 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends texlive-latex-recommended lmodern
       - name: Compile all twenty papers twice and reject warnings
-        run: python3 research/parallel-20261026/verify_batch.py --compile-papers
+        run: python3 papers/verify_batch_20261026.py --compile-papers

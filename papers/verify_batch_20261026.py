@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Run the complete parallel OEIS batch from any working directory."""
+"""Run the twenty-paper OEIS batch from any working directory."""
 import argparse
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 PAPERS = (
     'A048702', 'A079495', 'A084043', 'A085124', 'A195608',
     'A214972-A152009', 'A236383', 'A248520-A248521', 'A340138', 'A393833',
@@ -40,9 +40,6 @@ def main():
                 print(f'PASS {name}: two LaTeX passes, no layout/reference warnings', flush=True)
         else:
             subprocess.run([sys.executable, str(folder/'verify.py')], cwd=ROOT, check=True)
-    if not args.compile_papers:
-        subprocess.run([sys.executable, str(ROOT/'research/parallel-20261026/greedy/a085061_counterexamples.py')],
-                       cwd=ROOT, check=True)
     print(f'PASS complete {len(PAPERS)}-paper batch', flush=True)
 
 

@@ -10,7 +10,7 @@ positive integer congruent to 8 is attained.
 
 `main.tex` gives the full proof; final `main.pdf` has 1 page(s).
 Run `python3 papers/A136050/verify.py` from the repository root.
-`VERIFICATION.txt` records the exact checks actually run. The unchanged
+The official
 `b136050-published.txt` was downloaded from the official OEIS b-file
 on 2026-10-26 for independent comparison. `oeis.txt` is an update draft,
 not a submission to OEIS. Both LaTeX passes had no Warning, Overfull or

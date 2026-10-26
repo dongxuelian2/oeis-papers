@@ -37,8 +37,7 @@ def main():
     assert via_word == selected
     print("PASS independent binary substitution generates the same full set")
 
-    published_path = (Path(__file__).resolve().parents[2] /
-                      "research/parallel-20261026/greedy/b195608-published.txt")
+    published_path = Path(__file__).with_name("b195608-published.txt")
     published = []
     for line in published_path.read_text().splitlines():
         if line.strip() and not line.lstrip().startswith("#"):

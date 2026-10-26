@@ -22,7 +22,7 @@ Run `python3 verify.py` for an independent direct summatory-identity
 audit through one million indices, binary-substitution validation,
 all 10,000 terms of the saved published b-file, and all complete blocks
 and block starts in the audited interval. The external b-file is kept
-at `../../research/parallel-20261026/greedy/b195608-published.txt` with
+at `b195608-published.txt` with
 its source and retrieval date recorded in the screening ledger.
 
 This is an all-index characterization and proof of the entry's stated
