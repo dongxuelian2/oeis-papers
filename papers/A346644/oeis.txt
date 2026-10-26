@@ -39,6 +39,6 @@ a(40)=6480000, a(42)=1843200, a(45)=3600, a(60)=4706440200.
 a(81)=57600, from the partition (2,1,1) of 4, giving 2^8*3^2*5^2.
 
 LINKS:
-Qichao Wang and Daoyu Dong, <a href="https://github.com/dongxuelian2/oeis-papers/blob/codex/a346644-all-index-minima/papers/A346644/main.pdf">An All-Index Minimum Formula for the Denominator of the Mean of the Divisors</a>, 2026.
-<a href="https://github.com/dongxuelian2/oeis-papers/blob/codex/a346644-all-index-minima/papers/A346644/b346644.txt">Table of n, a(n) for n=1..200</a>.
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/ef02937142257b6ee0bb6a7fae2919cc298b3f9e/papers/A346644/main.pdf">An All-Index Minimum Formula for the Denominator of the Mean of the Divisors</a>, 2026.
+<a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/ef02937142257b6ee0bb6a7fae2919cc298b3f9e/papers/A346644/b346644.txt">Table of n, a(n) for n=1..200</a>.
 This draft has not been submitted to or accepted by OEIS.
