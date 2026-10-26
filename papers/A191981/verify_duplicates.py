@@ -2,7 +2,11 @@
 from bisect import bisect_right
 from collections import defaultdict
 
-from rank import lucas_up_to
+def lucas_up_to(n):
+    terms = [2, 1]
+    while len(terms) <= n:
+        terms.append(terms[-1]+terms[-2])
+    return terms
 from count_union import (
     COLLISIONS, positive_pair_count, count_A191982_positive,
     count_A191982, count_A191983, nth_A191982, nth_A191983,
