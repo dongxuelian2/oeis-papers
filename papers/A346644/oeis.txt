@@ -1,0 +1,21 @@
+Proposed COMMENTS for A346644:
+
+Every term exists. Write n=2^a*m with m odd, set u=2^a, A=2^u-1, h=m*A,
+and choose an odd prime p == -1 (mod n), which exists by Dirichlet's theorem.
+Then K=2^(u-1)*p^(h-1) has sigma(K)/tau(K) = (1+p+...+p^(h-1))/n,
+whose numerator is 1 modulo n. Its reduced denominator is n.
+
+Proposed FORMULA:
+
+a(1)=1. a(2^s)=2^(2^s-1) for s >= 0.
+For odd prime q, let ell_i(q) be the i-th prime not congruent to 1 modulo q.
+Then a(q^s)=min_{b_1>=...>=b_t>=1, sum(b_i)=s}
+Product_{i=1..t} ell_i(q)^(q^b_i-1), for s >= 1.
+In particular a(q)=2^(q-1) for every prime q.
+
+Proposed EXAMPLE:
+a(81)=57600, from the partition (2,1,1) of 4, giving 2^8*3^2*5^2.
+The five partition candidates for exponent 4 are compared in the paper.
+
+LINKS (PDF pinned to the verified manuscript commit):
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/65c8b996088719bb16bae3300c9e362e0f2c60c7/papers/A346644/main.pdf">Every Denominator Occurs in the Mean of the Divisors with Exact Minima at Prime-Power Indices</a>, 2026.

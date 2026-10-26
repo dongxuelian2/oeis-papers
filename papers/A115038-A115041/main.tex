@@ -1,0 +1,104 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\title{An Elementary Existence Correction and Finite Minimum Formula\\for OEIS A115038 and Its Companions}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\hypersetup{pdftitle={An Elementary Existence Correction for OEIS A115038},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+The existence conjecture recorded in A115038, A115039 and A115041 follows
+from the elementary identity $((p-1)/2)^2+p=((p+1)/2)^2$ for odd primes
+$p$, together with $5^2+2=3^3$. The least solution can be improved on
+the square witness only by an odd prime power. This gives a finite exact
+formula for every term and proves that all three companion sequences
+are defined. The three entries encode the same existence question.
+\end{abstract}
+
+\section{Existence and the unique square witness}
+For a prime $p$, let $X(p)$ be the least positive integer $x$ for which
+$x^2+p=y^k$ with $y\ge2$, $k\ge2$. OEIS A115038 lists $X(p_n)$;
+A115039 gives the largest exponent $k$ at that least $x$, and A115041
+gives the corresponding base $y$ \cite{oeis}. All three entries currently
+repeat the conjecture that a solution exists for every prime.
+
+\begin{theorem}\label{thm:exist}
+$X(2)=5$. For every odd prime $p$,
+\[
+ 1\le X(p)\le (p-1)/2.
+\]
+The only positive solution of $x^2+p=y^2$ is
+$x=(p-1)/2$, $y=(p+1)/2$.
+\end{theorem}
+\begin{proof}
+For odd $p$, expand
+\[
+ \left(\frac{p-1}{2}\right)^2+p=
+ \left(\frac{p+1}{2}\right)^2.
+\]
+Conversely $(y-x)(y+x)=p$ has the unique positive factor pair $(1,p)$,
+which gives the asserted solution. For $p=2$, the values at $x=1,2,3,4$
+are $3,6,11,18$, none a perfect power, while $5^2+2=27=3^3$.
+\end{proof}
+
+\newpage
+\section{A finite minimum formula}
+For an odd prime $p$, put $U=(p-1)/2$ and $B=(p+1)^2/4$.
+For every odd prime $r\le\lfloor\log_2(B-1)\rfloor$, consider the finite
+integer interval
+\begin{equation}\label{eq:y}
+ \left\lceil(p+1)^{1/r}\right\rceil
+ \le y\le\left\lfloor(B-1)^{1/r}\right\rfloor.
+\end{equation}
+Let $\mathcal C(p)$ consist of $U$ together with the positive integers
+$\sqrt{y^r-p}$ for pairs $(r,y)$ in these ranges for which $y^r-p$ is
+a perfect square. Integer roots are taken exactly.
+
+\begin{theorem}[Exact minimum]\label{thm:min}
+For every odd prime $p$,
+\begin{equation}\label{eq:min}
+ X(p)=\min\mathcal C(p).
+\end{equation}
+Together with $X(2)=5$, this determines every term of A115038 by finite
+root operations and finite minimization.
+\end{theorem}
+\begin{proof}
+Every member of $\mathcal C(p)$ is an eligible positive $x$. If an
+eligible $x$ is smaller than $U$, its value $V=x^2+p$ satisfies
+$p<V<B$. Write $V=z^k$ with $k\ge2$, and choose a prime divisor $r$ of
+$k$. If $r=2$ then $V$ is square, contradicting the uniqueness assertion
+of Theorem~\ref{thm:exist}. Hence $r$ is odd, and
+$V=(z^{k/r})^r$ gives a pair in \eqref{eq:y}. The lower bound follows
+from $V\ge p+1$, the upper bound from $V\le B-1$, and $z^{k/r}\ge2$
+implies $r\le\log_2(B-1)$. Thus every possible improvement appears.
+\end{proof}
+
+For the companion sequences set $V=X(p)^2+p$ and define
+\[
+ E(p)=\max\{k\in\{2,\ldots,\lfloor\log_2V\rfloor\}:
+                \lfloor V^{1/k}\rfloor^k=V\},\qquad
+ Y(p)=\lfloor V^{1/E(p)}\rfloor.
+\]
+These sets are finite and nonempty. Thus A115039$(n)=E(p_n)$ and
+A115041$(n)=Y(p_n)$ exist at every positive index. Equivalently, $E(p)$
+is the gcd of the exponents in the prime factorization of $V$.
+For example $p=31$ gives $X(p)=1$, $V=32$, $E(p)=5$, $Y(p)=2$.
+
+The existence identity is a standard difference-of-squares observation;
+this note supplies a direct correction to the recorded conjecture and a
+finite least-value reduction. The supplied verifier compares the formula
+with an independent scan in $x$, using factorization to recognize perfect
+powers and their maximal exponents.
+
+\begin{thebibliography}{9}
+\bibitem{oeis} C. Hilliard, OEIS A115038, A115039 and A115041,
+\url{https://oeis.org/A115038}, \url{https://oeis.org/A115039},
+\url{https://oeis.org/A115041}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,17 @@
+Proposed COMMENTS for A087304:
+
+No term is zero. In fact, for every n there are infinitely many eligible
+multiples. Write n=2^a*5^b*m with gcd(m,10)=1, put s=max(a,b), and choose
+1 <= t <= m such that R_t=(10^t-1)/9 is divisible by m. Then
+(n*10^(j*t)+R_(j*t))*10^s is an eligible multiple for every j >= 1.
+This extends the standard coprime repunit construction recorded in A340204.
+
+The exact minimum is given by the finite digit recurrence in Wang and Dong
+(2026), Theorem 2. If P is the product of the nonzero digits of n and d is its
+digit length, the formula needs at most B=n*tau(P)*(d+2) digit steps. States
+record remainder mod n, the unused divisor of P, and the mismatch state for
+the forbidden regular language digits(n)0*. On an edge labeled a, update
+D_(l+1)(v)=min(10*D_l(u)+a); minimize over accepting states and 1 <= l <= B.
+
+LINKS (PDF pinned to the verified manuscript commit):
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/65c8b996088719bb16bae3300c9e362e0f2c60c7/papers/A087304/main.pdf">Nontrivial Multiples Preserving the Nonzero Digit Product and an Exact Finite Formula for OEIS A087304</a>, 2026.

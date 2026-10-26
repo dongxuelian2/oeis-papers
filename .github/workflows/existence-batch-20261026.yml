@@ -1,0 +1,70 @@
+name: OEIS existence and minimum proofs
+
+on:
+  pull_request:
+    paths:
+      - 'papers/A088862-A090335/**'
+      - 'papers/A087304/**'
+      - 'papers/A086558/**'
+      - 'papers/A346644/**'
+      - 'papers/A115038-A115041/**'
+      - '.github/workflows/existence-batch-20261026.yml'
+  push:
+    branches: [main, proof/oeis-existence-batch-20261026]
+    paths:
+      - 'papers/A088862-A090335/**'
+      - 'papers/A087304/**'
+      - 'papers/A086558/**'
+      - 'papers/A346644/**'
+      - 'papers/A115038-A115041/**'
+      - '.github/workflows/existence-batch-20261026.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prefix-free divisors
+        run: python3 papers/A088862-A090335/verify.py
+      - name: Nonzero digit product and exact digit recurrence
+        run: python3 papers/A087304/verify.py
+      - name: Decimal prefixes, signatures and minima
+        run: python3 papers/A086558/verify.py
+      - name: Denominator construction and partition minima
+        run: python3 papers/A346644/verify.py
+      - name: Perfect-power minimum and companions
+        run: python3 papers/A115038-A115041/verify.py
+
+  papers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-recommended lmodern
+      - name: Compile all five papers and reject layout or reference warnings
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          names = ['A088862-A090335', 'A087304', 'A086558', 'A346644', 'A115038-A115041']
+          for name in names:
+              folder = Path('papers') / name
+              for _ in range(2):
+                  subprocess.run(['pdflatex', '-interaction=nonstopmode', '-halt-on-error', 'main.tex'], cwd=folder, check=True, stdout=subprocess.DEVNULL)
+              log = (folder / 'main.log').read_text()
+              issues = [line for line in log.splitlines() if any(token in line for token in ('Warning', 'Overfull', 'Underfull', 'undefined'))]
+              if issues:
+                  raise SystemExit(f'{name}: {issues}')
+              print(f'{name}: compiled without warnings')
+          PY

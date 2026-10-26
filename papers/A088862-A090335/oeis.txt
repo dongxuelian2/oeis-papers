@@ -1,0 +1,17 @@
+Proposed COMMENTS for both A088862 and A090335:
+
+The existence conjecture holds. More generally, in every integer base b >= 2,
+every prescribed prime signature has infinitely many representatives whose
+divisors greater than 1 form a prefix code. If the exponents sum to r >= 1,
+one representative is less than b^(r^3+32*r). Choose the prime factors in
+(b^(k-1/r), b^(k-1/(r+1))) with k >= r^2+32; the proof and the explicit
+prime-interval estimate are given by Wang and Dong (2026).
+
+Indexing correction for editorial review:
+Both displayed lists and the synthesized b-files start with 1, corresponding
+to zero prime factors. Their names, formulas, and worked examples use the
+factor count as the index. Change OFFSET from 1,2 to 0,2 to align them.
+The theorem proves existence for every factor count independently of this edit.
+
+LINKS (PDF pinned to the verified manuscript commit):
+Qichao Wang and Daoyu Dong, <a href="https://raw.githubusercontent.com/dongxuelian2/oeis-papers/65c8b996088719bb16bae3300c9e362e0f2c60c7/papers/A088862-A090335/main.pdf">Prefix-Free Divisor Representations with Prescribed Prime Factorization</a>, 2026.

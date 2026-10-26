@@ -1,0 +1,21 @@
+OEIS existence and minimum batch - verification record
+Date: 2026-10-26
+Base commit: 55c1090a42f08b71ef7a2d6397db16d3aecc389e
+Runtime: 3.12.14
+
+Arithmetic verification:
+A088862-A090335: PASS: 600 constructions in bases 2..16; 36240 divisor words; 28 published entries; all integers below 5000 audited for initial minima.
+A087304: PASS: 9000 constructive witnesses in bases 2..16; 45 published minima checked by direct enumeration; DFA minima n=1..300; 100 decimal-shift identities.
+A086558: PASS: 15 finite witnesses with exhaustive prime trial division; 15992 integer-root controls; large-index inequalities n=17..10000; 12 published minima, 4 prime-power reductions, and 6 direct scans.
+A346644: PASS: 500 denominator constructions (410 expanded); 39 published entries; 25 published minima and 15 prime-power minima checked below 100000; a(81)=57600.
+A115038-A115041: PASS: exact minima and both companions at the first 200 primes; 60 published entries; maximal exponents checked by two methods.
+
+PDF verification:
+All five papers compiled twice without warnings, undefined references, overfull or underfull boxes.
+All 10 final rendered pages visually inspected. PDF structural/text extraction checks passed.
+
+papers/A088862-A090335/main.pdf: 346757 bytes; 2 pages; SHA256 8d66a65db2a654f70c2e56e548fd8158878d6bcca4e3e232f04c46727c3ce655
+papers/A087304/main.pdf: 309871 bytes; 2 pages; SHA256 ced7fcc111d1e8a49594f49a172a8ec397a5318da94644f7faf9b35016dbd53e
+papers/A086558/main.pdf: 285298 bytes; 2 pages; SHA256 5e2d9c02a3b9553a7d21225a283a595438f057e3b3dfb51af0cb7da1363be253
+papers/A346644/main.pdf: 349998 bytes; 2 pages; SHA256 253056c07fcb883af2d8530c0448634e7192d6944a256be4105a5979b0cb6857
+papers/A115038-A115041/main.pdf: 309134 bytes; 2 pages; SHA256 4ab7b5e70d4af70a0314335bb7ab86813e47c95a2be409651d01fcf567e7e95b

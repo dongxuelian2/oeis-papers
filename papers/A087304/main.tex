@@ -1,0 +1,156 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\Pz}{P^{\!*}}
+\title{Nontrivial Multiples Preserving the Nonzero Digit Product\\and an Exact Finite Formula for OEIS A087304}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 26, 2026}
+\hypersetup{pdftitle={Nontrivial Multiples Preserving the Nonzero Digit Product},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+Every positive integer has infinitely many multiples, other than shifts
+of its own digit string by trailing zeros, with the same product of
+nonzero digits. A repunit construction proves the nonvanishing conjecture
+recorded in OEIS A087304, in every integer base. For the decimal sequence
+we give an exact finite digit recurrence for its minimum. Its bound
+$n\tau(P)(d+2)$ depends only on the index $n$, its nonzero digit product
+$P$, and its digit length $d$.
+\end{abstract}
+
+\section{A constructive existence proof}
+Let $\Pz_b(n)$ be the product of the nonzero base-$b$ digits of $n$.
+The empty product is $1$. OEIS A087304 \cite{oeis} asks for the smallest
+multiple $M$ of $n$ satisfying
+\[
+ \Pz_{10}(M)=\Pz_{10}(n),\qquad
+ M\notin\{n10^j:j\ge0\}.
+\]
+Its entry records the conjecture that this minimum is always positive.
+The related A340204 \cite{related}, which includes zeros in its digit
+product, already records the usual repunit construction for numbers
+coprime to $10$. We use that elementary idea after separating the
+base-supported part of the modulus.
+
+\begin{lemma}\label{lem:repunit}
+If $\gcd(m,b)=1$, there is a $t\in\{1,\ldots,m\}$ such that
+$m\mid R_{b,t}$, where $R_{b,t}=1+b+\cdots+b^{t-1}$.
+\end{lemma}
+\begin{proof}
+Consider the $m$ residues of $R_{b,1},\ldots,R_{b,m}$. If none is zero,
+two coincide. Their difference is $b^jR_{b,t}$ for some $1\le t<m$,
+and $b$ is invertible modulo $m$. This also includes $m=1$.
+\end{proof}
+
+\begin{theorem}\label{thm:exist}
+Fix $b\ge2$ and $n\ge1$. Factor $n=qm$ with $\gcd(m,b)=1$ and every
+prime divisor of $q$ dividing $b$. Choose $s\ge0$ with $q\mid b^s$,
+and choose $t\le m$ as in Lemma~\ref{lem:repunit}. Then, for every $j\ge1$,
+\begin{equation}\label{eq:witness}
+ M_j=(nb^{jt}+R_{b,jt})b^s
+\end{equation}
+is divisible by $n$, preserves $\Pz_b(n)$, and is not $nb^h$ for any
+$h\ge0$. These witnesses are unbounded. In particular, A087304 has no
+zero terms, and a witness has at most $d_b(n)+s+m$ digits.
+\end{theorem}
+\begin{proof}
+The identity
+$R_{b,jt}=R_{b,t}(1+b^t+\cdots+b^{(j-1)t})$ shows that
+$m\mid R_{b,jt}$. Hence $n\mid b^sR_{b,jt}$ and $n\mid M_j$.
+The representation of $M_j$ is precisely the digits of $n$, followed
+by $jt$ ones and $s$ zeros, so its nonzero digit product is unchanged.
+Finally,
+\[
+ b^{jt+s}<M_j/n=b^s(b^{jt}+R_{b,jt}/n)<b^{jt+s+1},
+\]
+using $0<R_{b,jt}<b^{jt}$ and $2\le b$. No integral power of $b$ lies
+strictly between these consecutive powers. Taking $j=1$ gives the
+digit bound, and letting $j$ increase gives infinitely many witnesses.
+\end{proof}
+
+\section{An exact finite formula for the least multiple}
+We now work in base ten. Put $P=\Pz_{10}(n)$ and $d=d_{10}(n)$, and write
+the digits of $n$ as $c_1\cdots c_d$. Let $\mathcal D(P)$ be the positive
+divisors of $P$, and put
+\[
+ \mathcal S=\{0,\ldots,n-1\}\times\mathcal D(P)\times\{0,\ldots,d+1\},
+ \qquad B=|\mathcal S|=n\tau(P)(d+2).
+\]
+A state $(r,q,h)$ records the current remainder, the unused factor of
+the target product, and a state recognizing the forbidden words
+$c_1\cdots c_d0^*$. Here $h<d$ means that exactly $h$ initial digits
+have matched, $h=d$ means a complete match followed only by zeros,
+and $h=d+1$ means a permanent mismatch. Define
+\[
+ H(h,a)=
+ \begin{cases}
+ h+1,&h<d\text{ and }a=c_{h+1},\\
+ d+1,&h<d\text{ and }a\ne c_{h+1},\\
+ d,&h=d\text{ and }a=0,\\
+ d+1,&\text{otherwise}.
+ \end{cases}
+\]
+For $a\in\{0,\ldots,9\}$ let $w(a)=\max(1,a)$. A digit is admissible
+when $w(a)\mid q$, and the transition is
+\begin{equation}\label{eq:transition}
+ T_a(r,q,h)=((10r+a)\bmod n,\ q/w(a),\ H(h,a)).
+\end{equation}
+Introduce a separate initial state $*$, with transitions corresponding
+to the admissible digits $1,\ldots,9$ applied to $(0,P,0)$. Thus leading
+zeros and the empty word are excluded. The accepting states are
+\[
+ \mathcal F=\{(0,1,h):h\ne d\}.
+\]
+Define $D_0(*)=0$, all other $D_0=+\infty$, and for every state $v$ set
+\begin{equation}\label{eq:dp}
+ D_{\ell+1}(v)=\min_{u\xrightarrow{\ a\ }v}
+       \bigl(10D_\ell(u)+a\bigr),\qquad \min\varnothing=+\infty.
+\end{equation}
+
+\begin{theorem}[All-index minimum formula]\label{thm:min}
+With the explicit states and transitions above,
+\begin{equation}\label{eq:minimum}
+ \mathrm{A087304}(n)=\min_{1\le\ell\le B}\ \min_{v\in\mathcal F}D_\ell(v).
+\end{equation}
+In particular its least witness has at most $B$ decimal digits.
+\end{theorem}
+\begin{proof}
+Induction on the word length proves the interpretations of $r,q,h$.
+Consequently the accepted words are exactly the eligible multiples of
+$n$. Their positivity and divisibility exclude values below $n$, and
+the forbidden-word state excludes $n$ and all its decimal shifts.
+Theorem~\ref{thm:exist} ensures at least one accepted word exists.
+
+On a shortest accepting path, no state can repeat: removing the segment
+between two occurrences leaves an accepting path. If the repetition is
+after the initial state, its first nonzero digit is retained; the separate
+initial state has no incoming edges. There are $B+1$ states including
+$*$, so such a path has at most $B$ edges. A positive decimal integer
+with fewer digits is smaller than one with more digits. For each fixed
+length, \eqref{eq:dp} gives the smallest label reaching each state:
+appending the same digit preserves the ordering of prefix values.
+Thus \eqref{eq:minimum} gives the global least eligible integer.
+\end{proof}
+
+Formula~\eqref{eq:minimum} is a finite minimum with a fixed number of digit
+recurrence steps; it does not require scanning successive multiples.
+The accompanying program evaluates it by breadth-first search with
+digits ordered increasingly. State merging preserves the shortest,
+lexicographically first prefix. Independent direct enumeration verifies
+the initial published minima. The already recorded identity
+$a(10n)=10a(n)$, credited to Chai Wah Wu (2017) in \cite{oeis}, also follows
+by deleting or appending one trailing zero in an eligible multiple.
+
+\begin{thebibliography}{9}
+\bibitem{oeis} A. Murthy, OEIS A087304,
+\url{https://oeis.org/A087304}, accessed October 26, 2026.
+\bibitem{related} B. Schott, OEIS A340204,
+\url{https://oeis.org/A340204}, accessed October 26, 2026.
+\end{thebibliography}
+\end{document}
