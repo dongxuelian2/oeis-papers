@@ -1,7 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,amsmath,amssymb,amsthm,microtype,booktabs}
-\usepackage[margin=0.82in]{geometry}
+\usepackage[margin=0.78in]{geometry}
 \usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
@@ -10,19 +10,20 @@
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\vthree}{v_3}
 \newcommand{\Stir}[2]{\left\{\begin{smallmatrix}#1\\#2\end{smallmatrix}\right\}}
-\title{Powerful Values and 3-Adic Obstructions\\in Cyclic Decimal Concatenations}
+\title{Powerful Values and Local Obstructions\\in Cyclic Decimal Concatenations}
 \author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
 Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
-\date{October 26, 2026}
-\hypersetup{pdftitle={Powerful Values and 3-Adic Obstructions in Cyclic Decimal Concatenations},pdfauthor={Qichao Wang and Daoyu Dong}}
+\date{October 27, 2026}
+\hypersetup{pdftitle={Powerful Values and Local Obstructions in Cyclic Decimal Concatenations},pdfauthor={Qichao Wang and Daoyu Dong}}
 \begin{document}
 \maketitle
 \begin{abstract}
 We prove a quantitative density-zero bound for powerful values among cyclic
 concatenations of initial positive integers, uniformly in the rotation and
 in every fixed integer base. At the decimal boundaries $m=10^d-1$, we determine
-the exact 3-adic valuation and the normalized residue modulo 9 of every
-rotation. These formulas exclude further infinite families of perfect powers.
+exact valuations and unit obstructions at the primes 3, 37, and 333667.
+The resulting congruences exclude every rotation for a set of digit lengths
+of lower density at least $0.85919$.
 \end{abstract}
 
 \section{Statements}
@@ -35,7 +36,8 @@ $k$ whole integer blocks to the end gives
 In base ten these numbers, in increasing order, form OEIS A001292
 \cite{oeis}. Kashihara conjectured that none except 1 is a perfect power.
 Rip\`a \cite{ripa} excludes $m\equiv2,3,5,6\pmod9$ by a digit-sum argument.
-The full conjecture remains open. Here we prove two further restrictions.
+The full conjecture remains open. We give a uniform sparsity bound and
+local obstructions for complete digit boundaries.
 
 Recall that a positive integer is \emph{powerful} if every prime divisor
 has exponent at least two. Every nontrivial perfect power is powerful.
@@ -81,6 +83,49 @@ A cube requires $3\mid v$, hence $h\ge1$ and $3\mid d$.
 Its normalized unit must be $\pm1\pmod9$, so $2u\equiv\pm1\pmod9$,
 or $u\equiv4,5\pmod9$. The table excludes every available prime exponent.
 \end{proof}
+
+For the additional boundary primes, put
+\[
+ (p,s)\in\{(37,3),(333667,9)\},\qquad
+ C_s=\frac{9(11-10s)}{200}\pmod p.
+\]
+Define
+\[
+ A_0=0,\qquad
+ A_r=-9\sum_{j=1}^r\frac{10^{j-1}}{10^j-1}\pmod p\quad(0<r<s).
+\]
+All denominators here are units modulo $p$; $C_3=33$ and $C_9=221885$.
+
+\begin{theorem}[Two additional local obstructions]\label{thm:other-primes}
+For every $d\ge1$, write $d=sn+r$, $0\le r<s$. Then
+\begin{equation}\label{eq:affine-boundary}
+ V_d:=W_{10^d-1}\equiv C_sn+A_r\pmod p,\qquad
+ R_{10^d-1,k}\equiv10^{D(k)}V_d\pmod p.
+\end{equation}
+If $s\mid d$, put $a=v_p(d)$ and $t=d/(sp^a)$. Every rotation has
+\begin{equation}\label{eq:other-valuations}
+ v_p(R_{10^d-1,k})=a,\qquad
+ \frac{R_{10^d-1,k}}{p^a}
+   \equiv10^{D(k)}C_st\pmod p.
+\end{equation}
+Consequently, if such a rotation is an $\ell$th power for a prime $\ell$,
+then $\ell\mid a$. If also $\ell\mid(p-1)/s$, the unit $C_st$ must be
+an $\ell$th power modulo $p$.
+\end{theorem}
+
+In particular, all rotations are excluded whenever $d=111t$ with $37\nmid t$,
+or $d=3003003t$ with $333667\nmid t$: their valuations at the respective
+prime are one. Combining known valuations also excludes any $3\mid d$ with
+$\gcd(v_3(d)+2,v_{37}(d))=1$.
+
+\begin{corollary}[Density of excluded complete boundaries]\label{cor:density-boundary}
+The set of positive integers $d$ for which every rotation at $m=10^d-1$
+is not a nontrivial perfect power has lower natural density at least
+\[
+ \frac{286397396}{333333333}=0.8591921888\ldots.
+\]
+For example, all rotations are excluded at $d=2,12,15,18$.
+\end{corollary}
 
 \section{Exact 3-adic values at complete boundaries}
 Write $V_d=W_{10^d-1}$ and $S(d)=D(10^d-1)$. We will prove the stronger
@@ -205,6 +250,122 @@ Combining this with \eqref{eq:ratio} proves both assertions in
 \eqref{eq:boundary}.
 \end{proof}
 
+\section{The primes 37 and 333667}
+The proof first computes complete digit blocks modulo $p$, then averages
+their analytic interpolation to retain the exact valuation when $s\mid d$.
+For both pairs in Theorem~\ref{thm:other-primes},
+\[
+ \operatorname{ord}_p(10)=s\mid9,\qquad v_p(10^s-1)=1,
+ \qquad S(j):=D(10^j-1)\in9\Z.
+\]
+Let $U_j$ concatenate the $j$-digit integers, and put
+$B=10^j$, $b=B-1$, $a=B/10$, $q=9a$. Its length $jq$ is divisible by $s$.
+If $s\nmid j$, the block formula used in \eqref{eq:U} gives
+$U_j\equiv-9a/b\pmod p$. If $s\mid j$, its multiplier $B$ is one modulo $p$,
+so summing the appended integers gives $U_j\equiv9/200\pmod p$.
+Thus $U_j\pmod p$ has period $s$. Pairing each nonidentity $s$th root
+$z=10^j$ with $z^{-1}$ yields
+\[
+ \sum_{j=1}^{s-1}\frac{10^j}{10^j-1}=\frac{s-1}{2},\qquad
+ \sum_{j=1}^s U_j\equiv-\frac{9(s-1)}{20}+\frac9{200}=C_s\pmod p.
+\]
+All block multipliers are one modulo $p$, proving
+\eqref{eq:affine-boundary}, including its rotation assertion.
+
+To lift this calculation, set $Q=10^s$, $L=\log Q\in p\Z_p$.
+For $r=1,\ldots,s$ and a variable $X\in\Z_p$, put
+\[
+ j=sX+r,\quad B=10^r e^{LX},\quad a=B/10,\quad q=9a,\quad b=B-1,
+ \quad S_r=\frac{(9j-1)B+1}{9}.
+\]
+Define
+\[
+ U_r(X)=\frac{(ab+1)e^{L(X+r/s)q}-(Bb+1)}{b^2},\qquad
+ f(X)=\sum_{r=1}^s U_r(X)e^{-LS_r/s}.
+\]
+At nonnegative integral $X$, these are the actual blocks and normalized
+blocks: $q$ and $S(j)$ are divisible by $s$, which justifies the exponential
+expressions. For $r=s$, remove the apparent singularity by the convergent series
+\begin{equation}\label{eq:other-series}
+ U_s(X)=aq+(ab+1)\sum_{t\ge0}\binom q{t+2}b^t.
+\end{equation}
+Here $b\in p\Z_p$ throughout $\Z_p$.
+
+Write $f(X)=\sum_{n\ge0}c_nX^n$. We claim
+\begin{equation}\label{eq:other-coefficients}
+ v_p(c_n)\ge n-v_p(n!)-\left\lfloor\frac{n+1}{p-1}\right\rfloor
+ \ge\left\lceil\frac{p-3}{p-1}n\right\rceil\quad(n\ge1).
+\end{equation}
+Indeed, every $n$th derivative of a polynomial in $e^{LX}$ is divisible by
+$p^n$. The exponents $L(X+r/s)q$ and $-LS_r/s$ have the same derivative
+property for $n\ge1$; differentiating their exponentials preserves it.
+When $r<s$, $b$ is a unit and its inverse also has this property.
+In the $t$th summand of \eqref{eq:other-series}, differentiating $b^t$
+gives at least $p^{\max(t,n)}$ after combining with the other factors:
+an undifferentiated factor $b$ contributes $p$, and a factor differentiated
+$i\ge1$ times contributes $p^i$. The binomial coefficient loses at most
+$v_p((t+2)!)\le\lfloor(t+1)/(p-1)\rfloor$. Thus the $n$th derivative of the
+whole sum has valuation at least
+$n-\lfloor(n+1)/(p-1)\rfloor$; this follows for $t\le n$ directly and
+for $t>n$ because $t-\lfloor(t+1)/(p-1)\rfloor$ is nondecreasing.
+The tails converge with all derivatives. Multiplication by $e^{-LS_r/s}$
+preserves this bound, and division by $n!$ proves the first inequality.
+The second uses $v_p(n!)\le(n-1)/(p-1)$ and integrality of valuations.
+
+The Stirling-number argument for \eqref{eq:average}, with $p$ in place of 3,
+also gives
+\[
+ v_p\!\left(\frac1N\sum_{i=0}^{N-1}i^n\right)
+ \ge-\lfloor\log_p(n+1)\rfloor.
+\]
+For $p\ge7$ and $n\ge1$, the final bound in
+\eqref{eq:other-coefficients} is at least
+$1+\lfloor\log_p(n+1)\rfloor$. Hence termwise averaging gives, for every $N\ge1$,
+\[
+ \frac1N\sum_{i=0}^{N-1}f(i)\equiv c_0\equiv C_s\pmod p.
+\]
+The concatenation identity
+$V_{sN}=10^{S(sN)}\sum_{i=0}^{N-1}f(i)$ and $C_s\ne0\pmod p$
+show $v_p(V_{sN})=v_p(N)$ and give its normalized unit in
+\eqref{eq:other-valuations}.
+For $s\mid d$, the identity
+\[
+ S(d)=d10^d-\frac{10^d-1}{9}
+\]
+and lifting the exponent give $v_p(S(d))=v_p(d)=a$, followed by
+$v_p(10^{S(d)}-1)=a+1$. Applying \eqref{eq:rotation} transfers the valuation
+and unit to every rotation. Since $10$ has order $s$, it is an $\ell$th
+power modulo $p$ whenever $\ell\mid(p-1)/s$. This proves all of
+Theorem~\ref{thm:other-primes}.
+
+\begin{proof}[Proof of Corollary~\ref{cor:density-boundary}]
+The 3-adic restrictions leave only
+\[
+ d\equiv2\pmod3,\qquad d\equiv12,15\pmod{27},\qquad
+ d\equiv18\pmod{27},\qquad 27\mid d.
+\]
+In the first and third sets, a perfect power must be a square; in the second,
+a cube. In each fixed class modulo 27, the affine formula
+\eqref{eq:affine-boundary} makes $V_d$ run uniformly modulo each $p$ as
+$d$ varies modulo $27p$. The two residues are independent by the Chinese
+remainder theorem, since $C_s\ne0$ and $s\mid9$.
+The proportions of residues that are zero or squares, or zero or cubes,
+at both primes are respectively
+\[
+ \alpha=\frac{19}{37}\frac{166834}{333667}
+       =\frac{3169846}{12345679},\qquad
+ \beta=\frac{13}{37}\frac{111223}{333667}
+       =\frac{1445899}{12345679}.
+\]
+Multiplication by $10^{D(k)}$ preserves both power classes.
+Bounding the last set trivially, the upper density of the remaining $d$
+is at most $\alpha(1/3+1/27)+2\beta/27+1/27$.
+Subtracting from one proves the stated bound.
+For the examples, $V_2\equiv242665\pmod{333667}$ is a nonsquare,
+$V_{12},V_{15}\equiv21,17\pmod{37}$ are noncubes, and
+$V_{18}\equiv13\pmod{37}$ is a nonsquare.
+\end{proof}
+
 \section{A uniform sieve for powerful values}\label{sec:sieve}
 We now prove Theorem~\ref{thm:sparsity}. In a fixed $d$-digit interval set
 \[
@@ -322,7 +483,7 @@ and taking $X\asymp\sqrt N$ proves the sequence-index assertion.
 
 \begin{thebibliography}{9}
 \bibitem{oeis} OEIS Foundation, Sequence A001292,
-\url{https://oeis.org/A001292}, accessed October 26, 2026.
+\url{https://oeis.org/A001292}, accessed October 27, 2026.
 \bibitem{ripa} M. Rip\`a, \emph{On some open problems concerning perfect powers},
 arXiv:2205.10163, version 4 (2024), \url{https://arxiv.org/abs/2205.10163}.
 \bibitem{mertens} F. Mertens, Ein Beitrag zur analytischen Zahlentheorie,

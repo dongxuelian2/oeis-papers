@@ -1,4 +1,4 @@
-A001292 exact verification — 2026-10-26
+A001292 exact verification — 2026-10-27
 
 verify_a001292.py: exit 0
 PASS: mod-27 and length formulas for 100000 values 3704 33
@@ -24,8 +24,25 @@ PASS: exact boundary valuation and normalized unit for d=1..60000; independent m
 PASS: literal rolling prefixes through m=999999; 1141 actual rotation residues at complete boundaries
 PASS: complete square/cube exclusion table; 72 valuation/unit classes
 
+verify_local_primes.py --extended: exit 0
+PASS: primality and exact orders for 37 and 333667; complete-block constants
+33 and 221885; exhaustive square/cube residue image counts at both primes.
+PASS: exact CRT density lower bound 286397396/333333333 = 0.8591921888591922.
+PASS: p=37, direct complete blocks d=1..200000; 1801 positive valuation cases.
+PASS: p=333667, direct complete blocks d=1..3003003; one positive valuation case.
+Both direct runs check all affine residues; independent matrix blocks d=1..60.
+PASS: 8 matrix group samples, finite differences, 4 full matrix words,
+and 30 Newton sums through valuation 5, at each prime. The huge Newton-sum
+cases use the proved coefficient bound; the direct block runs do not.
+PASS: 20000 coefficient/averaging bounds.
+PASS: literal prefixes through m=999999; 1141 actual rotation residues.
+PASS: 22 independent matrix rotation checks at d=111,444, including cuts
+just before the final integer; exact positive valuations and normalized units.
+
 search_gmp.py 1000: exit 0
 PASS independent all-exponent predicate audit on 2..10000
+All 500499 nontrivial rotations covered, no perfect powers:
+242247 GMP all-exponent predicates, 221556 mod-9 and 36696 mod-27 exclusions.
 
 Earlier full run: python search_gmp.py 5000
 12,502,499 nontrivial rotations covered; no perfect powers.
@@ -33,7 +50,7 @@ Earlier full run: python search_gmp.py 5000
 479,586 mod-27 exclusions. Search time: 423.859 seconds.
 The unchanged search source hash and GMP version are in SEARCH_5000.json.
 
-Manuscript: main.tex -> main.pdf, two successful pdflatex passes.
-Four complete pages inspected as rendered JPEGs; no LaTeX warnings.
+Manuscript: main.tex -> main.pdf, final source compiled twice successfully.
+Six complete pages inspected as rendered PNGs; no LaTeX warnings.
 PDF/source hashes and page count checked against publication.json.
 All local documentation links checked.
