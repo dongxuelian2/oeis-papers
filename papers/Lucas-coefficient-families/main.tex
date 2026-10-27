@@ -13,7 +13,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove a broader quotient criterion involving Lucas and Fibonacci divisibility. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two.
+We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove a broader quotient criterion involving Lucas and Fibonacci divisibility. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and an effective algebraic-norm estimate also yield a finite upper bound on every positive collision, deciding complete uniqueness for each fixed integer coefficient at least two.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -380,6 +380,163 @@ q|\beta^e-1|=|\beta|^s|\beta^h-1|
 \]
 But $q|\beta^e-1|\ge2(1-\alpha^{-2})
 =2/\alpha>\alpha^{-1}$, a contradiction.
+\end{proof}
+
+
+\section*{Finite global collisions for every coefficient $q\ge2$}
+A finite threshold is sufficient to compute any term. The stronger
+statement below provides a bound independent of the value.
+\begin{theorem}[Uniform complete collision certificate]
+\label{thm:global}
+Fix an integer $q\ge2$. Let $t=t(q)$ be the least
+positive index such that
+\begin{equation}\label{eq:t-bound}
+L_t>200(q+1)^4.
+\end{equation}
+If two distinct positive representations satisfy
+\[
+L_i-qL_j=L_k-qL_\ell>0,\qquad i<k,
+\]
+then
+\begin{equation}\label{eq:collision-cutoff}
+\boxed{k\le6t.}
+\end{equation}
+Consequently every $S_q$ with $q\ge2$ has
+only finitely many multiply represented positive values.
+Its complete collision list and global uniqueness
+can be determined by checking the finitely many
+pairs $1\le j<i\le6t$.
+\end{theorem}
+\begin{proof}
+Write $\alpha=\varphi$, $\beta=-\alpha^{-1}$.
+The equality forces $j<\ell$.
+Moreover, positivity gives $k>\ell$.
+Put $d=k-\ell$, $h=k-i$ and $g=k-j$.
+We prove $k\le6t$ by contradiction.
+The bounds
+\[
+\frac12\alpha^n\le L_n\le2\alpha^n
+\quad(n\ge0),\qquad
+L_k-L_i\ge L_{k-2}
+\]
+follow from Binet's formula and monotonicity.
+Since
+\[
+L_{k-2}\le L_k-L_i
+=q(L_\ell-L_j)<qL_\ell,
+\]
+we have $\alpha^d<4q\alpha^2<\alpha^t$;
+thus $1\le d<t$. Suppose $k>6t$.
+Then $\ell=k-d>5t$.
+
+Write
+\[
+x=L_k-qL_\ell
+ =\alpha^\ell(\alpha^d-q)+\beta^k-q\beta^\ell.
+\]
+The norm argument in \eqref{eq:normbound} gives
+$|\alpha^d-q|\ge1/(q+1)$.
+Since $|\beta^k-q\beta^\ell|\le q+1$
+and $\alpha^\ell>2(q+1)^2$, the positivity
+of $x$ forces $\alpha^d-q>0$ and
+\[
+x\ge\frac{\alpha^\ell}{2(q+1)}.
+\]
+But $x<L_i\le2\alpha^i$, so
+$\alpha^{\ell-i}<4(q+1)<\alpha^t$,
+which gives $1\le h<2t$.
+
+Next, the original equality can be rearranged as
+\[
+qL_j=L_i-L_k+qL_\ell
+=\alpha^k A+\beta^k A',
+\]
+where
+\[
+A=\alpha^{-h}-1+q\alpha^{-d},\qquad
+A'=\beta^{-h}-1+q\beta^{-d}.
+\]
+Both are conjugate algebraic integers, and
+\[
+|A'|\le\alpha^h+1+q\alpha^d
+<3\alpha^{2t}<\alpha^{3t}.
+\]
+If $A=0$, then $qL_j=|\beta^k A'|<1$,
+an impossibility.
+Otherwise $AA'$ is a nonzero integer, so
+$|A|\ge\alpha^{-3t}$.
+As $k>6t$ and $qL_j>0$, this forces $A>0$ and
+\[
+qL_j>\tfrac12\alpha^{k-3t}.
+\]
+Using $qL_j\le2q\alpha^j$ gives
+$\alpha^{k-j}<4q\alpha^{3t}<\alpha^{4t}$,
+hence $g<4t$.
+
+Finally, express the collision as
+\[
+0=L_k-L_i-qL_\ell+qL_j
+=\alpha^k E+\beta^k E',
+\]
+with the conjugate algebraic integers
+\[
+E=1-\alpha^{-h}-q\alpha^{-d}+q\alpha^{-g},
+\quad
+E'=1-\beta^{-h}-q\beta^{-d}+q\beta^{-g}.
+\]
+The bounds on $d,h,g$ imply
+\[
+|E'|\le1+\alpha^{2t}+q\alpha^t+q\alpha^{4t}
+<\alpha^{6t}.
+\]
+If $E\ne0$, the integral norm $EE'\ne0$
+gives $|E|\ge1/|E'|$.
+The displayed equality now implies
+$\alpha^{2k}\le|E'|^2<\alpha^{12t}$,
+contrary to $k>6t$.
+
+If $E=0$, the equality also forces $E'=0$.
+It then holds after every simultaneous translation
+of all four indices. Because $\alpha^d-q>0$,
+the translated differences are positive for all
+sufficiently large translations, contradicting
+Proposition~\ref{prop:no-shift}.
+Thus neither case is possible, and $k\le6t$.
+\end{proof}
+
+\begin{corollary}[Complete coefficient-by-coefficient
+uniqueness decisions and growth]\label{cor:global}
+For any input integer $q\ge2$, a finite,
+exact integer algorithm decides whether every
+positive value $L_i-qL_j$ is uniquely represented.
+If not, it returns every multiply represented
+value together with all its index pairs.
+Furthermore, for each fixed $q\ge2$,
+\[
+\#\{x\le X:x\in S_q\}
+=\tfrac12(\log_\varphi X)^2+O_q(\log X).
+\]
+\end{corollary}
+\begin{proof}
+All first indices of a collision are at most $6t$
+by Theorem~\ref{thm:global}; finite enumeration
+therefore gives a complete answer.
+For the asymptotic, choose an integer $d$
+with $\alpha^{d-1}<q<\alpha^d$.
+The Binet formula shows that, for all sufficiently
+large $j$, the sign of $L_{j+s}-qL_j$
+is negative if $s<d$ and positive if $s\ge d$.
+Hence the number of positive index pairs
+with first index at most $N$ is
+$\frac12N^2+O_q(N)$.
+Those with $L_i\le X$ are automatically at most $X$.
+Conversely, \eqref{eq:allS} implies
+$L_i\le X+q((q+1)(X+q+1)+1)=O_q(X)$
+for every positive representation at most $X$.
+Thus all contributing first indices satisfy
+$i\le\log_\varphi X+O_q(1)$.
+Theorem~\ref{thm:global} removes only a finite
+number of repeated values, giving the result.
 \end{proof}
 
 \paragraph{Context.}
