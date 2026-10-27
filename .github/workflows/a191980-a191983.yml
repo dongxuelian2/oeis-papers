@@ -1,12 +1,12 @@
-name: Verify A191981
+name: Verify A191980-A191983
 on:
   push:
     paths:
-      - 'papers/A191981/**'
+      - 'papers/A191980-A191983/**'
       - '.github/workflows/a191981.yml'
   pull_request:
     paths:
-      - 'papers/A191981/**'
+      - 'papers/A191980-A191983/**'
       - '.github/workflows/a191981.yml'
   workflow_dispatch:
 permissions:
@@ -19,11 +19,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify integer arithmetic
         run: |
-          python3 papers/A191981/verify.py
-          python3 papers/A191981/verify_intersection.py
-          python3 papers/A191981/verify_duplicates.py
+          python3 papers/A191980-A191983/verify.py
+          python3 papers/A191980-A191983/verify_intersection.py
+          python3 papers/A191980-A191983/verify_duplicates.py
+          python3 papers/A191980-A191983/verify_sums.py
       - name: Compile manuscript
         uses: xu-cheng/latex-action@v4
         with:
-          working_directory: papers/A191981
+          working_directory: papers/A191980-A191983
           root_file: main.tex

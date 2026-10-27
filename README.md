@@ -74,7 +74,8 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
 - **[A181373](papers/A181373/)**
   - [A181373](https://oeis.org/A181373): Least m > 0 such that prime(n) divides 123...m and all cyclic digit permutations; 0 if none exists.
 
-- **[A191981 / A191982 / A191983](papers/A191981/)**
+- **[A191980 / A191981 / A191982 / A191983](papers/A191980-A191983/)**
+  - [A191980](https://oeis.org/A191980): Ordered sums f+5g, where f and g are Lucas numbers (A000032 beginning at 1).
   - [A191981](https://oeis.org/A191981): Ordered sequence of nonnegative differences f-5g, where f and g are Lucas numbers (A000032 beginning at 1).
   - [A191982](https://oeis.org/A191982): Ordered sequence of nonnegative differences 5*f-g, where f and g are Lucas numbers (A000032 beginning at 1).
   - [A191983](https://oeis.org/A191983): Ordered sequence of nonnegative differences c*f-d*g, where f and g are Lucas numbers (A000032 beginning at 1) and {c,d}={1,5}.
