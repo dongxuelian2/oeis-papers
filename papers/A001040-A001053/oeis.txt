@@ -7,3 +7,6 @@ A001053 COMMENTS
 Kurkov's November 19, 2019 rook-tour conjecture holds. Classify directed open tours by the even number 2j of moves between the two columns. The count for this class is 2*n!*(n-2*j)!*binomial(n-j,j)*binomial(n-j-1,j-1). Summing gives 2*n!*a(n). The finite coefficient sum agrees with Bala's formula already recorded in the entry; its defining recurrence follows termwise from (n-j)*(n-j-1)-(n-1)*(n-2*j)=j*(j-1).
 
 Both counts treat reversal as a distinct tour. The proof applies to all n>=1 and handles n=1 explicitly. Related closed-tour results are credited to Max Alekseyev's 2024 MathOverflow answer; no new claim about those earlier results is made.
+
+Manuscript: Qichao Wang and Daoyu Dong,
+https://github.com/dongxuelian2/oeis-papers/blob/c50e8ddf81a8568507153f48848b5cab8913d4d7/papers/A001040-A001053/main.pdf

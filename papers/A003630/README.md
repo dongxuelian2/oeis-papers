@@ -23,7 +23,7 @@ The proof uses Theorem 1.2 of Bennett–Martin–O'Bryant–Rechnitzer,
 The classification of inert primes as primes `5,7 mod12` is already
 recorded with a proof in the OEIS entry, including Jianing Song's
 2018 comment. The completed problem here is the separate product
-conjecture. 
+conjecture.
 
 - [main.tex](main.tex) and [main.pdf](main.pdf): proof and canonical manuscript.
 - `verify.py`: exact finite Euler-factor and source-data checks.

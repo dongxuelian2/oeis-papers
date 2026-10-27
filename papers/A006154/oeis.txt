@@ -16,3 +16,6 @@ D^(2^(e+1))=D^(2^e) mod 2^e. Apply to u, evaluate and use CRT.
 The period 4 modulo 5 begins at index 1. Modulo 2, in the differential quotient
 Z/2[s,c]/(s^2,c^2-1), u=1+s, Du=c and D^3u=c,
 so period 2 begins at index 1. Together these prove the stated modulo 10 block.
+
+Manuscript: Qichao Wang and Daoyu Dong,
+https://github.com/dongxuelian2/oeis-papers/blob/c50e8ddf81a8568507153f48848b5cab8913d4d7/papers/A006154/main.pdf

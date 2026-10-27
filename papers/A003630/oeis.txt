@@ -17,6 +17,7 @@ the limit is sqrt(3)/2.
 
 Full proof, including convergence justification, and exact finite
 Euler-factor verification: papers/A003630/main.tex and verify.py.
-The stable manuscript URL is to be pinned to the commit containing
-the checked-in main.pdf before this draft is used for submission.
 No OEIS submission has been made.
+
+Manuscript: Qichao Wang and Daoyu Dong,
+https://github.com/dongxuelian2/oeis-papers/blob/c50e8ddf81a8568507153f48848b5cab8913d4d7/papers/A003630/main.pdf
