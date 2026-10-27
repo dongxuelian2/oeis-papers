@@ -1,0 +1,392 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,geometry,hyperref}
+\geometry{margin=0.95in}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\title{Lucas Coefficient Families and Exact Arithmetic for Every Integer Coefficient}
+\author{Qichao Wang}
+\date{October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove a broader quotient criterion involving Lucas and Fibonacci divisibility. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two.
+\end{abstract}
+Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
+Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
+\[
+S_q=\{L_i-qL_j>0:i,j\ge1\},\quad
+T_q=\{qL_i-L_j>0:i,j\ge1\},\quad
+P_q=\{qL_i+L_j:i,j\ge1\}.
+\]
+The recurrence gives
+\begin{equation}\label{eq:identities}
+L_{m+4}-L_m=5F_{m+2},\qquad
+F_aL_b=F_{a+b}+(-1)^bF_{a-b}.
+\end{equation}
+
+The collision-free coefficients begin $5,15,40,105,275,\ldots$;
+the persistent-collision coefficients begin $3,7,18,47,123,\ldots$.
+
+\section*{An infinite collision-free family}
+\begin{theorem}\label{thm:unique}
+Fix $r\ge1$ and set $q=5F_{2r}$. Then
+\[
+L_i-qL_j>0\quad\Longleftrightarrow\quad
+(i,j)=(2r+2,1)\quad\text{or}\quad
+i\ge2r+3,\;1\le j\le i-2r-2.
+\]
+Every positive integer in $S_q$ has precisely one representation.
+\end{theorem}
+\begin{proof}
+The recurrence yields
+\begin{equation}\label{eq:q}
+q=5F_{2r}=L_{2r+2}-L_{2r-2},
+\quad q-L_{2r+1}=L_{2r-1}>0,
+\quad L_{2r+2}-q=L_{2r-2}>0.
+\end{equation}
+Thus $j=1$ first becomes admissible at $i=2r+2$.
+For $j\ge2$ put
+$A_j=L_{j+2r+2}-qL_j$ and
+$B_j=qL_j-L_{j+2r+1}$.
+Both obey the Lucas recurrence in $j$. Checking two initial values
+in $r$ and using the recurrence in steps of two gives
+\[
+A_2=L_{2r+4}-3q=L_{2r-4}>0,
+\quad A_3=A_2+A_1>0,\quad A_1=L_{2r+3}-q>0,
+\]
+with $L_{-2}=3$ when $r=1$.
+For $B_j$, the first two terms of the sequences $B_2(r)$
+and $B_3(r)$ are
+\[
+(B_2(1),B_2(2))=(4,16),\qquad
+(B_3(1),B_3(2))=(2,13).
+\]
+Each satisfies $b_{r+2}=3b_{r+1}-b_r$ as a function of $r$.
+An increasing positive initial pair remains increasing and positive.
+Therefore $B_2,B_3>0$ for all $r\ge1$; the recurrence in $j$
+then gives $A_j,B_j>0$ for all $j\ge2$.
+Hence $L_{j+2r+1}<qL_j<L_{j+2r+2}$ for $j\ge2$,
+establishing the stated index region.
+
+Let $\mathcal B_i$ be the positive values with first index $i$.
+They are distinct within each block, and
+$\max\mathcal B_i=L_i-q$ for $i\ge2r+2$.
+Using \eqref{eq:identities} with $b=i-2r+2$, the next block
+of the same residue class satisfies
+\begin{align}\label{eq:gap}
+\min\mathcal B_{i+4}-\max\mathcal B_i
+&=L_{i+4}-L_i-qL_{i-2r+2}+q\\
+&=q+5F_{i-4r+2}>0.\nonumber
+\end{align}
+For a nonnegative Fibonacci index the inequality is immediate.
+For a negative index, $i\ge2r+2$ implies
+$0<|i-4r+2|\le2r-4<2r$, so
+$|F_{i-4r+2}|<F_{2r}$.
+Moreover $A_{j+4}>A_j$ follows from the strictly positive
+Lucas recurrence; thus blocks separated by any positive multiple
+of four are strictly ordered.
+
+Finally, $(L_1,L_2,L_3,L_4)\bmod5=(1,3,4,2)$
+is the repeating residue cycle. Since $5\mid q$,
+two equal differences must have first indices congruent modulo four.
+They cannot belong to different such blocks, by \eqref{eq:gap},
+and the same block has distinct values.
+\end{proof}
+
+\begin{corollary}\label{cor:count}
+For $N\ge2r+2$ the number of distinct positive differences
+with first index at most $N$ equals
+\[
+1+\frac{(N-2r-2)(N-2r-1)}2.
+\]
+Writing $\varphi=(1+\sqrt5)/2$ and
+$A_r(x)=\#(S_{5F_{2r}}\cap[1,x])$,
+\[
+A_r(x)=\tfrac12(\log_\varphi x)^2+O_r(\log x),\qquad
+\log_\varphi b_{r,n}=\sqrt{2n}+O_r(1),
+\]
+where $b_{r,n}$ is the $n$-th positive value. Its exact
+value can be recovered by integer binary search.
+\end{corollary}
+\begin{proof}
+Summing block sizes $1,1,2,3,\ldots$ gives the formula.
+Let $m(x)=\max\{m\ge1:L_m\le x\}=\log_\varphi x+O(1)$.
+All positive differences with $i\le m(x)$ are at most $x$.
+For $j\ge2$, $A_2\ge L_0=2$ and $A_3\ge L_1=1$,
+so recurrence gives $A_j\ge L_{j-2}$. Therefore,
+for all sufficiently large $i$, a value in $\mathcal B_i$
+is at least $L_{i-2r-4}$; if it is at most $x$ then
+$i\le m(x)+2r+4$. Applying the triangular count to these
+two index bounds proves the asymptotic.
+Inverting it proves the nth-term estimate.
+An exact count tests $L_j\ge\lceil(L_i-x)/q\rceil$
+within finitely many admissible blocks; binary search
+inverts that monotone count.
+\end{proof}
+
+\section*{A family with infinitely many collisions}
+\begin{theorem}\label{thm:repetitions}
+For every $r\ge1$, the coefficient $q=L_{2r}$
+has infinitely many repeated positive values in
+both $T_q$ and $P_q$. For every $n\ge1$,
+\begin{align}
+\label{eq:twodiff}
+L_{n+4r}&=qL_{n+2r}-L_n=qL_{n+6r}-L_{n+8r}>0,\\
+\label{eq:twosum}
+qL_{n+2r}+L_{n+8r}&=qL_{n+6r}+L_n.
+\end{align}
+The two index pairs in each equality are distinct.
+\end{theorem}
+\begin{proof}
+The product identity
+$L_aL_b=L_{a+b}+(-1)^a L_{b-a}$
+with $a=2r$ gives
+\[
+qL_{n+2r}=L_{n+4r}+L_n,\quad
+qL_{n+6r}=L_{n+8r}+L_{n+4r}.
+\]
+These yield \eqref{eq:twodiff} and \eqref{eq:twosum}.
+Both resulting sequences of positive values increase
+strictly with $n$, providing infinitely many collisions.
+\end{proof}
+
+\begin{proposition}[Collision transfer]\label{prop:transfer}
+Suppose $S_q$ has unique positive representations and
+$q$ divides no Lucas number $L_j$ with $j\ge1$.
+Then every sum collision
+$qL_a+L_b=qL_c+L_d$ with $a<c$
+induces a positive collision
+$qL_a-L_d=qL_c-L_b>0$ in $T_q$.
+These hypotheses hold for every $q=5F_{2r}$.
+\end{proposition}
+\begin{proof}
+Set $t=qL_a-L_d=qL_c-L_b$.
+If $t=0$, then $q\mid L_d$, a contradiction.
+If $t<0$, the equality
+$L_d-qL_a=L_b-qL_c>0$ gives
+two representations in $S_q$, also a contradiction.
+Thus $t>0$. The final assertion follows from
+Theorem~\ref{thm:unique} and the four nonzero Lucas
+residues modulo five.
+\end{proof}
+
+
+
+\section*{Divisibility families of infinite collisions}
+\begin{theorem}[Lucas--Fibonacci quotient coefficients]
+\label{thm:ratios}
+Let $m>h\ge1$ have the same parity, and suppose
+\[
+q=
+\begin{cases}
+L_m/L_h\in\mathbb Z,& m,h\text{ odd},\\
+F_m/F_h\in\mathbb Z,& m,h\text{ even}.
+\end{cases}
+\]
+Then $q\ge2$, and for every $n\ge1$,
+\begin{equation}\label{eq:ratio-difference}
+qL_{n+m-h}-L_n
+=qL_{n+m+h}-L_{n+2m}>0.
+\end{equation}
+In particular, $T_q$ and $P_q$ each contain
+infinitely many positive values having two
+distinct representations. The coefficient $q=2$
+also has infinitely many collisions in both sets.
+\end{theorem}
+\begin{proof}
+For $m$ odd, the Lucas product formula gives
+\[
+L_{n+2m}-L_n=L_mL_{n+m},\qquad
+L_{n+m+h}-L_{n+m-h}=L_hL_{n+m}.
+\]
+For $m,h$ even, the Lucas--Fibonacci identity instead gives
+\[
+L_{n+2m}-L_n=5F_mF_{n+m},\quad
+L_{n+m+h}-L_{n+m-h}=5F_hF_{n+m}.
+\]
+In either case dividing the two identities
+gives
+\[
+L_{n+2m}-L_n
+=q(L_{n+m+h}-L_{n+m-h}),
+\]
+which is \eqref{eq:ratio-difference}.
+The right-hand side of the first expression
+$qL_{n+m-h}-L_n$ is strictly positive and increases
+with $n$ because $q\ge2$ and $m-h\ge1$.
+The equivalent sum collision is
+\[
+qL_{n+m-h}+L_{n+2m}
+=qL_{n+m+h}+L_n.
+\]
+For $q=2$, the recurrence gives the further family
+\[
+2L_{n+2}-L_n=L_{n+3}
+=2L_{n+3}-L_{n+3},
+\]
+again with strictly increasing positive values.
+The corresponding sum identity follows by swapping
+the two subtracted indices.
+\end{proof}
+
+\begin{remark}
+The theorem covers \emph{every} Lucas coefficient
+$q=L_k$ ($k\ge1$): for odd $k$ choose
+$(m,h)=(k,1)$ when $k>1$, and for even $k=2r$
+choose $(m,h)=(4r,2r)$ using
+$F_{4r}/F_{2r}=L_{2r}$. For $q=L_1=1$,
+$L_{n+2}-L_n=L_{n+3}-L_{n+2}>0$ already
+provides infinitely many collisions.
+It also covers infinitely many other integer
+coefficients, for example $8,19,21,48,55$.
+\end{remark}
+
+\section*{An exact algorithm for every integer coefficient}
+The coefficient families above admit efficient special-purpose
+rankings. An integer-bound argument gives complete, exact
+arithmetic for every coefficient, with no conjectural
+collision classification needed.
+\begin{theorem}[Uniform finite search bounds]\label{thm:uniform}
+Let $q\ge1$ and $X\ge1$ be integers, and put
+\[
+ B=(q+1)(X+q+1)+1.
+\]
+For any $0<L_i-qL_j\le X$ with $i,j\ge1$, necessarily
+\begin{equation}\label{eq:allS}
+ L_j\le B,\qquad L_i\le X+qB.
+\end{equation}
+For $q\ge2$ and $0<qL_i-L_j\le X$, necessarily
+\begin{equation}\label{eq:allT}
+ L_i\le M:=\max\{B,\lfloor X/(q-1)\rfloor\},
+ \qquad L_j\le qM.
+\end{equation}
+When $q=1$, the expressions $qL_i-L_j$ and
+$L_i-qL_j$ coincide and obey \eqref{eq:allS}.
+For $q\ge1$ and $0<qL_i+L_j\le X$,
+\begin{equation}\label{eq:allP}
+ L_i\le\lfloor(X-1)/q\rfloor,\qquad L_j\le X-q.
+\end{equation}
+Consequently, for \emph{every} $q\in\mathbb Z$,
+the set of distinct positive values at most $X$
+in each of $S_q,T_q,P_q$ is effectively computable
+by finite integer arithmetic. For every nonzero $q$,
+all representations of each positive value can also be
+enumerated, yielding its exact multiplicity.
+For $q=0$, the positive sets $S_0$ and $P_0$ are
+the positive-index Lucas numbers, each with infinitely
+many representations; $T_0$ is empty.
+\end{theorem}
+\begin{proof}
+Write $\alpha=\varphi$ and $\beta=(1-\sqrt5)/2=-1/\varphi$.
+For $d\ge1$ and $q\ge1$, the algebraic integer
+$\alpha^d-q$ has nonzero integral norm
+\[
+(\alpha^d-q)(\beta^d-q)\in\mathbb Z\setminus\{0\}.
+\]
+It cannot vanish because
+$\alpha^d=F_d\alpha+F_{d-1}$ is irrational.
+Since $|\beta^d-q|\le q+1$, this gives
+\begin{equation}\label{eq:normbound}
+|\alpha^d-q|\ge\frac1{q+1}.
+\end{equation}
+
+A positive difference $L_i-qL_j$ has $i>j$;
+write $d=i-j$. By Binet's formula,
+\[
+L_i-qL_j=\alpha^j(\alpha^d-q)
+                 +\beta^i-q\beta^j.
+\]
+For $0<L_i-qL_j\le X$, it follows that
+\[
+\frac{\alpha^j}{q+1}
+ \le X+|\beta^i-q\beta^j|
+ \le X+q+1.
+\]
+Thus $\alpha^j\le(q+1)(X+q+1)$, and
+$L_j=\alpha^j+\beta^j\le B$.
+The equality $L_i=x+qL_j$ now proves
+\eqref{eq:allS}.
+
+For $0<qL_i-L_j\le X$, when $j>i$, the same
+argument with $d=j-i$ shows $L_i\le B$, hence
+$L_j=qL_i-x\le qB$.
+When $j\le i$ and $q\ge2$,
+$x=qL_i-L_j\ge(q-1)L_i$; this proves
+\eqref{eq:allT}. The sum bounds
+\eqref{eq:allP} follow from $L_i,L_j\ge1$.
+
+For negative coefficients, write $m=-q>0$.
+Then $S_{-m}=P_m$ with the indices interchanged,
+$P_{-m}=S_m$ with the indices interchanged,
+and $T_{-m}$ is empty.
+The assertions for $q=0$ are immediate.
+Thus the finite index bounds cover all integers.
+\end{proof}
+
+\begin{corollary}[Universal exact counting and unranking]
+\label{cor:allinteger}
+For any integer $q$, expression type $S,T$ or $P$,
+and integer $X\ge0$, there is a terminating algorithm
+for the number of \emph{distinct} positive values at
+most $X$, exact membership, and all positive
+representations (or detection of infinite multiplicity
+when $q=0$).
+Whenever the positive set is nonempty, its $n$-th
+distinct value is computable exactly for every $n\ge1$.
+\end{corollary}
+\begin{proof}
+Enumerate the finitely many indices specified
+by Theorem~\ref{thm:uniform}, retain the positive
+values at most $X$, and deduplicate integer values.
+Each nonempty positive set is unbounded: for $S_q$
+with $q>0$ fix $j=1$ and let $i\to\infty$,
+for $T_q$ with $q>0$ fix $j=1$ and let $i\to\infty$,
+and for $P_q$ with $q>0$ fix $i=1$ and let $j\to\infty$.
+The negative and zero cases reduce to these or
+the Lucas numbers themselves.
+Therefore doubling the threshold until $n$ values
+are found and then binary-searching the exact count
+always terminates. The only empty case is $T_q$
+for $q\le0$.
+\end{proof}
+
+\begin{proposition}[No simultaneous-shift positive collisions]
+\label{prop:no-shift}
+For every integer $q\ge2$, there are no
+indices $i<k$, $j<\ell$ such that
+\[
+L_{n+i}-qL_{n+j}=L_{n+k}-qL_{n+\ell}>0
+\quad\text{for every }n\ge0.
+\]
+\end{proposition}
+\begin{proof}
+An equality for all shifts implies, by Binet's formula,
+both its $\alpha$- and $\beta$-coefficient equalities.
+Put $h=k-i\ge1$, $e=\ell-j\ge1$, and $s=i-j$.
+Positivity for large $n$ forces $\alpha^s>q$,
+so $s\ge2$, and
+\[
+\alpha^s(\alpha^h-1)=q(\alpha^e-1)
+\]
+forces $e>h$, hence $e\ge2$.
+Conjugation gives
+\[
+q|\beta^e-1|=|\beta|^s|\beta^h-1|
+\le\alpha^{-2}(1+\alpha^{-1})=\alpha^{-1}.
+\]
+But $q|\beta^e-1|\ge2(1-\alpha^{-2})
+=2/\alpha>\alpha^{-1}$, a contradiction.
+\end{proof}
+
+\paragraph{Context.}
+The case $q=5F_2=5$ generalizes the unique representation
+of positive differences in
+\href{https://oeis.org/A191981}{OEIS A191981}.
+The two coefficient families provide explicit sufficient
+conditions for uniqueness and for infinite collisions.
+The classification of all integer coefficients remains open.
+\end{document}
