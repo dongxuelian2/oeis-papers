@@ -35,6 +35,8 @@ jobs:
         run: python papers/A001292/verify_boundary_characters.py
       - name: Verify general boundary-prime lifting and local power criteria
         run: python papers/A001292/verify_general_boundary_primes.py
+      - name: Verify whole digit intervals and rotation-block coverage
+        run: python papers/A001292/verify_digit_intervals.py
       - name: Check all possible exponents through m equals 1000
         run: python papers/A001292/search_gmp.py 1000
 

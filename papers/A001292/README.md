@@ -4,6 +4,31 @@ Kashihara's conjecture remains open. The [manuscript](main.pdf) proves a
 density-zero theorem and exact local obstructions at complete digit boundaries.
 Its source is [main.tex](main.tex).
 
+The local lifting extends to **every `d`-digit integer `m`**. If
+`r=ord_p(10)`, `r|P`, `10^P=1 (mod 9r)`, `p` does not divide `P`, and
+`P|d`, set `a=v_p(d)` and `C=W_(10^P-1) mod p`. Every rotation satisfies
+
+\[
+R_{m,k}\equiv10^{D(k)}\left(\frac{m(m+1)}2+C\frac dP\right)
+\pmod{p^{a+1}}.
+\]
+
+The formula allows `C=0`. When `Pp|d`, exactly `2(p-1)` classes of `m mod p^2`
+give valuation one at `p` for every rotation. In particular, for `d=111u`,
+all rotations are excluded if `m=0,-1 (mod 37)` except the two classes
+`m=296u,1073u-1 (mod 1369)`: **72 classes modulo 1369**.
+Another infinite family is `d=3 (mod 111)`, `m=126 (mod 999)`, with `m`
+in the indicated digit interval; it combines exact valuation 2 at 3 with
+a nonsquare character at 37.
+
+For every positive `epsilon`, there is an arithmetic progression of digit
+lengths such that, in every sufficiently large corresponding digit interval,
+at least a fraction `1-epsilon` of the integers `m` have **no powerful value
+among any of their rotations**. The proof combines the independent
+valuation-one classes with the divergent reciprocal sum of primes
+`p=3 (mod 40)` from Dirichlet's theorem. The fraction counts whole rotation
+blocks indexed by `m` inside those digit intervals.
+
 For a set of positive digit lengths `d` of lower natural density at least
 **95.53273407...%**, every rotation at `m=10^d-1`
 is not a nontrivial perfect power. This is a density among digit lengths `d`.
@@ -106,6 +131,7 @@ python verify_boundary_valuations.py
 python verify_local_primes.py
 python verify_boundary_characters.py
 python verify_general_boundary_primes.py
+python verify_digit_intervals.py
 python search_gmp.py 1000
 ```
 
@@ -118,6 +144,9 @@ The general-prime verifier compares complete blocks with independent matrix
 words for all six primes, audits the local criteria at positive valuations,
 and directly iterates `d=1..327024` at 757. Newton checks through valuation 8
 use the proved coefficient bound and are recorded separately.
+The digit-interval verifier checks literal rotations, independent prefixes
+and interval endpoints at three primes, complete valuation-one class counts,
+and all 2,531,281 classes of a two-prime CRT modulus.
 [VERIFICATION.txt](VERIFICATION.txt) records the checks.
 
 The local-prime verifier compares geometric block sums with matrix powers,

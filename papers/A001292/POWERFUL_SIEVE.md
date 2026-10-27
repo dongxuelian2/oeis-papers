@@ -1,6 +1,6 @@
 # Powerful values of cyclic concatenations have density zero
 
-Detailed companion to Section 4 of [the manuscript](main.pdf).
+Detailed companion to Section 5 of [the manuscript](main.pdf).
 
 Qichao Wang (Hebei University of Technology) and Daoyu Dong
 (University of Electronic Science and Technology of China), October 26, 2026.

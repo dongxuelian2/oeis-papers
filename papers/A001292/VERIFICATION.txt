@@ -75,6 +75,24 @@ PASS independent all-exponent predicate audit on 2..10000
 All 500499 nontrivial rotations covered, no perfect powers:
 242247 GMP all-exponent predicates, 221556 mod-9 and 36696 mod-27 exclusions.
 
+verify_digit_intervals.py: exit 0
+PASS: 2197 literal rotations, including all rotations for m=126;
+the d=3 formula is checked up to m=999 and rejected across the width crossing.
+PASS: 77724 rotation residues and 41 independent endpoint/interior matrix
+evaluations across the digit intervals (p,d)=(37,3),(37,111),(37,4107),
+(43,42),(43,1806),(53,78),(53,4134), at precisions p, p^2, and p^3.
+Complete p^2 residue sweeps give 72,84,104 valuation-one classes at
+p=37,43,53 respectively whenever p divides d/P.
+PASS: explicit 37-adic roots for five u, including u divisible by 37;
+the d=3 (mod 111), m=126 (mod 999) family, with residue 9 mod 27
+and nonsquare character at 37, including large parameter checks.
+PASS: all 2531281 CRT classes at d=66822; 242076 excluded classes,
+6048 joint classes, and five exact interval-discrepancy bounds.
+PASS: 10 primes p=3 (mod 40) below 1000 have the required orders and
+admissible periods. The unbounded coverage corollary uses Dirichlet's
+divergence theorem, not a finite computation.
+All nine documented verifier commands were rerun successfully at this update.
+
 Earlier full run: python search_gmp.py 5000
 12,502,499 nontrivial rotations covered; no perfect powers.
 6,464,578 exact GMP all-exponent predicates; 5,558,335 mod-9 exclusions;
@@ -82,6 +100,6 @@ Earlier full run: python search_gmp.py 5000
 The unchanged search source hash and GMP version are in SEARCH_5000.json.
 
 Manuscript: main.tex -> main.pdf, final source compiled twice successfully.
-Eight complete pages inspected as rendered JPEGs; no LaTeX warnings.
+Nine complete pages inspected as rendered PNGs; no LaTeX warnings.
 PDF/source hashes and page count checked against publication.json.
 All local documentation links checked.

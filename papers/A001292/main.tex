@@ -27,6 +27,9 @@ $1\le d\le27$, as well as $d=54,243$, are excluded. Explicit period formulas
 give further infinite families. A general prime-adic lifting theorem yields
 exact valuations and local fifth- and seventh-power equivalences for every
 cut, including positive valuations at the new primes.
+We extend the lifting to a quadratic congruence on entire digit intervals.
+Along suitable arithmetic progressions of digit lengths, the proportion of
+choices of $m$ for which no rotation is powerful can be arbitrarily close to one.
 \end{abstract}
 
 \section{Statements}
@@ -132,6 +135,32 @@ In particular, $d=111t$ with $37\nmid t$ and $d=3003003t$ with $333667\nmid t$
 are excluded. The new choice $p=757,P=27$ also excludes
 $d=327024=27\cdot757\cdot16$, since the valuations of every rotation
 at 3 and 757 are respectively 5 and 1.
+
+\begin{theorem}[Reduction on an entire digit interval]\label{thm:digit-interval}
+Let $p\ge7$ be prime, $r=\operatorname{ord}_p(10)$, and
+$r\mid P$, $10^P\equiv1\pmod{9r}$, $p\nmid P$.
+Put $C=V_P\pmod p$, allowing $C=0$.
+For $P\mid d$, $a=v_p(d)$, every $10^{d-1}\le m<10^d$ and $0\le k<m$ satisfy
+\begin{equation}\label{eq:interval-quadratic}
+ R_{m,k}\equiv10^{D(k)}
+ \left(\frac{m(m+1)}2+C\frac dP\right)\pmod{p^{a+1}}.
+\end{equation}
+If $Pp\mid d$, exactly $2(p-1)$ residue classes $m\pmod{p^2}$ give
+$v_p(R_{m,k})=1$ for every cut $k$.
+\end{theorem}
+For example, if $d=111u$, all rotations have valuation one at 37 whenever
+\[
+ m\equiv0,-1\pmod{37},\qquad
+ m\not\equiv296u,\ 1073u-1\pmod{1369}.
+\]
+These are 72 residue classes modulo 1369 in every such digit interval.
+
+\begin{corollary}[Arbitrarily high coverage of whole rotation blocks]\label{cor:interval-coverage}
+For every $\varepsilon>0$ there are positive integers $L,d_0$ such that,
+for every $d\ge d_0$ divisible by $L$, at least
+$(1-\varepsilon)9\cdot10^{d-1}$ choices of $d$-digit $m$ have no powerful
+integer among their rotations.
+\end{corollary}
 
 \begin{corollary}[Density of excluded complete boundaries]\label{cor:density-boundary}
 The set of positive integers $d$ for which every rotation at $m=10^d-1$
@@ -388,6 +417,67 @@ $a$ and $\nu+a$, so $v_p(S(d))=a$. Since $r\mid S(d)$,
 \]
 The rotation identity \eqref{eq:rotation} now proves both assertions in
 \eqref{eq:general-valuation}, including the factor contributed by the cut.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:digit-interval}]
+Before using $C\ne0$, the preceding averaging argument gives
+\[
+ V_d\equiv C\frac dP\pmod{p^{a+1}}.
+\]
+Put $B=10^d$ and $t=B-1-m$. The removed $t$ integer blocks all have length $d$,
+so the exact tail identity is
+\[
+ V_d=B^tW_m+\sum_{j=1}^t(B-j)B^{j-1}.
+\]
+Lifting the exponent gives $B\equiv1\pmod{p^{a+1}}$.
+Thus the tail sum is $-t(t-1)/2$, and $t\equiv-m$ gives
+$W_m\equiv V_d+m(m+1)/2$ at this precision.
+Also $D(m)=S(d)-dt$ is divisible by both $r$ and $p^a$;
+the latter follows from $S(d)=d10^d-(10^d-1)/9$.
+Hence $10^{D(m)}\equiv1\pmod{p^{a+1}}$, and
+\eqref{eq:rotation} proves \eqref{eq:interval-quadratic}.
+
+When $p\mid d/P$, the polynomial in parentheses reduces modulo $p$ to
+$m(m+1)/2$. Its roots 0 and $-1$ are simple. Each has $p$ lifts modulo
+$p^2$, exactly one of which is zero modulo $p^2$. The other $p-1$ lifts
+have valuation one, proving the count. At $p=37$, $P=3$, $d=111u$, the
+polynomial is $m(m+1)/2+1221u\pmod{1369}$; its two zero lifts are
+$296u$ and $1073u-1$.
+
+A further whole-block exclusion is
+$d\equiv3\pmod{111}$, $m\equiv126\pmod{999}$ within the $d$-digit interval.
+The elementary identities
+$W_m\equiv m(m+1)/2+9d\lfloor(m+1)/3\rfloor\pmod{27}$ and
+$D(m)\equiv dm\pmod9$ (proved in \path{RESIDUE_EXCLUSIONS.md}) give
+$R_{m,k}\equiv9\pmod{27}$, forcing the exponent to be 2.
+But \eqref{eq:interval-quadratic} has polynomial residue 5 modulo 37,
+a nonsquare, and 10 is a square modulo 37. This excludes every rotation.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:interval-coverage}]
+For a finite set $\mathcal S$ of primes $p\ge7$ with
+$\gcd(\operatorname{ord}_p(10),10)=1$, choose
+$P_p=\operatorname{lcm}(r_p,\operatorname{ord}_{9r_p}(10))$.
+This satisfies the period hypotheses and $p\nmid P_p$:
+every prime factor of $r_p\varphi(9r_p)$ is smaller than $p$.
+Set
+\[
+ L=\operatorname{lcm}_{p\in\mathcal S}(P_pp),\quad
+ M=\prod_{p\in\mathcal S}p^2,\quad
+ \theta=\prod_{p\in\mathcal S}\left(1-\frac{2(p-1)}{p^2}\right).
+\]
+For fixed $L\mid d$, the Chinese remainder theorem shows that the fraction
+of classes modulo $M$ avoiding every valuation-one obstruction is exactly
+$\theta$. Thus, with $H=9\cdot10^{d-1}$, at least
+$H(1-\theta)-M$ values of $m$ have a valuation-one prime shared by every
+rotation, so none of their rotations is powerful.
+
+Primes $p\equiv3\pmod{40}$ supply a divergent reciprocal sum by
+Dirichlet's theorem \cite{dirichlet}. Quadratic reciprocity gives
+$(10/p)=1$, and $(p-1)/2\equiv1\pmod{10}$; therefore $r_p$ is odd
+and coprime to 10. Consequently $\theta$ can be made smaller than
+$\varepsilon/2$. Choose such a finite set and then $d_0$ so that
+$M/H<\varepsilon/2$ for $d\ge d_0$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:other-primes}]
@@ -685,5 +775,10 @@ arXiv:2205.10163, version 4 (2024), \url{https://arxiv.org/abs/2205.10163}.
 \bibitem{mertens} F. Mertens, Ein Beitrag zur analytischen Zahlentheorie,
 \emph{J. reine angew. Math.} \textbf{78} (1874), 46--62,
 \url{https://doi.org/10.1515/crll.1874.78.46}.
+\bibitem{dirichlet} P. G. L. Dirichlet,
+\emph{There are infinitely many prime numbers in all arithmetic progressions
+with first term and difference coprime} (1837),
+English translation by R. Stephan, arXiv:0808.1408v2,
+\url{https://arxiv.org/abs/0808.1408v2}.
 \end{thebibliography}
 \end{document}
