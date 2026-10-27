@@ -17,7 +17,9 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - run: python3 papers/Lucas-coefficient-families/verify.py
+      - run: |
+          python3 papers/Lucas-coefficient-families/verify.py
+          python3 papers/Lucas-coefficient-families/verify_all_integer.py
       - uses: xu-cheng/latex-action@v4
         with:
           working_directory: papers/Lucas-coefficient-families

@@ -6,13 +6,13 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
-\title{Collision-Free Lucas Differences for an Infinite Family of Coefficients}
+\title{Lucas Coefficient Families and Exact Arithmetic for Every Integer Coefficient}
 \author{Qichao Wang}
 \date{October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. A transfer lemma relates sum collisions to reversed-difference collisions in the first family.
+We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -171,6 +171,144 @@ two representations in $S_q$, also a contradiction.
 Thus $t>0$. The final assertion follows from
 Theorem~\ref{thm:unique} and the four nonzero Lucas
 residues modulo five.
+\end{proof}
+
+
+\section*{An exact algorithm for every integer coefficient}
+The coefficient families above admit efficient special-purpose
+rankings. An integer-bound argument gives complete, exact
+arithmetic for every coefficient, with no conjectural
+collision classification needed.
+\begin{theorem}[Uniform finite search bounds]\label{thm:uniform}
+Let $q\ge1$ and $X\ge1$ be integers, and put
+\[
+ B=(q+1)(X+q+1)+1.
+\]
+For any $0<L_i-qL_j\le X$ with $i,j\ge1$, necessarily
+\begin{equation}\label{eq:allS}
+ L_j\le B,\qquad L_i\le X+qB.
+\end{equation}
+For $q\ge2$ and $0<qL_i-L_j\le X$, necessarily
+\begin{equation}\label{eq:allT}
+ L_i\le M:=\max\{B,\lfloor X/(q-1)\rfloor\},
+ \qquad L_j\le qM.
+\end{equation}
+When $q=1$, the expressions $qL_i-L_j$ and
+$L_i-qL_j$ coincide and obey \eqref{eq:allS}.
+For $q\ge1$ and $0<qL_i+L_j\le X$,
+\begin{equation}\label{eq:allP}
+ L_i\le\lfloor(X-1)/q\rfloor,\qquad L_j\le X-q.
+\end{equation}
+Consequently, for \emph{every} $q\in\mathbb Z$,
+the set of distinct positive values at most $X$
+in each of $S_q,T_q,P_q$ is effectively computable
+by finite integer arithmetic. For every nonzero $q$,
+all representations of each positive value can also be
+enumerated, yielding its exact multiplicity.
+For $q=0$, the positive sets $S_0$ and $P_0$ are
+the positive-index Lucas numbers, each with infinitely
+many representations; $T_0$ is empty.
+\end{theorem}
+\begin{proof}
+Write $\alpha=\varphi$ and $\beta=(1-\sqrt5)/2=-1/\varphi$.
+For $d\ge1$ and $q\ge1$, the algebraic integer
+$\alpha^d-q$ has nonzero integral norm
+\[
+(\alpha^d-q)(\beta^d-q)\in\mathbb Z\setminus\{0\}.
+\]
+It cannot vanish because
+$\alpha^d=F_d\alpha+F_{d-1}$ is irrational.
+Since $|\beta^d-q|\le q+1$, this gives
+\begin{equation}\label{eq:normbound}
+|\alpha^d-q|\ge\frac1{q+1}.
+\end{equation}
+
+A positive difference $L_i-qL_j$ has $i>j$;
+write $d=i-j$. By Binet's formula,
+\[
+L_i-qL_j=\alpha^j(\alpha^d-q)
+                 +\beta^i-q\beta^j.
+\]
+For $0<L_i-qL_j\le X$, it follows that
+\[
+\frac{\alpha^j}{q+1}
+ \le X+|\beta^i-q\beta^j|
+ \le X+q+1.
+\]
+Thus $\alpha^j\le(q+1)(X+q+1)$, and
+$L_j=\alpha^j+\beta^j\le B$.
+The equality $L_i=x+qL_j$ now proves
+\eqref{eq:allS}.
+
+For $0<qL_i-L_j\le X$, when $j>i$, the same
+argument with $d=j-i$ shows $L_i\le B$, hence
+$L_j=qL_i-x\le qB$.
+When $j\le i$ and $q\ge2$,
+$x=qL_i-L_j\ge(q-1)L_i$; this proves
+\eqref{eq:allT}. The sum bounds
+\eqref{eq:allP} follow from $L_i,L_j\ge1$.
+
+For negative coefficients, write $m=-q>0$.
+Then $S_{-m}=P_m$ with the indices interchanged,
+$P_{-m}=S_m$ with the indices interchanged,
+and $T_{-m}$ is empty.
+The assertions for $q=0$ are immediate.
+Thus the finite index bounds cover all integers.
+\end{proof}
+
+\begin{corollary}[Universal exact counting and unranking]
+\label{cor:allinteger}
+For any integer $q$, expression type $S,T$ or $P$,
+and integer $X\ge0$, there is a terminating algorithm
+for the number of \emph{distinct} positive values at
+most $X$, exact membership, and all positive
+representations (or detection of infinite multiplicity
+when $q=0$).
+Whenever the positive set is nonempty, its $n$-th
+distinct value is computable exactly for every $n\ge1$.
+\end{corollary}
+\begin{proof}
+Enumerate the finitely many indices specified
+by Theorem~\ref{thm:uniform}, retain the positive
+values at most $X$, and deduplicate integer values.
+Each nonempty positive set is unbounded: for $S_q$
+with $q>0$ fix $j=1$ and let $i\to\infty$,
+for $T_q$ with $q>0$ fix $j=1$ and let $i\to\infty$,
+and for $P_q$ with $q>0$ fix $i=1$ and let $j\to\infty$.
+The negative and zero cases reduce to these or
+the Lucas numbers themselves.
+Therefore doubling the threshold until $n$ values
+are found and then binary-searching the exact count
+always terminates. The only empty case is $T_q$
+for $q\le0$.
+\end{proof}
+
+\begin{proposition}[No simultaneous-shift positive collisions]
+\label{prop:no-shift}
+For every integer $q\ge2$, there are no
+indices $i<k$, $j<\ell$ such that
+\[
+L_{n+i}-qL_{n+j}=L_{n+k}-qL_{n+\ell}>0
+\quad\text{for every }n\ge0.
+\]
+\end{proposition}
+\begin{proof}
+An equality for all shifts implies, by Binet's formula,
+both its $\alpha$- and $\beta$-coefficient equalities.
+Put $h=k-i\ge1$, $e=\ell-j\ge1$, and $s=i-j$.
+Positivity for large $n$ forces $\alpha^s>q$,
+so $s\ge2$, and
+\[
+\alpha^s(\alpha^h-1)=q(\alpha^e-1)
+\]
+forces $e>h$, hence $e\ge2$.
+Conjugation gives
+\[
+q|\beta^e-1|=|\beta|^s|\beta^h-1|
+\le\alpha^{-2}(1+\alpha^{-1})=\alpha^{-1}.
+\]
+But $q|\beta^e-1|\ge2(1-\alpha^{-2})
+=2/\alpha>\alpha^{-1}$, a contradiction.
 \end{proof}
 
 \paragraph{Context.}
