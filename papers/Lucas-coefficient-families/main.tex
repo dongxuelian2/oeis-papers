@@ -13,7 +13,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove broader quotient and half-Lucas criteria, including an infinite family of triple representations. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and effective algebraic-norm estimates yield complete global collision bounds for $S_q$ and a necessary-and-sufficient finite test for infinite collisions in $T_q$ and $P_q$. The resulting algorithms decide both infinite collision behavior and global uniqueness for every integer coefficient and each of the three expression types.
+We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We give a complete coefficient classification for infinite collisions in the two reversed-difference and sum forms, including an infinite family of triple representations. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and effective algebraic-norm estimates yield complete global collision bounds for $S_q$ and a necessary-and-sufficient finite test for infinite collisions in $T_q$ and $P_q$. The explicit coefficient families decide infinite collision behavior, while finite integer algorithms decide global uniqueness for every coefficient and all three forms.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -300,6 +300,165 @@ The first equality follows from
 $L_{n+1}=2L_n-L_{n-2}$,
 the second is immediate, and the third
 is Theorem~\ref{thm:half-lucas} with $r=0$.
+\end{proof}
+
+
+\section*{Complete classification of stationary collisions}
+The quotient and half-Lucas constructions above in fact exhaust all
+coefficients admitting infinitely many positive collisions in
+\(T_q\) and \(P_q\). We first classify every possible pair of index gaps.
+
+\begin{lemma}[Rigidity of the two index gaps]\label{lem:gap-rigidity}
+Suppose \(q\ge2\), \(i<k\), \(j<\ell\), and
+\begin{equation}\label{eq:stationary-difference}
+q(L_{n+k}-L_{n+i})=L_{n+\ell}-L_{n+j}
+\qquad(n\ge0).
+\end{equation}
+Set \(h=k-i\), \(e=\ell-j\), and \(d=i-j\).
+The only possibilities are:
+\begin{enumerate}
+\item \(h=2r\), \(e=2m\), \(m>r\ge1\), with
+ \(m\equiv r\pmod2\), \(d=m-r\), and either
+ \(q=L_m/L_r\) for \(m,r\) odd or \(q=F_m/F_r\)
+ for \(m,r\) even;
+\item \(h=1\), \(e=2m\), \(m\ge3\) odd,
+ \(d=m+1\), and \(q=L_m\);
+\item \(h=3\), \(e=2m\), \(m\ge3\) odd and divisible
+ by \(3\), \(d=m-1\), and \(q=L_m/2\);
+\item \((h,e,d,q)=(1,3,2,2)\) or \((2,3,0,2)\).
+\end{enumerate}
+Every identity on this list is realized, with positive
+values and arbitrarily large simultaneous shifts.
+\end{lemma}
+\begin{proof}
+Let \(\alpha=\varphi\), \(\beta=-\alpha^{-1}\), and set
+\[
+C(s)=L_s-1-(-1)^s,\qquad
+\Phi(s)=\frac{1+\alpha^{-s}}{1-\alpha^{-s}}\quad(s\ge1).
+\]
+The two conjugate Binet coefficient equations of
+\eqref{eq:stationary-difference} give
+\[
+q\alpha^i(\alpha^h-1)=\alpha^j(\alpha^e-1),
+\qquad
+q\beta^i(\beta^h-1)=\beta^j(\beta^e-1).
+\]
+Their norms yield
+\begin{equation}\label{eq:gap-norm}
+q^2 C(h)=C(e),\qquad i\equiv j\pmod2.
+\end{equation}
+In particular \(e>h\), and \(d=i-j\) is even.
+Dividing the two Binet equations, and using
+\(\beta=-\alpha^{-1}\), gives the exact relation
+\begin{equation}\label{eq:rigidity-ratio}
+\alpha^{2d}=\alpha^{e-h}
+\frac{\Phi(h)^{[h\text{ odd}]}}
+     {\Phi(e)^{[e\text{ odd}]}}.
+\end{equation}
+The function \(\Phi(s)\) decreases strictly to \(1\);
+direct calculation gives
+\begin{equation}\label{eq:rigidity-special}
+\Phi(1)=\alpha^3,\qquad \Phi(3)=\alpha.
+\end{equation}
+
+If \(h,e\) are both even, \eqref{eq:rigidity-ratio}
+gives \(2d=e-h\). Write \(h=2r\), \(e=2m\).
+Since \(d\) is even, \(m\equiv r\pmod2\).
+For even indices,
+\[
+C(2s)=L_{2s}-2=
+\begin{cases}
+L_s^2,&s\text{ odd},\\
+5F_s^2,&s\text{ even}.
+\end{cases}
+\]
+Equation \eqref{eq:gap-norm} gives the two quotient
+conditions in case~1.
+
+If both gaps are odd, put \(u=(e-h)/2\).
+Equation \eqref{eq:rigidity-ratio} becomes
+\[
+\alpha^{2(d-u)}=\Phi(h)/\Phi(e).
+\]
+When \(h\ge3\) this ratio lies strictly between
+\(1\) and \(\Phi(3)=\alpha<\alpha^2\),
+which is impossible for an integral exponent \(2(d-u)\).
+When \(h=1\), the ratio is at least
+\(\Phi(1)/\Phi(3)=\alpha^2\), with equality at \(e=3\);
+for \(e>3\) it lies strictly between
+\(\alpha^2\) and \(\alpha^3<\alpha^4\).
+Therefore \(h=1,e=3\); then \(d=2\) and
+\eqref{eq:gap-norm} gives \(q=2\).
+
+If \(h\) is odd and \(e\) is even, the extra factor in
+\eqref{eq:rigidity-ratio} is \(\Phi(h)\).
+For odd \(h\ge5\), the right side lies strictly
+between consecutive powers \(\alpha^{e-h}\) and
+\(\alpha^{e-h+1}\), of which only the second has an
+even exponent. This is impossible. For \(h=1\),
+\eqref{eq:rigidity-special} gives \(2d=e+2\);
+for \(h=3\) it gives \(2d=e-2\).
+Putting \(e=2m\) in the norm equation then gives,
+respectively, \(q=L_m\) or \(q=L_m/2\) when \(m\)
+is odd. Indeed \(m\) even would require an irrational
+positive multiple of \(\sqrt5\) to be the integer \(q\).
+In the second case, integrality of \(L_m/2\) is
+equivalent to \(3\mid m\); the condition \(q\ge2\)
+also excludes \(m=1\).
+
+Finally, for even \(h\), odd \(e\),
+\eqref{eq:rigidity-ratio} has the factor \(1/\Phi(e)\).
+For \(e\ge5\), the exponent lies strictly between
+the consecutive integers \(e-h-1\) and \(e-h\);
+the former is even, and no even exponent is possible.
+Thus \(e=3\), necessarily \(h=2\), and
+\eqref{eq:rigidity-special} gives \(d=0\) and \(q=2\).
+
+For sufficiency, case~1 is the quotient identity
+\eqref{eq:ratio-difference}. Cases~2 and~3 follow
+from \(L_{n+2m}-L_n=L_mL_{n+m}\) for odd \(m\),
+together with
+\(L_{n+1}-L_n=L_{n-1}\) and
+\(L_{n+3}-L_n=2L_{n+1}\).
+The last two cases are the corresponding \(q=2\)
+identities. All hold for every sufficiently large
+common shift, with strictly increasing positive values.
+\end{proof}
+
+\begin{theorem}[Explicit infinite-collision coefficient classification]
+\label{thm:explicit-infinite}
+For every integer \(q\ge2\), the set \(T_q\) has
+infinitely many multiply represented positive values
+if and only if \(q\) belongs to the following union:
+\begin{equation}\label{eq:explicit-coefficients}
+\boxed{\begin{aligned}
+&\left\{L_m/L_r\in\mathbb Z:
+  m>r\ge1,\ m,r\text{ odd}\right\}\\
+{}\cup{}&
+\left\{F_m/F_r\in\mathbb Z:
+  m>r\ge2,\ m,r\text{ even}\right\}\\
+{}\cup{}&
+\left\{L_{6r+3}/2:r\ge0\right\}.
+\end{aligned}}
+\end{equation}
+The same equivalence holds for \(P_q\).
+Every other integer \(q\ge2\) has only finitely many
+collisions in \(T_q\) and \(P_q\).
+\end{theorem}
+\begin{proof}
+Each coefficient in \eqref{eq:explicit-coefficients}
+has an infinite family of positive collision values
+by Theorems~\ref{thm:ratios} and~\ref{thm:half-lucas}.
+Conversely, if \(T_q\) has infinitely many collision
+values, Theorem~\ref{thm:stationary} forces a collision
+holding under every common index shift.
+Lemma~\ref{lem:gap-rigidity} puts its coefficient
+in one of the three families: cases~2 and~4
+are subsumed by the first or third family, and
+case~3 is the third family.
+The equivalence for \(P_q\) and finiteness outside
+these families follow from
+Corollary~\ref{cor:sign-classification}.
 \end{proof}
 
 \section*{An exact algorithm for every integer coefficient}
@@ -827,7 +986,7 @@ Corollary~\ref{cor:sign-classification}.
 The case $q=5F_2=5$ generalizes the unique representation
 of positive differences in
 \href{https://oeis.org/A191981}{OEIS A191981}.
-The two coefficient families provide explicit sufficient
-conditions for uniqueness and for infinite collisions.
-The classification of all integer coefficients remains open.
+The quotient and half-Lucas families exhaust all coefficients
+with infinite collisions in the reversed-difference and sum forms;
+finite algorithms decide global uniqueness in every form.
 \end{document}
