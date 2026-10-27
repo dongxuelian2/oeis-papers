@@ -1,0 +1,885 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype,booktabs}
+\usepackage[margin=0.78in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\vthree}{v_3}
+\newcommand{\Stir}[2]{\left\{\begin{smallmatrix}#1\\#2\end{smallmatrix}\right\}}
+\title{Perfect-Power Obstructions and Sparse Powerful Values\\in Cyclic Decimal Concatenations}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 27, 2026}
+\hypersetup{pdftitle={Perfect-Power Obstructions and Sparse Powerful Values in Cyclic Decimal Concatenations},pdfauthor={Qichao Wang and Daoyu Dong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove local obstructions and a quantitative density-zero bound for
+powerful values among cyclic concatenations of initial positive integers.
+For decimal digit lengths with $v_3(d)=1$, a cubic reduction gives an exact
+local classification: 131 classes of $m$ modulo 243 exclude all rotations
+over $\Q_3$; every other class has a local square, cube, or fifth power among
+the first four cuts. At complete digit boundaries, exact valuations and
+characters exclude a set of digit lengths of lower density exceeding $95.53\%$.
+A general lifting theorem gives local power equivalences and a quadratic
+reduction on entire digit intervals. Along suitable progressions of digit
+lengths, the proportion of $m$ for which no rotation is powerful can be
+arbitrarily close to one. The quantitative sparsity bound holds in every
+fixed integer base.
+\end{abstract}
+
+\section{Statements}
+In base $g\ge2$, let $W_m$ concatenate $1,2,\ldots,m$, and let $D(m)$
+be its digit length, with $W_0=D(0)=0$. For $0\le k<m$, moving the first
+$k$ whole integer blocks to the end gives
+\begin{equation}\label{eq:rotation}
+ R_{m,k}=g^{D(k)}W_m-(g^{D(m)}-1)W_k.
+\end{equation}
+In base ten these numbers, in increasing order, form OEIS A001292
+\cite{oeis}. Kashihara conjectured that none except 1 is a perfect power.
+Rip\`a \cite{ripa} excludes $m\equiv2,3,5,6\pmod9$ by a digit-sum argument.
+The full conjecture remains open. We give a uniform sparsity bound and
+local obstructions for complete digit boundaries.
+
+Recall that a positive integer is \emph{powerful} if every prime divisor
+has exponent at least two. Every nontrivial perfect power is powerful.
+Logarithms in the following theorem and in Section~\ref{sec:sieve} are natural.
+
+\begin{theorem}[Quantitative sparsity]\label{thm:sparsity}
+For every fixed integer base $g\ge2$,
+\begin{equation}\label{eq:sparse}
+ \#\{(m,k):2\le m\le X,\ 0\le k<m,\ R_{m,k}\text{ powerful}\}
+ \ll_g \frac{X^2(\log\log X)^2}{\log X}.
+\end{equation}
+For A001292, the corresponding count among the first $N$ terms is
+$O(N(\log\log N)^2/\log N)$.
+\end{theorem}
+
+For the next result the base is ten and $v_3$ denotes the 3-adic valuation.
+\begin{theorem}[Complete digit boundaries]\label{thm:boundary}
+Let $d\ge1$, $m=10^d-1$, $h=v_3(d)$, and $u=d/3^h$. Every rotation satisfies
+\begin{equation}\label{eq:boundary}
+ v_3(R_{m,k})=h+2,\qquad
+ \frac{R_{m,k}}{3^{h+2}}\equiv u(2+6d)\pmod9.
+\end{equation}
+\end{theorem}
+
+\begin{corollary}\label{cor:exclude}
+Put $v=h+2$ and let $\mathcal P(v)$ be its set of prime divisors.
+No rotation at $m=10^d-1$ is a perfect power in any of the following cases:
+\[
+\begin{array}{c|c}
+ \mathcal P(v)&\text{condition on }u\\ \hline
+ \{2\}&u\equiv1\pmod3\\
+ \{3\}&u\equiv1,2,7,8\pmod9\\
+ \{2,3\}&u\equiv1,7\pmod9.
+\end{array}
+\]
+This includes $d\equiv3,6,9,21,24\pmod{27}$ and $d=81$.
+\end{corollary}
+\begin{proof}
+A prime exponent of a perfect power must divide $v$. A square requires
+$v$ even and its normalized unit congruent to 1 modulo 3; by
+\eqref{eq:boundary} this requires $u\equiv2\pmod3$.
+A cube requires $3\mid v$, hence $h\ge1$ and $3\mid d$.
+Its normalized unit must be $\pm1\pmod9$, so $2u\equiv\pm1\pmod9$,
+or $u\equiv4,5\pmod9$. The table excludes every available prime exponent.
+\end{proof}
+
+For the additional boundary primes, put
+\[
+ (p,s)\in\{(37,3),(333667,9)\},\qquad
+ C_s=\frac{9(11-10s)}{200}\pmod p.
+\]
+Define
+\[
+ A_0=0,\qquad
+ A_r=-9\sum_{j=1}^r\frac{10^{j-1}}{10^j-1}\pmod p\quad(0<r<s).
+\]
+All denominators here are units modulo $p$; $C_3=33$ and $C_9=221885$.
+
+\begin{theorem}[Two affine residue formulas]\label{thm:other-primes}
+For every $d\ge1$, write $d=sn+r$, $0\le r<s$. Then
+\begin{equation}\label{eq:affine-boundary}
+ V_d:=W_{10^d-1}\equiv C_sn+A_r\pmod p,\qquad
+ R_{10^d-1,k}\equiv10^{D(k)}V_d\pmod p.
+\end{equation}
+\end{theorem}
+
+\begin{theorem}[General boundary-prime lifting]\label{thm:general-prime}
+Let $p\ge7$ be prime, $r=\operatorname{ord}_p(10)$, and choose $P$ with
+\[
+ r\mid P,\qquad 10^P\equiv1\pmod{9r},\qquad p\nmid P,\qquad
+ C:=V_P\not\equiv0\pmod p.
+\]
+For every positive $d$ divisible by $P$, set $a=v_p(d)$.
+Every whole-block rotation satisfies
+\begin{equation}\label{eq:general-valuation}
+ v_p(R_{10^d-1,k})=a,\qquad
+ \frac{R_{10^d-1,k}}{p^a}
+ \equiv10^{D(k)}C\frac{d}{Pp^a}\pmod p.
+\end{equation}
+\end{theorem}
+In particular, $d=Ppt$ with $p\nmid t$ excludes all perfect powers.
+More generally, every possible prime exponent divides both
+$v_3(d)+2$ and $v_p(d)$, for each applicable pair $(p,P)$.
+The six primes in the table of Section~\ref{sec:characters} all satisfy the
+hypotheses. For the two affine formulas take $P=s$ and $C=C_s$.
+If a prime exponent $\ell$ divides $(p-1)/r$, then
+$Cd/(Pp^a)$ must also be an $\ell$th power modulo $p$.
+In particular, $d=111t$ with $37\nmid t$ and $d=3003003t$ with $333667\nmid t$
+are excluded. The new choice $p=757,P=27$ also excludes
+$d=327024=27\cdot757\cdot16$, since the valuations of every rotation
+at 3 and 757 are respectively 5 and 1.
+
+\begin{theorem}[Reduction on an entire digit interval]\label{thm:digit-interval}
+Let $p\ge7$ be prime, $r=\operatorname{ord}_p(10)$, and
+$r\mid P$, $10^P\equiv1\pmod{9r}$, $p\nmid P$.
+Put $C=V_P\pmod p$, allowing $C=0$.
+For $P\mid d$, $a=v_p(d)$, every $10^{d-1}\le m<10^d$ and $0\le k<m$ satisfy
+\begin{equation}\label{eq:interval-quadratic}
+ R_{m,k}\equiv10^{D(k)}
+ \left(\frac{m(m+1)}2+C\frac dP\right)\pmod{p^{a+1}}.
+\end{equation}
+If $Pp\mid d$, exactly $2(p-1)$ residue classes $m\pmod{p^2}$ give
+$v_p(R_{m,k})=1$ for every cut $k$.
+\end{theorem}
+For example, if $d=111u$, all rotations have valuation one at 37 whenever
+\[
+ m\equiv0,-1\pmod{37},\qquad
+ m\not\equiv296u,\ 1073u-1\pmod{1369}.
+\]
+These are 72 residue classes modulo 1369 in every such digit interval.
+
+\begin{corollary}[Arbitrarily high coverage of whole rotation blocks]\label{cor:interval-coverage}
+For every $\varepsilon>0$ there are positive integers $L,d_0$ such that,
+for every $d\ge d_0$ divisible by $L$, at least
+$(1-\varepsilon)9\cdot10^{d-1}$ choices of $d$-digit $m$ have no powerful
+integer among their rotations.
+\end{corollary}
+
+\begin{corollary}[Density of excluded complete boundaries]\label{cor:density-boundary}
+The set of positive integers $d$ for which every rotation at $m=10^d-1$
+is not a nontrivial perfect power has lower natural density at least
+\[
+ \rho:=\frac{2865982022164616687973223130}{2999999999999999999999999997}
+      =0.9553273407\ldots.
+\]
+
+\end{corollary}
+
+\begin{theorem}[Further complete-boundary exclusions]\label{thm:characters}
+No rotation at $m=10^d-1$ is a nontrivial perfect power when
+$1\le d\le27$, or when $d=54$ or $243$. The same conclusion holds for
+\begin{equation}\label{eq:progressions}
+ \begin{split}
+ d&\equiv12,15\pmod{333},\\
+ d&\equiv27\pmod{37249072371},\qquad
+ d\equiv243\pmod{25475666076}.
+ \end{split}
+\end{equation}
+\end{theorem}
+The finite inputs to this theorem are exact modular certificates;
+Section~\ref{sec:characters} gives their verification and the unbounded
+period argument.
+
+\section{Exact 3-adic values at complete boundaries}
+Write $V_d=W_{10^d-1}$ and $S(d)=D(10^d-1)$. We will prove the stronger
+intermediate congruence
+\begin{equation}\label{eq:ratio}
+ \frac{V_d}{9d}\in\Z_3,\qquad
+ \frac{V_d}{9d}\equiv2+6d\pmod9.
+\end{equation}
+Quotients by $d$ in this section are taken in $\Q_3$.
+
+\begin{lemma}[Averaging power series]\label{lem:average}
+For integers $d\ge1$ and $n\ge1$,
+\begin{equation}\label{eq:average}
+ v_3\!\left(\frac1d\sum_{j=1}^d j^n\right)
+ \ge-\lfloor\log_3(n+1)\rfloor.
+\end{equation}
+Suppose $f(X)=\sum_{n\ge0}c_nX^n$ has $v_3(c_n)\ge n$,
+$c_0\equiv5\pmod9$, $c_1\equiv3\pmod9$, and $v_3(c_2)\ge3$.
+Then
+\begin{equation}\label{eq:faverage}
+ \frac1d\sum_{j=1}^d f(j)\equiv2+6d\pmod9.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Using Stirling numbers of the second kind gives the exact identity
+\[
+ \frac1d\sum_{j=1}^d j^n
+ =\sum_{r=0}^n\Stir{n+1}{r+1}
+       \frac{r!}{r+1}\binom{d-1}{r}.
+\]
+Each denominator loses at most $\lfloor\log_3(n+1)\rfloor$ factors of 3,
+proving \eqref{eq:average}. For $n\ge3$,
+$n-\lfloor\log_3(n+1)\rfloor\ge2$, so all these terms vanish modulo 9
+after averaging. The same holds for $n=2$ by its stronger coefficient bound.
+Only $c_0+c_1(d+1)/2$ remains, congruent to $5+3(d+1)/2=2+6d\pmod9$.
+The coefficient bounds also justify convergence and termwise averaging.
+\end{proof}
+
+Define the 3-adic logarithm explicitly by
+\[
+ \ell=\sum_{r\ge1}\frac{(-1)^{r+1}9^r}{r},\qquad v_3(\ell)=2.
+\]
+In the following power series put
+\[
+ E=e^{\ell X},\quad a=E/10,\quad q=9a,\quad b=E-1,\quad
+ S(X)=\frac{(9X-1)E+1}{9},
+\]
+and define
+\begin{equation}\label{eq:U}
+ \frac{U(X)}9=a^2+
+ \frac{ab+1}{9}\sum_{r\ge0}\binom q{r+2}b^r,
+ \qquad f(X)=\frac{U(X)}9e^{-\ell S(X)}.
+\end{equation}
+At every positive integer $j$, $S(j)$ is the digit length of $V_j$,
+and $U(j)$ concatenates all $j$-digit integers. Indeed, with
+$a=10^{j-1}$, $b=10^j-1$, and $q=9a$, the usual arithmetic-geometric sum gives
+\[
+ b^2U(j)=(ab+1)(1+b)^q-((1+b)b+1).
+\]
+Expanding $(1+b)^q$ cancels its constant and linear terms and gives
+\eqref{eq:U}, since $a+q=10^j$ and $aq=9a^2$.
+
+\begin{lemma}\label{lem:coefficients}
+The coefficients of $f$ satisfy all hypotheses of Lemma~\ref{lem:average}.
+\end{lemma}
+\begin{proof}
+Let $\mathcal A$ consist of series whose degree-$n$ coefficient has
+valuation at least $n$. It is closed under addition and multiplication.
+In the $r$th summand of $U/9$, the factor $b^r$ makes all degrees below $r$
+zero. The factor $q$ in $\binom q{r+2}$ cancels the displayed denominator 9.
+The remaining expression is a polynomial in $E$ with 3-adic denominators
+bounded by $(r+2)!$. Its degree-$n$ coefficient, for $r\le n$, therefore has
+valuation at least
+\[
+ 2n-v_3(n!)-v_3((r+2)!)\ge n.
+\]
+Here $v_3(n!)\le(n-1)/2$ for $n\ge1$, and
+$v_3((r+2)!)\le(n+1)/2$; the degree-zero case is immediate.
+The term $a^2$ satisfies the same bound. Thus $U/9\in\mathcal A$.
+
+The constant term of $S$ is zero. Its linear coefficient is $1-\ell/9$,
+of valuation at least 2, and for $n\ge2$ its coefficient is
+$\ell^{n-1}(n-\ell/9)/n!$, of valuation at least $n$.
+Hence $S\in\mathcal A$. Expanding $e^{-\ell S}$ preserves these bounds:
+its $r$th exponential term gains $2r-v_3(r!)\ge0$ factors of 3.
+Consequently $f\in\mathcal A$.
+
+Expansion through degree two in \eqref{eq:U} gives
+\begin{align*}
+ c_0&=\frac1{200},\\
+ c_1&=\frac{169\ell}{3000}+\frac{\ell^2}{1800},\\
+ c_2&=\frac{671\ell^2}{80000}
+        +\frac{353\ell^3}{54000}+\frac{\ell^4}{32400}.
+\end{align*}
+Since $\ell/9\equiv1\pmod9$, these imply
+$c_0\equiv5\pmod9$, $c_1\equiv3\pmod9$, and $v_3(c_2)\ge3$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:boundary}]
+The concatenation of the complete digit blocks yields
+\[
+ V_d=10^{S(d)}\sum_{j=1}^d U(j)10^{-S(j)}
+     =9\,10^{S(d)}\sum_{j=1}^d f(j).
+\]
+Lemma~\ref{lem:average} and $10^{S(d)}\equiv1\pmod9$ prove
+\eqref{eq:ratio}. Its right side is a 3-adic unit, so $v_3(V_d)=h+2$.
+
+To transfer the normalized unit to every rotation, note that
+\begin{equation}\label{eq:S}
+ S(d)=\frac{9d(d+1)}2
+ \left(1+\sum_{r=1}^{d-1}\frac{2\cdot9^r}{r+2}\binom{d-1}{r}\right).
+\end{equation}
+This follows by expanding $S(d)=9\sum_{j=1}^d j10^{j-1}$ in powers of 9.
+Each term after 1 in the bracket is divisible by 3; hence
+$v_3(S(d))=2+h+v_3(d+1)$. Lifting the exponent gives
+\[
+ v_3(10^{S(d)}-1)=4+h+v_3(d+1).
+\]
+In \eqref{eq:rotation}, $10^{D(k)}\equiv1\pmod9$ and the second term
+is divisible by $3^{h+4}$. Thus $R_{m,k}\equiv V_d\pmod{3^{h+4}}$.
+Combining this with \eqref{eq:ratio} proves both assertions in
+\eqref{eq:boundary}.
+\end{proof}
+
+\subsection*{A cubic reduction on digit intervals}
+Write $T_x=x(x+1)/2$.
+\begin{theorem}[Uniform cubic congruence]\label{thm:three-cubic}
+Let $m$ have $d$ decimal digits and $h=v_3(d)\ge1$.
+For every whole-block cut,
+\begin{equation}\label{eq:three-cubic}
+ 10^{-D(k)}R_{m,k}\equiv
+ T_m+\frac{3d}{2}(m^3-m+9)-9dmT_k\pmod{3^{h+4}}.
+\end{equation}
+In particular, if $3^{h+2}\mid m$, all rotations satisfy
+\begin{equation}\label{eq:three-critical}
+ R_{m,k}\equiv\frac{m+27d}{2}\pmod{3^{h+4}}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Put $B=10^d$, $\delta=B-1$, and $t=B-1-m$.
+The exact tail identity in the proof of Theorem~\ref{thm:digit-interval},
+expanded through first order in $\delta$, gives
+\[
+ W_m\equiv V_d+\frac{t(t-1)}2
+       -\delta\frac{t(t^2+5)}6\pmod{3^{2h+4}}.
+\]
+Here the first derivative of the tail at $B=1$ is
+$t(t+1)(5-2t)/6$; combining it with the factor $B^{-t}$ gives the displayed
+integer coefficient. The omitted term $\delta V_d$ also has valuation at
+least $2h+4$.
+Substitute $t=\delta-m$. Any loss from the denominator 6 leaves the
+discarded quadratic terms of valuation at least $2h+3\ge h+4$.
+The binomial expansion gives $\delta\equiv9d\pmod{3^{h+4}}$, while
+Theorem~\ref{thm:boundary} gives $V_d\equiv18d\pmod{3^{h+4}}$.
+Consequently
+\[
+ W_m\equiv T_m+\frac{3d}{2}(m^3-m+9)\pmod{3^{h+4}}.
+\]
+Also $D(m)=d(m+1)-\delta/9\equiv dm\pmod{3^{h+2}}$,
+so $10^{D(m)}-1\equiv9dm\pmod{3^{h+4}}$.
+Finally $10^{-D(k)}W_k\equiv T_k\pmod9$ by digit sums.
+The rotation identity proves \eqref{eq:three-cubic}.
+If $3^{h+2}\mid m$, the cubic, quadratic, and cut-dependent terms vanish
+at the stated precision except $m/2+27d/2$.
+Multiplication by $10^{D(k)}\equiv1\pmod9$ preserves this residue,
+proving \eqref{eq:three-critical}.
+\end{proof}
+
+\begin{corollary}[Complete local classification when $v_3(d)=1$]\label{cor:three-complete}
+Let $v_3(d)=1$ and $u=d/3$. All rotations of a $d$-digit $m$ fail to be
+prime-exponent powers over $\Q_3$ exactly when at least one of the following holds:
+\[
+ m\bmod9\in\{2,3,5,6\},\qquad m\bmod27\in\{9,17\},\qquad
+ m\bmod243\in C_u,
+\]
+where
+\[
+ C_u=\begin{cases}
+ \{0,27,54,135,189\},&u\equiv1\pmod3,\\
+ \{54,108,162,189,216\},&u\equiv2\pmod3.
+ \end{cases}
+\]
+These are exactly 131 residue classes modulo 243, and every rotation in
+these classes is excluded from integer perfect powers.
+In every other class, some $k\in\{0,1,2,3\}$ and $e\in\{2,3,5\}$ satisfy
+$R_{m,k}\in(\Q_3^\times)^e$.
+\end{corollary}
+\begin{proof}
+A 3-adic unit is a square exactly when it is 1 modulo 3, a cube exactly
+when it is $\pm1$ modulo 9, and always a fifth power.
+The square and fifth-power assertions follow from Hensel's lemma.
+For cubes, $(1+3x)^3=1+9(x+3x^2+3x^3)$, whose expression in parentheses
+has derivative 1 modulo 3, proves sufficiency; necessity is immediate.
+In each case the valuation must also be divisible by the exponent.
+The factor $10^{D(k)}$ preserves these three power criteria.
+
+Modulo 27, \eqref{eq:three-cubic} reduces to $T_m$.
+The first two listed sets have valuation one, or valuation two with
+nonsquare unit. Outside them, $m\equiv1\pmod3$ gives a fifth-power unit,
+and $m\equiv8,18\pmod{27}$ gives a square. It remains to consider
+$m\equiv0,-1\pmod{27}$.
+
+For $m\equiv0\pmod{27}$, \eqref{eq:three-critical} becomes
+$R_{m,k}/27\equiv(m/27+3u)/2\pmod9$.
+The nine classes of $m/27$ give precisely the five exclusions $C_u$;
+every other nonzero residue gives a square or cube.
+If this residue is zero, $m\equiv-81u\pmod{243}$.
+The binomial expansion gives
+$v_3((10^d-1)/(9d)-1)=2$, so $v_3(D(m))=3$ and
+$v_3(10^{D(m)}-1)=5$.
+Since $R_{m,1}=10R_{m,0}-(10^{D(m)}-1)$, either $R_{m,0}$ or $R_{m,1}$
+has valuation exactly 5 and is a fifth power in $\Q_3$.
+
+For $m=27z-1$, \eqref{eq:three-cubic} gives
+$R_{m,k}/27\equiv(3u-z)/2+uT_k\pmod9$.
+At $k=0,2,3$, these residues form an entire coset modulo 3 in $\Z/9\Z$.
+That coset contains 1, 3, or 8, giving a cube or a square.
+All these cuts exist because $m$ has at least three digits.
+Finally the three exclusion sets are disjoint and contain
+$108+18+5=131$ classes modulo 243.
+\end{proof}
+More generally, \eqref{eq:three-critical} shows that if $h+3$ is a power of 2,
+$d/3^h\equiv1\pmod3$, and $3^{h+4}\mid m$, then every rotation is excluded:
+its valuation is $h+3$ and its normalized unit is 2 modulo 3.
+
+\section{Lifting at boundary primes}
+\begin{lemma}[Boundary periods]\label{lem:period}
+Let $q>3$ be prime, $r=\operatorname{ord}_q(10)$, and $\gcd(r,10)=1$.
+Choose $P$ with $r\mid P$ and $10^P\equiv1\pmod{9r}$.
+Then $S(d)\pmod r$ has period $P$, and $V_d\pmod q$ has period $qP$.
+More precisely, for $t\ge0$ and $0\le s<P$,
+\begin{equation}\label{eq:period}
+ V_{tP+s}\equiv tV_P10^{S(s)}+V_s\pmod q.
+\end{equation}
+\end{lemma}
+\begin{proof}
+In a complete $j$-digit block let $a=10^{j-1}$, $B=10^j$, and $N=9a$.
+Appending that block acts by $z\mapsto B^Nz+U(j)$. Modulo $q$, if $B\ne1$,
+\begin{equation}\label{eq:block-character}
+ U(j)=\frac{(a(B-1)+1)B^N-(B(B-1)+1)}{(B-1)^2};
+\end{equation}
+if $B=1$, it is $Na+N(N-1)/2$. The affine map therefore depends only on
+$a,B,N\pmod q$ and $N\pmod r$. These data repeat after $P$ steps:
+$r\mid P$ fixes the first three, and $10^P\equiv1\pmod r$ fixes the last.
+Also $9j10^{j-1}\pmod r$ has period $P$, and
+\[
+ S(P)=\frac{(9P-1)10^P+1}{9}\equiv0\pmod r
+\]
+by the stronger modulus $9r$. Thus $S(d)\pmod r$ is periodic, and a complete
+$P$-cycle acts by $z\mapsto z+V_P$ modulo $q$.
+Appending $s$ more blocks proves \eqref{eq:period}, and adding $q$ cycles
+proves the asserted period of $V_d$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:general-prime}]
+We interpolate a complete $P$-cycle of digit blocks and average it over an
+arbitrary number of cycles, retaining division by that number.
+Put
+\[
+ \lambda=\frac{\log(10^r)}r\in p\Z_p,\qquad
+ \omega=10e^{-\lambda},\qquad L=P\lambda.
+\]
+Then $\omega^r=1$, and its reduction has order $r$.
+For $s=1,\ldots,P$ and $X\in\Z_p$, set
+\[
+ j=PX+s,\quad B=10^se^{LX},\quad A=B/10,\quad N=9A,\quad b=B-1,
+ \quad S_s(X)=\frac{(9j-1)B+1}{9}.
+\]
+Let $E_s=9s10^{s-1}$ and $H_s=S(s)$ be fixed integers. Define
+\[
+ U_s(X)=\frac{(Ab+1)\omega^{E_s}e^{\lambda jN}-(Bb+1)}{b^2},
+ \qquad
+ F(X)=\sum_{s=1}^P U_s(X)\omega^{-H_s}e^{-\lambda S_s(X)}.
+\]
+For integral $X\ge0$, the period conditions give
+$jN\equiv E_s\pmod r$ and $S(j)\equiv H_s\pmod r$.
+Thus $U_s(X)$ is the actual $j$-digit block and
+$F(X)=\sum_{j=PX+1}^{P(X+1)}U_j10^{-S(j)}$.
+For $r\mid s$, remove the apparent singularity by
+\begin{equation}\label{eq:other-series}
+ U_s(X)=AN+(Ab+1)\sum_{t\ge0}\binom N{t+2}b^t.
+\end{equation}
+Here $b\in p\Z_p$ throughout $\Z_p$; if $r\nmid s$, $b$ is a unit.
+
+Write $F(X)=\sum_{n\ge0}c_nX^n$. The coefficient bound is
+\begin{equation}\label{eq:other-coefficients}
+ v_p(c_n)\ge n-v_p(n!)-\left\lfloor\frac{n+1}{p-1}\right\rfloor
+ \ge\left\lceil\frac{p-3}{p-1}n\right\rceil\quad(n\ge1).
+\end{equation}
+To see this, each $n$th derivative of $e^{LX}$ gains at least $p^n$.
+The same holds for the $n$th derivatives of $\lambda jN$ and
+$-\lambda S_s$, for $n\ge1$: a derivative of the linear factor $j$
+loses at most one $L$, compensated by $\lambda$.
+Exponentiating preserves the property, as do inverses of unit denominators.
+In the $t$th summand of \eqref{eq:other-series}, an undifferentiated factor
+$b$ contributes $p$, while a factor differentiated $i\ge1$ times contributes
+$p^i$. Combining all factors gives at least $p^{\max(t,n)}$ for the $n$th
+derivative, before the denominator $(t+2)!$.
+It loses at most $\lfloor(t+1)/(p-1)\rfloor$ powers of $p$.
+For $t\le n$ this gives the asserted bound, and for $t>n$ use that
+$t-\lfloor(t+1)/(p-1)\rfloor$ is nondecreasing.
+The tails converge with all derivatives.
+The normalizing exponential preserves the bound; division by $n!$ gives
+the first inequality. The second uses $v_p(n!)\le(n-1)/(p-1)$.
+
+For $M\ge1$, the exact Stirling identity
+\[
+ \frac1M\sum_{i=0}^{M-1}i^n
+ =\sum_{t=0}^n\Stir{n}{t}\frac{t!}{t+1}\binom{M-1}t
+\]
+bounds its valuation below by $-\lfloor\log_p(n+1)\rfloor$.
+For $p\ge7$, \eqref{eq:other-coefficients} exceeds this loss by at least one:
+if $k=\lfloor\log_p(n+1)\rfloor\ge1$, then $n\ge p^k-1$ makes its final
+bound at least $(p-3)k\ge k+1$; the case $k=0$ is immediate.
+Termwise averaging therefore gives
+\[
+ \frac1M\sum_{i=0}^{M-1}F(i)\equiv c_0\equiv C\pmod p.
+\]
+The last equality follows by concatenating the first $P$ blocks and using
+$r\mid S(P)$. Likewise
+$V_{PM}=10^{S(PM)}\sum_{i=0}^{M-1}F(i)$ and $r\mid S(PM)$
+give the exact valuation $v_p(M)$ and normalized unit $CM/p^{v_p(M)}$.
+
+Finally put $d=PM$ and $\nu=v_p(10^r-1)\ge1$.
+Lifting the exponent gives $v_p(10^d-1)=\nu+a$.
+In $S(d)=d10^d-(10^d-1)/9$, the summands have unequal valuations
+$a$ and $\nu+a$, so $v_p(S(d))=a$. Since $r\mid S(d)$,
+\[
+ v_p(10^{S(d)}-1)=\nu+a\ge a+1.
+\]
+The rotation identity \eqref{eq:rotation} now proves both assertions in
+\eqref{eq:general-valuation}, including the factor contributed by the cut.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:digit-interval}]
+Before using $C\ne0$, the preceding averaging argument gives
+\[
+ V_d\equiv C\frac dP\pmod{p^{a+1}}.
+\]
+Put $B=10^d$ and $t=B-1-m$. The removed $t$ integer blocks all have length $d$,
+so the exact tail identity is
+\[
+ V_d=B^tW_m+\sum_{j=1}^t(B-j)B^{j-1}.
+\]
+Lifting the exponent gives $B\equiv1\pmod{p^{a+1}}$.
+Thus the tail sum is $-t(t-1)/2$, and $t\equiv-m$ gives
+$W_m\equiv V_d+m(m+1)/2$ at this precision.
+Also $D(m)=S(d)-dt$ is divisible by both $r$ and $p^a$;
+the latter follows from $S(d)=d10^d-(10^d-1)/9$.
+Hence $10^{D(m)}\equiv1\pmod{p^{a+1}}$, and
+\eqref{eq:rotation} proves \eqref{eq:interval-quadratic}.
+
+When $p\mid d/P$, the polynomial in parentheses reduces modulo $p$ to
+$m(m+1)/2$. Its roots 0 and $-1$ are simple. Each has $p$ lifts modulo
+$p^2$, exactly one of which is zero modulo $p^2$. The other $p-1$ lifts
+have valuation one, proving the count. At $p=37$, $P=3$, $d=111u$, the
+polynomial is $m(m+1)/2+1221u\pmod{1369}$; its two zero lifts are
+$296u$ and $1073u-1$.
+
+A further whole-block exclusion is
+$d\equiv3\pmod{111}$, $m\equiv126\pmod{999}$ within the $d$-digit interval.
+The elementary identities
+$W_m\equiv m(m+1)/2+9d\lfloor(m+1)/3\rfloor\pmod{27}$ and
+$D(m)\equiv dm\pmod9$ (proved in \path{RESIDUE_EXCLUSIONS.md}) give
+$R_{m,k}\equiv9\pmod{27}$, forcing the exponent to be 2.
+But \eqref{eq:interval-quadratic} has polynomial residue 5 modulo 37,
+a nonsquare, and 10 is a square modulo 37. This excludes every rotation.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:interval-coverage}]
+For a finite set $\mathcal S$ of primes $p\ge7$ with
+$\gcd(\operatorname{ord}_p(10),10)=1$, choose
+$P_p=\operatorname{lcm}(r_p,\operatorname{ord}_{9r_p}(10))$.
+This satisfies the period hypotheses and $p\nmid P_p$:
+every prime factor of $r_p\varphi(9r_p)$ is smaller than $p$.
+Set
+\[
+ L=\operatorname{lcm}_{p\in\mathcal S}(P_pp),\quad
+ M=\prod_{p\in\mathcal S}p^2,\quad
+ \theta=\prod_{p\in\mathcal S}\left(1-\frac{2(p-1)}{p^2}\right).
+\]
+For fixed $L\mid d$, the Chinese remainder theorem shows that the fraction
+of classes modulo $M$ avoiding every valuation-one obstruction is exactly
+$\theta$. Thus, with $H=9\cdot10^{d-1}$, at least
+$H(1-\theta)-M$ values of $m$ have a valuation-one prime shared by every
+rotation, so none of their rotations is powerful.
+
+Primes $p\equiv3\pmod{40}$ supply a divergent reciprocal sum by
+Dirichlet's theorem \cite{dirichlet}. Quadratic reciprocity gives
+$(10/p)=1$, and $(p-1)/2\equiv1\pmod{10}$; therefore $r_p$ is odd
+and coprime to 10. Consequently $\theta$ can be made smaller than
+$\varepsilon/2$. Choose such a finite set and then $d_0$ so that
+$M/H<\varepsilon/2$ for $d\ge d_0$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:other-primes}]
+For both pairs in Theorem~\ref{thm:other-primes},
+\[
+ \operatorname{ord}_p(10)=s\mid9,\qquad v_p(10^s-1)=1,
+ \qquad S(j):=D(10^j-1)\in9\Z.
+\]
+Let $U_j$ concatenate the $j$-digit integers, and put
+$B=10^j$, $b=B-1$, $a=B/10$, $q=9a$. Its length $jq$ is divisible by $s$.
+If $s\nmid j$, the block formula used in \eqref{eq:U} gives
+$U_j\equiv-9a/b\pmod p$. If $s\mid j$, its multiplier $B$ is one modulo $p$,
+so summing the appended integers gives $U_j\equiv9/200\pmod p$.
+Thus $U_j\pmod p$ has period $s$. Pairing each nonidentity $s$th root
+$z=10^j$ with $z^{-1}$ yields
+\[
+ \sum_{j=1}^{s-1}\frac{10^j}{10^j-1}=\frac{s-1}{2},\qquad
+ \sum_{j=1}^s U_j\equiv-\frac{9(s-1)}{20}+\frac9{200}=C_s\pmod p.
+\]
+All block multipliers are one modulo $p$, proving
+\eqref{eq:affine-boundary}, including its rotation assertion.
+This proves Theorem~\ref{thm:other-primes}. Its corresponding valuations and
+normalized units follow from Theorem~\ref{thm:general-prime} with $P=s$.
+
+\end{proof}
+
+\section{Power characters and periodic transfer}\label{sec:characters}
+For a prime $q$ and a prime $e\mid q-1$, put
+$\chi_{q,e}(z)=z^{(q-1)/e}\pmod q$. A nonzero $e$th power has character 1.
+If
+\begin{equation}\label{eq:character}
+ 10^{S(d)}\equiv1\pmod q,\qquad
+ \chi_{q,e}(10)=1,\qquad
+ \chi_{q,e}(V_d)\notin\{0,1\},
+\end{equation}
+then \eqref{eq:rotation} gives the same nontrivial character for every
+$R_{10^d-1,k}$. Thus none is an $e$th power. When $v_3(d)+2$ is a power
+of $e$, Theorem~\ref{thm:boundary} eliminates all other prime exponents.
+
+Here are the finite inputs. Their nonzero cycle constants also verify every
+hypothesis of Theorem~\ref{thm:general-prime}:
+\[
+\begin{array}{c|r|r|r|r}
+ i&q_i&r_i&P_i&V_{P_i}\pmod{q_i}\\\hline
+ 1&37&3&3&33\\
+ 2&757&27&27&538\\
+ 3&333667&9&9&221885\\
+ 4&440334654777631&27&27&178343635184937\\
+ 5&1527791&43&903&547718\\
+ 6&43037&29&812&409
+\end{array}
+\]
+For each row of the next table, $r_i\mid S(d)$,
+$\chi_{q_i,e}(10)=1$, and the displayed character is nonzero and different
+from 1. Each $v_3(d)+2$ is a power of the listed $e$.
+\begin{center}
+\begin{tabular}{rccc}
+\toprule
+$d$&$e$&$i$&$\chi_{q_i,e}(V_d)$\\\midrule
+$2,14,20$&2&2&$-1$\\
+$5,26$&2&3&$-1$\\
+$8,11,17,18$&2&1&$-1$\\
+$12,15$&3&1&26\\
+$23$&2&4&$-1$\\
+$27$&5&5&990998\\
+$54$&5&4&386179030766766\\
+$243$&7&6&12819\\
+\bottomrule
+\end{tabular}
+\end{center}
+The accompanying \path{BOUNDARY_CHARACTERS.json} records these exact inputs;
+\path{verify_boundary_characters.py} verifies them.
+Their finite arithmetic consists of complete factorizations of $q_i-1$,
+Lucas primality witnesses, modular powers, and the recurrence
+$V_j=B^NV_{j-1}+U(j)$ with \eqref{eq:block-character}.
+An independent verification uses exact matrix powering for every listed $d$.
+For a Lucas witness $a$, the checked conditions are
+$a^{q-1}\equiv1\pmod q$ and
+$\gcd(a^{(q-1)/\ell}-1,q)=1$ for every prime $\ell\mid q-1$;
+the factor primes are verified by trial division.
+These conditions force every prime divisor of $q$ to be at least $q$,
+proving primality.
+
+\begin{proof}[Proof of Theorem~\ref{thm:characters}]
+Corollary~\ref{cor:exclude} and the table exhaust $d=1,\ldots,27$;
+the last two rows handle 54 and 243. Equation~\eqref{eq:character}
+excludes every available prime exponent.
+
+For any row put $h=v_3(d)$ and
+$T=q_i\operatorname{lcm}(P_i,3^{h+1})$.
+Replacing $d$ by $d+tT$ preserves $h$, $S(d)\pmod{r_i}$, and
+$V_d\pmod{q_i}$, by Lemma~\ref{lem:period}.
+Hence the same character argument works for all $t\ge0$.
+The rows $d=12,15,27,243$ give exactly \eqref{eq:progressions}.
+\end{proof}
+
+\begin{corollary}[Exact local power criteria]\label{cor:higher}
+Put $Q=440334654777631$ and let $u$ be a positive integer.
+For every rotation at the indicated boundary,
+\[
+ \begin{array}{c|c}
+ d&\text{equivalence over the stated field}\\\hline
+ 27u&R\text{ is a fifth power in }\Q_Q
+          \iff u\text{ is a fifth power in }\Q_Q\\
+ 243u&R\text{ is a seventh power in }\Q_{757}
+          \iff u\text{ is a seventh power in }\Q_{757}.
+ \end{array}
+\]
+Explicitly, for $(p,e)=(Q,5)$ or $(757,7)$, write $u=p^at$ with $p\nmid t$.
+The local condition is exactly
+\begin{equation}\label{eq:full-local-criterion}
+ e\mid a,\qquad t^{(p-1)/e}\equiv1\pmod p.
+\end{equation}
+If $3\nmid u$, failure of this condition excludes every integer perfect power
+in the whole rotation block.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:general-prime} gives $v_p(R)=v_p(u)=a$ and
+\[
+ R/p^a\equiv10^{D(k)}178343635184937\,t\pmod Q,\qquad
+ R/p^a\equiv10^{D(k)}300t\pmod{757},
+\]
+respectively. The displayed coefficients and $10$ have character 1 for
+exponents 5 and 7 respectively, as checked in the certificates.
+Since $e\ne p$, Hensel's lemma lifts every nonzero $e$th root modulo $p$.
+Thus a number in $\Q_p$ is an $e$th power exactly when its valuation is
+divisible by $e$ and its normalized unit is an $e$th power modulo $p$.
+This proves both equivalences. When $3\nmid u$, the only possible prime
+exponent is 5 or 7 respectively, by Theorem~\ref{thm:boundary}.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:density-boundary}]
+The 3-adic restrictions leave only the following disjoint sets:
+\[
+ d\equiv2\pmod3,\qquad d\equiv12,15\pmod{27},\qquad
+ d\equiv18\pmod{27},\qquad 27\mid d.
+\]
+In the first and third sets, a perfect power must be a square; in the second,
+a cube. Put $Q=440334654777631$. In every fixed class modulo 27,
+Lemma~\ref{lem:period} makes $V_d$ affine modulo each of
+$37,333667,757,Q$. In the class $d\equiv a\pmod{27}$ the respective slopes
+are $1,331988,538,178343635184937$ multiplied by $10^{S(a)}$;
+all are nonzero.
+The four residues are independent by the Chinese remainder theorem.
+For a square candidate the exact valuation of $S(d)$ from \eqref{eq:S}
+shows $27\mid S(d)$. Thus all four rotation characters are fixed,
+and the proportion of residues that are zero or squares at all four primes is
+\[
+ \alpha=\frac{19}{37}\frac{166834}{333667}
+           \frac{379}{757}\frac{Q+1}{2Q}.
+\]
+For cubes use 37 and 333667, giving the proportion
+$\beta=(13/37)(111223/333667)$, as in \eqref{eq:affine-boundary}.
+The upper density of the remaining $d$ is therefore at most
+$(10\alpha+2\beta+1)/27$.
+
+Inside $27\mid d$, Corollary~\ref{cor:higher} excludes further disjoint sets
+of densities
+\[
+ \delta_5=\frac2{81}\frac{4(Q-1)}{5Q},\qquad
+ \delta_7=\frac2{729}\frac{6\cdot756}{7\cdot757}.
+\]
+Indeed $v_3(d)$ is respectively 3 or 5, and nonzero nonpowers occupy
+$4/5$ or $6/7$ of the corresponding finite-field units.
+Also $d=81u$ with $u\equiv1,7\pmod9$ is excluded by
+Corollary~\ref{cor:exclude}, adding the disjoint density $2/729$.
+Consequently
+\[
+ \underline{\operatorname{dens}}\{d:\text{every boundary rotation is excluded}\}
+ \ge1-\frac{10\alpha+2\beta+1}{27}+\delta_5+\delta_7+\frac2{729}
+ =\rho.\qedhere
+\]
+\end{proof}
+
+\section{A uniform sieve for powerful values}\label{sec:sieve}
+We now prove Theorem~\ref{thm:sparsity}. In a fixed $d$-digit interval set
+\[
+ B=g^d,\quad L=g^{d-1},\quad c=B-1,\quad
+ A=c^2W_{L-1}+Lc+1.
+\]
+The recurrence $W_{m+1}=BW_m+(m+1)$ gives, for $L-1\le m\le B-1$,
+\[
+ c^2W_m=A B^{m-L+1}-((m+1)c+1),\qquad
+ D(m)=D(L-1)+d(m-L+1).
+\]
+For fixed $k$, writing $u=g^{D(k)}$, substitution into
+\eqref{eq:rotation} gives
+\begin{equation}\label{eq:affine}
+ R_{m,k}=\alpha B^m+\beta m+\gamma,
+\quad
+ \begin{cases}
+ \alpha=(uA/c^2-g^{D(L-1)}W_k)B^{1-L},\\
+ \beta=-u/c,\quad\gamma=W_k-uB/c^2.
+ \end{cases}
+\end{equation}
+At every prime $p\nmid g(B-1)$ the coefficients are defined modulo $p^2$
+and $\beta$ is a unit. The right side provides a periodic modular extension;
+only its values inside the digit interval are identified with the concatenation.
+
+\begin{lemma}[Valuation-one densities]\label{lem:densities}
+Let $p\nmid B\beta$ and $F(n)=\alpha B^n+\beta n+\gamma\pmod{p^2}$.
+The event $p\mid F(n)$, $p^2\nmid F(n)$ has period dividing
+$T_p=p^2(p-1)$ and density $\rho_p=(p-1)/p^2$.
+For any finite set $P$ of eligible primes the events have joint density
+$\prod_{p\in P}\rho_p$ in a period dividing $\operatorname{lcm}_{p\in P}T_p$.
+\end{lemma}
+\begin{proof}
+Fix $n\pmod{p-1}$. The exponential term is constant modulo $p$, and the
+linear coefficient is nonzero, so exactly one class $n\pmod p$ is a root.
+Its $p$ lifts differ by $p(p-1)t$. Euler's theorem fixes the exponential
+term modulo $p^2$ on these lifts, while the linear term takes $p$ distinct
+values. Precisely one lift is zero modulo $p^2$, leaving $p-1$ of valuation one.
+
+For the joint assertion induct on the largest prime $q$.
+The smaller-prime events have a period $T$ with no prime divisor as large
+as $q$. Thus $q\nmid H=\operatorname{lcm}(T,q-1)$.
+In each fixed class modulo $H$, the smaller-prime events are fixed and
+the Chinese remainder theorem lets $n\pmod{q^2}$ vary freely. The local
+count gives the same fraction $\rho_q$ in every class. Averaging multiplies
+the previous joint density by $\rho_q$. This allows overlapping periods,
+including a smaller prime dividing a larger prime minus one.
+\end{proof}
+
+For an interval $I$ of $H$ integers and a subset $P'$, Lemma~\ref{lem:densities}
+gives its simultaneous event count as
+$H\prod_{p\in P'}\rho_p+O(\prod_{p\in P'}p^3)$, since the interval error
+is at most the joint period. Take eligible primes at most $z$, put
+$\lambda=\sum\rho_p$, and choose an even integer $K\ge0$.
+Powerful values avoid every valuation-one event. Finite Bonferroni gives
+\begin{equation}\label{eq:sieve}
+ \#\{n\in I:F(n)\text{ powerful}\}
+ \le H\left(e^{-\lambda}+\frac{\lambda^{K+1}}{(K+1)!}\right)
+       +(K+1)z^{4K}.
+\end{equation}
+Indeed, if $e_j$ are the elementary symmetric sums of the $\rho_p$,
+the even truncated main term is at most
+$\prod(1-\rho_p)+e_{K+1}\le e^{-\lambda}+\lambda^{K+1}/(K+1)!$.
+There are at most $z^j$ subsets of size $j$, each costing at most $z^{3j}$,
+which proves the displayed error. These estimates are uniform in the
+coefficients of \eqref{eq:affine} and in $k$.
+
+Choose
+\[
+ \eta=\frac{\log g}{100},\qquad
+ z=\exp\!\left(\frac{\eta d}{\log d}\right),\qquad
+ K=2\lceil4\log d\rceil,
+\]
+and use primes $d^2<p\le z$ with $p\nmid g(g^d-1)$.
+For large $d$, $z>d^2$. Omitted primes exceeding $d^2$ and dividing $g^d-1$
+number at most $\log(g^d-1)/(2\log d)$, with reciprocal sum
+$O_g(1/(d\log d))$. The fixed prime divisors of $g$ eventually lie below $d^2$.
+Mertens' estimate \cite{mertens} therefore yields
+\[
+ \lambda=\log\log z-\log\log(d^2)+O_g(1)
+        =\log d-2\log\log d+O_g(1).
+\]
+In particular $0<\lambda\le\log d$ eventually, so
+$e^{-\lambda}\ll_g(\log d)^2/d$. Also
+\[
+ \frac{\lambda^{K+1}}{(K+1)!}\le(e/8)^{K+1}\le d^{-8},\qquad
+ (K+1)z^{4K}<g^{d/2}
+\]
+for large $d$; the latter follows from $K\le10\log d$ and
+$\log((K+1)z^{4K})\le\log(K+1)+40\eta d<d\log g/2$.
+Thus for every fixed $k$ and every interval inside the digit block with $m>k$,
+\begin{equation}\label{eq:uniform}
+ \#\{m\in I:R_{m,k}\text{ powerful}\}
+ \ll_g |I|\frac{(\log d)^2}{d}+g^{d/2}.
+\end{equation}
+
+Let $D$ be the digit length of $\lfloor X\rfloor$.
+For each $d\le D$ and $k$, apply \eqref{eq:uniform} on
+$\max(g^{d-1},k+1,2)\le m\le\min(X,g^d-1)$.
+There are at most $g^d$ choices of $k$, so the total interval error is
+$\sum_{d\le D}g^{3d/2}=O_g(X^{3/2})$.
+Blocks with $d\le D/2$ contain only $O_g(X)$ pairs and may be bounded trivially.
+On the other blocks the main factor is $O((\log D)^2/D)$, and there are
+$O(X^2)$ pairs. This proves \eqref{eq:sparse}.
+
+Finally, each $m$ supplies $m$ distinct rotations. If $m$ has $d\ge2$ digits,
+the cyclic digit word has a unique occurrence of 1 followed by $d-1$ zeros:
+it is the integer $g^{d-1}$. Such a zero run cannot cross an integer boundary
+or the cyclic join, whose next digit is 1. The unique marker prevents a
+nonidentity digit rotation from fixing the word. For $d=1$ all digits are distinct.
+Digit lengths increase strictly with $m$, so the sequence through block $m=X$
+has $X(X+1)/2$ entries. Bounding a partial final block by the whole block
+and taking $X\asymp\sqrt N$ proves the sequence-index assertion.
+\qed
+
+\begin{thebibliography}{9}
+\bibitem{oeis} OEIS Foundation, Sequence A001292,
+\url{https://oeis.org/A001292}, accessed October 27, 2026.
+\bibitem{ripa} M. Rip\`a, \emph{On some open problems concerning perfect powers},
+arXiv:2205.10163, version 4 (2024), \url{https://arxiv.org/abs/2205.10163}.
+\bibitem{mertens} F. Mertens, Ein Beitrag zur analytischen Zahlentheorie,
+\emph{J. reine angew. Math.} \textbf{78} (1874), 46--62,
+\url{https://doi.org/10.1515/crll.1874.78.46}.
+\bibitem{dirichlet} P. G. L. Dirichlet,
+\emph{There are infinitely many prime numbers in all arithmetic progressions
+with first term and difference coprime} (1837),
+English translation by R. Stephan, arXiv:0808.1408v2,
+\url{https://arxiv.org/abs/0808.1408v2}.
+\end{thebibliography}
+\end{document}

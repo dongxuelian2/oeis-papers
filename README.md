@@ -2,6 +2,9 @@
 
 Mathematical papers and research notes, ordered by OEIS sequence number. Each entry uses the sequence's OEIS description; sequences treated in the same paper are grouped together.
 
+- **[A001292](papers/A001292/)**
+  - [A001292](https://oeis.org/A001292): Concatenations of cyclic permutations of initial positive integers.
+
 - **[A005046](papers/A005046/)**
   - [A005046](https://oeis.org/A005046): Number of partitions of a 2n-set into even blocks.
 
