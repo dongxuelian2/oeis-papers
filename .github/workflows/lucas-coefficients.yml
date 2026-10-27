@@ -23,6 +23,7 @@ jobs:
           python3 papers/Lucas-coefficient-families/verify_ratio_collisions.py
           python3 papers/Lucas-coefficient-families/verify_global_collisions.py
           python3 papers/Lucas-coefficient-families/verify_stationary_collisions.py
+          python3 papers/Lucas-coefficient-families/verify_norm_stationary.py
           python3 papers/Lucas-coefficient-families/verify_all_global_unique.py
       - uses: xu-cheng/latex-action@v4
         with:
