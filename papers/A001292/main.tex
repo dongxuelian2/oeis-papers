@@ -10,20 +10,22 @@
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\vthree}{v_3}
 \newcommand{\Stir}[2]{\left\{\begin{smallmatrix}#1\\#2\end{smallmatrix}\right\}}
-\title{Powerful Values and Local Obstructions\\in Cyclic Decimal Concatenations}
+\title{Perfect-Power Obstructions and Sparse Powerful Values\\in Cyclic Decimal Concatenations}
 \author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
 Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
 \date{October 27, 2026}
-\hypersetup{pdftitle={Powerful Values and Local Obstructions in Cyclic Decimal Concatenations},pdfauthor={Qichao Wang and Daoyu Dong}}
+\hypersetup{pdftitle={Perfect-Power Obstructions and Sparse Powerful Values in Cyclic Decimal Concatenations},pdfauthor={Qichao Wang and Daoyu Dong}}
 \begin{document}
 \maketitle
 \begin{abstract}
 We prove a quantitative density-zero bound for powerful values among cyclic
 concatenations of initial positive integers, uniformly in the rotation and
-in every fixed integer base. At the decimal boundaries $m=10^d-1$, we determine
-exact valuations and unit obstructions at the primes 3, 37, and 333667.
-The resulting congruences exclude every rotation for a set of digit lengths
-of lower density at least $0.85919$.
+in every fixed integer base. At the decimal boundaries $m=10^d-1$, exact
+valuations and finite-field characters exclude every rotation for a set of
+digit lengths of lower density exceeding $95.53\%$. All boundaries
+$1\le d\le27$, as well as $d=54,243$, are excluded. Explicit period formulas
+give further infinite families whose remaining possible prime exponents
+are five and seven.
 \end{abstract}
 
 \section{Statements}
@@ -122,10 +124,26 @@ $\gcd(v_3(d)+2,v_{37}(d))=1$.
 The set of positive integers $d$ for which every rotation at $m=10^d-1$
 is not a nontrivial perfect power has lower natural density at least
 \[
- \frac{286397396}{333333333}=0.8591921888\ldots.
+ \rho:=\frac{2865982022164616687973223130}{2999999999999999999999999997}
+      =0.9553273407\ldots.
 \]
-For example, all rotations are excluded at $d=2,12,15,18$.
+
 \end{corollary}
+
+\begin{theorem}[Further complete-boundary exclusions]\label{thm:characters}
+No rotation at $m=10^d-1$ is a nontrivial perfect power when
+$1\le d\le27$, or when $d=54$ or $243$. The same conclusion holds for
+\begin{equation}\label{eq:progressions}
+ \begin{split}
+ d&\equiv12,15\pmod{333},\\
+ d&\equiv27\pmod{37249072371},\qquad
+ d\equiv243\pmod{25475666076}.
+ \end{split}
+\end{equation}
+\end{theorem}
+The finite inputs to this theorem are exact modular certificates;
+Section~\ref{sec:characters} gives their verification and the unbounded
+period argument.
 
 \section{Exact 3-adic values at complete boundaries}
 Write $V_d=W_{10^d-1}$ and $S(d)=D(10^d-1)$. We will prove the stronger
@@ -338,32 +356,170 @@ and unit to every rotation. Since $10$ has order $s$, it is an $\ell$th
 power modulo $p$ whenever $\ell\mid(p-1)/s$. This proves all of
 Theorem~\ref{thm:other-primes}.
 
+\section{Power characters and periodic transfer}\label{sec:characters}
+For a prime $q$ and a prime $e\mid q-1$, put
+$\chi_{q,e}(z)=z^{(q-1)/e}\pmod q$. A nonzero $e$th power has character 1.
+If
+\begin{equation}\label{eq:character}
+ 10^{S(d)}\equiv1\pmod q,\qquad
+ \chi_{q,e}(10)=1,\qquad
+ \chi_{q,e}(V_d)\notin\{0,1\},
+\end{equation}
+then \eqref{eq:rotation} gives the same nontrivial character for every
+$R_{10^d-1,k}$. Thus none is an $e$th power. When $v_3(d)+2$ is a power
+of $e$, Theorem~\ref{thm:boundary} eliminates all other prime exponents.
+
+\begin{lemma}[Boundary periods]\label{lem:period}
+Let $q>3$ be prime, $r=\operatorname{ord}_q(10)$, and $\gcd(r,10)=1$.
+Choose $P$ with $r\mid P$ and $10^P\equiv1\pmod{9r}$.
+Then $S(d)\pmod r$ has period $P$, and $V_d\pmod q$ has period $qP$.
+More precisely, for $t\ge0$ and $0\le s<P$,
+\begin{equation}\label{eq:period}
+ V_{tP+s}\equiv tV_P10^{S(s)}+V_s\pmod q.
+\end{equation}
+\end{lemma}
+\begin{proof}
+In a complete $j$-digit block let $a=10^{j-1}$, $B=10^j$, and $N=9a$.
+Appending that block acts by $z\mapsto B^Nz+U(j)$. Modulo $q$, if $B\ne1$,
+\begin{equation}\label{eq:block-character}
+ U(j)=\frac{(a(B-1)+1)B^N-(B(B-1)+1)}{(B-1)^2};
+\end{equation}
+if $B=1$, it is $Na+N(N-1)/2$. The affine map therefore depends only on
+$a,B,N\pmod q$ and $N\pmod r$. These data repeat after $P$ steps:
+$r\mid P$ fixes the first three, and $10^P\equiv1\pmod r$ fixes the last.
+Also $9j10^{j-1}\pmod r$ has period $P$, and
+\[
+ S(P)=\frac{(9P-1)10^P+1}{9}\equiv0\pmod r
+\]
+by the stronger modulus $9r$. Thus $S(d)\pmod r$ is periodic, and a complete
+$P$-cycle acts by $z\mapsto z+V_P$ modulo $q$.
+Appending $s$ more blocks proves \eqref{eq:period}, and adding $q$ cycles
+proves the asserted period of $V_d$.
+\end{proof}
+
+Here are all finite character inputs needed below. The moduli and periods are
+\[
+\begin{array}{c|r|r|r}
+ i&q_i&r_i&P_i\\\hline
+ 1&37&3&3\\
+ 2&757&27&27\\
+ 3&333667&9&9\\
+ 4&440334654777631&27&27\\
+ 5&1527791&43&903\\
+ 6&43037&29&812
+\end{array}
+\]
+For each row of the next table, $r_i\mid S(d)$,
+$\chi_{q_i,e}(10)=1$, and the displayed character is nonzero and different
+from 1. Each $v_3(d)+2$ is a power of the listed $e$.
+\begin{center}
+\begin{tabular}{rccc}
+\toprule
+$d$&$e$&$i$&$\chi_{q_i,e}(V_d)$\\\midrule
+$2,14,20$&2&2&$-1$\\
+$5,26$&2&3&$-1$\\
+$8,11,17,18$&2&1&$-1$\\
+$12,15$&3&1&26\\
+$23$&2&4&$-1$\\
+$27$&5&5&990998\\
+$54$&5&4&386179030766766\\
+$243$&7&6&12819\\
+\bottomrule
+\end{tabular}
+\end{center}
+The accompanying \path{BOUNDARY_CHARACTERS.json} records these exact inputs;
+\path{verify_boundary_characters.py} verifies them.
+Their finite arithmetic consists of complete factorizations of $q_i-1$,
+Lucas primality witnesses, modular powers, and the recurrence
+$V_j=B^NV_{j-1}+U(j)$ with \eqref{eq:block-character}.
+An independent verification uses exact matrix powering for every listed $d$.
+For a Lucas witness $a$, the checked conditions are
+$a^{q-1}\equiv1\pmod q$ and
+$\gcd(a^{(q-1)/\ell}-1,q)=1$ for every prime $\ell\mid q-1$;
+the factor primes are verified by trial division.
+These conditions force every prime divisor of $q$ to be at least $q$,
+proving primality.
+
+\begin{proof}[Proof of Theorem~\ref{thm:characters}]
+Corollary~\ref{cor:exclude} and the table exhaust $d=1,\ldots,27$;
+the last two rows handle 54 and 243. Equation~\eqref{eq:character}
+excludes every available prime exponent.
+
+For any row put $h=v_3(d)$ and
+$T=q_i\operatorname{lcm}(P_i,3^{h+1})$.
+Replacing $d$ by $d+tT$ preserves $h$, $S(d)\pmod{r_i}$, and
+$V_d\pmod{q_i}$, by Lemma~\ref{lem:period}.
+Hence the same character argument works for all $t\ge0$.
+The rows $d=12,15,27,243$ give exactly \eqref{eq:progressions}.
+\end{proof}
+
+\begin{corollary}[Fifth- and seventh-power families]\label{cor:higher}
+Put $Q=440334654777631$ and let $u$ be a positive integer with $3\nmid u$.
+Every rotation at $m=10^d-1$ is excluded in either case
+\[
+ \begin{array}{c|c}
+ d&\text{condition}\\\hline
+ 27u&u^{(Q-1)/5}\not\equiv0,1\pmod Q\\
+ 243u&u^{108}\not\equiv0,1\pmod{757}.
+ \end{array}
+\]
+\end{corollary}
+\begin{proof}
+Here the only possible prime exponent is respectively 5 or 7.
+Lemma~\ref{lem:period}, with $P=r=27$, gives
+\[
+ V_{27u}\equiv178343635184937\,u\pmod Q,\qquad
+ V_{243u}\equiv300u\pmod{757}.
+\]
+The coefficients have character 1 for exponents 5 and 7 respectively;
+these two exact modular powers are also in the certificates.
+Theorem~\ref{thm:boundary} and \eqref{eq:S} show $27\mid S(d)$.
+Now \eqref{eq:character} applies. Each condition specifies infinitely many
+positive integers $u$, since the relevant nonzero nonpower residues exist
+and can also be chosen coprime to 3.
+\end{proof}
+
 \begin{proof}[Proof of Corollary~\ref{cor:density-boundary}]
-The 3-adic restrictions leave only
+The 3-adic restrictions leave only the following disjoint sets:
 \[
  d\equiv2\pmod3,\qquad d\equiv12,15\pmod{27},\qquad
  d\equiv18\pmod{27},\qquad 27\mid d.
 \]
 In the first and third sets, a perfect power must be a square; in the second,
-a cube. In each fixed class modulo 27, the affine formula
-\eqref{eq:affine-boundary} makes $V_d$ run uniformly modulo each $p$ as
-$d$ varies modulo $27p$. The two residues are independent by the Chinese
-remainder theorem, since $C_s\ne0$ and $s\mid9$.
-The proportions of residues that are zero or squares, or zero or cubes,
-at both primes are respectively
+a cube. Put $Q=440334654777631$. In every fixed class modulo 27,
+Lemma~\ref{lem:period} makes $V_d$ affine modulo each of
+$37,333667,757,Q$. In the class $d\equiv a\pmod{27}$ the respective slopes
+are $1,331988,538,178343635184937$ multiplied by $10^{S(a)}$;
+all are nonzero.
+The four residues are independent by the Chinese remainder theorem.
+For a square candidate the exact valuation of $S(d)$ from \eqref{eq:S}
+shows $27\mid S(d)$. Thus all four rotation characters are fixed,
+and the proportion of residues that are zero or squares at all four primes is
 \[
  \alpha=\frac{19}{37}\frac{166834}{333667}
-       =\frac{3169846}{12345679},\qquad
- \beta=\frac{13}{37}\frac{111223}{333667}
-       =\frac{1445899}{12345679}.
+           \frac{379}{757}\frac{Q+1}{2Q}.
 \]
-Multiplication by $10^{D(k)}$ preserves both power classes.
-Bounding the last set trivially, the upper density of the remaining $d$
-is at most $\alpha(1/3+1/27)+2\beta/27+1/27$.
-Subtracting from one proves the stated bound.
-For the examples, $V_2\equiv242665\pmod{333667}$ is a nonsquare,
-$V_{12},V_{15}\equiv21,17\pmod{37}$ are noncubes, and
-$V_{18}\equiv13\pmod{37}$ is a nonsquare.
+For cubes use 37 and 333667, giving the proportion
+$\beta=(13/37)(111223/333667)$, as in \eqref{eq:affine-boundary}.
+The upper density of the remaining $d$ is therefore at most
+$(10\alpha+2\beta+1)/27$.
+
+Inside $27\mid d$, Corollary~\ref{cor:higher} excludes further disjoint sets
+of densities
+\[
+ \delta_5=\frac2{81}\frac{4(Q-1)}{5Q},\qquad
+ \delta_7=\frac2{729}\frac{6\cdot756}{7\cdot757}.
+\]
+Indeed $v_3(d)$ is respectively 3 or 5, and nonzero nonpowers occupy
+$4/5$ or $6/7$ of the corresponding finite-field units.
+Also $d=81u$ with $u\equiv1,7\pmod9$ is excluded by
+Corollary~\ref{cor:exclude}, adding the disjoint density $2/729$.
+Consequently
+\[
+ \underline{\operatorname{dens}}\{d:\text{every boundary rotation is excluded}\}
+ \ge1-\frac{10\alpha+2\beta+1}{27}+\delta_5+\delta_7+\frac2{729}
+ =\rho.\qedhere
+\]
 \end{proof}
 
 \section{A uniform sieve for powerful values}\label{sec:sieve}

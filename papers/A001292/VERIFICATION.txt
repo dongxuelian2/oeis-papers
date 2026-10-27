@@ -24,7 +24,7 @@ PASS: exact boundary valuation and normalized unit for d=1..60000; independent m
 PASS: literal rolling prefixes through m=999999; 1141 actual rotation residues at complete boundaries
 PASS: complete square/cube exclusion table; 72 valuation/unit classes
 
-verify_local_primes.py --extended: exit 0
+Prior head bb50730: verify_local_primes.py --extended: exit 0
 PASS: primality and exact orders for 37 and 333667; complete-block constants
 33 and 221885; exhaustive square/cube residue image counts at both primes.
 PASS: exact CRT density lower bound 286397396/333333333 = 0.8591921888591922.
@@ -39,6 +39,23 @@ PASS: literal prefixes through m=999999; 1141 actual rotation residues.
 PASS: 22 independent matrix rotation checks at d=111,444, including cuts
 just before the final integer; exact positive valuations and normalized units.
 
+Current merged source: verify_local_primes.py (default): exit 0
+PASS: both affine residue laws, exact two-prime density baseline, and orders.
+PASS: direct complete blocks through d=200000 at 37 and d=10000 at 333667.
+PASS: both independent interpolation audits, 20000 coefficient bounds,
+1141 literal rotation residues, and 22 positive-valuation matrix rotations.
+
+verify_boundary_characters.py: exit 0
+PASS: 6 complete Lucas primality certificates, exact orders, and universal block-period hypotheses
+PASS: 15 character certificates by two independent algorithms; all digit lengths 1..27, 54, and 243
+PASS: every certificate extends to its stated infinite arithmetic progression; large parameter checks through 10**30+7
+PASS: linear fifth- and seventh-power families, independent period coefficients, and 240 sample units
+PASS: four independent affine square characters, two cube characters,
+seven disjoint class counts, and exact CRT density
+2865982022164616687973223130/2999999999999999999999999997
+= 0.9553273407215389.
+PASS: 2205 literal rotation characters at m=9,99,999
+
 search_gmp.py 1000: exit 0
 PASS independent all-exponent predicate audit on 2..10000
 All 500499 nontrivial rotations covered, no perfect powers:
@@ -51,6 +68,6 @@ Earlier full run: python search_gmp.py 5000
 The unchanged search source hash and GMP version are in SEARCH_5000.json.
 
 Manuscript: main.tex -> main.pdf, final source compiled twice successfully.
-Six complete pages inspected as rendered PNGs; no LaTeX warnings.
+Eight complete pages inspected as rendered JPEGs; no LaTeX warnings.
 PDF/source hashes and page count checked against publication.json.
 All local documentation links checked.

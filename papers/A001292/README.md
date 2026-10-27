@@ -5,10 +5,31 @@ density-zero theorem and exact local obstructions at complete digit boundaries.
 Its source is [main.tex](main.tex).
 
 For a set of positive digit lengths `d` of lower natural density at least
-**286397396/333333333 = 85.91921888...%**, every rotation at `m=10^d-1`
+**95.53273407...%**, every rotation at `m=10^d-1`
 is not a nontrivial perfect power. This is a density among digit lengths `d`.
 The proof combines exact 3-adic restrictions with affine residue formulas
-at the primes 37 and 333667.
+at the primes 37, 333667, 757, and 440334654777631, together with
+fifth- and seventh-power families.
+
+Every rotation at `m=10^d-1` is excluded for **all `d=1..27`, and for
+`d=54,243`**. These are complete boundary blocks, each with `10^d-1`
+rotations. The proof combines the valuation formula below with six finite
+moduli. [Exact certificates](BOUNDARY_CHARACTERS.json) include complete
+Lucas primality proofs and the modular residues.
+
+Each character certificate extends to an infinite arithmetic progression.
+Examples are
+
+\[
+d\equiv12,15\pmod{333},\qquad
+d\equiv27\pmod{37249072371},\qquad
+d\equiv243\pmod{25475666076}.
+\]
+
+There are also linear fifth- and seventh-power exclusions. For `3` not
+dividing `u`, put `Q=440334654777631`. All rotations are excluded if
+`d=27u` and `u^((Q-1)/5)` is neither `0` nor `1 (mod Q)`, or if `d=243u`
+and `u^108` is neither `0` nor `1 (mod 757)`.
 
 For the first `N` sequence entries, the number of nontrivial perfect powers is
 
@@ -66,11 +87,15 @@ python verify_structure.py
 python verify_powerful_sieve.py
 python verify_boundary_valuations.py
 python verify_local_primes.py
+python verify_boundary_characters.py
 python search_gmp.py 1000
 ```
 
 The boundary verifier checks digit lengths `d=1..60000`, independent matrix
 blocks, rational Taylor coefficients, and literal prefixes through `m=999999`.
+The character verifier checks all finite certificates by both a closed block
+formula and matrix concatenation, the period hypotheses, the two linear
+families, 2,205 literal rotation characters, and the exact density bound.
 [VERIFICATION.txt](VERIFICATION.txt) records the checks.
 
 The local-prime verifier compares geometric block sums with matrix powers,
