@@ -6,7 +6,7 @@ all collisions in T_q and P_q, t being the first index with
 L_t>200*(q+1)**4.
 """
 from argparse import ArgumentParser
-from stationary_collisions import stationary_T
+from explicit_infinite import infinite_T
 from global_collisions import index_cutoff,complete_collisions
 
 L=[2,1]
@@ -37,7 +37,7 @@ def global_status(q,form):
         return global_status(-q, 'P' if form=='S' else 'S')
     if form=='S':
         return 'finite_collisions' if complete_collisions(q) else 'unique'
-    if stationary_T(q):return 'infinite_collisions'
+    if infinite_T(q):return 'infinite_collisions'
     six_t,t=index_cutoff(q)
     return 'finite_collisions' if bounded_collision(q,form,13*t) else 'unique'
 
