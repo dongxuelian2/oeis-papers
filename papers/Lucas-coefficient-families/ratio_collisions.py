@@ -32,6 +32,21 @@ def special_two(n):
     assert v==2*L[n+2]-L[n]
     return 2,v,(n+2,n),(n+3,n+3)
 
+
+def half_lucas_collision(r, n):
+    """Return q, positive T value, two distinct witnesses, for q=L_(6r+3)/2."""
+    if r < 0:
+        raise ValueError("r must be >=0")
+    M = 6*r+3
+    if n < M:
+        raise ValueError("n must be >=6r+3")
+    ensure(n+M+1)
+    assert L[M] % 2 == 0
+    q = L[M]//2
+    val = q*L[n] - L[n-M+1]
+    assert val > 0 and val == q*L[n+3]-L[n+M+1]
+    return q, val, (n,n-M+1), (n+3,n+M+1)
+
 if __name__=="__main__":
     p=ArgumentParser(description=__doc__)
     p.add_argument("m",type=int)

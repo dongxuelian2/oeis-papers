@@ -1,4 +1,4 @@
-name: Rebuild consolidated general Lucas PDF
+name: Rebuild unified Lucas coefficient PDF
 on:
   push:
     branches: [research/a191981-unique-representations-20261026]
@@ -18,18 +18,18 @@ jobs:
         with:
           working_directory: papers/Lucas-coefficient-families
           root_file: main.tex
-      - name: Verify exact integer certificates
+      - name: Run exact verification
         run: |
           python3 papers/Lucas-coefficient-families/verify.py
           python3 papers/Lucas-coefficient-families/verify_all_integer.py
           python3 papers/Lucas-coefficient-families/verify_ratio_collisions.py
           python3 papers/Lucas-coefficient-families/verify_global_collisions.py
-      - name: Commit rebuilt PDF
+      - name: Commit updated PDF
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -f papers/Lucas-coefficient-families/main.pdf
-          git diff --cached --quiet || git commit -m 'Build global collision bound Lucas PDF'
+          git diff --cached --quiet || git commit -m 'Build generalized Lucas collision classification PDF'
           git fetch origin "$GITHUB_REF_NAME"
           git rebase "origin/$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"

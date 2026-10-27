@@ -13,7 +13,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove a broader quotient criterion involving Lucas and Fibonacci divisibility. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and an effective algebraic-norm estimate also yield a finite upper bound on every positive collision, deciding complete uniqueness for each fixed integer coefficient at least two.
+We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove broader quotient and half-Lucas criteria, including an infinite family of triple representations. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and an effective algebraic-norm estimate also yield a finite upper bound on every positive collision, deciding complete uniqueness for each fixed integer coefficient at least two.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -244,6 +244,63 @@ provides infinitely many collisions.
 It also covers infinitely many other integer
 coefficients, for example $8,19,21,48,55$.
 \end{remark}
+
+
+\begin{theorem}[Half-Lucas collision coefficients]
+\label{thm:half-lucas}
+For every integer $r\ge0$, let $M=6r+3$ and
+\[
+q=\frac{L_M}{2}\in\mathbb Z.
+\]
+Then $T_q$ and $P_q$ each have infinitely many
+repeated positive values. More precisely, for
+every $x\ge M$,
+\begin{equation}\label{eq:half-lucas}
+qL_x-L_{x-M+1}
+=qL_{x+3}-L_{x+M+1}>0,
+\end{equation}
+and
+\[
+qL_x+L_{x+M+1}
+=qL_{x+3}+L_{x-M+1}.
+\]
+The coefficients begin
+$2,38,682,12238,219602,\ldots$.
+\end{theorem}
+\begin{proof}
+The Lucas residues modulo $2$ have period $3$,
+so $L_M$ is even when $3\mid M$.
+As $M$ is odd, the product identity gives
+\[
+L_{x+M+1}-L_{x-M+1}=L_ML_{x+1}.
+\]
+The recurrence also gives
+$L_{x+3}-L_x=2L_{x+1}$.
+Substituting $2q=L_M$ proves
+\eqref{eq:half-lucas} and the sum identity.
+As $x\ge M\ge3$,
+$qL_x-L_{x-M+1}>0$; these values
+strictly increase with $x$.
+\end{proof}
+
+\begin{corollary}[Triple collisions for $q=2$]
+\label{cor:triple-two}
+For every $n\ge3$,
+\[
+\boxed{L_{n+1}
+=2L_n-L_{n-2}
+=2L_{n+1}-L_{n+1}
+=2L_{n+3}-L_{n+4}.}
+\]
+Thus $T_2$ has infinitely many values
+with at least three distinct representations.
+\end{corollary}
+\begin{proof}
+The first equality follows from
+$L_{n+1}=2L_n-L_{n-2}$,
+the second is immediate, and the third
+is Theorem~\ref{thm:half-lucas} with $r=0$.
+\end{proof}
 
 \section*{An exact algorithm for every integer coefficient}
 The coefficient families above admit efficient special-purpose
