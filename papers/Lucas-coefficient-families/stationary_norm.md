@@ -1,170 +1,149 @@
 # Norm restrictions on stationary Lucas collisions
 
-Let (L_0=2,L_1=1), (F_0=0,F_1=1), and (L_{n+2}=L_{n+1}+L_n).
-Write (alpha=(1+sqrt5)/2), (eta=(1-sqrt5)/2), so
-(alphaeta=-1). The results below refine the finite stationary-pattern
-criterion in `main.tex`.
+Let \(L_0=2,L_1=1\), \(F_0=0,F_1=1\), and \(L_{n+2}=L_{n+1}+L_n\).
+Write \(\alpha=(1+\sqrt5)/2\), \(\beta=(1-\sqrt5)/2\), so
+\(\alpha\beta=-1\). The results below refine the finite stationary-pattern
+criterion of the coefficient manuscript.
 
-## 1. A necessary square-norm equation
+## 1. Necessary square-norm equation
 
-**Proposition.** Suppose (qge2), (i<k), (j<ell), and
-
-[
-qL_{n+k}-L_{n+ell}=qL_{n+i}-L_{n+j}
-]
-
-holds for all (nge0). Put (h=k-i), (e=ell-j), and
-
-[
-C(d)=L_d-1-(-1)^d quad(dge1).
-]
-
+**Proposition.** Suppose \(q\ge2\), \(i<k\), \(j<\ell\), and
+\[
+qL_{n+k}-L_{n+\ell}=qL_{n+i}-L_{n+j}
+\]
+holds for every \(n\ge0\). Put \(h=k-i\), \(e=\ell-j\), and
+\[
+C(d)=L_d-1-(-1)^d \quad(d\ge1).
+\]
 Then
+\[
+\boxed{e>h,\qquad j\equiv i\pmod2,\qquad q^2 C(h)=C(e).}
+\]
 
-[
-oxed{e>h,qquad jequiv ipmod 2,qquad q^2 C(h)=C(e).}
-]
+*Proof.* Rearrange as
+\(q(L_{n+k}-L_{n+i})=L_{n+\ell}-L_{n+j}\).
+Independence of the two Binet exponentials yields
+\[
+q\alpha^i(\alpha^h-1)=\alpha^j(\alpha^e-1),\qquad
+q\beta^i(\beta^h-1)=\beta^j(\beta^e-1).
+\]
+The algebraic norm of \(\alpha^d-1\) is
+\[
+(\alpha^d-1)(\beta^d-1)=1+(-1)^d-L_d=-C(d).
+\]
+Taking norms gives
+\(q^2(-1)^i C(h)=(-1)^j C(e)\).
+As both \(C(h)\) and \(C(e)\) are positive, \(j-i\) is even
+and \(q^2C(h)=C(e)\). The latter implies \(e>h\), because
+\(q\ge2\) and \(C\) is nondecreasing, strictly increasing
+from index \(2\) onward. This proves the proposition.
 
-*Proof.* Rearrangement gives
-(q(L_{n+k}-L_{n+i})=L_{n+ell}-L_{n+j}).
-Independence of the (alpha^n) and (eta^n) terms yields
-[
-qalpha^i(alpha^h-1)=alpha^j(alpha^e-1),qquad
-qeta^i(eta^h-1)=eta^j(eta^e-1).
-]
-The algebraic norm of (alpha^d-1) is
-[
-(alpha^d-1)(eta^d-1)
-=1+(-1)^d-L_d=-C(d).
-]
-Multiplying the two equations gives
-(q^2(-1)^i C(h)=(-1)^j C(e)).
-Both (C(h)) and (C(e)) are positive, hence (j-i) is even
-and (q^2C(h)=C(e)). Since (qge2) and (C) is nondecreasing
-and strictly increasing from (d=2) onward, (e>h). (square)
+The norm equation is a necessary condition. Exact equality at
+two consecutive shifts and positivity remain to be tested.
 
-This is a necessary condition, not by itself a sufficiency claim.
-Every accepted pattern must still satisfy the two consecutive-shift
-equalities and positivity from the manuscript.
+## 2. Complete classification when both index gaps are even
 
-## 2. Classification when both gaps are even
-
-The double-angle identity yields
-[
+The double-angle identities yield
+\[
 C(2r)=L_{2r}-2=
-egin{cases}
-L_r^2,&r	ext{ odd},\
-5F_r^2,&r	ext{ even}.
-end{cases}
-]
+\begin{cases}
+L_r^2,&r\text{ odd},\\
+5F_r^2,&r\text{ even}.
+\end{cases}
+\]
 
-**Proposition.** For prescribed even gaps (h=2r) and (e=2m),
-with (m>rge1), a positive stationary (T_q) collision with
-integer (qge2) exists **if and only if** (r,m) have the
-same parity and
-[
-q=egin{cases}
-L_m/L_rinmathbb Z,&r,m	ext{ odd},\
-F_m/F_rinmathbb Z,&r,m	ext{ even}.
-end{cases}
-]
+**Proposition.** For even gaps \(h=2r\), \(e=2m\),
+where \(m>r\ge1\), there exists a positive stationary
+collision in \(T_q\), with integer \(q\ge2\), **if and only if**
+\(r,m\) have the same parity and
+\[
+q=
+\begin{cases}
+L_m/L_r\in\mathbb Z,&r,m\text{ odd},\\
+F_m/F_r\in\mathbb Z,&r,m\text{ even}.
+\end{cases}
+\]
 
-*Proof.* The square-norm equation gives
-(q^2C(2r)=C(2m)). With opposite parities,
-this would equate the square of a nonzero rational
-to (5) times the square of a nonzero rational, which
-is impossible. With the same parity, taking the positive
-square root gives the displayed quotient. Conversely,
-the elementary identities
-[
+*Proof.* The norm equation is \(q^2C(2r)=C(2m)\).
+Opposite parities would require a rational square to equal
+five times a rational square, which is impossible.
+Equal parity gives the displayed quotient. Conversely,
+\[
 L_{n+2r}-L_n=
-egin{cases}
-L_rL_{n+r},&r	ext{ odd},\
-5F_rF_{n+r},&r	ext{ even}
-end{cases}
-]
-show, for either integral quotient, that
-[
-qL_{n+m-r}-L_n
-=qL_{n+m+r}-L_{n+2m}>0
-]
-for all (nge1). The two index gaps are exactly (2r)
-and (2m); shifting (n) produces infinitely many
-distinct repeated positive values. (square)
+\begin{cases}
+L_rL_{n+r},&r\text{ odd},\\
+5F_rF_{n+r},&r\text{ even}
+\end{cases}
+\]
+establishes, for each integral quotient,
+\[
+qL_{n+m-r}-L_n=qL_{n+m+r}-L_{n+2m}>0
+\]
+for all \(n\ge1\). The gaps are exactly \(2r\) and \(2m\).
+Increasing \(n\) gives infinitely many distinct repeated
+positive values.
 
-Thus the Lucas/Fibonacci quotient conditions already present in
-the manuscript **exhaust all stationary collisions whose two
-first/second-index gaps are even**.
+Thus the Lucas/Fibonacci integer-quotient families in the
+current manuscript **exhaust all stationary identities in
+which both index gaps are even**.
 
-## 3. Odd-gap restrictions
+## 3. Restrictions involving odd gaps
 
-For odd (d), (C(d)=L_d). For every (rge1),
-(C(4r)=5F_{2r}^2). No Lucas number is divisible by (5),
-as (L_nmod5) has period (4) and nonzero residues
-(1,3,4,2) for (nge1).
-Consequently a stationary pattern can **never** have one
-odd gap and one gap divisible by (4): the equation
-(q^2C(h)=C(e)) would have incompatible parity of
-its (5)-adic valuation.
+For odd \(d\), \(C(d)=L_d\). For every \(r\ge1\),
+\(C(4r)=5F_{2r}^2\). The Lucas residues modulo five
+have the repeating nonzero cycle \(1,3,4,2\).
+Therefore one odd gap and one gap divisible by four
+cannot satisfy the norm equation: the valuations at five
+would have opposite parity.
 
-If the gaps have opposite parity, their even member
-must therefore be (2mod4). The norm identity then
-implies that the odd-index Lucas number involved is a
-perfect square (the square of a rational number which is
-an integer is an integer square). This gives a further
-strong restriction without presuming that every norm
-solution is a stationary identity.
+If the gaps have opposite parity, their even member must
+be congruent to \(2\pmod4\). In that case the norm equation
+forces the odd-index Lucas term involved to be a perfect
+square. This follows since an integer which is the square
+of a rational is the square of an integer.
 
-The cases with both gaps odd reduce to
-[
-L_e=q^2L_h,qquad h,e	ext{ odd}, e>h,
-]
-plus the required shift identity. A simple closed
-arithmetic classification for these remaining cases is
-not established here.
+For two odd gaps the remaining norm equation is
+\[
+L_e=q^2L_h,\qquad e>h\ge1,\qquad h,e\text{ odd}.
+\]
+The norm equation alone is not treated as a complete
+criterion for this case.
 
-## 4. Exact norm-pruned decision algorithm
+## 4. Exact norm-pruned search
 
-The existing stationary theorem sets
-(t=min{nge1:L_n>200(q+1)^4}), (K=12t+1).
-Its complete search ranges imply
-[
-1le h=K-i<3t,qquad 1le e=ell-jle7t.
-]
-For (qge2), (q^2C(h)ge4); the values (C(e)) are
-strictly increasing for (ege3). Therefore **each (h)
-determines at most one candidate (e)**, by the norm equation.
+Use the proved bound
+\[
+t=\min\{n\ge1:L_n>200(q+1)^4\},\qquad K=12t+1.
+\]
+The complete stationary window in the manuscript implies
+\[
+1\le h=K-i<3t,\qquad 1\le e=\ell-j\le7t.
+\]
+For \(q\ge2\), \(q^2C(h)\ge4\), while \(C(e)\)
+is strictly increasing for \(e\ge3\). Consequently,
+**each candidate first gap \(h\) determines at most one
+second gap \(e\)** via \(q^2C(h)=C(e)\).
 
-For any such pair, the function
-[
-jlongmapsto L_{j+e}-L_j
-]
-is strictly increasing for (jge1) and (ege3).
-The first of the two consecutive-shift equations
-[
-q(L_K-L_{K-h})=L_{j+e}-L_j
-]
-therefore determines at most one (j); binary search
-within the proved bounds finds it. Check the second
-equation, parity, and positive value to decide whether
-the candidate gives a stationary collision.
+For \(e\ge3\), the function \(j\mapsto L_{j+e}-L_j\)
+is strictly increasing for \(j\ge1\). Binary search
+therefore finds the only possible \(j\) satisfying
+\[
+q(L_K-L_{K-h})=L_{j+e}-L_j.
+\]
+The algorithm then checks parity, the next shifted equality
+and positivity. The original finite stationary theorem
+makes this procedure both necessary and sufficient.
 
-`norm_stationary.py` implements this without floating point.
-Once the Lucas values and the (C(e)) lookup table are
-formed, the index search takes (O(tlog t)) integer
-comparisons; bit complexity also depends on the sizes
-of the Lucas integers. This is an independent,
-necessary-and-sufficient implementation of the **already
-proved** finite stationary criterion, not a new assumption
-about the sufficiency of the norm equation.
+The implementation **norm_stationary.py** uses exact integer
+arithmetic. After generating Lucas numbers and the norm
+lookup table, it requires \(O(t\log t)\) index comparisons;
+the bit cost also depends on the integer lengths.
+The independent regression script **verify_norm_stationary.py**
+compares full pattern lists to the original direct search
+for every \(q=2,\ldots,200\), verifying all five further
+shifts per pattern. It finds only **26 norm-compatible gap
+pairs** among those 199 coefficients, with precisely the
+same **19** coefficients having infinite collisions.
 
-`verify_norm_stationary.py` independently compares the
-full returned pattern lists with the original exhaustive
-two-shift search for all (q=2,ldots,200). The comparison
-finds **26 norm-compatible gap pairs** across these 199
-coefficients, and agrees on all **19** coefficients with
-infinite (T_q/P_q) collisions. It also checks five further
-shifts of every returned identity.
-
-The current two manuscript PDFs remain unchanged; this
-note and its verifier are additional research material.
+These results are an additional research note and verifier.
+The two existing manuscript PDFs are unchanged.
