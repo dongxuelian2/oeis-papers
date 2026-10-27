@@ -1068,8 +1068,8 @@ index window
 \boxed{1\le a,b,c,d\le 13t+1,}
 \end{equation}
 where \(t=t(q)\) is defined by \eqref{eq:t-bound}.
-The three signs construct their collision witnesses
-using only exact integer arithmetic.
+The two strict determinant signs construct all
+collision witnesses using exact integer arithmetic.
 \end{theorem}
 \begin{proof}
 If \(D(a,b)=qD(c,d)\), then the two unequal pairs
@@ -1099,6 +1099,12 @@ relabeling them gives the divisor equation.
 Thus all three tests are equivalent, not merely
 sufficient.
 
+If \(\Delta=0\), the divisor equation implies
+\(L_a=qL_c\) and \(L_b=qL_d\). These are two
+distinct representations of the same Lucas ratio
+\(q\ge2\), contrary to Lemma~\ref{lem:lucas-ratio}.
+Thus no zero-determinant coefficient candidate exists.
+
 For the common index bound, Theorem~\ref{thm:global}
 places all \(S_q\) collision indices at most \(6t\).
 If \(q\) has no stationary \(T_q\) collision,
@@ -1116,20 +1122,17 @@ satisfying \eqref{eq:signed-cutoff} exists.
 Define the following three explicitly parametrized
 sets of positive integer coefficients:
 \begin{equation}\label{eq:sign-spectra}
-\begin{aligned}
+\boxed{\quad
 \mathcal C_{\pm}
-&=\left\{\frac{D(a,b)}{D(c,d)}\in\mathbb Z_{\ge2}:
-\, a<b,\ c<d,\ \pm\Delta(a,b;c,d)>0\right\},\\
-\mathcal C_0
-&=\left\{\frac{D(a,b)}{D(c,d)}\in\mathbb Z_{\ge2}:
-\, a<b,\ c<d,\ \Delta(a,b;c,d)=0\right\}.
-\end{aligned}
+=\left\{\frac{D(a,b)}{D(c,d)}\in\mathbb Z_{\ge2}:
+\, a<b,\ c<d,\ \pm\Delta(a,b;c,d)>0\right\}.
+\quad}
 \end{equation}
 All four indices are positive. Thus \(S_q\) has a
 positive collision precisely for \(q\in\mathcal C_+\);
 \(T_q\) precisely for \(q\in\mathcal C_-\);
 and \(P_q\) precisely for
-\(q\in\mathcal C_+\cup\mathcal C_-\cup\mathcal C_0\).
+\(q\in\mathcal C_+\cup\mathcal C_-\).
 Let \(\mathcal I\) be the three explicit coefficient
 families in \eqref{eq:explicit-coefficients}.
 By Theorem~\ref{thm:explicit-infinite}, the
@@ -1138,7 +1141,7 @@ By Theorem~\ref{thm:explicit-infinite}, the
 \begin{array}{c|l}
 S & \mathcal C_+\\
 T & \mathcal C_-\setminus\mathcal I\\
-P &(\mathcal C_+\cup\mathcal C_-\cup\mathcal C_0)
+P &(\mathcal C_+\cup\mathcal C_-)
        \setminus\mathcal I.
 \end{array}
 \]
@@ -1146,6 +1149,21 @@ The complements give global uniqueness, while
 \(\mathcal I\) gives infinitely many collision values
 for \(T\) and \(P\). For \(S\), all collisions are
 finite at every \(q\ge2\).
+
+\begin{corollary}[Sum uniqueness from both differences]
+\label{cor:sum-both}
+For every integer \(q\ge2\), all positive values
+in \(P_q\) have unique index-pair representations
+if and only if this holds simultaneously in
+\(S_q\) and \(T_q\).
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:signed-gap} partitions all positive
+\(P_q\) collision witnesses into the two strict
+signs, respectively equivalent to \(S_q\) and \(T_q\)
+collisions. The zero sign is impossible by
+Lemma~\ref{lem:lucas-ratio}.
+\end{proof}
 
 \begin{proposition}[Equal-gap parity rule]\label{prop:equal-gap}
 For \(h\ge1\) and \(1\le c<a\), suppose
