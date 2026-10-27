@@ -26,10 +26,27 @@ d\equiv27\pmod{37249072371},\qquad
 d\equiv243\pmod{25475666076}.
 \]
 
-There are also linear fifth- and seventh-power exclusions. For `3` not
-dividing `u`, put `Q=440334654777631`. All rotations are excluded if
-`d=27u` and `u^((Q-1)/5)` is neither `0` nor `1 (mod Q)`, or if `d=243u`
-and `u^108` is neither `0` nor `1 (mod 757)`.
+The fifth- and seventh-power families have exact local criteria, including
+parameters divisible by the testing prime. For `(p,e)=(440334654777631,5)`
+at `d=27u`, or `(p,e)=(757,7)` at `d=243u`, write `u=p^a t` with `p` not
+dividing `t`. Every rotation is an `e`th power over the `p`-adic field
+exactly when `e` divides `a` and `t^((p-1)/e)=1 (mod p)`. If `3` does not
+divide `u`, failure of either condition excludes every integer perfect power.
+
+A general lifting theorem supplies the exact valuation behind these criteria.
+Let `p>=7` be prime, `r=ord_p(10)`, and choose `P` with `r|P`, `10^P=1 (mod 9r)`, `p` not
+dividing `P`, and `C=W_(10^P-1)` nonzero modulo `p`. For every `P|d` and
+`a=v_p(d)`, all rotations satisfy
+
+\[
+v_p(R)=a,\qquad R/p^a\equiv10^{D(k)}C\frac{d}{Pp^a}\pmod p.
+\]
+
+All six certified primes satisfy these hypotheses. Their pairs `(p,P)` are
+`(37,3)`, `(757,27)`, `(333667,9)`, `(440334654777631,27)`, `(1527791,903)`,
+and `(43037,812)`. Thus `d=Ppt`, with `p` not dividing `t`, excludes an
+entire rotation block. For example, at `d=327024` the valuations at 3 and
+757 are 5 and 1, so no perfect-power exponent is possible.
 
 For the first `N` sequence entries, the number of nontrivial perfect powers is
 
@@ -88,6 +105,7 @@ python verify_powerful_sieve.py
 python verify_boundary_valuations.py
 python verify_local_primes.py
 python verify_boundary_characters.py
+python verify_general_boundary_primes.py
 python search_gmp.py 1000
 ```
 
@@ -96,6 +114,10 @@ blocks, rational Taylor coefficients, and literal prefixes through `m=999999`.
 The character verifier checks all finite certificates by both a closed block
 formula and matrix concatenation, the period hypotheses, the two linear
 families, 2,205 literal rotation characters, and the exact density bound.
+The general-prime verifier compares complete blocks with independent matrix
+words for all six primes, audits the local criteria at positive valuations,
+and directly iterates `d=1..327024` at 757. Newton checks through valuation 8
+use the proved coefficient bound and are recorded separately.
 [VERIFICATION.txt](VERIFICATION.txt) records the checks.
 
 The local-prime verifier compares geometric block sums with matrix powers,

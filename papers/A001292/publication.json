@@ -1,8 +1,8 @@
 {
   "source": "main.tex",
   "pdf": "main.pdf",
-  "source_sha256": "18229f8d6ec18e916c73adfacc03b702b7f56ae08619c17ee6544eb334e6ac15",
-  "pdf_sha256": "1a8df92bffa348524f8bd42eb41e416743b3f18793d5227c3a2d0903c7ee8cfc",
+  "source_sha256": "25d7ee694714fcce1fa3a1a7c32e5fb302a4337679ba62d6ee25fc7f38d7d68a",
+  "pdf_sha256": "d793b2037f86643912138944c83ae1a0e3e6e366ae0cc1bb454fe04ff0a5d205",
   "pages": 8,
   "checked_at": "2026-10-27",
   "build": "pdflatex, twice; JPEG review of every page",

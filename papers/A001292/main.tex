@@ -24,8 +24,9 @@ in every fixed integer base. At the decimal boundaries $m=10^d-1$, exact
 valuations and finite-field characters exclude every rotation for a set of
 digit lengths of lower density exceeding $95.53\%$. All boundaries
 $1\le d\le27$, as well as $d=54,243$, are excluded. Explicit period formulas
-give further infinite families whose remaining possible prime exponents
-are five and seven.
+give further infinite families. A general prime-adic lifting theorem yields
+exact valuations and local fifth- and seventh-power equivalences for every
+cut, including positive valuations at the new primes.
 \end{abstract}
 
 \section{Statements}
@@ -98,27 +99,39 @@ Define
 \]
 All denominators here are units modulo $p$; $C_3=33$ and $C_9=221885$.
 
-\begin{theorem}[Two additional local obstructions]\label{thm:other-primes}
+\begin{theorem}[Two affine residue formulas]\label{thm:other-primes}
 For every $d\ge1$, write $d=sn+r$, $0\le r<s$. Then
 \begin{equation}\label{eq:affine-boundary}
  V_d:=W_{10^d-1}\equiv C_sn+A_r\pmod p,\qquad
  R_{10^d-1,k}\equiv10^{D(k)}V_d\pmod p.
 \end{equation}
-If $s\mid d$, put $a=v_p(d)$ and $t=d/(sp^a)$. Every rotation has
-\begin{equation}\label{eq:other-valuations}
- v_p(R_{10^d-1,k})=a,\qquad
- \frac{R_{10^d-1,k}}{p^a}
-   \equiv10^{D(k)}C_st\pmod p.
-\end{equation}
-Consequently, if such a rotation is an $\ell$th power for a prime $\ell$,
-then $\ell\mid a$. If also $\ell\mid(p-1)/s$, the unit $C_st$ must be
-an $\ell$th power modulo $p$.
 \end{theorem}
 
-In particular, all rotations are excluded whenever $d=111t$ with $37\nmid t$,
-or $d=3003003t$ with $333667\nmid t$: their valuations at the respective
-prime are one. Combining known valuations also excludes any $3\mid d$ with
-$\gcd(v_3(d)+2,v_{37}(d))=1$.
+\begin{theorem}[General boundary-prime lifting]\label{thm:general-prime}
+Let $p\ge7$ be prime, $r=\operatorname{ord}_p(10)$, and choose $P$ with
+\[
+ r\mid P,\qquad 10^P\equiv1\pmod{9r},\qquad p\nmid P,\qquad
+ C:=V_P\not\equiv0\pmod p.
+\]
+For every positive $d$ divisible by $P$, set $a=v_p(d)$.
+Every whole-block rotation satisfies
+\begin{equation}\label{eq:general-valuation}
+ v_p(R_{10^d-1,k})=a,\qquad
+ \frac{R_{10^d-1,k}}{p^a}
+ \equiv10^{D(k)}C\frac{d}{Pp^a}\pmod p.
+\end{equation}
+\end{theorem}
+In particular, $d=Ppt$ with $p\nmid t$ excludes all perfect powers.
+More generally, every possible prime exponent divides both
+$v_3(d)+2$ and $v_p(d)$, for each applicable pair $(p,P)$.
+The six primes in the table of Section~\ref{sec:characters} all satisfy the
+hypotheses. For the two affine formulas take $P=s$ and $C=C_s$.
+If a prime exponent $\ell$ divides $(p-1)/r$, then
+$Cd/(Pp^a)$ must also be an $\ell$th power modulo $p$.
+In particular, $d=111t$ with $37\nmid t$ and $d=3003003t$ with $333667\nmid t$
+are excluded. The new choice $p=757,P=27$ also excludes
+$d=327024=27\cdot757\cdot16$, since the valuations of every rotation
+at 3 and 757 are respectively 5 and 1.
 
 \begin{corollary}[Density of excluded complete boundaries]\label{cor:density-boundary}
 The set of positive integers $d$ for which every rotation at $m=10^d-1$
@@ -268,107 +281,7 @@ Combining this with \eqref{eq:ratio} proves both assertions in
 \eqref{eq:boundary}.
 \end{proof}
 
-\section{The primes 37 and 333667}
-The proof first computes complete digit blocks modulo $p$, then averages
-their analytic interpolation to retain the exact valuation when $s\mid d$.
-For both pairs in Theorem~\ref{thm:other-primes},
-\[
- \operatorname{ord}_p(10)=s\mid9,\qquad v_p(10^s-1)=1,
- \qquad S(j):=D(10^j-1)\in9\Z.
-\]
-Let $U_j$ concatenate the $j$-digit integers, and put
-$B=10^j$, $b=B-1$, $a=B/10$, $q=9a$. Its length $jq$ is divisible by $s$.
-If $s\nmid j$, the block formula used in \eqref{eq:U} gives
-$U_j\equiv-9a/b\pmod p$. If $s\mid j$, its multiplier $B$ is one modulo $p$,
-so summing the appended integers gives $U_j\equiv9/200\pmod p$.
-Thus $U_j\pmod p$ has period $s$. Pairing each nonidentity $s$th root
-$z=10^j$ with $z^{-1}$ yields
-\[
- \sum_{j=1}^{s-1}\frac{10^j}{10^j-1}=\frac{s-1}{2},\qquad
- \sum_{j=1}^s U_j\equiv-\frac{9(s-1)}{20}+\frac9{200}=C_s\pmod p.
-\]
-All block multipliers are one modulo $p$, proving
-\eqref{eq:affine-boundary}, including its rotation assertion.
-
-To lift this calculation, set $Q=10^s$, $L=\log Q\in p\Z_p$.
-For $r=1,\ldots,s$ and a variable $X\in\Z_p$, put
-\[
- j=sX+r,\quad B=10^r e^{LX},\quad a=B/10,\quad q=9a,\quad b=B-1,
- \quad S_r=\frac{(9j-1)B+1}{9}.
-\]
-Define
-\[
- U_r(X)=\frac{(ab+1)e^{L(X+r/s)q}-(Bb+1)}{b^2},\qquad
- f(X)=\sum_{r=1}^s U_r(X)e^{-LS_r/s}.
-\]
-At nonnegative integral $X$, these are the actual blocks and normalized
-blocks: $q$ and $S(j)$ are divisible by $s$, which justifies the exponential
-expressions. For $r=s$, remove the apparent singularity by the convergent series
-\begin{equation}\label{eq:other-series}
- U_s(X)=aq+(ab+1)\sum_{t\ge0}\binom q{t+2}b^t.
-\end{equation}
-Here $b\in p\Z_p$ throughout $\Z_p$.
-
-Write $f(X)=\sum_{n\ge0}c_nX^n$. We claim
-\begin{equation}\label{eq:other-coefficients}
- v_p(c_n)\ge n-v_p(n!)-\left\lfloor\frac{n+1}{p-1}\right\rfloor
- \ge\left\lceil\frac{p-3}{p-1}n\right\rceil\quad(n\ge1).
-\end{equation}
-Indeed, every $n$th derivative of a polynomial in $e^{LX}$ is divisible by
-$p^n$. The exponents $L(X+r/s)q$ and $-LS_r/s$ have the same derivative
-property for $n\ge1$; differentiating their exponentials preserves it.
-When $r<s$, $b$ is a unit and its inverse also has this property.
-In the $t$th summand of \eqref{eq:other-series}, differentiating $b^t$
-gives at least $p^{\max(t,n)}$ after combining with the other factors:
-an undifferentiated factor $b$ contributes $p$, and a factor differentiated
-$i\ge1$ times contributes $p^i$. The binomial coefficient loses at most
-$v_p((t+2)!)\le\lfloor(t+1)/(p-1)\rfloor$. Thus the $n$th derivative of the
-whole sum has valuation at least
-$n-\lfloor(n+1)/(p-1)\rfloor$; this follows for $t\le n$ directly and
-for $t>n$ because $t-\lfloor(t+1)/(p-1)\rfloor$ is nondecreasing.
-The tails converge with all derivatives. Multiplication by $e^{-LS_r/s}$
-preserves this bound, and division by $n!$ proves the first inequality.
-The second uses $v_p(n!)\le(n-1)/(p-1)$ and integrality of valuations.
-
-The Stirling-number argument for \eqref{eq:average}, with $p$ in place of 3,
-also gives
-\[
- v_p\!\left(\frac1N\sum_{i=0}^{N-1}i^n\right)
- \ge-\lfloor\log_p(n+1)\rfloor.
-\]
-For $p\ge7$ and $n\ge1$, the final bound in
-\eqref{eq:other-coefficients} is at least
-$1+\lfloor\log_p(n+1)\rfloor$. Hence termwise averaging gives, for every $N\ge1$,
-\[
- \frac1N\sum_{i=0}^{N-1}f(i)\equiv c_0\equiv C_s\pmod p.
-\]
-The concatenation identity
-$V_{sN}=10^{S(sN)}\sum_{i=0}^{N-1}f(i)$ and $C_s\ne0\pmod p$
-show $v_p(V_{sN})=v_p(N)$ and give its normalized unit in
-\eqref{eq:other-valuations}.
-For $s\mid d$, the identity
-\[
- S(d)=d10^d-\frac{10^d-1}{9}
-\]
-and lifting the exponent give $v_p(S(d))=v_p(d)=a$, followed by
-$v_p(10^{S(d)}-1)=a+1$. Applying \eqref{eq:rotation} transfers the valuation
-and unit to every rotation. Since $10$ has order $s$, it is an $\ell$th
-power modulo $p$ whenever $\ell\mid(p-1)/s$. This proves all of
-Theorem~\ref{thm:other-primes}.
-
-\section{Power characters and periodic transfer}\label{sec:characters}
-For a prime $q$ and a prime $e\mid q-1$, put
-$\chi_{q,e}(z)=z^{(q-1)/e}\pmod q$. A nonzero $e$th power has character 1.
-If
-\begin{equation}\label{eq:character}
- 10^{S(d)}\equiv1\pmod q,\qquad
- \chi_{q,e}(10)=1,\qquad
- \chi_{q,e}(V_d)\notin\{0,1\},
-\end{equation}
-then \eqref{eq:rotation} gives the same nontrivial character for every
-$R_{10^d-1,k}$. Thus none is an $e$th power. When $v_3(d)+2$ is a power
-of $e$, Theorem~\ref{thm:boundary} eliminates all other prime exponents.
-
+\section{Lifting at boundary primes}
 \begin{lemma}[Boundary periods]\label{lem:period}
 Let $q>3$ be prime, $r=\operatorname{ord}_q(10)$, and $\gcd(r,10)=1$.
 Choose $P$ with $r\mid P$ and $10^P\equiv1\pmod{9r}$.
@@ -397,16 +310,134 @@ Appending $s$ more blocks proves \eqref{eq:period}, and adding $q$ cycles
 proves the asserted period of $V_d$.
 \end{proof}
 
-Here are all finite character inputs needed below. The moduli and periods are
+\begin{proof}[Proof of Theorem~\ref{thm:general-prime}]
+We interpolate a complete $P$-cycle of digit blocks and average it over an
+arbitrary number of cycles, retaining division by that number.
+Put
 \[
-\begin{array}{c|r|r|r}
- i&q_i&r_i&P_i\\\hline
- 1&37&3&3\\
- 2&757&27&27\\
- 3&333667&9&9\\
- 4&440334654777631&27&27\\
- 5&1527791&43&903\\
- 6&43037&29&812
+ \lambda=\frac{\log(10^r)}r\in p\Z_p,\qquad
+ \omega=10e^{-\lambda},\qquad L=P\lambda.
+\]
+Then $\omega^r=1$, and its reduction has order $r$.
+For $s=1,\ldots,P$ and $X\in\Z_p$, set
+\[
+ j=PX+s,\quad B=10^se^{LX},\quad A=B/10,\quad N=9A,\quad b=B-1,
+ \quad S_s(X)=\frac{(9j-1)B+1}{9}.
+\]
+Let $E_s=9s10^{s-1}$ and $H_s=S(s)$ be fixed integers. Define
+\[
+ U_s(X)=\frac{(Ab+1)\omega^{E_s}e^{\lambda jN}-(Bb+1)}{b^2},
+ \qquad
+ F(X)=\sum_{s=1}^P U_s(X)\omega^{-H_s}e^{-\lambda S_s(X)}.
+\]
+For integral $X\ge0$, the period conditions give
+$jN\equiv E_s\pmod r$ and $S(j)\equiv H_s\pmod r$.
+Thus $U_s(X)$ is the actual $j$-digit block and
+$F(X)=\sum_{j=PX+1}^{P(X+1)}U_j10^{-S(j)}$.
+For $r\mid s$, remove the apparent singularity by
+\begin{equation}\label{eq:other-series}
+ U_s(X)=AN+(Ab+1)\sum_{t\ge0}\binom N{t+2}b^t.
+\end{equation}
+Here $b\in p\Z_p$ throughout $\Z_p$; if $r\nmid s$, $b$ is a unit.
+
+Write $F(X)=\sum_{n\ge0}c_nX^n$. The coefficient bound is
+\begin{equation}\label{eq:other-coefficients}
+ v_p(c_n)\ge n-v_p(n!)-\left\lfloor\frac{n+1}{p-1}\right\rfloor
+ \ge\left\lceil\frac{p-3}{p-1}n\right\rceil\quad(n\ge1).
+\end{equation}
+To see this, each $n$th derivative of $e^{LX}$ gains at least $p^n$.
+The same holds for the $n$th derivatives of $\lambda jN$ and
+$-\lambda S_s$, for $n\ge1$: a derivative of the linear factor $j$
+loses at most one $L$, compensated by $\lambda$.
+Exponentiating preserves the property, as do inverses of unit denominators.
+In the $t$th summand of \eqref{eq:other-series}, an undifferentiated factor
+$b$ contributes $p$, while a factor differentiated $i\ge1$ times contributes
+$p^i$. Combining all factors gives at least $p^{\max(t,n)}$ for the $n$th
+derivative, before the denominator $(t+2)!$.
+It loses at most $\lfloor(t+1)/(p-1)\rfloor$ powers of $p$.
+For $t\le n$ this gives the asserted bound, and for $t>n$ use that
+$t-\lfloor(t+1)/(p-1)\rfloor$ is nondecreasing.
+The tails converge with all derivatives.
+The normalizing exponential preserves the bound; division by $n!$ gives
+the first inequality. The second uses $v_p(n!)\le(n-1)/(p-1)$.
+
+For $M\ge1$, the exact Stirling identity
+\[
+ \frac1M\sum_{i=0}^{M-1}i^n
+ =\sum_{t=0}^n\Stir{n}{t}\frac{t!}{t+1}\binom{M-1}t
+\]
+bounds its valuation below by $-\lfloor\log_p(n+1)\rfloor$.
+For $p\ge7$, \eqref{eq:other-coefficients} exceeds this loss by at least one:
+if $k=\lfloor\log_p(n+1)\rfloor\ge1$, then $n\ge p^k-1$ makes its final
+bound at least $(p-3)k\ge k+1$; the case $k=0$ is immediate.
+Termwise averaging therefore gives
+\[
+ \frac1M\sum_{i=0}^{M-1}F(i)\equiv c_0\equiv C\pmod p.
+\]
+The last equality follows by concatenating the first $P$ blocks and using
+$r\mid S(P)$. Likewise
+$V_{PM}=10^{S(PM)}\sum_{i=0}^{M-1}F(i)$ and $r\mid S(PM)$
+give the exact valuation $v_p(M)$ and normalized unit $CM/p^{v_p(M)}$.
+
+Finally put $d=PM$ and $\nu=v_p(10^r-1)\ge1$.
+Lifting the exponent gives $v_p(10^d-1)=\nu+a$.
+In $S(d)=d10^d-(10^d-1)/9$, the summands have unequal valuations
+$a$ and $\nu+a$, so $v_p(S(d))=a$. Since $r\mid S(d)$,
+\[
+ v_p(10^{S(d)}-1)=\nu+a\ge a+1.
+\]
+The rotation identity \eqref{eq:rotation} now proves both assertions in
+\eqref{eq:general-valuation}, including the factor contributed by the cut.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:other-primes}]
+For both pairs in Theorem~\ref{thm:other-primes},
+\[
+ \operatorname{ord}_p(10)=s\mid9,\qquad v_p(10^s-1)=1,
+ \qquad S(j):=D(10^j-1)\in9\Z.
+\]
+Let $U_j$ concatenate the $j$-digit integers, and put
+$B=10^j$, $b=B-1$, $a=B/10$, $q=9a$. Its length $jq$ is divisible by $s$.
+If $s\nmid j$, the block formula used in \eqref{eq:U} gives
+$U_j\equiv-9a/b\pmod p$. If $s\mid j$, its multiplier $B$ is one modulo $p$,
+so summing the appended integers gives $U_j\equiv9/200\pmod p$.
+Thus $U_j\pmod p$ has period $s$. Pairing each nonidentity $s$th root
+$z=10^j$ with $z^{-1}$ yields
+\[
+ \sum_{j=1}^{s-1}\frac{10^j}{10^j-1}=\frac{s-1}{2},\qquad
+ \sum_{j=1}^s U_j\equiv-\frac{9(s-1)}{20}+\frac9{200}=C_s\pmod p.
+\]
+All block multipliers are one modulo $p$, proving
+\eqref{eq:affine-boundary}, including its rotation assertion.
+This proves Theorem~\ref{thm:other-primes}. Its corresponding valuations and
+normalized units follow from Theorem~\ref{thm:general-prime} with $P=s$.
+
+\end{proof}
+
+\section{Power characters and periodic transfer}\label{sec:characters}
+For a prime $q$ and a prime $e\mid q-1$, put
+$\chi_{q,e}(z)=z^{(q-1)/e}\pmod q$. A nonzero $e$th power has character 1.
+If
+\begin{equation}\label{eq:character}
+ 10^{S(d)}\equiv1\pmod q,\qquad
+ \chi_{q,e}(10)=1,\qquad
+ \chi_{q,e}(V_d)\notin\{0,1\},
+\end{equation}
+then \eqref{eq:rotation} gives the same nontrivial character for every
+$R_{10^d-1,k}$. Thus none is an $e$th power. When $v_3(d)+2$ is a power
+of $e$, Theorem~\ref{thm:boundary} eliminates all other prime exponents.
+
+Here are the finite inputs. Their nonzero cycle constants also verify every
+hypothesis of Theorem~\ref{thm:general-prime}:
+\[
+\begin{array}{c|r|r|r|r}
+ i&q_i&r_i&P_i&V_{P_i}\pmod{q_i}\\\hline
+ 1&37&3&3&33\\
+ 2&757&27&27&538\\
+ 3&333667&9&9&221885\\
+ 4&440334654777631&27&27&178343635184937\\
+ 5&1527791&43&903&547718\\
+ 6&43037&29&812&409
 \end{array}
 \]
 For each row of the next table, $r_i\mid S(d)$,
@@ -453,30 +484,39 @@ Hence the same character argument works for all $t\ge0$.
 The rows $d=12,15,27,243$ give exactly \eqref{eq:progressions}.
 \end{proof}
 
-\begin{corollary}[Fifth- and seventh-power families]\label{cor:higher}
-Put $Q=440334654777631$ and let $u$ be a positive integer with $3\nmid u$.
-Every rotation at $m=10^d-1$ is excluded in either case
+\begin{corollary}[Exact local power criteria]\label{cor:higher}
+Put $Q=440334654777631$ and let $u$ be a positive integer.
+For every rotation at the indicated boundary,
 \[
  \begin{array}{c|c}
- d&\text{condition}\\\hline
- 27u&u^{(Q-1)/5}\not\equiv0,1\pmod Q\\
- 243u&u^{108}\not\equiv0,1\pmod{757}.
+ d&\text{equivalence over the stated field}\\\hline
+ 27u&R\text{ is a fifth power in }\Q_Q
+          \iff u\text{ is a fifth power in }\Q_Q\\
+ 243u&R\text{ is a seventh power in }\Q_{757}
+          \iff u\text{ is a seventh power in }\Q_{757}.
  \end{array}
 \]
+Explicitly, for $(p,e)=(Q,5)$ or $(757,7)$, write $u=p^at$ with $p\nmid t$.
+The local condition is exactly
+\begin{equation}\label{eq:full-local-criterion}
+ e\mid a,\qquad t^{(p-1)/e}\equiv1\pmod p.
+\end{equation}
+If $3\nmid u$, failure of this condition excludes every integer perfect power
+in the whole rotation block.
 \end{corollary}
 \begin{proof}
-Here the only possible prime exponent is respectively 5 or 7.
-Lemma~\ref{lem:period}, with $P=r=27$, gives
+Theorem~\ref{thm:general-prime} gives $v_p(R)=v_p(u)=a$ and
 \[
- V_{27u}\equiv178343635184937\,u\pmod Q,\qquad
- V_{243u}\equiv300u\pmod{757}.
+ R/p^a\equiv10^{D(k)}178343635184937\,t\pmod Q,\qquad
+ R/p^a\equiv10^{D(k)}300t\pmod{757},
 \]
-The coefficients have character 1 for exponents 5 and 7 respectively;
-these two exact modular powers are also in the certificates.
-Theorem~\ref{thm:boundary} and \eqref{eq:S} show $27\mid S(d)$.
-Now \eqref{eq:character} applies. Each condition specifies infinitely many
-positive integers $u$, since the relevant nonzero nonpower residues exist
-and can also be chosen coprime to 3.
+respectively. The displayed coefficients and $10$ have character 1 for
+exponents 5 and 7 respectively, as checked in the certificates.
+Since $e\ne p$, Hensel's lemma lifts every nonzero $e$th root modulo $p$.
+Thus a number in $\Q_p$ is an $e$th power exactly when its valuation is
+divisible by $e$ and its normalized unit is an $e$th power modulo $p$.
+This proves both equivalences. When $3\nmid u$, the only possible prime
+exponent is 5 or 7 respectively, by Theorem~\ref{thm:boundary}.
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:density-boundary}]
