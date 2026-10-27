@@ -8,29 +8,29 @@ criterion of the coefficient manuscript.
 ## 1. Necessary square-norm equation
 
 **Proposition.** Suppose $q\ge2$, $i<k$, $j<\ell$, and
-$
+$$
 qL_{n+k}-L_{n+\ell}=qL_{n+i}-L_{n+j}
-$
+$$
 holds for every $n\ge0$. Put $h=k-i$, $e=\ell-j$, and
-$
+$$
 C(d)=L_d-1-(-1)^d \quad(d\ge1).
-$
+$$
 Then
-$
+$$
 \boxed{e>h,\qquad j\equiv i\pmod2,\qquad q^2 C(h)=C(e).}
-$
+$$
 
 *Proof.* Rearrange as
 $q(L_{n+k}-L_{n+i})=L_{n+\ell}-L_{n+j}$.
 Independence of the two Binet exponentials yields
-$
+$$
 q\alpha^i(\alpha^h-1)=\alpha^j(\alpha^e-1),\qquad
 q\beta^i(\beta^h-1)=\beta^j(\beta^e-1).
-$
+$$
 The algebraic norm of $\alpha^d-1$ is
-$
+$$
 (\alpha^d-1)(\beta^d-1)=1+(-1)^d-L_d=-C(d).
-$
+$$
 Taking norms gives
 $q^2(-1)^i C(h)=(-1)^j C(e)$.
 As both $C(h)$ and $C(e)$ are positive, $j-i$ is even
@@ -44,41 +44,41 @@ two consecutive shifts and positivity remain to be tested.
 ## 2. Complete classification when both index gaps are even
 
 The double-angle identities yield
-$
+$$
 C(2r)=L_{2r}-2=
 \begin{cases}
 L_r^2,&r\text{ odd},\\
 5F_r^2,&r\text{ even}.
 \end{cases}
-$
+$$
 
 **Proposition.** For even gaps $h=2r$, $e=2m$,
 where $m>r\ge1$, there exists a positive stationary
 collision in $T_q$, with integer $q\ge2$, **if and only if**
 $r,m$ have the same parity and
-$
+$$
 q=
 \begin{cases}
 L_m/L_r\in\mathbb Z,&r,m\text{ odd},\\
 F_m/F_r\in\mathbb Z,&r,m\text{ even}.
 \end{cases}
-$
+$$
 
 *Proof.* The norm equation is $q^2C(2r)=C(2m)$.
 Opposite parities would require a rational square to equal
 five times a rational square, which is impossible.
 Equal parity gives the displayed quotient. Conversely,
-$
+$$
 L_{n+2r}-L_n=
 \begin{cases}
 L_rL_{n+r},&r\text{ odd},\\
 5F_rF_{n+r},&r\text{ even}
 \end{cases}
-$
+$$
 establishes, for each integral quotient,
-$
+$$
 qL_{n+m-r}-L_n=qL_{n+m+r}-L_{n+2m}>0
-$
+$$
 for all $n\ge1$. The gaps are exactly $2r$ and $2m$.
 Increasing $n$ gives infinitely many distinct repeated
 positive values.
@@ -176,13 +176,13 @@ effective index bounds used for checking membership.
 ## 4. Exact norm-pruned search
 
 Use the proved bound
-$
+$$
 t=\min\{n\ge1:L_n>200(q+1)^4\},\qquad K=12t+1.
-$
+$$
 The complete stationary window in the manuscript implies
-$
+$$
 1\le h=K-i<3t,\qquad 1\le e=\ell-j\le7t.
-$
+$$
 For $q\ge2$, $q^2C(h)\ge4$, while $C(e)$
 is strictly increasing for $e\ge3$. Consequently,
 **each candidate first gap $h$ determines at most one
@@ -191,9 +191,9 @@ second gap $e$** via $q^2C(h)=C(e)$.
 For $e\ge3$, the function $j\mapsto L_{j+e}-L_j$
 is strictly increasing for $j\ge1$. Binary search
 therefore finds the only possible $j$ satisfying
-$
+$$
 q(L_K-L_{K-h})=L_{j+e}-L_j.
-$
+$$
 The algorithm then checks parity, the next shifted equality
 and positivity. The original finite stationary theorem
 makes this procedure both necessary and sufficient.
