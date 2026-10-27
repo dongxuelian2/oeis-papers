@@ -1000,6 +1000,54 @@ X=D(a,b),\quad Y=D(c,d),\qquad
 The integrality condition \(Y\mid X\) generates
 the candidate coefficient \(q=X/Y\).
 
+\begin{lemma}[Uniqueness of positive Lucas ratios]
+\label{lem:lucas-ratio}
+For \(a>b\ge1\), \(c>d\ge1\), the equality
+\(L_a/L_b=L_c/L_d\) implies \((a,b)=(c,d)\).
+\end{lemma}
+\begin{proof}
+Set \(R_h(n)=L_{n+h}/L_n\), \(\alpha=\varphi\).
+Binet's formula gives, for \(n\ge2,h\ge1\),
+\begin{equation}\label{eq:ratio-interval}
+\frac4{3\alpha}\alpha^h
+\le R_h(n)\le \frac2\alpha\alpha^h,
+\end{equation}
+since
+\[
+\frac{1-\alpha^{-6}}{1+\alpha^{-4}}
+=\frac4{3\alpha},\qquad
+\frac{1+\alpha^{-6}}{1-\alpha^{-4}}
+=\frac2\alpha.
+\]
+The intervals for distinct \(h\) are disjoint,
+because \(4/3>2/\alpha\). For fixed \(h\),
+\[
+L_mL_{n+h}-L_nL_{m+h}
+=5(-1)^{n+1}F_{m-n}F_h\ne0
+\qquad(m>n\ge2).
+\]
+Thus all ratios with \(n\ge2\) are distinct.
+
+For \(n=1\), write \(R_h(1)=L_s\),
+\(s=h+1\ge2\). Since
+\[
+(1-\alpha^{-4})\alpha^s
+\le L_s\le(1+\alpha^{-4})\alpha^s,
+\]
+the inequalities
+\(\alpha(1-\alpha^{-4})>2/\alpha\)
+and \(1+\alpha^{-4}<4/3\) show that
+\(L_s=R_e(m)\), \(m\ge2\), would force \(e=s\).
+But then the Lucas product formula gives
+\[
+L_sL_m-L_{m+s}=(-1)^sL_{m-s}\ne0,
+\]
+including \(m<s\) via the standard extension
+to negative Lucas indices.
+Ratios with both denominators \(L_1\)
+are strictly increasing with their numerators.
+\end{proof}
+
 \begin{theorem}[Signed-gap coefficient spectra]
 \label{thm:signed-gap}
 Fix \(q\ge2\). The following statements are exact
