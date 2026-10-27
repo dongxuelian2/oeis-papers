@@ -13,7 +13,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove broader quotient and half-Lucas criteria, including an infinite family of triple representations. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and an effective algebraic-norm estimate also yield a finite upper bound on every positive collision, deciding complete uniqueness for each fixed integer coefficient at least two.
+We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove broader quotient and half-Lucas criteria, including an infinite family of triple representations. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and effective algebraic-norm estimates yield complete global collision bounds for $S_q$ and a necessary-and-sufficient finite test for infinite collisions in $T_q$ and $P_q$. The resulting algorithms decide infinite multiplicity behavior for every integer coefficient.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -594,6 +594,179 @@ Thus all contributing first indices satisfy
 $i\le\log_\varphi X+O_q(1)$.
 Theorem~\ref{thm:global} removes only a finite
 number of repeated values, giving the result.
+\end{proof}
+
+
+\section*{Complete effective classification of infinite collisions}
+\begin{theorem}[Finite stationary pattern criterion]\label{thm:stationary}
+Fix any integer $q\ge2$ and choose $t$ as in
+\eqref{eq:t-bound}. If
+\begin{equation}\label{eq:general-T-collision}
+qL_k-L_\ell=qL_i-L_j>0,\qquad i<k,
+\end{equation}
+and $k>12t$, then all four indices lie
+within $6t$ of $k$, apart from a possible
+upper extension of at most $t$, and the same equality
+holds after \emph{every} simultaneous nonnegative shift
+of its indices.
+Consequently, the set $T_q$ has infinitely many
+multiply represented positive values if and only if
+there are indices with
+\[
+K=12t+1,\quad K-3t\le i<K,\quad
+K-t\le\ell\le K+t,\quad
+K-6t\le j<\ell
+\]
+such that
+\begin{equation}\label{eq:finite-shift-test}
+0<qL_K-L_\ell=qL_i-L_j,\qquad
+qL_{K+1}-L_{\ell+1}=qL_{i+1}-L_{j+1}.
+\end{equation}
+This is a finite, exact, necessary-and-sufficient
+integer test for the existence of infinitely
+many positive collisions in $T_q$.
+Every collision not belonging to a stationary
+family has larger first index $k\le12t$.
+\end{theorem}
+\begin{proof}
+Equation \eqref{eq:general-T-collision} forces
+$j<\ell$ and
+$q(L_k-L_i)=L_\ell-L_j$.
+The bounds $L_{n-2}\le L_n-L_{n-1}$
+and $\frac12\alpha^n\le L_n\le2\alpha^n$ yield
+\[
+qL_{k-2}\le L_\ell,\qquad
+L_{\ell-2}\le qL_k.
+\]
+Consequently, with $\delta=\ell-k$,
+\[
+\alpha^{-\delta}<4\alpha^2/q<\alpha^t,
+\qquad
+\alpha^\delta<4q\alpha^2<\alpha^t,
+\]
+so $|\delta|<t$.
+Assume $k>12t$.
+Set
+\[
+x=qL_k-L_\ell
+=\alpha^k A+\beta^k A',
+\quad
+A=q-\alpha^\delta,\quad A'=q-\beta^\delta.
+\]
+The conjugate algebraic integers $A,A'$ have
+nonzero integral norm, including when $\delta=0$
+(since then $A=q-1$).
+As $|A'|<\alpha^{2t}$,
+we have $|A|>\alpha^{-2t}$.
+Positivity of $x$ and $k>12t$ imply
+$A>0$ and $x>\frac12\alpha^{k-2t}$.
+Since $x<qL_i\le2q\alpha^i$,
+the gap $h=k-i$ satisfies $0<h<3t$.
+
+Next,
+\[
+L_j=qL_i-qL_k+L_\ell
+=\alpha^k B+\beta^k B',
+\]
+where $B=q\alpha^{-h}-q+\alpha^\delta$
+and $B'=q\beta^{-h}-q+\beta^\delta$.
+The conjugates are algebraic integers and
+$|B'|<\alpha^{5t}$. If $B=0$,
+then $L_j<1$, a contradiction;
+otherwise their integral norm gives
+$|B|>\alpha^{-5t}$.
+As $k>12t$ and $L_j>0$,
+we obtain $L_j>\frac12\alpha^{k-5t}$.
+Thus $g=k-j<6t$.
+Since $j<\ell$, also $g>-t$.
+
+Now the collision is
+\[
+0=qL_k-qL_i-L_\ell+L_j
+=\alpha^k E+\beta^k E',
+\]
+where
+\[
+E=q-q\alpha^{-h}-\alpha^\delta+\alpha^{-g},
+\quad
+E'=q-q\beta^{-h}-\beta^\delta+\beta^{-g}.
+\]
+Both are algebraic integers and
+$|E'|<\alpha^{8t}$.
+If $E\ne0$, the integral norm gives
+$|E|>1/|E'|$ and the equality forces
+$\alpha^k\le |E'|<\alpha^{8t}$,
+contradicting $k>12t$.
+Therefore $E=E'=0$, and the identity
+holds under all simultaneous shifts.
+The positive leading coefficient $A$
+makes its common values positive and unbounded
+under increasing shifts.
+
+Every infinite sequence of distinct collision
+values must have unbounded $k$, and so contains
+a stationary identity of the preceding form.
+Translate its indices to $k=K=12t+1$.
+The established gap bounds give precisely
+the finite ranges in \eqref{eq:finite-shift-test}.
+The leading coefficient $A>0$ ensures
+positivity at $K$. Conversely, the two
+equalities in \eqref{eq:finite-shift-test}
+give consecutive zeros of a Lucas-recursive
+difference. They therefore give the identity
+at all shifts, and its positive values become
+arbitrarily large. This proves the criterion
+and the asserted bound for nonstationary collisions.
+\end{proof}
+
+\begin{corollary}[All integer signs and all three forms]
+\label{cor:sign-classification}
+For any integer $q$, it is decidable by finite
+exact arithmetic whether $S_q$, $T_q$, or $P_q$
+has infinitely many multiply represented positive values.
+For $q\ge2$, $S_q$ always has only finitely many
+collisions, while $T_q$ and $P_q$ have infinitely
+many collisions \emph{simultaneously} or neither does.
+In the finite case the exact collision list is computable;
+in the infinite case all collisions are covered by finitely
+many small-index exceptions and finitely many stationary
+families. Negative and zero coefficients reduce to
+the corresponding positive cases or elementary Lucas sets.
+\end{corollary}
+\begin{proof}
+For $q\ge2$, Theorem~\ref{thm:global} settles $S_q$,
+and Theorem~\ref{thm:stationary} settles $T_q$,
+including its finite exceptions.
+Every positive collision in $T_q$ gives a
+collision in $P_q$ by exchanging the subtracted
+second indices.
+Conversely, a collision in $P_q$,
+\[
+qL_k+L_\ell=qL_i+L_j,\qquad i<k,\quad \ell<j,
+\]
+gives $v=qL_k-L_j=qL_i-L_\ell$.
+If $v>0$ it is a collision in $T_q$.
+If $v<0$, it is a positive collision in $S_q$,
+and only finitely many such index quadruples exist
+by Theorem~\ref{thm:global}.
+If $v=0$, both $qL_k=L_j$ and
+$qL_i=L_\ell$ hold. The norm bound
+\eqref{eq:normbound}, applied at value zero,
+bounds their indices for fixed $q$.
+Thus $P_q$ has infinitely many collisions
+exactly when $T_q$ does.
+For $q=1$, the Lucas recurrence gives
+infinitely many collisions in all three sets.
+For $q=0$, $T_0$ is empty, while $S_0$
+and $P_0$ are Lucas sets with infinite
+representation multiplicities.
+For $q=-m<0$, $T_q$ is empty,
+$S_q=P_m$ and $P_q=S_m$ after
+exchanging the index roles.
+All decisions therefore reduce to the preceding
+finite algorithms. The finite exceptional
+index combinations can be enumerated using
+the same bounds.
 \end{proof}
 
 \paragraph{Context.}
