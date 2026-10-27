@@ -524,7 +524,11 @@ and
 \[
 v_n=5L_n+L_{n-3}=5L_{n+4}-L_{n+7}
 \]
-belong to $P\cap T$. In particular, $P\cap T$ is infinite.
+belong to $P\cap T$. These two families are disjoint, and
+\[
+\#\{z\in P\cap T:z\le x\}\ge 2\log_\varphi x-O(1)
+\qquad(x\to\infty).
+\]
 \end{theorem}
 \begin{proof}
 The identity
@@ -537,9 +541,14 @@ so it holds for all $n\ge4$. Rearrangement gives
 the two displayed formulas, and
 $5L_{n+4}-L_{n+7}=2L_{n+2}>0$
 makes both right-hand sides positive.
-Both $u_n$ and $v_n$ are strictly increasing
-as functions of $n$, so these equalities provide
-infinitely many distinct common values.
+Both $u_n$ and $v_n$ are strictly increasing as functions
+of $n$. If $u_n=v_m$, then the sum would have two distinct
+representations $(n,n+7)$ and $(m,m-3)$; but $u_n\ge234>91$,
+contrary to Theorem~\ref{thm:sums}.
+Thus the families are disjoint. Binet's formula gives
+$u_n\asymp\varphi^n$ and $v_n\asymp\varphi^n$,
+so each contributes $\log_\varphi x+O(1)$ different
+values up to $x$.
 \end{proof}
 
 \begin{remark}[The initial zero]
