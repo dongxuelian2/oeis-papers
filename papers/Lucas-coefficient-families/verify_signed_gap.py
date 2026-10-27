@@ -1,5 +1,6 @@
 """Independent certificate checks for the signed-gap collision spectra."""
 from signed_gap import signed_gap_witnesses, L, ensure
+from math import gcd
 
 S_NONUNIQUE = {
   2,3,4,6,7,9,10,11,14,17,18,19,23,25,28,29,31,
@@ -25,6 +26,7 @@ def main():
     # in verify_all_global_unique.py, before this signed-gap routine.
     for q in range(2,101):
         signs = signed_gap_witnesses(q)
+        assert 0 not in signs
         assert (1 in signs) == (q in S_NONUNIQUE), (q,signs)
         assert (-1 not in signs) == (q in T_UNIQUE), (q,signs)
         assert (not signs) == (q in P_UNIQUE), (q,signs)
@@ -41,6 +43,18 @@ def main():
             else:
                 assert q*L[c] == L[a] and q*L[d] == L[b]
     print("PASS: complete S,T,P signed spectra q=2..100 agree with prior global results")
+    # Fully independent finite rectangle for the new Lucas-ratio lemma.
+    ensure(120)
+    seen={}
+    for numerator in range(2,121):
+        for denominator in range(1,numerator):
+            a,b=L[numerator],L[denominator]
+            g=gcd(a,b)
+            ratio=(a//g,b//g)
+            assert ratio not in seen,(ratio,seen.get(ratio),(numerator,denominator))
+            seen[ratio]=(numerator,denominator)
+    print(f"PASS: {len(seen)} pairwise-distinct Lucas ratios in indices 1..120")
+
 
     ensure(100)
     ensure_f(100)
