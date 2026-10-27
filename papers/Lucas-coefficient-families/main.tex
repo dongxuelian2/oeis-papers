@@ -12,7 +12,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two.
+We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove a broader quotient criterion involving Lucas and Fibonacci divisibility. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -173,6 +173,76 @@ Theorem~\ref{thm:unique} and the four nonzero Lucas
 residues modulo five.
 \end{proof}
 
+
+
+\section*{Divisibility families of infinite collisions}
+\begin{theorem}[Lucas--Fibonacci quotient coefficients]
+\label{thm:ratios}
+Let $m>h\ge1$ have the same parity, and suppose
+\[
+q=
+\begin{cases}
+L_m/L_h\in\mathbb Z,& m,h\text{ odd},\\
+F_m/F_h\in\mathbb Z,& m,h\text{ even}.
+\end{cases}
+\]
+Then $q\ge2$, and for every $n\ge1$,
+\begin{equation}\label{eq:ratio-difference}
+qL_{n+m-h}-L_n
+=qL_{n+m+h}-L_{n+2m}>0.
+\end{equation}
+In particular, $T_q$ and $P_q$ each contain
+infinitely many positive values having two
+distinct representations. The coefficient $q=2$
+also has infinitely many collisions in both sets.
+\end{theorem}
+\begin{proof}
+For $m$ odd, the Lucas product formula gives
+\[
+L_{n+2m}-L_n=L_mL_{n+m},\qquad
+L_{n+m+h}-L_{n+m-h}=L_hL_{n+m}.
+\]
+For $m,h$ even, the Lucas--Fibonacci identity instead gives
+\[
+L_{n+2m}-L_n=5F_mF_{n+m},\quad
+L_{n+m+h}-L_{n+m-h}=5F_hF_{n+m}.
+\]
+In either case dividing the two identities
+gives
+\[
+L_{n+2m}-L_n
+=q(L_{n+m+h}-L_{n+m-h}),
+\]
+which is \eqref{eq:ratio-difference}.
+The right-hand side of the first expression
+$qL_{n+m-h}-L_n$ is strictly positive and increases
+with $n$ because $q\ge2$ and $m-h\ge1$.
+The equivalent sum collision is
+\[
+qL_{n+m-h}+L_{n+2m}
+=qL_{n+m+h}+L_n.
+\]
+For $q=2$, the recurrence gives the further family
+\[
+2L_{n+2}-L_n=L_{n+3}
+=2L_{n+3}-L_{n+3},
+\]
+again with strictly increasing positive values.
+The corresponding sum identity follows by swapping
+the two subtracted indices.
+\end{proof}
+
+\begin{remark}
+The theorem covers \emph{every} Lucas coefficient
+$q=L_k$ ($k\ge1$): for odd $k$ choose
+$(m,h)=(k,1)$ when $k>1$, and for even $k=2r$
+choose $(m,h)=(4r,2r)$ using
+$F_{4r}/F_{2r}=L_{2r}$. For $q=L_1=1$,
+$L_{n+2}-L_n=L_{n+3}-L_{n+2}>0$ already
+provides infinitely many collisions.
+It also covers infinitely many other integer
+coefficients, for example $8,19,21,48,55$.
+\end{remark}
 
 \section*{An exact algorithm for every integer coefficient}
 The coefficient families above admit efficient special-purpose

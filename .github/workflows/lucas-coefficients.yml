@@ -20,6 +20,7 @@ jobs:
       - run: |
           python3 papers/Lucas-coefficient-families/verify.py
           python3 papers/Lucas-coefficient-families/verify_all_integer.py
+          python3 papers/Lucas-coefficient-families/verify_ratio_collisions.py
       - uses: xu-cheng/latex-action@v4
         with:
           working_directory: papers/Lucas-coefficient-families
