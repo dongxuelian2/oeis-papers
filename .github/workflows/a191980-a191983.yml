@@ -3,11 +3,11 @@ on:
   push:
     paths:
       - 'papers/A191980-A191983/**'
-      - '.github/workflows/a191981.yml'
+      - '.github/workflows/a191980-a191983.yml'
   pull_request:
     paths:
       - 'papers/A191980-A191983/**'
-      - '.github/workflows/a191981.yml'
+      - '.github/workflows/a191980-a191983.yml'
   workflow_dispatch:
 permissions:
   contents: read
