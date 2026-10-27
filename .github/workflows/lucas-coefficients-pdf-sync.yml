@@ -1,4 +1,4 @@
-name: Sync complete coefficient classification PDF
+name: Sync certified global Lucas uniqueness PDF
 on:
   push:
     branches: [research/a191981-unique-representations-20261026]
@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 jobs:
-  paper:
+  pdf:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -18,19 +18,20 @@ jobs:
         with:
           working_directory: papers/Lucas-coefficient-families
           root_file: main.tex
-      - name: Verify complete coefficient classification
+      - name: Verify all global coefficient certificates
         run: |
           python3 papers/Lucas-coefficient-families/verify.py
           python3 papers/Lucas-coefficient-families/verify_all_integer.py
           python3 papers/Lucas-coefficient-families/verify_ratio_collisions.py
           python3 papers/Lucas-coefficient-families/verify_global_collisions.py
           python3 papers/Lucas-coefficient-families/verify_stationary_collisions.py
-      - name: Commit manuscript PDF
+          python3 papers/Lucas-coefficient-families/verify_all_global_unique.py
+      - name: Commit complete PDF
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -f papers/Lucas-coefficient-families/main.pdf
-          git diff --cached --quiet || git commit -m 'Build effective all-coefficient classification PDF'
+          git diff --cached --quiet || git commit -m 'Build all-integer global uniqueness PDF'
           git fetch origin "$GITHUB_REF_NAME"
           git rebase "origin/$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"

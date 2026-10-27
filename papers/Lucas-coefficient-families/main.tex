@@ -13,7 +13,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove broader quotient and half-Lucas criteria, including an infinite family of triple representations. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and effective algebraic-norm estimates yield complete global collision bounds for $S_q$ and a necessary-and-sufficient finite test for infinite collisions in $T_q$ and $P_q$. The resulting algorithms decide infinite multiplicity behavior for every integer coefficient.
+We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We prove broader quotient and half-Lucas criteria, including an infinite family of triple representations. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and effective algebraic-norm estimates yield complete global collision bounds for $S_q$ and a necessary-and-sufficient finite test for infinite collisions in $T_q$ and $P_q$. The resulting algorithms decide both infinite collision behavior and global uniqueness for every integer coefficient and each of the three expression types.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -767,6 +767,60 @@ All decisions therefore reduce to the preceding
 finite algorithms. The finite exceptional
 index combinations can be enumerated using
 the same bounds.
+\end{proof}
+
+
+\begin{corollary}[Complete global uniqueness decision for all integer $q$]
+\label{cor:every-global-unique}
+For every $q\in\mathbb Z$ and each of the three forms
+$S_q,T_q,P_q$, exact finite integer arithmetic determines
+whether all positive values have unique index-pair
+representations. For $q\ge2$, the procedure is:
+\begin{enumerate}
+\item For $S_q$, enumerate indices up to $6t$,
+as in Theorem~\ref{thm:global}.
+\item For $T_q$ or $P_q$, first perform the finite
+stationary-pattern test \eqref{eq:finite-shift-test}.
+If a stationary pattern exists, uniqueness fails
+with infinitely many collisions. Otherwise,
+enumerate all index pairs $1\le i,j\le13t$
+and check for repeated positive values.
+\end{enumerate}
+The cases $q\le1$ reduce to the preceding cases
+by sign exchange, or are explicit empty or
+infinitely repeated Lucas sets.
+\end{corollary}
+\begin{proof}
+The first assertion for $S_q$ is
+Theorem~\ref{thm:global}.
+Suppose that $q\ge2$ has no stationary collision.
+Every $T_q$ collision then has larger first
+index at most $12t$ by Theorem~\ref{thm:stationary}.
+The other first index is smaller, while each
+second index of a positive value satisfies
+$L_j<qL_i$ and hence
+$j<i+t$. Thus all its indices are at most $13t$.
+
+For a $P_q$ collision with first indices $i<k$,
+write $v=qL_k-L_j=qL_i-L_\ell$, as in the proof
+of Corollary~\ref{cor:sign-classification}.
+If $v>0$, the corresponding $T_q$ collision has
+all indices at most $13t$.
+If $v<0$, the corresponding $S_q$ collision
+has all indices at most $6t$.
+If $v=0$, the equation $qL_a=L_b$ implies
+\[
+\alpha^a|\alpha^{b-a}-q|
+ \le|\beta^b-q\beta^a|\le q+1.
+\]
+The norm bound \eqref{eq:normbound} gives
+$\alpha^a\le(q+1)^2$; since
+$L_b=qL_a$, also $\alpha^b<\alpha^t$.
+Thus these index pairs lie below $t$.
+All possible $P_q$ collisions therefore
+occur inside the stated $13t$ window.
+Negative and small coefficients follow from
+Corollary~\ref{cor:sign-classification}.
 \end{proof}
 
 \paragraph{Context.}
