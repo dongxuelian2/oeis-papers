@@ -87,27 +87,91 @@ Thus the Lucas/Fibonacci integer-quotient families in the
 current manuscript **exhaust all stationary identities in
 which both index gaps are even**.
 
-## 3. Restrictions involving odd gaps
+## 3. Complete classification of the odd-gap cases
 
-For odd $d$, $C(d)=L_d$. For every $r\ge1$,
-$C(4r)=5F_{2r}^2$. The Lucas residues modulo five
-have the repeating nonzero cycle $1,3,4,2$.
-Therefore one odd gap and one gap divisible by four
-cannot satisfy the norm equation: the valuations at five
-would have opposite parity.
+The conjugate equations yield more than a norm constraint.
+Put $d=i-j$ (which is even) and
 
-If the gaps have opposite parity, their even member must
-be congruent to $2\pmod4$. In that case the norm equation
-forces the odd-index Lucas term involved to be a perfect
-square. This follows since an integer which is the square
-of a rational is the square of an integer.
+$$
+\Phi(n)=\frac{1+\alpha^{-n}}{1-\alpha^{-n}}.
+$$
 
-For two odd gaps the remaining norm equation is
-$
-L_e=q^2L_h,\qquad e>h\ge1,\qquad h,e\text{ odd}.
-$
-The norm equation alone is not treated as a complete
-criterion for this case.
+Taking the ratio of the two conjugate equations gives
+
+$$
+\alpha^{2d}
+=\alpha^{e-h}
+\frac{\Phi(h)^{[h\ \mathrm{odd}]}}
+     {\Phi(e)^{[e\ \mathrm{odd}]}}.
+$$
+
+Here $\Phi(n)$ strictly decreases to $1$, with the two
+exact evaluations
+
+$$
+\Phi(1)=\alpha^3,\qquad\Phi(3)=\alpha.
+$$
+
+If both gaps are odd, let $u=(e-h)/2$. Then
+
+$$
+\alpha^{2(d-u)}=\Phi(h)/\Phi(e).
+$$
+
+For $h\ge3$, the right side lies strictly between $1$
+and $\alpha$, and cannot be an even integer power of
+$\alpha$. For $h=1$ it equals $\alpha^2$ only when
+$e=3$; for larger odd $e$ it lies strictly between
+$\alpha^2$ and $\alpha^3$. Thus the **only odd--odd
+case** is
+
+$$
+(h,e,d,q)=(1,3,2,2).
+$$
+
+For **odd $h$, even $e$**, the ratio instead has the
+factor $\Phi(h)$. Its position between consecutive
+integer powers of $\alpha$ forces $h=1$ or $h=3$.
+Writing $e=2m$, the norm identity then yields
+
+$$
+\begin{aligned}
+h=1:&\qquad m\text{ odd},\ d=m+1,\ q=L_m;\\
+h=3:&\qquad m\equiv3\pmod6,\ d=m-1,\ q=L_m/2.
+\end{aligned}
+$$
+
+For **even $h$, odd $e$**, the factor is
+$1/\Phi(e)$. The only possibility is
+
+$$
+(h,e,d,q)=(2,3,0,2).
+$$
+
+Together with the even--even classification, these are
+**all possible stationary collision patterns**. Every
+listed pattern is realized by the Lucas product and
+difference identities proved in \`main.tex\`.
+
+Consequently, for every integer $q\ge2$, infinitely
+many $T_q$ (equivalently $P_q$) collision values occur
+**if and only if** $q$ belongs to the union
+
+$$
+\left\{\frac{L_m}{L_r}\in\mathbb Z:m>r\ge1
+\text{ both odd}\right\}
+\ \cup\
+\left\{\frac{F_m}{F_r}\in\mathbb Z:m>r\ge2
+\text{ both even}\right\}
+\ \cup\
+\left\{\frac{L_{6r+3}}2:r\ge0\right\}.
+$$
+
+This is an **explicit infinite-collision coefficient
+classification**, proved in the new rigidity lemma and
+classification theorem of \`main.tex\`. The finite
+window theorem from that paper still supplies the
+effective index bounds used for checking membership.
 
 ## 4. Exact norm-pruned search
 
