@@ -4,6 +4,34 @@ Kashihara's conjecture remains open. The [manuscript](main.pdf) proves a
 density-zero theorem and exact local obstructions at complete digit boundaries.
 Its source is [main.tex](main.tex).
 
+When **`3|d` and `9` does not divide `d`**, there is a complete local
+classification over the 3-adic field. Every rotation fails to be a
+prime-exponent power over that field exactly in these **131 classes modulo 243**:
+
+- `m=2,3,5,6 (mod 9)`;
+- `m=9,17 (mod 27)`;
+- the five further classes in the relevant row below.
+
+| Digit length | Further excluded `m mod 243` |
+| --- | --- |
+| `d=3 (mod 9)` | `0,27,54,135,189` |
+| `d=6 (mod 9)` | `54,108,162,189,216` |
+
+Each class excludes the entire integer rotation block. In every other
+class, one of the first four cuts is a square, cube, or fifth power over
+the 3-adic field. The reverse assertion characterizes local solubility.
+
+The underlying cubic formula holds for every `h=v_3(d)>=1`, with `T_x=x(x+1)/2`:
+
+\[
+10^{-D(k)}R_{m,k}\equiv T_m+\frac{3d}{2}(m^3-m+9)-9dmT_k
+\pmod{3^{h+4}}.
+\]
+
+If `3^(h+2)` divides `m`, every cut has the common residue
+`(m+27d)/2 mod 3^(h+4)`. In particular, when `h+3` is a power of 2,
+`d/3^h=1 (mod 3)`, and `3^(h+4)|m`, all rotations are excluded.
+
 The local lifting extends to **every `d`-digit integer `m`**. If
 `r=ord_p(10)`, `r|P`, `10^P=1 (mod 9r)`, `p` does not divide `P`, and
 `P|d`, set `a=v_p(d)` and `C=W_(10^P-1) mod p`. Every rotation satisfies
@@ -128,6 +156,7 @@ python verify_a001292.py
 python verify_structure.py
 python verify_powerful_sieve.py
 python verify_boundary_valuations.py
+python verify_three_adic_intervals.py
 python verify_local_primes.py
 python verify_boundary_characters.py
 python verify_general_boundary_primes.py
@@ -137,6 +166,9 @@ python search_gmp.py 1000
 
 The boundary verifier checks digit lengths `d=1..60000`, independent matrix
 blocks, rational Taylor coefficients, and literal prefixes through `m=999999`.
+The cubic verifier checks all 494,550 rotations for `m=100..999`, the exact
+131-class table, independent matrix intervals through digit length 243,
+and constructed roots modulo powers of 3 for the local witnesses.
 The character verifier checks all finite certificates by both a closed block
 formula and matrix concatenation, the period hypotheses, the two linear
 families, 2,205 literal rotation characters, and the exact density bound.

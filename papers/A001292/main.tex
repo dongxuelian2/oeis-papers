@@ -18,18 +18,18 @@ Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
 \begin{document}
 \maketitle
 \begin{abstract}
-We prove a quantitative density-zero bound for powerful values among cyclic
-concatenations of initial positive integers, uniformly in the rotation and
-in every fixed integer base. At the decimal boundaries $m=10^d-1$, exact
-valuations and finite-field characters exclude every rotation for a set of
-digit lengths of lower density exceeding $95.53\%$. All boundaries
-$1\le d\le27$, as well as $d=54,243$, are excluded. Explicit period formulas
-give further infinite families. A general prime-adic lifting theorem yields
-exact valuations and local fifth- and seventh-power equivalences for every
-cut, including positive valuations at the new primes.
-We extend the lifting to a quadratic congruence on entire digit intervals.
-Along suitable arithmetic progressions of digit lengths, the proportion of
-choices of $m$ for which no rotation is powerful can be arbitrarily close to one.
+We prove local obstructions and a quantitative density-zero bound for
+powerful values among cyclic concatenations of initial positive integers.
+For decimal digit lengths with $v_3(d)=1$, a cubic reduction gives an exact
+local classification: 131 classes of $m$ modulo 243 exclude all rotations
+over $\Q_3$; every other class has a local square, cube, or fifth power among
+the first four cuts. At complete digit boundaries, exact valuations and
+characters exclude a set of digit lengths of lower density exceeding $95.53\%$.
+A general lifting theorem gives local power equivalences and a quadratic
+reduction on entire digit intervals. Along suitable progressions of digit
+lengths, the proportion of $m$ for which no rotation is powerful can be
+arbitrarily close to one. The quantitative sparsity bound holds in every
+fixed integer base.
 \end{abstract}
 
 \section{Statements}
@@ -309,6 +309,107 @@ is divisible by $3^{h+4}$. Thus $R_{m,k}\equiv V_d\pmod{3^{h+4}}$.
 Combining this with \eqref{eq:ratio} proves both assertions in
 \eqref{eq:boundary}.
 \end{proof}
+
+\subsection*{A cubic reduction on digit intervals}
+Write $T_x=x(x+1)/2$.
+\begin{theorem}[Uniform cubic congruence]\label{thm:three-cubic}
+Let $m$ have $d$ decimal digits and $h=v_3(d)\ge1$.
+For every whole-block cut,
+\begin{equation}\label{eq:three-cubic}
+ 10^{-D(k)}R_{m,k}\equiv
+ T_m+\frac{3d}{2}(m^3-m+9)-9dmT_k\pmod{3^{h+4}}.
+\end{equation}
+In particular, if $3^{h+2}\mid m$, all rotations satisfy
+\begin{equation}\label{eq:three-critical}
+ R_{m,k}\equiv\frac{m+27d}{2}\pmod{3^{h+4}}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Put $B=10^d$, $\delta=B-1$, and $t=B-1-m$.
+The exact tail identity in the proof of Theorem~\ref{thm:digit-interval},
+expanded through first order in $\delta$, gives
+\[
+ W_m\equiv V_d+\frac{t(t-1)}2
+       -\delta\frac{t(t^2+5)}6\pmod{3^{2h+4}}.
+\]
+Here the first derivative of the tail at $B=1$ is
+$t(t+1)(5-2t)/6$; combining it with the factor $B^{-t}$ gives the displayed
+integer coefficient. The omitted term $\delta V_d$ also has valuation at
+least $2h+4$.
+Substitute $t=\delta-m$. Any loss from the denominator 6 leaves the
+discarded quadratic terms of valuation at least $2h+3\ge h+4$.
+The binomial expansion gives $\delta\equiv9d\pmod{3^{h+4}}$, while
+Theorem~\ref{thm:boundary} gives $V_d\equiv18d\pmod{3^{h+4}}$.
+Consequently
+\[
+ W_m\equiv T_m+\frac{3d}{2}(m^3-m+9)\pmod{3^{h+4}}.
+\]
+Also $D(m)=d(m+1)-\delta/9\equiv dm\pmod{3^{h+2}}$,
+so $10^{D(m)}-1\equiv9dm\pmod{3^{h+4}}$.
+Finally $10^{-D(k)}W_k\equiv T_k\pmod9$ by digit sums.
+The rotation identity proves \eqref{eq:three-cubic}.
+If $3^{h+2}\mid m$, the cubic, quadratic, and cut-dependent terms vanish
+at the stated precision except $m/2+27d/2$.
+Multiplication by $10^{D(k)}\equiv1\pmod9$ preserves this residue,
+proving \eqref{eq:three-critical}.
+\end{proof}
+
+\begin{corollary}[Complete local classification when $v_3(d)=1$]\label{cor:three-complete}
+Let $v_3(d)=1$ and $u=d/3$. All rotations of a $d$-digit $m$ fail to be
+prime-exponent powers over $\Q_3$ exactly when at least one of the following holds:
+\[
+ m\bmod9\in\{2,3,5,6\},\qquad m\bmod27\in\{9,17\},\qquad
+ m\bmod243\in C_u,
+\]
+where
+\[
+ C_u=\begin{cases}
+ \{0,27,54,135,189\},&u\equiv1\pmod3,\\
+ \{54,108,162,189,216\},&u\equiv2\pmod3.
+ \end{cases}
+\]
+These are exactly 131 residue classes modulo 243, and every rotation in
+these classes is excluded from integer perfect powers.
+In every other class, some $k\in\{0,1,2,3\}$ and $e\in\{2,3,5\}$ satisfy
+$R_{m,k}\in(\Q_3^\times)^e$.
+\end{corollary}
+\begin{proof}
+A 3-adic unit is a square exactly when it is 1 modulo 3, a cube exactly
+when it is $\pm1$ modulo 9, and always a fifth power.
+The square and fifth-power assertions follow from Hensel's lemma.
+For cubes, $(1+3x)^3=1+9(x+3x^2+3x^3)$, whose expression in parentheses
+has derivative 1 modulo 3, proves sufficiency; necessity is immediate.
+In each case the valuation must also be divisible by the exponent.
+The factor $10^{D(k)}$ preserves these three power criteria.
+
+Modulo 27, \eqref{eq:three-cubic} reduces to $T_m$.
+The first two listed sets have valuation one, or valuation two with
+nonsquare unit. Outside them, $m\equiv1\pmod3$ gives a fifth-power unit,
+and $m\equiv8,18\pmod{27}$ gives a square. It remains to consider
+$m\equiv0,-1\pmod{27}$.
+
+For $m\equiv0\pmod{27}$, \eqref{eq:three-critical} becomes
+$R_{m,k}/27\equiv(m/27+3u)/2\pmod9$.
+The nine classes of $m/27$ give precisely the five exclusions $C_u$;
+every other nonzero residue gives a square or cube.
+If this residue is zero, $m\equiv-81u\pmod{243}$.
+The binomial expansion gives
+$v_3((10^d-1)/(9d)-1)=2$, so $v_3(D(m))=3$ and
+$v_3(10^{D(m)}-1)=5$.
+Since $R_{m,1}=10R_{m,0}-(10^{D(m)}-1)$, either $R_{m,0}$ or $R_{m,1}$
+has valuation exactly 5 and is a fifth power in $\Q_3$.
+
+For $m=27z-1$, \eqref{eq:three-cubic} gives
+$R_{m,k}/27\equiv(3u-z)/2+uT_k\pmod9$.
+At $k=0,2,3$, these residues form an entire coset modulo 3 in $\Z/9\Z$.
+That coset contains 1, 3, or 8, giving a cube or a square.
+All these cuts exist because $m$ has at least three digits.
+Finally the three exclusion sets are disjoint and contain
+$108+18+5=131$ classes modulo 243.
+\end{proof}
+More generally, \eqref{eq:three-critical} shows that if $h+3$ is a power of 2,
+$d/3^h\equiv1\pmod3$, and $3^{h+4}\mid m$, then every rotation is excluded:
+its valuation is $h+3$ and its normalized unit is 2 modulo 3.
 
 \section{Lifting at boundary primes}
 \begin{lemma}[Boundary periods]\label{lem:period}

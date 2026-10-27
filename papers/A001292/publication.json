@@ -1,9 +1,9 @@
 {
   "source": "main.tex",
   "pdf": "main.pdf",
-  "source_sha256": "52751ff87538453b24293a06a9a990c13f2638320ae647b8c18b5e0ba80f2757",
-  "pdf_sha256": "95987cbe75a520c09dca28a3f0382cc2c7ccd08f136c9823c9c3c76fc5ae2ddc",
-  "pages": 9,
+  "source_sha256": "daebd9ceb453f17d9b93ea4806d6e0f6b4130720ef25807dca46ccd9362a8bca",
+  "pdf_sha256": "8c7e103e32a9409abf1890b3ba35d577840c72b9edb65c62187d32c1bec50414",
+  "pages": 10,
   "checked_at": "2026-10-27",
   "build": "pdflatex, final source twice; PNG review of every page",
   "status": "partial results; Kashihara conjecture open"

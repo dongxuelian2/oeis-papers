@@ -29,6 +29,8 @@ jobs:
         run: python papers/A001292/verify_powerful_sieve.py
       - name: Verify the complete-boundary valuation formulas
         run: python papers/A001292/verify_boundary_valuations.py
+      - name: Verify the cubic 3-adic law and complete local classification
+        run: python papers/A001292/verify_three_adic_intervals.py
       - name: Verify the additional boundary primes and density bound
         run: python papers/A001292/verify_local_primes.py
       - name: Verify boundary power characters and strengthened density

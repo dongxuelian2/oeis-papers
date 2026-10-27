@@ -91,7 +91,18 @@ PASS: all 2531281 CRT classes at d=66822; 242076 excluded classes,
 PASS: 10 primes p=3 (mod 40) below 1000 have the required orders and
 admissible periods. The unbounded coverage corollary uses Dirichlet's
 divergence theorem, not a finite computation.
-All nine documented verifier commands were rerun successfully at this update.
+verify_three_adic_intervals.py: exit 0
+PASS: all 13122 class/cut combinations for six digit-length phases;
+six exact 131-class sets and all 54 negative-branch cosets.
+PASS: every rotation for all m=100..999, 494550 rotation residues;
+415 first-four-cut local witnesses with roots constructed modulo 3^8.
+PASS: all 2754 complete integer rotations for m=135,189,243,486,729,972.
+PASS: 1994 independent matrix prefixes and 21674 cubic/rotation checks
+at d=3,6,9,12,15,18,21,24,27,30,33,81,243, covering v_3(d)=1..5;
+898 further local witnesses with constructed roots modulo 3^8.
+The local-power reverse implication follows from the proof and Hensel lifting;
+the finite root certificates check the arithmetic of its witnesses.
+All ten documented verifier commands were rerun successfully at this update.
 
 Earlier full run: python search_gmp.py 5000
 12,502,499 nontrivial rotations covered; no perfect powers.
@@ -100,6 +111,6 @@ Earlier full run: python search_gmp.py 5000
 The unchanged search source hash and GMP version are in SEARCH_5000.json.
 
 Manuscript: main.tex -> main.pdf, final source compiled twice successfully.
-Nine complete pages inspected as rendered PNGs; no LaTeX warnings.
+Ten complete pages inspected as rendered PNGs; no LaTeX warnings.
 PDF/source hashes and page count checked against publication.json.
 All local documentation links checked.
