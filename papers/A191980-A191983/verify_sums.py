@@ -47,6 +47,10 @@ def main():
         assert 5*(L[n+4]-L[n]) == L[n+7]+L[n-3]
         assert 5*L[n]+L[n+7] == 5*L[n+4]-L[n-3] > 0
         assert 5*L[n]+L[n-3] == 5*L[n+4]-L[n+7] > 0
+    family_u = {5*L[n]+L[n+7] for n in range(4,N-7)}
+    family_v = {5*L[n]+L[n-3] for n in range(4,N-7)}
+    assert family_u.isdisjoint(family_v)
+    assert len(family_u)==N-11 and len(family_v)==N-11
     print('PASS: 60 OEIS A191980 terms and five collisions among 120^2 representations')
     print('PASS: exact counting, nth terms and membership witnesses')
     print('PASS: two infinite overlap identities, tested through n=112')
