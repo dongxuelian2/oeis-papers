@@ -1,0 +1,23 @@
+A003630 update draft, 2026-10-27
+
+The March 26, 2017 product conjecture is true, with factors taken
+in increasing prime order. Let chi_4 and chi_-3 be the primitive
+real characters modulo 4 and 3, respectively, and let
+L_X(1,chi)=product(p<=X, (1-chi(p)/p)^(-1)). For every X>=3,
+
+product(p<=X, p=5 or 7 mod12, ((p-1)/(p+1))^chi_4(p))
+ = (9/8)*L_X(1,chi_-3)/L_X(1,chi_4).
+
+For p>3 the local factors agree. The factors at p=2 and p=3 on
+the L-product quotient are 2/3 and 4/3, giving the correction 9/8.
+The prime-number theorem for arithmetic progressions gives ordinary
+increasing-prime convergence of the nonprincipal L-products at 1.
+Since L(1,chi_-3)=pi/(3*sqrt(3)) and L(1,chi_4)=pi/4,
+the limit is sqrt(3)/2.
+
+Full proof, including convergence justification, and exact finite
+Euler-factor verification: papers/A003630/main.tex and verify.py.
+No OEIS submission has been made.
+
+Manuscript: Qichao Wang and Daoyu Dong,
+https://github.com/dongxuelian2/oeis-papers/blob/c50e8ddf81a8568507153f48848b5cab8913d4d7/papers/A003630/main.pdf

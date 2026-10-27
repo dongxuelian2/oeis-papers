@@ -2,6 +2,13 @@
 
 Mathematical papers and research notes, ordered by OEIS sequence number. Each entry uses the sequence's OEIS description; sequences treated in the same paper are grouped together.
 
+- **[A001040 / A001053](papers/A001040-A001053/)**
+  - [A001040](https://oeis.org/A001040): a(n+1) = n*a(n) + a(n-1) with a(0)=0, a(1)=1.
+  - [A001053](https://oeis.org/A001053): a(n+1) = n*a(n) + a(n-1) with a(0)=1, a(1)=0.
+
+- **[A003630](papers/A003630/)**
+  - [A003630](https://oeis.org/A003630): Inert rational primes in Q[sqrt(3)].
+
 - **[A005046](papers/A005046/)**
   - [A005046](https://oeis.org/A005046): Number of partitions of a 2n-set into even blocks.
 
@@ -9,6 +16,9 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - [A006063](https://oeis.org/A006063): Values of n admitting a permutation of 1, ..., n such that i + p_i is a cube for every i.
   - [A096680](https://oeis.org/A096680): Values of n admitting more than one such cube-sum permutation.
   - [A096904](https://oeis.org/A096904): Number of such permutations for each n.
+
+- **[A006154](papers/A006154/)**
+  - [A006154](https://oeis.org/A006154): Number of labeled ordered partitions of an n-set into odd parts.
 
 - **[A048702](papers/A048702/)**
   - [A048702](https://oeis.org/A048702): Binary palindromes of even length divided by 3.
