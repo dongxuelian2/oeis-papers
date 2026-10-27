@@ -1,0 +1,107 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.72in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{Rook Tours Classified by Their Endpoint Columns}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[0.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 27, 2026}
+\linespread{0.95}
+\begin{document}
+\maketitle
+\vspace{-1em}
+\begin{abstract}
+We prove Kurkov's two conjectured rook-tour interpretations of OEIS A001040 and A001053. On a board with $n$ rows and two columns, the numbers of directed Hamilton paths with endpoints in opposite and equal columns are respectively $2n!b_n$ and $2n!c_n$, where both sequences satisfy $x_n=(n-1)x_{n-1}+x_{n-2}$ with initial pairs $(0,1)$ and $(1,0)$. Counting paths with a specified number of between-column moves gives both formulas and an elementary proof of their recurrence.
+\end{abstract}
+
+\section{Tour counts and endpoint parity}
+A directed open rook tour is an ordered listing of all $2n$ squares, each once, with consecutive squares in the same row or column. Thus reversing a tour is counted separately. The two columns each have length $n$. Let $O_n$ and $E_n$ count tours with endpoints in opposite and equal columns, respectively. Define
+\[
+ b_0=0,\ b_1=1,\qquad c_0=1,\ c_1=0,\qquad
+ b_n=(n-1)b_{n-1}+b_{n-2},\quad
+ c_n=(n-1)c_{n-1}+c_{n-2}\quad(n\ge2).
+\]
+These are A001040 and A001053. Kurkov conjectured their endpoint interpretations in both entries on November 19, 2019~\cite{opposite,same}.
+
+\begin{theorem}\label{thm:main}
+For every integer $n\ge1$,
+\[
+ O_n=2n!b_n,\qquad E_n=2n!c_n.
+\]
+More precisely, let $P_{n,r}$ count tours with exactly $r$ moves between the two columns. Then $1\le r\le n$, and
+\begin{align}
+ P_{n,2k+1}&=2n!(n-2k-1)!\binom{n-k-1}{k}^{\!2},
+ &&0\le k\le\lfloor(n-1)/2\rfloor,\label{eq:odd}\\
+ P_{n,2j}&=2n!(n-2j)!\binom{n-j}{j}\binom{n-j-1}{j-1},
+ &&1\le j\le\lfloor n/2\rfloor.\label{eq:even}
+\end{align}
+Odd $r$ gives opposite endpoints and even $r$ gives equal-column endpoints.
+\end{theorem}
+\begin{proof}[Proof of the crossing formulas]
+A move between columns uses the two squares in one row, so no row can supply two such moves. Every tour must change columns at least once. Choose its initial column in two ways, then the ordered list of its $r$ crossing rows in $n!/(n-r)!$ ways.
+
+The tour is now split into $r+1$ runs, alternating between columns. A run at an end of the tour has one prescribed crossing square; each internal run has two distinct prescribed crossing squares. Every run has exactly one gap in which its remaining squares can be inserted: before its prescribed last square, after its prescribed first square, or between its two prescribed endpoints.
+
+In either column, the $n-r$ squares outside the crossing rows can be put into $g$ ordered gaps in
+\[
+ (n-r)!\binom{n-r+g-1}{g-1}
+\]
+ways: permute them and choose their weak composition among the gaps. Empty gaps are allowed, while prescribed crossing squares keep every run nonempty. All consecutive squares in a run share a column, so every such choice is valid, and the decomposition recovers it uniquely from the tour.
+
+For $r=2k+1$, each column has $k+1$ runs and hence $k+1$ gaps. Multiplication by the initial-column and crossing-row choices gives \eqref{eq:odd}. For $r=2j$, the initial column has $j+1$ runs and the other column has $j$ runs, giving \eqref{eq:even}. Each crossing switches columns, proving the endpoint parity statement.
+\end{proof}
+
+\section{The finite sums satisfy the defining recurrences}
+The identities below also give elementary proofs of the finite formulas recorded by Barry for A001040 (2004) and Bala for A001053 (2013)~\cite{opposite,same}.
+
+For $N\ge0$ define
+\[
+ T_{N,k}=\frac{(N-k)!^2}{k!^2(N-2k)!}
+ \quad(0\le2k\le N),
+\]
+and set it equal to zero outside this range, including negative $N$. Direct factorial cancellation gives, for $N\ge2$,
+\[
+ T_{N,k}=N T_{N-1,k}+T_{N-2,k-1}.
+\]
+For interior indices the identity reduces to
+$(N-k)^2-N(N-2k)=k^2$; at $k=0$ it is $N!=N(N-1)!$, and at $N=2k$ its two sides both equal one. Summing over $k$ gives
+\[
+ B_N=NB_{N-1}+B_{N-2},\qquad B_0=B_1=1,
+ \qquad B_N=\sum_k T_{N,k}.
+\]
+Thus $B_{n-1}=b_n$. Summing \eqref{eq:odd} and using $N=n-1$ proves $O_n=2n!b_n$.
+
+For $n\ge1$ put
+\[
+ U_{n,j}=\frac{(n-j)!(n-j-1)!}{j!(j-1)!(n-2j)!}
+ \quad(1\le2j\le n),
+\]
+with zero values outside that range. For $n\ge3$,
+\[
+ U_{n,j}=(n-1)U_{n-1,j}+U_{n-2,j-1}.
+\]
+For $j\ge2$ and interior indices this follows from
+\[
+ (n-j)(n-j-1)-(n-1)(n-2j)=j(j-1).
+\]
+At $n=2j$, both surviving terms equal one. At $j=1$, the identity is $(n-1)!=(n-1)(n-2)!$, since the last term is zero. Consequently
+\[
+ C_n=(n-1)C_{n-1}+C_{n-2}\quad(n\ge3),\qquad
+ C_1=0,\quad C_2=1,\qquad C_n=\sum_jU_{n,j}.
+\]
+These initial values and recurrence identify $C_n=c_n$ for every positive $n$. Summing \eqref{eq:even} proves $E_n=2n!c_n$ and completes Theorem~\ref{thm:main}. In particular the one-row board has two opposite-column tours and no equal-column tour, as the formulas require.
+
+\section{Attribution and exact checks}
+The related closed-tour formula for A089039 was proved by Alekseyev in 2024~\cite{mo}. Here the endpoint-refined open-tour counts are obtained by the crossing decomposition above; the finite coefficient sums themselves are already recorded in the two OEIS entries.
+
+The accompanying standard-library verifier checks both 24-term displayed prefixes, the crossing sums against the defining recurrences for $n\le200$, and literal Hamilton-path subset enumeration for every board $1\le n\le8$. Two tables include indices $0$ through $100$, with the zero index belonging to the recurrence definition. These finite controls are independent of the all-$n$ counting proof.
+
+\begin{thebibliography}{3}
+\bibitem{opposite} OEIS Foundation Inc., A001040, \url{https://oeis.org/A001040}, accessed October 27, 2026. Finite sum: P. Barry, May 10, 2004; rook conjecture: M. Kurkov, November 19, 2019.
+\bibitem{same} OEIS Foundation Inc., A001053, \url{https://oeis.org/A001053}, accessed October 27, 2026. Finite sum: P. Bala, August 1, 2013; rook conjecture: M. Kurkov, November 19, 2019.
+\bibitem{mo} M. Alekseyev, answer to \emph{On a A089039 and pair of sequences with simple recursion}, MathOverflow, April 23, 2024, \url{https://mathoverflow.net/questions/469606}.
+\end{thebibliography}
+\end{document}

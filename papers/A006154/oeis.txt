@@ -1,0 +1,18 @@
+OEIS A006154 update draft, not submitted
+
+The periodicity conjecture is true. If m>=2, a period valid from
+n>=m is the lcm of phi(p^e) for odd prime powers p^e exactly
+dividing m and the factor 2^e if 2^e exactly divides m.
+This period divides 2*phi(m); for odd m it divides phi(m).
+Modulo 10 the exact eventual block is (1,2,7,2) from n=1.
+
+Proof: on Z[s,c,(1-s)^(-1)] put D=c*d/ds+s*d/dc and u=(1-s)^(-1).
+Then a(n)=(D^n u)(0,1), by the e.g.f. 1/(1-sinh x).
+In characteristic p, D^p is a derivation. For odd p it agrees
+with D on s,c, hence D^p=D. In characteristic 2 the derivations
+D^4 and D^2 agree. Commuting-operator binomial lifting gives
+D^(p^e)=D^(p^(e-1)) mod p^e for odd p, and
+D^(2^(e+1))=D^(2^e) mod 2^e. Apply to u, evaluate and use CRT.
+The period 4 modulo 5 begins at index 1. Modulo 2, in the differential quotient
+Z/2[s,c]/(s^2,c^2-1), u=1+s, Du=c and D^3u=c,
+so period 2 begins at index 1. Together these prove the stated modulo 10 block.
