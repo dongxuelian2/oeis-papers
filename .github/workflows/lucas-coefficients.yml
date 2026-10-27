@@ -30,3 +30,29 @@ jobs:
         with:
           working_directory: papers/Lucas-coefficient-families
           root_file: main.tex
+  sync-committed-pdf:
+    needs: exact-integer-tests
+    if: github.event_name == 'push' && github.ref == 'refs/heads/research/a191981-unique-representations-20261026'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: papers/Lucas-coefficient-families
+          root_file: main.tex
+      - name: Commit refreshed PDF after successful checks
+        run: |
+          git fetch origin "$GITHUB_REF_NAME"
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse FETCH_HEAD)" ]; then
+            echo "Newer branch head exists; a later workflow will regenerate the PDF."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add papers/Lucas-coefficient-families/main.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh compiled Lucas coefficient manuscript PDF"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
