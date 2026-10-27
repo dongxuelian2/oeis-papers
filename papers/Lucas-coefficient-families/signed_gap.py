@@ -4,7 +4,8 @@ For D(a,b)=L_b-L_a, a<b, suppose D(a,b)=q D(c,d).
 Let Delta=L_a L_d-L_b L_c. Then:
   Delta>0: an S_q positive collision;
   Delta<0: a T_q positive collision;
-  any Delta: a P_q positive collision.
+  either strict sign: a P_q positive collision.
+The zero sign is excluded by uniqueness of positive-index Lucas ratios.
 Every collision in the corresponding form arises this way.
 
 The existing global collision and stationary theorems guarantee a
@@ -25,7 +26,7 @@ def ensure(n):
 
 
 def signed_gap_witnesses(q, limit=None):
-    """One (a,b,c,d,Delta) witness for each available sign +1,-1,0.
+    """One (a,b,c,d,Delta) witness for each sign +1 or -1.
 
     A custom 'limit' permits truncated experiments; omit it for the
     proved whole-infinite-sequence decision.
@@ -47,10 +48,11 @@ def signed_gap_witnesses(q, limit=None):
         for a,b in numerator_pairs:
             for c,d in denominator_pairs:
                 delta = L[a]*L[d]-L[b]*L[c]
+                assert delta != 0, "nontrivial Lucas ratios have unique index pairs"
                 sign = (delta > 0) - (delta < 0)
                 if sign not in witnesses:
                     witnesses[sign] = (a,b,c,d,delta)
-                if len(witnesses) == 3:
+                if len(witnesses) == 2:
                     return witnesses
     return witnesses
 
