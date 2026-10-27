@@ -23,6 +23,7 @@ jobs:
           python3 papers/A191980-A191983/verify_intersection.py
           python3 papers/A191980-A191983/verify_duplicates.py
           python3 papers/A191980-A191983/verify_sums.py
+          python3 papers/A191980-A191983/verify_sum_difference_overlap.py
       - name: Compile manuscript
         uses: xu-cheng/latex-action@v4
         with:
