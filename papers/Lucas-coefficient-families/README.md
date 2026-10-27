@@ -12,6 +12,11 @@ For **every integer coefficient** `q` (positive, zero, or negative), the paper a
 
 **Explicit infinity classification.** The coefficients q>=2 with infinitely many repeated positive values in T_q and P_q are exactly the integer Lucas quotients L_m/L_r (m>r odd), the integer Fibonacci quotients F_m/F_r (m>r even), and the half-Lucas terms L_(6r+3)/2 (r>=0). No other q>=2 gives infinitely many repeated values. The proof in `main.tex` classifies all stationary index-gap parity combinations. Thus the former necessary-and-sufficient finite stationary check is now optional: `explicit_infinite.py` performs a complete arithmetic coefficient-family decision and is used by `all_global_unique.py`.
 
+
+**Complete finite-collision coefficient spectra.** For any two positive Lucas gaps `X=L_b-L_a` and `Y=L_d-L_c`, the integer quotient `q=X/Y>=2` yields a weighted-sum collision. The determinant `Delta=L_a*L_d-L_b*L_c` decides the positive-difference form: `Delta>0` gives `S_q`, `Delta<0` gives `T_q`, and either sign (including zero) gives `P_q`. Every collision arises this way. The existing global and stationary bounds guarantee that the complete test requires only four indices through `13*t+1` for `t=min{n>=1:L_n>200*(q+1)^4}`. Thus the coefficients with finite nonempty collisions are exactly the positive-determinant spectrum for S, the negative-determinant spectrum excluding the three infinite families for T, and the full signed spectrum excluding the infinite families for P. These are exact four-index arithmetic parametrizations, not a simple congruence classification.
+
+An equal-gap determinant identity gives a parity rule and three infinite families of coefficients with finite positive S collisions: `L_(3r)/2` (`r>=1`), `L_(4r+2)/3` (`r>=1`), and `F_(3r)/2` (`r>=2`).
+
 - `family.py`: exact count, nth positive term, admissible pairs, and explicit repeated witnesses.
 - `all_integer.py`: universal integer-only computations for all three forms and every coefficient.
 - `global_collisions.py`: proved complete collision and global uniqueness report for any q>=2.
@@ -19,6 +24,8 @@ For **every integer coefficient** `q` (positive, zero, or negative), the paper a
 - `stationary_norm.md`: square-norm obstruction, parity, complete even-gap stationary classification and faster finite criterion.
 - `norm_stationary.py`: exact norm-pruned stationary-pattern search, using at most one second gap per first gap and binary search.
 - `explicit_infinite.py`: complete three-family infinite-collision decision, including all integer signs.
+- `signed_gap.py`: complete finite-window arithmetic spectra for all positive collision forms, with signed determinant witnesses.
+- `verify_signed_gap.py`: compares the spectra at q=2..100 to the earlier global certificates; checks the determinant identity and three coefficient families.
 - `verify_explicit_infinite.py`: independent coefficient-family generation and exact stationary-pattern agreement, q=2..1000.
 - `verify_norm_stationary.py`: independent pattern-by-pattern agreement for all q=2..200 (26 norm candidates and 19 infinite-collision coefficients).
 - `all_global_unique.py`: final proved global-uniqueness decision for S_q/T_q/P_q at any integer q.
@@ -30,6 +37,6 @@ For **every integer coefficient** `q` (positive, zero, or negative), the paper a
 - `verify_all_global_unique.py`: complete whole-infinite-sequence uniqueness classification of each form for q=2..100, compared with enlarged-index exhaustive enumeration.
 - `verify_ratio_collisions.py`: exact identities and positive repeated witnesses for all tested quotient coefficients and the special case q=2.
 
-Run `python3 verify.py && python3 verify_all_integer.py && python3 verify_ratio_collisions.py && python3 verify_global_collisions.py && python3 verify_stationary_collisions.py && python3 verify_norm_stationary.py && python3 verify_explicit_infinite.py && python3 verify_all_global_unique.py`; global uniqueness example: `python3 all_global_unique.py 31 P`; examples: `python3 stationary_collisions.py T 38` and `python3 stationary_collisions.py P -7`; global example: `python3 global_collisions.py 25`; universal examples: `python3 all_integer.py S -4 count 1000`, `python3 all_integer.py T 7 witnesses 20`, `python3 all_integer.py P 13 nth 100`; examples: `python3 family.py coefficient 3`, `python3 family.py nth 1 100`, `python3 family.py repeat 2 15`.
+Run `python3 verify.py && python3 verify_all_integer.py && python3 verify_ratio_collisions.py && python3 verify_global_collisions.py && python3 verify_stationary_collisions.py && python3 verify_norm_stationary.py && python3 verify_explicit_infinite.py && python3 verify_signed_gap.py && python3 verify_all_global_unique.py`; global uniqueness example: `python3 all_global_unique.py 31 P`; examples: `python3 stationary_collisions.py T 38` and `python3 stationary_collisions.py P -7`; global example: `python3 global_collisions.py 25`; universal examples: `python3 all_integer.py S -4 count 1000`, `python3 all_integer.py T 7 witnesses 20`, `python3 all_integer.py P 13 nth 100`; examples: `python3 family.py coefficient 3`, `python3 family.py nth 1 100`, `python3 family.py repeat 2 15`.
 
 A separate [A191980–A191983 manuscript](https://github.com/dongxuelian2/oeis-papers/pull/24) treats the special case `q=5` in greater detail.
