@@ -13,6 +13,9 @@ For **every integer coefficient** `q` (positive, zero, or negative), the paper a
 - `all_integer.py`: universal integer-only computations for all three forms and every coefficient.
 - `global_collisions.py`: proved complete collision and global uniqueness report for any q>=2.
 - `stationary_collisions.py`: exact finite test for infinitely many collisions in T_q/P_q, any integer q.
+- `stationary_norm.md`: square-norm obstruction, parity, complete even-gap stationary classification and faster finite criterion.
+- `norm_stationary.py`: exact norm-pruned stationary-pattern search, using at most one second gap per first gap and binary search.
+- `verify_norm_stationary.py`: independent pattern-by-pattern agreement for all q=2..200 (26 norm candidates and 19 infinite-collision coefficients).
 - `all_global_unique.py`: final proved global-uniqueness decision for S_q/T_q/P_q at any integer q.
 - `ratio_collisions.py`: exact Lucas/Fibonacci quotient and half-Lucas coefficients with collision witnesses.
 - `verify.py`: independent brute-force checks over 30 coefficients of the collision-free family and 20 of the colliding family.
@@ -22,6 +25,6 @@ For **every integer coefficient** `q` (positive, zero, or negative), the paper a
 - `verify_all_global_unique.py`: complete whole-infinite-sequence uniqueness classification of each form for q=2..100, compared with enlarged-index exhaustive enumeration.
 - `verify_ratio_collisions.py`: exact identities and positive repeated witnesses for all tested quotient coefficients and the special case q=2.
 
-Run `python3 verify.py && python3 verify_all_integer.py && python3 verify_ratio_collisions.py && python3 verify_global_collisions.py && python3 verify_stationary_collisions.py && python3 verify_all_global_unique.py`; global uniqueness example: `python3 all_global_unique.py 31 P`; examples: `python3 stationary_collisions.py T 38` and `python3 stationary_collisions.py P -7`; global example: `python3 global_collisions.py 25`; universal examples: `python3 all_integer.py S -4 count 1000`, `python3 all_integer.py T 7 witnesses 20`, `python3 all_integer.py P 13 nth 100`; examples: `python3 family.py coefficient 3`, `python3 family.py nth 1 100`, `python3 family.py repeat 2 15`.
+Run `python3 verify.py && python3 verify_all_integer.py && python3 verify_ratio_collisions.py && python3 verify_global_collisions.py && python3 verify_stationary_collisions.py && python3 verify_norm_stationary.py && python3 verify_all_global_unique.py`; global uniqueness example: `python3 all_global_unique.py 31 P`; examples: `python3 stationary_collisions.py T 38` and `python3 stationary_collisions.py P -7`; global example: `python3 global_collisions.py 25`; universal examples: `python3 all_integer.py S -4 count 1000`, `python3 all_integer.py T 7 witnesses 20`, `python3 all_integer.py P 13 nth 100`; examples: `python3 family.py coefficient 3`, `python3 family.py nth 1 100`, `python3 family.py repeat 2 15`.
 
 A separate [A191980–A191983 manuscript](https://github.com/dongxuelian2/oeis-papers/pull/24) treats the special case `q=5` in greater detail.
