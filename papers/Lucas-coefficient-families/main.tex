@@ -983,6 +983,180 @@ Negative and small coefficients follow from
 Corollary~\ref{cor:sign-classification}.
 \end{proof}
 
+
+\section*{Exact arithmetic spectra of finite collisions}
+The preceding global bounds can also classify the coefficients
+with finitely many collisions without computing any ordered
+set of positive values. The sole arithmetic objects needed
+are differences of two Lucas numbers and the sign of a
+two-by-two determinant.
+
+For integers \(1\le a<b\) put \(D(a,b)=L_b-L_a>0\).
+Given two index pairs \(a<b\) and \(c<d\), define
+\[
+X=D(a,b),\quad Y=D(c,d),\qquad
+\Delta(a,b;c,d)=L_aL_d-L_bL_c.
+\]
+The integrality condition \(Y\mid X\) generates
+the candidate coefficient \(q=X/Y\).
+
+\begin{theorem}[Signed-gap coefficient spectra]
+\label{thm:signed-gap}
+Fix \(q\ge2\). The following statements are exact
+necessary-and-sufficient conditions for the existence
+of a multiply represented \emph{positive} value:
+\begin{enumerate}
+\item \(S_q\) has a collision if and only if some
+ \(1\le a<b\), \(1\le c<d\) satisfy
+ \(D(a,b)=qD(c,d)\) and \(\Delta(a,b;c,d)>0\).
+\item \(T_q\) has a collision if and only if such
+ indices satisfy \(\Delta(a,b;c,d)<0\).
+\item \(P_q\) has a collision if and only if such
+ indices exist, regardless of the sign of \(\Delta\).
+\end{enumerate}
+All three tests can be restricted to the common finite
+index window
+\begin{equation}\label{eq:signed-cutoff}
+\boxed{1\le a,b,c,d\le 13t+1,}
+\end{equation}
+where \(t=t(q)\) is defined by \eqref{eq:t-bound}.
+The three signs construct their collision witnesses
+using only exact integer arithmetic.
+\end{theorem}
+\begin{proof}
+If \(D(a,b)=qD(c,d)\), then the two unequal pairs
+of indices give the sum collision
+\[
+qL_c+L_b=qL_d+L_a>0.
+\]
+Furthermore,
+\[
+L_a-qL_c=L_b-qL_d=\frac{\Delta}{D(c,d)},
+\]
+and
+\[
+qL_c-L_a=qL_d-L_b=-\frac{\Delta}{D(c,d)}.
+\]
+This proves that positive, negative, and zero signs
+have precisely the asserted consequences.
+Conversely, any collision in \(S_q\) has first
+indices \(a<b\) and second indices \(c<d\);
+its equality and positivity give the divisor equation
+and \(\Delta>0\). For a \(T_q\) collision, label the
+first indices \(c<d\) and second indices \(a<b\);
+the same operations yield \(\Delta<0\).
+For \(P_q\), the two first and second indices
+necessarily run in opposite directions;
+relabeling them gives the divisor equation.
+Thus all three tests are equivalent, not merely
+sufficient.
+
+For the common index bound, Theorem~\ref{thm:global}
+places all \(S_q\) collision indices at most \(6t\).
+If \(q\) has no stationary \(T_q\) collision,
+Corollary~\ref{cor:every-global-unique} places every
+\(T_q\) and \(P_q\) collision inside \(13t\).
+Otherwise Theorem~\ref{thm:stationary} supplies
+a positive stationary \(T_q\) collision at
+\(k=12t+1\), whose other three indices belong to
+\([1,13t+1]\); exchanging subtracted indices
+also supplies a \(P_q\) collision inside that window.
+In all cases, if a collision exists, a certificate
+satisfying \eqref{eq:signed-cutoff} exists.
+\end{proof}
+
+Define the following three explicitly parametrized
+sets of positive integer coefficients:
+\begin{equation}\label{eq:sign-spectra}
+\begin{aligned}
+\mathcal C_{\pm}
+&=\left\{\frac{D(a,b)}{D(c,d)}\in\mathbb Z_{\ge2}:
+\, a<b,\ c<d,\ \pm\Delta(a,b;c,d)>0\right\},\\
+\mathcal C_0
+&=\left\{\frac{D(a,b)}{D(c,d)}\in\mathbb Z_{\ge2}:
+\, a<b,\ c<d,\ \Delta(a,b;c,d)=0\right\}.
+\end{aligned}
+\end{equation}
+All four indices are positive. Thus \(S_q\) has a
+positive collision precisely for \(q\in\mathcal C_+\);
+\(T_q\) precisely for \(q\in\mathcal C_-\);
+and \(P_q\) precisely for
+\(q\in\mathcal C_+\cup\mathcal C_-\cup\mathcal C_0\).
+Let \(\mathcal I\) be the three explicit coefficient
+families in \eqref{eq:explicit-coefficients}.
+By Theorem~\ref{thm:explicit-infinite}, the
+\emph{finitely collided but nonunique} coefficients are
+\[
+\begin{array}{c|l}
+S & \mathcal C_+\\
+T & \mathcal C_-\setminus\mathcal I\\
+P &(\mathcal C_+\cup\mathcal C_-\cup\mathcal C_0)
+       \setminus\mathcal I.
+\end{array}
+\]
+The complements give global uniqueness, while
+\(\mathcal I\) gives infinitely many collision values
+for \(T\) and \(P\). For \(S\), all collisions are
+finite at every \(q\ge2\).
+
+\begin{proposition}[Equal-gap parity rule]\label{prop:equal-gap}
+For \(h\ge1\) and \(1\le c<a\), suppose
+\[
+q=\frac{L_{a+h}-L_a}{L_{c+h}-L_c}
+\in\mathbb Z_{\ge2}.
+\]
+Then \(P_q\) has repeated positive values.
+If \(c\) is odd, \(S_q\) has a positive collision;
+if \(c\) is even, \(T_q\) has a positive collision.
+In particular, each of the infinite families
+\[
+\boxed{\quad
+q=\frac{L_{3r}}2\ (r\ge1),\qquad
+q=\frac{L_{4r+2}}3\ (r\ge1),\qquad
+q=\frac{F_{3r}}2\ (r\ge2)
+\quad}
+\]
+consists entirely of coefficients for which
+\(S_q\) has a finite nonempty collision set.
+\end{proposition}
+\begin{proof}
+The Lucas--Fibonacci product identity gives
+\begin{equation}\label{eq:gap-determinant}
+\boxed{\quad
+L_aL_{c+h}-L_cL_{a+h}
+=5(-1)^{c+1}F_{a-c}F_h.\quad}
+\end{equation}
+For \(a>c\) and \(h\ge1\), both Fibonacci
+factors are positive. Theorem~\ref{thm:signed-gap}
+therefore proves the parity rule.
+
+For the three families choose \(c=1\).
+Using the elementary identities
+\(L_{n+1}-L_n=L_{n-1}\),
+\(L_{n+2}-L_n=L_{n+1}\), and
+\(L_{n+4}-L_n=5F_{n+2}\), take
+\[
+(h,a)=(1,3r+1),\qquad
+(2,4r+1),\qquad
+(4,3r-2),
+\]
+respectively (the last has \(r\ge2\)).
+The denominators \(D(1,1+h)\) are \(2,3,10\).
+Divisibility follows from the period-three
+Lucas/Fibonacci parities and the Lucas residues
+\(L_{4r+2}\equiv0\pmod3\).
+Theorem~\ref{thm:global} proves that every
+fixed \(S_q\) has only finitely many collisions.
+\end{proof}
+
+The coefficient spectra in \eqref{eq:sign-spectra}
+are complete four-index arithmetic parametrizations.
+They are not claimed to be a finite union of simple
+congruence classes. Formula \eqref{eq:signed-cutoff}
+supplies a terminating global decision for each
+integer coefficient; the parametrizations provide
+additional structure and constructive witnesses.
+
 \paragraph{Context.}
 The case $q=5F_2=5$ generalizes the unique representation
 of positive differences in
