@@ -1,8 +1,8 @@
-# Collisions in weighted Lucas sums and differences
+# Weighted Lucas sums and differences: coefficient classification and four OEIS sequences
 
 [Paper (PDF)](main.pdf) · [LaTeX source](main.tex)
 
-Let `L_n` be the Lucas numbers. The paper studies positive values of
+Let `L_n` be the Lucas numbers. The single manuscript studies positive values of
 `S_q = L_i - q L_j`, `T_q = q L_i - L_j`, and `P_q = q L_i + L_j`
 for integer `q` and positive indices `i,j`.
 
@@ -26,6 +26,25 @@ classifies collisions in `P_q`. A collision witness, if one
 exists, occurs with all indices at most `13t+1`.
 The paper also covers zero, unit, and negative coefficients.
 
+
+## Four OEIS sequences at q = 5
+
+The same manuscript gives complete results for
+[A191980](https://oeis.org/A191980) (sums),
+[A191981](https://oeis.org/A191981) (positive differences),
+[A191982](https://oeis.org/A191982) (reversed positive differences),
+and [A191983](https://oeis.org/A191983) (their nonnegative union).
+
+- A191981 has unique positive representations.
+- A191982 has exactly five repeated positive values: \`2, 4, 8, 14, 17\`.
+- A191980 has exactly five repeated values: \`16, 23, 38, 62, 91\`.
+- The complete intersection \`S_5 ∩ T_5\` comprises nine exceptions and the families \`3L_n\`, \`8L_n\` (\`n>=6\`).
+- The complete intersection \`P_5 ∩ T_5\` comprises fourteen exceptions and the two families \`5L_n+L_(n+7)\`, \`5L_n+L_(n-3)\` (\`n>=4\`).
+- Exact counting and unranking formulas cover all four sequences and both intersections.
+
+The original q=5 [integer verification scripts](../A191980-A191983/)
+remain separate for auditing; they are not a second paper.
+
 ## Verification
 
 The verification scripts remain in this directory:
@@ -43,5 +62,3 @@ The reference implementations are `family.py`, `all_integer.py`,
 The [GitHub Actions workflow](../../.github/workflows/lucas-coefficients.yml)
 runs the full verification suite and compiles the manuscript.
 
-The companion [A191980–A191983 paper](../A191980-A191983/main.pdf)
-develops the OEIS case `q=5` in detail.
