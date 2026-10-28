@@ -8,13 +8,26 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{remark}[theorem]{Remark}
-\title{Collisions in Weighted Lucas Sums and Differences}
+\title{Weighted Lucas Sums and Differences:\\
+Coefficient Classification and Four OEIS Sequences}
 \author{Qichao Wang}
 \date{October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-We classify collisions among positive weighted Lucas differences and sums with integer coefficient $q$. For $q\ge2$, the set $\{L_i-qL_j>0\}$ has finitely many collisions, and a uniform index bound decides global uniqueness. Infinitely many collisions in $\{qL_i-L_j>0\}$ and $\{qL_i+L_j\}$ occur for exactly three arithmetic coefficient families: integral Lucas quotients, integral Fibonacci quotients, and half-Lucas coefficients. Otherwise a finite certificate and a signed quotient of two Lucas gaps classify every collision. The sum form has unique representations exactly when both difference forms do. Sign reductions extend the classification to all integer coefficients.
+We classify positive representations of \(L_i-qL_j\),
+\(qL_i-L_j\), and \(qL_i+L_j\) for integer \(q\).
+For \(q\ge2\), the first form has only finitely
+many collisions, with an explicit uniform index bound.
+The other two have infinitely many repeated values
+precisely for three arithmetic coefficient families:
+integral Lucas quotients, integral Fibonacci quotients,
+and half-Lucas coefficients. Signed quotients of Lucas
+gaps characterize all finite collisions, and
+global uniqueness is decidable by finite exact arithmetic.
+For \(q=5\), we also determine all repeated values,
+the two complete pairwise intersections, and exact
+counting formulas for OEIS A191980--A191983.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -921,5 +934,445 @@ and the same block has distinct values.
 \end{proof}
 
 
+
+\section*{The four OEIS sequences at coefficient five}
+The preceding classification applies in particular to \(q=5\).
+For this section write \(S=S_5\), \(T=T_5\),
+and \(P=P_5\). Their increasing positive values
+give OEIS A191981, A191982, and A191980,
+respectively; the positive values of A191983 form
+\(S\cup T\). The published A191981 and A191983
+also begin with a zero sentinel. Because
+\(L_i\bmod5\) cycles through \(1,3,4,2\),
+the equation \(L_i=5L_j\) is impossible:
+the zero is not a Lucas difference.
+
+Theorem~\ref{thm:unique} with \(r=1\) gives
+the complete index region and uniqueness in \(S\):
+\[
+(i,j)=(4,1)\quad\text{or}\quad
+i\ge5,\ 1\le j\le i-4.
+\]
+For \(i\ge5\) its ordered block satisfies
+\begin{equation}\label{eq:oeis-block}
+3L_{i-5}=L_i-5L_{i-4}
+\le L_i-5L_j\le L_i-5.
+\end{equation}
+Write \(H(y)=\#\{j\ge1:L_j\le y\}\) and
+\([x]_+=\max(x,0)\). The exact conclusions
+for the four sequences are as follows.
+
+\subsection*{Exact positive-difference count}
+\begin{theorem}[Three-block exact counting]\label{oeis:thm:exact}
+For every integer $x\ge11$, let $m$ be the unique integer satisfying
+$L_m\le x<L_{m+1}$. Then
+\begin{equation}\label{oeis:eq:exact}
+\boxed{\displaystyle A(x)=1+\frac{(m-4)(m-3)}2+
+\sum_{h=1}^{3}\left[m+h-4-
+H\!\left(\left\lfloor\frac{L_{m+h}-x-1}{5}\right\rfloor\right)
+\right]_+.}
+\end{equation}
+For $0\le x<11$, $A(x)$ counts the members of $\{2,3,6,9\}$ not exceeding $x$.
+\end{theorem}
+\begin{proof}
+All admissible differences with first index $i\le m$ are smaller than
+$L_i\le x$. For $i\ge m+4$, \eqref{eq:oeis-block} gives
+\[
+L_i-5L_j\ge3L_{i-5}\ge3L_{m-1}>L_{m+1}>x.
+\]
+Indeed, $3L_{m-1}-L_{m+1}=L_{m-1}-L_{m-2}>0$ because $m\ge5$.
+The only remaining first indices are $i=m+1,m+2,m+3$. In one such block,
+$L_i-5L_j\le x$ is equivalent to
+$L_j>\lfloor(L_i-x-1)/5\rfloor$.
+There are $i-4$ admissible indices $j$, so removing the ineligible ones gives
+the positive-part expression in \eqref{oeis:eq:exact}.
+\end{proof}
+
+\subsection*{Complete intersection of the two differences}
+\begin{theorem}[Complete intersection classification]\label{oeis:thm:intersection}
+With $E=\{2,6,9,12,13,14,24,32,61\}$, one has the disjoint union
+\begin{equation}\label{oeis:eq:intersection}
+\boxed{\quad S\cap T=E\ \dot\cup\
+\{3L_n:n\ge6\}\ \dot\cup\ \{8L_n:n\ge6\}.\quad}
+\end{equation}
+In particular, the only common values outside the two Lucas-multiple
+families are the nine elements of $E$.
+\end{theorem}
+\begin{proof}
+Suppose $L_i-5L_j=5L_k-L_\ell>0$.
+The Lucas residues modulo $5$ repeat as $(1,3,4,2)$, so
+$L_i+L_\ell\equiv0\pmod5$ forces
+$\ell\equiv i+2\pmod4$.
+By Theorem~\ref{thm:unique}, $i\ge4$ and $j\le i-4$, except
+that $(i,j)=(4,1)$ is the first permitted pair. Furthermore,
+$5L_k>L_\ell$ implies $\ell\le k+3$ for every $k\ge1$.
+For $k\ge2$, the least positive difference in its block is
+$5L_k-L_{k+3}=2L_{k-2}$.
+
+Assume first $i\ge16$. The lower bound
+$L_i-5L_j\ge3L_{i-5}>5L_{i-7}$ excludes $k\le i-7$.
+The bound $5L_k-L_\ell\ge2L_{k-2}\ge2L_{i-1}>L_i$
+excludes $k\ge i+1$. If $k=i$, the largest permissible
+$\ell$ is $i+2$ and $5L_i-L_{i+2}>L_i$.
+If $k=i-2$, the largest permissible $\ell$ is $i-2$ and
+$4L_{i-2}>L_i$. Thus $k=i-d$ with $d\in\{1,3,4,5,6\}$.
+For $d=1$, only $\ell=i+2$ can give a value below $L_i$;
+all smaller permissible $\ell$ give $5L_{i-1}-L_\ell>L_i$.
+
+Put $R=L_i+L_\ell-5L_{i-d}=5L_j$.
+The following table gives strict open intervals for $R$;
+each endpoint is a multiple of a Lucas number.
+\[
+\begin{array}{c|c|l}
+d&\ell&\text{location of }R\\ \hline
+1&i+2&(5L_{i-5},\,5L_{i-4})\\
+3&i-2&(5L_{i-7},\,5L_{i-6})\\
+3&\ell\le i-6&R<0\\
+4&i-2&(5L_{i-5},\,5L_{i-4})\\
+4&i-6&(5L_{i-6},\,5L_{i-5})\\
+4&i-10&R=5L_{i-6}\\
+4&\ell\le i-14&(5L_{i-7},\,5L_{i-6})\\
+5&i-2&R>5L_{i-4}\\
+5&\ell\le i-6&(5L_{i-5},\,5L_{i-4})\\
+6&i-6&R>5L_{i-4}\\
+6&i-10&R=5L_{i-4}\\
+6&\ell\le i-14&(5L_{i-5},\,5L_{i-4})
+\end{array}
+\]
+All table inequalities hold for $i\ge16$.
+To verify them, bound each variable $\ell$ between its
+indicated upper endpoint and $L_\ell>0$.
+The resulting fixed-shift inequalities are differences of
+Lucas-linear expressions and hence satisfy
+$u_{i+2}=u_{i+1}+u_i$. In each case the two initial values
+$i=16,17$ are strictly positive, as checked by direct substitution;
+the recurrence preserves positivity. The two exact-equality
+rows follow from the same recurrence and two initial identities.
+Every interval either misses all admissible $5L_j$ or contains
+no such value, while $R>5L_{i-4}$ is impossible since $j\le i-4$.
+The only surviving cases are
+\[
+(i,j,k,\ell)=(i,i-6,i-4,i-10),\qquad
+(i,i-4,i-6,i-10)\qquad(i\ge16).
+\]
+
+For the remaining $4\le i\le15$, the finite possibilities
+$1\le k\le i-1$, $1\le\ell\le k+3$, and
+$j\le i-4$ (with $(4,1)$ included) give:
+\[
+\begin{array}{c|ccccccc}
+i&4&5&6&7&8&9&10\\ \hline
+S\cap T\text{ in the }i\text{-block}
+&2&6&13&9,14,24&12,32&61&\varnothing
+\end{array}
+\]
+For $11\le i\le15$ the only two values are
+$3L_{i-5}$ and $8L_{i-5}$.
+For all $n\ge6$ the Lucas recurrence gives
+\begin{align*}
+3L_n&=L_{n+5}-5L_{n+1}=5L_{n-1}-L_{n-5},\\
+8L_n&=L_{n+5}-5L_{n-1}=5L_{n+1}-L_{n-5}.
+\end{align*}
+Thus both displayed families belong to $S\cap T$.
+They are disjoint from one another by the uniqueness theorem
+for $S$, and neither family contains one of the nine exceptional
+values (the smallest values are $3L_6=54$ and $8L_6=144$). This proves \eqref{oeis:eq:intersection}.
+\end{proof}
+
+\subsection*{All repeated reverse differences and sums}
+\begin{theorem}[Five and only five collisions]\label{oeis:thm:duplicates}
+The map
+\[
+(k,\ell)\longmapsto 5L_k-L_\ell>0,\qquad k,\ell\ge1,
+\]
+is injective except for exactly five pairs of distinct arguments:
+\[
+\begin{array}{c|c|c|c}
+k&p&(\ell,q)&5L_k-L_\ell=5L_p-L_q\\ \hline
+1&2&(1,5)&4\\
+1&3&(2,6)&2\\
+2&5&(4,8)&8\\
+2&6&(1,9)&14\\
+3&4&(2,6)&17
+\end{array}
+\]
+In particular, the set of multiply represented positive values in
+A191982 is precisely $D=\{2,4,8,14,17\}$; each has multiplicity two.
+\end{theorem}
+\begin{proof}
+For $k=1$ the positive pairs have $1\le\ell\le3$.
+For every $k\ge2$, positivity is equivalent to
+$1\le\ell\le k+3$, and the values in the $k$-block lie in
+\[
+[2L_{k-2},\,5L_k-1],
+\qquad 5L_k-L_{k+3}=2L_{k-2}.
+\]
+Suppose $5L_k-L_\ell=5L_p-L_q>0$ with $k<p$.
+Then
+\begin{equation}\label{oeis:eq:collision}
+L_q-L_\ell=5(L_p-L_k)>0,\qquad q\equiv\ell\pmod4.
+\end{equation}
+The congruence follows from the four distinct Lucas residues modulo $5$.
+Hence $q\ge\ell+4$.
+
+If $k\ge3$ and $p\ge k+4$, then
+\[
+5L_p-L_q\ge2L_{p-2}\ge2L_{k+2}>5L_k-1,
+\]
+where $2L_{k+2}-5L_k=L_{k-1}-L_{k-2}>0$.
+This exceeds every value in the $k$-block.
+For $k=1$, $p\ge5$ is excluded by
+$2L_3=8>5L_1-1=4$.
+For $k=2$, $p\ge7$ is excluded by
+$2L_5=22>5L_2-1=14$; the boundary $p=6$
+gives precisely $14$.
+
+It remains to consider $p=k+d$ for $d\in\{1,2,3\}$.
+For $k\ge4$ the possibilities in \eqref{oeis:eq:collision}
+reduce as follows.
+
+If $d=1$, then $5(L_p-L_k)=5L_{k-1}$,
+so $L_{k+2}<5L_{k-1}<L_{k+4}$ and
+$q\in\{k+3,k+4\}$.
+For $q=k+3$ one has
+$L_\ell=3L_{k-2}>L_{k-1}$, contradicting
+$\ell\le q-4=k-1$.
+For $q=k+4$ one has
+$L_\ell=L_{k+2}+3L_{k-2}>L_k$,
+contradicting $\ell\le k$.
+
+If $d=2$, then $5(L_p-L_k)=5L_{k+1}$.
+Since $L_{k+4}<5L_{k+1}$ and $q\le p+3$,
+necessarily $q=k+5$.
+It follows that
+$L_\ell=3L_k>L_{k+1}$, but $\ell\le k+1$.
+
+If $d=3$, then $5(L_p-L_k)=10L_{k+1}$.
+As $L_{k+5}<10L_{k+1}$ and $q\le p+3$,
+one must have $q=k+6$. Thus
+\[
+L_\ell=L_{k+6}-10L_{k+1}
+=5L_k-2L_{k+1}=:R_k.
+\]
+For $k\ge3$,
+\[
+L_{k-2}<R_k<L_{k+2}.
+\]
+But \eqref{oeis:eq:collision} forces
+$\ell\equiv k+2\pmod4$ and $\ell\le k+2$;
+either $\ell=k+2$ or $\ell\le k-2$, a contradiction.
+
+Finally, the cases $k=1,2,3$ can be checked using
+\eqref{oeis:eq:collision} and $q\le p+3$:
+$k=1$ yields $(p,\ell,q)=(2,1,5),(3,2,6)$;
+$k=2$ yields $(5,4,8)$ in addition to the
+boundary $(6,1,9)$; $k=3$ yields $(4,2,6)$.
+Their values are the five displayed in the table.
+Since the list exhausts all colliding argument pairs,
+no value has three representations.
+\end{proof}
+
+\begin{theorem}[The five sum collisions]\label{oeis:thm:sums}
+Exactly five values in $P$ admit two different index-pair
+representations:
+\[
+\begin{array}{c|l}
+s&\text{the two representations of }s\\ \hline
+16&5L_1+L_5=5L_2+L_1\\
+23&5L_1+L_6=5L_3+L_2\\
+38&5L_3+L_6=5L_4+L_2\\
+62&5L_2+L_8=5L_5+L_4\\
+91&5L_2+L_9=5L_6+L_1
+\end{array}
+\]
+All other values have precisely one representation; none has three.
+\end{theorem}
+\begin{proof}
+Suppose $5L_i+L_j=5L_k+L_\ell$ with $(i,j)\ne(k,\ell)$.
+Since $L_n$ increases strictly for $n\ge1$, we may take
+$i<k$ and $j>\ell$. Rearranging gives
+\begin{equation}\label{oeis:eq:sum-switch}
+5L_i-L_\ell=5L_k-L_j=:t.
+\end{equation}
+The four Lucas residues $1,3,4,2$ modulo $5$ imply
+$t\ne0$. If $t<0$, then
+$-t=L_\ell-5L_i=L_j-5L_k>0$
+has two distinct representations in $S$, contradicting
+Theorem~\ref{thm:unique}. Consequently $t>0$.
+Equation \eqref{oeis:eq:sum-switch} is therefore a collision
+in $T$, and Theorem~\ref{oeis:thm:duplicates} restricts it to
+the five pairs listed there.
+Conversely, swapping the subtracted Lucas indices in
+each of those five equalities yields exactly the five
+sum identities displayed above. Each displayed sum is distinct,
+and each of the five collisions in $T$ is between precisely
+two index pairs; hence there are no further collisions and
+no threefold representations in $P$.
+\end{proof}
+
+\subsection*{Complete intersection of sums and reverse differences}
+\begin{theorem}[Complete sum--difference intersection]\label{oeis:thm:sum-full-overlap}
+The following union is disjoint:
+\begin{equation}\label{oeis:eq:sum-full-overlap}
+\boxed{P\cap T=E\ \dot\cup\
+ \{5L_n+L_{n+7}:n\ge4\}\ \dot\cup\
+ \{5L_n+L_{n-3}:n\ge4\}.}
+\end{equation}
+Indeed, every equality $5L_a+L_b=5L_c-L_d>0$
+with $c\ge8$ has $a=c-4$ and
+$\{b,d\}=\{c+3,c-7\}$.
+\end{theorem}
+\begin{proof}
+The equality implies $a<c$, since $L_b+L_d>0$, and
+\begin{equation}\label{oeis:eq:sum-overlap-condition}
+L_b+L_d=5(L_c-L_a),\qquad b\equiv d+2\pmod4.
+\end{equation}
+The residue condition follows from the four distinct Lucas
+residues modulo $5$. Positivity gives $d\le c+3$; also
+$L_b<5L_c<L_{c+4}$ gives $b\le c+3$.
+
+Assume $c\ge8$, and set $m=\max(b,d)$ and $s=\min(b,d)$.
+The residue condition forces $m-s\equiv2\pmod4$,
+so $s\le m-2$. If $m=c+3$, then $s=c+1$ would
+make $L_m+L_s>5L_c$, hence $s\le c-3$.
+If $m=c+2$, then $s\le c$; if $m\le c+1$, then
+$s\le c-1$. The Lucas recurrence yields
+\[
+L_m+L_s\le L_{c+3}+L_{c-3},\qquad
+5L_c-L_{c+3}-L_{c-3}>5L_{c-5}.
+\]
+Thus $L_a>L_{c-5}$, hence $a\ge c-4$.
+Write $h=c-a\in\{1,2,3,4\}$ and
+$R_h=5(L_c-L_{c-h})=L_m+L_s$.
+
+For $h=1$, the bounds
+$2L_{c-1}<R_1<L_{c+2}$ force $m=c$ or $c+1$.
+When $m=c$, $R_1>L_c+L_{c-2}$ contradicts $s\le c-2$.
+When $m=c+1$,
+\[
+L_{c-5}<R_1-L_{c+1}<L_{c-1}.
+\]
+But then $s$ must belong to $\{c-1,c-5,c-9,\ldots\}$,
+which is impossible by strict monotonicity.
+For $h=2$, the bounds $2L_c<R_2<L_{c+3}$
+force $m=c+1$ or $c+2$. The former is excluded by
+$R_2>L_{c+1}+L_{c-1}$; in the latter case
+\[
+L_{c-4}<R_2-L_{c+2}<L_c,
+\]
+whereas $s\in\{c,c-4,c-8,\ldots\}$.
+For $h=3$, $2L_{c+1}<R_3<L_{c+3}$ forces
+$m=c+2$, but $R_3>L_{c+2}+L_c$ contradicts $s\le c$.
+Finally, for $h=4$, $R_4>L_{c+2}+L_c$ forces
+$m=c+3$; the identity
+\[
+5(L_c-L_{c-4})=L_{c+3}+L_{c-7}
+\]
+gives $s=c-7$. This gives precisely the two families
+in \eqref{oeis:eq:sum-full-overlap}.
+
+All strict inequalities used above are fixed-shift linear
+combinations of Lucas numbers. Their differences satisfy
+$u_{c+2}=u_{c+1}+u_c$; each is positive at $c=8,9$,
+so all hold for $c\ge8$. The companion verifier records
+the 18 positive initial comparisons and the exact identity.
+
+For $c\le7$, the ranges $1\le a<c$ and
+$1\le b,d\le c+3$ are finite. Exhaustion gives the
+following distinct values, grouped by $c$:
+\[
+\begin{array}{c|l}
+c &5L_a+L_b=5L_c-L_d\ \text{(distinct values)}\\ \hline
+1&\varnothing\\
+2&8,12\\
+3&9,16,19\\
+4&6,24,31,34\\
+5&8,26,44,52\\
+6&\varnothing\\
+7&22,138
+\end{array}
+\]
+These give exactly $E$. The family with $L_{n+7}$
+begins at $234>\max E$; the other begins with
+$36,58,94,152,\ldots$, none of which belongs to $E$.
+The two families are disjoint by Theorem~\ref{oeis:thm:sums}:
+if one value belonged to both, it would have two different
+sum representations, yet every value of the first family
+exceeds $91$. The Lucas identity
+\[
+5(L_{n+4}-L_n)=L_{n+7}+L_{n-3}\qquad(n\ge4)
+\]
+holds by the recurrence and its first two instances.
+It gives both families in \(P\cap T\);
+the second difference is positive since
+\(5L_{n+4}-L_{n+7}=2L_{n+2}>0\).
+\end{proof}
+
+\subsection*{Exact counting and unranking}
+Let
+\[
+A(x)=\#(S\cap[1,x]),\quad
+B(x)=\#(T\cap[1,x]),\quad
+C(x)=\#(P\cap[1,x]).
+\]
+The first count is \eqref{oeis:eq:exact} for \(x\ge11\);
+for \(0\le x<11\), count the elements of
+\(\{2,3,6,9\}\) at most \(x\).
+Let
+\[
+D_T=\{2,4,8,14,17\},\qquad
+D_P=\{16,23,38,62,91\},
+\]
+and put \(b_1=3\), \(b_k=k+3\) for \(k\ge2\),
+\(K(x)=\max\{3,H(\lfloor x/2\rfloor)+2\}\).
+The two remaining count formulas are
+\begin{align}
+B(x)&=\sum_{k=1}^{K(x)}
+[b_k-H(5L_k-x-1)]_+
+-\#\{d\in D_T:d\le x\},\label{eq:oeis-Tcount}\\
+C(x)&=\sum_{i=1}^{H(\lfloor(x-1)/5\rfloor)}
+H(x-5L_i)
+-\#\{d\in D_P:d\le x\}.\label{eq:oeis-Pcount}
+\end{align}
+For the two intersections let
+\(I(x)=\#(S\cap T\cap[1,x])\) and
+\(J(x)=\#(P\cap T\cap[1,x])\). Write
+\[
+E_{ST}=\{2,6,9,12,13,14,24,32,61\},\qquad
+E_{PT}=\{6,8,9,12,16,19,22,24,26,31,34,44,52,138\},
+\]
+and \(u_n=5L_n+L_{n+7}\),
+\(v_n=5L_n+L_{n-3}\) for \(n\ge4\).
+Then the two intersection theorems yield
+\begin{align}
+I(x)&=\#\{e\in E_{ST}:e\le x\}
++[H(\lfloor x/3\rfloor)-5]_+
++[H(\lfloor x/8\rfloor)-5]_+,\label{eq:oeis-Icount}\\
+J(x)&=\#\{e\in E_{PT}:e\le x\}
++\#\{n\ge4:u_n\le x\}
++\#\{n\ge4:v_n\le x\}.
+\label{eq:oeis-Jcount}
+\end{align}
+Finally, for \(x\ge0\), the number of entries
+of A191983 not exceeding \(x\) is
+\begin{equation}\label{eq:oeis-Ucount}
+\boxed{\,U(x)=1+A(x)+B(x)-I(x).\,}
+\end{equation}
+Every sum in these formulas is finite.
+They count pairs within their permitted Lucas
+index regions, then subtract the five duplicated
+values in \(T\) or \(P\), respectively.
+The intersection counts follow from the disjoint
+unions proved above, and \(U\) follows from
+inclusion--exclusion. All four ordered sequences
+and both intersections therefore admit exact
+unranking by integer binary search.
+
+\paragraph{OEIS references.}
+The four records are
+\url{https://oeis.org/A191980},
+\url{https://oeis.org/A191981},
+\url{https://oeis.org/A191982}, and
+\url{https://oeis.org/A191983}.
 
 \end{document}
