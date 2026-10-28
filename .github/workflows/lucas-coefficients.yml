@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'papers/Lucas-coefficient-families/**'
+      - 'papers/A191980-A191983/**'
       - '.github/workflows/lucas-coefficients.yml'
   pull_request:
     paths:
       - 'papers/Lucas-coefficient-families/**'
+      - 'papers/A191980-A191983/**'
       - '.github/workflows/lucas-coefficients.yml'
   workflow_dispatch:
 permissions:
