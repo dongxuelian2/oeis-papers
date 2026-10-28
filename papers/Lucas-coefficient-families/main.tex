@@ -14,7 +14,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study weighted Lucas expressions for positive integer coefficients. Every positive difference $L_i-5F_{2r}L_j$, for $r\ge1$, has a unique representation; we determine its admissible indices, bounded-index count, and asymptotics. In contrast, for every $q=L_{2r}$, both $qL_i-L_j$ and $qL_i+L_j$ have infinitely many multiply represented positive values. We give a complete coefficient classification for infinite collisions in the two reversed-difference and sum forms, including an infinite family of triple representations. A transfer lemma relates sum collisions to reversed-difference collisions. An algebraic-norm bound gives exact representation and rank algorithms for every integer coefficient, and excludes all positive simultaneous-shift collision families for coefficients at least two. This exclusion and effective algebraic-norm estimates yield complete global collision bounds for $S_q$ and a necessary-and-sufficient finite test for infinite collisions in $T_q$ and $P_q$. The explicit coefficient families characterize infinite collisions; a signed Lucas-gap quotient parametrization characterizes all finite collisions. A ratio-rigidity lemma proves that global uniqueness for weighted sums is equivalent to simultaneous uniqueness in both difference forms. Finite exact arithmetic decides all three statuses for every integer coefficient.
+We classify collisions among positive weighted Lucas differences and sums with integer coefficient (q). For (q\ge2), every (L_i-qL_j>0) has at most finitely many collisions; an explicit index bound decides global uniqueness. Infinitely many collisions in (qL_i-L_j) and (qL_i+L_j) occur for exactly three arithmetic coefficient families: integral Lucas quotients, integral Fibonacci quotients, and half-Lucas coefficients. Otherwise a finite index certificate and a signed quotient of two Lucas gaps classify every collision. The sum form has unique representations precisely when both difference forms do. The results extend to every integer coefficient by sign reduction.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -28,9 +28,6 @@ The recurrence gives
 L_{m+4}-L_m=5F_{m+2},\qquad
 F_aL_b=F_{a+b}+(-1)^bF_{a-b}.
 \end{equation}
-
-The collision-free coefficients begin $5,15,40,105,275,\ldots$;
-the persistent-collision coefficients begin $3,7,18,47,123,\ldots$.
 
 \section*{An infinite collision-free family}
 \begin{theorem}\label{thm:unique}
@@ -98,86 +95,9 @@ They cannot belong to different such blocks, by \eqref{eq:gap},
 and the same block has distinct values.
 \end{proof}
 
-\begin{corollary}\label{cor:count}
-For $N\ge2r+2$ the number of distinct positive differences
-with first index at most $N$ equals
-\[
-1+\frac{(N-2r-2)(N-2r-1)}2.
-\]
-Writing $\varphi=(1+\sqrt5)/2$ and
-$A_r(x)=\#(S_{5F_{2r}}\cap[1,x])$,
-\[
-A_r(x)=\tfrac12(\log_\varphi x)^2+O_r(\log x),\qquad
-\log_\varphi b_{r,n}=\sqrt{2n}+O_r(1),
-\]
-where $b_{r,n}$ is the $n$-th positive value. Its exact
-value can be recovered by integer binary search.
-\end{corollary}
-\begin{proof}
-Summing block sizes $1,1,2,3,\ldots$ gives the formula.
-Let $m(x)=\max\{m\ge1:L_m\le x\}=\log_\varphi x+O(1)$.
-All positive differences with $i\le m(x)$ are at most $x$.
-For $j\ge2$, $A_2\ge L_0=2$ and $A_3\ge L_1=1$,
-so recurrence gives $A_j\ge L_{j-2}$. Therefore,
-for all sufficiently large $i$, a value in $\mathcal B_i$
-is at least $L_{i-2r-4}$; if it is at most $x$ then
-$i\le m(x)+2r+4$. Applying the triangular count to these
-two index bounds proves the asymptotic.
-Inverting it proves the nth-term estimate.
-An exact count tests $L_j\ge\lceil(L_i-x)/q\rceil$
-within finitely many admissible blocks; binary search
-inverts that monotone count.
-\end{proof}
-
-\section*{A family with infinitely many collisions}
-\begin{theorem}\label{thm:repetitions}
-For every $r\ge1$, the coefficient $q=L_{2r}$
-has infinitely many repeated positive values in
-both $T_q$ and $P_q$. For every $n\ge1$,
-\begin{align}
-\label{eq:twodiff}
-L_{n+4r}&=qL_{n+2r}-L_n=qL_{n+6r}-L_{n+8r}>0,\\
-\label{eq:twosum}
-qL_{n+2r}+L_{n+8r}&=qL_{n+6r}+L_n.
-\end{align}
-The two index pairs in each equality are distinct.
-\end{theorem}
-\begin{proof}
-The product identity
-$L_aL_b=L_{a+b}+(-1)^a L_{b-a}$
-with $a=2r$ gives
-\[
-qL_{n+2r}=L_{n+4r}+L_n,\quad
-qL_{n+6r}=L_{n+8r}+L_{n+4r}.
-\]
-These yield \eqref{eq:twodiff} and \eqref{eq:twosum}.
-Both resulting sequences of positive values increase
-strictly with $n$, providing infinitely many collisions.
-\end{proof}
-
-\begin{proposition}[Collision transfer]\label{prop:transfer}
-Suppose $S_q$ has unique positive representations and
-$q$ divides no Lucas number $L_j$ with $j\ge1$.
-Then every sum collision
-$qL_a+L_b=qL_c+L_d$ with $a<c$
-induces a positive collision
-$qL_a-L_d=qL_c-L_b>0$ in $T_q$.
-These hypotheses hold for every $q=5F_{2r}$.
-\end{proposition}
-\begin{proof}
-Set $t=qL_a-L_d=qL_c-L_b$.
-If $t=0$, then $q\mid L_d$, a contradiction.
-If $t<0$, the equality
-$L_d-qL_a=L_b-qL_c>0$ gives
-two representations in $S_q$, also a contradiction.
-Thus $t>0$. The final assertion follows from
-Theorem~\ref{thm:unique} and the four nonzero Lucas
-residues modulo five.
-\end{proof}
 
 
-
-\section*{Divisibility families of infinite collisions}
+\section*{Infinite-collision constructions}
 \begin{theorem}[Lucas--Fibonacci quotient coefficients]
 \label{thm:ratios}
 Let $m>h\ge1$ have the same parity, and suppose
@@ -193,10 +113,8 @@ Then $q\ge2$, and for every $n\ge1$,
 qL_{n+m-h}-L_n
 =qL_{n+m+h}-L_{n+2m}>0.
 \end{equation}
-In particular, $T_q$ and $P_q$ each contain
-infinitely many positive values having two
-distinct representations. The coefficient $q=2$
-also has infinitely many collisions in both sets.
+In particular, $T_q$ and $P_q$ each contain infinitely
+many repeated positive values.
 \end{theorem}
 \begin{proof}
 For $m$ odd, the Lucas product formula gives
@@ -224,27 +142,9 @@ The equivalent sum collision is
 qL_{n+m-h}+L_{n+2m}
 =qL_{n+m+h}+L_n.
 \]
-For $q=2$, the recurrence gives the further family
-\[
-2L_{n+2}-L_n=L_{n+3}
-=2L_{n+3}-L_{n+3},
-\]
-again with strictly increasing positive values.
-The corresponding sum identity follows by swapping
-the two subtracted indices.
 \end{proof}
 
-\begin{remark}
-The theorem covers \emph{every} Lucas coefficient
-$q=L_k$ ($k\ge1$): for odd $k$ choose
-$(m,h)=(k,1)$ when $k>1$, and for even $k=2r$
-choose $(m,h)=(4r,2r)$ using
-$F_{4r}/F_{2r}=L_{2r}$. For $q=L_1=1$,
-$L_{n+2}-L_n=L_{n+3}-L_{n+2}>0$ already
-provides infinitely many collisions.
-It also covers infinitely many other integer
-coefficients, for example $8,19,21,48,55$.
-\end{remark}
+
 
 
 \begin{theorem}[Half-Lucas collision coefficients]
@@ -284,30 +184,359 @@ $qL_x-L_{x-M+1}>0$; these values
 strictly increase with $x$.
 \end{proof}
 
-\begin{corollary}[Triple collisions for $q=2$]
-\label{cor:triple-two}
-For every $n\ge3$,
-\[
-\boxed{L_{n+1}
-=2L_n-L_{n-2}
-=2L_{n+1}-L_{n+1}
-=2L_{n+3}-L_{n+4}.}
-\]
-Thus $T_2$ has infinitely many values
-with at least three distinct representations.
-\end{corollary}
+
+
+
+\section*{Norm separation and finite collision bounds}
+\begin{lemma}[Algebraic-norm separation]\label{lem:norm-separation}
+For integers \(d\ge1\) and \(q\ge1\), with
+\(\alpha=\varphi\) and \(\beta=-\alpha^{-1}\),
+\begin{equation}\label{eq:normbound}
+|\alpha^d-q|\ge\frac1{q+1}.
+\end{equation}
+\end{lemma}
 \begin{proof}
-The first equality follows from
-$L_{n+1}=2L_n-L_{n-2}$,
-the second is immediate, and the third
-is Theorem~\ref{thm:half-lucas} with $r=0$.
+The conjugate algebraic integers \(\alpha^d-q\)
+and \(\beta^d-q\) have nonzero integral product:
+\(\alpha^d=F_d\alpha+F_{d-1}\) is irrational.
+Since \(|\beta^d-q|\le q+1\), the bound follows.
+\end{proof}
+
+For completeness, this estimate also makes every bounded
+value search finite. If \(0<L_i-qL_j\le X\), then
+\(i>j\) and Binet's formula gives
+\[
+L_j\le (q+1)(X+q+1)+1,\qquad
+L_i\le X+qL_j.
+\]
+The bounds for \(0<qL_i-L_j\le X\) follow by exchanging
+the indices when \(j>i\), and by
+\((q-1)L_i\le X\) when \(j\le i\) and \(q\ge2\).
+For sums, \(qL_i+L_j\le X\) directly bounds both indices.
+Thus for any integer coefficient, all distinct values at most
+\(X\), their multiplicities (when finite), and their ranks
+are computed by finite exact arithmetic; negative coefficients
+reduce by exchanging sum and difference forms.
+
+\begin{proposition}[No simultaneous-shift positive collisions]
+\label{prop:no-shift}
+For every integer $q\ge2$, there are no
+indices $i<k$, $j<\ell$ such that
+\[
+L_{n+i}-qL_{n+j}=L_{n+k}-qL_{n+\ell}>0
+\quad\text{for every }n\ge0.
+\]
+\end{proposition}
+\begin{proof}
+An equality for all shifts implies, by Binet's formula,
+both its $\alpha$- and $\beta$-coefficient equalities.
+Put $h=k-i\ge1$, $e=\ell-j\ge1$, and $s=i-j$.
+Positivity for large $n$ forces $\alpha^s>q$,
+so $s\ge2$, and
+\[
+\alpha^s(\alpha^h-1)=q(\alpha^e-1)
+\]
+forces $e>h$, hence $e\ge2$.
+Conjugation gives
+\[
+q|\beta^e-1|=|\beta|^s|\beta^h-1|
+\le\alpha^{-2}(1+\alpha^{-1})=\alpha^{-1}.
+\]
+But $q|\beta^e-1|\ge2(1-\alpha^{-2})
+=2/\alpha>\alpha^{-1}$, a contradiction.
 \end{proof}
 
 
-\section*{Complete classification of stationary collisions}
-The quotient and half-Lucas constructions above in fact exhaust all
-coefficients admitting infinitely many positive collisions in
-\(T_q\) and \(P_q\). We first classify every possible pair of index gaps.
+\section*{The global finite-collision bound}
+A finite threshold is sufficient to compute any term. The stronger
+statement below provides a bound independent of the value.
+\begin{theorem}[Uniform complete collision certificate]
+\label{thm:global}
+Fix an integer $q\ge2$. Let $t=t(q)$ be the least
+positive index such that
+\begin{equation}\label{eq:t-bound}
+L_t>200(q+1)^4.
+\end{equation}
+If two distinct positive representations satisfy
+\[
+L_i-qL_j=L_k-qL_\ell>0,\qquad i<k,
+\]
+then
+\begin{equation}\label{eq:collision-cutoff}
+\boxed{k\le6t.}
+\end{equation}
+Consequently every $S_q$ with $q\ge2$ has
+only finitely many multiply represented positive values.
+Its complete collision list and global uniqueness
+can be determined by checking the finitely many
+pairs $1\le j<i\le6t$.
+\end{theorem}
+\begin{proof}
+Write $\alpha=\varphi$, $\beta=-\alpha^{-1}$.
+The equality forces $j<\ell$.
+Moreover, positivity gives $k>\ell$.
+Put $d=k-\ell$, $h=k-i$ and $g=k-j$.
+We prove $k\le6t$ by contradiction.
+The bounds
+\[
+\frac12\alpha^n\le L_n\le2\alpha^n
+\quad(n\ge0),\qquad
+L_k-L_i\ge L_{k-2}
+\]
+follow from Binet's formula and monotonicity.
+Since
+\[
+L_{k-2}\le L_k-L_i
+=q(L_\ell-L_j)<qL_\ell,
+\]
+we have $\alpha^d<4q\alpha^2<\alpha^t$;
+thus $1\le d<t$. Suppose $k>6t$.
+Then $\ell=k-d>5t$.
+
+Write
+\[
+x=L_k-qL_\ell
+ =\alpha^\ell(\alpha^d-q)+\beta^k-q\beta^\ell.
+\]
+The norm argument in \eqref{eq:normbound} gives
+$|\alpha^d-q|\ge1/(q+1)$.
+Since $|\beta^k-q\beta^\ell|\le q+1$
+and $\alpha^\ell>2(q+1)^2$, the positivity
+of $x$ forces $\alpha^d-q>0$ and
+\[
+x\ge\frac{\alpha^\ell}{2(q+1)}.
+\]
+But $x<L_i\le2\alpha^i$, so
+$\alpha^{\ell-i}<4(q+1)<\alpha^t$,
+which gives $1\le h<2t$.
+
+Next, the original equality can be rearranged as
+\[
+qL_j=L_i-L_k+qL_\ell
+=\alpha^k A+\beta^k A',
+\]
+where
+\[
+A=\alpha^{-h}-1+q\alpha^{-d},\qquad
+A'=\beta^{-h}-1+q\beta^{-d}.
+\]
+Both are conjugate algebraic integers, and
+\[
+|A'|\le\alpha^h+1+q\alpha^d
+<3\alpha^{2t}<\alpha^{3t}.
+\]
+If $A=0$, then $qL_j=|\beta^k A'|<1$,
+an impossibility.
+Otherwise $AA'$ is a nonzero integer, so
+$|A|\ge\alpha^{-3t}$.
+As $k>6t$ and $qL_j>0$, this forces $A>0$ and
+\[
+qL_j>\tfrac12\alpha^{k-3t}.
+\]
+Using $qL_j\le2q\alpha^j$ gives
+$\alpha^{k-j}<4q\alpha^{3t}<\alpha^{4t}$,
+hence $g<4t$.
+
+Finally, express the collision as
+\[
+0=L_k-L_i-qL_\ell+qL_j
+=\alpha^k E+\beta^k E',
+\]
+with the conjugate algebraic integers
+\[
+E=1-\alpha^{-h}-q\alpha^{-d}+q\alpha^{-g},
+\quad
+E'=1-\beta^{-h}-q\beta^{-d}+q\beta^{-g}.
+\]
+The bounds on $d,h,g$ imply
+\[
+|E'|\le1+\alpha^{2t}+q\alpha^t+q\alpha^{4t}
+<\alpha^{6t}.
+\]
+If $E\ne0$, the integral norm $EE'\ne0$
+gives $|E|\ge1/|E'|$.
+The displayed equality now implies
+$\alpha^{2k}\le|E'|^2<\alpha^{12t}$,
+contrary to $k>6t$.
+
+If $E=0$, the equality also forces $E'=0$.
+It then holds after every simultaneous translation
+of all four indices. Because $\alpha^d-q>0$,
+the translated differences are positive for all
+sufficiently large translations, contradicting
+Proposition~\ref{prop:no-shift}.
+Thus neither case is possible, and $k\le6t$.
+\end{proof}
+
+
+
+
+\section*{The stationary collision bound}
+\begin{theorem}[Finite stationary pattern criterion]\label{thm:stationary}
+Fix any integer $q\ge2$ and choose $t$ as in
+\eqref{eq:t-bound}. If
+\begin{equation}\label{eq:general-T-collision}
+qL_k-L_\ell=qL_i-L_j>0,\qquad i<k,
+\end{equation}
+and $k>12t$, then all four indices lie
+within $6t$ of $k$, apart from a possible
+upper extension of at most $t$, and the same equality
+holds after \emph{every} simultaneous nonnegative shift
+of its indices.
+Consequently, the set $T_q$ has infinitely many
+multiply represented positive values if and only if
+there are indices with
+\[
+K=12t+1,\quad K-3t\le i<K,\quad
+K-t\le\ell\le K+t,\quad
+K-6t\le j<\ell
+\]
+such that
+\begin{equation}\label{eq:finite-shift-test}
+0<qL_K-L_\ell=qL_i-L_j,\qquad
+qL_{K+1}-L_{\ell+1}=qL_{i+1}-L_{j+1}.
+\end{equation}
+This is a finite, exact, necessary-and-sufficient
+integer test for the existence of infinitely
+many positive collisions in $T_q$.
+Every collision not belonging to a stationary
+family has larger first index $k\le12t$.
+\end{theorem}
+\begin{proof}
+Equation \eqref{eq:general-T-collision} forces
+$j<\ell$ and
+$q(L_k-L_i)=L_\ell-L_j$.
+The bounds $L_{n-2}\le L_n-L_{n-1}$
+and $\frac12\alpha^n\le L_n\le2\alpha^n$ yield
+\[
+qL_{k-2}\le L_\ell,\qquad
+L_{\ell-2}\le qL_k.
+\]
+Consequently, with $\delta=\ell-k$,
+\[
+\alpha^{-\delta}<4\alpha^2/q<\alpha^t,
+\qquad
+\alpha^\delta<4q\alpha^2<\alpha^t,
+\]
+so $|\delta|<t$.
+Assume $k>12t$.
+Set
+\[
+x=qL_k-L_\ell
+=\alpha^k A+\beta^k A',
+\quad
+A=q-\alpha^\delta,\quad A'=q-\beta^\delta.
+\]
+The conjugate algebraic integers $A,A'$ have
+nonzero integral norm, including when $\delta=0$
+(since then $A=q-1$).
+As $|A'|<\alpha^{2t}$,
+we have $|A|>\alpha^{-2t}$.
+Positivity of $x$ and $k>12t$ imply
+$A>0$ and $x>\frac12\alpha^{k-2t}$.
+Since $x<qL_i\le2q\alpha^i$,
+the gap $h=k-i$ satisfies $0<h<3t$.
+
+Next,
+\[
+L_j=qL_i-qL_k+L_\ell
+=\alpha^k B+\beta^k B',
+\]
+where $B=q\alpha^{-h}-q+\alpha^\delta$
+and $B'=q\beta^{-h}-q+\beta^\delta$.
+The conjugates are algebraic integers and
+$|B'|<\alpha^{5t}$. If $B=0$,
+then $L_j<1$, a contradiction;
+otherwise their integral norm gives
+$|B|>\alpha^{-5t}$.
+As $k>12t$ and $L_j>0$,
+we obtain $L_j>\frac12\alpha^{k-5t}$.
+Thus $g=k-j<6t$.
+Since $j<\ell$, also $g>-t$.
+
+Now the collision is
+\[
+0=qL_k-qL_i-L_\ell+L_j
+=\alpha^k E+\beta^k E',
+\]
+where
+\[
+E=q-q\alpha^{-h}-\alpha^\delta+\alpha^{-g},
+\quad
+E'=q-q\beta^{-h}-\beta^\delta+\beta^{-g}.
+\]
+Both are algebraic integers and
+$|E'|<\alpha^{8t}$.
+If $E\ne0$, the integral norm gives
+$|E|>1/|E'|$ and the equality forces
+$\alpha^k\le |E'|<\alpha^{8t}$,
+contradicting $k>12t$.
+Therefore $E=E'=0$, and the identity
+holds under all simultaneous shifts.
+The positive leading coefficient $A$
+makes its common values positive and unbounded
+under increasing shifts.
+
+Every infinite sequence of distinct collision
+values must have unbounded $k$, and so contains
+a stationary identity of the preceding form.
+Translate its indices to $k=K=12t+1$.
+The established gap bounds give precisely
+the finite ranges in \eqref{eq:finite-shift-test}.
+The leading coefficient $A>0$ ensures
+positivity at $K$. Conversely, the two
+equalities in \eqref{eq:finite-shift-test}
+give consecutive zeros of a Lucas-recursive
+difference. They therefore give the identity
+at all shifts, and its positive values become
+arbitrarily large. This proves the criterion
+and the asserted bound for nonstationary collisions.
+\end{proof}
+
+\begin{proposition}[Finite certificates for all three forms]
+\label{prop:finiteTP}
+Fix \(q\ge2\) and \(t\) as in \eqref{eq:t-bound}.
+If \(T_q\) has no stationary collision, every positive
+collision of \(T_q\) or \(P_q\) has all indices at most
+\(13t\). If a stationary collision exists, both forms
+have a positive collision with all indices at most
+\(13t+1\). In either case global uniqueness is decided
+by a finite search. For \(S_q\), the bound is \(6t\).
+For \(q=1\) all three forms have infinitely many
+collisions; for \(q=0\), \(T_0\) is empty and \(S_0,P_0\)
+have infinite representation multiplicities. For
+\(q=-m<0\), \(T_q\) is empty, \(S_q=P_m\), and
+\(P_q=S_m\) after exchanging index roles.
+\end{proposition}
+\begin{proof}
+Theorem~\ref{thm:global} settles \(S_q\).
+When \(T_q\) has no stationary collision,
+Theorem~\ref{thm:stationary} puts its larger first index
+at most \(12t\). Positivity gives \(L_j<qL_i\), and
+hence \(j<i+t\), so all indices are at most \(13t\).
+A sum collision with unequal first indices
+has a corresponding signed difference
+\[
+v=qL_k-L_j=qL_i-L_\ell.
+\]
+If \(v>0\), this is a collision in \(T_q\); if
+\(v<0\), its negative is one in \(S_q\).
+The case \(v=0\) would give two different
+representations of the same Lucas ratio \(q>1\),
+contrary to Lemma~\ref{lem:lucas-ratio}.
+Thus the same index bound holds for \(P_q\).
+If \(T_q\) has a stationary collision,
+Theorem~\ref{thm:stationary} supplies one at
+\(k=12t+1\) with all other indices at most
+\(13t+1\); swapping subtracted indices
+gives the required sum collision.
+The remaining signs follow from the recurrence
+and the definitions.
+\end{proof}
+
+\section*{Explicit classification of infinite collisions}
+The quotient and half-Lucas identities exhaust the infinite-collision
+coefficients. We classify the index gaps of every stationary identity.
 
 \begin{lemma}[Rigidity of the two index gaps]\label{lem:gap-rigidity}
 Suppose \(q\ge2\), \(i<k\), \(j<\ell\), and
@@ -459,532 +688,10 @@ are subsumed by the first or third family, and
 case~3 is the third family.
 The equivalence for \(P_q\) and finiteness outside
 these families follow from
-Corollary~\ref{cor:sign-classification}.
+Proposition~\ref{prop:finiteTP}.
 \end{proof}
 
-\section*{An exact algorithm for every integer coefficient}
-The coefficient families above admit efficient special-purpose
-rankings. An integer-bound argument gives complete, exact
-arithmetic for every coefficient, with no conjectural
-collision classification needed.
-\begin{theorem}[Uniform finite search bounds]\label{thm:uniform}
-Let $q\ge1$ and $X\ge1$ be integers, and put
-\[
- B=(q+1)(X+q+1)+1.
-\]
-For any $0<L_i-qL_j\le X$ with $i,j\ge1$, necessarily
-\begin{equation}\label{eq:allS}
- L_j\le B,\qquad L_i\le X+qB.
-\end{equation}
-For $q\ge2$ and $0<qL_i-L_j\le X$, necessarily
-\begin{equation}\label{eq:allT}
- L_i\le M:=\max\{B,\lfloor X/(q-1)\rfloor\},
- \qquad L_j\le qM.
-\end{equation}
-When $q=1$, the expressions $qL_i-L_j$ and
-$L_i-qL_j$ coincide and obey \eqref{eq:allS}.
-For $q\ge1$ and $0<qL_i+L_j\le X$,
-\begin{equation}\label{eq:allP}
- L_i\le\lfloor(X-1)/q\rfloor,\qquad L_j\le X-q.
-\end{equation}
-Consequently, for \emph{every} $q\in\mathbb Z$,
-the set of distinct positive values at most $X$
-in each of $S_q,T_q,P_q$ is effectively computable
-by finite integer arithmetic. For every nonzero $q$,
-all representations of each positive value can also be
-enumerated, yielding its exact multiplicity.
-For $q=0$, the positive sets $S_0$ and $P_0$ are
-the positive-index Lucas numbers, each with infinitely
-many representations; $T_0$ is empty.
-\end{theorem}
-\begin{proof}
-Write $\alpha=\varphi$ and $\beta=(1-\sqrt5)/2=-1/\varphi$.
-For $d\ge1$ and $q\ge1$, the algebraic integer
-$\alpha^d-q$ has nonzero integral norm
-\[
-(\alpha^d-q)(\beta^d-q)\in\mathbb Z\setminus\{0\}.
-\]
-It cannot vanish because
-$\alpha^d=F_d\alpha+F_{d-1}$ is irrational.
-Since $|\beta^d-q|\le q+1$, this gives
-\begin{equation}\label{eq:normbound}
-|\alpha^d-q|\ge\frac1{q+1}.
-\end{equation}
-
-A positive difference $L_i-qL_j$ has $i>j$;
-write $d=i-j$. By Binet's formula,
-\[
-L_i-qL_j=\alpha^j(\alpha^d-q)
-                 +\beta^i-q\beta^j.
-\]
-For $0<L_i-qL_j\le X$, it follows that
-\[
-\frac{\alpha^j}{q+1}
- \le X+|\beta^i-q\beta^j|
- \le X+q+1.
-\]
-Thus $\alpha^j\le(q+1)(X+q+1)$, and
-$L_j=\alpha^j+\beta^j\le B$.
-The equality $L_i=x+qL_j$ now proves
-\eqref{eq:allS}.
-
-For $0<qL_i-L_j\le X$, when $j>i$, the same
-argument with $d=j-i$ shows $L_i\le B$, hence
-$L_j=qL_i-x\le qB$.
-When $j\le i$ and $q\ge2$,
-$x=qL_i-L_j\ge(q-1)L_i$; this proves
-\eqref{eq:allT}. The sum bounds
-\eqref{eq:allP} follow from $L_i,L_j\ge1$.
-
-For negative coefficients, write $m=-q>0$.
-Then $S_{-m}=P_m$ with the indices interchanged,
-$P_{-m}=S_m$ with the indices interchanged,
-and $T_{-m}$ is empty.
-The assertions for $q=0$ are immediate.
-Thus the finite index bounds cover all integers.
-\end{proof}
-
-\begin{corollary}[Universal exact counting and unranking]
-\label{cor:allinteger}
-For any integer $q$, expression type $S,T$ or $P$,
-and integer $X\ge0$, there is a terminating algorithm
-for the number of \emph{distinct} positive values at
-most $X$, exact membership, and all positive
-representations (or detection of infinite multiplicity
-when $q=0$).
-Whenever the positive set is nonempty, its $n$-th
-distinct value is computable exactly for every $n\ge1$.
-\end{corollary}
-\begin{proof}
-Enumerate the finitely many indices specified
-by Theorem~\ref{thm:uniform}, retain the positive
-values at most $X$, and deduplicate integer values.
-Each nonempty positive set is unbounded: for $S_q$
-with $q>0$ fix $j=1$ and let $i\to\infty$,
-for $T_q$ with $q>0$ fix $j=1$ and let $i\to\infty$,
-and for $P_q$ with $q>0$ fix $i=1$ and let $j\to\infty$.
-The negative and zero cases reduce to these or
-the Lucas numbers themselves.
-Therefore doubling the threshold until $n$ values
-are found and then binary-searching the exact count
-always terminates. The only empty case is $T_q$
-for $q\le0$.
-\end{proof}
-
-\begin{proposition}[No simultaneous-shift positive collisions]
-\label{prop:no-shift}
-For every integer $q\ge2$, there are no
-indices $i<k$, $j<\ell$ such that
-\[
-L_{n+i}-qL_{n+j}=L_{n+k}-qL_{n+\ell}>0
-\quad\text{for every }n\ge0.
-\]
-\end{proposition}
-\begin{proof}
-An equality for all shifts implies, by Binet's formula,
-both its $\alpha$- and $\beta$-coefficient equalities.
-Put $h=k-i\ge1$, $e=\ell-j\ge1$, and $s=i-j$.
-Positivity for large $n$ forces $\alpha^s>q$,
-so $s\ge2$, and
-\[
-\alpha^s(\alpha^h-1)=q(\alpha^e-1)
-\]
-forces $e>h$, hence $e\ge2$.
-Conjugation gives
-\[
-q|\beta^e-1|=|\beta|^s|\beta^h-1|
-\le\alpha^{-2}(1+\alpha^{-1})=\alpha^{-1}.
-\]
-But $q|\beta^e-1|\ge2(1-\alpha^{-2})
-=2/\alpha>\alpha^{-1}$, a contradiction.
-\end{proof}
-
-
-\section*{Finite global collisions for every coefficient $q\ge2$}
-A finite threshold is sufficient to compute any term. The stronger
-statement below provides a bound independent of the value.
-\begin{theorem}[Uniform complete collision certificate]
-\label{thm:global}
-Fix an integer $q\ge2$. Let $t=t(q)$ be the least
-positive index such that
-\begin{equation}\label{eq:t-bound}
-L_t>200(q+1)^4.
-\end{equation}
-If two distinct positive representations satisfy
-\[
-L_i-qL_j=L_k-qL_\ell>0,\qquad i<k,
-\]
-then
-\begin{equation}\label{eq:collision-cutoff}
-\boxed{k\le6t.}
-\end{equation}
-Consequently every $S_q$ with $q\ge2$ has
-only finitely many multiply represented positive values.
-Its complete collision list and global uniqueness
-can be determined by checking the finitely many
-pairs $1\le j<i\le6t$.
-\end{theorem}
-\begin{proof}
-Write $\alpha=\varphi$, $\beta=-\alpha^{-1}$.
-The equality forces $j<\ell$.
-Moreover, positivity gives $k>\ell$.
-Put $d=k-\ell$, $h=k-i$ and $g=k-j$.
-We prove $k\le6t$ by contradiction.
-The bounds
-\[
-\frac12\alpha^n\le L_n\le2\alpha^n
-\quad(n\ge0),\qquad
-L_k-L_i\ge L_{k-2}
-\]
-follow from Binet's formula and monotonicity.
-Since
-\[
-L_{k-2}\le L_k-L_i
-=q(L_\ell-L_j)<qL_\ell,
-\]
-we have $\alpha^d<4q\alpha^2<\alpha^t$;
-thus $1\le d<t$. Suppose $k>6t$.
-Then $\ell=k-d>5t$.
-
-Write
-\[
-x=L_k-qL_\ell
- =\alpha^\ell(\alpha^d-q)+\beta^k-q\beta^\ell.
-\]
-The norm argument in \eqref{eq:normbound} gives
-$|\alpha^d-q|\ge1/(q+1)$.
-Since $|\beta^k-q\beta^\ell|\le q+1$
-and $\alpha^\ell>2(q+1)^2$, the positivity
-of $x$ forces $\alpha^d-q>0$ and
-\[
-x\ge\frac{\alpha^\ell}{2(q+1)}.
-\]
-But $x<L_i\le2\alpha^i$, so
-$\alpha^{\ell-i}<4(q+1)<\alpha^t$,
-which gives $1\le h<2t$.
-
-Next, the original equality can be rearranged as
-\[
-qL_j=L_i-L_k+qL_\ell
-=\alpha^k A+\beta^k A',
-\]
-where
-\[
-A=\alpha^{-h}-1+q\alpha^{-d},\qquad
-A'=\beta^{-h}-1+q\beta^{-d}.
-\]
-Both are conjugate algebraic integers, and
-\[
-|A'|\le\alpha^h+1+q\alpha^d
-<3\alpha^{2t}<\alpha^{3t}.
-\]
-If $A=0$, then $qL_j=|\beta^k A'|<1$,
-an impossibility.
-Otherwise $AA'$ is a nonzero integer, so
-$|A|\ge\alpha^{-3t}$.
-As $k>6t$ and $qL_j>0$, this forces $A>0$ and
-\[
-qL_j>\tfrac12\alpha^{k-3t}.
-\]
-Using $qL_j\le2q\alpha^j$ gives
-$\alpha^{k-j}<4q\alpha^{3t}<\alpha^{4t}$,
-hence $g<4t$.
-
-Finally, express the collision as
-\[
-0=L_k-L_i-qL_\ell+qL_j
-=\alpha^k E+\beta^k E',
-\]
-with the conjugate algebraic integers
-\[
-E=1-\alpha^{-h}-q\alpha^{-d}+q\alpha^{-g},
-\quad
-E'=1-\beta^{-h}-q\beta^{-d}+q\beta^{-g}.
-\]
-The bounds on $d,h,g$ imply
-\[
-|E'|\le1+\alpha^{2t}+q\alpha^t+q\alpha^{4t}
-<\alpha^{6t}.
-\]
-If $E\ne0$, the integral norm $EE'\ne0$
-gives $|E|\ge1/|E'|$.
-The displayed equality now implies
-$\alpha^{2k}\le|E'|^2<\alpha^{12t}$,
-contrary to $k>6t$.
-
-If $E=0$, the equality also forces $E'=0$.
-It then holds after every simultaneous translation
-of all four indices. Because $\alpha^d-q>0$,
-the translated differences are positive for all
-sufficiently large translations, contradicting
-Proposition~\ref{prop:no-shift}.
-Thus neither case is possible, and $k\le6t$.
-\end{proof}
-
-\begin{corollary}[Complete coefficient-by-coefficient
-uniqueness decisions and growth]\label{cor:global}
-For any input integer $q\ge2$, a finite,
-exact integer algorithm decides whether every
-positive value $L_i-qL_j$ is uniquely represented.
-If not, it returns every multiply represented
-value together with all its index pairs.
-Furthermore, for each fixed $q\ge2$,
-\[
-\#\{x\le X:x\in S_q\}
-=\tfrac12(\log_\varphi X)^2+O_q(\log X).
-\]
-\end{corollary}
-\begin{proof}
-All first indices of a collision are at most $6t$
-by Theorem~\ref{thm:global}; finite enumeration
-therefore gives a complete answer.
-For the asymptotic, choose an integer $d$
-with $\alpha^{d-1}<q<\alpha^d$.
-The Binet formula shows that, for all sufficiently
-large $j$, the sign of $L_{j+s}-qL_j$
-is negative if $s<d$ and positive if $s\ge d$.
-Hence the number of positive index pairs
-with first index at most $N$ is
-$\frac12N^2+O_q(N)$.
-Those with $L_i\le X$ are automatically at most $X$.
-Conversely, \eqref{eq:allS} implies
-$L_i\le X+q((q+1)(X+q+1)+1)=O_q(X)$
-for every positive representation at most $X$.
-Thus all contributing first indices satisfy
-$i\le\log_\varphi X+O_q(1)$.
-Theorem~\ref{thm:global} removes only a finite
-number of repeated values, giving the result.
-\end{proof}
-
-
-\section*{Complete effective classification of infinite collisions}
-\begin{theorem}[Finite stationary pattern criterion]\label{thm:stationary}
-Fix any integer $q\ge2$ and choose $t$ as in
-\eqref{eq:t-bound}. If
-\begin{equation}\label{eq:general-T-collision}
-qL_k-L_\ell=qL_i-L_j>0,\qquad i<k,
-\end{equation}
-and $k>12t$, then all four indices lie
-within $6t$ of $k$, apart from a possible
-upper extension of at most $t$, and the same equality
-holds after \emph{every} simultaneous nonnegative shift
-of its indices.
-Consequently, the set $T_q$ has infinitely many
-multiply represented positive values if and only if
-there are indices with
-\[
-K=12t+1,\quad K-3t\le i<K,\quad
-K-t\le\ell\le K+t,\quad
-K-6t\le j<\ell
-\]
-such that
-\begin{equation}\label{eq:finite-shift-test}
-0<qL_K-L_\ell=qL_i-L_j,\qquad
-qL_{K+1}-L_{\ell+1}=qL_{i+1}-L_{j+1}.
-\end{equation}
-This is a finite, exact, necessary-and-sufficient
-integer test for the existence of infinitely
-many positive collisions in $T_q$.
-Every collision not belonging to a stationary
-family has larger first index $k\le12t$.
-\end{theorem}
-\begin{proof}
-Equation \eqref{eq:general-T-collision} forces
-$j<\ell$ and
-$q(L_k-L_i)=L_\ell-L_j$.
-The bounds $L_{n-2}\le L_n-L_{n-1}$
-and $\frac12\alpha^n\le L_n\le2\alpha^n$ yield
-\[
-qL_{k-2}\le L_\ell,\qquad
-L_{\ell-2}\le qL_k.
-\]
-Consequently, with $\delta=\ell-k$,
-\[
-\alpha^{-\delta}<4\alpha^2/q<\alpha^t,
-\qquad
-\alpha^\delta<4q\alpha^2<\alpha^t,
-\]
-so $|\delta|<t$.
-Assume $k>12t$.
-Set
-\[
-x=qL_k-L_\ell
-=\alpha^k A+\beta^k A',
-\quad
-A=q-\alpha^\delta,\quad A'=q-\beta^\delta.
-\]
-The conjugate algebraic integers $A,A'$ have
-nonzero integral norm, including when $\delta=0$
-(since then $A=q-1$).
-As $|A'|<\alpha^{2t}$,
-we have $|A|>\alpha^{-2t}$.
-Positivity of $x$ and $k>12t$ imply
-$A>0$ and $x>\frac12\alpha^{k-2t}$.
-Since $x<qL_i\le2q\alpha^i$,
-the gap $h=k-i$ satisfies $0<h<3t$.
-
-Next,
-\[
-L_j=qL_i-qL_k+L_\ell
-=\alpha^k B+\beta^k B',
-\]
-where $B=q\alpha^{-h}-q+\alpha^\delta$
-and $B'=q\beta^{-h}-q+\beta^\delta$.
-The conjugates are algebraic integers and
-$|B'|<\alpha^{5t}$. If $B=0$,
-then $L_j<1$, a contradiction;
-otherwise their integral norm gives
-$|B|>\alpha^{-5t}$.
-As $k>12t$ and $L_j>0$,
-we obtain $L_j>\frac12\alpha^{k-5t}$.
-Thus $g=k-j<6t$.
-Since $j<\ell$, also $g>-t$.
-
-Now the collision is
-\[
-0=qL_k-qL_i-L_\ell+L_j
-=\alpha^k E+\beta^k E',
-\]
-where
-\[
-E=q-q\alpha^{-h}-\alpha^\delta+\alpha^{-g},
-\quad
-E'=q-q\beta^{-h}-\beta^\delta+\beta^{-g}.
-\]
-Both are algebraic integers and
-$|E'|<\alpha^{8t}$.
-If $E\ne0$, the integral norm gives
-$|E|>1/|E'|$ and the equality forces
-$\alpha^k\le |E'|<\alpha^{8t}$,
-contradicting $k>12t$.
-Therefore $E=E'=0$, and the identity
-holds under all simultaneous shifts.
-The positive leading coefficient $A$
-makes its common values positive and unbounded
-under increasing shifts.
-
-Every infinite sequence of distinct collision
-values must have unbounded $k$, and so contains
-a stationary identity of the preceding form.
-Translate its indices to $k=K=12t+1$.
-The established gap bounds give precisely
-the finite ranges in \eqref{eq:finite-shift-test}.
-The leading coefficient $A>0$ ensures
-positivity at $K$. Conversely, the two
-equalities in \eqref{eq:finite-shift-test}
-give consecutive zeros of a Lucas-recursive
-difference. They therefore give the identity
-at all shifts, and its positive values become
-arbitrarily large. This proves the criterion
-and the asserted bound for nonstationary collisions.
-\end{proof}
-
-\begin{corollary}[All integer signs and all three forms]
-\label{cor:sign-classification}
-For any integer $q$, it is decidable by finite
-exact arithmetic whether $S_q$, $T_q$, or $P_q$
-has infinitely many multiply represented positive values.
-For $q\ge2$, $S_q$ always has only finitely many
-collisions, while $T_q$ and $P_q$ have infinitely
-many collisions \emph{simultaneously} or neither does.
-In the finite case the exact collision list is computable;
-in the infinite case all collisions are covered by finitely
-many small-index exceptions and finitely many stationary
-families. Negative and zero coefficients reduce to
-the corresponding positive cases or elementary Lucas sets.
-\end{corollary}
-\begin{proof}
-For $q\ge2$, Theorem~\ref{thm:global} settles $S_q$,
-and Theorem~\ref{thm:stationary} settles $T_q$,
-including its finite exceptions.
-Every positive collision in $T_q$ gives a
-collision in $P_q$ by exchanging the subtracted
-second indices.
-Conversely, a collision in $P_q$,
-\[
-qL_k+L_\ell=qL_i+L_j,\qquad i<k,\quad \ell<j,
-\]
-gives $v=qL_k-L_j=qL_i-L_\ell$.
-If $v>0$ it is a collision in $T_q$.
-If $v<0$, it is a positive collision in $S_q$,
-and only finitely many such index quadruples exist
-by Theorem~\ref{thm:global}.
-If $v=0$, both $qL_k=L_j$ and
-$qL_i=L_\ell$ hold. The norm bound
-\eqref{eq:normbound}, applied at value zero,
-bounds their indices for fixed $q$.
-Thus $P_q$ has infinitely many collisions
-exactly when $T_q$ does.
-For $q=1$, the Lucas recurrence gives
-infinitely many collisions in all three sets.
-For $q=0$, $T_0$ is empty, while $S_0$
-and $P_0$ are Lucas sets with infinite
-representation multiplicities.
-For $q=-m<0$, $T_q$ is empty,
-$S_q=P_m$ and $P_q=S_m$ after
-exchanging the index roles.
-All decisions therefore reduce to the preceding
-finite algorithms. The finite exceptional
-index combinations can be enumerated using
-the same bounds.
-\end{proof}
-
-
-\begin{corollary}[Complete global uniqueness decision for all integer $q$]
-\label{cor:every-global-unique}
-For every $q\in\mathbb Z$ and each of the three forms
-$S_q,T_q,P_q$, exact finite integer arithmetic determines
-whether all positive values have unique index-pair
-representations. For $q\ge2$, the procedure is:
-\begin{enumerate}
-\item For $S_q$, enumerate indices up to $6t$,
-as in Theorem~\ref{thm:global}.
-\item For $T_q$ or $P_q$, first perform the finite
-stationary-pattern test \eqref{eq:finite-shift-test}.
-If a stationary pattern exists, uniqueness fails
-with infinitely many collisions. Otherwise,
-enumerate all index pairs $1\le i,j\le13t$
-and check for repeated positive values.
-\end{enumerate}
-The cases $q\le1$ reduce to the preceding cases
-by sign exchange, or are explicit empty or
-infinitely repeated Lucas sets.
-\end{corollary}
-\begin{proof}
-The first assertion for $S_q$ is
-Theorem~\ref{thm:global}.
-Suppose that $q\ge2$ has no stationary collision.
-Every $T_q$ collision then has larger first
-index at most $12t$ by Theorem~\ref{thm:stationary}.
-The other first index is smaller, while each
-second index of a positive value satisfies
-$L_j<qL_i$ and hence
-$j<i+t$. Thus all its indices are at most $13t$.
-
-For a $P_q$ collision with first indices $i<k$,
-write $v=qL_k-L_j=qL_i-L_\ell$, as in the proof
-of Corollary~\ref{cor:sign-classification}.
-If $v>0$, the corresponding $T_q$ collision has
-all indices at most $13t$.
-If $v<0$, the corresponding $S_q$ collision
-has all indices at most $6t$.
-If $v=0$, the equation $qL_a=L_b$ implies
-\[
-\alpha^a|\alpha^{b-a}-q|
- \le|\beta^b-q\beta^a|\le q+1.
-\]
-The norm bound \eqref{eq:normbound} gives
-$\alpha^a\le(q+1)^2$; since
-$L_b=qL_a$, also $\alpha^b<\alpha^t$.
-Thus these index pairs lie below $t$.
-All possible $P_q$ collisions therefore
-occur inside the stated $13t$ window.
-Negative and small coefficients follow from
-Corollary~\ref{cor:sign-classification}.
-\end{proof}
-
-
-\section*{Exact arithmetic spectra of finite collisions}
+\section*{Finite-collision coefficient spectra}
 The preceding global bounds can also classify the coefficients
 with finitely many collisions without computing any ordered
 set of positive values. The sole arithmetic objects needed
@@ -1108,7 +815,7 @@ Thus no zero-determinant coefficient candidate exists.
 For the common index bound, Theorem~\ref{thm:global}
 places all \(S_q\) collision indices at most \(6t\).
 If \(q\) has no stationary \(T_q\) collision,
-Corollary~\ref{cor:every-global-unique} places every
+Proposition~\ref{prop:finiteTP} places every
 \(T_q\) and \(P_q\) collision inside \(13t\).
 Otherwise Theorem~\ref{thm:stationary} supplies
 a positive stationary \(T_q\) collision at
@@ -1215,19 +922,4 @@ Theorem~\ref{thm:global} proves that every
 fixed \(S_q\) has only finitely many collisions.
 \end{proof}
 
-The coefficient spectra in \eqref{eq:sign-spectra}
-are complete four-index arithmetic parametrizations.
-They are not claimed to be a finite union of simple
-congruence classes. Formula \eqref{eq:signed-cutoff}
-supplies a terminating global decision for each
-integer coefficient; the parametrizations provide
-additional structure and constructive witnesses.
-
-\paragraph{Context.}
-The case $q=5F_2=5$ generalizes the unique representation
-of positive differences in
-\href{https://oeis.org/A191981}{OEIS A191981}.
-The quotient and half-Lucas families exhaust all coefficients
-with infinite collisions in the reversed-difference and sum forms;
-finite algorithms decide global uniqueness in every form.
 \end{document}
