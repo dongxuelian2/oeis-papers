@@ -27,23 +27,23 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - [A069862](https://oeis.org/A069862): Smallest k such that n divides the concatenation of numbers from (n+1) to (n+k), where (n+1) is on the most significant side.
 
 - **[A075000 / A075001 / A075002](papers/A075000-A075002/)**
-  - [A075000](https://oeis.org/A075000): Smallest number such that n*a(n) is a concatenation of n consecutive integers; or 0 if no such number exists.
-  - [A075001](https://oeis.org/A075001): Smallest k such that concatenating n consecutive integers starting at k gives a multiple of n; 0 if none exists.
-  - [A075002](https://oeis.org/A075002): a(n) = smallest k such that A007908(k) is divisible by n.
+  - [A075000](https://oeis.org/A075000) (published): Smallest number such that n*a(n) is a concatenation of n consecutive integers; or 0 if no such number exists.
+  - [A075001](https://oeis.org/A075001) (published): Smallest k such that concatenating n consecutive integers starting at k gives a multiple of n; 0 if none exists.
+  - [A075002](https://oeis.org/A075002) (published): a(n) = smallest k such that A007908(k) is divisible by n.
 
 - **[A075018](papers/A075018/)**
   - [A075018](https://oeis.org/A075018): Smallest k such that the concatenation k, k-1,k-2,k-3 is divisible by n; or 0 if no such number exists.
 
 - **[A077183 / A077185](papers/A077183-A077185/)**
-  - [A077183](https://oeis.org/A077183): Least k such that the reverse concatenation k, k-1, ..., 1 is divisible by prime(n); 0 if no such k exists.
+  - [A077183](https://oeis.org/A077183) (published): Least k such that the reverse concatenation k, k-1, ..., 1 is divisible by prime(n); 0 if no such k exists.
   - [A077185](https://oeis.org/A077185): a(n) = A000422(A077183(n))/prime(n).
 
 - **[A079495](papers/A079495/)**
   - [A079495](https://oeis.org/A079495): Numbers k such that the sum of the squares of the digits of k in base 3 is 0 (mod 3).
 
 - **[A083468 / A083469](papers/A083468-A083469/)**
-  - [A083468](https://oeis.org/A083468): Smallest multiple of n which is the reverse concatenation of n consecutive numbers; or 0 if no such number exists.
-  - [A083469](https://oeis.org/A083469): Smallest k such that n*k is a reverse concatenation of n consecutive natural numbers.
+  - [A083468](https://oeis.org/A083468) (published): Smallest multiple of n which is the reverse concatenation of n consecutive numbers; or 0 if no such number exists.
+  - [A083469](https://oeis.org/A083469) (published): Smallest k such that n*k is a reverse concatenation of n consecutive natural numbers.
 
 - **[A084043](papers/A084043/)**
   - [A084043](https://oeis.org/A084043): Smallest palindromic multiple of n in which the digit string of n appears as sandwiched between at least a pair of digits, or 0 if n = 10k or no such number exists.
@@ -82,7 +82,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - [A214972](https://oeis.org/A214972): a(n) = a(floor(2\*(n-1)/3)) + 1, where a(0) = 0.
 
 - **[A181373](papers/A181373/)**
-  - [A181373](https://oeis.org/A181373): Least m > 0 such that prime(n) divides 123...m and all cyclic digit permutations; 0 if none exists.
+  - [A181373](https://oeis.org/A181373) (published): Least m > 0 such that prime(n) divides 123...m and all cyclic digit permutations; 0 if none exists.
 
 - **[A195608](papers/A195608/)**
   - [A195608](https://oeis.org/A195608): Numbers n such that Sum\_{i=1..n} A(i) = A(n)\*A(n+1)/4, where A(n) = A001969(n).
