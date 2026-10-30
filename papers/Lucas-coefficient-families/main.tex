@@ -25,9 +25,10 @@ integral Lucas quotients, integral Fibonacci quotients,
 and half-Lucas coefficients. Signed quotients of Lucas
 gaps characterize all finite collisions, and
 global uniqueness is decidable by finite exact arithmetic.
-For \(q=5\), we also determine all repeated values,
-the two complete pairwise intersections, and exact
-counting formulas for OEIS A191980--A191983.
+For \(q=5\), we give direct all-index formulas for
+OEIS A191980--A191983, classify all repeated values
+and pairwise intersections, and determine exact counting
+functions and growth rates.
 \end{abstract}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
 Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
@@ -1371,72 +1372,221 @@ inclusion--exclusion. All four ordered sequences
 and both intersections therefore admit exact
 unranking by integer binary search.
 
-\subsection*{Exact terms at every index and asymptotic growth}
-Write \(a_{980}(n),a_{981}(n),a_{982}(n),a_{983}(n)\)
-for the respective OEIS sequences, indexed from \(n=1\).
-Thus \(a_{981}(1)=a_{982}(1)=a_{983}(1)=0\).
-All counting functions in the following theorem are the
-explicit finite expressions above.
+\subsection*{Direct terms of the four OEIS sequences}
+Write \(a_{980}(n),a_{981}(n),a_{982}(n),a_{983}(n)\) for
+the published sequences, indexed from \(n=1\).
+The sequences \(a_{981},a_{982},a_{983}\) start with zero.
 
-\begin{theorem}[All-index finite-minimum formulas]
-\label{oeis:thm:all-index}
-For \(n\ge2\), set
+\begin{theorem}[All-index direct expressions]\label{oeis:thm:closed-forms}
+For \(n\ge27\), define
 \[
-r(n)=4+\left\lceil\frac{\sqrt{8n-15}-1}{2}\right\rceil,
-\qquad
-s(n)=\max\left\{2,\left\lceil
-\frac{\sqrt{8n+89}-7}{2}\right\rceil\right\}.
+k=\left\lfloor\frac{1+\sqrt{8n-41}}2\right\rfloor,\qquad
+r=n-5-\frac{k(k-1)}2.
 \]
-For \(n\ge1\), set \(p(n)=\lceil\sqrt{n+5}\rceil\).
-Then the following nonempty finite minima give every term:
-\begin{align}
-a_{981}(n)&=\min\{1\le x\le L_{r(n)}-5:
-                       A(x)\ge n-1\},&&n\ge2,\label{eq:all-index-981}\\
-a_{982}(n)&=\min\{1\le x\le 5L_{s(n)}-1:
-                       B(x)\ge n-1\},&&n\ge2,\label{eq:all-index-982}\\
-a_{980}(n)&=\min\{1\le x\le 6L_{p(n)}:
-                       C(x)\ge n\},&&n\ge1,\label{eq:all-index-980}\\
-a_{983}(n)&=\min\{1\le x\le L_{r(n)}-5:
-                       U(x)\ge n\},&&n\ge2.\label{eq:all-index-983}
-\end{align}
-The first terms of the other three sequences are zero.
-The formulas require no previous sequence terms.
+Then \(1\le r\le k\) and
+\begin{equation}\label{eq:closed-981}
+a_{981}(n)=\begin{cases}
+3L_{k+1},&r=1,\\
+L_{k+4}-5L_{k-r},&r=2,3,\\
+L_{k+5}-5L_k,&r=4,\\
+L_{k+4}-5L_{k+1-r},&5\le r\le k.
+\end{cases}
+\end{equation}
+For \(n\ge15\), define
+\[
+m=\left\lfloor\frac{\sqrt{8n+49}-5}{2}\right\rfloor,\qquad
+r=n-\frac{m^2+5m-8}{2}.
+\]
+Then \(1\le r\le m+3\) and
+\begin{equation}\label{eq:closed-982}
+a_{982}(n)=\begin{cases}
+2L_{m+1},&r=1,\\
+5L_m-L_{m+1},&r=2,\\
+5L_{m+1}-L_{m+3},&r=3,\\
+5L_m-L_{m+4-r},&4\le r\le m+3.
+\end{cases}
+\end{equation}
+For \(n\ge81\), define
+\[
+m=\left\lfloor\frac{5+\sqrt{4n+37}}2\right\rfloor,\qquad
+r=n-m^2+5m+4.
+\]
+Then \(1\le r\le2m-4\) and
+\begin{equation}\label{eq:closed-980}
+a_{980}(n)=5L_{i(r)}+L_{j(r)},
+\end{equation}
+where
+\[
+\begin{array}{c|c|c}
+r&i(r)&j(r)\\ \hline
+1\le r\le m-9&r&m\\
+m-8&m-5&m-1\\
+m-7&m-8&m\\
+m-6&m-4&m-2\\
+m-5&m-7&m\\
+m-4\le r\le2m-10&m-3&r-m+5\\
+2m-9&m-6&m\\
+2m-8&m-3&m-4\\
+2m-7&m-4&m-1\\
+2m-6&m-3&m-3\\
+2m-5&m-5&m\\
+2m-4&m-3&m-2
+\end{array}
+\]
+For \(n\ge57\), define
+\[
+m=3+\lfloor\sqrt{n-8}\rfloor,\qquad
+r=n-\big((m-3)^2+7\big).
+\]
+Then \(1\le r\le2m-5\), and
+\begin{equation}\label{eq:closed-983}
+a_{983}(n)=\begin{cases}
+5L_{m-3}-L_{m-3-r},&1\le r\le m-4,\\
+2L_{m-1},&r=m-3,\\
+5L_{m-2}-L_{m-1},&r=m-2,\\
+L_{m+1}-5L_{m-6},&r=m-1,\\
+L_{m+2}-5L_{m-3},&r=m,\\
+L_{m+1}-5L_{m-7},&r=m+1,\\
+5L_{m-1}-L_{m+1},&r=m+2,\\
+L_{m+1}-5L_{m-8},&r=m+3,\\
+4L_{m-2},&r=m+4,\\
+L_{m+1}-5L_{2m-4-r},&m+5\le r\le2m-5.
+\end{cases}
+\end{equation}
+The finite prefixes below complete the formulas for every \(n\ge1\).
 \end{theorem}
-\begin{proof}
-For \(i\ge5\), the admissible positive \(S\)-pairs with
-first index \(i\) number \(i-4\), and their values are
-at most \(L_i-5\). The exceptional pair \((4,1)\)
-adds one value. Uniqueness therefore gives at least
-\[
-1+\frac{(r-4)(r-3)}2
-\]
-distinct positive \(S\)-values at most \(L_r-5\)
-for each \(r\ge4\). By the definition of \(r(n)\)
-this number is at least \(n-1\). The union \(S\cup T\)
-contains those values and its initial zero, giving
-the bound for \(a_{983}\) as well.
 
-For \(T\), the positive representations with first
-index \(k=1\) have \(1\le\ell\le3\), and those with
-\(2\le k\le s\) have \(1\le\ell\le k+3\).
-All these values are at most \(5L_s-1\).
-There are \(s(s+1)/2+3s-1\) pairs in total;
-Theorem~\ref{oeis:thm:duplicates} shows that at most
-five are lost on removing repeated values.
-Consequently
-\[
-B(5L_s-1)\ge\frac{s(s+1)}2+3s-6.
-\]
-The definition of \(s(n)\) makes the right-hand
-side at least \(n-1\).
+\paragraph{Finite initial terms.}
+The lengths are \(26,14,80,56\), respectively.
+{\footnotesize
+\begin{verbatim}
+A191981:
+0,2,3,6,9,12,13,14,21,24,27,32,33,41,42,54,
+56,61,68,71,87,88,103,108,109,118.
 
-The \(p^2\) pairs \(1\le i,j\le p\) all produce
-positive \(P\)-values at most \(6L_p\).
-By Theorem~\ref{oeis:thm:sums}, at most five of
-these are repeated, and hence
-\(C(6L_p)\ge p^2-5\ge n\).
-All four minima now follow from the exact
-counting functions and strict ordering of distinct values.
+A191982:
+0,1,2,4,6,8,9,11,12,13,14,16,17,19.
+
+A191980:
+6,8,9,12,16,18,19,21,22,23,24,26,27,31,33,34,36,38,39,42,
+44,46,49,52,53,56,58,59,62,64,66,67,73,81,82,84,91,93,94,96,
+97,101,102,108,111,119,128,131,137,138,143,146,148,149,152,156,
+158,163,166,174,178,192,204,213,214,219,221,234,236,238,239,242,
+246,253,254,264,268,282,289,311.
+
+A191983:
+0,1,2,3,4,6,8,9,11,12,13,14,16,17,19,21,22,24,26,27,
+28,31,32,33,34,36,37,41,42,43,44,48,51,52,54,56,58,61,
+68,69,71,72,79,83,86,87,88,89,94,98,103,108,109,112,116,118.
+\end{verbatim}
+}
+
+\begin{proof}[Proof of Theorem~\ref{oeis:thm:closed-forms}]
+Partition the positive values into consecutive Lucas-scale
+intervals, enumerate their representations, and establish their
+strict order. All boundary and adjacent-order inequalities used
+below are fixed linear combinations of shifted Lucas numbers.
+Such combinations satisfy the Lucas recurrence, so two
+consecutive positive initial values imply positivity for
+every subsequent index.
+
+For \(S\), admissible pairs are \((4,1)\), or
+\(i\ge5,\ 1\le j\le i-4\).
+For \(m\ge11\), the pairs in \([L_{m-1},L_m)\),
+in increasing order, are
+\[
+(m+2,m-2),\ (m,m-6),\ (m,m-7),\
+(m+1,m-4),\ (m,m-8),\ldots,(m,1).
+\]
+Here \((i,j)\) denotes \(L_i-5L_j\).
+To check the critical order and the left endpoint, put
+\(x=L_{m-8}\), \(y=L_{m-7}\). The first five gaps are
+\[
+x+2y,\quad y-x,\quad5x,\quad3y-2x,\quad2y-3x,
+\]
+and are positive for \(m\ge11\).
+The last inequality follows from the recurrence for
+\(2L_{t+1}-3L_t\), positive at \(t=3,4\).
+The remaining row bounds follow from
+\(L_i-5L_{i-4}=3L_{i-5}\).
+There are \(m-4\) distinct terms per interval, and
+\(26\) terms below \(L_{10}\), including zero. With
+\(k=m-4\), the local rank \(r\) gives
+\(n=5+k(k-1)/2+r\), yielding \eqref{eq:closed-981}.
+
+For \(T\), positive pairs are \(1\le j\le3\)
+when \(i=1\), and \(1\le j\le i+3\) for \(i\ge2\).
+For \(m\ge4\), all values in \((5L_{m-1},5L_m]\)
+are, in increasing order,
+\[
+(m+3,m+6),\ (m,m+1),\ (m+1,m+3),\
+(m,m),\ (m,m-1),\ldots,(m,1).
+\]
+The bound \(5L_i-L_{i+3}=2L_{i-2}\)
+restricts the possible first indices to \(m,\ldots,m+3\).
+The eleven endpoint and sorting inequalities are positive
+at \(m=4,5\), hence for all \(m\ge4\).
+The interval has \(m+3\) distinct terms.
+The initial \(14\) terms are at most \(20\); the last
+index through interval \(m\) is \((m^2+7m-2)/2\).
+Its quadratic inverse gives \eqref{eq:closed-982}.
+
+For \(P\), every interval \([L_m,L_{m+1})\)
+with \(m\ge12\) contains precisely the pairs
+\[
+\begin{gathered}
+(i,m),\quad1\le i\le m-5,\qquad
+(m-3,j),\quad1\le j\le m-2,\\
+(m-5,m-1),\ (m-4,m-2),\ (m-4,m-1).
+\end{gathered}
+\]
+The inequalities \(i\le m-3\), \(j\le m\)
+and the boundary comparisons at \(m=12,13\)
+establish this list. The twelve lines of the
+table in \eqref{eq:closed-980} give the strict order;
+its adjacent differences are positive at \(m=12,13\)
+and propagate by the recurrence.
+The interval contains \(2m-4\) distinct values,
+and the \(80\) values below \(L_{12}\) are exactly
+the finite prefix. The cumulative count through
+interval \(m\) is \(m^2-3m-8\), yielding
+\eqref{eq:closed-980}.
+
+For \(S\cup T\), every interval \([L_m,L_{m+1})\)
+with \(m\ge10\) contains the \(T\)-pairs
+\[
+\begin{array}{c|l}
+i&j\\\hline
+m-3&1,\ldots,m-4\\
+m-2&m-2,m-1\\
+m-1&m+1\\
+m&\varnothing\\
+m+1&m+4
+\end{array}
+\]
+and the \(S\)-pairs, in their own increasing order,
+\[
+(m+3,m-1),\ (m+1,m-5),\ (m+1,m-6),\
+(m+2,m-3),\ (m+1,m-7),\ldots,(m+1,1).
+\]
+Exactly two values overlap:
+\[
+S(m+3,m-1)=T(m-3,m-7),\quad
+S(m+1,m-5)=T(m-3,m-9).
+\]
+The ordered union consists of a \(T\)-run of \(m-4\)
+terms, eight fixed intervening values, and an
+\(S\)-run of \(m-9\) terms. Its endpoint and
+sorting inequalities hold at \(m=10,11\), hence
+at every later \(m\). The ten formula cases in
+\eqref{eq:closed-983} list exactly this order.
+There are \(2m-5\) terms per interval, and
+\(56\) initial terms below \(L_{10}\); hence the
+count below \(L_m\) is \((m-3)^2+7\).
+Inverting it yields \eqref{eq:closed-983}.
+The complete fixed-shift inequalities and
+initial index checks appear in the companion
+note \texttt{direct-terms-proof.md}.
 \end{proof}
 
 \begin{theorem}[Counting and term growth]

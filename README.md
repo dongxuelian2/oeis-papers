@@ -79,7 +79,6 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - [A191981](https://oeis.org/A191981): Ordered sequence of nonnegative differences f-5g, where f and g are Lucas numbers (A000032 beginning at 1).
   - [A191982](https://oeis.org/A191982): Ordered sequence of nonnegative differences 5*f-g, where f and g are Lucas numbers (A000032 beginning at 1).
   - [A191983](https://oeis.org/A191983): Ordered sequence of nonnegative differences c*f-d*g, where f and g are Lucas numbers (A000032 beginning at 1) and {c,d}={1,5}.
-  - The same paper proves the collision classification for all integer Lucas coefficients; [source](papers/Lucas-coefficient-families/main.tex), [PDF](papers/Lucas-coefficient-families/main.pdf).
 
 - **[A195608](papers/A195608/)**
   - [A195608](https://oeis.org/A195608): Numbers n such that Sum\_{i=1..n} A(i) = A(n)\*A(n+1)/4, where A(n) = A001969(n).

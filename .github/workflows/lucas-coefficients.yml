@@ -21,6 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           python3 papers/Lucas-coefficient-families/verify.py
+          python3 papers/Lucas-coefficient-families/check_direct_terms.py 80
           python3 papers/Lucas-coefficient-families/verify_all_integer.py
           python3 papers/Lucas-coefficient-families/verify_ratio_collisions.py
           python3 papers/Lucas-coefficient-families/verify_global_collisions.py
