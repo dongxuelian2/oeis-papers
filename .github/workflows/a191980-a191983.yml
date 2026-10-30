@@ -1,0 +1,28 @@
+name: Verify OEIS Lucas q=5 cases
+on:
+  push:
+    paths:
+      - 'papers/A191980-A191983/**'
+      - 'papers/Lucas-coefficient-families/main.tex'
+      - '.github/workflows/a191980-a191983.yml'
+  pull_request:
+    paths:
+      - 'papers/A191980-A191983/**'
+      - 'papers/Lucas-coefficient-families/main.tex'
+      - '.github/workflows/a191980-a191983.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mathematical-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify OEIS integer arithmetic
+        run: |
+          python3 papers/A191980-A191983/verify.py
+          python3 papers/A191980-A191983/verify_intersection.py
+          python3 papers/A191980-A191983/verify_duplicates.py
+          python3 papers/A191980-A191983/verify_sums.py
+          python3 papers/A191980-A191983/verify_sum_difference_overlap.py

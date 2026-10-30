@@ -1,0 +1,65 @@
+name: Verify Lucas coefficient families
+on:
+  push:
+    paths:
+      - 'papers/Lucas-coefficient-families/**'
+      - 'papers/A191980-A191983/**'
+      - '.github/workflows/lucas-coefficients.yml'
+  pull_request:
+    paths:
+      - 'papers/Lucas-coefficient-families/**'
+      - 'papers/A191980-A191983/**'
+      - '.github/workflows/lucas-coefficients.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-integer-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 papers/Lucas-coefficient-families/verify.py
+          python3 papers/Lucas-coefficient-families/check_direct_terms.py 80
+          python3 papers/Lucas-coefficient-families/proof_checks/check_s_formula.py --max-shell 80
+          python3 papers/Lucas-coefficient-families/proof_checks/check_t_p.py
+          python3 papers/Lucas-coefficient-families/proof_checks/verify_union.py 80
+          python3 papers/Lucas-coefficient-families/verify_all_integer.py
+          python3 papers/Lucas-coefficient-families/verify_ratio_collisions.py
+          python3 papers/Lucas-coefficient-families/verify_global_collisions.py
+          python3 papers/Lucas-coefficient-families/verify_stationary_collisions.py
+          python3 papers/Lucas-coefficient-families/verify_norm_stationary.py
+          python3 papers/Lucas-coefficient-families/verify_explicit_infinite.py
+          python3 papers/Lucas-coefficient-families/verify_signed_gap.py
+          python3 papers/Lucas-coefficient-families/verify_all_global_unique.py
+      - uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: papers/Lucas-coefficient-families
+          root_file: main.tex
+  sync-committed-pdf:
+    needs: exact-integer-tests
+    if: github.event_name == 'push' && github.ref == 'refs/heads/research/a191981-unique-representations-20261026'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: papers/Lucas-coefficient-families
+          root_file: main.tex
+      - name: Commit refreshed PDF after successful checks
+        run: |
+          git fetch origin "$GITHUB_REF_NAME"
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse FETCH_HEAD)" ]; then
+            echo "Newer branch head exists; a later workflow will regenerate the PDF."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add papers/Lucas-coefficient-families/main.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh compiled Lucas coefficient manuscript PDF"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi

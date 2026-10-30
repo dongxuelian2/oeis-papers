@@ -1,0 +1,1659 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,geometry,hyperref}
+\geometry{margin=0.95in}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\title{Weighted Lucas Sums and Differences:\\
+Coefficient Classification and Four OEIS Sequences}
+\author{Qichao Wang}
+\date{October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We classify positive representations of \(L_i-qL_j\),
+\(qL_i-L_j\), and \(qL_i+L_j\) for integer \(q\).
+For \(q\ge2\), the first form has only finitely
+many collisions, with an explicit uniform index bound.
+The other two have infinitely many repeated values
+precisely for three arithmetic coefficient families:
+integral Lucas quotients, integral Fibonacci quotients,
+and half-Lucas coefficients. Signed quotients of Lucas
+gaps characterize all finite collisions, and
+global uniqueness is decidable by finite exact arithmetic.
+For \(q=5\), we give direct all-index formulas for
+OEIS A191980--A191983, classify all repeated values
+and pairwise intersections, and determine exact counting
+functions and growth rates.
+\end{abstract}
+Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
+Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
+\[
+S_q=\{L_i-qL_j>0:i,j\ge1\},\quad
+T_q=\{qL_i-L_j>0:i,j\ge1\},\quad
+P_q=\{qL_i+L_j>0:i,j\ge1\}.
+\]
+The recurrence gives
+\begin{equation}\label{eq:identities}
+L_{m+4}-L_m=5F_{m+2},\qquad
+F_aL_b=F_{a+b}+(-1)^bF_{a-b}.
+\end{equation}
+
+\section*{Infinite-collision constructions}
+\begin{theorem}[Lucas--Fibonacci quotient coefficients]
+\label{thm:ratios}
+Let $m>h\ge1$ have the same parity, and suppose
+\[
+q=
+\begin{cases}
+L_m/L_h\in\mathbb Z,& m,h\text{ odd},\\
+F_m/F_h\in\mathbb Z,& m,h\text{ even}.
+\end{cases}
+\]
+Then $q\ge2$, and for every $n\ge1$,
+\begin{equation}\label{eq:ratio-difference}
+qL_{n+m-h}-L_n
+=qL_{n+m+h}-L_{n+2m}>0.
+\end{equation}
+In particular, $T_q$ and $P_q$ each contain infinitely
+many repeated positive values.
+\end{theorem}
+\begin{proof}
+For $m$ odd, the Lucas product formula gives
+\[
+L_{n+2m}-L_n=L_mL_{n+m},\qquad
+L_{n+m+h}-L_{n+m-h}=L_hL_{n+m}.
+\]
+For $m,h$ even, the Lucas--Fibonacci identity instead gives
+\[
+L_{n+2m}-L_n=5F_mF_{n+m},\quad
+L_{n+m+h}-L_{n+m-h}=5F_hF_{n+m}.
+\]
+In either case dividing the two identities
+gives
+\[
+L_{n+2m}-L_n
+=q(L_{n+m+h}-L_{n+m-h}),
+\]
+which is \eqref{eq:ratio-difference}.
+The right-hand side of the first expression
+$qL_{n+m-h}-L_n$ is strictly positive and increases
+with $n$ because $q\ge2$ and $m-h\ge1$.
+The equivalent sum collision is
+\[
+qL_{n+m-h}+L_{n+2m}
+=qL_{n+m+h}+L_n.
+\]
+\end{proof}
+
+
+
+
+\begin{theorem}[Half-Lucas collision coefficients]
+\label{thm:half-lucas}
+For every integer $r\ge0$, let $M=6r+3$ and
+\[
+q=\frac{L_M}{2}\in\mathbb Z.
+\]
+Then $T_q$ and $P_q$ each have infinitely many
+repeated positive values. More precisely, for
+every $x\ge M$,
+\begin{equation}\label{eq:half-lucas}
+qL_x-L_{x-M+1}
+=qL_{x+3}-L_{x+M+1}>0,
+\end{equation}
+and
+\[
+qL_x+L_{x+M+1}
+=qL_{x+3}+L_{x-M+1}.
+\]
+The coefficients begin
+$2,38,682,12238,219602,\ldots$.
+\end{theorem}
+\begin{proof}
+The Lucas residues modulo $2$ have period $3$,
+so $L_M$ is even when $3\mid M$.
+As $M$ is odd, the product identity gives
+\[
+L_{x+M+1}-L_{x-M+1}=L_ML_{x+1}.
+\]
+The recurrence also gives
+$L_{x+3}-L_x=2L_{x+1}$.
+Substituting $2q=L_M$ proves
+\eqref{eq:half-lucas} and the sum identity.
+As $x\ge M\ge3$,
+$qL_x-L_{x-M+1}>0$; these values
+strictly increase with $x$.
+\end{proof}
+
+
+
+
+\section*{Norm separation and finite collision bounds}
+\begin{lemma}[Algebraic-norm separation]\label{lem:norm-separation}
+For integers \(d\ge1\) and \(q\ge1\), with
+\(\alpha=\varphi\) and \(\beta=-\alpha^{-1}\),
+\begin{equation}\label{eq:normbound}
+|\alpha^d-q|\ge\frac1{q+1}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The conjugate algebraic integers \(\alpha^d-q\)
+and \(\beta^d-q\) have nonzero integral product:
+\(\alpha^d=F_d\alpha+F_{d-1}\) is irrational.
+Since \(|\beta^d-q|\le q+1\), the bound follows.
+\end{proof}
+
+For completeness, this estimate also makes every bounded
+value search finite. If \(0<L_i-qL_j\le X\), then
+\(i>j\) and Binet's formula gives
+\[
+L_j\le (q+1)(X+q+1)+1,\qquad
+L_i\le X+qL_j.
+\]
+The bounds for \(0<qL_i-L_j\le X\) follow by exchanging
+the indices when \(j>i\), and by
+\((q-1)L_i\le X\) when \(j\le i\) and \(q\ge2\).
+For sums, \(qL_i+L_j\le X\) directly bounds both indices.
+Thus for any integer coefficient, all distinct values at most
+\(X\), their multiplicities (when finite), and their ranks
+are computed by finite exact arithmetic; negative coefficients
+reduce by exchanging sum and difference forms.
+
+\begin{proposition}[No simultaneous-shift positive collisions]
+\label{prop:no-shift}
+For every integer $q\ge2$, there are no
+indices $i<k$, $j<\ell$ such that
+\[
+L_{n+i}-qL_{n+j}=L_{n+k}-qL_{n+\ell}>0
+\quad\text{for every }n\ge0.
+\]
+\end{proposition}
+\begin{proof}
+An equality for all shifts implies, by Binet's formula,
+both its $\alpha$- and $\beta$-coefficient equalities.
+Put $h=k-i\ge1$, $e=\ell-j\ge1$, and $s=i-j$.
+Positivity for large $n$ forces $\alpha^s>q$,
+so $s\ge2$, and
+\[
+\alpha^s(\alpha^h-1)=q(\alpha^e-1)
+\]
+forces $e>h$, hence $e\ge2$.
+Conjugation gives
+\[
+q|\beta^e-1|=|\beta|^s|\beta^h-1|
+\le\alpha^{-2}(1+\alpha^{-1})=\alpha^{-1}.
+\]
+But $q|\beta^e-1|\ge2(1-\alpha^{-2})
+=2/\alpha>\alpha^{-1}$, a contradiction.
+\end{proof}
+
+
+\section*{The global finite-collision bound}
+A finite threshold is sufficient to compute any term. The stronger
+statement below provides a bound independent of the value.
+\begin{theorem}[Uniform complete collision certificate]
+\label{thm:global}
+Fix an integer $q\ge2$. Let $t=t(q)$ be the least
+positive index such that
+\begin{equation}\label{eq:t-bound}
+L_t>200(q+1)^4.
+\end{equation}
+If two distinct positive representations satisfy
+\[
+L_i-qL_j=L_k-qL_\ell>0,\qquad i<k,
+\]
+then
+\begin{equation}\label{eq:collision-cutoff}
+\boxed{k\le6t.}
+\end{equation}
+Consequently every $S_q$ with $q\ge2$ has
+only finitely many multiply represented positive values.
+Its complete collision list and global uniqueness
+can be determined by checking the finitely many
+pairs $1\le j<i\le6t$.
+\end{theorem}
+\begin{proof}
+Write $\alpha=\varphi$, $\beta=-\alpha^{-1}$.
+The equality forces $j<\ell$.
+Moreover, positivity gives $k>\ell$.
+Put $d=k-\ell$, $h=k-i$ and $g=k-j$.
+We prove $k\le6t$ by contradiction.
+The bounds
+\[
+\frac12\alpha^n\le L_n\le2\alpha^n
+\quad(n\ge0),\qquad
+L_k-L_i\ge L_{k-2}
+\]
+follow from Binet's formula and monotonicity.
+Since
+\[
+L_{k-2}\le L_k-L_i
+=q(L_\ell-L_j)<qL_\ell,
+\]
+we have $\alpha^d<4q\alpha^2<\alpha^t$;
+thus $1\le d<t$. Suppose $k>6t$.
+Then $\ell=k-d>5t$.
+
+Write
+\[
+x=L_k-qL_\ell
+ =\alpha^\ell(\alpha^d-q)+\beta^k-q\beta^\ell.
+\]
+The norm argument in \eqref{eq:normbound} gives
+$|\alpha^d-q|\ge1/(q+1)$.
+Since $|\beta^k-q\beta^\ell|\le q+1$
+and $\alpha^\ell>2(q+1)^2$, the positivity
+of $x$ forces $\alpha^d-q>0$ and
+\[
+x\ge\frac{\alpha^\ell}{2(q+1)}.
+\]
+But $x<L_i\le2\alpha^i$, so
+$\alpha^{\ell-i}<4(q+1)<\alpha^t$,
+which gives $1\le h<2t$.
+
+Next, the original equality can be rearranged as
+\[
+qL_j=L_i-L_k+qL_\ell
+=\alpha^k A+\beta^k A',
+\]
+where
+\[
+A=\alpha^{-h}-1+q\alpha^{-d},\qquad
+A'=\beta^{-h}-1+q\beta^{-d}.
+\]
+Both are conjugate algebraic integers, and
+\[
+|A'|\le\alpha^h+1+q\alpha^d
+<3\alpha^{2t}<\alpha^{3t}.
+\]
+If $A=0$, then $qL_j=|\beta^k A'|<1$,
+an impossibility.
+Otherwise $AA'$ is a nonzero integer, so
+$|A|\ge\alpha^{-3t}$.
+As $k>6t$ and $qL_j>0$, this forces $A>0$ and
+\[
+qL_j>\tfrac12\alpha^{k-3t}.
+\]
+Using $qL_j\le2q\alpha^j$ gives
+$\alpha^{k-j}<4q\alpha^{3t}<\alpha^{4t}$,
+hence $g<4t$.
+
+Finally, express the collision as
+\[
+0=L_k-L_i-qL_\ell+qL_j
+=\alpha^k E+\beta^k E',
+\]
+with the conjugate algebraic integers
+\[
+E=1-\alpha^{-h}-q\alpha^{-d}+q\alpha^{-g},
+\quad
+E'=1-\beta^{-h}-q\beta^{-d}+q\beta^{-g}.
+\]
+The bounds on $d,h,g$ imply
+\[
+|E'|\le1+\alpha^{2t}+q\alpha^t+q\alpha^{4t}
+<\alpha^{6t}.
+\]
+If $E\ne0$, the integral norm $EE'\ne0$
+gives $|E|\ge1/|E'|$.
+The displayed equality now implies
+$\alpha^{2k}\le|E'|^2<\alpha^{12t}$,
+contrary to $k>6t$.
+
+If $E=0$, the equality also forces $E'=0$.
+It then holds after every simultaneous translation
+of all four indices. Because $\alpha^d-q>0$,
+the translated differences are positive for all
+sufficiently large translations, contradicting
+Proposition~\ref{prop:no-shift}.
+Thus neither case is possible, and $k\le6t$.
+\end{proof}
+
+
+
+
+\section*{The stationary collision bound}
+\begin{theorem}[Finite stationary pattern criterion]\label{thm:stationary}
+Fix any integer $q\ge2$ and choose $t$ as in
+\eqref{eq:t-bound}. If
+\begin{equation}\label{eq:general-T-collision}
+qL_k-L_\ell=qL_i-L_j>0,\qquad i<k,
+\end{equation}
+and $k>12t$, then all four indices lie
+within $6t$ of $k$, apart from a possible
+upper extension of at most $t$, and the same equality
+holds after \emph{every} simultaneous nonnegative shift
+of its indices.
+Consequently, the set $T_q$ has infinitely many
+multiply represented positive values if and only if
+there are indices with
+\[
+K=12t+1,\quad K-3t\le i<K,\quad
+K-t\le\ell\le K+t,\quad
+K-6t\le j<\ell
+\]
+such that
+\begin{equation}\label{eq:finite-shift-test}
+0<qL_K-L_\ell=qL_i-L_j,\qquad
+qL_{K+1}-L_{\ell+1}=qL_{i+1}-L_{j+1}.
+\end{equation}
+This is a finite, exact, necessary-and-sufficient
+integer test for the existence of infinitely
+many positive collisions in $T_q$.
+Every collision not belonging to a stationary
+family has larger first index $k\le12t$.
+\end{theorem}
+\begin{proof}
+Equation \eqref{eq:general-T-collision} forces
+$j<\ell$ and
+$q(L_k-L_i)=L_\ell-L_j$.
+The bounds $L_{n-2}\le L_n-L_{n-1}$
+and $\frac12\alpha^n\le L_n\le2\alpha^n$ yield
+\[
+qL_{k-2}\le L_\ell,\qquad
+L_{\ell-2}\le qL_k.
+\]
+Consequently, with $\delta=\ell-k$,
+\[
+\alpha^{-\delta}<4\alpha^2/q<\alpha^t,
+\qquad
+\alpha^\delta<4q\alpha^2<\alpha^t,
+\]
+so $|\delta|<t$.
+Assume $k>12t$.
+Set
+\[
+x=qL_k-L_\ell
+=\alpha^k A+\beta^k A',
+\quad
+A=q-\alpha^\delta,\quad A'=q-\beta^\delta.
+\]
+The conjugate algebraic integers $A,A'$ have
+nonzero integral norm, including when $\delta=0$
+(since then $A=q-1$).
+As $|A'|<\alpha^{2t}$,
+we have $|A|>\alpha^{-2t}$.
+Positivity of $x$ and $k>12t$ imply
+$A>0$ and $x>\frac12\alpha^{k-2t}$.
+Since $x<qL_i\le2q\alpha^i$,
+the gap $h=k-i$ satisfies $0<h<3t$.
+
+Next,
+\[
+L_j=qL_i-qL_k+L_\ell
+=\alpha^k B+\beta^k B',
+\]
+where $B=q\alpha^{-h}-q+\alpha^\delta$
+and $B'=q\beta^{-h}-q+\beta^\delta$.
+The conjugates are algebraic integers and
+$|B'|<\alpha^{5t}$. If $B=0$,
+then $L_j<1$, a contradiction;
+otherwise their integral norm gives
+$|B|>\alpha^{-5t}$.
+As $k>12t$ and $L_j>0$,
+we obtain $L_j>\frac12\alpha^{k-5t}$.
+Thus $g=k-j<6t$.
+Since $j<\ell$, also $g>-t$.
+
+Now the collision is
+\[
+0=qL_k-qL_i-L_\ell+L_j
+=\alpha^k E+\beta^k E',
+\]
+where
+\[
+E=q-q\alpha^{-h}-\alpha^\delta+\alpha^{-g},
+\quad
+E'=q-q\beta^{-h}-\beta^\delta+\beta^{-g}.
+\]
+Both are algebraic integers and
+$|E'|<\alpha^{8t}$.
+If $E\ne0$, the integral norm gives
+$|E|>1/|E'|$ and the equality forces
+$\alpha^k\le |E'|<\alpha^{8t}$,
+contradicting $k>12t$.
+Therefore $E=E'=0$, and the identity
+holds under all simultaneous shifts.
+The positive leading coefficient $A$
+makes its common values positive and unbounded
+under increasing shifts.
+
+Every infinite sequence of distinct collision
+values must have unbounded $k$, and so contains
+a stationary identity of the preceding form.
+Translate its indices to $k=K=12t+1$.
+The established gap bounds give precisely
+the finite ranges in \eqref{eq:finite-shift-test}.
+The leading coefficient $A>0$ ensures
+positivity at $K$. Conversely, the two
+equalities in \eqref{eq:finite-shift-test}
+give consecutive zeros of a Lucas-recursive
+difference. They therefore give the identity
+at all shifts, and its positive values become
+arbitrarily large. This proves the criterion
+and the asserted bound for nonstationary collisions.
+\end{proof}
+
+\begin{proposition}[Finite certificates for all three forms]
+\label{prop:finiteTP}
+Fix \(q\ge2\) and \(t\) as in \eqref{eq:t-bound}.
+If \(T_q\) has no stationary collision, every positive
+collision of \(T_q\) or \(P_q\) has all indices at most
+\(13t\). If a stationary collision exists, both forms
+have a positive collision with all indices at most
+\(13t+1\). In either case global uniqueness is decided
+by a finite search. For \(S_q\), the bound is \(6t\).
+For \(q=1\) all three forms have infinitely many
+collisions; for \(q=0\), \(T_0\) is empty and \(S_0,P_0\)
+have infinite representation multiplicities. For
+\(q=-m<0\), \(T_q\) is empty, \(S_q=P_m\), and
+\(P_q=S_m\) after exchanging index roles.
+\end{proposition}
+\begin{proof}
+Theorem~\ref{thm:global} settles \(S_q\).
+When \(T_q\) has no stationary collision,
+Theorem~\ref{thm:stationary} puts its larger first index
+at most \(12t\). Positivity gives \(L_j<qL_i\), and
+hence \(j<i+t\), so all indices are at most \(13t\).
+A sum collision with unequal first indices
+has a corresponding signed difference
+\[
+v=qL_k-L_j=qL_i-L_\ell.
+\]
+If \(v>0\), this is a collision in \(T_q\); if
+\(v<0\), its negative is one in \(S_q\).
+The case \(v=0\) would give two different
+representations of the same Lucas ratio \(q>1\),
+contrary to Lemma~\ref{lem:lucas-ratio}.
+Thus the same index bound holds for \(P_q\).
+If \(T_q\) has a stationary collision,
+Theorem~\ref{thm:stationary} supplies one at
+\(k=12t+1\) with all other indices at most
+\(13t+1\); swapping subtracted indices
+gives the required sum collision.
+The remaining signs follow from the recurrence
+and the definitions.
+\end{proof}
+
+\section*{Explicit classification of infinite collisions}
+The quotient and half-Lucas identities exhaust the infinite-collision
+coefficients. We classify the index gaps of every stationary identity.
+
+\begin{lemma}[Rigidity of the two index gaps]\label{lem:gap-rigidity}
+Suppose \(q\ge2\), \(i<k\), \(j<\ell\), and
+\begin{equation}\label{eq:stationary-difference}
+q(L_{n+k}-L_{n+i})=L_{n+\ell}-L_{n+j}
+\qquad(n\ge0).
+\end{equation}
+Set \(h=k-i\), \(e=\ell-j\), and \(d=i-j\).
+The only possibilities are:
+\begin{enumerate}
+\item \(h=2r\), \(e=2m\), \(m>r\ge1\), with
+ \(m\equiv r\pmod2\), \(d=m-r\), and either
+ \(q=L_m/L_r\) for \(m,r\) odd or \(q=F_m/F_r\)
+ for \(m,r\) even;
+\item \(h=1\), \(e=2m\), \(m\ge3\) odd,
+ \(d=m+1\), and \(q=L_m\);
+\item \(h=3\), \(e=2m\), \(m\ge3\) odd and divisible
+ by \(3\), \(d=m-1\), and \(q=L_m/2\);
+\item \((h,e,d,q)=(1,3,2,2)\) or \((2,3,0,2)\).
+\end{enumerate}
+Every identity on this list is realized, with positive
+values and arbitrarily large simultaneous shifts.
+\end{lemma}
+\begin{proof}
+Let \(\alpha=\varphi\), \(\beta=-\alpha^{-1}\), and set
+\[
+C(s)=L_s-1-(-1)^s,\qquad
+\Phi(s)=\frac{1+\alpha^{-s}}{1-\alpha^{-s}}\quad(s\ge1).
+\]
+The two conjugate Binet coefficient equations of
+\eqref{eq:stationary-difference} give
+\[
+q\alpha^i(\alpha^h-1)=\alpha^j(\alpha^e-1),
+\qquad
+q\beta^i(\beta^h-1)=\beta^j(\beta^e-1).
+\]
+Their norms yield
+\begin{equation}\label{eq:gap-norm}
+q^2 C(h)=C(e),\qquad i\equiv j\pmod2.
+\end{equation}
+In particular \(e>h\), and \(d=i-j\) is even.
+Dividing the two Binet equations, and using
+\(\beta=-\alpha^{-1}\), gives the exact relation
+\begin{equation}\label{eq:rigidity-ratio}
+\alpha^{2d}=\alpha^{e-h}
+\frac{\Phi(h)^{[h\text{ odd}]}}
+     {\Phi(e)^{[e\text{ odd}]}}.
+\end{equation}
+The function \(\Phi(s)\) decreases strictly to \(1\);
+direct calculation gives
+\begin{equation}\label{eq:rigidity-special}
+\Phi(1)=\alpha^3,\qquad \Phi(3)=\alpha.
+\end{equation}
+
+If \(h,e\) are both even, \eqref{eq:rigidity-ratio}
+gives \(2d=e-h\). Write \(h=2r\), \(e=2m\).
+Since \(d\) is even, \(m\equiv r\pmod2\).
+For even indices,
+\[
+C(2s)=L_{2s}-2=
+\begin{cases}
+L_s^2,&s\text{ odd},\\
+5F_s^2,&s\text{ even}.
+\end{cases}
+\]
+Equation \eqref{eq:gap-norm} gives the two quotient
+conditions in case~1.
+
+If both gaps are odd, put \(u=(e-h)/2\).
+Equation \eqref{eq:rigidity-ratio} becomes
+\[
+\alpha^{2(d-u)}=\Phi(h)/\Phi(e).
+\]
+When \(h\ge3\) this ratio lies strictly between
+\(1\) and \(\Phi(3)=\alpha<\alpha^2\),
+which is impossible for an integral exponent \(2(d-u)\).
+When \(h=1\), the ratio is at least
+\(\Phi(1)/\Phi(3)=\alpha^2\), with equality at \(e=3\);
+for \(e>3\) it lies strictly between
+\(\alpha^2\) and \(\alpha^3<\alpha^4\).
+Therefore \(h=1,e=3\); then \(d=2\) and
+\eqref{eq:gap-norm} gives \(q=2\).
+
+If \(h\) is odd and \(e\) is even, the extra factor in
+\eqref{eq:rigidity-ratio} is \(\Phi(h)\).
+For odd \(h\ge5\), the right side lies strictly
+between consecutive powers \(\alpha^{e-h}\) and
+\(\alpha^{e-h+1}\), of which only the second has an
+even exponent. This is impossible. For \(h=1\),
+\eqref{eq:rigidity-special} gives \(2d=e+2\);
+for \(h=3\) it gives \(2d=e-2\).
+Putting \(e=2m\) in the norm equation then gives,
+respectively, \(q=L_m\) or \(q=L_m/2\) when \(m\)
+is odd. Indeed \(m\) even would require an irrational
+positive multiple of \(\sqrt5\) to be the integer \(q\).
+In the second case, integrality of \(L_m/2\) is
+equivalent to \(3\mid m\); the condition \(q\ge2\)
+also excludes \(m=1\).
+
+Finally, for even \(h\), odd \(e\),
+\eqref{eq:rigidity-ratio} has the factor \(1/\Phi(e)\).
+For \(e\ge5\), the exponent lies strictly between
+the consecutive integers \(e-h-1\) and \(e-h\);
+the former is even, and no even exponent is possible.
+Thus \(e=3\), necessarily \(h=2\), and
+\eqref{eq:rigidity-special} gives \(d=0\) and \(q=2\).
+
+For sufficiency, case~1 is the quotient identity
+\eqref{eq:ratio-difference}. Cases~2 and~3 follow
+from \(L_{n+2m}-L_n=L_mL_{n+m}\) for odd \(m\),
+together with
+\(L_{n+1}-L_n=L_{n-1}\) and
+\(L_{n+3}-L_n=2L_{n+1}\).
+The last two cases are the corresponding \(q=2\)
+identities. All hold for every sufficiently large
+common shift, with strictly increasing positive values.
+\end{proof}
+
+\begin{theorem}[Explicit infinite-collision coefficient classification]
+\label{thm:explicit-infinite}
+For every integer \(q\ge2\), the set \(T_q\) has
+infinitely many multiply represented positive values
+if and only if \(q\) belongs to the following union:
+\begin{equation}\label{eq:explicit-coefficients}
+\boxed{\begin{aligned}
+&\left\{L_m/L_r\in\mathbb Z:
+  m>r\ge1,\ m,r\text{ odd}\right\}\\
+{}\cup{}&
+\left\{F_m/F_r\in\mathbb Z:
+  m>r\ge2,\ m,r\text{ even}\right\}\\
+{}\cup{}&
+\left\{L_{6r+3}/2:r\ge0\right\}.
+\end{aligned}}
+\end{equation}
+The same equivalence holds for \(P_q\).
+Every other integer \(q\ge2\) has only finitely many
+collisions in \(T_q\) and \(P_q\).
+\end{theorem}
+\begin{proof}
+Each coefficient in \eqref{eq:explicit-coefficients}
+has an infinite family of positive collision values
+by Theorems~\ref{thm:ratios} and~\ref{thm:half-lucas}.
+Conversely, if \(T_q\) has infinitely many collision
+values, Theorem~\ref{thm:stationary} forces a collision
+holding under every common index shift.
+Lemma~\ref{lem:gap-rigidity} puts its coefficient
+in one of the three families: cases~2 and~4
+are subsumed by the first or third family, and
+case~3 is the third family.
+The equivalence for \(P_q\) and finiteness outside
+these families follow from
+Proposition~\ref{prop:finiteTP}.
+\end{proof}
+
+\section*{Finite-collision coefficient spectra}
+The preceding global bounds can also classify the coefficients
+with finitely many collisions without computing any ordered
+set of positive values. The sole arithmetic objects needed
+are differences of two Lucas numbers and the sign of a
+two-by-two determinant.
+
+For integers \(1\le a<b\) put \(D(a,b)=L_b-L_a>0\).
+Given two index pairs \(a<b\) and \(c<d\), define
+\[
+X=D(a,b),\quad Y=D(c,d),\qquad
+\Delta(a,b;c,d)=L_aL_d-L_bL_c.
+\]
+The integrality condition \(Y\mid X\) generates
+the candidate coefficient \(q=X/Y\).
+
+\begin{lemma}[Uniqueness of positive Lucas ratios]
+\label{lem:lucas-ratio}
+For \(a>b\ge1\), \(c>d\ge1\), the equality
+\(L_a/L_b=L_c/L_d\) implies \((a,b)=(c,d)\).
+\end{lemma}
+\begin{proof}
+Set \(R_h(n)=L_{n+h}/L_n\), \(\alpha=\varphi\).
+Binet's formula gives, for \(n\ge2,h\ge1\),
+\begin{equation}\label{eq:ratio-interval}
+\frac4{3\alpha}\alpha^h
+\le R_h(n)\le \frac2\alpha\alpha^h,
+\end{equation}
+since
+\[
+\frac{1-\alpha^{-6}}{1+\alpha^{-4}}
+=\frac4{3\alpha},\qquad
+\frac{1+\alpha^{-6}}{1-\alpha^{-4}}
+=\frac2\alpha.
+\]
+The intervals for distinct \(h\) are disjoint,
+because \(4/3>2/\alpha\). For fixed \(h\),
+\[
+L_mL_{n+h}-L_nL_{m+h}
+=5(-1)^{n+1}F_{m-n}F_h\ne0
+\qquad(m>n\ge2).
+\]
+Thus all ratios with \(n\ge2\) are distinct.
+
+For \(n=1\), write \(R_h(1)=L_s\),
+\(s=h+1\ge2\). Since
+\[
+(1-\alpha^{-4})\alpha^s
+\le L_s\le(1+\alpha^{-4})\alpha^s,
+\]
+the inequalities
+\(\alpha(1-\alpha^{-4})>2/\alpha\)
+and \(1+\alpha^{-4}<4/3\) show that
+\(L_s=R_e(m)\), \(m\ge2\), would force \(e=s\).
+But then the Lucas product formula gives
+\[
+L_sL_m-L_{m+s}=(-1)^sL_{m-s}\ne0,
+\]
+including \(m<s\) via the standard extension
+to negative Lucas indices.
+Ratios with both denominators \(L_1\)
+are strictly increasing with their numerators.
+\end{proof}
+
+\begin{theorem}[Signed-gap coefficient spectra]
+\label{thm:signed-gap}
+Fix \(q\ge2\). The following statements are exact
+necessary-and-sufficient conditions for the existence
+of a multiply represented \emph{positive} value:
+\begin{enumerate}
+\item \(S_q\) has a collision if and only if some
+ \(1\le a<b\), \(1\le c<d\) satisfy
+ \(D(a,b)=qD(c,d)\) and \(\Delta(a,b;c,d)>0\).
+\item \(T_q\) has a collision if and only if such
+ indices satisfy \(\Delta(a,b;c,d)<0\).
+\item \(P_q\) has a collision if and only if such
+ indices exist, regardless of the sign of \(\Delta\).
+\end{enumerate}
+All three tests can be restricted to the common finite
+index window
+\begin{equation}\label{eq:signed-cutoff}
+\boxed{1\le a,b,c,d\le 13t+1,}
+\end{equation}
+where \(t=t(q)\) is defined by \eqref{eq:t-bound}.
+The two strict determinant signs construct all
+collision witnesses using exact integer arithmetic.
+\end{theorem}
+\begin{proof}
+If \(D(a,b)=qD(c,d)\), then the two unequal pairs
+of indices give the sum collision
+\[
+qL_c+L_b=qL_d+L_a>0.
+\]
+Furthermore,
+\[
+L_a-qL_c=L_b-qL_d=\frac{\Delta}{D(c,d)},
+\]
+and
+\[
+qL_c-L_a=qL_d-L_b=-\frac{\Delta}{D(c,d)}.
+\]
+This proves that positive, negative, and zero signs
+have precisely the asserted consequences.
+Conversely, any collision in \(S_q\) has first
+indices \(a<b\) and second indices \(c<d\);
+its equality and positivity give the divisor equation
+and \(\Delta>0\). For a \(T_q\) collision, label the
+first indices \(c<d\) and second indices \(a<b\);
+the same operations yield \(\Delta<0\).
+For \(P_q\), the two first and second indices
+necessarily run in opposite directions;
+relabeling them gives the divisor equation.
+Thus all three tests are equivalent, not merely
+sufficient.
+
+If \(\Delta=0\), the divisor equation implies
+\(L_a=qL_c\) and \(L_b=qL_d\). These are two
+distinct representations of the same Lucas ratio
+\(q\ge2\), contrary to Lemma~\ref{lem:lucas-ratio}.
+Thus no zero-determinant coefficient candidate exists.
+
+For the common index bound, Theorem~\ref{thm:global}
+places all \(S_q\) collision indices at most \(6t\).
+If \(q\) has no stationary \(T_q\) collision,
+Proposition~\ref{prop:finiteTP} places every
+\(T_q\) and \(P_q\) collision inside \(13t\).
+Otherwise Theorem~\ref{thm:stationary} supplies
+a positive stationary \(T_q\) collision at
+\(k=12t+1\), whose other three indices belong to
+\([1,13t+1]\); exchanging subtracted indices
+also supplies a \(P_q\) collision inside that window.
+In all cases, if a collision exists, a certificate
+satisfying \eqref{eq:signed-cutoff} exists.
+\end{proof}
+
+Define two explicitly parametrized sets of
+positive integer coefficients:
+\begin{equation}\label{eq:sign-spectra}
+\boxed{\quad
+\mathcal C_{\pm}
+=\left\{\frac{D(a,b)}{D(c,d)}\in\mathbb Z_{\ge2}:
+\, a<b,\ c<d,\ \pm\Delta(a,b;c,d)>0\right\}.
+\quad}
+\end{equation}
+All four indices are positive. Thus \(S_q\) has a
+positive collision precisely for \(q\in\mathcal C_+\);
+\(T_q\) precisely for \(q\in\mathcal C_-\);
+and \(P_q\) precisely for
+\(q\in\mathcal C_+\cup\mathcal C_-\).
+Let \(\mathcal I\) be the three explicit coefficient
+families in \eqref{eq:explicit-coefficients}.
+By Theorem~\ref{thm:explicit-infinite}, the
+\emph{finitely collided but nonunique} coefficients are
+\[
+\begin{array}{c|l}
+S & \mathcal C_+\\
+T & \mathcal C_-\setminus\mathcal I\\
+P &(\mathcal C_+\cup\mathcal C_-)
+       \setminus\mathcal I.
+\end{array}
+\]
+The complements give global uniqueness, while
+\(\mathcal I\) gives infinitely many collision values
+for \(T\) and \(P\). For \(S\), all collisions are
+finite at every \(q\ge2\).
+
+\begin{corollary}[Sum uniqueness from both differences]
+\label{cor:sum-both}
+For every integer \(q\ge2\), all positive values
+in \(P_q\) have unique index-pair representations
+if and only if this holds simultaneously in
+\(S_q\) and \(T_q\).
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:signed-gap} partitions all positive
+\(P_q\) collision witnesses into the two strict
+signs, respectively equivalent to \(S_q\) and \(T_q\)
+collisions. The zero sign is impossible by
+Lemma~\ref{lem:lucas-ratio}.
+\end{proof}
+
+\begin{proposition}[Equal-gap parity rule]\label{prop:equal-gap}
+For \(h\ge1\) and \(1\le c<a\), suppose
+\[
+q=\frac{L_{a+h}-L_a}{L_{c+h}-L_c}
+\in\mathbb Z_{\ge2}.
+\]
+Then \(P_q\) has repeated positive values.
+If \(c\) is odd, \(S_q\) has a positive collision;
+if \(c\) is even, \(T_q\) has a positive collision.
+In particular, each of the infinite families
+\[
+\boxed{\quad
+q=\frac{L_{3r}}2\ (r\ge1),\qquad
+q=\frac{L_{4r+2}}3\ (r\ge1),\qquad
+q=\frac{F_{3r}}2\ (r\ge2)
+\quad}
+\]
+consists entirely of coefficients for which
+\(S_q\) has a finite nonempty collision set.
+\end{proposition}
+\begin{proof}
+The Lucas--Fibonacci product identity gives
+\begin{equation}\label{eq:gap-determinant}
+\boxed{\quad
+L_aL_{c+h}-L_cL_{a+h}
+=5(-1)^{c+1}F_{a-c}F_h.\quad}
+\end{equation}
+For \(a>c\) and \(h\ge1\), both Fibonacci
+factors are positive. Theorem~\ref{thm:signed-gap}
+therefore proves the parity rule.
+
+For the three families choose \(c=1\).
+Using the elementary identities
+\(L_{n+1}-L_n=L_{n-1}\),
+\(L_{n+2}-L_n=L_{n+1}\), and
+\(L_{n+4}-L_n=5F_{n+2}\), take
+\[
+(h,a)=(1,3r+1),\qquad
+(2,4r+1),\qquad
+(4,3r-2),
+\]
+respectively (the last has \(r\ge2\)).
+The denominators \(D(1,1+h)\) are \(2,3,10\).
+Divisibility follows from the period-three
+Lucas/Fibonacci parities and the Lucas residues
+\(L_{4r+2}\equiv0\pmod3\).
+Theorem~\ref{thm:global} proves that every
+fixed \(S_q\) has only finitely many collisions.
+\end{proof}
+
+\section*{A family with globally unique differences}
+\begin{theorem}\label{thm:unique}
+Fix $r\ge1$ and set $q=5F_{2r}$. Then
+\[
+L_i-qL_j>0\quad\Longleftrightarrow\quad
+(i,j)=(2r+2,1)\quad\text{or}\quad
+i\ge2r+3,\;1\le j\le i-2r-2.
+\]
+Every positive integer in $S_q$ has precisely one representation.
+\end{theorem}
+\begin{proof}
+The recurrence yields
+\begin{equation}\label{eq:q}
+q=5F_{2r}=L_{2r+2}-L_{2r-2},
+\quad q-L_{2r+1}=L_{2r-1}>0,
+\quad L_{2r+2}-q=L_{2r-2}>0.
+\end{equation}
+Thus $j=1$ first becomes admissible at $i=2r+2$.
+For $j\ge2$ put
+$A_j=L_{j+2r+2}-qL_j$ and
+$B_j=qL_j-L_{j+2r+1}$.
+Both obey the Lucas recurrence in $j$. Checking two initial values
+in $r$ and using the recurrence in steps of two gives
+\[
+A_2=L_{2r+4}-3q=L_{2r-4}>0,
+\quad A_3=A_2+A_1>0,\quad A_1=L_{2r+3}-q>0,
+\]
+with $L_{-2}=3$ when $r=1$.
+For $B_j$, the first two terms of the sequences $B_2(r)$
+and $B_3(r)$ are
+\[
+(B_2(1),B_2(2))=(4,16),\qquad
+(B_3(1),B_3(2))=(2,13).
+\]
+Each satisfies $b_{r+2}=3b_{r+1}-b_r$ as a function of $r$.
+An increasing positive initial pair remains increasing and positive.
+Therefore $B_2,B_3>0$ for all $r\ge1$; the recurrence in $j$
+then gives $A_j,B_j>0$ for all $j\ge2$.
+Hence $L_{j+2r+1}<qL_j<L_{j+2r+2}$ for $j\ge2$,
+establishing the stated index region.
+
+Let $\mathcal B_i$ be the positive values with first index $i$.
+They are distinct within each block, and
+$\max\mathcal B_i=L_i-q$ for $i\ge2r+2$.
+Using \eqref{eq:identities} with $b=i-2r+2$, the next block
+of the same residue class satisfies
+\begin{align}\label{eq:gap}
+\min\mathcal B_{i+4}-\max\mathcal B_i
+&=L_{i+4}-L_i-qL_{i-2r+2}+q\\
+&=q+5F_{i-4r+2}>0.\nonumber
+\end{align}
+For a nonnegative Fibonacci index the inequality is immediate.
+For a negative index, $i\ge2r+2$ implies
+$0<|i-4r+2|\le2r-4<2r$, so
+$|F_{i-4r+2}|<F_{2r}$.
+Moreover $A_{j+4}>A_j$ follows from the strictly positive
+Lucas recurrence; thus blocks separated by any positive multiple
+of four are strictly ordered.
+
+Finally, $(L_1,L_2,L_3,L_4)\bmod5=(1,3,4,2)$
+is the repeating residue cycle. Since $5\mid q$,
+two equal differences must have first indices congruent modulo four.
+They cannot belong to different such blocks, by \eqref{eq:gap},
+and the same block has distinct values.
+\end{proof}
+
+
+
+\section*{The four OEIS sequences at coefficient five}
+The preceding classification applies in particular to \(q=5\).
+For this section write \(S=S_5\), \(T=T_5\),
+and \(P=P_5\). Their increasing positive values
+give OEIS A191981, A191982, and A191980,
+respectively; the positive values of A191983 form
+\(S\cup T\). The published A191981, A191982, and A191983
+begin with a zero sentinel. Because
+\(L_i\bmod5\) cycles through \(1,3,4,2\),
+the equation \(L_i=5L_j\) is impossible:
+the zero is not a Lucas difference.
+
+Theorem~\ref{thm:unique} with \(r=1\) gives
+the complete index region and uniqueness in \(S\):
+\[
+(i,j)=(4,1)\quad\text{or}\quad
+i\ge5,\ 1\le j\le i-4.
+\]
+For \(i\ge5\) its ordered block satisfies
+\begin{equation}\label{eq:oeis-block}
+3L_{i-5}=L_i-5L_{i-4}
+\le L_i-5L_j\le L_i-5.
+\end{equation}
+Write \(H(y)=\#\{j\ge1:L_j\le y\}\) and
+\([x]_+=\max(x,0)\). The exact conclusions
+for the four sequences are as follows.
+
+\subsection*{Exact positive-difference count}
+\begin{theorem}[Three-block exact counting]\label{oeis:thm:exact}
+For every integer $x\ge11$, let $m$ be the unique integer satisfying
+$L_m\le x<L_{m+1}$. Then
+\begin{equation}\label{oeis:eq:exact}
+\boxed{\displaystyle A(x)=1+\frac{(m-4)(m-3)}2+
+\sum_{h=1}^{3}\left[m+h-4-
+H\!\left(\left\lfloor\frac{L_{m+h}-x-1}{5}\right\rfloor\right)
+\right]_+.}
+\end{equation}
+For $0\le x<11$, $A(x)$ counts the members of $\{2,3,6,9\}$ not exceeding $x$.
+\end{theorem}
+\begin{proof}
+All admissible differences with first index $i\le m$ are smaller than
+$L_i\le x$. For $i\ge m+4$, \eqref{eq:oeis-block} gives
+\[
+L_i-5L_j\ge3L_{i-5}\ge3L_{m-1}>L_{m+1}>x.
+\]
+Indeed, $3L_{m-1}-L_{m+1}=L_{m-1}-L_{m-2}>0$ because $m\ge5$.
+The only remaining first indices are $i=m+1,m+2,m+3$. In one such block,
+$L_i-5L_j\le x$ is equivalent to
+$L_j>\lfloor(L_i-x-1)/5\rfloor$.
+There are $i-4$ admissible indices $j$, so removing the ineligible ones gives
+the positive-part expression in \eqref{oeis:eq:exact}.
+\end{proof}
+
+\subsection*{Complete intersection of the two differences}
+\begin{theorem}[Complete intersection classification]\label{oeis:thm:intersection}
+With $E=\{2,6,9,12,13,14,24,32,61\}$, one has the disjoint union
+\begin{equation}\label{oeis:eq:intersection}
+\boxed{\quad S\cap T=E\ \dot\cup\
+\{3L_n:n\ge6\}\ \dot\cup\ \{8L_n:n\ge6\}.\quad}
+\end{equation}
+In particular, the only common values outside the two Lucas-multiple
+families are the nine elements of $E$.
+\end{theorem}
+\begin{proof}
+Suppose $L_i-5L_j=5L_k-L_\ell>0$.
+The Lucas residues modulo $5$ repeat as $(1,3,4,2)$, so
+$L_i+L_\ell\equiv0\pmod5$ forces
+$\ell\equiv i+2\pmod4$.
+By Theorem~\ref{thm:unique}, $i\ge4$ and $j\le i-4$, except
+that $(i,j)=(4,1)$ is the first permitted pair. Furthermore,
+$5L_k>L_\ell$ implies $\ell\le k+3$ for every $k\ge1$.
+For $k\ge2$, the least positive difference in its block is
+$5L_k-L_{k+3}=2L_{k-2}$.
+
+Assume first $i\ge16$. The lower bound
+$L_i-5L_j\ge3L_{i-5}>5L_{i-7}$ excludes $k\le i-7$.
+The bound $5L_k-L_\ell\ge2L_{k-2}\ge2L_{i-1}>L_i$
+excludes $k\ge i+1$. If $k=i$, the largest permissible
+$\ell$ is $i+2$ and $5L_i-L_{i+2}>L_i$.
+If $k=i-2$, the largest permissible $\ell$ is $i-2$ and
+$4L_{i-2}>L_i$. Thus $k=i-d$ with $d\in\{1,3,4,5,6\}$.
+For $d=1$, only $\ell=i+2$ can give a value below $L_i$;
+all smaller permissible $\ell$ give $5L_{i-1}-L_\ell>L_i$.
+
+Put $R=L_i+L_\ell-5L_{i-d}=5L_j$.
+The following table gives strict open intervals for $R$;
+each endpoint is a multiple of a Lucas number.
+\[
+\begin{array}{c|c|l}
+d&\ell&\text{location of }R\\ \hline
+1&i+2&(5L_{i-5},\,5L_{i-4})\\
+3&i-2&(5L_{i-7},\,5L_{i-6})\\
+3&\ell\le i-6&R<0\\
+4&i-2&(5L_{i-5},\,5L_{i-4})\\
+4&i-6&(5L_{i-6},\,5L_{i-5})\\
+4&i-10&R=5L_{i-6}\\
+4&\ell\le i-14&(5L_{i-7},\,5L_{i-6})\\
+5&i-2&R>5L_{i-4}\\
+5&\ell\le i-6&(5L_{i-5},\,5L_{i-4})\\
+6&i-6&R>5L_{i-4}\\
+6&i-10&R=5L_{i-4}\\
+6&\ell\le i-14&(5L_{i-5},\,5L_{i-4})
+\end{array}
+\]
+All table inequalities hold for $i\ge16$.
+To verify them, bound each variable $\ell$ between its
+indicated upper endpoint and $L_\ell>0$.
+The resulting fixed-shift inequalities are differences of
+Lucas-linear expressions and hence satisfy
+$u_{i+2}=u_{i+1}+u_i$. In each case the two initial values
+$i=16,17$ are strictly positive, as checked by direct substitution;
+the recurrence preserves positivity. The two exact-equality
+rows follow from the same recurrence and two initial identities.
+Every interval either misses all admissible $5L_j$ or contains
+no such value, while $R>5L_{i-4}$ is impossible since $j\le i-4$.
+The only surviving cases are
+\[
+(i,j,k,\ell)=(i,i-6,i-4,i-10),\qquad
+(i,i-4,i-6,i-10)\qquad(i\ge16).
+\]
+
+For the remaining $4\le i\le15$, the finite possibilities
+$1\le k\le i-1$, $1\le\ell\le k+3$, and
+$j\le i-4$ (with $(4,1)$ included) give:
+\[
+\begin{array}{c|ccccccc}
+i&4&5&6&7&8&9&10\\ \hline
+S\cap T\text{ in the }i\text{-block}
+&2&6&13&9,14,24&12,32&61&\varnothing
+\end{array}
+\]
+For $11\le i\le15$ the only two values are
+$3L_{i-5}$ and $8L_{i-5}$.
+For all $n\ge6$ the Lucas recurrence gives
+\begin{align*}
+3L_n&=L_{n+5}-5L_{n+1}=5L_{n-1}-L_{n-5},\\
+8L_n&=L_{n+5}-5L_{n-1}=5L_{n+1}-L_{n-5}.
+\end{align*}
+Thus both displayed families belong to $S\cap T$.
+They are disjoint from one another by the uniqueness theorem
+for $S$, and neither family contains one of the nine exceptional
+values (the smallest values are $3L_6=54$ and $8L_6=144$). This proves \eqref{oeis:eq:intersection}.
+\end{proof}
+
+\subsection*{All repeated reverse differences and sums}
+\begin{theorem}[Five and only five collisions]\label{oeis:thm:duplicates}
+The map
+\[
+(k,\ell)\longmapsto 5L_k-L_\ell>0,\qquad k,\ell\ge1,
+\]
+is injective except for exactly five pairs of distinct arguments:
+\[
+\begin{array}{c|c|c|c}
+k&p&(\ell,q)&5L_k-L_\ell=5L_p-L_q\\ \hline
+1&2&(1,5)&4\\
+1&3&(2,6)&2\\
+2&5&(4,8)&8\\
+2&6&(1,9)&14\\
+3&4&(2,6)&17
+\end{array}
+\]
+In particular, the set of multiply represented positive values in
+A191982 is precisely $D=\{2,4,8,14,17\}$; each has multiplicity two.
+\end{theorem}
+\begin{proof}
+For $k=1$ the positive pairs have $1\le\ell\le3$.
+For every $k\ge2$, positivity is equivalent to
+$1\le\ell\le k+3$, and the values in the $k$-block lie in
+\[
+[2L_{k-2},\,5L_k-1],
+\qquad 5L_k-L_{k+3}=2L_{k-2}.
+\]
+Suppose $5L_k-L_\ell=5L_p-L_q>0$ with $k<p$.
+Then
+\begin{equation}\label{oeis:eq:collision}
+L_q-L_\ell=5(L_p-L_k)>0,\qquad q\equiv\ell\pmod4.
+\end{equation}
+The congruence follows from the four distinct Lucas residues modulo $5$.
+Hence $q\ge\ell+4$.
+
+If $k\ge3$ and $p\ge k+4$, then
+\[
+5L_p-L_q\ge2L_{p-2}\ge2L_{k+2}>5L_k-1,
+\]
+where $2L_{k+2}-5L_k=L_{k-1}-L_{k-2}>0$.
+This exceeds every value in the $k$-block.
+For $k=1$, $p\ge5$ is excluded by
+$2L_3=8>5L_1-1=4$.
+For $k=2$, $p\ge7$ is excluded by
+$2L_5=22>5L_2-1=14$; the boundary $p=6$
+gives precisely $14$.
+
+It remains to consider $p=k+d$ for $d\in\{1,2,3\}$.
+For $k\ge4$ the possibilities in \eqref{oeis:eq:collision}
+reduce as follows.
+
+If $d=1$, then $5(L_p-L_k)=5L_{k-1}$,
+so $L_{k+2}<5L_{k-1}<L_{k+4}$ and
+$q\in\{k+3,k+4\}$.
+For $q=k+3$ one has
+$L_\ell=3L_{k-2}>L_{k-1}$, contradicting
+$\ell\le q-4=k-1$.
+For $q=k+4$ one has
+$L_\ell=L_{k+2}+3L_{k-2}>L_k$,
+contradicting $\ell\le k$.
+
+If $d=2$, then $5(L_p-L_k)=5L_{k+1}$.
+Since $L_{k+4}<5L_{k+1}$ and $q\le p+3$,
+necessarily $q=k+5$.
+It follows that
+$L_\ell=3L_k>L_{k+1}$, but $\ell\le k+1$.
+
+If $d=3$, then $5(L_p-L_k)=10L_{k+1}$.
+As $L_{k+5}<10L_{k+1}$ and $q\le p+3$,
+one must have $q=k+6$. Thus
+\[
+L_\ell=L_{k+6}-10L_{k+1}
+=5L_k-2L_{k+1}=:R_k.
+\]
+For $k\ge3$,
+\[
+L_{k-2}<R_k<L_{k+2}.
+\]
+But \eqref{oeis:eq:collision} forces
+$\ell\equiv k+2\pmod4$ and $\ell\le k+2$;
+either $\ell=k+2$ or $\ell\le k-2$, a contradiction.
+
+Finally, the cases $k=1,2,3$ can be checked using
+\eqref{oeis:eq:collision} and $q\le p+3$:
+$k=1$ yields $(p,\ell,q)=(2,1,5),(3,2,6)$;
+$k=2$ yields $(5,4,8)$ in addition to the
+boundary $(6,1,9)$; $k=3$ yields $(4,2,6)$.
+Their values are the five displayed in the table.
+Since the list exhausts all colliding argument pairs,
+no value has three representations.
+\end{proof}
+
+\begin{theorem}[The five sum collisions]\label{oeis:thm:sums}
+Exactly five values in $P$ admit two different index-pair
+representations:
+\[
+\begin{array}{c|l}
+s&\text{the two representations of }s\\ \hline
+16&5L_1+L_5=5L_2+L_1\\
+23&5L_1+L_6=5L_3+L_2\\
+38&5L_3+L_6=5L_4+L_2\\
+62&5L_2+L_8=5L_5+L_4\\
+91&5L_2+L_9=5L_6+L_1
+\end{array}
+\]
+All other values have precisely one representation; none has three.
+\end{theorem}
+\begin{proof}
+Suppose $5L_i+L_j=5L_k+L_\ell$ with $(i,j)\ne(k,\ell)$.
+Since $L_n$ increases strictly for $n\ge1$, we may take
+$i<k$ and $j>\ell$. Rearranging gives
+\begin{equation}\label{oeis:eq:sum-switch}
+5L_i-L_\ell=5L_k-L_j=:t.
+\end{equation}
+The four Lucas residues $1,3,4,2$ modulo $5$ imply
+$t\ne0$. If $t<0$, then
+$-t=L_\ell-5L_i=L_j-5L_k>0$
+has two distinct representations in $S$, contradicting
+Theorem~\ref{thm:unique}. Consequently $t>0$.
+Equation \eqref{oeis:eq:sum-switch} is therefore a collision
+in $T$, and Theorem~\ref{oeis:thm:duplicates} restricts it to
+the five pairs listed there.
+Conversely, swapping the subtracted Lucas indices in
+each of those five equalities yields exactly the five
+sum identities displayed above. Each displayed sum is distinct,
+and each of the five collisions in $T$ is between precisely
+two index pairs; hence there are no further collisions and
+no threefold representations in $P$.
+\end{proof}
+
+\subsection*{Complete intersection of sums and reverse differences}
+\begin{theorem}[Complete sum--difference intersection]\label{oeis:thm:sum-full-overlap}
+Put
+\[
+E_{PT}=\{6,8,9,12,16,19,22,24,26,31,34,44,52,138\}.
+\]
+The following union is disjoint:
+\begin{equation}\label{oeis:eq:sum-full-overlap}
+\boxed{P\cap T=E_{PT}\ \dot\cup\
+ \{5L_n+L_{n+7}:n\ge4\}\ \dot\cup\
+ \{5L_n+L_{n-3}:n\ge4\}.}
+\end{equation}
+Indeed, every equality $5L_a+L_b=5L_c-L_d>0$
+with $c\ge8$ has $a=c-4$ and
+$\{b,d\}=\{c+3,c-7\}$.
+\end{theorem}
+\begin{proof}
+The equality implies $a<c$, since $L_b+L_d>0$, and
+\begin{equation}\label{oeis:eq:sum-overlap-condition}
+L_b+L_d=5(L_c-L_a),\qquad b\equiv d+2\pmod4.
+\end{equation}
+The residue condition follows from the four distinct Lucas
+residues modulo $5$. Positivity gives $d\le c+3$; also
+$L_b<5L_c<L_{c+4}$ gives $b\le c+3$.
+
+Assume $c\ge8$, and set $m=\max(b,d)$ and $s=\min(b,d)$.
+The residue condition forces $m-s\equiv2\pmod4$,
+so $s\le m-2$. If $m=c+3$, then $s=c+1$ would
+make $L_m+L_s>5L_c$, hence $s\le c-3$.
+If $m=c+2$, then $s\le c$; if $m\le c+1$, then
+$s\le c-1$. The Lucas recurrence yields
+\[
+L_m+L_s\le L_{c+3}+L_{c-3},\qquad
+5L_c-L_{c+3}-L_{c-3}>5L_{c-5}.
+\]
+Thus $L_a>L_{c-5}$, hence $a\ge c-4$.
+Write $h=c-a\in\{1,2,3,4\}$ and
+$R_h=5(L_c-L_{c-h})=L_m+L_s$.
+
+For $h=1$, the bounds
+$2L_{c-1}<R_1<L_{c+2}$ force $m=c$ or $c+1$.
+When $m=c$, $R_1>L_c+L_{c-2}$ contradicts $s\le c-2$.
+When $m=c+1$,
+\[
+L_{c-5}<R_1-L_{c+1}<L_{c-1}.
+\]
+But then $s$ must belong to $\{c-1,c-5,c-9,\ldots\}$,
+which is impossible by strict monotonicity.
+For $h=2$, the bounds $2L_c<R_2<L_{c+3}$
+force $m=c+1$ or $c+2$. The former is excluded by
+$R_2>L_{c+1}+L_{c-1}$; in the latter case
+\[
+L_{c-4}<R_2-L_{c+2}<L_c,
+\]
+whereas $s\in\{c,c-4,c-8,\ldots\}$.
+For $h=3$, $2L_{c+1}<R_3<L_{c+3}$ forces
+$m=c+2$, but $R_3>L_{c+2}+L_c$ contradicts $s\le c$.
+Finally, for $h=4$, $R_4>L_{c+2}+L_c$ forces
+$m=c+3$; the identity
+\[
+5(L_c-L_{c-4})=L_{c+3}+L_{c-7}
+\]
+gives $s=c-7$. This gives precisely the two families
+in \eqref{oeis:eq:sum-full-overlap}.
+
+All strict inequalities used above are fixed-shift linear
+combinations of Lucas numbers. Their differences satisfy
+$u_{c+2}=u_{c+1}+u_c$; each is positive at $c=8,9$,
+so all hold for $c\ge8$. The companion verifier records
+the 18 positive initial comparisons and the exact identity.
+
+For $c\le7$, the ranges $1\le a<c$ and
+$1\le b,d\le c+3$ are finite. Exhaustion gives the
+following distinct values, grouped by $c$:
+\[
+\begin{array}{c|l}
+c &5L_a+L_b=5L_c-L_d\ \text{(distinct values)}\\ \hline
+1&\varnothing\\
+2&8,12\\
+3&9,16,19\\
+4&6,24,31,34\\
+5&8,26,44,52\\
+6&\varnothing\\
+7&22,138
+\end{array}
+\]
+These give exactly $E_{PT}$. The family with $L_{n+7}$
+begins at $234>\max E_{PT}$; the other begins with
+$36,58,94,152,\ldots$, none of which belongs to $E_{PT}$.
+The two families are disjoint by Theorem~\ref{oeis:thm:sums}:
+if one value belonged to both, it would have two different
+sum representations, yet every value of the first family
+exceeds $91$. The Lucas identity
+\[
+5(L_{n+4}-L_n)=L_{n+7}+L_{n-3}\qquad(n\ge4)
+\]
+holds by the recurrence and its first two instances.
+It gives both families in \(P\cap T\);
+the second difference is positive since
+\(5L_{n+4}-L_{n+7}=2L_{n+2}>0\).
+\end{proof}
+
+\subsection*{Exact counting and unranking}
+Let
+\[
+A(x)=\#(S\cap[1,x]),\quad
+B(x)=\#(T\cap[1,x]),\quad
+C(x)=\#(P\cap[1,x]).
+\]
+The first count is \eqref{oeis:eq:exact} for \(x\ge11\);
+for \(0\le x<11\), count the elements of
+\(\{2,3,6,9\}\) at most \(x\).
+Let
+\[
+D_T=\{2,4,8,14,17\},\qquad
+D_P=\{16,23,38,62,91\},
+\]
+and put \(b_1=3\), \(b_k=k+3\) for \(k\ge2\),
+\(K(x)=\max\{3,H(\lfloor x/2\rfloor)+2\}\).
+The two remaining count formulas are
+\begin{align}
+B(x)&=\sum_{k=1}^{K(x)}
+[b_k-H(5L_k-x-1)]_+
+-\#\{d\in D_T:d\le x\},\label{eq:oeis-Tcount}\\
+C(x)&=\sum_{i=1}^{H(\lfloor(x-1)/5\rfloor)}
+H(x-5L_i)
+-\#\{d\in D_P:d\le x\}.\label{eq:oeis-Pcount}
+\end{align}
+For the two intersections let
+\(I(x)=\#(S\cap T\cap[1,x])\) and
+\(J(x)=\#(P\cap T\cap[1,x])\). Write
+\[
+E_{ST}=\{2,6,9,12,13,14,24,32,61\},
+\]
+and \(u_n=5L_n+L_{n+7}\),
+\(v_n=5L_n+L_{n-3}\) for \(n\ge4\).
+Then the two intersection theorems yield
+\begin{align}
+I(x)&=\#\{e\in E_{ST}:e\le x\}
++[H(\lfloor x/3\rfloor)-5]_+
++[H(\lfloor x/8\rfloor)-5]_+,\label{eq:oeis-Icount}\\
+J(x)&=\#\{e\in E_{PT}:e\le x\}
++\#\{n\ge4:u_n\le x\}
++\#\{n\ge4:v_n\le x\}.
+\label{eq:oeis-Jcount}
+\end{align}
+Finally, for \(x\ge0\), the number of entries
+of A191983 not exceeding \(x\) is
+\begin{equation}\label{eq:oeis-Ucount}
+\boxed{\,U(x)=1+A(x)+B(x)-I(x).\,}
+\end{equation}
+Every sum in these formulas is finite.
+They count pairs within their permitted Lucas
+index regions, then subtract the five duplicated
+values in \(T\) or \(P\), respectively.
+The intersection counts follow from the disjoint
+unions proved above, and \(U\) follows from
+inclusion--exclusion. All four ordered sequences
+and both intersections therefore admit exact
+unranking by integer binary search.
+
+\subsection*{Direct terms of the four OEIS sequences}
+Write \(a_{980}(n),a_{981}(n),a_{982}(n),a_{983}(n)\) for
+the published sequences, indexed from \(n=1\).
+The sequences \(a_{981},a_{982},a_{983}\) start with zero.
+
+\begin{theorem}[All-index direct expressions]\label{oeis:thm:closed-forms}
+For \(n\ge27\), define
+\[
+k=\left\lfloor\frac{1+\sqrt{8n-41}}2\right\rfloor,\qquad
+r=n-5-\frac{k(k-1)}2.
+\]
+Then \(1\le r\le k\) and
+\begin{equation}\label{eq:closed-981}
+a_{981}(n)=\begin{cases}
+3L_{k+1},&r=1,\\
+L_{k+4}-5L_{k-r},&r=2,3,\\
+L_{k+5}-5L_k,&r=4,\\
+L_{k+4}-5L_{k+1-r},&5\le r\le k.
+\end{cases}
+\end{equation}
+For \(n\ge15\), define
+\[
+m=\left\lfloor\frac{\sqrt{8n+49}-5}{2}\right\rfloor,\qquad
+r=n-\frac{m^2+5m-8}{2}.
+\]
+Then \(1\le r\le m+3\) and
+\begin{equation}\label{eq:closed-982}
+a_{982}(n)=\begin{cases}
+2L_{m+1},&r=1,\\
+5L_m-L_{m+1},&r=2,\\
+5L_{m+1}-L_{m+3},&r=3,\\
+5L_m-L_{m+4-r},&4\le r\le m+3.
+\end{cases}
+\end{equation}
+For \(n\ge81\), define
+\[
+m=\left\lfloor\frac{5+\sqrt{4n+37}}2\right\rfloor,\qquad
+r=n-m^2+5m+4.
+\]
+Then \(1\le r\le2m-4\) and
+\begin{equation}\label{eq:closed-980}
+a_{980}(n)=5L_{i(r)}+L_{j(r)},
+\end{equation}
+where
+\[
+\begin{array}{c|c|c}
+r&i(r)&j(r)\\ \hline
+1\le r\le m-9&r&m\\
+m-8&m-5&m-1\\
+m-7&m-8&m\\
+m-6&m-4&m-2\\
+m-5&m-7&m\\
+m-4\le r\le2m-10&m-3&r-m+5\\
+2m-9&m-6&m\\
+2m-8&m-3&m-4\\
+2m-7&m-4&m-1\\
+2m-6&m-3&m-3\\
+2m-5&m-5&m\\
+2m-4&m-3&m-2
+\end{array}
+\]
+For \(n\ge57\), define
+\[
+m=3+\lfloor\sqrt{n-8}\rfloor,\qquad
+r=n-\big((m-3)^2+7\big).
+\]
+Then \(1\le r\le2m-5\), and
+\begin{equation}\label{eq:closed-983}
+a_{983}(n)=\begin{cases}
+5L_{m-3}-L_{m-3-r},&1\le r\le m-4,\\
+2L_{m-1},&r=m-3,\\
+5L_{m-2}-L_{m-1},&r=m-2,\\
+L_{m+1}-5L_{m-6},&r=m-1,\\
+L_{m+2}-5L_{m-3},&r=m,\\
+L_{m+1}-5L_{m-7},&r=m+1,\\
+5L_{m-1}-L_{m+1},&r=m+2,\\
+L_{m+1}-5L_{m-8},&r=m+3,\\
+4L_{m-2},&r=m+4,\\
+L_{m+1}-5L_{2m-4-r},&m+5\le r\le2m-5.
+\end{cases}
+\end{equation}
+The finite prefixes below complete the formulas for every \(n\ge1\).
+\end{theorem}
+
+\paragraph{Finite initial terms.}
+The lengths are \(26,14,80,56\), respectively.
+{\footnotesize
+\begin{verbatim}
+A191981:
+0,2,3,6,9,12,13,14,21,24,27,32,33,41,42,54,
+56,61,68,71,87,88,103,108,109,118.
+
+A191982:
+0,1,2,4,6,8,9,11,12,13,14,16,17,19.
+
+A191980:
+6,8,9,12,16,18,19,21,22,23,24,26,27,31,33,34,36,38,39,42,
+44,46,49,52,53,56,58,59,62,64,66,67,73,81,82,84,91,93,94,96,
+97,101,102,108,111,119,128,131,137,138,143,146,148,149,152,156,
+158,163,166,174,178,192,204,213,214,219,221,234,236,238,239,242,
+246,253,254,264,268,282,289,311.
+
+A191983:
+0,1,2,3,4,6,8,9,11,12,13,14,16,17,19,21,22,24,26,27,
+28,31,32,33,34,36,37,41,42,43,44,48,51,52,54,56,58,61,
+68,69,71,72,79,83,86,87,88,89,94,98,103,108,109,112,116,118.
+\end{verbatim}
+}
+
+\begin{proof}[Proof of Theorem~\ref{oeis:thm:closed-forms}]
+Partition the positive values into consecutive Lucas-scale
+intervals, enumerate their representations, and establish their
+strict order. All boundary and adjacent-order inequalities used
+below are fixed linear combinations of shifted Lucas numbers.
+Such combinations satisfy the Lucas recurrence, so two
+consecutive positive initial values imply positivity for
+every subsequent index.
+
+For \(S\), admissible pairs are \((4,1)\), or
+\(i\ge5,\ 1\le j\le i-4\).
+For \(m\ge11\), the pairs in \([L_{m-1},L_m)\),
+in increasing order, are
+\[
+(m+2,m-2),\ (m,m-6),\ (m,m-7),\
+(m+1,m-4),\ (m,m-8),\ldots,(m,1).
+\]
+Here \((i,j)\) denotes \(L_i-5L_j\).
+To check the critical order and the left endpoint, put
+\(x=L_{m-8}\), \(y=L_{m-7}\). The first five gaps are
+\[
+x+2y,\quad y-x,\quad5x,\quad3y-2x,\quad2y-3x,
+\]
+and are positive for \(m\ge11\).
+The last inequality follows from the recurrence for
+\(2L_{t+1}-3L_t\), positive at \(t=3,4\).
+The remaining row bounds follow from
+\(L_i-5L_{i-4}=3L_{i-5}\).
+There are \(m-4\) distinct terms per interval, and
+\(26\) terms below \(L_{10}\), including zero. With
+\(k=m-4\), the local rank \(r\) gives
+\(n=5+k(k-1)/2+r\), yielding \eqref{eq:closed-981}.
+
+For \(T\), positive pairs are \(1\le j\le3\)
+when \(i=1\), and \(1\le j\le i+3\) for \(i\ge2\).
+For \(m\ge4\), all values in \((5L_{m-1},5L_m]\)
+are, in increasing order,
+\[
+(m+3,m+6),\ (m,m+1),\ (m+1,m+3),\
+(m,m),\ (m,m-1),\ldots,(m,1).
+\]
+The bound \(5L_i-L_{i+3}=2L_{i-2}\)
+restricts the possible first indices to \(m,\ldots,m+3\).
+The eleven endpoint and sorting inequalities are positive
+at \(m=4,5\), hence for all \(m\ge4\).
+The interval has \(m+3\) distinct terms.
+The initial \(14\) terms are at most \(20\); the last
+index through interval \(m\) is \((m^2+7m-2)/2\).
+Its quadratic inverse gives \eqref{eq:closed-982}.
+
+For \(P\), every interval \([L_m,L_{m+1})\)
+with \(m\ge12\) contains precisely the pairs
+\[
+\begin{gathered}
+(i,m),\quad1\le i\le m-5,\qquad
+(m-3,j),\quad1\le j\le m-2,\\
+(m-5,m-1),\ (m-4,m-2),\ (m-4,m-1).
+\end{gathered}
+\]
+The inequalities \(i\le m-3\), \(j\le m\)
+and the boundary comparisons at \(m=12,13\)
+establish this list. The twelve lines of the
+table in \eqref{eq:closed-980} give the strict order;
+its adjacent differences are positive at \(m=12,13\)
+and propagate by the recurrence.
+The interval contains \(2m-4\) distinct values,
+and the \(80\) values below \(L_{12}\) are exactly
+the finite prefix. The cumulative count through
+interval \(m\) is \(m^2-3m-8\), yielding
+\eqref{eq:closed-980}.
+
+For \(S\cup T\), every interval \([L_m,L_{m+1})\)
+with \(m\ge10\) contains the \(T\)-pairs
+\[
+\begin{array}{c|l}
+i&j\\\hline
+m-3&1,\ldots,m-4\\
+m-2&m-2,m-1\\
+m-1&m+1\\
+m&\varnothing\\
+m+1&m+4
+\end{array}
+\]
+and the \(S\)-pairs, in their own increasing order,
+\[
+(m+3,m-1),\ (m+1,m-5),\ (m+1,m-6),\
+(m+2,m-3),\ (m+1,m-7),\ldots,(m+1,1).
+\]
+Exactly two values overlap:
+\[
+S(m+3,m-1)=T(m-3,m-7),\quad
+S(m+1,m-5)=T(m-3,m-9).
+\]
+The ordered union consists of a \(T\)-run of \(m-4\)
+terms, eight fixed intervening values, and an
+\(S\)-run of \(m-9\) terms. Its endpoint and
+sorting inequalities hold at \(m=10,11\), hence
+at every later \(m\). The ten formula cases in
+\eqref{eq:closed-983} list exactly this order.
+There are \(2m-5\) terms per interval, and
+\(56\) initial terms below \(L_{10}\); hence the
+count below \(L_m\) is \((m-3)^2+7\).
+Inverting it yields \eqref{eq:closed-983}.
+The complete fixed-shift inequalities and
+initial index checks appear in the companion
+note \texttt{direct-terms-proof.md}.
+\end{proof}
+
+\begin{theorem}[Counting and term growth]
+\label{oeis:thm:growth}
+Let \(\varphi=(1+\sqrt5)/2\). As \(x\to\infty\),
+\[
+A(x)=\tfrac12(\log_\varphi x)^2+O(\log x),\qquad
+B(x)=\tfrac12(\log_\varphi x)^2+O(\log x),
+\]
+\[
+C(x)=(\log_\varphi x)^2+O(\log x),\qquad
+U(x)=(\log_\varphi x)^2+O(\log x).
+\]
+Consequently, as \(n\to\infty\),
+\[
+\log_\varphi a_{981}(n)=\sqrt{2n}+O(1),\qquad
+\log_\varphi a_{982}(n)=\sqrt{2n}+O(1),
+\]
+\[
+\log_\varphi a_{980}(n)=\sqrt n+O(1),\qquad
+\log_\varphi a_{983}(n)=\sqrt n+O(1).
+\]
+\end{theorem}
+\begin{proof}
+Put \(M=\lfloor\log_\varphi x\rfloor\).
+The bounds \(L_i\asymp\varphi^i\) give the following
+uniform index cutoffs, with absolute constants:
+every admissible \(S\)-pair with first index
+\(i\le M-O(1)\) has value at most \(x\), while a
+positive \(S\)-value at most \(x\) has
+\(i\le M+O(1)\). The latter uses
+\(L_i-5L_j\ge3L_{i-5}\) for every admissible
+\(i\ge5\). Summing the \(i-4\) admissible pairs
+per block and using uniqueness yields
+\(A(x)=M^2/2+O(M)\).
+
+Likewise all positive \(T\)-pairs with
+\(k\le M-O(1)\) have value at most \(x\);
+every such value at most \(x\) has
+\(k\le M+O(1)\), since the minimum in a
+\(k\)-block for \(k\ge2\) is \(2L_{k-2}\).
+Summing the \(k+3\) admissible pairs and
+subtracting the five global duplications gives
+\(B(x)=M^2/2+O(M)\).
+
+For \(P\), all pairs with both indices
+at most \(M-O(1)\) have sum at most \(x\),
+and every pair producing a sum at most \(x\)
+has both indices at most \(M+O(1)\).
+The five duplications thus give
+\(C(x)=M^2+O(M)\).
+The exact formula for \(S\cap T\) consists
+of nine exceptional values and two Lucas
+families, so \(I(x)=O(M)\).
+Inclusion--exclusion gives \(U(x)=M^2+O(M)\).
+Finally \(n\) differs by at most one from
+the corresponding positive counting function
+at its \(n\)-th term. Inverting these
+quadratic estimates yields the four asserted
+term asymptotics.
+\end{proof}
+
+\paragraph{OEIS references.}
+The four records are
+\url{https://oeis.org/A191980},
+\url{https://oeis.org/A191981},
+\url{https://oeis.org/A191982}, and
+\url{https://oeis.org/A191983}.
+
+\end{document}

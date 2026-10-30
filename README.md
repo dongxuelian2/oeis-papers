@@ -107,6 +107,12 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - [A181373](https://oeis.org/A181373) (published): Least m > 0 such that prime(n) divides 123...m and all cyclic digit permutations; 0 if none exists.
   - **Result:** We proved that every prime other than 2 and 5 divides infinitely many Champernowne prefixes together with all their cyclic digit rotations. We also supplied explicit upper bounds for the first witness.
 
+- **[A191980 / A191981 / A191982 / A191983](papers/Lucas-coefficient-families/)**
+  - [A191980](https://oeis.org/A191980): Ordered sums f+5g, where f and g are Lucas numbers (A000032 beginning at 1).
+  - [A191981](https://oeis.org/A191981): Ordered sequence of nonnegative differences f-5g, where f and g are Lucas numbers (A000032 beginning at 1).
+  - [A191982](https://oeis.org/A191982): Ordered sequence of nonnegative differences 5*f-g, where f and g are Lucas numbers (A000032 beginning at 1).
+  - [A191983](https://oeis.org/A191983): Ordered sequence of nonnegative differences c*f-d*g, where f and g are Lucas numbers (A000032 beginning at 1) and {c,d}={1,5}.
+
 - **[A195608](papers/A195608/)**
   - [A195608](https://oeis.org/A195608): Numbers n such that Sum\_{i=1..n} A(i) = A(n)\*A(n+1)/4, where A(n) = A001969(n).
   - **Result:** We proved an exact binary-parity membership criterion for every index, settling the conjectured gap set `{1,4,6}`, maximal block lengths and the block-start identity.
