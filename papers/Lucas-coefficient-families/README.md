@@ -45,6 +45,26 @@ and [A191983](https://oeis.org/A191983) (their nonnegative union).
 The original q=5 [integer verification scripts](../A191980-A191983/)
 remain separate for auditing; they are not a second paper.
 
+
+## Full-index formulas and growth
+
+The manuscript gives finite-minimum formulas for every OEIS term using
+the exact counting functions and explicit Lucas-number upper bounds.
+A191981, A191982 and A191983 start with zero; A191980 starts with 6.
+Each bound has a Lucas index of order \(\sqrt n\).
+
+With \(\varphi=(1+\sqrt5)/2\), the precise growth laws are
+\[
+\log_\varphi a_{191981}(n)=\sqrt{2n}+O(1),\qquad
+\log_\varphi a_{191982}(n)=\sqrt{2n}+O(1),
+\]
+\[
+\log_\varphi a_{191980}(n)=\sqrt n+O(1),\qquad
+\log_\varphi a_{191983}(n)=\sqrt n+O(1).
+\]
+The current formulas are exact finite minima; closed-form expressions
+without a minimum remain a separate research target.
+
 ## Verification
 
 The verification scripts remain in this directory:

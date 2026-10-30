@@ -96,6 +96,59 @@ def main() -> None:
         v = L[n + 6] - 5 * L[n]
         assert v == 5 * L[n + 2] - L[n - 4]
         assert v in witnesses and v in B
+
+    # Certified all-index finite-minimum formulas (OEIS offsets are 1).
+    from math import isqrt
+    from count_union import count_A191982, count_A191983
+    from sums import count as sum_count
+
+    def ceil_sqrt(v):
+        t = isqrt(v)
+        return t + (t*t < v)
+
+    def triangular_ceil(v):
+        k = (isqrt(8*v+1)-1)//2
+        return k + (k*(k+1)//2 < v)
+
+    def upper_s(n):
+        return L[4+triangular_ceil(n-2)]-5
+
+    def upper_t(n):
+        z = n-1
+        k = max(2,(isqrt(8*z+97)-7)//2)
+        while (k*k+7*k-12)//2 < z:
+            k += 1
+        return 5*L[k]-1
+
+    def upper_p(n):
+        return 6*L[ceil_sqrt(n+5)]
+
+    def inverse(count_fn, n, high):
+        assert count_fn(high) >= n, (n, high)
+        lo = 0
+        while lo < high:
+            mid = (lo+high)//2
+            if count_fn(mid) >= n:
+                high = mid
+            else:
+                lo = mid+1
+        assert count_fn(lo) >= n and (lo == 0 or count_fn(lo-1) < n)
+        return lo
+
+    direct_t = [0] + sorted(B)
+    direct_p = sorted({5*L[i]+L[j] for i in range(1,N+1)
+                                 for j in range(1,N+1)})
+    direct_u = sorted({0} | set(witnesses) | B)
+    for n in range(1,401):
+        if n >= 2:
+            assert inverse(published_count,n,upper_s(n)) == actual[n-1], ('S',n)
+            assert inverse(count_A191982,n,upper_t(n)) == direct_t[n-1], ('T',n)
+            assert inverse(count_A191983,n,upper_s(n)) == direct_u[n-1], ('U',n)
+        else:
+            assert published_count(0) == count_A191982(0) == count_A191983(0) == 1
+        assert inverse(sum_count,n,upper_p(n)) == direct_p[n-1], ('P',n)
+    print("PASS: all-index finite minima and explicit bounds for four OEIS sequences")
+
     print("PASS: exact three-block rank and four quadratic residue streams")
     print("PASS: exact nth terms, membership and A191982/A191983 published prefixes")
     print("PASS: two proved infinite intersection identities; finite samples checked")

@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,amsmath,amssymb,amsthm,geometry,hyperref}
 \geometry{margin=0.95in}
@@ -34,7 +34,7 @@ Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
 \[
 S_q=\{L_i-qL_j>0:i,j\ge1\},\quad
 T_q=\{qL_i-L_j>0:i,j\ge1\},\quad
-P_q=\{qL_i+L_j:i,j\ge1\}.
+P_q=\{qL_i+L_j>0:i,j\ge1\}.
 \]
 The recurrence gives
 \begin{equation}\label{eq:identities}
@@ -941,8 +941,8 @@ For this section write \(S=S_5\), \(T=T_5\),
 and \(P=P_5\). Their increasing positive values
 give OEIS A191981, A191982, and A191980,
 respectively; the positive values of A191983 form
-\(S\cup T\). The published A191981 and A191983
-also begin with a zero sentinel. Because
+\(S\cup T\). The published A191981, A191982, and A191983
+begin with a zero sentinel. Because
 \(L_i\bmod5\) cycles through \(1,3,4,2\),
 the equation \(L_i=5L_j\) is impossible:
 the zero is not a Lucas difference.
@@ -1212,9 +1212,13 @@ no threefold representations in $P$.
 
 \subsection*{Complete intersection of sums and reverse differences}
 \begin{theorem}[Complete sum--difference intersection]\label{oeis:thm:sum-full-overlap}
+Put
+\[
+E_{PT}=\{6,8,9,12,16,19,22,24,26,31,34,44,52,138\}.
+\]
 The following union is disjoint:
 \begin{equation}\label{oeis:eq:sum-full-overlap}
-\boxed{P\cap T=E\ \dot\cup\
+\boxed{P\cap T=E_{PT}\ \dot\cup\
  \{5L_n+L_{n+7}:n\ge4\}\ \dot\cup\
  \{5L_n+L_{n-3}:n\ge4\}.}
 \end{equation}
@@ -1292,9 +1296,9 @@ c &5L_a+L_b=5L_c-L_d\ \text{(distinct values)}\\ \hline
 7&22,138
 \end{array}
 \]
-These give exactly $E$. The family with $L_{n+7}$
-begins at $234>\max E$; the other begins with
-$36,58,94,152,\ldots$, none of which belongs to $E$.
+These give exactly $E_{PT}$. The family with $L_{n+7}$
+begins at $234>\max E_{PT}$; the other begins with
+$36,58,94,152,\ldots$, none of which belongs to $E_{PT}$.
 The two families are disjoint by Theorem~\ref{oeis:thm:sums}:
 if one value belonged to both, it would have two different
 sum representations, yet every value of the first family
@@ -1338,8 +1342,7 @@ For the two intersections let
 \(I(x)=\#(S\cap T\cap[1,x])\) and
 \(J(x)=\#(P\cap T\cap[1,x])\). Write
 \[
-E_{ST}=\{2,6,9,12,13,14,24,32,61\},\qquad
-E_{PT}=\{6,8,9,12,16,19,22,24,26,31,34,44,52,138\},
+E_{ST}=\{2,6,9,12,13,14,24,32,61\},
 \]
 and \(u_n=5L_n+L_{n+7}\),
 \(v_n=5L_n+L_{n-3}\) for \(n\ge4\).
@@ -1367,6 +1370,134 @@ unions proved above, and \(U\) follows from
 inclusion--exclusion. All four ordered sequences
 and both intersections therefore admit exact
 unranking by integer binary search.
+
+\subsection*{Exact terms at every index and asymptotic growth}
+Write \(a_{980}(n),a_{981}(n),a_{982}(n),a_{983}(n)\)
+for the respective OEIS sequences, indexed from \(n=1\).
+Thus \(a_{981}(1)=a_{982}(1)=a_{983}(1)=0\).
+All counting functions in the following theorem are the
+explicit finite expressions above.
+
+\begin{theorem}[All-index finite-minimum formulas]
+\label{oeis:thm:all-index}
+For \(n\ge2\), set
+\[
+r(n)=4+\left\lceil\frac{\sqrt{8n-15}-1}{2}\right\rceil,
+\qquad
+s(n)=\max\left\{2,\left\lceil
+\frac{\sqrt{8n+89}-7}{2}\right\rceil\right\}.
+\]
+For \(n\ge1\), set \(p(n)=\lceil\sqrt{n+5}\rceil\).
+Then the following nonempty finite minima give every term:
+\begin{align}
+a_{981}(n)&=\min\{1\le x\le L_{r(n)}-5:
+                       A(x)\ge n-1\},&&n\ge2,\label{eq:all-index-981}\\
+a_{982}(n)&=\min\{1\le x\le 5L_{s(n)}-1:
+                       B(x)\ge n-1\},&&n\ge2,\label{eq:all-index-982}\\
+a_{980}(n)&=\min\{1\le x\le 6L_{p(n)}:
+                       C(x)\ge n\},&&n\ge1,\label{eq:all-index-980}\\
+a_{983}(n)&=\min\{1\le x\le L_{r(n)}-5:
+                       U(x)\ge n\},&&n\ge2.\label{eq:all-index-983}
+\end{align}
+The first terms of the other three sequences are zero.
+The formulas require no previous sequence terms.
+\end{theorem}
+\begin{proof}
+For \(i\ge5\), the admissible positive \(S\)-pairs with
+first index \(i\) number \(i-4\), and their values are
+at most \(L_i-5\). The exceptional pair \((4,1)\)
+adds one value. Uniqueness therefore gives at least
+\[
+1+\frac{(r-4)(r-3)}2
+\]
+distinct positive \(S\)-values at most \(L_r-5\)
+for each \(r\ge4\). By the definition of \(r(n)\)
+this number is at least \(n-1\). The union \(S\cup T\)
+contains those values and its initial zero, giving
+the bound for \(a_{983}\) as well.
+
+For \(T\), the positive representations with first
+index \(k=1\) have \(1\le\ell\le3\), and those with
+\(2\le k\le s\) have \(1\le\ell\le k+3\).
+All these values are at most \(5L_s-1\).
+There are \(s(s+1)/2+3s-1\) pairs in total;
+Theorem~\ref{oeis:thm:duplicates} shows that at most
+five are lost on removing repeated values.
+Consequently
+\[
+B(5L_s-1)\ge\frac{s(s+1)}2+3s-6.
+\]
+The definition of \(s(n)\) makes the right-hand
+side at least \(n-1\).
+
+The \(p^2\) pairs \(1\le i,j\le p\) all produce
+positive \(P\)-values at most \(6L_p\).
+By Theorem~\ref{oeis:thm:sums}, at most five of
+these are repeated, and hence
+\(C(6L_p)\ge p^2-5\ge n\).
+All four minima now follow from the exact
+counting functions and strict ordering of distinct values.
+\end{proof}
+
+\begin{theorem}[Counting and term growth]
+\label{oeis:thm:growth}
+Let \(\varphi=(1+\sqrt5)/2\). As \(x\to\infty\),
+\[
+A(x)=\tfrac12(\log_\varphi x)^2+O(\log x),\qquad
+B(x)=\tfrac12(\log_\varphi x)^2+O(\log x),
+\]
+\[
+C(x)=(\log_\varphi x)^2+O(\log x),\qquad
+U(x)=(\log_\varphi x)^2+O(\log x).
+\]
+Consequently, as \(n\to\infty\),
+\[
+\log_\varphi a_{981}(n)=\sqrt{2n}+O(1),\qquad
+\log_\varphi a_{982}(n)=\sqrt{2n}+O(1),
+\]
+\[
+\log_\varphi a_{980}(n)=\sqrt n+O(1),\qquad
+\log_\varphi a_{983}(n)=\sqrt n+O(1).
+\]
+\end{theorem}
+\begin{proof}
+Put \(M=\lfloor\log_\varphi x\rfloor\).
+The bounds \(L_i\asymp\varphi^i\) give the following
+uniform index cutoffs, with absolute constants:
+every admissible \(S\)-pair with first index
+\(i\le M-O(1)\) has value at most \(x\), while a
+positive \(S\)-value at most \(x\) has
+\(i\le M+O(1)\). The latter uses
+\(L_i-5L_j\ge3L_{i-5}\) for every admissible
+\(i\ge5\). Summing the \(i-4\) admissible pairs
+per block and using uniqueness yields
+\(A(x)=M^2/2+O(M)\).
+
+Likewise all positive \(T\)-pairs with
+\(k\le M-O(1)\) have value at most \(x\);
+every such value at most \(x\) has
+\(k\le M+O(1)\), since the minimum in a
+\(k\)-block for \(k\ge2\) is \(2L_{k-2}\).
+Summing the \(k+3\) admissible pairs and
+subtracting the five global duplications gives
+\(B(x)=M^2/2+O(M)\).
+
+For \(P\), all pairs with both indices
+at most \(M-O(1)\) have sum at most \(x\),
+and every pair producing a sum at most \(x\)
+has both indices at most \(M+O(1)\).
+The five duplications thus give
+\(C(x)=M^2+O(M)\).
+The exact formula for \(S\cap T\) consists
+of nine exceptional values and two Lucas
+families, so \(I(x)=O(M)\).
+Inclusion--exclusion gives \(U(x)=M^2+O(M)\).
+Finally \(n\) differs by at most one from
+the corresponding positive counting function
+at its \(n\)-th term. Inverting these
+quadratic estimates yields the four asserted
+term asymptotics.
+\end{proof}
 
 \paragraph{OEIS references.}
 The four records are
