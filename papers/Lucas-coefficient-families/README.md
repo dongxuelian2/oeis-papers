@@ -66,3 +66,8 @@ The [q=5 verification programs](../A191980-A191983/) cover
 counting, intersections and multiplicities. The remaining
 verification programs in this directory check the general-coefficient
 theorems and finite collision bounds.
+
+The exact Lucas-shell inequalities are implemented in
+[the proof checks](proof_checks/): A191981 shell comparisons,
+A191980/A191982 interval certificates, and the A191983
+union ordering.

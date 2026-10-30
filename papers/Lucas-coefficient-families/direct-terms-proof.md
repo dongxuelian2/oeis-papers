@@ -280,7 +280,7 @@ The two intervals are nonempty at m=12 and all larger m; no case overlaps. Solvi
 
 ## Explicit nth term
 
-For n<=56 use the fixed prefix in `verify_union.py` (also displayed below).
+For n<=56 use the fixed prefix in `proof_checks/verify_union.py` (also displayed below).
 For n>=57 set
 
     m = 3 + floor(sqrt(n-8)),
@@ -339,7 +339,7 @@ The function T(i,j) decreases strictly in j. Therefore to prove a row of
 this table it suffices to compare its two proposed endpoints and immediate
 neighbors with the two shell endpoints. Every such comparison is a
 fixed-shift linear combination of Lucas numbers. `cert(m)` in
-`verify_union.py` gives all 19 needed inequalities. Each is strictly
+`proof_checks/verify_union.py` gives all 19 needed inequalities. Each is strictly
 positive at m=10 and m=11, so the Lucas recurrence proves it for every
 m>=10. The actual two initial values are in `verification-results.txt`.
 This proves *exhaustiveness*, 
@@ -382,3 +382,7 @@ of entries including zero below L_m is
 The inequalities (m-3)^2+7<n<=(m-2)^2+7 yield exactly
 m=3+floor(sqrt(n-8)); r subtracts the count below the shell. The sum is
 used only in the proof, not in the nth-term formula.
+
+## Exact inequality checks
+
+The companion programs [A191981](proof_checks/check_s_formula.py), [A191980/A191982](proof_checks/check_t_p.py), and [A191983](proof_checks/verify_union.py) evaluate the fixed-shift Lucas inequalities and verify complete ordered intervals. Every stated inequality is propagated from two consecutive positive initial values by the Lucas recurrence.
