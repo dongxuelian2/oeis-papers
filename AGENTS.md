@@ -36,13 +36,12 @@ These rules apply throughout `oeis-papers`. Keep the repository a clear, navigab
 
 ## Standard LaTeX paper layout
 
-- Use [`papers/A001040-A001053/main.tex`](papers/A001040-A001053/main.tex) as the default visual reference for new or reformatted mathematical manuscripts. Preserve the mathematical contents when a task requests only typesetting.
-- For ordinary articles use `\\documentclass[10pt]{article}`, T1 font encoding, `lmodern`, `amsmath`, `amssymb`, `amsthm`, and `microtype`. Set `geometry` to a `0.72in` page margin and use `hyperref` with readable blue URL links. Set `\\linespread{0.95}` unless the equations require more room.
-- Use the conventional `\\title`, `\\author`, `\\date`, `\\maketitle` layout. Show each author's actual institutional affiliation in a smaller font beneath their name; never infer additional authors. Keep the abstract directly under the title block, with `\\vspace{-1em}` after `\\maketitle` as in the reference paper. Do not use a standalone cover page or an oversized/custom title block.
-- Number main sections and subsections with `\\section` and `\\subsection`; use standard theorem, lemma, corollary, proof, equation, and reference conventions. Use unnumbered headings only for genuinely ancillary material, such as acknowledgments or references.
-- Match the reference paper's compact, conventional typography rather than increasing type size, margins, blank space, or heading decoration. Keep display equations legible and avoid cramped or overfull lines; adjust particular equations when needed rather than weakening the whole layout.
-- Preserve the established paper's authors, affiliations, statements, references, and metadata. Existing manuscripts with documented specialist typesetting needs can retain exceptions, but apply this layout by default to subsequent paper revisions.
-- Rebuild and inspect the committed PDF after any layout change; check page breaks, long equations, labels, cross-references, and whether the updated PDF reflects the source in the same commit or the immediately following automated PDF-sync commit.
+- Use [`papers/A006063/main.tex`](papers/A006063/main.tex) as the default typesetting reference for mathematical manuscripts, including those in OEIS sequence groups. When a task requests only layout changes, preserve mathematical statements, proofs, formulas, citations, and authorship.
+- The default document class is `\documentclass[9pt]{extarticle}`. Use T1 encoding, `lmodern`, `amsmath`, `amssymb`, `amsthm`, `microtype`, and `geometry` with `margin=0.78in`. Add `mathtools` and other math/table packages only when useful. Configure `hyperref` with readable blue hyperlinks.
+- Follow A006063 for the normal `\title`, `\author`, `\date`, `\maketitle`, and abstract layout; show each actual author's affiliation in smaller type below their name. Do not add a separate title page, forced compacting with `\linespread` or negative `\vspace`, or ornamental title styling.
+- Number main sections and subsections, and use a section-numbered shared theorem counter (`\newtheorem{theorem}{Theorem}[section]`, followed by other theorem-like environments sharing `[theorem]`). Use standard equation labels, proof environments, and compact reference formatting.
+- Keep the same conventional 9pt density and page geometry as A006063, while ensuring displayed equations remain readable and no content runs past the margins. If the mathematics calls for specialized formatting, make the smallest local adaptation and document material exceptions.
+- Rebuild the manuscript PDF after every source or layout change, inspect the final output for page breaks, equation overflow, labels, references, and the actual appearance, and commit the PDF to the paper directory alongside the source.
 
 ## Paper directory organization
 
