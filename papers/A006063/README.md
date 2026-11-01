@@ -15,6 +15,8 @@ journal submission. See the [point-by-point editorial response](audit/EDITORIAL_
 and its newly dated validation evidence; the first review's reports are retained
 as historical records, not relabeled as fresh checks.
 
+Latest follow-up: [compact polish review and validation](audit/POLISH_REVIEW.md).
+
 ## Main results
 
 For a positive integer `n`, let `P(n)` count permutations `p` of `{1,...,n}` such that every `i+p(i)` is a perfect cube.

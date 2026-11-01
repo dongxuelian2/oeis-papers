@@ -28,14 +28,14 @@ Let the fifteen nonnegative input block lengths be
 
 ```
 l1  = 2*beta
-l2  = 7-alpha-4*beta-alpha*beta
+l2  = 7-2*alpha-4*beta
 l3  = alpha
-l4  = alpha*beta
+l4  = alpha
 l5  = 13+4*beta
 l6  = alpha
 l7  = 23-4*beta-alpha
 l8  = 13+4*beta
-l9  = 48-alpha-45*beta+alpha*beta
+l9  = 48-45*beta
 l10 = 2*beta
 l11 = beta*(39-alpha)
 l12 = t

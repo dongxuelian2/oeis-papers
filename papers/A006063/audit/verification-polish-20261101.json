@@ -1,0 +1,56 @@
+{
+  "python": "3.12.14",
+  "scope": "finite certificates and regression tests; not independent peer review",
+  "sha256": {
+    "appendix.tex": "c7acc208faeff34c9803a6f0f224997d15b70326490f915856be64e90b3f7cf9",
+    "certificates/base_permutations.json": "eb38a1a4433c9cb3172d1b470e0667693f5286338ae967621b89045858a0e16d",
+    "certificates/core_109.json": "83eac6bdf4df14f9a9fa78661fea9da1c489ff378b2bfe129ee4792961530311",
+    "certificates/core_60_with_empty.json": "2f87bc45fa0ba60be4584c5c7fcf93d71c26f3c777b1167761df9b64c1af12e9",
+    "certificates/exact_classification_below_173.json": "f570f083f03bfdc6fa101318c3c5278a4c3973c36af39dc233add0e68dffd471",
+    "certificates/finite_56_cubic_order_shapes.txt": "ee1acd8e641885853035bf09dc3d0643f90901e36f378f9d893796d9e07b26c1",
+    "certificates/second_solutions.json": "0880429cb9844193d2eeaf2be0bbb753d62a7dde69b2615cf7407e856f7829c5",
+    "certificates/third_solutions.json": "e040e6786eaa1d712582aadab2186cccaffb077361141821e380301cae42d511",
+    "main.tex": "23037d0c74d10c7be4a2129d0bc4f3e703a6b45d971d3143ca8eea88a7ba419d",
+    "reproduce.py": "968e378939a12d5453df1f071f7220c8cbd217144c2e290795af825b8ca6a2bc",
+    "test_certificates.py": "6cf9fba69773604535ca62f6191e52f772717e570cec23af8a4d7be5c6c0f984",
+    "verify.py": "134ec616930a8753b608ece4c81642000f8b26741c765dfbec4c6e89de0eddd9",
+    "verify_56_plus_forcing.py": "74663fa7d1458e0637c8e8dcf75524f24ace492f6c9ae3469957aaab053eb467",
+    "verify_57_plus_templates.py": "0b1779df755dc13846f3addf77b6a958e51063b87859725f7fe1e809ab2a33f3",
+    "verify_eventual_involutions.py": "e7686446715b5bb6bbf3c74ecdaed50fddaff57a3d612536b972a93ca0431d9c",
+    "verify_extended.py": "96e942020f71a36249ca802a80fa9c5584b1815fce1db95dc6836ad002f37537",
+    "verify_forced_peeling.py": "26df5ac1afbb3f60d5419a0251d98d46e1013eb8bf86b7e14fdbc60da64cfc1f"
+  },
+  "checks": [
+    {
+      "script": "test_certificates.py",
+      "returncode": 0,
+      "elapsed_seconds": 0.114,
+      "output": "test_duplicate_classification_rejected (__main__.CertificateTests.test_duplicate_classification_rejected) ... ok\ntest_hall_witness_corruption_rejected (__main__.CertificateTests.test_hall_witness_corruption_rejected) ... ok\ntest_interval_union_against_explicit_sets (__main__.CertificateTests.test_interval_union_against_explicit_sets) ... ok\ntest_invalid_cycles_rejected (__main__.CertificateTests.test_invalid_cycles_rejected) ... ok\ntest_invalid_permutations_rejected (__main__.CertificateTests.test_invalid_permutations_rejected) ... ok\ntest_invalid_shape_size_rejected (__main__.CertificateTests.test_invalid_shape_size_rejected) ... ok\ntest_template_witnesses (__main__.CertificateTests.test_template_witnesses) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "script": "verify_56_plus_forcing.py",
+      "returncode": 0,
+      "elapsed_seconds": 0.073,
+      "output": "PASS: 56 unimodular shapes plus one forced-reflection theorem at 173.\nPASS: all 784 residual block lengths reconstructed by determinants.\nPASS: all 56 determinant vectors strictly positive, min length 1.\nPASS: cubic dilation for every integer h>=1, symbolically;\n      lengths N(h)=(n+epsilon)*h^3-epsilon, epsilon=t mod 2.\nPASS: 25 independent symbolic family bases and all 173..364.\nNo legacy endpoint table, matching solver, or floating point used.\n"
+    },
+    {
+      "script": "verify_forced_peeling.py",
+      "returncode": 0,
+      "elapsed_seconds": 0.019,
+      "output": "PASS: symbolic three-band peeling for all 173<=n<=181\nPASS: forced matching unique at n=173 (3 fixed points)\nPASS: forced matching unique at n=174 (2 fixed points)\nPASS: n=175 has 10-vertex loop+9-cycle core, exactly 3 permutations\nPASS: any 173->174 extension rewires exactly 25 old rows\n"
+    },
+    {
+      "script": "verify_extended.py",
+      "returncode": 0,
+      "elapsed_seconds": 0.68,
+      "output": "PASS: exact small classification (48 positive, 124 Hall-negative).\nPASS: 109 compact witnesses imply all 192 base cases.\nPASS: empty matching + 48 early positives + 60 new seeds cover all 192 sizes n=173..364.\nPASS: complete A096680 classification and THREE distinct solutions for all n>=175 by induction.\nPASS: P(175)=3 exactly by a 10-by-10 permanent with 165 forced rows.\nPASS: numerical smoke tests for all structural inequalities n<= 100000.\nALL EXTENDED CERTIFICATES PASS\n"
+    },
+    {
+      "script": "verify_eventual_involutions.py",
+      "returncode": 0,
+      "elapsed_seconds": 2.232,
+      "output": "PASS seed=7, 13 rounds, 2961 intervals; last interval=(69603, 100001), covers target [69603,100001] in its parity\nPASS seed=26, 12 rounds, 7047 intervals; last interval=(228028, 303412), covers target [228028,303412] in its parity\nPASS lower bound at k=57: 2*(k-2)^3-k^3-2*M=8351>0\nPASS lower bound at k=83: 2*(k-2)^3-k^3-2*M=35039>0\nTHEOREM: odd n>=69603: exactly one fixed point (4); even n>=228028: fixed-point-free involution.\n"
+    }
+  ],
+  "passed": true
+}
