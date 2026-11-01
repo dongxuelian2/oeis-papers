@@ -39,7 +39,7 @@ jobs:
           root_file: main.tex
   sync-committed-pdf:
     needs: exact-integer-tests
-    if: github.event_name == 'push' && github.ref == 'refs/heads/research/a191981-unique-representations-20261026'
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/research/a191981-unique-representations-20261026')
     runs-on: ubuntu-latest
     permissions:
       contents: write
