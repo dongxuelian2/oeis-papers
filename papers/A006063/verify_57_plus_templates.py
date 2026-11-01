@@ -137,12 +137,19 @@ def parametric_rows():
             10+24*alpha+93*beta,
         )
         nominal = (
-            8,8+19*alpha,343,
-            167-12*alpha+61*beta,
-            167-12*alpha-30*beta,
-            167-12*alpha+61*beta,
-            512,177+12*alpha+27*beta,343,512,
+            8,15+12*alpha,343,
+            333-24*alpha-93*beta,
+            174-49*beta,
+            174+42*beta,
+            512,184+24*alpha+8*beta,343,512,
         )
+        # Check the literal nominal identity even for omitted zero blocks.
+        position = {label: i for i, label in enumerate(mother_pi)}
+        actual = tuple(1 + sum(lengths[:j]) + lengths[j]
+                       + sum(lengths[i] for i in range(len(lengths))
+                             if position[i+1] < position[j+1])
+                       for j in range(len(lengths)))
+        assert nominal == actual, (alpha, beta, nominal, actual)
         assert all(L>=0 for L in lengths)
         keep = tuple(j for j,L in enumerate(lengths,1) if L>0)
         renumber = {j:i for i,j in enumerate(keep,1)}

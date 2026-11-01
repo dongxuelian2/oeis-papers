@@ -28,6 +28,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Reproduce current submission certificates and regression tests
+        run: python papers/A006063/reproduce.py --report build/a006063-verification.json
+      - name: Upload exact-byte verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a006063-verification
+          path: build/a006063-verification.json
       - name: Verify original 192 witnesses and recursive construction
         run: python papers/A006063/verify.py
       - name: Regenerate 192 independent matching witnesses

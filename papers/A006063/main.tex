@@ -301,7 +301,7 @@ four-cube palette bounds: the allowed cube sums grow with $n$.
 \end{remark}
 
 \section{Reproducibility and scope}\label{sec:audit}
-The published finite data and the mathematical assertions they certify are separated in Table~\ref{tab:ledger}. The companion repository is \url{https://github.com/dongxuelian2/oeis-papers/tree/main/papers/A006063}; while PR \#13 remains under review, use its head branch or a pinned commit for reproducibility.
+The published finite data and the mathematical assertions they certify are separated in Table~\ref{tab:ledger}. The companion repository is \url{https://github.com/dongxuelian2/oeis-papers/tree/main/papers/A006063}.
 \begin{table}[ht]
 \small\centering
 \begin{tabular}{@{}p{0.33\linewidth}p{0.54\linewidth}@{}}
@@ -312,7 +312,7 @@ Six symbolic families & 25 explicit algebraic seed sizes, including zero-block d
 Forced-neighbor record & Construction and uniqueness at 173,174; exact count at 175.\\
 Finite reflection closure & All 192 sizes $173,\ldots,364$; no matching algorithm.\\
 48 positive / 124 Hall sets & Full membership below 173 and sharpness of threshold.\\
-Alternating-cycle archives & Small uniqueness/multiplicity and three solutions for the finite multiplicity base.\\
+{\raggedright Alternating-cycle archives and \texttt{base\_permutations.json}\par} & Small uniqueness/multiplicity and three solutions for the finite multiplicity base.\\
 Odd-cube reflection closure & Two finite parity intervals giving minimal-fixed-point involutions beyond explicit bounds.\\\bottomrule
 \end{tabular}
 \caption{Finite certificate dependency ledger; all subsequent tail steps are algebraic.}\label{tab:ledger}
@@ -329,7 +329,7 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 A checked code path uses exact integers; the main 56-shape check does not import numerical optimization, a matching library or an old permutation atlas. We do \emph{not} claim that the 56 finite positivity instances have been replaced by one case-free construction. Likewise, the stronger proposed four-cube involution theorem in the range $467\le n\le665$ remains computationally observed but lacks a uniform, noncomputational Hall/matching proof; it is unrelated to the assumptions used above. Independent peer review and a comprehensive priority search remain outstanding.
 
 \section*{Acknowledgement of computational assistance}
-Symbolic experiments and exact finite-certificate generation and checking were used in developing this result. Every essential finite condition is stated in machine-checkable integer form and is accompanied by a reproducible verifier. The author remains responsible for the mathematical statements and the submitted version.
+Symbolic experiments and exact finite-certificate generation and checking were used in developing this result. Every essential finite condition is stated in machine-checkable integer form and is accompanied by a reproducible verifier. The authors remain responsible for the mathematical statements and the submitted version.
 
 \begin{thebibliography}{9}
 \bibitem{oeis-a006063} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, A006063, \url{https://oeis.org/A006063} (accessed October 2026).
