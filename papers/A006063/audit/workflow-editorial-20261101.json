@@ -1,0 +1,284 @@
+[
+  {
+    "command": "python papers/A006063/reproduce.py --report build/a006063-verification.json",
+    "returncode": 0,
+    "seconds": 3.079,
+    "output": "=== test_certificates.py ===\ntest_duplicate_classification_rejected (__main__.CertificateTests.test_duplicate_classification_rejected) ... ok\ntest_hall_witness_corruption_rejected (__main__.CertificateTests.test_hall_witness_corruption_rejected) ... ok\ntest_interval_union_against_explicit_sets (__main__.CertificateTests.test_interval_union_against_explicit_sets) ... ok\ntest_invalid_cycles_rejected (__main__.CertificateTests.test_invalid_cycles_rejected) ... ok\ntest_invalid_permutations_rejected (__main__.CertificateTests.test_invalid_permutations_rejected) ... ok\ntest_invalid_shape_size_rejected (__main__.CertificateTests.test_invalid_shape_size_rejected) ... ok\ntest_template_witnesses (__main__.CertificateTests.test_template_witnesses) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.007s\n\nOK\n=== verify_56_plus_forcing.py ===\nPASS: 56 unimodular shapes plus one forced-reflection theorem at 173.\nPASS: all 784 residual block lengths reconstructed by determinants.\nPASS: all 56 determinant vectors strictly positive, min length 1.\nPASS: cubic dilation for every integer h>=1, symbolically;\n      lengths N(h)=(n+epsilon)*h^3-epsilon, epsilon=t mod 2.\nPASS: 25 independent symbolic family bases and all 173..364.\nNo legacy endpoint table, matching solver, or floating point used.\n=== verify_forced_peeling.py ===\nPASS: symbolic three-band peeling for all 173<=n<=181\nPASS: forced matching unique at n=173 (3 fixed points)\nPASS: forced matching unique at n=174 (2 fixed points)\nPASS: n=175 has 10-vertex loop+9-cycle core, exactly 3 permutations\nPASS: any 173->174 extension rewires exactly 25 old rows\n=== verify_extended.py ===\nPASS: exact small classification (48 positive, 124 Hall-negative).\nPASS: 109 compact witnesses imply all 192 base cases.\nPASS: empty matching + 48 early positives + 60 new seeds cover all 192 sizes n=173..364.\nPASS: complete A096680 classification and THREE distinct solutions for all n>=175 by induction.\nPASS: P(175)=3 exactly by a 10-by-10 permanent with 165 forced rows.\nPASS: numerical smoke tests for all structural inequalities n<= 100000.\nALL EXTENDED CERTIFICATES PASS\n=== verify_eventual_involutions.py ===\nPASS seed=7, 13 rounds, 2961 intervals; last interval=(69603, 100001), covers target [69603,100001] in its parity\nPASS seed=26, 12 rounds, 7047 intervals; last interval=(228028, 303412), covers target [228028,303412] in its parity\nPASS lower bound at k=57: 2*(k-2)^3-k^3-2*M=8351>0\nPASS lower bound at k=83: 2*(k-2)^3-k^3-2*M=35039>0\nTHEOREM: odd n>=69603: exactly one fixed point (4); even n>=228028: fixed-point-free involution.\nFINITE CHECKS PASS\n"
+  },
+  {
+    "command": "python papers/A006063/verify.py",
+    "returncode": 0,
+    "seconds": 0.113,
+    "output": "PASS: 192 explicit base permutations, 51552 integer entries, n=173..364.\nPASS: recursive construction checked for n=365..1000 and 1024, 5000, 10000, 100000.\n"
+  },
+  {
+    "command": "python papers/A006063/independent_match.py",
+    "returncode": 0,
+    "seconds": 0.133,
+    "output": "PASS: independent augmenting-path matching for all n=173..364.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_extended.py",
+    "returncode": 0,
+    "seconds": 0.673,
+    "output": "PASS: exact small classification (48 positive, 124 Hall-negative).\nPASS: 109 compact witnesses imply all 192 base cases.\nPASS: empty matching + 48 early positives + 60 new seeds cover all 192 sizes n=173..364.\nPASS: complete A096680 classification and THREE distinct solutions for all n>=175 by induction.\nPASS: P(175)=3 exactly by a 10-by-10 permanent with 165 forced rows.\nPASS: numerical smoke tests for all structural inequalities n<= 100000.\nALL EXTENDED CERTIFICATES PASS\n"
+  },
+  {
+    "command": "python papers/A006063/verify_word_paths.py",
+    "returncode": 0,
+    "seconds": 0.029,
+    "output": "PASS: one explicit interval involution of n=173, 191 alternating augmenting words, 1844 cube-root digits, all 192 matchings valid.\nPASS: no matching solver, floating point or long witness JSON used.\n"
+  },
+  {
+    "command": "python papers/A006063/finite_endpoint_identity.py",
+    "returncode": 0,
+    "seconds": 0.022,
+    "output": "PASS: 109 explicit integer multiset identities.\nPASS: every table row defines a permutation via the\n      boundary-cancellation lemma, no matching computation.\nPASS: 1,123 image intervals; all image endpoints inside [1,n+1].\n"
+  },
+  {
+    "command": "python papers/A006063/verify_82_seed_proof.py",
+    "returncode": 0,
+    "seconds": 0.027,
+    "output": "PASS: 82 endpoint-multiset identities, 1,009 reflected intervals.\nPASS: 22 small seeds and 60 middle seeds are irredundant\n      under the specified strictly growing suffix-reflection rule.\nPASS: derived 26 further lengths below 173 and\n      132 further lengths from 173 through 364.\nPASS: every n in 173..364 is covered without a matching solver.\nThe n>=365 tail uses the symbolic cube-gap inequality in\nCOMPRESSED_FINITE_PROOF.md and is not an executable assumption.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_74_plus_templates.py",
+    "returncode": 0,
+    "seconds": 0.025,
+    "output": "PASS: 74 exceptional integer identities (969 blocks).\nPASS: 3 algebraic template families produce 8 further lengths\n      (40 blocks) with exact cube-sum block rearrangements.\nPASS: all 82 base witnesses, 1009 blocks in total.\nPASS: 26 small and 132 middle cubic suffix reflections.\nPASS: all lengths 173..364 certified without matching.\nInfinite tail follows from the symbolic cubic-gap lemma.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_70_plus_templates.py",
+    "returncode": 0,
+    "seconds": 0.021,
+    "output": "PASS: 70 exceptional integer identities (927 blocks).\nPASS: 4 algebraic template families produce 12 further lengths\n      (82 blocks) with exact cube-sum block rearrangements.\nPASS: all 82 base witnesses, 1009 blocks in total.\nPASS: 26 small and 132 middle cubic suffix reflections.\nPASS: all lengths 173..364 certified without matching.\nInfinite tail follows from the symbolic cubic-gap lemma.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_66_plus_templates.py",
+    "returncode": 0,
+    "seconds": 0.022,
+    "output": "PASS: 66 exceptional integer identities (885 blocks).\nPASS: 4 algebraic template families produce 16 further lengths\n      (124 blocks) with exact cube-sum block rearrangements.\nPASS: all 82 base witnesses, 1009 blocks in total.\nPASS: 26 small and 132 middle cubic suffix reflections.\nPASS: all lengths 173..364 certified without matching.\nInfinite tail follows from the symbolic cubic-gap lemma.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_60_plus_templates.py",
+    "returncode": 0,
+    "seconds": 0.022,
+    "output": "PASS: 60 exceptional integer identities (816 blocks).\nPASS: 5 algebraic template families produce 22 further lengths\n      (193 blocks) with exact cube-sum block rearrangements.\nPASS: all 82 base witnesses, 1009 blocks in total.\nPASS: 26 small and 132 middle cubic suffix reflections.\nPASS: all lengths 173..364 certified without matching.\nInfinite tail follows from the symbolic cubic-gap lemma.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_57_plus_templates.py",
+    "returncode": 0,
+    "seconds": 0.022,
+    "output": "PASS: 57 exceptional integer identities (795 blocks).\nPASS: 6 algebraic template families produce 25 further lengths\n      (214 blocks) with exact cube-sum block rearrangements.\nPASS: all 82 base witnesses, 1009 blocks in total.\nPASS: 26 small and 132 middle cubic suffix reflections.\nPASS: all lengths 173..364 certified without matching.\nInfinite tail follows from the symbolic cubic-gap lemma.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_unimodular_factory.py",
+    "returncode": 0,
+    "seconds": 0.068,
+    "output": "PASS: 57 independent unimodular cubic-order algebraic shapes.\nPASS: all 795 block lengths reconstructed by integer determinants.\nPASS: all 57 sets of block lengths positive; min length 1.\nPASS: cubic dilation for every integer h>=1, symbolically;\n      lengths N(h)=(n+epsilon)*h^3-epsilon, epsilon=t mod 2.\nPASS: 25 independent symbolic family bases and all 173..364.\nNo legacy endpoint table, matching solver, or floating point used.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_forced_peeling.py",
+    "returncode": 0,
+    "seconds": 0.018,
+    "output": "PASS: symbolic three-band peeling for all 173<=n<=181\nPASS: forced matching unique at n=173 (3 fixed points)\nPASS: forced matching unique at n=174 (2 fixed points)\nPASS: n=175 has 10-vertex loop+9-cycle core, exactly 3 permutations\nPASS: any 173->174 extension rewires exactly 25 old rows\n"
+  },
+  {
+    "command": "python papers/A006063/verify_odd_cube_path_quotient.py",
+    "returncode": 0,
+    "seconds": 0.083,
+    "output": "PASS: exact 193-component 2/3/4-path decomposition at all 199 lengths\nPASS: symbolic size counts and fixed-108 parity defects\nPASS: at least 85 even-cube matching edges required near n=557\nPASS: explicit obstruction to the naive odd-component quotient\nThis is NOT a proof of five-cube matching existence.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_tutte_581.py",
+    "returncode": 0,
+    "seconds": 0.014,
+    "output": "PASS: 31 disjoint integer intervals form a 103-vertex Tutte set\nPASS: 477 remaining vertices split into 105 odd components\nPASS: component sizes {1: 60, 3: 18, 5: 13, 7: 2, 11: 7, 17: 3, 63: 1, 93: 1}\nPROVED: 105 > 103, so no perfect matching is possible\nCONSEQUENCE: no four-cube involution with sole fixed point 108 at n=581\n"
+  },
+  {
+    "command": "python papers/A006063/verify_four_cube_boundary_forcing.py",
+    "returncode": 0,
+    "seconds": 0.056,
+    "output": "PASS: 199/199 exact high-window initial leaf sets\nPASS: phase I forced suffix [512,n], and extra odd 404\nPASS: phase II exactly two forced leaves per length\nPASS: phase III even no leaves; odd fixed256 threshold 642\nPASS: all odd n=581..641 fixed256 force 87<->425\nNOTE: this proves necessary forced edges, not matching existence\n"
+  },
+  {
+    "command": "python papers/A006063/verify_phase_iii_cascade.py",
+    "returncode": 0,
+    "seconds": 0.113,
+    "output": "PASS: fixed-500 keeps 193 paths; fixed-256 splits into 194 at 86 cases\nPASS: exact 1/2/3/4-component-size profiles and odd defects\nPASS: exact 6/3/4/0 and 5/1 forced-edge cascades\nPASS: six small boundary checks, each surviving affected vertex degree 2\nNOT PROVED: perfect matching existence in the leaf-free cores\n"
+  },
+  {
+    "command": "python papers/A006063/verify_dual_reflection_paths.py",
+    "returncode": 0,
+    "seconds": 0.293,
+    "output": "PASS: exact even-cube 245-path counts at 86 lengths\nPASS: fixed 256 gives 244 even / 194 odd components\nPASS: fixed 500 gives 245 even / 193 odd components\nPASS: all 86 odd fixed-point graphs have size <=4 paths\nPASS: two quotient component counts sum to exactly 438\nNOT PROVED: perfect matching of the four-cube union\n"
+  },
+  {
+    "command": "python papers/A006063/verify_three_rotation_planarity.py",
+    "returncode": 0,
+    "seconds": 0.021,
+    "output": "PASS: n=560, V=560, E=729, F=171, Euler=2; cyclic color order (216, 343, 512, 729)\nPASS: n=579, V=579, E=656, F=79, Euler=2; cyclic color order (216, 512, 729, 1000)\nPASS: n=665, V=665, E=892, F=229, Euler=2; cyclic color order (343, 729, 512, 1000)\nPROVED: each full maximum graph has an explicit planar rotation.\nPROVED: all 199 smaller phase graphs are planar induced subgraphs.\nNOT PROVED: planar graphs have perfect matchings in this setting.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_small_bipartite_core.py",
+    "returncode": 0,
+    "seconds": 0.061,
+    "output": "PASS: [467,560] absolute bipartition imbalance 0/2/4 occurs {0: 8, 2: 54, 4: 32}\nPASS: same-color exceptional edges form a matching; at most two edge toggles balance all these graphs\nPASS: [467,560]; 14 fixed edges removed at maximum n=560; all graphs are bipartite\n      four odd faces: dual pairing sums [14, 15, 21]; minimum 14 is attained\nPASS: [561,579] absolute bipartition imbalance 0/2/4 occurs {0: 1, 2: 10, 4: 8}\nPASS: same-color exceptional edges form a matching; at most two edge toggles balance all these graphs\nPASS: [561,579]; 10 fixed edges removed at maximum n=579; all graphs are bipartite\n      four odd faces: dual pairing sums [10, 13, 16]; minimum 10 is attained\nPASS: [580,665] absolute bipartition imbalance 0/2/4 occurs {0: 34, 2: 48, 4: 4}\nPASS: same-color exceptional edges form a matching; at most two edge toggles balance all these graphs\nPASS: [580,665]; 16 fixed edges removed at maximum n=665; all graphs are bipartite\n      four odd faces: dual pairing sums [16, 18, 24]; minimum 16 is attained\nPASS: 3 explicit deletions certify all 199 graphs.\nPASS: the 14/10/16 edge sizes are optimal at the maxima.\nNOTE: no matching-existence claim follows from bipartiteness alone.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_planar_face_word_templates.py",
+    "returncode": 0,
+    "seconds": 0.02,
+    "output": "PASS: n=560, 8 color-word families enumerate all 171 faces\nPASS: n=579, 9 color-word families enumerate all 79 faces\nPASS: n=665, 9 color-word families enumerate all 229 faces\nPASS: exactly 26 face templates certify the three planar rotations\nNO matching solver and NO planarity-search implementation used\n"
+  },
+  {
+    "command": "python papers/A006063/verify_near_bipartite_phases.py",
+    "returncode": 0,
+    "seconds": 0.125,
+    "output": "PASS: maximum=560, exactly four odd faces, two disjoint dual paths of lengths [7, 7]\n      14 deleted edges leave a bipartite graph\n      six dual distances certify optimality: tau=14\nPASS: maximum=579, exactly four odd faces, two disjoint dual paths of lengths [5, 5]\n      10 deleted edges leave a bipartite graph\n      six dual distances certify optimality: tau=10\nPASS: maximum=665, exactly four odd faces, two disjoint dual paths of lengths [8, 8]\n      16 deleted edges leave a bipartite graph\n      six dual distances certify optimality: tau=16\nPASS: every n in [467,560] is <=16-edge bipartizable\n      bipartition absolute imbalance: {0: 8, 2: 54, 4: 32}\nPASS: every n in [561,579] is <=16-edge bipartizable\n      bipartition absolute imbalance: {4: 6, 6: 11, 8: 2}\nPASS: every n in [580,665] is <=16-edge bipartizable\n      bipartition absolute imbalance: {0: 36, 2: 47, 4: 3}\nPROVED: minimum bipartizing edge counts are exactly 14/10/16.\nPROVED: three maximum planar graphs each admit two odd-face dual paths.\nPROVED: all 199 phase graphs inherit the three fixed edge-transversals.\nNOTE: no perfect-matching existence is inferred from near-bipartiteness.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_defect_matching_reduction.py",
+    "returncode": 0,
+    "seconds": 0.126,
+    "output": "PASS: 560-vertex maximum, 14 pairwise disjoint monochromatic exceptional edges, split {0: 8, 1: 6}\nPASS: all inherited graphs 2-color after deletion; absolute balances {0: 8, 2: 54, 4: 32}\nPASS: 579-vertex maximum, 10 pairwise disjoint monochromatic exceptional edges, split {0: 7, 1: 3}\nPASS: all inherited graphs 2-color after deletion; absolute balances {4: 6, 6: 11, 8: 2}\nPASS: 665-vertex maximum, 16 pairwise disjoint monochromatic exceptional edges, split {0: 9, 1: 7}\nPASS: all inherited graphs 2-color after deletion; absolute balances {0: 36, 2: 47, 4: 3}\nPROVED: each high four-cube graph is bipartite plus <=16 disjoint edges.\nPROVED: perfect matching iff a balanced subset of those edges leaves a Hall-perfect bipartite graph.\nNOT PROVED: that one such Hall-perfect subset always exists.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_56_plus_forcing.py",
+    "returncode": 0,
+    "seconds": 0.066,
+    "output": "PASS: 56 unimodular shapes plus one forced-reflection theorem at 173.\nPASS: all 784 residual block lengths reconstructed by determinants.\nPASS: all 56 determinant vectors strictly positive, min length 1.\nPASS: cubic dilation for every integer h>=1, symbolically;\n      lengths N(h)=(n+epsilon)*h^3-epsilon, epsilon=t mod 2.\nPASS: 25 independent symbolic family bases and all 173..364.\nNo legacy endpoint table, matching solver, or floating point used.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_70_plus_templates.py",
+    "returncode": 0,
+    "seconds": 0.022,
+    "output": "PASS: 70 exceptional integer identities (927 blocks).\nPASS: 4 algebraic template families produce 12 further lengths\n      (82 blocks) with exact cube-sum block rearrangements.\nPASS: all 82 base witnesses, 1009 blocks in total.\nPASS: 26 small and 132 middle cubic suffix reflections.\nPASS: all lengths 173..364 certified without matching.\nInfinite tail follows from the symbolic cubic-gap lemma.\n"
+  },
+  {
+    "command": "python papers/A006063/count_236.py",
+    "returncode": 0,
+    "seconds": 0.014,
+    "output": "PASS: fifteen-interval valid permutation, nine independent 5-cycles.\nPROVED: P(236)=512 and no cube-sum involution for n=236.\n"
+  },
+  {
+    "command": "python papers/A006063/lift_exponential_subsequence.py",
+    "returncode": 0,
+    "seconds": 0.227,
+    "output": "PASS t=9, n=200839, L=729, independent cycles=6561.\nCertified number of permutations at n=200839: >=2**6561.\nPASS t=11, n=366690, L=1331, independent cycles=11979.\nCertified number of permutations at n=366690: >=2**11979.\n"
+  },
+  {
+    "command": "python papers/A006063/tensorize_fibers.py",
+    "returncode": 0,
+    "seconds": 0.05,
+    "output": "PASS t=3, cube-block L=27, shifted size=6372, independent fibers=27, injection test PASS\nPASS t=5, cube-block L=125, shifted size=29500, independent fibers=125, injection test PASS\n"
+  },
+  {
+    "command": "python papers/A006063/audit_permutation_code.py",
+    "returncode": 0,
+    "seconds": 0.184,
+    "output": "PASS odd t=3: 243 bits, permutation Hamming distance=540 = 5*108.\nPASS odd t=5: 1125 bits, permutation Hamming distance=2505 = 5*501.\nPASS odd t=9: 6561 bits, permutation Hamming distance=14505 = 5*2901.\n"
+  },
+  {
+    "command": "python papers/A006063/optimize_terminal_cube.py",
+    "returncode": 0,
+    "seconds": 0.215,
+    "output": "PASS t=9, k=71, N=185502, suffix=13094; at least 2**6561 matchings.\nPASS t=11, k=86, N=321274, suffix=6493; at least 2**11979 matchings.\n"
+  },
+  {
+    "command": "python papers/A006063/audit_three_cycle_identity.py",
+    "returncode": 0,
+    "seconds": 0.15,
+    "output": "PASS u=1, n=681707, disjoint 3-cycles=148876; certified >=2**148876 legal permutations.\nPASS u=2, n=5453656, disjoint 3-cycles=1191015; certified >=2**1191015 legal permutations.\nPASS u=3, n=18406089, disjoint 3-cycles=4019678; certified >=2**4019678 legal permutations.\n"
+  },
+  {
+    "command": "python papers/A006063/renormalization.py",
+    "returncode": 0,
+    "seconds": 0.087,
+    "output": "PASS: pure 4-block seed n=171, affine lift 7 -> 2572.\nPASS: n=316 -> 108559; independent fiber modification changes exactly 5 positions.\nPASS: T^4(7)=103809654007 and exact affine composition.\nPASS: T^4(316)=4380767399116 and exact affine composition.\n"
+  },
+  {
+    "command": "python papers/A006063/global_graph_audit.py",
+    "returncode": 0,
+    "seconds": 0.02,
+    "output": "PASS global cube gap n=7: matching defect <= 0, maximum gap 19.\nPASS global cube gap n=10: matching defect <= 3, maximum gap 19.\nPASS global cube gap n=26: matching defect <= 0, maximum gap 37.\nPASS global cube gap n=172: matching defect <= 43, maximum gap 169.\nPASS global cube gap n=173: matching defect <= 42, maximum gap 169.\nPASS global cube gap n=236: matching defect <= 21, maximum gap 169.\nPASS global cube gap n=1000: matching defect <= 1, maximum gap 469.\nPASS global cube gap n=10000: matching defect <= 647, maximum gap 2269.\nPASS global cube gap n=100000: matching defect <= 2665, maximum gap 10267.\nPASS n=7: SCCs=7, parity=1.\nPASS n=171: SCCs=171, parity=1.\nPASS n=236: SCCs=200, parity=0.\nPASS P(236)=2^9 exact via 9 five-vertex permanent factors.\nPASS parity checked independently through GF(2) elimination.\n"
+  },
+  {
+    "command": "python papers/A006063/one_seed_eventual.py",
+    "returncode": 0,
+    "seconds": 0.075,
+    "output": "PASS: seven reflection rounds from n=7; counts: 1 21 189 995 3280 6588 8533 8924\nPASS: all 2061 lengths 8915..10975 reachable.\nPASS: n=8915, valid permutation, reflection depth=6.\nPASS: n=9841, valid permutation, reflection depth=6.\nPASS: n=10975, valid permutation, reflection depth=6.\nPASS: n=10976, valid permutation, reflection depth=7.\nPASS: n=20000, valid permutation, reflection depth=5.\nPASS: n=100000, valid permutation, reflection depth=3.\nPASS: symbolic reflection plan n=10976 in 7 steps.\nPASS: symbolic reflection plan n=12195 in 6 steps.\nPASS: symbolic reflection plan n=20000 in 5 steps.\nPASS: symbolic reflection plan n=100000 in 3 steps.\nPASS: symbolic reflection plan n=1000000000000000000000000000000 in 11 steps.\nCERTIFIED: P(n)>0 for every n>=8915 by induction.\n"
+  },
+  {
+    "command": "python papers/A006063/one_seed_interval_proof.py",
+    "returncode": 0,
+    "seconds": 0.057,
+    "output": "PASS round 1: 21 lengths in 21 disjoint intervals\nPASS round 2: 189 lengths in 186 disjoint intervals\nPASS round 3: 995 lengths in 870 disjoint intervals\nPASS round 4: 3280 lengths in 2077 disjoint intervals\nPASS round 5: 6588 lengths in 2037 disjoint intervals\nPASS round 6: 8533 lengths in 1031 disjoint intervals\nPASS round 7: 8924 lengths in 770 disjoint intervals\nPASS: [8915,10975] is a single proven interval in round 7.\nPASS: exact symbolic interval reflection, no matching search.\n"
+  },
+  {
+    "command": "python papers/A006063/reflection_tree_counts.py",
+    "returncode": 0,
+    "seconds": 0.071,
+    "output": "PASS: seven reflection rounds from n=7; counts: 1 21 189 995 3280 6588 8533 8924\nPASS: all 2061 lengths 8915..10975 reachable.\nPASS: exact reflection recurrence at 12,000 lengths.\nPASS: last reflected permutation value identifies its unique parent.\nF(173)=0\nF(7797)=0\nF(7798)=5\nF(8914)=7\nF(8915)=86\nF(9841)=197\nF(10975)=344\nF(12000)=85\n"
+  },
+  {
+    "command": "python papers/A006063/reflection_entropy_barrier.py",
+    "returncode": 0,
+    "seconds": 0.147,
+    "output": "PASS: exact reflection counts satisfy root-subset upper bound at every length 7..12000.\nPASS N=10000, K=27: depth <=3 reaches 895 lengths (0.08950 of range), rigorous counting bound=2952.\nPASS N=100000, K=58: depth <=3 reaches 9630 lengths (0.09630 of range), rigorous counting bound=30914.\nPASS N=1000000, K=125: depth <=3 reaches 98749 lengths (0.09875 of range), rigorous counting bound=317875.\nPASS: root-order encoding and depth-3 density barrier.\n"
+  },
+  {
+    "command": "python papers/A006063/arithmetic_expansion_audit.py",
+    "returncode": 0,
+    "seconds": 0.061,
+    "output": "PASS n=172: degree=[1,4], max_tau=16, max_cube_diff_multiplicity=1, checked_pairs=14706\nPASS n=236: degree=[1,5], max_tau=18, max_cube_diff_multiplicity=1, checked_pairs=27730\nPASS n=1000: degree=[2,9], max_tau=32, max_cube_diff_multiplicity=1, checked_pairs=1035\nPASS n=10000: degree=[5,20], max_tau=64, max_cube_diff_multiplicity=2, checked_pairs=1035\nPASS: exact degree, divisor-codegree and Cauchy-Schwarz expansion identities.\n"
+  },
+  {
+    "command": "python papers/A006063/involution_tail_audit.py",
+    "returncode": 0,
+    "seconds": 0.102,
+    "output": "PASS: seven reflection rounds from n=7; counts: 1 21 189 995 3280 6588 8533 8924\nPASS: all 2061 lengths 8915..10975 reachable.\nPASS n=8915: involution fixing 4, 5 fixed points, 4455 transpositions, 6 reflection layers.\nPASS n=8916: involution fixing 4, 4 fixed points, 4456 transpositions, 4 reflection layers.\nPASS n=9841: involution fixing 4, 5 fixed points, 4918 transpositions, 6 reflection layers.\nPASS n=10975: involution fixing 4, 3 fixed points, 5486 transpositions, 6 reflection layers.\nPASS n=10976: involution fixing 4, 4 fixed points, 5486 transpositions, 7 reflection layers.\nPASS n=20000: involution fixing 4, 2 fixed points, 9999 transpositions, 5 reflection layers.\nPASS n=100000: involution fixing 4, 4 fixed points, 49998 transpositions, 3 reflection layers.\nPASS: involution preservation verified on explicit constructions.\n"
+  },
+  {
+    "command": "python papers/A006063/parity_minimal_involutions.py",
+    "returncode": 0,
+    "seconds": 1.217,
+    "output": "PASS seed=7, n=70001, depth=7, fixed=[4]\nPASS seed=7, n=100001, depth=4, fixed=[4]\nPASS seed=7, n=100003, depth=9, fixed=[4]\nPASS seed=7, n=100011, depth=13, fixed=[4]\nPASS seed=7, n=200003, depth=9, fixed=[4]\nPASS seed=7: all 15001 same-parity lengths 70001..100001 reachable; last gap=69601.\nPASS seed=26, n=230000, depth=12, fixed=[]\nPASS seed=26, n=302000, depth=5, fixed=[]\nPASS seed=26, n=302002, depth=8, fixed=[]\nPASS seed=26, n=302010, depth=12, fixed=[]\nPASS seed=26, n=604000, depth=8, fixed=[]\nPASS seed=26: all 36001 same-parity lengths 230000..302000 reachable; last gap=228026.\nCERTIFIED by odd-cube induction: odd n>=70001 has an involution fixing exactly 4; even n>=230000 has a fixed-point-free cube-sum involution.\n"
+  },
+  {
+    "command": "python papers/A006063/parity_interval_proof.py",
+    "returncode": 0,
+    "seconds": 1.899,
+    "output": "PASS seed=7: 12 interval rounds, 41057 reachable parity lengths; target 70001..100001 lies in interval (69891, 100001).\nPASS seed=26: 12 interval rounds, 121707 reachable parity lengths; target 230000..302000 lies in interval (228028, 302000).\nCERTIFIED: both parity-minimal fixed-point finite windows by 12 rounds of symbolic interval arithmetic.\n"
+  },
+  {
+    "command": "python papers/A006063/taxicab_involution_audit.py",
+    "returncode": 0,
+    "seconds": 0.054,
+    "output": "PASS roots=(17, 39, 26, 36), u=1, length=54406, independent 4-vertex switches=2456, choices >=2**2456.\nPASS roots=(17, 39, 26, 36), u=3, length=1468962, independent 4-vertex switches=66325, choices >=2**66325.\nPASS roots=(99, 172, 120, 163), u=1, length=4118149, independent 4-vertex switches=485149, choices >=2**485149.\nPASS roots=(99, 172, 120, 163), u=3, length=111190023, independent 4-vertex switches=13099036, choices >=2**13099036.\nPASS: explicitly constructed original and modified 54406-element involutions, all sums cubes.\nPASS: taxicab switching and the exact 4-to-1 Hamming metric.\n"
+  },
+  {
+    "command": "python papers/A006063/inverse_fiber_involution_audit.py",
+    "returncode": 0,
+    "seconds": 0.233,
+    "output": "PASS t=3, L=27, M=316, paired fiber choices=13, legal involution on shifted interval.\nPASS t=5, L=125, M=316, paired fiber choices=62, legal involution on shifted interval.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_362.py",
+    "returncode": 0,
+    "seconds": 0.024,
+    "output": "PASS: 43 cube-reflection rows, 40 vertex-disjoint alternating cycles, 182 vertices switched.\nCERTIFIED: P(362) >= 2**40.\n"
+  },
+  {
+    "command": "python papers/A006063/verify_tensor_recurrence.py",
+    "returncode": 0,
+    "seconds": 0.414,
+    "output": "PASS: 43 cube-reflection rows, 40 vertex-disjoint alternating cycles, 182 vertices switched.\nCERTIFIED: P(362) >= 2**40.\nPASS: 43 cube-reflection rows, 40 vertex-disjoint alternating cycles, 182 vertices switched.\nCERTIFIED: P(362) >= 2**40.\nPASS 362 gadget: t=7, n=125709, independent base cycles=13720.\nPASS: 43 cube-reflection rows, 40 vertex-disjoint alternating cycles, 182 vertices switched.\nCERTIFIED: P(362) >= 2**40.\nPASS 362 gadget: t=9, n=267178, independent base cycles=29160.\nPASS divisor recurrence: q=1001, t=7, 2 distinct cube-suffix families.\n"
+  },
+  {
+    "command": "python papers/A006063/construct_linear.py",
+    "returncode": 0,
+    "seconds": 0.233,
+    "output": "PASS n=173, depth=0, seed=173\nPASS n=174, depth=0, seed=174\nPASS n=175, depth=0, seed=175\nPASS n=255, depth=0, seed=255\nPASS n=256, depth=0, seed=256\nPASS n=338, depth=0, seed=338\nPASS n=339, depth=0, seed=339\nPASS n=364, depth=0, seed=364\nPASS n=365, depth=1, seed=363\nPASS n=555, depth=1, seed=173\nPASS n=556, depth=2, seed=285\nPASS n=1000, depth=1, seed=330\nPASS n=10000, depth=2, seed=352\nPASS n=100000, depth=2, seed=273\nPASS n=1000000, depth=3, seed=276\nPASS huge-n planning for 10**60: depth=10\n"
+  }
+]

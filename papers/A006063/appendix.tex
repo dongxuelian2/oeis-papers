@@ -1,0 +1,276 @@
+\section{Six algebraic block families}\label{app:families}
+For each family, $\ell$ lists the input lengths, $\pi$ lists the output
+block labels, and $C$ lists the nominal sums
+$C_j=1+A_j+B_j+\ell_j$ of Lemma~\ref{lem:blocks}.
+Zero-length blocks are deleted from both orders; only the sums on
+nonempty blocks need to be cubes. The following formulas and parameter
+choices give the 25 seed lengths in Proposition~\ref{prop:finite}.
+
+\subsection{Four, five and six blocks}
+\paragraph{Family I.}
+For integer cubes $U<V$, put
+\[
+a=2U-V-1,\qquad b=2V-3U+1.
+\]
+If $a,b>0$, take
+\[
+\ell=(a,b,a,b),\qquad \pi=(3,4,1,2),\qquad C=(U,V,U,V).
+\]
+The total length is $N=2(V-U)$. The three choices
+$(U,V)=(64,125),(125,216),(216,343)$ give, respectively,
+$(a,b)=(2,59),(33,58),(88,39)$ and $N=122,182,254$.
+
+\paragraph{Family II.}
+For integer cubes $X<Y<Z$, put
+\[
+a=2Y-Z-1,\qquad b=X+2Z-4Y+1,\qquad c=Y-X.
+\]
+If $a,b,c>0$, take
+\[
+\ell=(a,b,c,a,c),\qquad \pi=(4,2,5,1,3),\qquad C=(Y,X,Z,Y,Z).
+\]
+Here $N=2Y-X-1$. With $(Y,Z)=(64,125)$, the choices $X=27,8$
+give $(a,b,c)=(2,22,37),(2,3,56)$ and $N=100,119$.
+
+\paragraph{Family III.}
+For integer cubes $X,W,Y,Z$, put
+\[
+\begin{split}
+a&=2Y-Z-1,\qquad b=X-2a-1,\\
+c&=W+2a-2X+1,\qquad d=Y+X-W-2a-1.
+\end{split}
+\]
+If $a,b,c,d>0$, take
+\[
+\ell=(a,b,c,d,a,d),\qquad \pi=(5,2,3,6,1,4),\qquad C=(Y,X,W,Z,Y,Z).
+\]
+Then $N=2Z-2Y+X-W$. With $(Y,Z)=(64,125)$, the choices
+$(X,W)=(8,64),(27,64),(8,27)$ give
+$(a,b,c,d)=(2,3,53,3),(2,22,15,22),(2,3,16,40)$ and
+$N=66,85,103$, respectively.
+
+\begin{proof}
+For each displayed output order, substitution in
+$C_j=1+\sum_{i<j}\ell_i+
+\sum_{\pp_\pi(i)<\pp_\pi(j)}\ell_i+\ell_j$
+gives the indicated vector $C$ and total $N$.
+All its entries are cubes and the listed lengths are positive, so
+Lemma~\ref{lem:blocks} applies.
+\end{proof}
+
+\subsection{Twelve blocks with three optional blocks}
+\paragraph{Family IV.}
+Choose integers $X,T,Q$ and put
+\[
+\begin{split}
+u&=X-7,\qquad v=T-2X+7,\qquad w=X+27-T,\\
+z&=Q+2T-2X-121,\qquad h=X+152-T-Q.
+\end{split}
+\]
+Assume $u,v,z\ge0$ and $w,h>0$. Set
+\[
+\begin{split}
+\ell&=(3,u,v,w,3,w,z,h,3,27,3,h),\\
+\pi&=(11,2,3,6,9,4,7,12,5,10,1,8),\\
+C&=(125,X,T,64,125,64,Q,216,125,216,125,216).
+\end{split}
+\]
+The total length is $N=276+X-T-Q$. Require $X$ to be a cube when
+$u>0$, $T$ to be a cube when $v>0$, and $Q$ to be a cube when $z>0$.
+Choose $X\in\{7,8\}$, then $T\in\{2X-7,27\}$, and then
+$Q\in\{121-2T+2X,125\}$. The eight instances are
+\[
+\begin{array}{rrrrrrr}\toprule
+X&T&Q&u&v&z&N\\\midrule
+7&27&125&0&20&44&131\\
+8&27&125&1&18&42&132\\
+8&9&125&1&0&6&150\\
+7&7&125&0&0&4&151\\
+7&7&121&0&0&0&155\\
+8&9&119&1&0&0&156\\
+8&27&83&1&18&0&174\\
+7&27&81&0&20&0&175\\\bottomrule
+\end{array}
+\]
+\begin{proof}
+The prefix-sum identity gives the displayed $C$ and $N$.
+For these choices $w\in\{7,8,27,26\}$ and $h>0$ by substitution.
+If $X=7$ then $u=0$; if $T=2X-7$ then $v=0$; and if
+$Q=121-2T+2X$ then $z=0$. Otherwise the respective sums are the
+cubes $8$, $27$ and $125$. Every other nominal sum is a cube.
+Deleting the zero blocks therefore gives the required permutations.
+\end{proof}
+
+\subsection{Fifteen blocks with two binary parameters}
+\paragraph{Family V.}
+Let $\alpha,\beta\in\{0,1\}$ with $\alpha\le\beta$, put
+$t_0=7+4\beta+2\alpha$, and take $t\in\{0,t_0\}$. Define
+\[
+\begin{aligned}
+(\ell_1,\ldots,\ell_5)
+ &= (2\beta,\ 7-\alpha-4\beta-\alpha\beta,\ \alpha,\ \alpha\beta,\ 13+4\beta),\\
+(\ell_6,\ldots,\ell_{10})
+ &= (\alpha,\ 23-4\beta-\alpha,\ 13+4\beta,\ 48-\alpha-45\beta+\alpha\beta,\ 2\beta),\\
+(\ell_{11},\ldots,\ell_{15})
+ &= (\beta(39-\alpha),\ t,\ 30+\alpha-t,\ 13+4\beta,\ 91+\alpha-t),\\
+\pi&=(10,4,6,2,8,3,11,1,9,14,7,12,15,5,13).
+\end{aligned}
+\]
+Using $\alpha\beta=\alpha$, the nominal sums are
+\[
+\begin{aligned}
+(C_1,\ldots,C_5)&=(21+43\beta,\ 8,\ 28-\alpha,\ 8,\ 216),\\
+(C_6,\ldots,C_{10})&=(21+2\alpha+4\beta,\ 125,\ 64,\ 125,\ 105-41\beta),\\
+(C_{11},\ldots,C_{15})&=(125,\ 209-2\alpha-4\beta+t,\ 343,\ 216,\ 343).
+\end{aligned}
+\]
+The total length is $N=238+\alpha+2\beta-t$. Thus
+\[
+\begin{array}{rrrr}\toprule
+\alpha&\beta&t&N\\\midrule
+0&0&0&238\\0&0&7&231\\
+0&1&0&240\\0&1&11&229\\
+1&1&0&241\\1&1&13&228\\\bottomrule
+\end{array}
+\]
+\begin{proof}
+The lengths are nonnegative for the six listed choices.
+Substitution in the prefix-sum identity gives the displayed $C$.
+Blocks 1, 10 and 11 are nonempty only when $\beta=1$, with sums
+$64,64,125$. Blocks 3, 4 and 6 are nonempty only when
+$\alpha=\beta=1$, with sums $27,8,27$.
+The sum of block 12 is needed only when $t=t_0$, and then equals $216$.
+The remaining blocks have sums $8,216,125,64,125,343,216,343$.
+All sums on nonempty blocks are therefore cubes, so
+Lemma~\ref{lem:blocks} applies.
+\end{proof}
+
+\subsection{Ten blocks with nested binary parameters}
+\paragraph{Family VI.}
+Let $\alpha,\beta\in\{0,1\}$ with $\beta\le\alpha$. Set
+\[
+\begin{aligned}
+(\ell_1,\ldots,\ell_5)
+ &= (7,\ 12\alpha,\ 159-24\alpha-99\beta,\ 14\beta,\ 28\beta),\\
+(\ell_6,\ldots,\ell_{10})
+ &= (63\beta,\ 10+24\alpha-6\beta,\ 8\beta,\ 159-24\alpha-107\beta,
+       \ 10+24\alpha+93\beta),\\
+\pi&=(1,2,8,5,6,9,4,10,3,7).
+\end{aligned}
+\]
+The nominal sums and total length are
+\[
+\begin{aligned}
+(C_1,\ldots,C_5)&=(8,\ 15+12\alpha,\ 343,\ 333-24\alpha-93\beta,\ 174-49\beta),\\
+(C_6,\ldots,C_{10})&=(174+42\beta,\ 512,\ 184+24\alpha+8\beta,\ 343,\ 512),\\
+N&=345+12\alpha-6\beta.
+\end{aligned}
+\]
+The choices $(\alpha,\beta)=(0,0),(1,0),(1,1)$ give
+$N=345,357,351$, with five, six and ten nonempty blocks, respectively.
+\begin{proof}
+Direct substitution gives the displayed nominal sums, and all lengths are
+nonnegative. Blocks 1, 3, 7, 9 and 10 are always present, with sums
+$8,343,512,343,512$. Block 2 is present only at $\alpha=1$, when its
+sum is $27$. Blocks 4, 5, 6 and 8 are present only at $\beta=1$,
+hence $\alpha=1$, with sums $216,125,216,216$.
+Lemma~\ref{lem:blocks} gives all three permutations.
+\end{proof}
+
+\section{Complete forced-neighbor rounds at the critical sizes}\label{app:peeling}
+In a remaining vertex set $V$, the notation $S:c$ means that every
+$i\in S$ has the unique neighbor $c-i$ in $V$. Remove $i$ and $c-i$
+for all such $i$ simultaneously, counting a loop only once.
+A semicolon separates groups in the same round.
+All neighbor tests below use the six cubes
+$\{8,27,64,125,216,343\}$; no larger cube can occur when $n\le181$.
+
+\subsection{The first three rounds}
+For $173\le n\le181$, use
+\[
+\begin{array}{cll}\toprule
+\text{round}&S:c&\text{image interval}\\\midrule
+1 &[125,342-n]:216 &[n-126,91]\\
+2 &[34,215-n]:64 &[n-151,30]\\
+3 &[95,276-n]:216 &[n-60,121]\\\bottomrule
+\end{array}
+\]
+\begin{proof}
+For round 1, $i\ge125$ excludes cubes at most 125, while
+$343-i\ge n+1$; thus only $216-i$ is available.
+For round 2, the alternative $125-i$ is in the deleted image interval
+$[n-126,91]$, while $216-i>n$; cubes at most 27 are too small.
+For round 3, the alternative $125-i$ lies in the deleted interval
+$[n-151,30]$ and $343-i>n$; cubes at most 64 are too small.
+In each round the displayed source and image intervals are disjoint
+and still present. Their sizes are $218-n$, $182-n$ and $182-n$,
+respectively, so these rounds remove $1164-6n$ vertices.
+\end{proof}
+
+\subsection{The remaining rounds for \texorpdfstring{$n=173$}{n=173}}
+After the first three rounds, continue with the following table.
+Each row is one round, not a simultaneous grouping of successive rows.
+\[
+\begin{array}{cl}\toprule
+\text{round}&S:c\\\midrule
+4 &\{4,5\}:8;\quad [8,12]:27\\
+5 &\{45,46,106,107,108,122\}:216\\
+6 &\{31\}:64;\quad\{172,173\}:216\\
+7 &\{92\}:216\\
+8 &\{1\}:8\\
+9 &\{20\}:125\\
+10&\{111\}:125\\
+11&\{13\}:125\\
+12&\{104\}:125\\
+13&\{6\}:8\\
+14&\{123\}:216\\
+15&\{32\}:64\\\bottomrule
+\end{array}
+\]
+At every round, subtracting each listed endpoint from the six possible
+cubes shows that its only remaining neighbor is the displayed partner.
+These rounds exhaust $[173]$. The loops occur at $4$, $108$ and $32$;
+all other removals are reciprocal pairs. Lemma~\ref{lem:leaf} therefore
+gives $P(173)=1$.
+
+\subsection{The remaining rounds for \texorpdfstring{$n=174$ and $n=175$}{n=174 and n=175}}
+Round 4 is $\{4\}:8;\ [8,11]:27$ for $n=174$, and
+$[8,10]:27$ for $n=175$. For both sizes the subsequent rounds are
+\[
+\begin{array}{cl}\toprule
+\text{round}&S:c\\\midrule
+5 &\{45,46,47,106,107,108\}:216\\
+6 &\{15\}:27;\quad\{172,173,174\}:216\\
+7 &\{113\}:216\\
+8 &\{22\}:27\\
+9 &\{3\}:125\\
+10&\{94\}:125\\
+11&\{33\}:125\\
+12&\{124\}:125\\
+13&\{7\}:27\\
+14&\{105\}:216\\
+15&\{14\}:27\\
+16&\{112\}:216\\
+17&\{21\}:27\\
+18&\{2\}:125\\
+19&\{93\}:125\\\bottomrule
+\end{array}
+\]
+Again each listed endpoint has exactly one remaining neighbor, verified
+by subtraction from the six cubes. For $n=174$ the residual set is empty,
+with loops at $4$ and $108$, so $P(174)=1$.
+For $n=175$, precisely the ten vertices
+\[
+\{4,11,16,23,41,48,102,114,168,175\}
+\]
+remain. Testing their pairwise sums gives the loop at $4$, the edge
+$4\sim23$, and the chordless cycle
+\[
+23\sim41\sim175\sim168\sim48\sim16\sim11\sim114\sim102\sim23.
+\]
+Its consecutive edge sums are $64,216,343,216,64,27,125,216,125$.
+If $4$ is fixed, the odd cycle has the two orientations as its only
+permutation covers: reciprocal pairs cannot cover an odd number of vertices.
+If $4$ is paired with $23$, the remaining path has a unique cover by
+four reciprocal pairs. Thus the residual graph has exactly three
+permutations, and Lemma~\ref{lem:leaf} gives $P(175)=3$.

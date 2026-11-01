@@ -4,6 +4,17 @@
 **Manuscript date:** October 19, 2026  
 **Status:** mathematical review draft with eventual minimal-fixed-point involutions and exact finite certificates. The authors must supply/verify their own final wording and AI disclosure before journal submission. This is a **computer-assisted finite-certificate proof**, **not** a case-free classification or a peer-reviewed publication.
 
+## Current editorial draft
+
+This is an **AI-assisted editorial working draft**. The current revision adds
+all six algebraic families and the complete critical peeling rounds to the
+paper's mathematical appendices, while retaining the bulk finite data in the
+supplement. Both authors must provide/verify their own final wording, approve
+the mathematics and references, and finalize truthful AI-use disclosure before
+journal submission. See the [point-by-point editorial response](audit/EDITORIAL_RESPONSE.md)
+and its newly dated validation evidence; the first review's reports are retained
+as historical records, not relabeled as fresh checks.
+
 ## Main results
 
 For a positive integer `n`, let `P(n)` count permutations `p` of `{1,...,n}` such that every `i+p(i)` is a perfect cube.
@@ -18,7 +29,7 @@ The infinite existence argument is purely symbolic. The finite basis still uses 
 ## Paper and supporting files
 
 - **[main.pdf](main.pdf)** — **typeset mathematical review draft** (not a journal-ready package).
-- **[main.tex](main.tex)** — complete editable LaTeX source for the paper.
+- **[main.tex](main.tex)** and **[appendix.tex](appendix.tex)** — editable LaTeX source, including all six block families and full critical peeling rounds.
 - **[certificates/finite_56_cubic_order_shapes.txt](certificates/finite_56_cubic_order_shapes.txt)** — the 56 independent algebraic seed parameter choices, with no precomputed interval endpoints.
 - **[verify_56_plus_forcing.py](verify_56_plus_forcing.py)** — independent exact-integer verification of all 56 determinant instances, the 25 symbolic template seeds, forced 173, and the finite reflection closure.
 - **[certificates/exact_classification_below_173.json](certificates/exact_classification_below_173.json)** — 48 explicit positive permutations and 124 explicit Hall-deficient sets.
