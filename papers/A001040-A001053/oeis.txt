@@ -4,12 +4,10 @@ A001040
 =======
 
 COMMENTS — add after Kurkov's November 19, 2019 conjecture:
-Kurkov's conjecture is true for every n >= 1. More precisely, the number of directed open rook tours on an n X 2 board with exactly 2*k+1 moves between columns is 2*n!*(n-2*k-1)!*binomial(n-k-1,k)^2, for 0 <= k <= floor((n-1)/2). The endpoints are in opposite columns precisely when the number of between-column moves is odd. Summing over k gives 2*n!*a(n). - ~~~~
+The conjecture that 2*n!*a(n) counts open rook tours on an n X 2 chessboard whose endpoints are in opposite columns is proved in Wang and Dong (2026). - ~~~~
 
 LINKS — add in alphabetical order by first author's surname:
 Qichao Wang and Daoyu Dong, <a href="https://github.com/dongxuelian2/oeis-papers/blob/c50e8ddf81a8568507153f48848b5cab8913d4d7/papers/A001040-A001053/main.pdf">Rook Tours Classified by Their Endpoint Columns</a> (2026).
-
-Note for the editor: Kurkov's existing conjecture statement is attributed correctly. It may be changed from "Conjecture" to a theorem statement during review; do not remove Kurkov's attribution.
 
 A001053 — companion entry, prepared but not submitted
 ======================================================
