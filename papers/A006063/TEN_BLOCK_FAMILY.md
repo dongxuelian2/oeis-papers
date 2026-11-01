@@ -31,11 +31,11 @@ As usual `C_j=1+A_j+B_j+ell_j` is the reflected sum
 on block `j`. Direct expansion gives the ten nominal sums:
 
 ```
-(8, 8+19*alpha, 343,
- 167-12*alpha+61*beta,
- 167-12*alpha-30*beta,
- 167-12*alpha+61*beta,
- 512, 177+12*alpha+27*beta,
+(8, 15+12*alpha, 343,
+ 333-24*alpha-93*beta,
+ 174-49*beta,
+ 174+42*beta,
+ 512, 184+24*alpha+8*beta,
  343, 512).
 ```
 
@@ -66,14 +66,16 @@ This is a straightforward symbolic block-rearrangement proof;
 no matching algorithm or case-specific boundary multiset test
 is a logical premise.
 
-Combined with the previous five algebraic families, this
-makes **25 parametrically generated seed lengths**, leaving
-**57 exceptional finite integer identities** from the former 82
-independent seed lengths. The new exceptional atlas therefore
-contains **795** reflected blocks and the expanded full atlas
-still contains **1,009** blocks.
+Combined with the previous five algebraic families, this gives **25
+parametrically generated seed lengths**. Historically this reduced the
+82-seed list to 57 exceptional identities (795 blocks). The current
+proof instead uses **56 determinant shapes (784 blocks)** and the
+separate forced-neighbor construction at 173, alongside these 25 seeds.
+The 56 finite choices and their positivity checks remain necessary data;
+this family does not give a case-free classification.
 
-The complete proof still relies on those 57 numerical
-identities, so this note does not claim a uniform, case-free
-construction. It is an additional structural compression of
-the finite certificate.
+Audit correction (2026-11-01): the displayed nominal sums now equal
+`1+A_j+B_j+ell_j` also on zero-length blocks. The previous expressions
+agreed only on nonempty blocks, so none of the three witness permutations
+or target sizes changes. This technical correction is AI-assisted;
+see [audit/REVIEW.md](audit/REVIEW.md) for author-review requirements.

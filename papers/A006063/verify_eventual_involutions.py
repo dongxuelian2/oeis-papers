@@ -11,7 +11,7 @@ coordinate t=(n-parity)/2, not a matching solver or permutation archive.
 
 CASES = [
     # (seed, max checked length, target start, required rounds, length of final union)
-    (7, 100001, 69603, 13, None),
+    (7, 100001, 69603, 13, 2961),
     (26, 303412, 228028, 12, 7047),
 ]
 

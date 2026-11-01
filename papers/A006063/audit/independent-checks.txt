@@ -1,0 +1,18 @@
+PASS 56 determinants independently using SymPy domain-ge determinant / DM inverse; 784 positive integral lengths and full bijections
+PASS six templates yield exactly 25 disjoint seed lengths via direct prefix sums
+PASS independent greedy forced-neighbor peeling: P173=P174=1, residual exact permanent P175=3
+PASS independent constructive reflection closure: 48 below173 and all192 lengths173..364
+PASS all48 positive and124 Hall-negative records, with exhaustive neighbor scans
+PASS multiplicity: independent Kahn DAG test, 13 small alternating cycles, two distinct alternatives at all190 base sizes plus554,555
+PASS independent pointwise parity shortest-path DP seed7: 2961 intervals at depth13, final [69603,100001]
+PASS independent pointwise parity shortest-path DP seed26: 7047 intervals at depth12, final [228028,303412]
+ALL INDEPENDENT FINITE CHECKS PASS
+PASS stated simultaneous peeling batches n= 173 remaining= 0
+PASS stated simultaneous peeling batches n= 174 remaining= 0
+PASS stated simultaneous peeling batches n= 175 remaining= 10
+PASS stated simultaneous peeling batches n= 176 remaining= 68
+PASS stated simultaneous peeling batches n= 177 remaining= 75
+PASS stated simultaneous peeling batches n= 178 remaining= 82
+PASS stated simultaneous peeling batches n= 179 remaining= 89
+PASS stated simultaneous peeling batches n= 180 remaining= 96
+PASS stated simultaneous peeling batches n= 181 remaining= 103
