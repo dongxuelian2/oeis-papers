@@ -1,8 +1,8 @@
-\documentclass[12pt]{article}
+\documentclass[10pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,amsmath,amssymb,amsthm,geometry,hyperref}
-\geometry{margin=0.95in}
-\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.72in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -10,10 +10,12 @@
 \newtheorem{remark}[theorem]{Remark}
 \title{Weighted Lucas Sums and Differences:\\
 Coefficient Classification and Four OEIS Sequences}
-\author{Qichao Wang}
+\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}}
 \date{October 2026}
+\linespread{0.95}
 \begin{document}
 \maketitle
+\vspace{-1em}
 \begin{abstract}
 We classify positive representations of \(L_i-qL_j\),
 \(qL_i-L_j\), and \(qL_i+L_j\) for integer \(q\).
@@ -43,7 +45,7 @@ L_{m+4}-L_m=5F_{m+2},\qquad
 F_aL_b=F_{a+b}+(-1)^bF_{a-b}.
 \end{equation}
 
-\section*{Infinite-collision constructions}
+\section{Infinite-collision constructions}
 \begin{theorem}[Lucas--Fibonacci quotient coefficients]
 \label{thm:ratios}
 Let $m>h\ge1$ have the same parity, and suppose
@@ -133,7 +135,7 @@ strictly increase with $x$.
 
 
 
-\section*{Norm separation and finite collision bounds}
+\section{Norm separation and finite collision bounds}
 \begin{lemma}[Algebraic-norm separation]\label{lem:norm-separation}
 For integers \(d\ge1\) and \(q\ge1\), with
 \(\alpha=\varphi\) and \(\beta=-\alpha^{-1}\),
@@ -193,7 +195,7 @@ But $q|\beta^e-1|\ge2(1-\alpha^{-2})
 \end{proof}
 
 
-\section*{The global finite-collision bound}
+\section{The global finite-collision bound}
 A finite threshold is sufficient to compute any term. The stronger
 statement below provides a bound independent of the value.
 \begin{theorem}[Uniform complete collision certificate]
@@ -317,7 +319,7 @@ Thus neither case is possible, and $k\le6t$.
 
 
 
-\section*{The stationary collision bound}
+\section{The stationary collision bound}
 \begin{theorem}[Finite stationary pattern criterion]\label{thm:stationary}
 Fix any integer $q\ge2$ and choose $t$ as in
 \eqref{eq:t-bound}. If
@@ -480,7 +482,7 @@ The remaining signs follow from the recurrence
 and the definitions.
 \end{proof}
 
-\section*{Explicit classification of infinite collisions}
+\section{Explicit classification of infinite collisions}
 The quotient and half-Lucas identities exhaust the infinite-collision
 coefficients. We classify the index gaps of every stationary identity.
 
@@ -637,7 +639,7 @@ these families follow from
 Proposition~\ref{prop:finiteTP}.
 \end{proof}
 
-\section*{Finite-collision coefficient spectra}
+\section{Finite-collision coefficient spectra}
 The preceding global bounds can also classify the coefficients
 with finitely many collisions without computing any ordered
 set of positive values. The sole arithmetic objects needed
@@ -868,7 +870,7 @@ Theorem~\ref{thm:global} proves that every
 fixed \(S_q\) has only finitely many collisions.
 \end{proof}
 
-\section*{A family with globally unique differences}
+\section{A family with globally unique differences}
 \begin{theorem}\label{thm:unique}
 Fix $r\ge1$ and set $q=5F_{2r}$. Then
 \[
@@ -936,7 +938,7 @@ and the same block has distinct values.
 
 
 
-\section*{The four OEIS sequences at coefficient five}
+\section{The four OEIS sequences at coefficient five}
 The preceding classification applies in particular to \(q=5\).
 For this section write \(S=S_5\), \(T=T_5\),
 and \(P=P_5\). Their increasing positive values
@@ -963,7 +965,7 @@ Write \(H(y)=\#\{j\ge1:L_j\le y\}\) and
 \([x]_+=\max(x,0)\). The exact conclusions
 for the four sequences are as follows.
 
-\subsection*{Exact positive-difference count}
+\subsection{Exact positive-difference count}
 \begin{theorem}[Three-block exact counting]\label{oeis:thm:exact}
 For every integer $x\ge11$, let $m$ be the unique integer satisfying
 $L_m\le x<L_{m+1}$. Then
@@ -989,7 +991,7 @@ There are $i-4$ admissible indices $j$, so removing the ineligible ones gives
 the positive-part expression in \eqref{oeis:eq:exact}.
 \end{proof}
 
-\subsection*{Complete intersection of the two differences}
+\subsection{Complete intersection of the two differences}
 \begin{theorem}[Complete intersection classification]\label{oeis:thm:intersection}
 With $E=\{2,6,9,12,13,14,24,32,61\}$, one has the disjoint union
 \begin{equation}\label{oeis:eq:intersection}
@@ -1080,7 +1082,7 @@ for $S$, and neither family contains one of the nine exceptional
 values (the smallest values are $3L_6=54$ and $8L_6=144$). This proves \eqref{oeis:eq:intersection}.
 \end{proof}
 
-\subsection*{All repeated reverse differences and sums}
+\subsection{All repeated reverse differences and sums}
 \begin{theorem}[Five and only five collisions]\label{oeis:thm:duplicates}
 The map
 \[
@@ -1211,7 +1213,7 @@ two index pairs; hence there are no further collisions and
 no threefold representations in $P$.
 \end{proof}
 
-\subsection*{Complete intersection of sums and reverse differences}
+\subsection{Complete intersection of sums and reverse differences}
 \begin{theorem}[Complete sum--difference intersection]\label{oeis:thm:sum-full-overlap}
 Put
 \[
@@ -1313,7 +1315,7 @@ the second difference is positive since
 \(5L_{n+4}-L_{n+7}=2L_{n+2}>0\).
 \end{proof}
 
-\subsection*{Exact counting and unranking}
+\subsection{Exact counting and unranking}
 Let
 \[
 A(x)=\#(S\cap[1,x]),\quad
@@ -1372,7 +1374,7 @@ inclusion--exclusion. All four ordered sequences
 and both intersections therefore admit exact
 unranking by integer binary search.
 
-\subsection*{Direct terms of the four OEIS sequences}
+\subsection{Direct terms of the four OEIS sequences}
 Write \(a_{980}(n),a_{981}(n),a_{982}(n),a_{983}(n)\) for
 the published sequences, indexed from \(n=1\).
 The sequences \(a_{981},a_{982},a_{983}\) start with zero.
