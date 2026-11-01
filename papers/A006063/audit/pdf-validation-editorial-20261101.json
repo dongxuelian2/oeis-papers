@@ -1,0 +1,21 @@
+{
+  "revision": "editorial second review, 2026-11-01",
+  "base_commit": "ca1712f68e5d11350bd74bb5dbf43d3a3fbe13ba",
+  "engine": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+  "compile_passes": 2,
+  "compile_exit_codes": [
+    0,
+    0
+  ],
+  "pages": 9,
+  "sha256": {
+    "main.tex": "a80fda55db9821c5176ec72e237190d84d855bb20af286010f24ce1e59cf6f38",
+    "appendix.tex": "ecbb8efbd275f56189b14db2167e9ba978a6cde661b153dc69c877ea98c1d7d8",
+    "main.pdf": "99034cdfc37b1bb0c943801732c689c06a098adb58000a4eb91a950f8ae84167"
+  },
+  "final_log_warnings": [],
+  "visual_review": "All nine final rendered pages inspected: authors, numbered equations, all six families, both binary-parameter inequalities, all peeling tables, cycle notation, bibliography and reproduction block legible; no clipping/overlap/orphaned command lead-in seen.",
+  "build_command": "From papers/A006063: pdflatex -interaction=nonstopmode -halt-on-error -output-directory=../../build/editorial main.tex (twice); copy ../../build/editorial/main.pdf to main.pdf",
+  "environment_repair": "Generated local format/font-map caches from the installed TeX tree in ignored build/editorial; no system package or source fallback.",
+  "limits": "Existing 9pt extarticle repository style retained as required by AGENTS.md; author-written final wording and journal-specific preparation remain outstanding."
+}

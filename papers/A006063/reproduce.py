@@ -40,7 +40,7 @@ def main():
         parser.error("assertions must be enabled: do not use -O or PYTHONOPTIMIZE")
     paths = [HERE / name for name in SOURCES]
     paths += [HERE / "certificates" / name for name in DATA]
-    paths += [HERE / "main.tex"]
+    paths += [HERE / "main.tex", HERE / "appendix.tex"]
     report = {
         "python": platform.python_version(),
         "scope": "finite certificates and regression tests; not independent peer review",

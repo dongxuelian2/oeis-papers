@@ -1,0 +1,3 @@
+PASS parsed appendix Family V. : exact nominal identities including zero blocks; all allowed instances nonnegative/cubic
+PASS parsed appendix Family VI. : exact nominal identities including zero blocks; all allowed instances nonnegative/cubic
+Source parse checks complete (Families I-IV and peeling tables independently inspected against exact specification).

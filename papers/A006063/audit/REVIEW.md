@@ -1,4 +1,8 @@
-# Pre-submission technical review — 2026-11-01
+# Pre-submission technical review — 2026-11-01 (first review)
+
+> Historical review: for the later self-containment/typesetting revision and
+> current source/PDF checks, see [EDITORIAL_RESPONSE.md](EDITORIAL_RESPONSE.md).
+> The original test and PDF reports cited below retain their earlier hashes.
 
 **Decision:** the core A006063/A096680 proof chain and all essential finite
 obligations passed this AI-assisted review and independent implementations.
