@@ -16,7 +16,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We proved eventual periodicity modulo every positive integer and the Bessel-moment formula for all indices. Modulo 10, the block `(1,4,1,9,6,9)` repeats from index 1.
 
 - **[A006063 / A096680 / A096904](papers/A006063/)**
-  - [A006063](https://oeis.org/A006063): Values of n admitting a permutation of 1, ..., n such that i + p_i is a cube for every i.
+  - [A006063](https://oeis.org/A006063) (published): Values of n admitting a permutation of 1, ..., n such that i + p_i is a cube for every i.
   - [A096680](https://oeis.org/A096680): Values of n admitting more than one such cube-sum permutation.
   - [A096904](https://oeis.org/A096904): Number of such permutations for each n.
   - **Result:** We proved the exact existence classification of cube-sum permutations: `P(n)>0` for every `n>=173`, with precisely 48 admissible smaller sizes, and `P(n)>=3` for every `n>=175`. Consequently `A006063(j)=j+124` for `j>=49` and `A096680(j)=j+161` for `j>=14`; the finite base cases have explicit certificates. We also constructed eventual one-fixed-point and fixed-point-free cube-sum involutions.
