@@ -34,6 +34,16 @@ These rules apply throughout `oeis-papers`. Keep the repository a clear, navigab
 - Keep generated auxiliary files (`.aux`, `.log`, `.fls`, `.synctex.gz`, temporary renderings, etc.) out of version control. Keep the canonical PDF.
 - A working research note without a complete paper may remain explicitly marked `WIP` in its own directory. Do not call it a finished manuscript or add it as a finished paper without the PDF.
 
+## Standard LaTeX paper layout
+
+- Use [`papers/A001040-A001053/main.tex`](papers/A001040-A001053/main.tex) as the default visual reference for new or reformatted mathematical manuscripts. Preserve the mathematical contents when a task requests only typesetting.
+- For ordinary articles use `\\documentclass[10pt]{article}`, T1 font encoding, `lmodern`, `amsmath`, `amssymb`, `amsthm`, and `microtype`. Set `geometry` to a `0.72in` page margin and use `hyperref` with readable blue URL links. Set `\\linespread{0.95}` unless the equations require more room.
+- Use the conventional `\\title`, `\\author`, `\\date`, `\\maketitle` layout. Show each author's actual institutional affiliation in a smaller font beneath their name; never infer additional authors. Keep the abstract directly under the title block, with `\\vspace{-1em}` after `\\maketitle` as in the reference paper. Do not use a standalone cover page or an oversized/custom title block.
+- Number main sections and subsections with `\\section` and `\\subsection`; use standard theorem, lemma, corollary, proof, equation, and reference conventions. Use unnumbered headings only for genuinely ancillary material, such as acknowledgments or references.
+- Match the reference paper's compact, conventional typography rather than increasing type size, margins, blank space, or heading decoration. Keep display equations legible and avoid cramped or overfull lines; adjust particular equations when needed rather than weakening the whole layout.
+- Preserve the established paper's authors, affiliations, statements, references, and metadata. Existing manuscripts with documented specialist typesetting needs can retain exceptions, but apply this layout by default to subsequent paper revisions.
+- Rebuild and inspect the committed PDF after any layout change; check page breaks, long equations, labels, cross-references, and whether the updated PDF reflects the source in the same commit or the immediately following automated PDF-sync commit.
+
 ## Paper directory organization
 
 - Use one directory under `papers/` per manuscript or tightly connected sequence group, named for its OEIS numbers (for example, `A006063/` or `A382357-A382360/`). Related sequences solved in one paper share source files and a single canonical manuscript.
