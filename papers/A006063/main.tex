@@ -29,6 +29,8 @@ Write $P(n)$ for the number of permutations $p$ of $[n]=\{1,\dots,n\}$ for which
 \section{Problem and results}\label{sec:intro}
 Let $\C=\{k^3:k\in\N,\ k\ge2\}$ and let $P(n)$ count bijections $p:[n]\to[n]$ satisfying
 \begin{equation}\label{eq:admissible} i+p(i)\in\C\qquad(1\le i\le n).\end{equation}
+The card-arranging problem was discussed by Gardner~\cite{gardner1975,gardner1988} and included in Sloane and Plouffe's sequence encyclopedia~\cite{sloaneplouffe1995}. Gardner's later account credits Angeloo Papaikonomou with early work on the cube-sum variant and reports a uniqueness observation; OEIS records Ray Chandler's counterexamples and Robert Israel's 2018 eventual-existence conjecture~\cite{gardner1988,oeis-a006063,oeis-a096680}. The counting function $P(n)$ is OEIS A096904~\cite{oeis-a096904}.
+
 Write $\G=\{n\ge1:P(n)>0\}$. The increasing enumeration of $\G$ is OEIS A006063 \cite{oeis-a006063}; the indices supporting at least two distinct bijections form OEIS A096680 \cite{oeis-a096680}. We count permutations of $[n]$, not just involutions: symmetry of the allowed sums does not force a perfect matching to be symmetric.
 
 \begin{theorem}[Exact existence classification]\label{thm:membership}
@@ -332,9 +334,12 @@ A checked code path uses exact integers; the main 56-shape check does not import
 Symbolic experiments and exact finite-certificate generation and checking were used in developing this result. Every essential finite condition is stated in machine-checkable integer form and is accompanied by a reproducible verifier. The authors remain responsible for the mathematical statements and the submitted version.
 
 \begin{thebibliography}{9}
-\bibitem{oeis-a006063} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, A006063, \url{https://oeis.org/A006063} (accessed October 2026).
-\bibitem{oeis-a096680} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, A096680, \url{https://oeis.org/A096680} (accessed October 2026).
-\bibitem{oeis-a096904} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, A096904, \url{https://oeis.org/A096904} (accessed October 2026).
-\bibitem{hall} P. Hall, ``On representatives of subsets,'' \emph{Journal of the London Mathematical Society} \textbf{10} (1935), 26--30.
+\bibitem{gardner1975} M. Gardner, \emph{From rubber ropes to rolling cubes, a miscellany of refreshing problems}, \emph{Scientific American} \textbf{232}(3) (March 1975), 112 ff., \url{https://doi.org/10.1038/scientificamerican0375-112}.
+\bibitem{gardner1988} M. Gardner, \emph{Time Travel and Other Mathematical Bewilderments}, W. H. Freeman, New York, 1988, p.~81.
+\bibitem{sloaneplouffe1995} N. J. A. Sloane and S. Plouffe, \emph{The Encyclopedia of Integer Sequences}, Academic Press, 1995.
+\bibitem{oeis-a006063} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, A006063, \url{https://oeis.org/A006063} (accessed November 2026).
+\bibitem{oeis-a096680} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, A096680, \url{https://oeis.org/A096680} (accessed November 2026).
+\bibitem{oeis-a096904} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, A096904, \url{https://oeis.org/A096904} (accessed November 2026).
+\bibitem{hall} P. Hall, On representatives of subsets, \emph{Journal of the London Mathematical Society} \textbf{10} (1935), 26--30.
 \end{thebibliography}
 \end{document}
