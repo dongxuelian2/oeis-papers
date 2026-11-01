@@ -2,6 +2,7 @@ name: A006063 and A096680 proof, classification and PDF
 on:
   push:
     branches:
+      - main
       - research/a006063-cube-sum-permutations-20261018
       - research/a006063-structural-proof-entropy-20261018
     paths:
