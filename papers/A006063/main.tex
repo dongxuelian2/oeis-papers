@@ -53,7 +53,7 @@ Set $E=\{112,115,116,117,119,124,125,126,127,128,129,130,133\}$. Then
 Moreover, $P(173)=P(174)=1$, $P(175)=3$, and $P(n)\ge3$ for every $n\ge175$. Consequently $\mathrm{A096680}(j)=j+161$ for $j\ge14$.
 \end{theorem}
 
-The proof is computer-assisted through exact finite certificates; the infinite propagation is symbolic. Sections~\ref{sec:reflection}--\ref{sec:finite} give the existence proof; Sections~\ref{sec:small}--\ref{sec:multi} establish the two exact classifications. Appendices~\ref{app:families} and~\ref{app:peeling} give the algebraic families and critical peeling rounds. Section~\ref{sec:audit} specifies the supplementary data and verification procedures.
+The proof is computer-assisted through exact finite certificates; the infinite propagation is symbolic. Sections~\ref{sec:reflection}--\ref{sec:finite} give the existence proof; Sections~\ref{sec:small}--\ref{sec:multi} establish the two exact classifications. Section~\ref{sec:invol} proves the eventual involution theorem, and Section~\ref{sec:audit} specifies the supplementary data and verification procedures. Appendices~\ref{app:families} and~\ref{app:peeling} give the algebraic families and critical peeling rounds.
 
 \section{Reflection and an infinite interval avalanche}\label{sec:reflection}
 We temporarily admit the empty permutation on $[0]=\varnothing$ as a seed, but $P(0)$ is not an OEIS term.
@@ -154,12 +154,10 @@ There is exactly one cube-sum permutation at $n=173$ and at $n=174$, while $P(17
 Appendix~\ref{app:peeling} lists the complete forced-neighbor rounds for
 $n=173$, $174$ and $175$, starting with three uniform bands. Each listed
 endpoint has exactly one neighbor in the remaining vertex set.
-At $n=173$ and $174$ the residual graph is empty, yielding uniqueness by Lemma~\ref{lem:leaf}. At $n=175$ it has ten vertices
-$\{4,11,16,23,41,48,102,114,168,175\}$, consisting of a loop at $4$, an edge $4$--$23$, and the chordless nine-cycle
-\[
-23\sim41\sim175\sim168\sim48\sim16\sim11\sim114\sim102\sim23.
-\]
-If $4$ uses its loop, there are the two cycle orientations; otherwise $4$ and $23$ form a forced reciprocal pair and the other eight vertices form a uniquely matchable path. This gives $2+1=3$.
+At $n=173$ and $174$ the residual graph is empty, yielding uniqueness by
+Lemma~\ref{lem:leaf}. At $n=175$ the residual graph has exactly three
+permutations, as shown in Appendix~\ref{app:175}. The forced deletions
+preserve the count, so $P(175)=3$.
 \end{proof}
 
 \begin{proposition}[Exact finite reflection closure]\label{prop:closure}

@@ -93,14 +93,14 @@ def parametric_rows():
         for t in (0,t0):
             lengths = (
                 2*beta,
-                7-alpha-4*beta-alpha*beta,
+                7-2*alpha-4*beta,
                 alpha,
-                alpha*beta,
+                alpha,
                 13+4*beta,
                 alpha,
                 23-4*beta-alpha,
                 13+4*beta,
-                48-alpha-45*beta+alpha*beta,
+                48-45*beta,
                 2*beta,
                 beta*(39-alpha),
                 t,
