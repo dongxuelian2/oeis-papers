@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - '.github/workflows/build-lucas-pdf.yml'
+permissions:
+  contents: write
 jobs:
   latex:
     runs-on: ubuntu-latest
@@ -16,3 +18,7 @@ jobs:
         with:
           name: revised-lucas-pdf
           path: papers/Lucas-coefficient-families/main.pdf
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Rebuild Lucas manuscript PDF
+          file_pattern: papers/Lucas-coefficient-families/main.pdf
