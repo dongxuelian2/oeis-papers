@@ -1,7 +1,7 @@
-\documentclass[9pt]{extarticle}
+\documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
-\usepackage[margin=0.78in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -10,8 +10,8 @@
 \newtheorem{remark}[theorem]{Remark}
 \title{Weighted Lucas Sums and Differences:\\
 Coefficient Classification and Four OEIS Sequences}
-\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}}
-\date{October 2026}
+\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}\and Daoyu Dong\\{\small University of Electronic Science and Technology of China, Chengdu, China}}
+\date{}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -24,19 +24,41 @@ precisely for three arithmetic coefficient families:
 integral Lucas quotients, integral Fibonacci quotients,
 and half-Lucas coefficients. Signed quotients of Lucas
 gaps characterize all finite collisions, and
-global uniqueness is decidable by finite exact arithmetic.
+global uniqueness can be decided by a finite search.
 For \(q=5\), we give direct all-index formulas for
 OEIS A191980--A191983, classify all repeated values
 and pairwise intersections, and determine exact counting
 functions and growth rates.
 \end{abstract}
+\noindent\textbf{2020 Mathematics Subject Classification.} Primary 11B39; Secondary 11B50, 05A15.
+\par\smallskip
+\noindent\textbf{Keywords.} Lucas numbers; Fibonacci numbers; representation collisions; linear recurrences; counting functions.
+
+\section{Introduction}
+Representations of integers by sums and differences of terms of linear
+recurrences arise naturally in enumeration and Diophantine questions.
+The Fibonacci and Lucas sequences provide an especially tractable
+setting because their closed forms, algebraic conjugates, and
+addition identities control differences between indices;
+see Koshy~\cite{koshy}.
+Here we study positive values of weighted Lucas sums and
+differences, in particular when different index pairs yield the same value.
+
+We first establish uniform finite collision bounds and classify
+coefficients admitting infinitely many collisions. For the coefficient
+$q=5$ we then obtain direct terms, multiplicities, intersections,
+and counting asymptotics for four OEIS sequences
+\cite{oeis980,oeis981,oeis982,oeis983}.
+
+\paragraph{Notation.}
 Let $F_0=0,F_1=1$ and $L_0=2,L_1=1$, with $u_{n+2}=u_{n+1}+u_n$.
-Use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
+Put $\varphi=(1+\sqrt5)/2$, $\alpha=\varphi$, and $\beta=-\alpha^{-1}$, so that Binet's formula is $L_n=\alpha^n+\beta^n$. For negative indices use $F_{-n}=(-1)^{n+1}F_n$ and $L_{-n}=(-1)^nL_n$. Put
 \[
 S_q=\{L_i-qL_j>0:i,j\ge1\},\quad
 T_q=\{qL_i-L_j>0:i,j\ge1\},\quad
 P_q=\{qL_i+L_j>0:i,j\ge1\}.
 \]
+In a representation $L_i-qL_j$, $qL_i-L_j$, or $qL_i+L_j$, we call $i$ the \emph{first index} and $j$ the \emph{second index}. A collision is an equality of values from distinct ordered index pairs.
 The recurrence gives
 \begin{equation}\label{eq:identities}
 L_{m+4}-L_m=5F_{m+2},\qquad
@@ -80,9 +102,9 @@ L_{n+2m}-L_n
 =q(L_{n+m+h}-L_{n+m-h}),
 \]
 which is \eqref{eq:ratio-difference}.
-The right-hand side of the first expression
-$qL_{n+m-h}-L_n$ is strictly positive and increases
-with $n$ because $q\ge2$ and $m-h\ge1$.
+The expression $qL_{n+m-h}-L_n$ on the left-hand side of
+\eqref{eq:ratio-difference} is positive and strictly
+increasing with $n$, since $q\ge2$ and $m-h\ge1$.
 The equivalent sum collision is
 \[
 qL_{n+m-h}+L_{n+2m}
@@ -161,8 +183,9 @@ the indices when \(j>i\), and by
 For sums, \(qL_i+L_j\le X\) directly bounds both indices.
 Thus for any integer coefficient, all distinct values at most
 \(X\), their multiplicities (when finite), and their ranks
-are computed by finite exact arithmetic; negative coefficients
-reduce by exchanging sum and difference forms.
+are determined by a finite search. The case of negative
+coefficients reduces to the positive case by exchanging
+sum and difference forms.
 
 \begin{proposition}[No simultaneous-shift positive collisions]
 \label{prop:no-shift}
@@ -194,8 +217,9 @@ But $q|\beta^e-1|\ge2(1-\alpha^{-2})
 
 
 \section{The global finite-collision bound}
-A finite threshold is sufficient to compute any term. The stronger
-statement below provides a bound independent of the value.
+The preceding bounds determine all representations below a given
+value $X$. The next result gives a uniform index bound for
+collisions in $S_q$, independent of $X$.
 \begin{theorem}[Uniform complete collision certificate]
 \label{thm:global}
 Fix an integer $q\ge2$. Let $t=t(q)$ be the least
@@ -324,11 +348,9 @@ Fix any integer $q\ge2$ and choose $t$ as in
 \begin{equation}\label{eq:general-T-collision}
 qL_k-L_\ell=qL_i-L_j>0,\qquad i<k,
 \end{equation}
-and $k>12t$, then all four indices lie
-within $6t$ of $k$, apart from a possible
-upper extension of at most $t$, and the same equality
-holds after \emph{every} simultaneous nonnegative shift
-of its indices.
+and $k>12t$, then all four indices lie in $[k-6t,k+t]$, and the same
+equality holds after \emph{every} simultaneous nonnegative
+shift of the indices.
 Consequently, the set $T_q$ has infinitely many
 multiply represented positive values if and only if
 there are indices with
@@ -469,7 +491,7 @@ If \(v>0\), this is a collision in \(T_q\); if
 \(v<0\), its negative is one in \(S_q\).
 The case \(v=0\) would give two different
 representations of the same Lucas ratio \(q>1\),
-contrary to Lemma~\ref{lem:lucas-ratio}.
+contrary to Lemma~\ref{lem:lucas-ratio} below.
 Thus the same index bound holds for \(P_q\).
 If \(T_q\) has a stationary collision,
 Theorem~\ref{thm:stationary} supplies one at
@@ -638,8 +660,8 @@ Proposition~\ref{prop:finiteTP}.
 \end{proof}
 
 \section{Finite-collision coefficient spectra}
-The preceding global bounds can also classify the coefficients
-with finitely many collisions without computing any ordered
+The preceding global bounds also allow us to classify the
+coefficients with finitely many collisions without computing any ordered
 set of positive values. The sole arithmetic objects needed
 are differences of two Lucas numbers and the sign of a
 two-by-two determinant.
@@ -721,8 +743,8 @@ index window
 \boxed{1\le a,b,c,d\le 13t+1,}
 \end{equation}
 where \(t=t(q)\) is defined by \eqref{eq:t-bound}.
-The two strict determinant signs construct all
-collision witnesses using exact integer arithmetic.
+The two strict sign conditions on $\Delta$ characterize
+positive collisions in $S_q$ and $T_q$.
 \end{theorem}
 \begin{proof}
 If \(D(a,b)=qD(c,d)\), then the two unequal pairs
@@ -789,18 +811,18 @@ and \(P_q\) precisely for
 Let \(\mathcal I\) be the three explicit coefficient
 families in \eqref{eq:explicit-coefficients}.
 By Theorem~\ref{thm:explicit-infinite}, the
-\emph{finitely collided but nonunique} coefficients are
+coefficients admitting a finite, nonempty set of collisions are
 \[
 \begin{array}{c|l}
-S & \mathcal C_+\\
-T & \mathcal C_-\setminus\mathcal I\\
-P &(\mathcal C_+\cup\mathcal C_-)
+S_q & \mathcal C_+\\
+T_q & \mathcal C_-\setminus\mathcal I\\
+P_q &(\mathcal C_+\cup\mathcal C_-)
        \setminus\mathcal I.
 \end{array}
 \]
 The complements give global uniqueness, while
 \(\mathcal I\) gives infinitely many collision values
-for \(T\) and \(P\). For \(S\), all collisions are
+for \(T_q\) and \(P_q\). For \(S_q\), all collisions are
 finite at every \(q\ge2\).
 
 \begin{corollary}[Sum uniqueness from both differences]
@@ -943,7 +965,7 @@ and \(P=P_5\). Their increasing positive values
 give OEIS A191981, A191982, and A191980,
 respectively; the positive values of A191983 form
 \(S\cup T\). The published A191981, A191982, and A191983
-begin with a zero sentinel. Because
+have $0$ as their initial term. Because
 \(L_i\bmod5\) cycles through \(1,3,4,2\),
 the equation \(L_i=5L_j\) is impossible:
 the zero is not a Lucas difference.
@@ -1279,8 +1301,8 @@ in \eqref{oeis:eq:sum-full-overlap}.
 All strict inequalities used above are fixed-shift linear
 combinations of Lucas numbers. Their differences satisfy
 $u_{c+2}=u_{c+1}+u_c$; each is positive at $c=8,9$,
-so all hold for $c\ge8$. The companion verifier records
-the 18 positive initial comparisons and the exact identity.
+so all hold for $c\ge8$. The $18$ initial comparisons at $c=8,9$ and the exact
+identity follow by direct substitution.
 
 For $c\le7$, the ranges $1\le a<c$ and
 $1\le b,d\le c+3$ are finite. Exhaustion gives the
@@ -1458,28 +1480,13 @@ The finite prefixes below complete the formulas for every \(n\ge1\).
 
 \paragraph{Finite initial terms.}
 The lengths are \(26,14,80,56\), respectively.
-{\footnotesize
-\begin{verbatim}
-A191981:
-0,2,3,6,9,12,13,14,21,24,27,32,33,41,42,54,
-56,61,68,71,87,88,103,108,109,118.
-
-A191982:
-0,1,2,4,6,8,9,11,12,13,14,16,17,19.
-
-A191980:
-6,8,9,12,16,18,19,21,22,23,24,26,27,31,33,34,36,38,39,42,
-44,46,49,52,53,56,58,59,62,64,66,67,73,81,82,84,91,93,94,96,
-97,101,102,108,111,119,128,131,137,138,143,146,148,149,152,156,
-158,163,166,174,178,192,204,213,214,219,221,234,236,238,239,242,
-246,253,254,264,268,282,289,311.
-
-A191983:
-0,1,2,3,4,6,8,9,11,12,13,14,16,17,19,21,22,24,26,27,
-28,31,32,33,34,36,37,41,42,43,44,48,51,52,54,56,58,61,
-68,69,71,72,79,83,86,87,88,89,94,98,103,108,109,112,116,118.
-\end{verbatim}
-}
+\begin{quote}
+\small\raggedright
+\noindent\textbf{A191981.}\quad \(0,\allowbreak 2,\allowbreak 3,\allowbreak 6,\allowbreak 9,\allowbreak 12,\allowbreak 13,\allowbreak 14,\allowbreak 21,\allowbreak 24,\allowbreak 27,\allowbreak 32,\allowbreak 33,\allowbreak 41,\allowbreak 42,\allowbreak 54,\allowbreak 56,\allowbreak 61,\allowbreak 68,\allowbreak 71,\allowbreak 87,\allowbreak 88,\allowbreak 103,\allowbreak 108,\allowbreak 109,\allowbreak 118\).\par\medskip
+\noindent\textbf{A191982.}\quad \(0,\allowbreak 1,\allowbreak 2,\allowbreak 4,\allowbreak 6,\allowbreak 8,\allowbreak 9,\allowbreak 11,\allowbreak 12,\allowbreak 13,\allowbreak 14,\allowbreak 16,\allowbreak 17,\allowbreak 19\).\par\medskip
+\noindent\textbf{A191980.}\quad \(6,\allowbreak 8,\allowbreak 9,\allowbreak 12,\allowbreak 16,\allowbreak 18,\allowbreak 19,\allowbreak 21,\allowbreak 22,\allowbreak 23,\allowbreak 24,\allowbreak 26,\allowbreak 27,\allowbreak 31,\allowbreak 33,\allowbreak 34,\allowbreak 36,\allowbreak 38,\allowbreak 39,\allowbreak 42,\allowbreak 44,\allowbreak 46,\allowbreak 49,\allowbreak 52,\allowbreak 53,\allowbreak 56,\allowbreak 58,\allowbreak 59,\allowbreak 62,\allowbreak 64,\allowbreak 66,\allowbreak 67,\allowbreak 73,\allowbreak 81,\allowbreak 82,\allowbreak 84,\allowbreak 91,\allowbreak 93,\allowbreak 94,\allowbreak 96,\allowbreak 97,\allowbreak 101,\allowbreak 102,\allowbreak 108,\allowbreak 111,\allowbreak 119,\allowbreak 128,\allowbreak 131,\allowbreak 137,\allowbreak 138,\allowbreak 143,\allowbreak 146,\allowbreak 148,\allowbreak 149,\allowbreak 152,\allowbreak 156,\allowbreak 158,\allowbreak 163,\allowbreak 166,\allowbreak 174,\allowbreak 178,\allowbreak 192,\allowbreak 204,\allowbreak 213,\allowbreak 214,\allowbreak 219,\allowbreak 221,\allowbreak 234,\allowbreak 236,\allowbreak 238,\allowbreak 239,\allowbreak 242,\allowbreak 246,\allowbreak 253,\allowbreak 254,\allowbreak 264,\allowbreak 268,\allowbreak 282,\allowbreak 289,\allowbreak 311\).\par\medskip
+\noindent\textbf{A191983.}\quad \(0,\allowbreak 1,\allowbreak 2,\allowbreak 3,\allowbreak 4,\allowbreak 6,\allowbreak 8,\allowbreak 9,\allowbreak 11,\allowbreak 12,\allowbreak 13,\allowbreak 14,\allowbreak 16,\allowbreak 17,\allowbreak 19,\allowbreak 21,\allowbreak 22,\allowbreak 24,\allowbreak 26,\allowbreak 27,\allowbreak 28,\allowbreak 31,\allowbreak 32,\allowbreak 33,\allowbreak 34,\allowbreak 36,\allowbreak 37,\allowbreak 41,\allowbreak 42,\allowbreak 43,\allowbreak 44,\allowbreak 48,\allowbreak 51,\allowbreak 52,\allowbreak 54,\allowbreak 56,\allowbreak 58,\allowbreak 61,\allowbreak 68,\allowbreak 69,\allowbreak 71,\allowbreak 72,\allowbreak 79,\allowbreak 83,\allowbreak 86,\allowbreak 87,\allowbreak 88,\allowbreak 89,\allowbreak 94,\allowbreak 98,\allowbreak 103,\allowbreak 108,\allowbreak 109,\allowbreak 112,\allowbreak 116,\allowbreak 118\).\par\medskip
+\end{quote}
 
 \begin{proof}[Proof of Theorem~\ref{oeis:thm:closed-forms}]
 Partition the positive values into consecutive Lucas-scale
@@ -1584,14 +1591,13 @@ There are \(2m-5\) terms per interval, and
 \(56\) initial terms below \(L_{10}\); hence the
 count below \(L_m\) is \((m-3)^2+7\).
 Inverting it yields \eqref{eq:closed-983}.
-The complete fixed-shift inequalities and
-initial index checks appear in the companion
-note \texttt{direct-terms-proof.md}.
+The remaining fixed-shift inequalities and the initial
+cases $m=10,11$ follow by direct substitution.
 \end{proof}
 
 \begin{theorem}[Counting and term growth]
 \label{oeis:thm:growth}
-Let \(\varphi=(1+\sqrt5)/2\). As \(x\to\infty\),
+With $\varphi$ as defined in the introduction, as $x\to\infty$,
 \[
 A(x)=\tfrac12(\log_\varphi x)^2+O(\log x),\qquad
 B(x)=\tfrac12(\log_\varphi x)^2+O(\log x),
@@ -1649,11 +1655,29 @@ quadratic estimates yields the four asserted
 term asymptotics.
 \end{proof}
 
-\paragraph{OEIS references.}
-The four records are
-\url{https://oeis.org/A191980},
-\url{https://oeis.org/A191981},
-\url{https://oeis.org/A191982}, and
-\url{https://oeis.org/A191983}.
+\section*{Acknowledgments}
+Large language models, including OpenAI's ChatGPT, assisted with
+mathematical exploration, code development and checking, and
+manuscript drafting and editing. The authors directed and reviewed
+these contributions and take responsibility for the mathematical
+arguments and the final manuscript.
 
+\begin{thebibliography}{9}
+\bibitem{koshy} T.~Koshy, \emph{Fibonacci and Lucas Numbers with Applications},
+Vol.~I, 2nd ed., Wiley, 2018.
+\url{https://doi.org/10.1002/9781118742327}.
+
+\bibitem{oeis980} OEIS Foundation Inc.,
+\emph{The On-Line Encyclopedia of Integer Sequences}, A191980.
+\url{https://oeis.org/A191980}.
+\bibitem{oeis981} OEIS Foundation Inc.,
+\emph{The On-Line Encyclopedia of Integer Sequences}, A191981.
+\url{https://oeis.org/A191981}.
+\bibitem{oeis982} OEIS Foundation Inc.,
+\emph{The On-Line Encyclopedia of Integer Sequences}, A191982.
+\url{https://oeis.org/A191982}.
+\bibitem{oeis983} OEIS Foundation Inc.,
+\emph{The On-Line Encyclopedia of Integer Sequences}, A191983.
+\url{https://oeis.org/A191983}.
+\end{thebibliography}
 \end{document}
