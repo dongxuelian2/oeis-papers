@@ -3,7 +3,7 @@
 Mathematical papers and research notes, ordered by OEIS sequence number. Each entry retains the sequence's OEIS description and briefly states the mathematical result established by its accompanying manuscript. Sequences treated in the same paper are grouped together.
 
 - **[A001040 / A001053](papers/A001040-A001053/)**
-  - [A001040](https://oeis.org/A001040): a(n+1) = n*a(n) + a(n-1) with a(0)=0, a(1)=1.
+  - [A001040](https://oeis.org/A001040) (published): a(n+1) = n*a(n) + a(n-1) with a(0)=0, a(1)=1.
   - [A001053](https://oeis.org/A001053): a(n+1) = n*a(n) + a(n-1) with a(0)=1, a(1)=0.
   - **Result:** We proved Kurkov's endpoint-refined rook-tour conjectures for every positive board size: the numbers of directed Hamilton tours with endpoints in opposite and equal columns are respectively `2*n!*A001040(n)` and `2*n!*A001053(n)`.
 
@@ -22,7 +22,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We proved the exact existence classification of cube-sum permutations: `P(n)>0` for every `n>=173`, with precisely 48 admissible smaller sizes, and `P(n)>=3` for every `n>=175`. Consequently `A006063(j)=j+124` for `j>=49` and `A096680(j)=j+161` for `j>=14`; the finite base cases have explicit certificates. We also constructed eventual one-fixed-point and fixed-point-free cube-sum involutions.
 
 - **[A006154](papers/A006154/)**
-  - [A006154](https://oeis.org/A006154): Number of labeled ordered partitions of an n-set into odd parts.
+  - [A006154](https://oeis.org/A006154) (published): Number of labeled ordered partitions of an n-set into odd parts.
   - **Result:** We proved eventual periodicity modulo every positive integer, with a period dividing `2*phi(m)` (or `phi(m)` for odd `m`). The least eventual period modulo 10 is 4.
 
 - **[A048702](papers/A048702/)**
@@ -40,7 +40,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We proved that all three sequences have positive, well-defined terms at every positive index, by constructing divisible concatenations of consecutive integers and Champernowne prefixes.
 
 - **[A075018](papers/A075018/)**
-  - [A075018](https://oeis.org/A075018): Smallest k such that the concatenation k, k-1,k-2,k-3 is divisible by n; or 0 if no such number exists.
+  - [A075018](https://oeis.org/A075018) (published): Smallest k such that the concatenation k, k-1,k-2,k-3 is divisible by n; or 0 if no such number exists.
   - **Result:** We proved `A075018(n)>0` for every `n`, as a consequence of a universal even-base theorem for arbitrary permutations of consecutive blocks. We also proved `A075018(d*10^r)=d*10^r+3` for `r>=2` and every positive divisor `d` of 30.
 
 - **[A077183 / A077185](papers/A077183-A077185/)**
