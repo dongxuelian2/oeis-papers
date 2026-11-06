@@ -121,7 +121,7 @@ def check_small():
 def check_compact():
     core = read("core_109.json")
     expected = set(range(173, 256)) | set(range(339, 365))
-    if set(map(int, core)) != expected:
+    if set(core) != {str(n) for n in expected}:
         raise AssertionError("incorrect compact base index set")
     constructed = {}
     for n in range(173, 365):
