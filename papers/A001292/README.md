@@ -208,3 +208,13 @@ Combining the table with the37 noncube test yields effective integer exclusions 
 The verifier checks27 full matrix phases, the boundary-cycle identity,6561 table cells,99999 direct endpoints and101385 modular rotations at three selected certified endpoints. No finite test is presented as a global conjecture classification. The main manuscript/PDF remain unchanged.
 
 An independent scalar verifier additionally checks all local cells and999 combined width count phases, with49284 modulo37 prefix phase checks. Both proof corrections from review were incorporated: the cut-two normalization uses D(2)=2, and all finite density counts refer to the certified subset.
+
+## A progression certificate beyond squares and cubes
+
+[The prime-exponent progression lemma](LINEAR_PRIME_EXPONENT_CERTIFICATE.md) uses a witness prime of odd prime order q without requiring q to divide the digit width. Instead a single endpoint class modulo q forces the cyclic length to be divisible by q, and the prefix becomes linear along that progression. Verified suitable primes give exact e-th-power exclusion counts; the theorem does not claim witnesses exist for every e.
+
+The explicit instance e=5,p=1031,q=103 combines with valuations5^r. It gives integer-nonpower blocks that are fifth powers in Q_3 but neither squares nor cubes there, disjoint from the earlier local-square and local-cube families. The construction permits both width and endpoint parities, requires103 not dividing d and sufficiently large v_3(d), and proves an infinite valuation-union lower bound. It does not classify all even widths or odd endpoints.
+
+Finite verification covers306 q-step identities across102 phases,147 exact tail/period inequalities,12 selected prefixes and48 selected modular cuts. Whole-block and infinite assertions follow from proof. The main manuscript/PDF are unchanged; the global conjecture remains open.
+
+An additional independent verifier checks408 complete affine counts,29520 valuation residues, all12 supplied prefixes and120 selected cuts including digit boundaries and m-1.
