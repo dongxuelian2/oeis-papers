@@ -59,3 +59,14 @@ The existing verifier commands remain available:
     python verify_h3_residues_independent.py
 
 [Fresh consolidated output](verification-recovered-uniform.txt) and [verification notes](VERIFICATION.txt) distinguish the current reruns from earlier audits. [Publication metadata](publication.json) records the source and PDF hashes.
+
+## Supplement: additional prime families and a precise limitation
+
+[Whole-block prime obstructions and surviving local powers](PRIME_FAMILIES.md) supplies full proofs and reproducible certificates for:
+
+- Complete uniform-valuation-one classifications at 7, 11 and 13.
+- New 31/41 families reaching even digit lengths and odd endpoints, including blocks whose rotations are all squares over Q_3 but are all integer nonpowers.
+- Exact conditional-CRT intersections and coverage fractions, with shared parity and residue conditions accounted for.
+- Infinite families where the same unrotated member is simultaneously a square, or a seventeenth power, at all eight listed local fields. These are local survivors, not integer counterexamples, and demonstrate why that finite collection of primes cannot finish the conjecture.
+
+The supplement is separate from the unchanged 15-page manuscript. Its proof scope, commands, fresh outputs and recovery/portability provenance are documented within it. Kashihara's integer conjecture remains open.
