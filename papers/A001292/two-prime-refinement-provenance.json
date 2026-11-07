@@ -1,0 +1,14 @@
+{
+  "kind": "New two-prime periodic counting refinement",
+  "parent_commit": "7ff3f6a068962786bac7a212354a60f7a18449f2",
+  "scope": "Prime exponents <= X^epsilon with fixed epsilon < 1/(4L-2); integer conjecture remains open",
+  "review": "Mathematical review confirmed joint density, shared period factor, interval error and endpoint bounds. Additional review computations were reported, but no separate script was supplied; only the reproducible checks in this publication are counted in its verification files.",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "TWO_PRIME_REFINEMENT.md": "fdde8106f2d2c90c661bcf664e547f72c8ac4a3dd96d5b4d9e6c8a6ff98297e7",
+    "verify_two_prime_refinement.py": "4d7e8384be45aa6643cb303069698d578d34000be0ea1a0f516e4b43c186798f",
+    "two-prime-refinement-certificate.json": "3819eb04f4a4a35aaf0c10a4decb575287452bb697c2e806ff1d00abae6d78ec",
+    "two-prime-refinement-verification.txt": "77cec6bc9724c21101d94c7b98ff4c151e8885e3d840805b823f5f54344b603e",
+    "README.md": "a2da584f3116af5e4b25cbba19ba8814acc1ee337dc5e7498851fec316ecb47c"
+  }
+}

@@ -94,3 +94,9 @@ The remaining larger prime exponents, and exceptional individual candidates even
 [The Linnik-window supplement](LINNIK_EXPONENT_WINDOW.md) proves a larger unconditional range: prime exponents ell≤X^epsilon, for every fixed epsilon<1/(4L+1), where L is any admissible absolute exponent in Linnik's least-prime theorem. No numerical L or K is asserted. The bound remains X² exp(−c log X/log log X), c<(log 2)/2.
 
 The proof constructs many distinct eligible primes by CRT and the least-prime theorem, then separately treats fixed, medium and large exponents. It accounts for both floor losses and all exponent-dependent period errors. This does not reach the full possible exponent range O(X log X) or exclude individual surviving powers; the conjecture remains open. Thirty CRT constructions and nine exact density-tail checks accompany the full argument.
+
+## Sharper window from two primes
+
+[The two-prime refinement](TWO_PRIME_REFINEMENT.md) improves the sufficient exponent-window restriction to epsilon<1/(4L−2), preserving the same strong sparsity bound. The proof uses the shared factor ell in two local periods and bounds the interval error by the number of allowed residue classes. It introduces no new analytic hypothesis and still leaves the full integer conjecture open.
+
+The standalone verifier checks 12 exact joint-period cases and 3600 interval bounds. The theorem and the finite checks have distinct roles: the latter audit the periodic counting identities, not the infinite Linnik theorem.
