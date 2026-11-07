@@ -1,0 +1,3 @@
+Exact rotation/tail checks: 32 (same width: 14 crossed boundary: 18 )
+Rational window checks: 394
+PASS. Finite ingredients only; no ineffective exceptional sets are computed.
