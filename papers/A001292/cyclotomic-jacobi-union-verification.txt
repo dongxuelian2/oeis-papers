@@ -1,0 +1,8 @@
+Exact CRT model counts: 9
+Width 9 sample union/top: 109 109 out of 200
+Width 27 sample union/top: 147 104 out of 200
+Width 36 sample union/top: 101 101 out of 200
+Width 81 sample union/top: 178 96 out of 200
+Width 108 sample union/top: 149 103 out of 200
+Selected exact prefix checks: 21
+PASS. Sample rates are not used to prove or estimate the infinite coverage bound.

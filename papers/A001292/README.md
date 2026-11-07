@@ -136,3 +136,9 @@ The run checks 188 selected cuts and cross-checks 206 preliminary Jacobi symbols
 [The cyclotomic Jacobi theorem](CYCLOTOMIC_JACOBI_FAMILY.md) proves that, in each sufficiently large prime-power digit width d=3^h, at least a proportion 1/1998−o(1) of endpoints yield entire blocks of integer nonpowers. All their rotations are nevertheless squares over Q_3 and Q_37. Every prime factor of the growing certificate modulus exceeds 2d.
 
 The infinite assertion follows from the character-counting proof, including the degenerate-discriminant case. The script checks 40 small-modulus character cases, the complete nine-digit congruence-restricted scan (450764 certified endpoints), and 30 selected prefix calculations across widths 9,27,81. It does not enumerate the larger widths or individually test all rotations. The lower proportion is within the stated digit-width blocks, not a density claim over all sequence entries. The full conjecture remains open.
+
+## A union covering nearly all of a surviving endpoint class
+
+[The cyclotomic Jacobi union](CYCLOTOMIC_JACOBI_UNION.md) extends the infinite family to digit widths d with h=v_3(d) tending to infinity and d a nonzero square modulo37, including even widths d=4*3^h. In the endpoint class m=666 modulo999, a proportion 1-O(2^(-h/2)) has a whole-block nonpower certificate, although every rotation remains a square over Q_3 and Q_37. The estimate is uniform in d/3^h and follows from exact CRT counts and a telescoping period, not an independence heuristic. All primes used exceed 2 sqrt(3^h).
+
+The finite script checks nine exact CRT models, 200 selected endpoints at each of widths 9,27,36,81,108, and 21 selected exact prefixes. Sample rates do not establish or estimate the asymptotic theorem. This is conditional coverage in one endpoint class, not a density statement for all sequence entries or a resolution of the full conjecture. The main manuscript and PDF are unchanged.
