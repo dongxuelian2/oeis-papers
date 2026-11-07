@@ -1,0 +1,11 @@
+{
+  "widths": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "coefficient_checks": 4,
+  "exact_prefix_identities": 32,
+  "digit_formula_checks": 1999
+}

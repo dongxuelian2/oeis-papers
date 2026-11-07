@@ -1,0 +1,19 @@
+{
+  "exact_rotation_checks": 18,
+  "squareclass_checks": [
+    {
+      "d": 2,
+      "cuts": 23,
+      "squareclasses": 23,
+      "omega_C": 2,
+      "max_multiplicity": 1
+    },
+    {
+      "d": 3,
+      "cuts": 293,
+      "squareclasses": 292,
+      "omega_C": 2,
+      "max_multiplicity": 2
+    }
+  ]
+}
