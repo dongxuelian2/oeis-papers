@@ -266,3 +266,11 @@ Run `python papers/A001292/verify_general_valuation_transfer.py`. The certificat
 The same proof supplement explains the remaining global obstacles: its supplied approximation exponent has limiting maximum 9/5, and the entire early-cut target domain contains more than sqrt(10^d)/10 squareclasses. This latter count concerns candidate targets, not a claim that actual square counterexamples exist. `MOVING_COEFFICIENT_HEIGHT.md` separately quantifies why the canonical unrotated representation fails a negligible-coefficient-height assumption: the minimum height ratio tends to 1/9. The alternate rotation representation escapes that particular height barrier.
 
 Run `python papers/A001292/verify_coefficient_height.py` and `python papers/A001292/verify_irrational_target.py`. The former checks four widths, 32 exact prefix identities and 1,999 digit-count identities. The latter checks 18 exact rotations and squareclass multiplicities for 23 and 293 early cuts at widths 2 and 3. These are finite audits of proof ingredients, not a computation of the ineffective exceptional set. The main manuscript and PDF remain unchanged.
+
+## A three-dimensional argument across the cut range
+
+`ALL_CUT_FIXED_SQUARECLASS.md` strengthens the fixed-squareclass theorem by combining the real approximation and the 2-adic/5-adic congruences in the three-dimensional p-adic Subspace Theorem. The cut-length factor cancels in the product estimate. After the theorem produces exceptional rational subspaces, a separate irrational-limit argument eliminates infinite solution sequences in each one.
+
+Precisely: fix a squarefree s and 0<delta<8. Only finitely many square rotations satisfy m>=(2+delta)*10^(d-1), 10^(d-1)+7<=k<m, and k(10^d-1)+10^d=a^2s. This covers the whole displayed same-width cut range, without an early/late cut-fraction gap. It is still ineffective and nonuniform in s; it does not cover every endpoint, earlier-width cuts, unrestricted squareclasses, or other prime exponents. No proof of the full conjecture or computable exceptional threshold is claimed.
+
+Run `python papers/A001292/verify_subspace_cuts.py`. The finite audit records 23 exact rotation/product checks, 6,000 primitive-vector scaling checks and 985 rational decay-margin checks. These validate ingredients, not the ineffective exceptional subspaces. The main manuscript and PDF remain unchanged.

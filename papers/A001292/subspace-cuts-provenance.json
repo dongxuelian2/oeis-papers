@@ -1,0 +1,14 @@
+{
+  "base_commit": "d8d7e3ef0f1cac6cc22a7590643144202f94bb07",
+  "scope": "Fixed-squareclass finiteness across the displayed same-width cut range by a three-dimensional p-adic Subspace Theorem argument. Ineffective and nonuniform in the squareclass; not a proof of the global integer-power conjecture. Main LaTeX/PDF unchanged.",
+  "review": "Fresh independent audit passed: exact identities, K cancellation, uniform decay, primitive scaling, source hypotheses, parity split, rational/irrational subspace elimination, bounded-width finiteness and projective multiplicity. A separate assessor also checked the new mechanism and accessible theorem statements.",
+  "verification": "Standard-library verifier rerun independently: 23 exact rotation/product checks, 6000 primitive-scaling checks,985 rational margin checks. No square-solution search, ineffective exceptional subspace calculation or independent checker file is claimed.",
+  "source": "https://pub.math.leidenuniv.nl/~evertsejh/dio2011-padicsubspace.pdf, Theorem1.1, r=n=3. Original Schlickewei publisher text was not inspected.",
+  "sha256": {
+    "ALL_CUT_FIXED_SQUARECLASS.md": "818b83ccf090283ea55086f338e00fd7a5d735b643b3746fc90393fb9e4c1263",
+    "README.md": "288deb04edc6bfc685a307f55f68604d7742532b350cf83e4b5d94439f5cf663",
+    "subspace-cuts-certificate.json": "421e163e9da25e279694f8bf820aac550fd1447af0bab8c5cb75184675258658",
+    "subspace-cuts-verification.txt": "c411561b892ed4baa730e0561cd4a1e1cb3e26cdd4927ec4b93cdfa2f9ab6126",
+    "verify_subspace_cuts.py": "e4149912d05370bbebe76fc4ae7b52a345148fa238c9c020d1d0b404c67f002c"
+  }
+}
