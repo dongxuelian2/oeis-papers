@@ -218,3 +218,11 @@ The explicit instance e=5,p=1031,q=103 combines with valuations5^r. It gives int
 Finite verification covers306 q-step identities across102 phases,147 exact tail/period inequalities,12 selected prefixes and48 selected modular cuts. Whole-block and infinite assertions follow from proof. The main manuscript/PDF are unchanged; the global conjecture remains open.
 
 An additional independent verifier checks408 complete affine counts,29520 valuation residues, all12 supplied prefixes and120 selected cuts including digit boundaries and m-1.
+
+## Unconditional witnesses for each prime exponent at least five
+
+[The Chebotarev witness theorem](CHEBOTAREV_EXPONENT_WITNESSES.md) removes the earlier witness-existence gap. For each fixed prime e>=5, an explicit Galois-field argument gives a positive-density set of witness primes whose10-order is odd and coprime to3. The progression lemma extends to composite orders, so it applies at both d=3^h and d=2*3^h.
+
+For each fixed exponent and chosen witness, this yields positive-proportion certified blocks for sufficiently large h: their rotations are e-th powers in Q_3 but no integer perfect powers. This is an existence theorem for families indexed by every prime e>=5, not a uniform statement with growing e, an exclusion of every endpoint, or a solution of the integer conjecture. The proof is unconditional; no first-witness bound is asserted.
+
+The finite verifier checks nine explicit exponents, including composite witness orders,135 scalar recurrence identities and2700 width coprimality checks. The assertion for all prime exponents follows from the field-intersection and Chebotarev proof, not those examples. The main manuscript/PDF are unchanged.
