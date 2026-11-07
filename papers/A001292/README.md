@@ -198,3 +198,13 @@ The accompanying independent scalar verifier additionally checks1596 prefixes th
 An infinite union of four endpoint classes per admissible valuation gives a uniform endpoint lower proportion tending to at least0.0089099921442867 as h=v_3(d) tends to infinity. This is a proved infinite valuation count, not extrapolation from a finite endpoint search. It does not handle all remaining classes or bounded h, and the full conjecture stays open.
 
 The script exhausts all37 character phases and roots at valuations3 and9, checks98 exact tail/period inequalities, and verifies12 selected prefixes at widths27,54,81. Whole-block and unbounded conclusions follow from proof. The main manuscript/PDF are unchanged.
+
+## A small-period equivalence for valuation-three cube blocks
+
+[The fixed-valuation cubic classification](FIXED_VALUATION_CUBIC_CLASSIFICATION.md) proves that all rotations have exact3-adic valuation3 and are Q_3 cubes precisely when W_m=±27 modulo243 and27 divides D(m). Necessity needs only cuts0,1,2. A complete27-by243 phase table classifies this particular local type at every digit width; it does not classify all cube valuations or integer powers. The proof also gives the corresponding criterion at any specified positive valuation divisible by3.
+
+Combining the table with the37 noncube test yields effective integer exclusions at v_3(d)=0,1,2 as well as higher values. For d=1 modulo3 it gives48 classes modulo8991, density16/2997 up to absolute error48. The d=0 modulo27 row overlaps the old b=3 family and is explicitly acknowledged.
+
+The verifier checks27 full matrix phases, the boundary-cycle identity,6561 table cells,99999 direct endpoints and101385 modular rotations at three selected certified endpoints. No finite test is presented as a global conjecture classification. The main manuscript/PDF remain unchanged.
+
+An independent scalar verifier additionally checks all local cells and999 combined width count phases, with49284 modulo37 prefix phase checks. Both proof corrections from review were incorporated: the cut-two normalization uses D(2)=2, and all finite density counts refer to the certified subset.
