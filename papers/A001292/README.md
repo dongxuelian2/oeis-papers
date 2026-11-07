@@ -226,3 +226,11 @@ An additional independent verifier checks408 complete affine counts,29520 valuat
 For each fixed exponent and chosen witness, this yields positive-proportion certified blocks for sufficiently large h: their rotations are e-th powers in Q_3 but no integer perfect powers. This is an existence theorem for families indexed by every prime e>=5, not a uniform statement with growing e, an exclusion of every endpoint, or a solution of the integer conjecture. The proof is unconditional; no first-witness bound is asserted.
 
 The finite verifier checks nine explicit exponents, including composite witness orders,135 scalar recurrence identities and2700 width coprimality checks. The assertion for all prime exponents follows from the field-intersection and Chebotarev proof, not those examples. The main manuscript/PDF are unchanged.
+
+## An explicit growing-prime window
+
+[The uniform effective-window theorem](UNIFORM_EFFECTIVE_EXPONENT_WINDOW.md) upgrades the fixed-exponent statement: for every h>=32, every prime5<=e<=h+1 has a certified positive endpoint count at both d=3^h and d=2*3^h. Ahn–Kwon's unconditional least-prime theorem and an explicit discriminant bound give p_e<=(10e)^(301848e^2); the interval comparison has no hidden exponent-dependent threshold.
+
+Each exponent has its own subset with exact3-adic valuation e, so subsets for different e are disjoint. This is not an exclusion of all endpoints or of exponents outside the stated growing window. The numerical bounds are theoretical and extremely impractical. No GRH is assumed.
+
+The verifier audits exact constants, the h=32 base,9999 finite induction cases and412 prime/window comparisons. The cited theorem plus the written induction and discriminant proof justify the unbounded result. Main manuscript/PDF remain unchanged; the integer conjecture is open.
