@@ -164,3 +164,11 @@ The finite script checks exhaustive roots at valuations2,4,8;45 rational identit
 This supplies a concrete bounded-v_3(d) family, rather than extrapolating the earlier high-valuation limit. It is structural: the widths are extraordinarily large. The construction uses a fixed finite prime set and does not establish arbitrary-accuracy coverage, every bounded-valuation width, or the global conjecture.
 
 The standard-library verifier checks324 prime/period certificates, exact rational bounds,36 endpoint classes,353 exhaustive quadratic-constant models and six complete CRT models. It does not construct actual prefixes at those enormous widths. The main manuscript and PDF are unchanged.
+
+## An effective antiperiodic13 family
+
+[The antiperiodic13 theorem](ANTIPERIODIC_THIRTEEN.md) works at every digit width d=3+6a, starting at d=3. For even endpoints, W_m=m/2+5(a+1) modulo13. Combining a nonresidue value with m=8 or18 modulo27 gives12 explicit classes modulo702, certifying (2/117)H endpoints up to an absolute counting error at most12. All rotations are integer nonpowers, Q_3 squares and Q_13 nonsquare units.
+
+This handles infinitely many widths with v_3(d)=1 without the preceding huge common width period. It differs from the older13-adic valuation-one family because these endpoints are units modulo13. The older family already included some antiperiodic widths; the new claim is the explicit linear formula and combined certificate, not the first use of that phase. The proof is uniform; it does not claim the small endpoints were absent from earlier computations.
+
+The standard-library script checks all six matrix phases,13 width classes,450 direct even three-digit prefixes,42 selected larger-width prefixes and8084 individual rotations from15 certified three-digit endpoints. The global conjecture remains open, and the main manuscript/PDF are unchanged.
