@@ -148,3 +148,11 @@ The finite script checks nine exact CRT models, 200 selected endpoints at each o
 [Uniform Jacobi coverage](UNIVERSAL_JACOBI_WIDTHS.md) removes the restriction on the digit width modulo37. At every digit width d with h=v_3(d) tending to infinity, it certifies asymptotically a proportion2/27 of endpoints, using both m=8 and18 modulo27. Every certified rotation is an integer nonpower but a square over Q_3. Exact37 phase counts separately identify which classes also pass Q_37; that compatibility is not asserted in all phases.
 
 An explicit product bound permits a faster O(h^4*2^(-h)) residual for fixed cutoff, or a growing cutoff whose witness primes tend to infinity. The finite audit checks all27 and37 residues, 4656 exact rational product identities, 1600 sampled endpoints and48 selected exact prefixes. Infinite coverage and whole-block exclusion follow from the proof, not the samples. These remain sufficient conditions; the global conjecture is open and the main manuscript/PDF are unchanged.
+
+## Union over power-of-two valuations
+
+[The valuation union](JACOBI_VALUATION_UNION.md) combines all admissible valuations b=2^r, giving an endpoint proportion C-O(h^4*2^(-h)), where C=sum 2/3^(2^r+1)=0.08240615276287… and h=v_3(d) tends to infinity. All certified blocks are integer nonpowers but Q_3-square blocks. The individual valuation criterion was known in the earlier supplement; the new content is the infinite union count and its controlled interval error, obtained by omitting the largest cyclotomic modulus.
+
+This increases the earlier2/27 endpoint proportion by approximately0.008332078689. It does not cover bounded h or imply Q_37 compatibility. A separate exact counterexample explains why replacing the3-power moduli by other odd-prime-power cyclotomic moduli does not preserve a uniform negative-character bound for arbitrary constants; it does not classify the actual concatenation constant.
+
+The finite script checks exhaustive roots at valuations2,4,8;45 rational identities;800 sampled endpoints;32 selected exact prefixes; and300 selected residues for three counterexample moduli. Infinite and whole-block claims follow from proof, not samples. The global conjecture remains open; the main manuscript and PDF are unchanged.
