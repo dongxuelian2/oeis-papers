@@ -24,7 +24,9 @@ powerful values among cyclic concatenations of initial positive integers.
 For decimal digit lengths with $v_3(d)=1$, a cubic reduction gives an exact
 local classification: 131 classes of $m$ modulo 243 exclude all rotations
 over $\Q_3$; every other class has a local square, cube, or fifth power among
-the first four cuts. At complete digit boundaries, exact valuations and
+the first four cuts. When $v_3(d)=2$, exactly 133 classes modulo 243
+exclude all rotations; every other class has a local power at one of seven
+fixed cuts, all at most 22. At complete digit boundaries, exact valuations and
 characters exclude a set of digit lengths of lower density exceeding $95.5995\%$.
 A general lifting theorem gives local power equivalences and a quadratic
 reduction on entire digit intervals. Along suitable progressions of digit
@@ -463,7 +465,7 @@ where
  \end{cases}
 \]
 The displayed sufficient set consists of exactly 133 classes modulo
-243. No claim that it is the complete local exclusion set is made here.
+243. The converse is established in Theorem~\ref{thm:h2-complete} below.
 \end{corollary}
 \begin{proof}
 Reduce the cubic congruence modulo 243. Since $d=9u$, its residue
@@ -489,6 +491,80 @@ $\pm1$ modulo 9. Valuations one through four have no prime divisor
 other than 2 or 3, so no further prime exponent is possible.
 The three displayed sets are disjoint and have sizes $108$, $18$,
 and $7$, whose sum is 133.
+\end{proof}
+
+\begin{theorem}[Complete local classification at $v_3(d)=2$]\label{thm:h2-complete}
+Suppose $m$ has $d$ decimal digits, $v_3(d)=2$, and $u=d/9$.
+All whole-block rotations fail to be prime-exponent powers in $\mathbb Q_3$
+if and only if $m$ belongs to the 133 classes in
+Corollary~\ref{cor:higher-133}. In every other class, some
+\[
+ k\in\{0,1,2,3,4,19,22\},\qquad e\in\{2,3,5,7\}
+\]
+satisfy $R_{m,k}\in(\mathbb Q_3^\times)^e$.
+\end{theorem}
+\begin{proof}
+Write $X_k=10^{-D(k)}W_k$, $\Delta=10^{D(m)}-1$, and
+$Y_k=10^{-D(k)}R_{m,k}=W_m-\Delta X_k$.
+Multiplication by $10^{D(k)}$ preserves all four power tests:
+its unit is $1$ modulo $9$, and raising to the fifth or seventh power
+is an automorphism of $\mathbb Z_3^\times$.
+
+Here is a useful elementary observation. Any full coset of
+$3\mathbb Z/9\mathbb Z$ contains either a unit $1$ modulo $3$,
+the unit $8$ modulo $9$, or a residue $3$ or $6$ modulo $9$.
+Thus, if three values of $Y_k/3^6$ form such a coset, one of the
+corresponding rotations is a square, cube, or seventh power.
+
+The sufficient direction is Corollary~\ref{cor:higher-133}.
+For the converse, substitute the 243 possibilities for $m$ in its
+polynomial $F_u(m,k)$, at $k=0,1,2,3$. Apart from the 133 excluded
+classes, every residue gives a square, cube, or unit (hence fifth
+power), certified modulo $243$, except
+\[
+\begin{array}{c|c}
+u\pmod3&\text{uncertified }m\pmod{243}\\\hline
+1&0,161\\
+2&0,242.
+\end{array}
+\]
+This finite table uses precisely the tests
+$b=0$, or $2\mid b$ and $w\equiv1\pmod3$, or
+$3\mid b$ and $w\equiv\pm1\pmod9$, where
+$b=v_3(F_u(m,k))<5$ and $w=F_u(m,k)/3^b$;
+zero residues are left uncertified. The companion
+\path{verify_h2_local_equivalence.py} checks every entry of this finite table.
+
+Put $a=(10^d-1)/(9d)-1$. The binomial expansion shows
+$v_3(a)=2$: its leading term is $9(d-1)/2$, and all subsequent
+terms have valuation at least three, since the term indexed by $r\ge3$ has valuation at least $2(r-1)-v_3(r)\ge3$. The length identity gives
+$D(m)=d(m-a)$.
+If $m\equiv0\pmod{243}$, then $v_3(D(m))=4$, so $v_3(\Delta)=6$.
+The cubic congruence also gives $v_3(W_m)\ge5$.
+If this valuation equals five, use $k=0$. Otherwise write
+$z=W_m/3^6$ and $c=\Delta/3^6\in\mathbb Z_3^\times$.
+Since $X_0,X_2,X_3\equiv0,3,6\pmod9$, the residues
+$Y_k/3^6=z-cX_k$ at these three cuts form a full coset modulo three,
+and the observation applies.
+
+The other uncertified classes have $m\equiv-1\pmod{27}$ and
+$81\mid W_m$. Here $v_3(D(m))=2$, hence $v_3(\Delta)=4$.
+Write $z=W_m/81$ and $c=\Delta/81$, a unit.
+If $z\equiv1\pmod3$, cut zero is a square.
+If $z\equiv0\pmod3$, the residues $z-cX_k$ at $k=0,2,3$
+include $3$ or $6$ modulo nine, giving a fifth power.
+If $z\equiv2\pmod3$ and $c\equiv1\pmod3$, cut one is a square.
+The remaining case is $z\equiv c\equiv2\pmod3$.
+Then $Y_1$ is divisible by $3^5$; if its valuation is five, it is a
+fifth power. Otherwise $3^6\mid Y_1$, and direct finite arithmetic gives
+\[
+ \frac{X_4-X_1}{9}\equiv8,\qquad
+ \frac{X_{19}-X_1}{9}\equiv2,\qquad
+ \frac{X_{22}-X_1}{9}\equiv5\pmod9.
+\]
+Consequently $Y_k/3^6=Y_1/3^6-c(X_k-X_1)/9$ at
+$k=4,19,22$ forms a full coset modulo three. Apply the observation
+again. All cuts exist, since $d\ge9$.
 \end{proof}
 
 \section{Lifting at boundary primes}

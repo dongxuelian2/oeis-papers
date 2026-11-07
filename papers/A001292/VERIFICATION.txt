@@ -124,3 +124,12 @@ verify_three_adic_sufficient_extension.py passed 91,854 residue checks, six 133-
 Higher-valuation results are sufficient only; no all-h equivalence is claimed.
 main.tex compiled twice without warnings; every one of 11 rendered pages reviewed.
 Full new command output is in verification-20261107.txt.
+
+Complete h=2 local classification update
+========================================
+The converse for the 133 h=2 classes is now proved, using fixed cuts 0,1,2,3,4,19,22 and exponents 2,3,5,7. No converse for h>2 is asserted.
+verify_h2_local_equivalence.py passed all finite tables, exact prefix constants, coset tests and 183,708 independent bounded-cut checks.
+Existing cubic, higher sufficient, and density verifiers rerun successfully.
+Independent exact-Fraction prefix constants and 108 coset tests also passed.
+PDF: 12 pages; compiled twice without warnings; all pages visually reviewed.
+Focused output: verification-h2.txt.

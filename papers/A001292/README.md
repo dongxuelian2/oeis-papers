@@ -163,6 +163,7 @@ python verify_general_boundary_primes.py
 python verify_digit_intervals.py
 python verify_density_refinement.py
 python verify_three_adic_sufficient_extension.py
+python verify_h2_local_equivalence.py
 python search_gmp.py 1000
 ```
 
@@ -211,8 +212,20 @@ as an independently verified baseline.
 
 For `h=v_3(d)>=2`, the manuscript now gives a sufficient nine-residue
 test for excluding every rotation from local prime-exponent powers.
-At `h=2`, an explicit sufficient set has **133 classes modulo 243**.
+At `h=2`, the complete local exclusion set has **133 classes modulo 243**.
 This is distinct from the existing complete 131-class criterion at `h=1`.
-No complete classification for `h>=2` is claimed. The new verifier checks
+For `h>2`, no complete classification is claimed. The new verifier checks
 91,854 residue cases, six 133-class sets and independent matrix rotations
 at digit lengths 9, 18, 27, 81 and 243.
+
+## Complete classification at h=2
+
+The former 133-class sufficient result is now an equivalence. Outside those
+classes, one of cuts **0, 1, 2, 3, 4, 19, 22** is a square, cube, fifth power
+or seventh power over Q_3. Exact normalized prefix differences at cuts
+4, 19 and 22 resolve the previously undecided classes. This is local
+solubility only, not an integer perfect-power counterexample.
+
+`verify_h2_local_equivalence.py` verifies all finite tables, exact prefix
+constants and coset witnesses, then checks 183,708 bounded-cut residues
+from independent matrix-initialized prefixes at digit lengths 9,18,36,45.
