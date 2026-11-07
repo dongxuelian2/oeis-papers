@@ -1,0 +1,20 @@
+{
+  "base_commit": "56c396e8fbf36e4408658491fc13ed3b010e02a8",
+  "status": "Actual final proof and augmented verifier independently reviewed; verifier rerun passed.",
+  "scope": "d>=2, B=10^d, L=B/10, 2L<=m<B, L+7<=k<m. All odd prime exponents and all cuts in this region, not all rotations.",
+  "bounds": {
+    "cubes": "<24B",
+    "odd_prime_union": "<20B^2/d",
+    "all_perfect_powers": "<20B^2/d+32B(1+floor(log_2(18d)))",
+    "cumulative": "O(X^2/log X) only in the stated region"
+  },
+  "main_latex_pdf": "Unchanged; supplemental proof and verification materials.",
+  "files": {
+    "ODD_PRIME_POWER_SPARSITY.md": "0073143f4acaca32bd361577600d8cb568f44bdec8c2911f5e53f4644bb83deb",
+    "ODD_PRIME_POWER_INDEPENDENT_AUDIT.md": "6b74caab46f63ba837f8fcfb050aad140a070f41c19dfd292c77ac744b2041bd",
+    "verify_odd_prime_power_sparsity.py": "7b0eb9c09a6a5395c95804710b1801267621009f5839573a6b0299862d5e58d0",
+    "odd-prime-power-certificate.json": "228fa57bb5e81ad518e4f57a41717c1634f839021e50f49e0fe590c483ea8edc",
+    "odd-prime-power-verification.txt": "228fa57bb5e81ad518e4f57a41717c1634f839021e50f49e0fe590c483ea8edc",
+    "README.md": "f5907f7cc9e19e2ca6ab4cdc72902bfc0316cd1209a0631bf5f871c137f330f1"
+  }
+}

@@ -307,3 +307,13 @@ The proof is uniform over all squareclasses and is elementary and effective. It 
 The cumulative count in precisely this domain is `O(X log log X)`. This remains a sparsity statement, not nonexistence. Earlier-width cuts, the initial part of each endpoint width, and odd prime powers are not covered by this square theorem. The main LaTeX/PDF has not been altered by this supplement.
 
 Run `python3 verify_central_cut_determinant.py` for the finite ingredient audit. The general theorem is proved in the note, not inferred from the finite verification.
+
+## A uniform union bound over every odd prime exponent
+
+`ODD_PRIME_POWER_SPARSITY.md` treats all odd prime exponents together, rather than only finitely many fixed exponents. In the same domain `d>=2`, `B=10^d`, `L=B/10`, `2L<=m<B`, `L+7<=k<m`, the number of pairs whose rotation is an odd-prime power is less than `20B^2/d`. All cube pairs separately number less than `24B`, with no central-cut exception.
+
+The proof combines compressed local-root classes, elementary nested-denominator gaps, a nonzero concave-curve determinant for cubes, and a small/middle/large exponent partition. The middle range is counted as a union in one common cut strip; the large range uses the power's decimal length and final block to identify its endpoint and cut. No prime number theorem or ineffective threshold is needed.
+
+Together with `CENTRAL_CUT_DETERMINANT_SPARSITY.md`, this bounds all nontrivial integer perfect-power pairs in the stated region by `20B^2/d+32B(1+floor(log_2(18d)))`, and cumulatively by `O(X^2/log X)` there. This does not cover the omitted initial endpoints or earlier-width cuts, and does not prove that any of the counts are zero.
+
+Run `python3 verify_odd_prime_power_sparsity.py` for the independent finite corroboration. The proof, audit report, certificate, and captured output specify the exact scope; the finite checks are not an exhaustive perfect-power search. The main LaTeX/PDF remains unchanged.
