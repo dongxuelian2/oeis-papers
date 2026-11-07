@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "width": 5,
+      "prime_cutoff": 10,
+      "period": 840,
+      "allowed_classes": 3,
+      "density": "1/280",
+      "actual_endpoints": 322
+    },
+    {
+      "width": 7,
+      "prime_cutoff": 14,
+      "period": 120120,
+      "allowed_classes": 90,
+      "density": "3/4004",
+      "actual_endpoints": 6743
+    },
+    {
+      "width": 11,
+      "prime_cutoff": 22,
+      "period": 232792560,
+      "allowed_classes": 38880,
+      "density": "54/323323",
+      "actual_endpoints": 15031448
+    }
+  ],
+  "independent_prefix_checks": 773
+}

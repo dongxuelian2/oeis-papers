@@ -106,3 +106,9 @@ The standalone verifier checks 12 exact joint-period cases and 3600 interval bou
 [The quadratic-sieve supplement](ALL_EXPONENT_QUADRATIC_SIEVE.md) improves the uniform count of all powerful rotations to O_g(X² log log X/log X). Consequently, all nontrivial integer powers among the first N decimal entries satisfy O(N log log N/log N), with no restriction on their exponents.
 
 The proof derives the exact quadratic weight identity, bounds its error uniformly in the cut and width, and estimates the denominator using Mertens products and an elementary weighted truncation. This improves the earlier all-exponent bound by one factor of log log N, but does not eliminate individual candidates or resolve the conjecture. The standalone verifier, exact certificate and output accompany the proof; the main manuscript and PDF remain unchanged.
+
+## Growing-prime local square survivors
+
+[The growing local-survivor theorem](GROWING_LOCAL_SURVIVORS.md) proves that, for every sufficiently large prime digit width d, there are 10^d exp(−(2 log 2+o(1))d/log d) endpoints whose same unrotated member is a square in Q_p for every prime p≤2d. These are local squares at arbitrary precision, not asserted integer squares. This gives a limitation of necessary square tests even when the set of tested primes grows.
+
+The script computes exact residue classes and endpoint counts at widths 5, 7 and 11, then directly checks only selected candidate prefixes (773 prime checks). It does not directly check every candidate at each width. The asymptotic theorem follows from the proof, ordinary prime number theorem and Mertens estimates, not from extrapolating those samples. The integer conjecture remains open.
