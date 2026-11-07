@@ -124,3 +124,9 @@ This is a limitation of that specific method, not a general global impossibility
 [The cyclic Jacobi criterion](CYCLIC_JACOBI_CERTIFICATE.md) gives a sufficient certificate excluding every integer perfect power in a block even when all its rotations are squares over Q_3. It uses the Jacobi symbol of the normalized prefix modulo the cyclic modulus with its 3-part removed, without factoring that modulus.
 
 Ten exact endpoint certificates beyond endpoint 5000 cover 51,939 rotations. The script checks the ten hypotheses, 50 selected cuts and, when available, ten SymPy cross-checks; the entire-block conclusion follows from the proof, not exhaustive testing of every rotation. Each certified block has common gcd exactly9. This is neither an infinite classification nor a resolution of Kashihara's conjecture.
+
+## Power-of-two valuations and a complete finite certificate scan
+
+[The extended Jacobi criterion](JACOBI_POWER_TWO_VALUATIONS.md) allows the common 3-adic valuation to be any 2^r with r≥1, subject to the stated hypotheses. The complete certificate-condition scan of endpoints 5001–10000 finds 94 successful blocks covering 706,590 rotations: 84 valuation-2 blocks and ten valuation-4 blocks. These totals include the earlier ten blocks, so the addition is 84 blocks and 654,651 rotations.
+
+The run checks 188 selected cuts and cross-checks 206 preliminary Jacobi symbols with SymPy. It does not individually test every rotation for being a power: whole-block coverage follows from the theorem. Failed certificate conditions do not classify the remaining endpoints, and no infinite family or asymptotic success rate is inferred from the finite scan.
