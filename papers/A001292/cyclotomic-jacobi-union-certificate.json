@@ -1,0 +1,184 @@
+{
+  "exact_crt_models": [
+    {
+      "moduli": [
+        11,
+        19
+      ],
+      "shift": 0,
+      "period": 209,
+      "joint_survivors": 70,
+      "product_count": 70
+    },
+    {
+      "moduli": [
+        11,
+        19
+      ],
+      "shift": 1,
+      "period": 209,
+      "joint_survivors": 77,
+      "product_count": 77
+    },
+    {
+      "moduli": [
+        11,
+        19
+      ],
+      "shift": 2,
+      "period": 209,
+      "joint_survivors": 60,
+      "product_count": 60
+    },
+    {
+      "moduli": [
+        11,
+        19,
+        43
+      ],
+      "shift": 0,
+      "period": 8987,
+      "joint_survivors": 1540,
+      "product_count": 1540
+    },
+    {
+      "moduli": [
+        11,
+        19,
+        43
+      ],
+      "shift": 1,
+      "period": 8987,
+      "joint_survivors": 1771,
+      "product_count": 1771
+    },
+    {
+      "moduli": [
+        11,
+        19,
+        43
+      ],
+      "shift": 2,
+      "period": 8987,
+      "joint_survivors": 1380,
+      "product_count": 1380
+    },
+    {
+      "moduli": [
+        19,
+        43,
+        59
+      ],
+      "shift": 0,
+      "period": 48203,
+      "joint_survivors": 7502,
+      "product_count": 7502
+    },
+    {
+      "moduli": [
+        19,
+        43,
+        59
+      ],
+      "shift": 1,
+      "period": 48203,
+      "joint_survivors": 6820,
+      "product_count": 6820
+    },
+    {
+      "moduli": [
+        19,
+        43,
+        59
+      ],
+      "shift": 2,
+      "period": 48203,
+      "joint_survivors": 7590,
+      "product_count": 7590
+    }
+  ],
+  "actual_width_samples": [
+    {
+      "width": 9,
+      "v3_width": 2,
+      "three_part": 9,
+      "first_index": 2,
+      "joint_period": 333333333,
+      "sample_endpoints": 200,
+      "sample_union_certificates": 109,
+      "sample_top_only_certificates": 109,
+      "selected_prefix_checks": [
+        100002564,
+        100003563,
+        100004562
+      ]
+    },
+    {
+      "width": 27,
+      "v3_width": 3,
+      "three_part": 27,
+      "first_index": 2,
+      "joint_period": 111111111111111111111111111,
+      "sample_endpoints": 200,
+      "sample_union_certificates": 147,
+      "sample_top_only_certificates": 104,
+      "selected_prefix_checks": [
+        100000000000000000000000566,
+        100000000000000000000001565,
+        100000000000000000000002564,
+        100000000000000000000003563,
+        100000000000000000000007559,
+        100000000000000000000011555
+      ]
+    },
+    {
+      "width": 36,
+      "v3_width": 2,
+      "three_part": 9,
+      "first_index": 2,
+      "joint_period": 333333333,
+      "sample_endpoints": 200,
+      "sample_union_certificates": 101,
+      "sample_top_only_certificates": 101,
+      "selected_prefix_checks": [
+        100000000000000000000000000000002564,
+        100000000000000000000000000000003563,
+        100000000000000000000000000000006560
+      ]
+    },
+    {
+      "width": 81,
+      "v3_width": 4,
+      "three_part": 81,
+      "first_index": 2,
+      "joint_period": 37037037037037037037037037037037037037037037037037037037037037037037037037037037,
+      "sample_endpoints": 200,
+      "sample_union_certificates": 178,
+      "sample_top_only_certificates": 96,
+      "selected_prefix_checks": [
+        100000000000000000000000000000000000000000000000000000000000000000000000000000566,
+        100000000000000000000000000000000000000000000000000000000000000000000000000001565,
+        100000000000000000000000000000000000000000000000000000000000000000000000000002564,
+        100000000000000000000000000000000000000000000000000000000000000000000000000006560
+      ]
+    },
+    {
+      "width": 108,
+      "v3_width": 3,
+      "three_part": 27,
+      "first_index": 2,
+      "joint_period": 111111111111111111111111111,
+      "sample_endpoints": 200,
+      "sample_union_certificates": 149,
+      "sample_top_only_certificates": 103,
+      "selected_prefix_checks": [
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000566,
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001565,
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002564,
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007559,
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000017549
+      ]
+    }
+  ],
+  "selected_prefix_checks": 21
+}

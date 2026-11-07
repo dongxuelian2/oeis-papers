@@ -1,0 +1,13 @@
+{
+  "base_commit": "cda8a145ce38852493a26b23f9f03ccbbe762b5c",
+  "status": "Combination of inherited local formulas with cubic37 character and infinite power-of-three valuation union, disjoint from earlier Q3-square-block families. No claim of literature priority. Main manuscript/PDF unchanged.",
+  "independent_review": "Passed: congruence precision, Q3 cube criterion, all-exponent exclusion,37 phase counts, constants, exact union/tail and uniform period error. Original verifier passed; reviewer additionally checked120 cuts at the12 samples and unit conditions at b=3,9,27,81,243. No separate reviewer script is claimed to be attached.",
+  "verification_scope": "Published verifier:37 character phases, exhaustive roots at valuations3 and9,98 exact tail/period inequalities and12 selected prefixes. Whole-block and infinite-union assertions follow from proof.",
+  "sha256": {
+    "README.md": "3027da6acc049d303818dcaa5e6457bd991fcb7ee4bd8b0daf7c49f67831d92d",
+    "verify_cubic_local_survivors.py": "227bb49f31ce346ed1db174aca7db4cf9a60846ad2d382883d7f2d3f41cf980a",
+    "CUBIC_LOCAL_SURVIVORS.md": "c82e989952dab7ed2327478cb2a942afb0b4d9d3fe0b737c8a94eeb571841673",
+    "cubic-local-survivors-verification.txt": "32dd9bf44fb081207f36956a5b4eb9bcf6b40c37cd9f64b23b27015811513854",
+    "cubic-local-survivors-certificate.json": "29f67a9126b77f62e143ea28c3a52496a66854e4d19845e176ef9ac7125d97a4"
+  }
+}

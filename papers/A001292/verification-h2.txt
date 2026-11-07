@@ -1,0 +1,42 @@
+PASS: all 13122 cubic class/cut combinations; six exact 131-class sets; all 54 negative-branch cosets
+PASS: 494550 rotation residues for all m=100..999; 415 first-four-cut witnesses with constructed roots mod 3**8
+PASS: 2754 complete integer rotations of six new explicit examples
+PASS: independent matrix interval d=3, h=1, 245 full prefixes
+PASS: independent matrix interval d=6, h=1, 245 full prefixes
+PASS: independent matrix interval d=9, h=2, 7 full prefixes
+PASS: independent matrix interval d=12, h=1, 245 full prefixes
+PASS: independent matrix interval d=15, h=1, 245 full prefixes
+PASS: independent matrix interval d=18, h=2, 6 full prefixes
+PASS: independent matrix interval d=21, h=1, 245 full prefixes
+PASS: independent matrix interval d=24, h=1, 245 full prefixes
+PASS: independent matrix interval d=27, h=3, 7 full prefixes
+PASS: independent matrix interval d=30, h=1, 245 full prefixes
+PASS: independent matrix interval d=33, h=1, 245 full prefixes
+PASS: independent matrix interval d=81, h=4, 7 full prefixes
+PASS: independent matrix interval d=243, h=5, 7 full prefixes
+PASS: 1994 matrix prefixes, 21674 cubic/rotation checks, 898 constructed local root witnesses
+PASS: six 133-class sets; general-h residue and prime-divisor checks: 91854
+PASS: independent matrix interval d = 9 prefixes = 245
+PASS: independent matrix interval d = 18 prefixes = 245
+PASS: independent matrix interval d = 27 prefixes = 12
+PASS: independent matrix interval d = 81 prefixes = 12
+PASS: independent matrix interval d = 243 prefixes = 12
+PASS: independent rotation checks: 7359 certified exclusions: 4032
+old 0.9553273407215389
+positive_valuation_gain 3.624153533696373e-06
+tail_rows [(6, '1/2187', 0.0004572473708276177), (7, '4/19683', 0.00020322105370116343), (10, '2/531441', 3.7633528463178416e-06), (14, '1/14348907', 6.969171937625632e-08), (16, '2/387420489', 5.162349583426394e-09), (22, '2/282429536481', 7.0814123229442994e-12), (25, '4/7625597484987', 5.24549060958837e-13), (30, '1/617673396283947', 1.618978583206287e-15), (34, '2/150094635296999121', 1.3324926610751334e-17), (46, '2/79766443076872509863361', 2.507320024377369e-23), (52, '2/58149737003040059690390169', 3.4393964669099714e-26), (62, '1/1144561273430837494885949696427', 8.736972176268789e-31), (70, '2/22528399544939174411840147874772641', 8.877683459095452e-35), (79, '4/443426488243037769948249630619149892803', 9.020660934913836e-39), (94, '2/6362685441135942358474828762538534230890216321', 3.1433268523218653e-46)]
+tail_gain 0.0006643066390516523
+new_lower_bound 0.9559952715141242
+enumerated 7 3 4 688 2401 pass
+enumerated 11 5 4 2662 14641 pass
+enumerated 757 7 2 81756 573049 pass
+finite h<=16 lower bound 0.9559952715065166
+baseline reconstruction, rational lower-bound comparison, and shell checks: PASS
+exact finite bound: 377903510052590762238918408516983181421022498919914851934813837000894560506156767859512113196545961078054452664/395298513827444950658134190062728824071600352208526662479460438127079746839607095737512223973874950293732051325
+PASS: six complete residue tables, exact prefix constants, full-coset lemma
+PASS: matrix-initialized consecutive prefixes, d = 9
+PASS: matrix-initialized consecutive prefixes, d = 18
+PASS: matrix-initialized consecutive prefixes, d = 36
+PASS: matrix-initialized consecutive prefixes, d = 45
+PASS: 183708 independent bounded-cut checks
+PASS: independent exact constants, 108 coset tests, negative-branch class and lifting checks

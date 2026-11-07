@@ -1,0 +1,10 @@
+endpoint_interval: [5001, 10000]
+endpoints_scanned: 5000
+valuation_eligible: 206
+jacobi_counts: {'-1': 94, '0': 11, '1': 101}
+certified_blocks: 94
+by_valuation: {'2': 84, '4': 10}
+rotations_covered_by_theorem: 706590
+selected_cut_checks: 188
+optional_sympy_cross_checks: 206
+PASS. Every block conclusion is by theorem; no perfect-power conclusion is drawn for uncertified endpoints.

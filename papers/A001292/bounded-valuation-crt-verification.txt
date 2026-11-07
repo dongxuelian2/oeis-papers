@@ -1,0 +1,8 @@
+324 distinct primes and all eligibility conditions: PASS
+Exact width period digits: 612
+Exact endpoint period digits: 1233
+Exact rational epsilon < 2^(-323) and interval error < 2^(-640): PASS
+Endpoint classes modulo999: 36
+Exhaustive quadratic-constant models: 353
+Exact complete CRT models: 6
+PASS. No actual huge-width prefixes or endpoint intervals were enumerated.

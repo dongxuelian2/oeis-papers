@@ -1,0 +1,5 @@
+Discriminant constants and A=301848: PASS
+h=32 exact base: 1853020188851841 >= 31556397380
+Finite induction audits: 9999
+Prime/window exponent comparisons: 412
+PASS. Unbounded conclusions use the proof and cited unconditional theorem, not finite extrapolation.

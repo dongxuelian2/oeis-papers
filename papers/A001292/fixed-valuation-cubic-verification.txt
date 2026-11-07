@@ -1,0 +1,5 @@
+27 matrix phases, full boundary cycle and6561 local table cells: PASS
+Direct endpoint/length checks: 99999
+Selected global endpoints: [{'width': 3, 'endpoint': 351, 'prefix_mod243': 216, 'prefix_mod37': 19}, {'width': 4, 'endpoint': 1026, 'prefix_mod243': 27, 'prefix_mod37': 30}, {'width': 6, 'endpoint': 100008, 'prefix_mod243': 27, 'prefix_mod37': 32}]
+Individual modular rotation checks: 101385
+PASS. Complete classification is restricted to exact valuation3 Q3-cube blocks.

@@ -1,0 +1,6 @@
+Three matrix phases,111 width phases and111 odd-width CRT unions: PASS
+Direct multiple-of3 prefix checks: 33333
+Selected larger-width prefixes: 48
+Selected certified endpoints: [45, 72, 1017, 1098, 1125]
+Individual modular rotation checks: 3357
+PASS. All-width conclusions follow from the proof, not finite extrapolation.

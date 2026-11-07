@@ -11,6 +11,9 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - [A003630](https://oeis.org/A003630): Inert rational primes in Q[sqrt(3)].
   - **Result:** We proved that the conjectured prime-ordered Euler product converges to `sqrt(3)/2`, with an exact finite-product identity and the exceptional factors at 2 and 3.
 
+- **[A001292](papers/A001292/)**
+  - [A001292](https://oeis.org/A001292): Concatenations of cyclic permutations of initial positive integers.
+
 - **[A005046](papers/A005046/)**
   - [A005046](https://oeis.org/A005046): Number of partitions of a 2n-set into even blocks.
   - **Result:** We proved eventual periodicity modulo every positive integer and the Bessel-moment formula for all indices. Modulo 10, the block `(1,4,1,9,6,9)` repeats from index 1.

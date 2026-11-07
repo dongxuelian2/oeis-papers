@@ -1,0 +1,105 @@
+=== verify_a001292.py
+PASS: mod-27 and length formulas for 100000 values 3704 33
+PASS: all rotations for selected cases; combined sieve at m=990
+PASS: mod-13 complete-block period
+PASS: large symbolic family t=0..27
+Global conjecture remains OPEN
+=== verify_structure.py
+PASS: independent literal audit: 21780 rotation residues; 840 matrix transitions
+PASS: fixed-digit identities d=1..4, coefficient recurrence; 7259 literal boundary rotations through m=120
+PASS: 54 small rotations, all possible prime exponents
+PASS: 5 artificial power extensions, including g=2; exact bounds and an independent square-root continued fraction
+Example (NOT an A001292 counterexample):
+x = 516983038860861222449498652367921790789619980431965150344909724753745429
+x^2 = 267271462469810744897753274073393404829290044018174796149518406783245961234567891011121314151617181920212223242526272829303132333435363738394041
+Global Kashihara conjecture remains OPEN.
+=== verify_powerful_sieve.py
+PASS: local law in every phase; 99 coefficient/base cases
+PASS: simultaneous laws with overlapping periods; 1082214 residues in three complete-period audits
+PASS: 9145 literal rotations and 58903 affine-exponential reductions in five bases
+PASS: exact rational Bonferroni remainder and factorial bound
+=== verify_boundary_valuations.py
+PASS: 13 exact Taylor coefficients, their valuation bounds, and 1200 rational power-sum averages
+PASS: exact boundary valuation and normalized unit for d=1..60000; independent matrix blocks for d=1..80
+PASS: literal rolling prefixes through m=999999; 1141 actual rotation residues at complete boundaries
+PASS: complete square/cube exclusion table; 72 valuation/unit classes
+=== verify_three_adic_intervals.py
+PASS: all 13122 cubic class/cut combinations; six exact 131-class sets; all 54 negative-branch cosets
+PASS: 494550 rotation residues for all m=100..999; 415 first-four-cut witnesses with constructed roots mod 3**8
+PASS: 2754 complete integer rotations of six new explicit examples
+PASS: independent matrix interval d=3, h=1, 245 full prefixes
+PASS: independent matrix interval d=6, h=1, 245 full prefixes
+PASS: independent matrix interval d=9, h=2, 7 full prefixes
+PASS: independent matrix interval d=12, h=1, 245 full prefixes
+PASS: independent matrix interval d=15, h=1, 245 full prefixes
+PASS: independent matrix interval d=18, h=2, 6 full prefixes
+PASS: independent matrix interval d=21, h=1, 245 full prefixes
+PASS: independent matrix interval d=24, h=1, 245 full prefixes
+PASS: independent matrix interval d=27, h=3, 7 full prefixes
+PASS: independent matrix interval d=30, h=1, 245 full prefixes
+PASS: independent matrix interval d=33, h=1, 245 full prefixes
+PASS: independent matrix interval d=81, h=4, 7 full prefixes
+PASS: independent matrix interval d=243, h=5, 7 full prefixes
+PASS: 1994 matrix prefixes, 21674 cubic/rotation checks, 898 constructed local root witnesses
+=== verify_local_primes.py
+PASS: p=37, order=3, C=33, 19 square residues, 13 cube residues (including zero)
+PASS: p=333667, order=9, C=221885, 166834 square residues, 111223 cube residues (including zero)
+PASS: exact CRT density bound 286397396/333333333 = 0.8591921888591922
+PASS: p=37, direct complete blocks d=1..200000; 1801 positive valuation cases; independent matrices d=1..60
+PASS: p=333667, direct complete blocks d=1..10000; 0 positive valuation cases; independent matrices d=1..60
+PASS: p=37, 8 matrix group samples, finite differences, 4 full matrix words, 30 Newton sums through valuation 5
+PASS: p=333667, 8 matrix group samples, finite differences, 4 full matrix words, 30 Newton sums through valuation 5
+PASS: 20000 coefficient/averaging bounds
+PASS: literal prefixes through m=999999; 1141 rotation residues
+PASS: 22 matrix rotation checks at d=111,444, including cuts just before the final integer
+=== verify_boundary_characters.py
+PASS: 6 complete Lucas primality certificates, exact orders, and universal block-period hypotheses
+PASS: 15 character certificates by two independent algorithms; all digit lengths 1..27, 54, and 243
+PASS: every certificate extends to its stated infinite arithmetic progression; large parameter checks through 10**30+7
+PASS: linear fifth- and seventh-power families, independent period coefficients, and 240 sample units
+PASS: four independent affine square characters, two cube characters, seven disjoint class counts, and exact CRT density 2865982022164616687973223130/2999999999999999999999999997 = 0.9553273407215389
+PASS: 2205 literal rotation characters at m=9,99,999
+=== verify_general_boundary_primes.py
+PASS: q=37, P=3, C=33; 10 exact group samples, 2 independent matrix words, 45 Newton sums through valuation 8
+PASS: q=757, P=27, C=538; 10 exact group samples, 2 independent matrix words, 45 Newton sums through valuation 8
+PASS: q=333667, P=9, C=221885; 10 exact group samples, 2 independent matrix words, 45 Newton sums through valuation 8
+PASS: q=440334654777631, P=27, C=178343635184937; 10 exact group samples, 2 independent matrix words, 45 Newton sums through valuation 8
+PASS: q=1527791, P=903, C=547718; 10 exact group samples, 2 independent matrix words, 45 Newton sums through valuation 8
+PASS: q=43037, P=812, C=409; 10 exact group samples, 2 independent matrix words, 45 Newton sums through valuation 8
+PASS: 40 local power-equivalence cases, including valuation multiples 5 and 7 and both residue types
+PASS: three further primes 53,79,239; orders 13,13,7; first positive valuations checked by direct blocks
+PASS: q=757, direct complete blocks d=1..327024, 16 positive valuations, and 5 rotation units at d=327024
+=== verify_digit_intervals.py
+PASS: 2197 literal rotations, including all 126 rotations of the new residue-family example; digit-width crossing checked
+PASS: p=37, d=3, precision=1; 5400 rotation residues, 5 endpoint/interior matrices, 0 valuation-one classes
+PASS: p=37, d=111, precision=2; 8214 rotation residues, 6 endpoint/interior matrices, 72 valuation-one classes
+PASS: p=37, d=4107, precision=3; 8214 rotation residues, 6 endpoint/interior matrices, 72 valuation-one classes
+PASS: p=43, d=42, precision=1; 11094 rotation residues, 6 endpoint/interior matrices, 0 valuation-one classes
+PASS: p=43, d=1806, precision=2; 11094 rotation residues, 6 endpoint/interior matrices, 84 valuation-one classes
+PASS: p=53, d=78, precision=1; 16854 rotation residues, 6 endpoint/interior matrices, 0 valuation-one classes
+PASS: p=53, d=4134, precision=2; 16854 rotation residues, 6 endpoint/interior matrices, 104 valuation-one classes
+PASS: exact 37-adic root classes for five parameters, including zero offsets; the two-parameter m=126 mod 999 exclusion family
+PASS: all 2531281 CRT classes at d=66822, 242076 excluded classes, 6048 joint classes, and five exact interval-discrepancy checks
+PASS: 10 primes in the progression 3 mod 40 have the required orders and admissible periods; divergence uses Dirichlet
+=== verify_density_refinement.py
+old 0.9553273407215389
+positive_valuation_gain 3.624153533696373e-06
+tail_rows [(6, '1/2187', 0.0004572473708276177), (7, '4/19683', 0.00020322105370116343), (10, '2/531441', 3.7633528463178416e-06), (14, '1/14348907', 6.969171937625632e-08), (16, '2/387420489', 5.162349583426394e-09), (22, '2/282429536481', 7.0814123229442994e-12), (25, '4/7625597484987', 5.24549060958837e-13), (30, '1/617673396283947', 1.618978583206287e-15), (34, '2/150094635296999121', 1.3324926610751334e-17), (46, '2/79766443076872509863361', 2.507320024377369e-23), (52, '2/58149737003040059690390169', 3.4393964669099714e-26), (62, '1/1144561273430837494885949696427', 8.736972176268789e-31), (70, '2/22528399544939174411840147874772641', 8.877683459095452e-35), (79, '4/443426488243037769948249630619149892803', 9.020660934913836e-39), (94, '2/6362685441135942358474828762538534230890216321', 3.1433268523218653e-46)]
+tail_gain 0.0006643066390516523
+new_lower_bound 0.9559952715141242
+enumerated 7 3 4 688 2401 pass
+enumerated 11 5 4 2662 14641 pass
+enumerated 757 7 2 81756 573049 pass
+finite h<=16 lower bound 0.9559952715065166
+baseline reconstruction, rational lower-bound comparison, and shell checks: PASS
+exact finite bound: 377903510052590762238918408516983181421022498919914851934813837000894560506156767859512113196545961078054452664/395298513827444950658134190062728824071600352208526662479460438127079746839607095737512223973874950293732051325
+PASS independent all-exponent predicate audit on 2..10000
+{"m": 1000, "digits": 2893, "seconds": 1.81, "counts": {"proved_mod9": 221556, "gmp_all_exponents": 242247, "proved_mod27": 36696}}
+RESULT {"counterexamples": [], "counts": {"gmp_all_exponents": 242247, "proved_mod27": 36696, "proved_mod9": 221556}, "limit": 1000, "seconds": 1.812, "total_rotations": 500499}
+PASS: six 133-class sets; general-h residue and prime-divisor checks: 91854
+PASS: independent matrix interval d = 9 prefixes = 245
+PASS: independent matrix interval d = 18 prefixes = 245
+PASS: independent matrix interval d = 27 prefixes = 12
+PASS: independent matrix interval d = 81 prefixes = 12
+PASS: independent matrix interval d = 243 prefixes = 12
+PASS: independent rotation checks: 7359 certified exclusions: 4032

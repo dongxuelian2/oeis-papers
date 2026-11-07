@@ -1,0 +1,5 @@
+PASS: independent scalar period checks: 90
+PASS: all 6561 local cells and complete width-27 affine boundary cycle
+PASS: general-b normalized three-cut congruence and old b=3 overlap
+PASS: all 37 character counts and all 999 combined width count phases
+PASS: independent modulo-37 prefix phase checks: 49284
