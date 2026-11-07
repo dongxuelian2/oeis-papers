@@ -161,6 +161,8 @@ python verify_local_primes.py
 python verify_boundary_characters.py
 python verify_general_boundary_primes.py
 python verify_digit_intervals.py
+python verify_density_refinement.py
+python verify_three_adic_sufficient_extension.py
 python search_gmp.py 1000
 ```
 
@@ -193,3 +195,24 @@ The search uses 64-bit Linux GMP through Python's standard `ctypes` module;
 its [perfect-power predicate](https://gmplib.org/manual/Integer-Roots) tests all exponents.
 
 The PDF and source hashes are recorded in [publication.json](publication.json).
+
+
+## Density refinement (November 7, 2026)
+
+The complete-boundary exclusion lower density now exceeds **0.95599527150**.
+The count includes positive valuations in the exact local fifth/seventh-power
+criteria and disjoint 3-adic exclusions at valuations 6, 7, 10, 14, and 16.
+`verify_density_refinement.py` reconstructs the earlier bound, checks the
+improved inequality with exact rational arithmetic, and checks finite local
+residues. The earlier character verifier retains its original, weaker bound
+as an independently verified baseline.
+
+## Higher 3-adic sufficient exclusions
+
+For `h=v_3(d)>=2`, the manuscript now gives a sufficient nine-residue
+test for excluding every rotation from local prime-exponent powers.
+At `h=2`, an explicit sufficient set has **133 classes modulo 243**.
+This is distinct from the existing complete 131-class criterion at `h=1`.
+No complete classification for `h>=2` is claimed. The new verifier checks
+91,854 residue cases, six 133-class sets and independent matrix rotations
+at digit lengths 9, 18, 27, 81 and 243.

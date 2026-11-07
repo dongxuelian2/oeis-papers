@@ -5,6 +5,7 @@
 \usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
 \newtheorem{corollary}{Corollary}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\Q}{\mathbb Q}
@@ -24,7 +25,7 @@ For decimal digit lengths with $v_3(d)=1$, a cubic reduction gives an exact
 local classification: 131 classes of $m$ modulo 243 exclude all rotations
 over $\Q_3$; every other class has a local square, cube, or fifth power among
 the first four cuts. At complete digit boundaries, exact valuations and
-characters exclude a set of digit lengths of lower density exceeding $95.53\%$.
+characters exclude a set of digit lengths of lower density exceeding $95.5995\%$.
 A general lifting theorem gives local power equivalences and a quadratic
 reduction on entire digit intervals. Along suitable progressions of digit
 lengths, the proportion of $m$ for which no rotation is powerful can be
@@ -166,8 +167,7 @@ integer among their rotations.
 The set of positive integers $d$ for which every rotation at $m=10^d-1$
 is not a nontrivial perfect power has lower natural density at least
 \[
- \rho:=\frac{2865982022164616687973223130}{2999999999999999999999999997}
-      =0.9553273407\ldots.
+ \rho_*=0.9559952715065166\ldots>0.95599527150.
 \]
 
 \end{corollary}
@@ -410,6 +410,86 @@ $108+18+5=131$ classes modulo 243.
 More generally, \eqref{eq:three-critical} shows that if $h+3$ is a power of 2,
 $d/3^h\equiv1\pmod3$, and $3^{h+4}\mid m$, then every rotation is excluded:
 its valuation is $h+3$ and its normalized unit is 2 modulo 3.
+
+\subsection*{A finite sufficient test at every higher valuation}
+For $P\ge2$, call a nonzero residue $a\pmod{3^P}$
+\emph{certifiably excluded} if, writing $b=v_3(a)<P$ and
+$w=a/3^b$, all the following hold:
+\begin{enumerate}
+\item $b>0$, and every prime divisor of $b$ belongs to $\{2,3\}$;
+\item if $2\mid b$, then $w\equiv2\pmod3$;
+\item if $3\mid b$, then $P-b\ge2$ and $w\not\equiv\pm1\pmod9$.
+\end{enumerate}
+The zero residue is never certifiably excluded. The conditions depend
+only on the residue, not its representative.
+
+\begin{proposition}[A sufficient nine-residue test]\label{prop:higher-sufficient}
+Let $m$ have $d$ decimal digits, $h=v_3(d)\ge2$, and $P=h+4$.
+Set
+\[
+ A_j=T_m+\frac{3d}{2}(m^3-m+9)-9dmT_j\pmod{3^P}
+ \qquad(0\le j\le8).
+\]
+If all nine $A_j$ are certifiably excluded, every whole-block rotation
+of $12\cdots m$ fails to be a prime-exponent power over $\mathbb Q_3$,
+and consequently fails to be an integer perfect power.
+This is a sufficient test, not an asserted equivalence.
+\end{proposition}
+\begin{proof}
+For a nonzero number of positive valuation $b$, a prime-exponent power
+can only have exponent dividing $b$. For exponent 2 its unit must be 1
+modulo 3; for exponent 3 its unit must be $\pm1$ modulo 9.
+Thus the three conditions exclude every possible prime exponent.
+Since $T_{k+9}-T_k=9k+45$, the cut-dependent term of the cubic
+congruence in Theorem~\ref{thm:three-cubic} depends only on $k\pmod9$.
+That theorem identifies $10^{-D(k)}R_{m,k}$ with one of the nine
+residues to the required precision. Multiplication by
+$10^{D(k)}\equiv1\pmod9$ preserves valuation and both unit tests.
+\end{proof}
+
+\begin{corollary}[133 sufficient exclusion classes when $v_3(d)=2$]
+\label{cor:higher-133}
+Suppose $v_3(d)=2$ and put $u=d/9$. Every rotation is excluded from
+prime-exponent powers over $\mathbb Q_3$ if
+\[
+ m\bmod9\in\{2,3,5,6\},\qquad\text{or}\qquad
+ m\bmod27\in\{9,17\},\qquad\text{or}\qquad m\bmod243\in E_u,
+\]
+where
+\[
+ E_u=\begin{cases}
+ \{26,27,81,108,134,135,216\},&u\equiv1\pmod3,\\
+ \{27,81,107,108,135,215,216\},&u\equiv2\pmod3.
+ \end{cases}
+\]
+The displayed sufficient set consists of exactly 133 classes modulo
+243. No claim that it is the complete local exclusion set is made here.
+\end{corollary}
+\begin{proof}
+Reduce the cubic congruence modulo 243. Since $d=9u$, its residue
+is
+\[
+ F_u(m,k)=T_m+\frac{27u}{2}(m^3-m+9)-81umT_k\pmod{243}.
+\]
+It depends only on $m\pmod{243}$, $u\pmod3$, and $k\pmod9$:
+for the dependence on $u$, use $3\mid(m^3-m)$.
+The first two sets have valuation one, or valuation two with unit 2
+modulo 3, just as in Corollary~\ref{cor:three-complete}.
+For the additional residues $m=27,108,135,216\pmod{243}$,
+respectively, the normalized unit $F_u(m,k)/27$ is
+$5,2,7,4\pmod9$, independently of $k$ and $u$.
+For $m=81\pmod{243}$ the valuation is four and the unit is 2 modulo 3.
+For $u\equiv1\pmod3$, the residues $m=26,134\pmod{243}$ have
+valuation three and respective normalized-unit sets
+$\{4,7\},\{2,5\}\pmod9$ as $k$ varies.
+For $u\equiv2\pmod3$, $m=107,215\pmod{243}$ give the same two
+sets. These computations follow by substituting $T_k\pmod3\in\{0,1\}$
+in the displayed expression. None of the valuation-three units is
+$\pm1$ modulo 9. Valuations one through four have no prime divisor
+other than 2 or 3, so no further prime exponent is possible.
+The three displayed sets are disjoint and have sizes $108$, $18$,
+and $7$, whose sum is 133.
+\end{proof}
 
 \section{Lifting at boundary primes}
 \begin{lemma}[Boundary periods]\label{lem:period}
@@ -735,22 +815,42 @@ $\beta=(13/37)(111223/333667)$, as in \eqref{eq:affine-boundary}.
 The upper density of the remaining $d$ is therefore at most
 $(10\alpha+2\beta+1)/27$.
 
-Inside $27\mid d$, Corollary~\ref{cor:higher} excludes further disjoint sets
+For a prime $e\mid p-1$, the density of positive integers that are
+$e$th powers in $\Q_p$ is
+\[
+ s(p,e)=\sum_{j\ge0}\frac{p-1}{e p^{ej+1}}
+       =\frac{(p-1)p^{e-1}}{e(p^e-1)}.
+\]
+Indeed, the valuation must be a multiple of $e$, and exactly $(p-1)/e$
+normalized units modulo $p$ are $e$th powers. Truncating at valuation $K$
+leaves a subset of multiples of $p^K$, of density $p^{-K}$, proving the
+density assertion. For $p\ne3$, the same proportion applies conditional on
+$3\nmid u$, by the Chinese remainder theorem and the same truncation.
+Thus, inside $27\mid d$, Corollary~\ref{cor:higher} excludes disjoint sets
 of densities
 \[
- \delta_5=\frac2{81}\frac{4(Q-1)}{5Q},\qquad
- \delta_7=\frac2{729}\frac{6\cdot756}{7\cdot757}.
+ \delta_5=\frac2{81}\bigl(1-s(Q,5)\bigr),\qquad
+ \delta_7=\frac2{729}\bigl(1-s(757,7)\bigr).
 \]
-Indeed $v_3(d)$ is respectively 3 or 5, and nonzero nonpowers occupy
-$4/5$ or $6/7$ of the corresponding finite-field units.
+Here $v_3(d)$ is respectively 3 or 5; positive local valuations are included.
 Also $d=81u$ with $u\equiv1,7\pmod9$ is excluded by
 Corollary~\ref{cor:exclude}, adding the disjoint density $2/729$.
-Consequently
+For $h=v_3(d)\in\{6,7,10,14,16\}$, Corollary~\ref{cor:exclude}
+adds disjoint exclusions of total density
 \[
- \underline{\operatorname{dens}}\{d:\text{every boundary rotation is excluded}\}
- \ge1-\frac{10\alpha+2\beta+1}{27}+\delta_5+\delta_7+\frac2{729}
- =\rho.\qedhere
+ E=\frac1{2187}+\frac4{19683}+\frac2{531441}
+        +\frac1{14348907}+\frac2{387420489}.
 \]
+These follow respectively from $h+2=8,9,12,16,18$ and the indicated
+unit classes in that corollary. None overlaps the already counted sets,
+which have $h\le5$. Consequently the exact rational lower bound is
+\[
+ \rho_*:=1-\frac{10\alpha+2\beta+1}{27}
+              +\delta_5+\delta_7+\frac2{729}+E
+       >0.95599527150.
+\]
+The companion \path{verify_density_refinement.py} checks this inequality
+using rational arithmetic.\qedhere
 \end{proof}
 
 \section{A uniform sieve for powerful values}\label{sec:sieve}
@@ -883,3 +983,4 @@ English translation by R. Stephan, arXiv:0808.1408v2,
 \url{https://arxiv.org/abs/0808.1408v2}.
 \end{thebibliography}
 \end{document}
+

@@ -114,3 +114,13 @@ Manuscript: main.tex -> main.pdf, final source compiled twice successfully.
 Ten complete pages inspected as rendered PNGs; no LaTeX warnings.
 PDF/source hashes and page count checked against publication.json.
 All local documentation links checked.
+
+
+November 7, 2026 update
+=======================
+All ten original documented commands rerun successfully, including search_gmp.py 1000.
+verify_density_refinement.py passed exact rational baseline reconstruction and improved lower bound >0.95599527150, plus residue and valuation-shell audits.
+verify_three_adic_sufficient_extension.py passed 91,854 residue checks, six 133-class sets, 7,359 matrix rotation checks and 4,032 certified exclusions.
+Higher-valuation results are sufficient only; no all-h equivalence is claimed.
+main.tex compiled twice without warnings; every one of 11 rendered pages reviewed.
+Full new command output is in verification-20261107.txt.
