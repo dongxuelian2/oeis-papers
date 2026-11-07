@@ -76,3 +76,9 @@ The supplement is separate from the unchanged 15-page manuscript. Its proof scop
 [The finite-prime limitation theorem](FINITE_PRIME_LIMIT.md) proves that, for any fixed finite set of primes, a positive-lower-density set of endpoint indices has the same unrotated concatenation locally square at every chosen prime. This is not an integer-square construction. It shows why necessary local square tests at a fixed finite set, even at arbitrary precision, cannot exclude every candidate.
 
 For the eight primes in the supplement, every odd digit length not divisible by 5 has exactly 27000 such endpoint classes modulo 152672520. The full proof handles overlapping prime periods correctly and gives an explicit positive lower-density bound. A new independent verifier and exact output accompany the proof.
+
+## Growing-prime sieve: stronger sparsity for fixed exponents
+
+[The growing-prime sieve theorem](GROWING_PRIME_SIEVE.md) uses about d/log d primes of size O(d) in each d-digit block. For each fixed prime exponent ell, it bounds the number of ell-th-power rotation pairs through endpoint X by X² exp(−c log X/log log X), for every c < (log ell)/2. The corresponding sequence-index bound is N exp(−c' log N/log log N), for c' < (log ell)/4.
+
+This escapes the restriction to a fixed finite prime set and improves the earlier powerful-value bound for squares or any fixed finite set of exponents. It does not cover all growing exponents uniformly and does not exclude every integer candidate. The conjecture remains open. The full proof and standalone finite-audit script are new; the main manuscript and PDF are unchanged.

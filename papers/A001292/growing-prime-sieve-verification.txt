@@ -1,0 +1,4 @@
+Exact joint-density checks: 8
+Direct affine-rotation checks: 13892
+Growing-prime selection and period checks: 36
+PASS. Asymptotic theorem is proved in GROWING_PRIME_SIEVE.md; integer conjecture remains open.
