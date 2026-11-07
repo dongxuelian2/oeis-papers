@@ -19,22 +19,19 @@ Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
 \begin{document}
 \maketitle
 \begin{abstract}
-We prove local obstructions and a quantitative density-zero bound for
-powerful values among cyclic concatenations of initial positive integers.
-For decimal digit lengths with $v_3(d)=1$, a cubic reduction gives an exact
-local classification: 131 classes of $m$ modulo 243 exclude all rotations
-over $\Q_3$; every other class has a local square, cube, or fifth power among
-the first four cuts. When $v_3(d)=2$, exactly 133 classes modulo 243
-exclude all rotations; every other class has a local power at one of seven
-fixed cuts, all at most 22. When $v_3(d)=3$, exactly 3673 classes modulo
-6561 exclude all rotations, and the first two cuts suffice for every other
-class. At complete digit boundaries, exact valuations and
-characters exclude a set of digit lengths of lower density exceeding $95.5995\%$.
-A general lifting theorem gives local power equivalences and a quadratic
-reduction on entire digit intervals. Along suitable progressions of digit
-lengths, the proportion of $m$ for which no rotation is powerful can be
-arbitrarily close to one. The quantitative sparsity bound holds in every
-fixed integer base.
+We give a uniform finite criterion for local perfect-power obstructions
+among cyclic decimal concatenations. For every $m\ge10007$, the entire
+rotation block has a prime-exponent power over $\Q_3$ if and only if one
+of eighteen fixed cuts, all at most 10006, has such a power. For digit
+lengths with $h=v_3(d)\ge2$, a strengthened prefix congruence turns this
+into an explicit finite polynomial test, depending only on
+$m\pmod{3^{h+5}}$ and $(d/3^h)\pmod{27}$. The exact exclusion sets for
+$h=1,2$ contain 131 and 133 classes modulo 243; those for $h=3,4$
+contain 3673 and 3674 classes modulo 6561. These local equivalences do
+not resolve the integer perfect-power conjecture. At complete digit
+boundaries, exact valuations and characters exclude a set of digit
+lengths of lower density exceeding $95.5995\%$. We also prove a uniform
+density-zero bound for powerful values in every fixed integer base.
 \end{abstract}
 
 \section{Statements}
@@ -661,6 +658,264 @@ $m\equiv-729(u+2)\pmod{6561}$.
 This extra residue has $m\equiv0\pmod{243}$ and is disjoint from the
 136 previous classes, giving $136\cdot27+1=3673$.
 All cuts used exist since $d\ge27$.
+\end{proof}
+
+\subsection*{Further classification and a uniform finite criterion}
+Throughout this subsection put $X_k=10^{-D(k)}W_k$.
+\begin{lemma}[A finite lifting test at valuation eight]
+Suppose $z\in\mathbb Z_3$ and $c\in\mathbb Z_3^\times$.
+Among the six values $3^8(z-cX_k)$ with
+$k\in\{0,1,4,8,9,100\}$, at least one is a square, cube, or fifth
+power in $\mathbb Q_3$.
+\end{lemma}
+\begin{proof}
+Direct concatenation gives
+\[
+ (X_0,X_1,X_4,X_8,X_9,X_{100})
+ \equiv(0,19,10,9,18,1)\pmod{27}.
+\]
+These form the two triples $\{0,9,18\}$ and $\{1,10,19\}$.
+At least one of $z$ and $z-c$ is 0 or 1 modulo three.
+Choose the corresponding triple. If its three differences are 1
+modulo three, they give squares. Otherwise they fill a coset of
+$9\mathbb Z/27\mathbb Z$ divisible by three. Such a coset contains
+3 or 24, yielding valuation nine and cube unit $\pm1$ modulo nine,
+or contains 9 or 18, yielding valuation ten and hence a fifth power.
+\end{proof}
+
+\begin{theorem}[Complete local classification at $v_3(d)=4$]\label{thm:h4-complete}
+Suppose $m$ has $d$ decimal digits, $v_3(d)=4$, and $u=d/81$.
+Every whole-block rotation fails to be a prime-exponent power over
+$\mathbb Q_3$ if and only if at least one of the following holds:
+\[
+\begin{split}
+&m\bmod9\in\{2,3,5,6\},\qquad m\bmod27\in\{9,17\},\\
+&m\bmod243\in\{26,27,81,107,108,134,135,161,215,216\},\\
+&m\equiv729(4-3u)\ \hbox{or}\ 729(1-3u)\pmod{6561}.
+\end{split}
+\]
+There are exactly $3674$ such classes modulo $6561$.
+Outside them some $k\in\{0,1,2,3,4,8,9,100\}$ and
+$e\in\{2,3,5,7\}$ satisfy $R_{m,k}\in(\mathbb Q_3^\times)^e$.
+\end{theorem}
+\begin{proof}
+Set $Y_k=10^{-D(k)}R_{m,k}=W_m-\Delta X_k$, where
+$\Delta=10^{D(m)}-1$ and $X_k=10^{-D(k)}W_k$.
+The factor $10^{D(k)}$ preserves all the power tests used here.
+As in the preceding classifications,
+$D(m)=d(m-a)$ with $a=(10^d-1)/(9d)-1$ of valuation two.
+Thus $v_3(\Delta)\ge6$, and the strengthened prefix formula gives
+$W_m\equiv T_m\pmod{729}$.
+For $v_3(W_m)<6$, every cut has the same valuation, square test,
+and cube test. Valuation five always gives a fifth power; the other
+excluded cases are precisely the same 136 classes modulo 243 as
+in the $h=3$ theorem.
+
+If $729\mid W_m$, then $m\equiv0,-1\pmod{729}$.
+In the negative branch $v_3(\Delta)=6$.
+The values $Y_k/729$ at $k=0,2,3$ form a full coset modulo three
+in $\mathbb Z/9\mathbb Z$, because
+$X_0,X_2,X_3\equiv0,3,6\pmod9$.
+Such a coset yields a square, a cube, or valuation seven (a seventh power).
+
+In the positive branch $v_3(\Delta)=8$.
+If $v_3(W_m)=6$, all cuts have valuation six and the same unit modulo
+nine. They are all excluded precisely when $W_m/729\equiv2,5\pmod9$.
+Writing $m=729t$, the strengthened prefix formula reduces to
+\[
+ W_m/729\equiv t/2+15u/4\pmod9.
+\]
+The two excluded units therefore give
+$t\equiv4-3u,1-3u\pmod9$, exactly the additional displayed classes.
+If $v_3(W_m)=7$, cut zero is a seventh power.
+If $v_3(W_m)\ge8$, apply the finite lifting lemma with
+$z=W_m/3^8$ and $c=\Delta/3^8$.
+The two additional classes are distinct multiples of 729, disjoint
+from the 136 low-valuation classes; hence the total is
+$136\cdot27+2=3674$. All the cuts exist because $d\ge81$.
+\end{proof}
+
+\begin{lemma}[Uniform finite lifting]\label{lem:uniform-lifting}
+There is a fixed set $K$ of 18 cuts, all at most 10006, such that for
+every integer $n\ge2$, every $z\in\mathbb Z_3$, and every unit
+$c\in\mathbb Z_3^\times$, some $k\in K$ makes
+$3^n(z-cX_k)$ a prime-exponent power in $\mathbb Q_3$.
+The power can be certified using its residue modulo $3^{n+4}$.
+\end{lemma}
+\begin{proof}
+Direct integer concatenation gives the certificate
+\[
+\begin{split}
+K_0&=\{0,2,3,5,8,9,11,15,30\},\\
+K_1&=\{1,4,19,22,100,106,109,1000,10006\},\qquad K=K_0\cup K_1.
+\end{split}
+\]
+The normalized prefixes $X_k=10^{-D(k)}W_k$ for $k\in K_0$
+cover all nine multiples of three modulo 27, while those for $k\in K_1$
+cover all nine residues congruent to one modulo nine in $\mathbb Z/81\mathbb Z$.
+The certificate is reproducible by
+$w_0=D_0=0$ and
+$w_{j+1}=10^{\operatorname{digits}(j+1)}w_j+j+1$,
+$D_{j+1}=D_j+\operatorname{digits}(j+1)$, reducing
+$w_j10^{-D_j}$ modulo 81.
+
+Write $r=z-cx$. First consider $n=2,3$.
+For $n=3$, if $z$ is a unit choose $x\equiv0\pmod3$ to make
+$r\equiv\pm1\pmod9$, giving a cube; if $3\mid z$, choose such
+an $x$ with $r/3\equiv1\pmod3$, giving a square of valuation four.
+For $n=2$, take a square whenever some available $x$ gives
+$r\equiv1\pmod3$. Otherwise select a class $x\equiv0\pmod3$
+or $x\equiv1\pmod9$ making $3\mid r$.
+In the first class choose $r\equiv\pm3\pmod{27}$, giving a cube.
+In the second class, if $9\nmid r$, varying $x$ modulo 27 gives the
+same cube criterion; if $9\mid r$, choose $r/9\equiv1\pmod3$,
+giving a square of valuation four.
+Henceforth assume $n\ge4$.
+If $n$ has a prime divisor $q\ge5$, choose $x=0$ or
+$x=1$ modulo three so that $r$ is a unit. Then $3^nr$ is a $q$th
+power, since every 3-adic unit is a $q$th power.
+Otherwise $n=2^a3^b$.
+If $b\ge1$ and $z$ is a unit, the available $x\equiv0\pmod3$
+allow $r\equiv1$ or $-1\pmod9$, giving a cube.
+If $b\ge1$ and $3\mid z$, choose such an $x$ to make $v_3(r)=1$.
+Here $n+1$ has a prime factor at least five: for even $n$ it is
+coprime to six, while for odd $n=3^b\ge9$ it cannot be a power of
+two (use $3^b+1\pmod8$). Thus a prime-exponent power again results.
+
+It remains that $n=2^a\ge4$. If some $x\equiv0$ or $1\pmod3$
+gives $r\equiv1\pmod3$, use a square. Otherwise one of these two
+choices makes $r$ divisible by three.
+If this choice is $x\equiv0\pmod3$, its available lifts allow
+$v_3(r)=1$. The integer $n+1$ has a prime factor at least five unless
+$n=8$. In that exception choose $r\equiv\pm3\pmod{27}$ instead,
+giving a cube of valuation nine.
+If the choice is $x\equiv1\pmod9$ and $r$ is not divisible by nine,
+its valuation is one, with the same conclusion; when $n=8$, varying
+$x$ modulo 27 within this class makes $r/3\equiv\pm1\pmod9$.
+If $9\mid r$, varying $x\equiv1\pmod9$ modulo 81 allows
+$v_3(r)=2$. The integer $n+2$ has a prime factor at least five except
+when $n=4$ or $16$. In those two cases choose
+$r\equiv\pm9\pmod{81}$, giving a cube of valuation six or eighteen.
+
+For completeness, the elementary exceptions follow from
+$2^t+1=3^s$: $t=1$ gives 3, $t=2$ gives no solution, and for $t\ge3$,
+reduction modulo eight makes $s$ even. The factors
+$(3^{s/2}-1)(3^{s/2}+1)=2^t$ are powers of two differing by two,
+hence are 2 and 4, giving $t=3,s=2$.
+This handles $n+1$ directly and $n+2=2(2^{a-1}+1)$ similarly.
+All choices use only $r\pmod{81}$, with $v_3(r)\le2$, proving
+the precision assertion.
+\end{proof}
+
+\begin{theorem}[Universal bounded-cut local equivalence]\label{thm:universal-cuts}
+For every $m\ge10007$, all whole-block rotations of $12\cdots m$
+fail to be prime-exponent powers over $\mathbb Q_3$ if and only if
+all 18 rotations at the cuts $K$ fail to be such powers.
+More explicitly, put
+\[
+ n=v_3(10^{D(m)}-1)\ge2,\quad
+ c=(10^{D(m)}-1)/3^n,\quad b=v_3(W_m).
+\]
+If $b\ge n$, there is a local power witness in $K$.
+If $b<n$, let $g=W_m/3^b\pmod9$ and
+\[
+ U=\begin{cases}\{g\},&n-b\ge2,\\
+ \{g,g-3c\}\pmod9,&n-b=1.
+ \end{cases}
+\]
+There is a local power witness exactly when $b=0$, or $b$ has a
+prime divisor at least five, or $2\mid b$ and some $w\in U$ is one
+modulo three, or $3\mid b$ and some $w\in U$ is $\pm1$ modulo nine.
+In this second case cut zero or one is already a witness.
+The prime exponent can always be chosen at most $\max(5,n+2)$.
+\end{theorem}
+\begin{proof}
+Use $Y_k=10^{-D(k)}R_{m,k}=W_m-(10^{D(m)}-1)X_k$.
+For $b\ge n$, apply Lemma~\ref{lem:uniform-lifting}.
+For $b<n$, all $Y_k$ have valuation $b$; their normalized units
+modulo nine form exactly $U$, since $X_k\equiv T_k\pmod3$
+takes exactly the values zero and one, attained at cuts zero and one.
+The square and cube criteria are necessary and sufficient, and every
+unit is a $q$th power for each prime $q\ge5$.
+Multiplication by $10^{D(k)}\equiv1\pmod9$ preserves all these tests.
+The lifting lemma uses valuations at most $n+2$; if $b<n$, an exponent
+dividing $b$ suffices unless $b=0$, when exponent five suffices.
+All cuts in $K$ are valid because $m\ge10007$.
+This is an equivalence over $\mathbb Q_3$, not an assertion that a
+rotation is an integer perfect power.
+\end{proof}
+
+\begin{theorem}[A complete finite local test for every $h\ge2$]\label{thm:all-h-test}
+Let $m$ have $d$ decimal digits, $h=v_3(d)\ge2$, and $u=d/3^h$.
+Put $P=h+5$ and let
+\[
+ G=\left[T_m+\frac d4\{135-21(m^3-m)\}\right]_{3^P},
+ \qquad 0\le G<3^P.
+\]
+If $m\not\equiv0,-1\pmod{27}$, every rotation is excluded from
+prime-exponent powers over $\mathbb Q_3$ exactly when
+\[
+ m\bmod9\in\{2,3,5,6\}\quad\hbox{or}\quad
+ m\bmod27\in\{9,17\}.
+\]
+For the two remaining classes, set
+\[
+ n=\begin{cases}h+4,&m\equiv0\pmod{27},\\
+ h+2,&m\equiv-1\pmod{27}.
+ \end{cases}
+\]
+If $3^n\mid G$, some rotation is a prime-exponent power.
+Otherwise let $b=v_3(G)<n$ (necessarily $b\ge3$), $g=G/3^b\pmod9$, and
+\[
+ U=\begin{cases}\{g\},&b\le n-2,\\
+ \{g,g+3u\}\pmod9,&b=n-1.
+ \end{cases}
+\]
+Some rotation is a prime-exponent power if and only if at least one
+of the following holds:
+\begin{enumerate}
+\item $b$ has a prime divisor at least five;
+\item $2\mid b$ and some $w\in U$ is 1 modulo three;
+\item $3\mid b$ and some $w\in U$ is $\pm1$ modulo nine.
+\end{enumerate}
+In every locally soluble case, one of the fixed cuts $k\in K$
+from Lemma~\ref{lem:uniform-lifting} is a witness, with prime exponent
+at most $h+6$. The classification depends only on
+$m\pmod{3^{h+5}}$ and $u\pmod{27}$ for fixed $h$.
+\end{theorem}
+\begin{proof}
+The strengthened prefix congruence gives $W_m\equiv G\pmod{3^P}$.
+Put $a=(10^d-1)/(9d)-1$. Its binomial expansion gives
+$v_3(a)=2$ and $a/9\equiv1\pmod3$.
+Since $D(m)=d(m-a)$, the quantity $\Delta=10^{D(m)}-1$ satisfies
+\[
+ v_3(\Delta)=n,\qquad \Delta/3^n\equiv-u\pmod3
+\]
+in the two exceptional classes specified above.
+For all other classes, $W_m\equiv T_m\pmod{27}$ and
+$v_3(\Delta)\ge h+2\ge4$. Their valuations are zero, one, or two,
+giving the displayed elementary classification and a witness at cut zero.
+
+In the exceptional classes, $3^n\mid G$ is equivalent to
+$3^n\mid W_m$. Apply the uniform lifting lemma to
+$z=W_m/3^n$ and $c=\Delta/3^n$.
+Otherwise every normalized rotation
+$Y_k=10^{-D(k)}R_{m,k}=W_m-\Delta X_k$ has valuation $b$.
+If $n-b\ge2$, its unit modulo nine is always $g$.
+If $n-b=1$, the unit is $g+3uX_k\pmod9$.
+Digit sums give $X_k\equiv T_k\pmod3$, whose possible values are
+exactly zero and one, attained at cuts zero and one. This proves
+that $U$ is exactly the unit set, and the elementary square, cube,
+and prime-to-six power criteria prove both directions.
+The precision $P\ge n+1$ suffices to determine every unit used here.
+
+For the uniform lemma's witnesses the valuation is at most $n+2$;
+elsewhere it is $b<n$, or zero, where exponent five suffices.
+Thus the exponent can be chosen at most $h+6$.
+The polynomial is periodic in $m$ modulo $3^P$.
+Its coefficient bracket $135-21(m^3-m)$ is divisible by nine,
+so its dependence on $u$ is only modulo 27. The remaining tests have
+these same periods. Finally every cut in $K$ exists because $d\ge9$.
 \end{proof}
 
 \section{Lifting at boundary primes}

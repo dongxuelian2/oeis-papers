@@ -1,10 +1,10 @@
 {
   "source": "main.tex",
   "pdf": "main.pdf",
-  "source_sha256": "fc4c5a5e0e2b92d451aabb0d7f2187707dddb98fe8625c30b24e4560588e0db3",
-  "pdf_sha256": "ccaef715b0ec32f7aa2c9b9c84070ea8bb1e4a6a9bd5e52652c01f2de927e233",
-  "pages": 13,
+  "source_sha256": "f90fd8391843b0f9f4aad158554b7a677ff2f4bd655970fad45253c1ec6253f4",
+  "pdf_sha256": "b01eb94f46f2e49fe1851401dfca98d10ad9823c14f77d2529ccf050a88ac416",
+  "pages": 15,
   "checked_at": "2026-11-07",
-  "build": "pdflatex twice without warnings; all 13 rendered pages visually reviewed",
-  "status": "partial results; complete local classifications for h=1,2,3; h>3 sufficient only; Kashihara conjecture open"
+  "build": "Exact recovery of the previously built and visually reviewed 15-page PDF; source and PDF match both recorded SHA-256 and Git blob hashes.",
+  "status": "Uniform18-cut local equivalence for m>=10007; complete all-h>=2 test; exact h=1,2,3,4 classifications; integer conjecture open."
 }

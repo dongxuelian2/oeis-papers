@@ -1,0 +1,12 @@
+PASS: exact18-prefix coverage;24 valuation signatures through n=10000, all z,c mod81
+PASS: 1619892 literal-prefix fixed-cut comparisons
+PASS:18 exacth4 sets, each3674 classes mod6561
+PASS: independent matrix-prefix audit at digit length 9
+PASS: independent matrix-prefix audit at digit length 18
+PASS: independent matrix-prefix audit at digit length 27
+PASS: independent matrix-prefix audit at digit length 54
+PASS: independent matrix-prefix audit at digit length 81
+PASS: independent matrix-prefix audit at digit length 162
+PASS: independent matrix-prefix audit at digit length 243
+PASS: independent matrix-prefix audit at digit length 486
+PASS: 944784 independent matrix rotation comparisons
