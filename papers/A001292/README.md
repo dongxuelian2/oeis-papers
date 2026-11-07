@@ -295,3 +295,15 @@ is at most (32d+44)B. The proof uses a centered gap between nested decimal denom
 Summing widths gives O(X log X) squares in precisely this selected region with endpoint m<=X. The uncovered central real interval has width t/d+1 before intersecting with allowed integer cuts. The theorem is sparsity, not nonexistence, and leaves that central band, smaller endpoints, earlier-width cuts and other prime exponents unresolved. The full conjecture remains open.
 
 Run `python papers/A001292/verify_uniform_cut_sparsity.py`. The finite audit records 3,432 rotation checks (all 3,400 admissible width-2 pairs and 32 width-3 samples), 3,664 prime-power/CRT checks, smooth-divisor sums at widths 2–4, and exact centered-gap/width inequalities through d=1000. These verify ingredients, not the infinite theorem by search. The main manuscript and PDF remain unchanged.
+
+## Effective square sparsity including the central cut band
+
+`CENTRAL_CUT_DETERMINANT_SPARSITY.md` removes the central-band exception of the preceding elementary bound. For every decimal width `d>=2`, with `B=10^d`, `L=B/10`, the number of integer-square pairs satisfying `2L<=m<B` and `L+7<=k<m` is less than
+
+    32 B (1+floor(log_2(18d))).
+
+The proof is uniform over all squareclasses and is elementary and effective. It compresses local roots into at most eight residue branches, proves strict concavity of the exact square-root curve, and obtains a nonzero three-point determinant divisible by a large known integer. This supplies a gap independent of the cut position, including the entire formerly omitted central band.
+
+The cumulative count in precisely this domain is `O(X log log X)`. This remains a sparsity statement, not nonexistence. Earlier-width cuts, the initial part of each endpoint width, and odd prime powers are not covered by this square theorem. The main LaTeX/PDF has not been altered by this supplement.
+
+Run `python3 verify_central_cut_determinant.py` for the finite ingredient audit. The general theorem is proved in the note, not inferred from the finite verification.
