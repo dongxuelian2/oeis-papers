@@ -282,3 +282,16 @@ Run `python papers/A001292/verify_subspace_cuts.py`. The finite audit records 23
 `UNIFORM_SHORT_RELATIONS.md` proves a different, explicit statement UNIFORM in squareclass: any putative square solution with m>=2L has no nonzero integer relation on (x,aQ,a) whose coefficient maximum is at most B^(N/4-3). A trace argument extends the small-coefficient exclusion to algebraic relations in varying fields of uniformly bounded degree, with an explicit height bound. This is a necessary structural constraint, not a proof of uniform square exclusion. The note identifies the remaining theorem-application gap and gives a separate counterexample to a naive unrestricted moving-form claim.
 
 Run `python papers/A001292/verify_cross_width.py` and `python papers/A001292/verify_uniform_short_relations.py`. Cross-width checks comprise 32 exact identity/tail cases (18 across the boundary) and 394 rational-window checks. The uniform lemma's verifier records 3,430 identities, 1,464 early and 1,963 late bounds, 1,445 synthetic local cases, 7,568 eta thresholds, five moving-counterexample samples and 124 denominator-clearing samples. These are finite proof-ingredient audits, not enumeration of square solutions or ineffective exceptional sets. The main manuscript/PDF remain unchanged; the full integer-power conjecture remains open.
+
+## An effective square count uniform over every squareclass
+
+`UNIFORM_CUT_SPARSITY.md` proves an elementary margin-free count, with no fixed-squareclass assumption and no ineffective exceptional threshold. For every d>=2, write B=10^d, L=B/10, t=D(L-1), N=m-L+1, K=k-L+1 and H=t+dN. Among 2L<=m<B and L+7<=k<m, the number of integer-square rotations satisfying
+
+- 2d(N-K-1)>=H, or
+- 2dK>=H
+
+is at most (32d+44)B. The proof uses a centered gap between nested decimal denominators for early cuts, and congruence-root counts plus a one-cut boundary strip for late cuts. Both natural equality boundaries are included.
+
+Summing widths gives O(X log X) squares in precisely this selected region with endpoint m<=X. The uncovered central real interval has width t/d+1 before intersecting with allowed integer cuts. The theorem is sparsity, not nonexistence, and leaves that central band, smaller endpoints, earlier-width cuts and other prime exponents unresolved. The full conjecture remains open.
+
+Run `python papers/A001292/verify_uniform_cut_sparsity.py`. The finite audit records 3,432 rotation checks (all 3,400 admissible width-2 pairs and 32 width-3 samples), 3,664 prime-power/CRT checks, smooth-divisor sums at widths 2–4, and exact centered-gap/width inequalities through d=1000. These verify ingredients, not the infinite theorem by search. The main manuscript and PDF remain unchanged.

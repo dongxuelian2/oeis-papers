@@ -1,0 +1,13 @@
+{
+  "base_commit": "ad7add9983689367ff4a3e2138ec1f6fae2e8b98",
+  "scope": "Elementary effective bound (32d+44)10^d for actual square pairs in specified early/late regions with no positive margin and no fixed-squareclass assumption. Scoped cumulative O(X log X), not universal square exclusion. Main LaTeX/PDF unchanged.",
+  "review": "Independent mathematical audit passed original gap/count argument, then separately audited the stronger margin-free replacement manuscript. Final independent code audit and execution passed. Editorial clarifications identify compatible valuation cuts, the untruncated real band, and X>=1.",
+  "finite_checks": "3432 rotations (3400 exhaustive width2 pairs,32 width3 samples),3664 prime-power/CRT checks,smooth sums at widths2..4,999 width/gap checks and2997 center checks through d1000,late-boundary counts80/800/8000. Width2 selected partition1190 early/1800 late/410central and0squares. These are finite ingredient checks, not proof by enumeration. No separate independent reviewer script is claimed.",
+  "sha256": {
+    "UNIFORM_CUT_SPARSITY.md": "0c4738888fb3c4d155c831cebd80b49dd072b1706020c3df72f61654049b4f07",
+    "README.md": "9c220f12c352b8e12ecd0b3a83ec27d1f6e40b591260658fe7e99095213f64e9",
+    "verify_uniform_cut_sparsity.py": "b8700ab066d166560e2dbb5e7ac4c379e3b22a5c1ff75b02d93a0a9ef3ee62cd",
+    "uniform-cut-sparsity-certificate.json": "705a04b07a63b76cf4248cbbc8a76d272b0e58c1a0b1b8c26563190fef0d2669",
+    "uniform-cut-sparsity-verification.txt": "30ddb1fc732e482313d4e6fa9402581b9afb133709dd805c04e224874cdc3c4b"
+  }
+}
