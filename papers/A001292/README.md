@@ -190,3 +190,11 @@ For odd widths the exact union with the13 certificate has20*n_d+222 classes modu
 Finite checks cover111 width phases,111 representative odd-width union count phases,33333 direct prefixes,48 selected larger prefixes and3357 individual modular rotations. This does not classify all endpoints or solve the conjecture; the main manuscript/PDF are unchanged.
 
 The accompanying independent scalar verifier additionally checks1596 prefixes through width400, all1443 odd-width class phases, and3357 literal integer rotations, confirming exact periods222 and2886 for counts and classes respectively.
+
+## Cubic local survivors outside the square-block families
+
+[The cubic local-survivor theorem](CUBIC_LOCAL_SURVIVORS.md) uses valuations b=3^r, r>=1, and a noncube residue at37. Every certified rotation is a cube in Q_3 but not a square there, yet no rotation is an integer power. These blocks are disjoint from the preceding Q_3-square-block families. The inherited cubic and37 prefix formulas are explicitly reused.
+
+An infinite union of four endpoint classes per admissible valuation gives a uniform endpoint lower proportion tending to at least0.0089099921442867 as h=v_3(d) tends to infinity. This is a proved infinite valuation count, not extrapolation from a finite endpoint search. It does not handle all remaining classes or bounded h, and the full conjecture stays open.
+
+The script exhausts all37 character phases and roots at valuations3 and9, checks98 exact tail/period inequalities, and verifies12 selected prefixes at widths27,54,81. Whole-block and unbounded conclusions follow from proof. The main manuscript/PDF are unchanged.

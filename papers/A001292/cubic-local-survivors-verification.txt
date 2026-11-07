@@ -1,0 +1,5 @@
+All37 cubic-character phases and cube subgroup: PASS
+Exhaustive valuation roots: b=3 and9
+Exact tail/period inequalities: 98
+Selected exact prefixes: 12
+PASS. Infinite valuation union and all-rotation assertions follow from proof.
