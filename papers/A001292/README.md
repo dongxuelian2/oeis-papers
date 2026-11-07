@@ -88,3 +88,9 @@ This escapes the restriction to a fixed finite prime set and improves the earlie
 [The uniform-exponent supplement](UNIFORM_EXPONENT_WINDOW.md) extends the preceding fixed-exponent theorem: for every fixed A>0 it simultaneously counts all prime exponents ell≤(log log X)^A, with the same square-level bound X² exp(−c log X/log log X), c<(log 2)/2. The proof invokes the unconditional Siegel–Walfisz theorem and explicitly allows an ineffective starting threshold. It controls the sum of all exponent-dependent period errors.
 
 The remaining larger prime exponents, and exceptional individual candidates even in the controlled window, are not excluded. The full conjecture remains open. The new verifier checks 102 exponent selections in nine growing windows, including exact rational density and period bounds.
+
+## Polynomially growing exponent window via Linnik
+
+[The Linnik-window supplement](LINNIK_EXPONENT_WINDOW.md) proves a larger unconditional range: prime exponents ell≤X^epsilon, for every fixed epsilon<1/(4L+1), where L is any admissible absolute exponent in Linnik's least-prime theorem. No numerical L or K is asserted. The bound remains X² exp(−c log X/log log X), c<(log 2)/2.
+
+The proof constructs many distinct eligible primes by CRT and the least-prime theorem, then separately treats fixed, medium and large exponents. It accounts for both floor losses and all exponent-dependent period errors. This does not reach the full possible exponent range O(X log X) or exclude individual surviving powers; the conjecture remains open. Thirty CRT constructions and nine exact density-tail checks accompany the full argument.
