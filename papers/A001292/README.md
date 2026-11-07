@@ -82,3 +82,9 @@ For the eight primes in the supplement, every odd digit length not divisible by 
 [The growing-prime sieve theorem](GROWING_PRIME_SIEVE.md) uses about d/log d primes of size O(d) in each d-digit block. For each fixed prime exponent ell, it bounds the number of ell-th-power rotation pairs through endpoint X by X² exp(−c log X/log log X), for every c < (log ell)/2. The corresponding sequence-index bound is N exp(−c' log N/log log N), for c' < (log ell)/4.
 
 This escapes the restriction to a fixed finite prime set and improves the earlier powerful-value bound for squares or any fixed finite set of exponents. It does not cover all growing exponents uniformly and does not exclude every integer candidate. The conjecture remains open. The full proof and standalone finite-audit script are new; the main manuscript and PDF are unchanged.
+
+## Uniformly growing exponent window
+
+[The uniform-exponent supplement](UNIFORM_EXPONENT_WINDOW.md) extends the preceding fixed-exponent theorem: for every fixed A>0 it simultaneously counts all prime exponents ell≤(log log X)^A, with the same square-level bound X² exp(−c log X/log log X), c<(log 2)/2. The proof invokes the unconditional Siegel–Walfisz theorem and explicitly allows an ineffective starting threshold. It controls the sum of all exponent-dependent period errors.
+
+The remaining larger prime exponents, and exceptional individual candidates even in the controlled window, are not excluded. The full conjecture remains open. The new verifier checks 102 exponent selections in nine growing windows, including exact rational density and period bounds.
