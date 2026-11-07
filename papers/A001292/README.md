@@ -130,3 +130,9 @@ Ten exact endpoint certificates beyond endpoint 5000 cover 51,939 rotations. The
 [The extended Jacobi criterion](JACOBI_POWER_TWO_VALUATIONS.md) allows the common 3-adic valuation to be any 2^r with r≥1, subject to the stated hypotheses. The complete certificate-condition scan of endpoints 5001–10000 finds 94 successful blocks covering 706,590 rotations: 84 valuation-2 blocks and ten valuation-4 blocks. These totals include the earlier ten blocks, so the addition is 84 blocks and 654,651 rotations.
 
 The run checks 188 selected cuts and cross-checks 206 preliminary Jacobi symbols with SymPy. It does not individually test every rotation for being a power: whole-block coverage follows from the theorem. Failed certificate conditions do not classify the remaining endpoints, and no infinite family or asymptotic success rate is inferred from the finite scan.
+
+## An infinite growing-modulus Jacobi family
+
+[The cyclotomic Jacobi theorem](CYCLOTOMIC_JACOBI_FAMILY.md) proves that, in each sufficiently large prime-power digit width d=3^h, at least a proportion 1/1998−o(1) of endpoints yield entire blocks of integer nonpowers. All their rotations are nevertheless squares over Q_3 and Q_37. Every prime factor of the growing certificate modulus exceeds 2d.
+
+The infinite assertion follows from the character-counting proof, including the degenerate-discriminant case. The script checks 40 small-modulus character cases, the complete nine-digit congruence-restricted scan (450764 certified endpoints), and 30 selected prefix calculations across widths 9,27,81. It does not enumerate the larger widths or individually test all rotations. The lower proportion is within the stated digit-width blocks, not a density claim over all sequence entries. The full conjecture remains open.

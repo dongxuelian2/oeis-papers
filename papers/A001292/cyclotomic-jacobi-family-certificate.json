@@ -1,0 +1,304 @@
+{
+  "character_lemma_cases": [
+    {
+      "modulus": 11,
+      "constant": 0,
+      "negative_classes": 4,
+      "lower_fraction": "2/11"
+    },
+    {
+      "modulus": 11,
+      "constant": 1,
+      "negative_classes": 4,
+      "lower_fraction": "2/11"
+    },
+    {
+      "modulus": 11,
+      "constant": 2,
+      "negative_classes": 5,
+      "lower_fraction": "2/11"
+    },
+    {
+      "modulus": 11,
+      "constant": 7,
+      "negative_classes": 10,
+      "lower_fraction": "2/11"
+    },
+    {
+      "modulus": 19,
+      "constant": 0,
+      "negative_classes": 8,
+      "lower_fraction": "6/19"
+    },
+    {
+      "modulus": 19,
+      "constant": 1,
+      "negative_classes": 9,
+      "lower_fraction": "6/19"
+    },
+    {
+      "modulus": 19,
+      "constant": 2,
+      "negative_classes": 8,
+      "lower_fraction": "6/19"
+    },
+    {
+      "modulus": 19,
+      "constant": 5,
+      "negative_classes": 9,
+      "lower_fraction": "6/19"
+    },
+    {
+      "modulus": 19,
+      "constant": 12,
+      "negative_classes": 18,
+      "lower_fraction": "6/19"
+    },
+    {
+      "modulus": 19,
+      "constant": 13,
+      "negative_classes": 8,
+      "lower_fraction": "6/19"
+    },
+    {
+      "modulus": 43,
+      "constant": 0,
+      "negative_classes": 20,
+      "lower_fraction": "18/43"
+    },
+    {
+      "modulus": 43,
+      "constant": 1,
+      "negative_classes": 20,
+      "lower_fraction": "18/43"
+    },
+    {
+      "modulus": 43,
+      "constant": 2,
+      "negative_classes": 21,
+      "lower_fraction": "18/43"
+    },
+    {
+      "modulus": 43,
+      "constant": 13,
+      "negative_classes": 21,
+      "lower_fraction": "18/43"
+    },
+    {
+      "modulus": 43,
+      "constant": 14,
+      "negative_classes": 21,
+      "lower_fraction": "18/43"
+    },
+    {
+      "modulus": 43,
+      "constant": 27,
+      "negative_classes": 42,
+      "lower_fraction": "18/43"
+    },
+    {
+      "modulus": 91,
+      "constant": 0,
+      "negative_classes": 28,
+      "lower_fraction": "-2/13"
+    },
+    {
+      "modulus": 91,
+      "constant": 1,
+      "negative_classes": 36,
+      "lower_fraction": "-2/13"
+    },
+    {
+      "modulus": 91,
+      "constant": 2,
+      "negative_classes": 46,
+      "lower_fraction": "-2/13"
+    },
+    {
+      "modulus": 91,
+      "constant": 9,
+      "negative_classes": 46,
+      "lower_fraction": "-2/13"
+    },
+    {
+      "modulus": 91,
+      "constant": 13,
+      "negative_classes": 28,
+      "lower_fraction": "-2/13"
+    },
+    {
+      "modulus": 91,
+      "constant": 57,
+      "negative_classes": 72,
+      "lower_fraction": "-2/13"
+    },
+    {
+      "modulus": 187,
+      "constant": 0,
+      "negative_classes": 68,
+      "lower_fraction": "12/187"
+    },
+    {
+      "modulus": 187,
+      "constant": 1,
+      "negative_classes": 77,
+      "lower_fraction": "12/187"
+    },
+    {
+      "modulus": 187,
+      "constant": 2,
+      "negative_classes": 83,
+      "lower_fraction": "12/187"
+    },
+    {
+      "modulus": 187,
+      "constant": 13,
+      "negative_classes": 83,
+      "lower_fraction": "12/187"
+    },
+    {
+      "modulus": 187,
+      "constant": 100,
+      "negative_classes": 64,
+      "lower_fraction": "12/187"
+    },
+    {
+      "modulus": 187,
+      "constant": 117,
+      "negative_classes": 160,
+      "lower_fraction": "12/187"
+    },
+    {
+      "modulus": 539,
+      "constant": 0,
+      "negative_classes": 140,
+      "lower_fraction": "-2/11"
+    },
+    {
+      "modulus": 539,
+      "constant": 1,
+      "negative_classes": 168,
+      "lower_fraction": "-2/11"
+    },
+    {
+      "modulus": 539,
+      "constant": 2,
+      "negative_classes": 245,
+      "lower_fraction": "-2/11"
+    },
+    {
+      "modulus": 539,
+      "constant": 13,
+      "negative_classes": 175,
+      "lower_fraction": "-2/11"
+    },
+    {
+      "modulus": 539,
+      "constant": 100,
+      "negative_classes": 196,
+      "lower_fraction": "-2/11"
+    },
+    {
+      "modulus": 539,
+      "constant": 337,
+      "negative_classes": 420,
+      "lower_fraction": "-2/11"
+    },
+    {
+      "modulus": 1331,
+      "constant": 0,
+      "negative_classes": 484,
+      "lower_fraction": "2/11"
+    },
+    {
+      "modulus": 1331,
+      "constant": 1,
+      "negative_classes": 484,
+      "lower_fraction": "2/11"
+    },
+    {
+      "modulus": 1331,
+      "constant": 2,
+      "negative_classes": 605,
+      "lower_fraction": "2/11"
+    },
+    {
+      "modulus": 1331,
+      "constant": 13,
+      "negative_classes": 605,
+      "lower_fraction": "2/11"
+    },
+    {
+      "modulus": 1331,
+      "constant": 100,
+      "negative_classes": 484,
+      "lower_fraction": "2/11"
+    },
+    {
+      "modulus": 1331,
+      "constant": 832,
+      "negative_classes": 1210,
+      "lower_fraction": "2/11"
+    }
+  ],
+  "width_checks": [
+    {
+      "h": 2,
+      "width": 9,
+      "modulus": 333667,
+      "constant": 221885,
+      "negative_residue_classes": 166832,
+      "endpoint_candidates": 900901,
+      "certified_endpoints": 450764,
+      "selected_endpoint_samples": [
+        100002564,
+        100003563,
+        100004562,
+        100006560,
+        100007559,
+        100009557,
+        100013553,
+        100014552,
+        100015551,
+        100016550
+      ]
+    },
+    {
+      "h": 3,
+      "width": 27,
+      "modulus": 333333333666666667,
+      "constant": 221666674988333330,
+      "selected_endpoint_samples": [
+        100000000000000000000000566,
+        100000000000000000000001565,
+        100000000000000000000002564,
+        100000000000000000000004562,
+        100000000000000000000005561,
+        100000000000000000000009557,
+        100000000000000000000010556,
+        100000000000000000000013553,
+        100000000000000000000017549,
+        100000000000000000000018548
+      ]
+    },
+    {
+      "h": 4,
+      "width": 81,
+      "modulus": 333333333333333333333333333666666666666666666666666667,
+      "constant": 121666690966666666666666666788333357633333333333333338,
+      "selected_endpoint_samples": [
+        100000000000000000000000000000000000000000000000000000000000000000000000000002564,
+        100000000000000000000000000000000000000000000000000000000000000000000000000003563,
+        100000000000000000000000000000000000000000000000000000000000000000000000000004562,
+        100000000000000000000000000000000000000000000000000000000000000000000000000005561,
+        100000000000000000000000000000000000000000000000000000000000000000000000000007559,
+        100000000000000000000000000000000000000000000000000000000000000000000000000009557,
+        100000000000000000000000000000000000000000000000000000000000000000000000000012554,
+        100000000000000000000000000000000000000000000000000000000000000000000000000014552,
+        100000000000000000000000000000000000000000000000000000000000000000000000000016550,
+        100000000000000000000000000000000000000000000000000000000000000000000000000021545
+      ]
+    }
+  ],
+  "selected_exact_prefix_checks": 30
+}
