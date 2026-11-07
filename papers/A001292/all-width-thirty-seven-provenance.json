@@ -1,0 +1,15 @@
+{
+  "base_commit": "1ef55592e3c9d30ed0653a38ec29c1a24455d338",
+  "status": "New explicit affine37 phases and effective all-width combination. General mod27 identity, quadratic37 phase and boundary translation inherited. Main manuscript/PDF unchanged.",
+  "independent_review": "Passed. Full1443 odd-width phase audit establishes exact count period222 and class period2886. Independent scalar1596 prefixes through width400 and3357 literal integer rotations passed. Independent verifier is included, with only its input-file directory adapted to the published sibling layout; this adapted copy reran successfully.",
+  "verification_scope": "Primary script:111 width phases,111 odd count phases,33333 direct prefixes,48 selected larger prefixes,3357 modular rotation checks. Infinite and whole-block statements follow from proof.",
+  "sha256": {
+    "verify_all_width_thirty_seven.py": "79d19e2d3e3761fd5030983e0d51db99a68b8e39e156c028eb06bc492d1df7b3",
+    "README.md": "cea01c571cd3a99cb2f96f9f052f3a0b9af673671314709b074e767b30699f8e",
+    "all-width-thirty-seven-verification.txt": "299215dc741b203415e5ea438bc2beeadc49ade0baa046051f026183f99474de",
+    "ALL_WIDTH_THIRTY_SEVEN.md": "7a736192428a6ec886c44901e7994548a3aa64372cef010c4e5b34f54a24db87",
+    "all-width-thirty-seven-independent-verification.txt": "84f50d5df7ae986f9fddfad2132ba33aaa2c9e07d998cbde617ce8da37344579",
+    "all-width-thirty-seven-certificate.json": "2b387c2885649bcba3965d91e67b7466cd2d3f15963fe4a5694f9fbb7ed59881",
+    "verify_all_width_thirty_seven_independent.py": "11410314308152d247f43d845d094a7b3766d80df3cb7b7ac66124946ea1ea45"
+  }
+}

@@ -180,3 +180,13 @@ The standard-library script checks all six matrix phases,13 width classes,450 di
 The new width phases are d=1 and5 modulo6. At d=3 modulo6, the old extra endpoint class remains available and gives the earlier12-class total. The proof uses a mod27 identity valid without a width-valuation hypothesis; old boundary translations and existing local ingredients are explicitly reused. It makes no assertion about even widths or the remaining endpoints.
 
 Finite checks cover39 width phases,99999 general mod27 prefixes,15151 linear prefixes,48 selected larger-width prefixes and35082 modular rotations. The unbounded statements follow from proof, not sample extrapolation. The main manuscript/PDF are unchanged and the conjecture remains open.
+
+## An effective37 certificate at every width
+
+[The all-width37 theorem](ALL_WIDTH_THIRTY_SEVEN.md) supplies explicit linear phases for widths d=1,2 modulo3. Together with the inherited quadratic phase, it certifies endpoints at every digit width d>=2, including even widths and odd endpoints. Require m=18 modulo27 and the stated37 residue to be a nonsquare; every rotation is then an integer nonpower but a Q_3 square. At widths coprime to3 there are18 classes modulo999. The remaining phase has17,18 or36 classes, so every width has at least17 sufficient classes.
+
+For odd widths the exact union with the13 certificate has20*n_d+222 classes modulo25974, where n_d is the37 negative-residue count. Count phases and actual endpoint-class phases are distinguished. The new ingredients are the two linear37 phases and their combinations; the old mod27 identity, boundary translation and quadratic phase are credited as inherited.
+
+Finite checks cover111 width phases,111 representative odd-width union count phases,33333 direct prefixes,48 selected larger prefixes and3357 individual modular rotations. This does not classify all endpoints or solve the conjecture; the main manuscript/PDF are unchanged.
+
+The accompanying independent scalar verifier additionally checks1596 prefixes through width400, all1443 odd-width class phases, and3357 literal integer rotations, confirming exact periods222 and2886 for counts and classes respectively.
