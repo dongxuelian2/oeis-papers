@@ -234,3 +234,11 @@ The finite verifier checks nine explicit exponents, including composite witness 
 Each exponent has its own subset with exact3-adic valuation e, so subsets for different e are disjoint. This is not an exclusion of all endpoints or of exponents outside the stated growing window. The numerical bounds are theoretical and extremely impractical. No GRH is assumed.
 
 The verifier audits exact constants, the h=32 base,9999 finite induction cases and412 prime/window comparisons. The cited theorem plus the written induction and discriminant proof justify the unbounded result. Main manuscript/PDF remain unchanged; the integer conjecture is open.
+
+## Arbitrary fixed width multipliers
+
+[The fixed-multiplier witness theorem](ARBITRARY_FIXED_MULTIPLIERS.md) constructs witness orders coprime to6u for any fixed positive u with3 not dividing u and any fixed prime e>=5. It handles u containing e by forcing exactly one e factor in p-1 and then removing it from the order through the e-th-power condition. A compatible cyclotomic Frobenius supplies a positive-density prime set.
+
+The previous endpoint construction consequently applies to d=u*3^h for all sufficiently large h, including both parities of u. The witness and threshold may depend on u and e; this is not a uniform statement for u growing with h or an exclusion of all endpoints. The examples include u=103, where the old fifth-power witness of order103 fails and a new order1483 works.
+
+Nine explicit witnesses and900 finite coprimality checks pass. The arbitrary-fixed-u conclusion follows from the field-intersection and Chebotarev proof rather than these examples. Main manuscript/PDF remain unchanged and the integer conjecture is open.

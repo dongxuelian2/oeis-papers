@@ -1,0 +1,86 @@
+{
+  "witnesses": [
+    {
+      "multiplier": 1,
+      "exponent": 5,
+      "modulus": 600,
+      "residue": 431,
+      "prime": 1031,
+      "exact_order": 103,
+      "extension_degree": 800
+    },
+    {
+      "multiplier": 2,
+      "exponent": 5,
+      "modulus": 600,
+      "residue": 431,
+      "prime": 1031,
+      "exact_order": 103,
+      "extension_degree": 800
+    },
+    {
+      "multiplier": 5,
+      "exponent": 5,
+      "modulus": 600,
+      "residue": 431,
+      "prime": 1031,
+      "exact_order": 103,
+      "extension_degree": 800
+    },
+    {
+      "multiplier": 25,
+      "exponent": 5,
+      "modulus": 600,
+      "residue": 431,
+      "prime": 1031,
+      "exact_order": 103,
+      "extension_degree": 800
+    },
+    {
+      "multiplier": 103,
+      "exponent": 5,
+      "modulus": 61800,
+      "residue": 14831,
+      "prime": 14831,
+      "exact_order": 1483,
+      "extension_degree": 81600
+    },
+    {
+      "multiplier": 7,
+      "exponent": 7,
+      "modulus": 5880,
+      "residue": 1919,
+      "prime": 207719,
+      "exact_order": 14837,
+      "extension_degree": 9408
+    },
+    {
+      "multiplier": 35,
+      "exponent": 7,
+      "modulus": 5880,
+      "residue": 1919,
+      "prime": 207719,
+      "exact_order": 14837,
+      "extension_degree": 9408
+    },
+    {
+      "multiplier": 77,
+      "exponent": 7,
+      "modulus": 64680,
+      "residue": 60719,
+      "prime": 836879,
+      "exact_order": 59777,
+      "extension_degree": 94080
+    },
+    {
+      "multiplier": 13,
+      "exponent": 13,
+      "modulus": 20280,
+      "residue": 17759,
+      "prime": 808679,
+      "exact_order": 31103,
+      "extension_degree": 64896
+    }
+  ],
+  "width_coprimality_checks": 900
+}
