@@ -250,3 +250,11 @@ Nine explicit witnesses and900 finite coprimality checks pass. The arbitrary-fix
 This is disjoint from the earlier positive-v_3 exponent constructions, but may overlap other old local certificates. It includes even and odd widths with v_3(d)=1 fixed, and does not classify all endpoints or all local fields. The exception e=37 is explicitly excluded because the37-adic unit power map then needs additional conditions.
 
 The standard-library verifier checks a concrete fifth-power witness,216 selected valuation classes,10000 Q_3 unit residues,295 tail/period bounds and eight scalar order-step identities. No enormous-width prefixes or complete blocks were computationally enumerated. Main manuscript/PDF remain unchanged and the conjecture remains open.
+
+## General valuation transfer and exponent 37
+
+`GENERAL_VALUATION_TRANSFER.md` generalizes the preceding 37-adic transfer to primes q admitting the inherited interval lift. Such a P exists exactly when gcd(ord_q(10),10)=1. For fixed admissible q,P,s and prime e coprime to q(q-1), widths P*s*q^a have a positive certified endpoint proportion for all sufficiently large a: all rotations pass every prime-exponent Q_3 test and the e-th-power Q_q test, but are not integer perfect powers. Parameters are fixed before a grows.
+
+The explicit choice q=757, P=27, e=37, witness p=90947 and order r=1229 removes the previous e=37 exception. Combined with the inherited q=37 branch, this supplies a choice of valuation prime for every fixed prime exponent e>=5. It does not prove the conjecture, cover all endpoints or give a threshold uniform in all exponents. The main LaTeX manuscript/PDF remain unchanged.
+
+Run `python papers/A001292/verify_general_valuation_transfer.py`. The certificate and log record 80 admissible-prime constructions through 2000, 4,536 selected valuation-class checks, 10,000 Q_3 unit residues, 267 tail/period inequalities and eight scalar recurrence identities. No enormous-width prefixes or full blocks are computationally enumerated; the infinite claims follow from the proof. The generic valuation sample b=74 is not represented as a power of 37.
