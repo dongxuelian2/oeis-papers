@@ -118,3 +118,9 @@ The script computes exact residue classes and endpoint counts at widths 5, 7 and
 [The exact-main-term obstacle](EXACT_MAIN_TERM_OBSTACLE.md) shows that a natural same-width leading term cannot be a rational odd-prime power. If it is a rational square, and the cut is at least seven integers beyond the width's start, the rotation already fails the 2-adic square test. Thus forcing this term to be an exact power and using adjacent-power gaps produces no new square exclusion in that range.
 
 This is a limitation of that specific method, not a general global impossibility result or a proof of the integer conjecture. Earlier-width cuts, the first few cuts, and nonexact algebraic approximations remain outside its scope. The standalone finite audit distinguishes modular identity checks from selected endpoint tests.
+
+## Whole-block Jacobi certificates
+
+[The cyclic Jacobi criterion](CYCLIC_JACOBI_CERTIFICATE.md) gives a sufficient certificate excluding every integer perfect power in a block even when all its rotations are squares over Q_3. It uses the Jacobi symbol of the normalized prefix modulo the cyclic modulus with its 3-part removed, without factoring that modulus.
+
+Ten exact endpoint certificates beyond endpoint 5000 cover 51,939 rotations. The script checks the ten hypotheses, 50 selected cuts and, when available, ten SymPy cross-checks; the entire-block conclusion follows from the proof, not exhaustive testing of every rotation. Each certified block has common gcd exactly9. This is neither an infinite classification nor a resolution of Kashihara's conjecture.

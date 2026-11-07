@@ -1,0 +1,167 @@
+{
+  "certificates": [
+    {
+      "endpoint": 5040,
+      "digits": 19053,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2520,
+        5039
+      ]
+    },
+    {
+      "endpoint": 5067,
+      "digits": 19161,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2533,
+        5066
+      ]
+    },
+    {
+      "endpoint": 5094,
+      "digits": 19269,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2547,
+        5093
+      ]
+    },
+    {
+      "endpoint": 5121,
+      "digits": 19377,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2560,
+        5120
+      ]
+    },
+    {
+      "endpoint": 5175,
+      "digits": 19593,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2587,
+        5174
+      ]
+    },
+    {
+      "endpoint": 5202,
+      "digits": 19701,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2601,
+        5201
+      ]
+    },
+    {
+      "endpoint": 5229,
+      "digits": 19809,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2614,
+        5228
+      ]
+    },
+    {
+      "endpoint": 5283,
+      "digits": 20025,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2641,
+        5282
+      ]
+    },
+    {
+      "endpoint": 5337,
+      "digits": 20241,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2668,
+        5336
+      ]
+    },
+    {
+      "endpoint": 5391,
+      "digits": 20457,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "normalized_unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9,
+      "selected_cuts": [
+        0,
+        1,
+        2,
+        2695,
+        5390
+      ]
+    }
+  ],
+  "rotations_covered_by_theorem": 51939,
+  "selected_cuts_checked": 50,
+  "sympy_jacobi_cross_checks": 10
+}
