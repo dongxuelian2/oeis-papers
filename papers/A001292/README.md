@@ -112,3 +112,9 @@ The proof derives the exact quadratic weight identity, bounds its error uniforml
 [The growing local-survivor theorem](GROWING_LOCAL_SURVIVORS.md) proves that, for every sufficiently large prime digit width d, there are 10^d exp(−(2 log 2+o(1))d/log d) endpoints whose same unrotated member is a square in Q_p for every prime p≤2d. These are local squares at arbitrary precision, not asserted integer squares. This gives a limitation of necessary square tests even when the set of tested primes grows.
 
 The script computes exact residue classes and endpoint counts at widths 5, 7 and 11, then directly checks only selected candidate prefixes (773 prime checks). It does not directly check every candidate at each width. The asymptotic theorem follows from the proof, ordinary prime number theorem and Mertens estimates, not from extrapolating those samples. The integer conjecture remains open.
+
+## Limitation of an exact-power main-term strategy
+
+[The exact-main-term obstacle](EXACT_MAIN_TERM_OBSTACLE.md) shows that a natural same-width leading term cannot be a rational odd-prime power. If it is a rational square, and the cut is at least seven integers beyond the width's start, the rotation already fails the 2-adic square test. Thus forcing this term to be an exact power and using adjacent-power gaps produces no new square exclusion in that range.
+
+This is a limitation of that specific method, not a general global impossibility result or a proof of the integer conjecture. Earlier-width cuts, the first few cuts, and nonexact algebraic approximations remain outside its scope. The standalone finite audit distinguishes modular identity checks from selected endpoint tests.
