@@ -214,3 +214,7 @@ The first two use the already published `verify_a001292.py`; the 11/13 audit als
 Fresh outputs are [7](prime7-verification.txt), [11/13](prime11-13-verification.txt), [31/41](prime31-41-verification.txt), and [simultaneous local powers](local-survivors-verification.txt). They include exhaustive period/classification checks, 1,498,500 direct rotation checks for the 7/11/13 classifications, independent arithmetic-geometric prefix calculations through 2043-digit endpoints, and exact conditional CRT enumerations.
 
 This supplement is newly assembled from recovered proofs and freshly rerun certificates. The 31/41 and simultaneous-local-power verifiers are byte-identical to their recovered originals. The 7/11/13 scripts have portability changes to import and output paths; the period helper was renamed. The main 18-cut manuscript remains unchanged. [Provenance metadata](prime-supplement-provenance.json) records the hashes and these distinctions. None of the local equivalences, finite certificates or coverage estimates resolves the integer conjecture.
+
+## Further generalization
+
+The subsequent [finite-prime limitation theorem](FINITE_PRIME_LIMIT.md) extends the last obstruction from this particular eight-prime set to **every fixed finite prime set**. It proves positive lower density in the endpoint index for simultaneous local squares, with one common exponent and cut. It does not claim positive density of integer squares or rule out additional primes or global arguments.

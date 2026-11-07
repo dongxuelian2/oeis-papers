@@ -70,3 +70,9 @@ The existing verifier commands remain available:
 - Infinite families where the same unrotated member is simultaneously a square, or a seventeenth power, at all eight listed local fields. These are local survivors, not integer counterexamples, and demonstrate why that finite collection of primes cannot finish the conjecture.
 
 The supplement is separate from the unchanged 15-page manuscript. Its proof scope, commands, fresh outputs and recovery/portability provenance are documented within it. Kashihara's integer conjecture remains open.
+
+## General limitation for every fixed finite prime set
+
+[The finite-prime limitation theorem](FINITE_PRIME_LIMIT.md) proves that, for any fixed finite set of primes, a positive-lower-density set of endpoint indices has the same unrotated concatenation locally square at every chosen prime. This is not an integer-square construction. It shows why necessary local square tests at a fixed finite set, even at arbitrary precision, cannot exclude every candidate.
+
+For the eight primes in the supplement, every odd digit length not divisible by 5 has exactly 27000 such endpoint classes modulo 152672520. The full proof handles overlapping prime periods correctly and gives an explicit positive lower-density bound. A new independent verifier and exact output accompany the proof.

@@ -1,0 +1,13 @@
+{
+  "status": "New theorem and new audit; not a recovery of earlier files.",
+  "scope": "Simultaneous local squares for arbitrary fixed finite prime sets; positive lower density among endpoint indices only; integer conjecture remains open.",
+  "proof_source": "FINITE_PRIME_LIMIT.md",
+  "reused_input": "The published fixed-digit affine-exponential identity and baseline append_block implementation. The joint-square counting, overlapping-period induction, and lower-density argument are written out in the new proof.",
+  "finite_checks": "Exhaustive joint-count periods for four prime sets, including dependencies between prime periods;145000 independent actual-prefix prime comparisons; exact product and width-density formulas. Finite checks support, not replace, the general proof.",
+  "sha256": {
+    "FINITE_PRIME_LIMIT.md": "f4ca1fa9bd24e4f41a5cd95d538fe4ae0e3320945e3ce13999a470d4823d5c06",
+    "verify_finite_prime_limit.py": "ce67f614a583065a34c4f0ef646443561044bcd5515f32fff6f1cf9cfe471457",
+    "finite-prime-limit-certificate.json": "a5525bcc128bc9395d2f1446fb53ff14a38a71f2e277782dcda6ce0ca4ca6e4a",
+    "finite-prime-limit-verification.txt": "59c56e5589be44f691fba5856cd0f6559efa923a7d972cc216319a97a7054ea1"
+  }
+}
