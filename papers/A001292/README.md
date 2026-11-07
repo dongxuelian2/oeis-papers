@@ -317,3 +317,19 @@ The proof combines compressed local-root classes, elementary nested-denominator 
 Together with `CENTRAL_CUT_DETERMINANT_SPARSITY.md`, this bounds all nontrivial integer perfect-power pairs in the stated region by `20B^2/d+32B(1+floor(log_2(18d)))`, and cumulatively by `O(X^2/log X)` there. This does not cover the omitted initial endpoints or earlier-width cuts, and does not prove that any of the counts are zero.
 
 Run `python3 verify_odd_prime_power_sparsity.py` for the independent finite corroboration. The proof, audit report, certificate, and captured output specify the exact scope; the finite checks are not an exhaustive perfect-power search. The main LaTeX/PDF remains unchanged.
+
+## Global bounds: all endpoints and all whole-integer cuts
+
+`UNIFIED_FULL_PREFIX_FIXED_EXPONENT.md` and `GLOBAL_PERFECT_POWER_UNION.md` remove the smaller-endpoint and earlier-width-cut exclusions in the preceding supplements. For every `d>=2`, put `B=10^d`, `L=B/10`. Among **all** pairs `L<=m<B`, `0<=k<m`, including the unrotated case `k=0`, they prove
+
+- Fewer than `330B` square pairs.
+- Fewer than `11B^2/d` odd-prime-power pairs, with the exponent unrestricted.
+- Fewer than `17B^2/d` nontrivial integer perfect-power pairs.
+
+Consequently the global cumulative counts through endpoint `X` are `O(X)` for squares and `O(X^2/log X)` for all nontrivial perfect powers. These statements concern whole-integer prefix rotations, not cuts inside the decimal representation of an integer. They count pairs and do not assume their values are distinct.
+
+The new step uses the full congruence `R_(m,k)=W_k mod 10^D(k)`, rather than its shorter trailing-block consequence. An endpoint-anchored identity works for all cut widths. Its signed correction may change sign, but the exact root curve has at most one inflection, so a nonzero determinant still supplies a uniform gap. The all-exponent argument retains the factor counting possible cut widths when reconstructing a rotation from a large power.
+
+Both proofs and reproducible finite verifiers were independently reviewed. Run `python3 verify_unified_full_prefix.py` and `python3 verify_global_perfect_power_union.py`; the accompanying certificates, logs, and audit reports specify their finite scope. The infinite results follow from the proofs, not an exhaustive search.
+
+**The integer nonexistence conjecture remains open.** These global bounds permit infinitely many hypothetical power examples; they do not establish that any count is zero. The main LaTeX/PDF is unchanged by these supplemental proofs.
