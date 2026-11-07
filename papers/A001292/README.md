@@ -100,3 +100,9 @@ The proof constructs many distinct eligible primes by CRT and the least-prime th
 [The two-prime refinement](TWO_PRIME_REFINEMENT.md) improves the sufficient exponent-window restriction to epsilon<1/(4L−2), preserving the same strong sparsity bound. The proof uses the shared factor ell in two local periods and bounds the interval error by the number of allowed residue classes. It introduces no new analytic hypothesis and still leaves the full integer conjecture open.
 
 The standalone verifier checks 12 exact joint-period cases and 3600 interval bounds. The theorem and the finite checks have distinct roles: the latter audit the periodic counting identities, not the infinite Linnik theorem.
+
+## Improved bound covering every power exponent
+
+[The quadratic-sieve supplement](ALL_EXPONENT_QUADRATIC_SIEVE.md) improves the uniform count of all powerful rotations to O_g(X² log log X/log X). Consequently, all nontrivial integer powers among the first N decimal entries satisfy O(N log log N/log N), with no restriction on their exponents.
+
+The proof derives the exact quadratic weight identity, bounds its error uniformly in the cut and width, and estimates the denominator using Mertens products and an elementary weighted truncation. This improves the earlier all-exponent bound by one factor of log log N, but does not eliminate individual candidates or resolve the conjecture. The standalone verifier, exact certificate and output accompany the proof; the main manuscript and PDF remain unchanged.
