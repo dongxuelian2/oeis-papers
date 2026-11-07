@@ -156,3 +156,11 @@ An explicit product bound permits a faster O(h^4*2^(-h)) residual for fixed cuto
 This increases the earlier2/27 endpoint proportion by approximately0.008332078689. It does not cover bounded h or imply Q_37 compatibility. A separate exact counterexample explains why replacing the3-power moduli by other odd-prime-power cyclotomic moduli does not preserve a uniform negative-character bound for arbitrary constants; it does not classify the actual concatenation constant.
 
 The finite script checks exhaustive roots at valuations2,4,8;45 rational identities;800 sampled endpoints;32 selected exact prefixes; and300 selected residues for three counterexample moduli. Infinite and whole-block claims follow from proof, not samples. The global conjecture remains open; the main manuscript and PDF are unchanged.
+
+## A bounded-valuation infinite width progression
+
+[The bounded-valuation CRT certificate](BOUNDED_VALUATION_CRT.md) uses324 explicitly verified primes and a fixed612-digit integer L. Every width d=L*t with3 not dividing t has v_3(d)=1. Within36 endpoint classes modulo999, the certified count is at least (4H/111)*(1-2^(-322)); all corresponding blocks are integer nonpowers but squares over Q_3 and Q_37. Dropping37 compatibility gives a count at least (2H/27)*(1-2^(-322)).
+
+This supplies a concrete bounded-v_3(d) family, rather than extrapolating the earlier high-valuation limit. It is structural: the widths are extraordinarily large. The construction uses a fixed finite prime set and does not establish arbitrary-accuracy coverage, every bounded-valuation width, or the global conjecture.
+
+The standard-library verifier checks324 prime/period certificates, exact rational bounds,36 endpoint classes,353 exhaustive quadratic-constant models and six complete CRT models. It does not construct actual prefixes at those enormous widths. The main manuscript and PDF are unchanged.
