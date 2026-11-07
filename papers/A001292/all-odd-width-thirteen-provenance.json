@@ -1,0 +1,13 @@
+{
+  "base_commit": "09e6f6059471dad5b73f6c9ede827fa97c0b245e",
+  "status": "New all-odd-width combination with additional d=1,5mod6 affine phases. General mod27 identity and six-width boundary translation are inherited and explicitly credited. Main manuscript/PDF unchanged.",
+  "independent_review": "Passed after provenance clarification. Supplied verification counts reproduced. Separate non-matrix checks through width201 passed502 affine checks,1206 mod27 checks,195 boundary translations and exact endpoint counts at each odd width3..201. Width1 wording clarified.",
+  "verification_scope": "Published script:39 width phases,99999 general mod27 prefixes,15151 direct affine prefixes,48 selected larger prefixes,35082 modular rotations. Infinite and whole-block assertions follow from proof.",
+  "sha256": {
+    "README.md": "f861677953c821d3fff112ac2342d69cd9e4be530e7391e2ff77d602535381f8",
+    "verify_all_odd_width_thirteen.py": "e9e0eb85fec0cb891fa8a2df89d751beac677e1a842d9fd84bc6c8a3b502176e",
+    "all-odd-width-thirteen-certificate.json": "c5a8cdd04751f67f9ba10620ae18f7be52a6bfd3d74925f64f9ebefeaadd5b69",
+    "all-odd-width-thirteen-verification.txt": "bd7c11365c9bc8252fda39983dee16e790823827c74abc4671affd8f5737df0e",
+    "ALL_ODD_WIDTH_THIRTEEN.md": "b798c860d951f4c90c053ec8343165e4ae75aa0e71b2aefcd0533348787aa1bd"
+  }
+}

@@ -172,3 +172,11 @@ The standard-library verifier checks324 prime/period certificates, exact rationa
 This handles infinitely many widths with v_3(d)=1 without the preceding huge common width period. It differs from the older13-adic valuation-one family because these endpoints are units modulo13. The older family already included some antiperiodic widths; the new claim is the explicit linear formula and combined certificate, not the first use of that phase. The proof is uniform; it does not claim the small endpoints were absent from earlier computations.
 
 The standard-library script checks all six matrix phases,13 width classes,450 direct even three-digit prefixes,42 selected larger-width prefixes and8084 individual rotations from15 certified three-digit endpoints. The global conjecture remains open, and the main manuscript/PDF are unchanged.
+
+## Every odd width, including no factor of3
+
+[The all-odd-width13 theorem](ALL_ODD_WIDTH_THIRTEEN.md) extends the explicit certificate to every odd digit width d>=3, including v_3(d)=0. The endpoint requirements are m=18 modulo27, m even, and a stated linear expression modulo13 being a nonresidue. There are six classes modulo702 at each width, giving H/117 endpoints up to absolute error6. Every certified block is an integer nonpower, a Q_3-square block and a Q_13-nonsquare unit block.
+
+The new width phases are d=1 and5 modulo6. At d=3 modulo6, the old extra endpoint class remains available and gives the earlier12-class total. The proof uses a mod27 identity valid without a width-valuation hypothesis; old boundary translations and existing local ingredients are explicitly reused. It makes no assertion about even widths or the remaining endpoints.
+
+Finite checks cover39 width phases,99999 general mod27 prefixes,15151 linear prefixes,48 selected larger-width prefixes and35082 modular rotations. The unbounded statements follow from proof, not sample extrapolation. The main manuscript/PDF are unchanged and the conjecture remains open.
