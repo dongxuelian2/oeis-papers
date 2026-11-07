@@ -133,3 +133,12 @@ Existing cubic, higher sufficient, and density verifiers rerun successfully.
 Independent exact-Fraction prefix constants and 108 coset tests also passed.
 PDF: 12 pages; compiled twice without warnings; all pages visually reviewed.
 Focused output: verification-h2.txt.
+
+Complete h=3 local classification update
+========================================
+Proved a strengthened prefix formula for every h>=2 and an exact h=3 classification with 3673 classes modulo 6561. Outside those classes, cuts 0 or 1 give local exponents 2,3,5,or7. No general h>3 equivalence is claimed.
+verify_h3_local_equivalence.py: boundary constants, 18 complete class sets, strengthened prefixes at 11 digit lengths, and 433,026 independent matrix rotation checks passed.
+verify_h3_residues_independent.py: 354,294 independently computed polynomial/rotation residues passed.
+h=2 equivalence and density refinement rerun successfully.
+13-page PDF compiled twice without warnings; every rendered page inspected.
+Focused output: verification-h3.txt.

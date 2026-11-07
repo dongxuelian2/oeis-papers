@@ -1,10 +1,10 @@
 {
   "source": "main.tex",
   "pdf": "main.pdf",
-  "source_sha256": "2ac0b9e4663e98c97d914f207f5345d282f608d212e75a75471a19f8dd75db87",
-  "pdf_sha256": "606c322a3d77150c06446eab39dbad98385da115ed5d85ef52463b283b78afee",
-  "pages": 12,
+  "source_sha256": "fc4c5a5e0e2b92d451aabb0d7f2187707dddb98fe8625c30b24e4560588e0db3",
+  "pdf_sha256": "ccaef715b0ec32f7aa2c9b9c84070ea8bb1e4a6a9bd5e52652c01f2de927e233",
+  "pages": 13,
   "checked_at": "2026-11-07",
-  "build": "pdflatex twice without warnings; all 12 rendered pages visually reviewed",
-  "status": "partial results; complete local classifications for h=1,2; h>2 sufficient only; Kashihara conjecture open"
+  "build": "pdflatex twice without warnings; all 13 rendered pages visually reviewed",
+  "status": "partial results; complete local classifications for h=1,2,3; h>3 sufficient only; Kashihara conjecture open"
 }

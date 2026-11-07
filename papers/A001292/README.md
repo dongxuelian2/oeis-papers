@@ -113,7 +113,7 @@ The [sieve companion](POWERFUL_SIEVE.md) gives a Markdown version of this argume
 For `m=10^d-1`, write `h=v_3(d)` and `u=d/3^h`. Every whole-block rotation `R` has
 
 \[
-v_3(R)=h+2,\qquad R/3^{h+2}\equiv u(2+6d)\pmod9.
+v_3(R)=h+2,\qquad R/3^{h+2}\equiv u(2+6d)\pmod 9.
 \]
 
 If the prime divisors of `h+2` form the set in the left column, the right
@@ -164,6 +164,8 @@ python verify_digit_intervals.py
 python verify_density_refinement.py
 python verify_three_adic_sufficient_extension.py
 python verify_h2_local_equivalence.py
+python verify_h3_local_equivalence.py
+python verify_h3_residues_independent.py
 python search_gmp.py 1000
 ```
 
@@ -214,7 +216,7 @@ For `h=v_3(d)>=2`, the manuscript now gives a sufficient nine-residue
 test for excluding every rotation from local prime-exponent powers.
 At `h=2`, the complete local exclusion set has **133 classes modulo 243**.
 This is distinct from the existing complete 131-class criterion at `h=1`.
-For `h>2`, no complete classification is claimed. The new verifier checks
+The subsequent theorem also completely classifies `h=3`; for `h>3`, only sufficient conditions are claimed. The new verifier checks
 91,854 residue cases, six 133-class sets and independent matrix rotations
 at digit lengths 9, 18, 27, 81 and 243.
 
@@ -229,3 +231,22 @@ solubility only, not an integer perfect-power counterexample.
 `verify_h2_local_equivalence.py` verifies all finite tables, exact prefix
 constants and coset witnesses, then checks 183,708 bounded-cut residues
 from independent matrix-initialized prefixes at digit lengths 9,18,36,45.
+
+## Complete classification at h=3
+
+For `h=v_3(d)=3`, put `u=d/27`. Exactly **3673 classes modulo 6561**
+exclude every rotation from prime-exponent powers over Q_3:
+
+- `m mod 9` in `{2,3,5,6}`;
+- `m mod 27` in `{9,17}`;
+- `m mod 243` in `{26,27,81,107,108,134,135,161,215,216}`;
+- `m = -729(u+2) mod 6561`.
+
+Outside these classes, cut 0 or cut 1 is a local square, cube, fifth power,
+or seventh power. A strengthened prefix congruence valid for every h>=2
+is proved as part of the argument. These are local results; the integer
+perfect-power conjecture remains open.
+
+The new verifier checks 18 complete class sets and 433,026 independent
+rotation residues, plus strengthened prefix formulas at 11 digit lengths.
+A second verifier independently checks 354,294 polynomial/rotation residues.

@@ -26,7 +26,9 @@ local classification: 131 classes of $m$ modulo 243 exclude all rotations
 over $\Q_3$; every other class has a local square, cube, or fifth power among
 the first four cuts. When $v_3(d)=2$, exactly 133 classes modulo 243
 exclude all rotations; every other class has a local power at one of seven
-fixed cuts, all at most 22. At complete digit boundaries, exact valuations and
+fixed cuts, all at most 22. When $v_3(d)=3$, exactly 3673 classes modulo
+6561 exclude all rotations, and the first two cuts suffice for every other
+class. At complete digit boundaries, exact valuations and
 characters exclude a set of digit lengths of lower density exceeding $95.5995\%$.
 A general lifting theorem gives local power equivalences and a quadratic
 reduction on entire digit intervals. Along suitable progressions of digit
@@ -565,6 +567,100 @@ fifth power. Otherwise $3^6\mid Y_1$, and direct finite arithmetic gives
 Consequently $Y_k/3^6=Y_1/3^6-c(X_k-X_1)/9$ at
 $k=4,19,22$ forms a full coset modulo three. Apply the observation
 again. All cuts exist, since $d\ge9$.
+\end{proof}
+
+\begin{lemma}[One further digit of the prefix congruence]\label{lem:strong-prefix}
+If $h=v_3(d)\ge2$ and $m$ has $d$ digits, then
+\[
+ W_m\equiv T_m+\frac d4\{135-21(m^3-m)\}\pmod{3^{h+5}}.
+\]
+\end{lemma}
+\begin{proof}
+First, $V_d\equiv18d\pmod{3^{h+5}}$.
+Indeed the coefficient bounds and averaging lemma already proved show
+that all terms of degree at least four in $d^{-1}\sum_{j=1}^d f(j)$
+vanish modulo 27. The degree-three term also vanishes, since
+$d^{-1}\sum j^3=d(d+1)^2/4$ and $v_3(c_3)\ge3$.
+The explicit first three coefficients give
+\[
+ c_0\equiv5,\quad c_1\equiv12,\quad c_2/3\equiv9\pmod{27}.
+\]
+Using $9\mid d$, their averaged contribution is
+$c_0+c_1/2+c_2/6\equiv2\pmod{27}$.
+The factor $10^{S(d)}$ is 1 modulo 27, proving the boundary assertion.
+For the tail expansion put $\delta=10^d-1$ and $t=\delta-m$.
+The previously proved expansion, valid modulo $3^{2h+4}$, gives
+\[
+ W_m\equiv V_d+\frac{t(t-1)}2-
+ \delta\frac{t(t^2+5)}6
+ \equiv18d+T_m+\delta\frac{m^3-m-3}{6}
+ \pmod{3^{h+5}}.
+\]
+Terms discarded in the substitution have valuation at least
+$2h+3\ge h+5$. Finally
+$\delta\equiv9d-81d/2=-63d/2\pmod{3^{h+5}}$;
+the multiplying quotient $(m^3-m-3)/6$ is 3-adically integral.
+Substitution gives the result.
+\end{proof}
+
+\begin{theorem}[Complete local classification at $v_3(d)=3$]\label{thm:h3-complete}
+Let $m$ have $d$ decimal digits, $v_3(d)=3$, and $u=d/27$.
+Every whole-block rotation fails to be a prime-exponent power over
+$\mathbb Q_3$ if and only if at least one of the following holds:
+\[
+\begin{split}
+&m\bmod9\in\{2,3,5,6\},\qquad m\bmod27\in\{9,17\},\\
+&m\bmod243\in\{26,27,81,107,108,134,135,161,215,216\},\\
+&m\equiv-729(u+2)\pmod{6561}.
+\end{split}
+\]
+These are exactly $3673$ residue classes modulo $6561$.
+Outside them, some $k\in\{0,1\}$ and $e\in\{2,3,5,7\}$ give
+$R_{m,k}\in(\mathbb Q_3^\times)^e$.
+\end{theorem}
+\begin{proof}
+Put $X_k=10^{-D(k)}W_k$, $\Delta=10^{D(m)}-1$, and
+$Y_k=W_m-\Delta X_k$.
+As before, multiplication by $10^{D(k)}$ preserves all four power tests.
+Write $a=(10^d-1)/(9d)-1$. Then $v_3(a)=2$,
+$a/9\equiv1\pmod3$, and $D(m)=d(m-a)$.
+Thus $v_3(\Delta)\ge5$ for all $m$.
+The strengthened prefix congruence gives $W_m\equiv T_m\pmod{243}$.
+If $v_3(W_m)<5$, every cut has exactly the same valuation and the same
+square and cube unit tests. Evaluating those tests on $T_m\pmod{243}$
+gives the first three displayed sets: $108+18+10=136$ disjoint classes.
+All other nonzero residues modulo 243 are squares, cubes, or units
+(the latter are fifth powers).
+
+It remains to treat $243\mid W_m$. The triangular congruence forces
+$m\equiv0,-1\pmod{243}$. If $v_3(W_m)=5$, cut zero is a fifth power.
+For $m\equiv-1\pmod{243}$, one has $v_3(\Delta)=5$;
+therefore, if $v_3(W_m)\ge6$, cut one has valuation five and is a
+fifth power. For $m\equiv0\pmod{243}$, one has
+$v_3(\Delta)=7$ and $\Delta/3^7\equiv-u\pmod3$.
+If $v_3(W_m)\ge7$, at least one of $Y_0,Y_1$ has valuation exactly
+seven, and is a seventh power.
+
+The only remaining case is $m\equiv0\pmod{243}$ and
+$v_3(W_m)=6$. Write $z=W_m/729$, a unit. Every cut has valuation six,
+and
+\[
+ Y_k/729\equiv z+3uT_k\pmod9.
+\]
+The triangular residues modulo three are exactly $0,1$, both attained
+at cuts zero and one. If $z\equiv1\pmod3$, cut zero is a square.
+For $z\equiv2\pmod3$, squares are impossible and a cube occurs
+exactly when one of $z,z+3u$ equals 8 modulo nine. Failure of both
+conditions is exactly $z\equiv3u-1\pmod9$.
+Finally, for $243\mid m$, the strengthened polynomial reduces to
+\[
+ W_m\equiv\frac{2m+3645u}{4}\pmod{6561}.
+\]
+The exceptional unit condition is therefore equivalent to
+$m\equiv-729(u+2)\pmod{6561}$.
+This extra residue has $m\equiv0\pmod{243}$ and is disjoint from the
+136 previous classes, giving $136\cdot27+1=3673$.
+All cuts used exist since $d\ge27$.
 \end{proof}
 
 \section{Lifting at boundary primes}
