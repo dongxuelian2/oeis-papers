@@ -242,3 +242,11 @@ The verifier audits exact constants, the h=32 base,9999 finite induction cases a
 The previous endpoint construction consequently applies to d=u*3^h for all sufficiently large h, including both parities of u. The witness and threshold may depend on u and e; this is not a uniform statement for u growing with h or an exclusion of all endpoints. The examples include u=103, where the old fifth-power witness of order103 fails and a new order1483 works.
 
 Nine explicit witnesses and900 finite coprimality checks pass. The arbitrary-fixed-u conclusion follows from the field-intersection and Chebotarev proof rather than these examples. Main manuscript/PDF remain unchanged and the integer conjecture is open.
+
+## Moving the exponent restriction from3 to37
+
+[The valuation-transfer theorem](THIRTY_SEVEN_VALUATION_TRANSFER.md) gives nonpower blocks whose rotations are3-adic units and pass every prime-exponent Q_3 power test. At widths d=3*s*37^a (s=1 or2), a common37-adic valuation e^j leaves only exponent e; a separate witness excludes it. For each fixed prime e>=5,e!=37, the proof gives an infinite valuation union with a positive limiting certified proportion.
+
+This is disjoint from the earlier positive-v_3 exponent constructions, but may overlap other old local certificates. It includes even and odd widths with v_3(d)=1 fixed, and does not classify all endpoints or all local fields. The exception e=37 is explicitly excluded because the37-adic unit power map then needs additional conditions.
+
+The standard-library verifier checks a concrete fifth-power witness,216 selected valuation classes,10000 Q_3 unit residues,295 tail/period bounds and eight scalar order-step identities. No enormous-width prefixes or complete blocks were computationally enumerated. Main manuscript/PDF remain unchanged and the conjecture remains open.
