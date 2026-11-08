@@ -42,7 +42,7 @@ For fixed odd prime `e`, put
 
     c_e=5 if e=5, and c_e=1 otherwise.
 
-The companion all-cut determinant theorem in `../a001292-earlier-width-global/UNIFIED_FULL_PREFIX_FIXED_EXPONENT.md` establishes the following inputs for `d>=3`, with `A=12` and `K=320`. We first leave these constants symbolic. The uniform fixed-prime input is
+The companion all-cut determinant theorem in [UNIFIED_FULL_PREFIX_FIXED_EXPONENT.md](UNIFIED_FULL_PREFIX_FIXED_EXPONENT.md) establishes the following inputs for `d>=3`, with `A=12` and `K=320`. We first leave these constants symbolic. The uniform fixed-prime input is
 
     # {(m,k): L<=m<B, 10<=k<m, R_(m,k)=y^e,
                 y an integer >1}
@@ -226,10 +226,18 @@ There are `Theta(X^2)` endpoint/cut pairs, so this is a density-zero theorem for
 
 ## 8. Sources, independent audit, and finite checks
 
-- Full-prefix smooth-part estimate, unsaturated valuations, and uniform all-cut fixed-exponent theorem: `../a001292-earlier-width-global/UNIFIED_FULL_PREFIX_FIXED_EXPONENT.md`, Sections 1–6.
-- Elementary prime-counting bound: `../a001292-odd-power-sparsity/ODD_PRIME_POWER_SPARSITY.md`, Section 6. The previous note's endpoint/cut exclusions are not imported into this theorem; only its elementary prime estimate is used.
+- Full-prefix smooth-part estimate, unsaturated valuations, and uniform all-cut fixed-exponent theorem: [UNIFIED_FULL_PREFIX_FIXED_EXPONENT.md](UNIFIED_FULL_PREFIX_FIXED_EXPONENT.md), Sections 1–6.
+- Elementary prime-counting bound: [ODD_PRIME_POWER_SPARSITY.md](ODD_PRIME_POWER_SPARSITY.md), Section 6. The previous note's endpoint/cut exclusions are not imported into this theorem; only its elementary prime estimate is used.
 - Local companion verifier: `verify_global_perfect_power_union.py`. Its captured output and certificate are `global-perfect-power-union-verification.txt` and `global-perfect-power-union-certificate.json`.
 
 The verifier checks the full-prefix smooth-part and precision inequalities for `10<=k<=10000`; 54,401 local compressed-root right-side groups involving 86,304 candidate root values; 44,850 rotations through endpoint 300 for decimal-length and cut-recovery assertions; exact rational constant inequalities through width 2000; and the elementary prime estimate at every integer argument through 200000. These are finite consistency checks, not a computational proof of the general theorem or an exhaustive perfect-power search. The general result rests on the arguments above and the separately proved determinant input.
 
 The independent mathematical audit specifically checked the two potential pitfalls that do not occur in the same-width proof: the high-exponent multiplicity is at most `d`, not necessarily one, and the smooth-part bound alone requires a separate unsaturated-valuation argument before using the compressed-root lemma. Both are explicit here.
+
+## 9. Relation to prior work and limits of novelty
+
+Kashihara's *Comments and Topics on Smarandache Notions and Problems* (1996), p. 25, #30, Problem 2, is the source of the nonexistence question; see the [OEIS-hosted scan](https://oeis.org/A011772/a011772.pdf) and [A001292](https://oeis.org/A001292). The trivial value 1 is excluded throughout the perfect-power count.
+
+Marco Ripà, [*On some conjectures concerning perfect powers*, version 3, revised 16 May 2022](https://vixra.org/pdf/2204.0139v3.pdf), Theorem 1 and Corollary 1, gives the endpoint classes m=2,3,5,6 modulo 9 and reports an all-exponent finite search through m=447. Those modular exclusions and the conjecture itself are prior work, not contributions of this note. That paper also discusses a probabilistic heuristic; such a heuristic is not an unconditional counting bound.
+
+Relative to those sources, the result proved here is a uniform bound over all endpoints, all whole-integer cuts, and all prime exponents. Its substantive input is the companion full-prefix determinant argument; the present note supplies the exponent union without losing control of the growing exponent range. Neither the local unit-root facts nor the elementary prime-counting estimate is claimed as new. This comparison does not establish literature priority: no exhaustive literature review, first-result claim, or resolution of the original conjecture is asserted.
