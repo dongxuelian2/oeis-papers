@@ -1,0 +1,27 @@
+{"exhaustive_unit_residue_cases": 94507}
+{"known_square_high_precision_cases": 300}
+{"exhaustive_compressed_decimal_cases": 10304}
+{"direct_string_prefix_cases": 2101}
+{"exhaustive_digit_inversion_lengths": 88895}
+{"independently_reproduced_1000_counts": {"guaranteed_pairs_all_cuts": 406544, "guaranteed_pairs_local_survivor_cuts": 26623, "local_survivor_cuts": 65, "root_branches": 520, "exact_candidate_comparisons": 191, "digit_gap_rejections": 329, "not_after_cut_rejections": 0, "width_crossing_survivor_cuts": 35, "naive_crosscheck_pairs": 3554}}
+{
+  "exhaustive_unit_residue_cases": 94507,
+  "known_square_high_precision_cases": 300,
+  "exhaustive_compressed_decimal_cases": 10304,
+  "direct_string_prefix_cases": 2101,
+  "exhaustive_digit_inversion_lengths": 88895,
+  "independently_reproduced_1000_counts": {
+    "guaranteed_pairs_all_cuts": 406544,
+    "guaranteed_pairs_local_survivor_cuts": 26623,
+    "local_survivor_cuts": 65,
+    "root_branches": 520,
+    "exact_candidate_comparisons": 191,
+    "digit_gap_rejections": 329,
+    "not_after_cut_rejections": 0,
+    "width_crossing_survivor_cuts": 35,
+    "naive_crosscheck_pairs": 3554
+  },
+  "target_script_sha256": "854f26ca8f401d482898bafcf73ce066db8e5c14f9ee423f7d285546309dbdbb",
+  "elapsed_seconds": 5.67,
+  "result": "All independent mathematical and program checks passed. Finite audit only."
+}

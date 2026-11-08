@@ -1,0 +1,13 @@
+{
+  "max_cut": 10000,
+  "valuation_identity_and_smooth_bound_checks": 9991,
+  "guaranteed_pairs_all_cuts": 42672235,
+  "guaranteed_pairs_local_survivor_cuts": 2932566,
+  "odd_valuation_cuts": 4442,
+  "unit_obstructed_cuts": 4861,
+  "local_survivor_cuts": 688,
+  "implied_root_branches": 5504,
+  "width_crossing_survivor_cuts": 369,
+  "elapsed_seconds": 2.104,
+  "scope": "Independent local-obstruction and guaranteed-coverage counts only. No claim to have independently rerun cut-10000 root enumeration."
+}
