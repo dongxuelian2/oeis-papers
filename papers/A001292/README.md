@@ -333,3 +333,17 @@ The new step uses the full congruence `R_(m,k)=W_k mod 10^D(k)`, rather than its
 Both proofs and reproducible finite verifiers were independently reviewed. Run `python3 verify_unified_full_prefix.py` and `python3 verify_global_perfect_power_union.py`; the accompanying certificates, logs, and audit reports specify their finite scope. The infinite results follow from the proofs, not an exhaustive search.
 
 **The integer nonexistence conjecture remains open.** These global bounds permit infinitely many hypothetical power examples; they do not establish that any count is zero. The main LaTeX/PDF is unchanged by these supplemental proofs.
+
+## Exact remaining pointwise gap
+
+The global bounds above are proved sparsity results, not a proof or disproof of Kashihara's conjecture. In Sections 5–6 of [the full-prefix argument](UNIFIED_FULL_PREFIX_FIXED_EXPONENT.md), the nonzero three-point determinant forces `h_3>ell*h_1` for three solutions in one residue/remainder/curvature group. This bounds the number of solutions but supplies no contradiction for a group containing only one isolated candidate. Nonexistence requires an additional pointwise argument, not just the existing triple-spacing inequality.
+
+There is also an elementary obstruction to using only a leading decimal window and a complete trailing prefix. Let `s>=2`, `0<=U<10^s`, and suppose `r^2=U mod 10^s` is soluble. For any positive `t`-digit integer `P` and every `n>=2(s+t)`, an `n`-digit square exists with first `t` digits `P` and last `s` digits `U` (padding the suffix with zeros when necessary).
+
+Indeed, set `M=10^s` and `H=M/2`. Since `M` divides both `2rH` and `H^2`, every `r+qH` has square congruent to `U` modulo `M`. The half-open root interval
+`[sqrt(P*10^(n-t)), sqrt((P+1)*10^(n-t)))`
+has length
+`10^((n-t)/2)/(sqrt(P+1)+sqrt(P)) > 10^(n/2-t)/2 >= H`.
+It therefore contains a member of this progression. Squaring gives the required leading and trailing digits and exactly `n` digits. This proof, including the half-open endpoints and the use of `s>=2`, was independently checked; no finite search is used.
+
+For a rotation with `k>=2`, take `U=W_k`, `s=D(k)`, `P=k+1`, `t=digits(k+1)`, and `n=D(m)`. Whenever the suffix is locally soluble and `D(m)>=2(D(k)+digits(k+1))`, a square shares its total length, first integer block, and entire trailing prefix. **The intervening digits are not prescribed:** this is neither an A001292 square nor a counterexample. It shows only that these two windows alone cannot exclude the candidate in this range; it does not obstruct arguments using the actual middle digits or the full rotation identity. No literature-priority claim is made.
