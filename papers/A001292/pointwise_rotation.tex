@@ -214,6 +214,18 @@ Lemma~\ref{test} applies with the real $e$th-root interval in place of
 $[A,B]$. This gives an exact pointwise test for every odd prime exponent
 except $5$, without claiming that its interval is always empty.
 
+For $e=5$, the same valuation reduction applies. Fifth powering is
+bijective on the $2$-adic unit group. A unit $u$ modulo $5^n$, $n\ge2$,
+has fifth roots exactly when $u^4\equiv1\pmod{25}$, and then has five
+roots; at $n=1$ it has one root. This follows from the unit group
+$C_4\times C_{5^{n-1}}$. To compute the five roots, start with the
+unique $r\in\{1,2,3,4\}$ satisfying $r^5\equiv u\pmod{25}$ and lift
+using the derivative $5r^4$; the five final roots differ by $5^{n-1}$.
+Thus at most five CRT classes require the same interval test.
+The displayed rotation already fails modulo $25$: $R\equiv11$, whose
+fourth power is $16$, not $1$. The implementation therefore covers
+every prime exponent, subject to the stated suffix-valuation hypothesis.
+
 \section{Verification and the remaining problem}
 The independent Python verifier checks every displayed certificate
 exactly and compares the GMP/OpenMP implementation with
@@ -221,7 +233,6 @@ the earlier Python square-root solver, independent decimal digit lifting
 for odd exponents, and small exhaustive intervals. It also checks the
 complete Lucas primality certificate used in Proposition~\ref{cubes}.
 The window and Hensel/CRT tools are standard; no priority claim is made.
-No uniform theorem proves that the interval tests reject every rotation;
-the native root solver does not handle fifth powers. Kashihara's
-conjecture remains open; the existing sparsity bounds are unchanged.
+No uniform theorem proves that the interval tests reject every rotation.
+Kashihara's conjecture remains open; the existing sparsity bounds are unchanged.
 \end{document}

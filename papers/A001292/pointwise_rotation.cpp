@@ -1,6 +1,6 @@
 // g++ -O3 -std=c++17 -fopenmp pointwise_rotation.cpp -lgmpxx -lgmp -o pointwise_rotation
 // --candidate m k prefix_digits suffix_digits: exact window/root certificate.
-// --odd-candidate m k exponent prefix_digits suffix_digits: odd exponent coprime to 5.
+// --odd-candidate m k exponent prefix_digits suffix_digits: exponent 5 or coprime to 10.
 // --late max_cut threads: complete R_(m,k)<H_k^2 square audit, 10<=k<=max_cut.
 #include <gmpxx.h>
 #include <omp.h>
@@ -45,6 +45,20 @@ std::vector<Z> unitroots(Z u,U p,U n){
 struct Roots{Z H;std::vector<Z> roots;bool odd=false;};
 std::vector<Z> unitpowerroots(const Z&u,U p,U n,U e){
  if(e==2)return unitroots(u,p,n);
+ if(e==5&&p==5){
+  if(n==1)return {mod(u,Z(5))};
+  Z r=0;
+  for(U a=1;a<5;++a)if(mod(power(a,5)-u,Z(25))==0){r=a;break;}
+  if(r==0)return {};
+  U precision=2;
+  while(precision<n){U t=std::min(n,2*precision-1);Z modulus=power(5,t);
+   r=mod(r+((u-raised(r,5))/5)*inv(raised(r,4),modulus),modulus/5);
+   precision=t;
+  }
+  Z step=power(5,n-1);std::vector<Z> roots;
+  for(U j=0;j<5;++j)roots.push_back(r+j*step);
+  return roots;
+ }
  if(p==2&&n==1)return {Z(1)};
  Z M=power(p,n),phi=(p-1)*power(p,n-1),exponent=inv(Z(e),phi),r;
  mpz_powm(r.get_mpz_t(),u.get_mpz_t(),exponent.get_mpz_t(),M.get_mpz_t());
@@ -65,7 +79,8 @@ Roots compressed(const Z&u,U s,U e=2){
 }
 void candidate(U m,U k,U h,U q,U e=2){
  if(m<2||m>10000000||k>=m||h<1||h>D(m)||q<3||q>D(m))throw std::runtime_error("candidate range");
- if(e<2||e>1000000||(e!=2&&(e%2==0||e%5==0)))throw std::runtime_error("exponent must be 2 or odd and coprime to 5");
+ if(e<2||(e!=2&&e!=5&&(e%2==0||e%5==0)))throw std::runtime_error("exponent must be 2, 5, or coprime to 10");
+ if(e>4*D(m)){std::cout<<"WINDOW_CANDIDATES=0 (exponent exceeds decimal length bound)\n";return;}
  Z R=rotation(m,k);U E=D(m);Z scale=power(10,E-h),P=R/scale;
  Z low=floorroot(P*scale-1,e)+1,high=floorroot((P+1)*scale-1,e);
  Z suffix=mod(R,power(10,q));auto rs=compressed(suffix,q,e);

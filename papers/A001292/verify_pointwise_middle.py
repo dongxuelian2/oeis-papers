@@ -40,6 +40,8 @@ def main():
     assert pow(11, N-1, N) == 1
     assert all(math.gcd(pow(11, (N-1)//p, N)-1, N) == 1 for p in factors)
     assert N % 3 == 2 and R % 9 == 1
+    assert (27144177-1)**3 < 2*10**22 <= 27144177**3
+    assert 31072325**3 < 3*10**22 <= (31072325+1)**3
     cubic = subprocess.check_output(
         [args.binary, '--odd-candidate', '16', '1', '3', '1', '7'], text=True)
     assert 'ROOT_CLASS 2393321\n' in cubic and 'WINDOW_CANDIDATES=0' in cubic
@@ -109,7 +111,7 @@ def main():
         for k in range(m):
             word = ''.join(blocks[k:]+blocks[:k])
             E, value = len(word), int(word)
-            for e in (3, 7, 9, 11):
+            for e in (3, 5, 7, 9, 11):
                 q = min(E, max(3, (E+e-1)//e+2))
                 U = value % 10**q
                 if not U or U % 2**q == 0 or U % 5**q == 0:
@@ -145,7 +147,11 @@ def main():
                            head_matches=0, squares=0)
     assert all(int(counts[key]) == value for key, value in expected_counts.items())
     print('PASS: native 10,000-cut dispositions agree with the earlier full-prefix certificate.')
-    print('No uniform nonexistence conclusion is inferred; fifth powers are outside the native root solver.')
+    fifth = subprocess.check_output(
+        [args.binary, '--odd-candidate', '16', '1', '5', '1', '3'], text=True)
+    assert R % 25 == 11 and 'WINDOW_CANDIDATES=0' in fifth
+    print('PASS: fifth-power local exclusion; every prime exponent is supported.')
+    print('No uniform nonexistence conclusion is inferred.')
 
 
 if __name__ == '__main__':

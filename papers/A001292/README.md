@@ -23,8 +23,10 @@ This is a pointwise certificate and a precise failure of one proposed
 route, not another sparsity bound or a uniform nonexistence theorem.
 The note states the general exact root/interval compatibility criterion.
 The odd-exponent extension gives one compressed root class for every
-exponent coprime to 10. Uniform rejection and the integer conjecture
-remain open; the native root solver does not handle fifth powers.
+exponent coprime to 10. Fifth powers require at most five classes after
+valuation reduction, so the implementation covers every prime exponent.
+The displayed rotation already fails the fifth-power test modulo 25.
+Uniform rejection and the integer conjecture remain open.
 
 `pointwise_rotation.cpp` uses GMP and OpenMP. From the repository root:
 
@@ -38,7 +40,7 @@ build/pointwise_rotation --late 100000 8
 ```
 
 The independent check passes 148 native/Python square comparisons,
-357 odd-exponent comparisons with independent digit lifting, small
+447 odd-exponent comparisons with independent digit lifting, small
 exhaustive root intervals, 871 unit-root cases and the exact earlier
 10,000-cut disposition counts. The native 10,000-cut run took 1.43 s;
 the earlier end-to-end Python verifier recorded 669.6 s and performed
