@@ -12,7 +12,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We proved that the conjectured prime-ordered Euler product converges to `sqrt(3)/2`, with an exact finite-product identity and the exceptional factors at 2 and 3.
 
 - **[A005046](papers/A005046/)**
-  - [A005046](https://oeis.org/A005046): Number of partitions of a 2n-set into even blocks.
+  - [A005046](https://oeis.org/A005046) (published): Number of partitions of a 2n-set into even blocks.
   - **Result:** We proved eventual periodicity modulo every positive integer and the Bessel-moment formula for all indices. Modulo 10, the block `(1,4,1,9,6,9)` repeats from index 1.
 
 - **[A006063 / A096680 / A096904](papers/A006063/)**
@@ -26,7 +26,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We proved eventual periodicity modulo every positive integer, with a period dividing `2*phi(m)` (or `phi(m)` for odd `m`). The least eventual period modulo 10 is 4.
 
 - **[A048702](papers/A048702/)**
-  - [A048702](https://oeis.org/A048702): Binary palindromes of even length divided by 3.
+  - [A048702](https://oeis.org/A048702) (published): Binary palindromes of even length divided by 3.
   - **Result:** We proved all four previously conjectured or unproved formulas, including exact digit-valuation sums, floor-sum identities and recurrences, uniformly in every base `b>=2`.
 
 - **[A069862](papers/A069862/)**
