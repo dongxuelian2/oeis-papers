@@ -1,16 +1,26 @@
-\documentclass[10pt]{article}
+\documentclass[9pt]{extarticle}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,microtype}
-\usepackage[margin=0.75in]{geometry}
-\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage[margin=0.78in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
 \hypersetup{pdftitle={A Pointwise Digit Certificate and a Cyclic-Modulus Counterexample},pdfauthor={Qichao Wang and Daoyu Dong}}
-\newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
 \title{A Pointwise Digit Certificate and a Cyclic-Modulus Counterexample}
-\author{Qichao Wang \and Daoyu Dong}
+\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}\\[0.4em]Daoyu Dong\\{\small University of Electronic Science and Technology of China, Chengdu, China}}
 \date{November 11, 2026}
 \begin{document}
 \maketitle
+\begin{abstract}
+An explicit whole-block rotation is a square in every local field
+associated with the full cyclic modulus and the decimal base, but is
+not an integer square. This disproves the sufficiency of that family
+of congruence tests at every precision. A real-interval test with the
+complete roots of the actual decimal suffix excludes the candidate;
+one added digit from a middle block eliminates four surviving square
+completions. This certificate does not settle Kashihara's conjecture.
+\end{abstract}
 Write $W_j=1\Vert\cdots\Vert j$, $D(j)=\operatorname{digits}(W_j)$,
 and $W_0=D(0)=0$. Moving the first $k$ whole integer blocks to the end gives
 \begin{equation}\label{rotation}
@@ -146,8 +156,8 @@ have $5,6,0,9$. The complete $12$-digit calculation above excludes
 every completion, not merely these four examples.
 
 \section{Verification and the remaining problem}
-\texttt{verify\_pointwise\_middle.py} checks every displayed certificate
-exactly and compares \texttt{pointwise\_rotation.cpp} (GMP/OpenMP) with
+The independent Python verifier checks every displayed certificate
+exactly and compares the GMP/OpenMP implementation with
 the earlier Python root solver and small exhaustive intervals.
 The window and Hensel/CRT tools are standard; no priority claim is made.
 No uniform theorem proves that the interval test rejects every rotation,

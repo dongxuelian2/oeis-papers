@@ -29,10 +29,10 @@ build/pointwise_rotation --late 100000 8
 
 The independent check passes 148 native/Python comparisons, small
 exhaustive root intervals, 871 unit-root cases and the exact earlier
-10,000-cut disposition counts. The native 10,000-cut run took1.43s;
-the earlier end-to-end Python verifier recorded669.6s and performed
+10,000-cut disposition counts. The native 10,000-cut run took 1.43 s;
+the earlier end-to-end Python verifier recorded 669.6 s and performed
 additional audits, so these are not identical benchmark workloads.
-The 100,000-cut run took369.3s with eight threads: 6,929 locally surviving
+The 100,000-cut run took 369.3 s with eight threads: 6,929 locally surviving
 cuts, 55,432 root branches, 50,580 length-gap rejections and 4,852
 length-compatible candidates. Each of the latter had an incorrect
 first integer block. This finite audit covers only `R_(m,k)<H_k^2`
