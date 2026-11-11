@@ -2,7 +2,7 @@
 
 ## Pointwise middle-digit test and a terminated modular route
 
-The [two-page pointwise note](pointwise_rotation.pdf) and its
+The [three-page pointwise note](pointwise_rotation.pdf) and its
 [source](pointwise_rotation.tex) give an explicit counterexample to the
 sufficiency of the full cyclic modulus plus every decimal-adic precision.
 The actual rotation `R_(16,1)=23456789101112131415161` is a square in every
@@ -12,10 +12,19 @@ roots of its actual 12-digit suffix miss the real interval forced by
 its first digit. The extra digit comes from the middle block `11`.
 Four explicit squares pass the weaker 11-digit suffix test.
 
+The same actual rotation is also a cube in all those local fields.
+An elementary Lucas certificate proves that `(10^23-1)/9` is prime;
+the argument then handles all precisions at every prime in the cyclic
+modulus and decimal base. Its actual seven-digit suffix has a unique
+cube-root class that misses the real interval. Adding the first digit
+of middle block `14` eliminates the four cubes admitted at six digits.
+
 This is a pointwise certificate and a precise failure of one proposed
 route, not another sparsity bound or a uniform nonexistence theorem.
 The note states the general exact root/interval compatibility criterion.
-The integer conjecture and the odd-prime-power cases remain open.
+The odd-exponent extension gives one compressed root class for every
+exponent coprime to 10. Uniform rejection and the integer conjecture
+remain open; the native root solver does not handle fifth powers.
 
 `pointwise_rotation.cpp` uses GMP and OpenMP. From the repository root:
 
@@ -23,11 +32,13 @@ The integer conjecture and the odd-prime-power cases remain open.
 mkdir -p build
 g++ -O3 -std=c++17 -fopenmp papers/A001292/pointwise_rotation.cpp -lgmpxx -lgmp -o build/pointwise_rotation
 build/pointwise_rotation --candidate 16 1 1 12
+build/pointwise_rotation --odd-candidate 16 1 3 1 7
 python papers/A001292/verify_pointwise_middle.py --binary "$PWD/build/pointwise_rotation"
 build/pointwise_rotation --late 100000 8
 ```
 
-The independent check passes 148 native/Python comparisons, small
+The independent check passes 148 native/Python square comparisons,
+357 odd-exponent comparisons with independent digit lifting, small
 exhaustive root intervals, 871 unit-root cases and the exact earlier
 10,000-cut disposition counts. The native 10,000-cut run took 1.43 s;
 the earlier end-to-end Python verifier recorded 669.6 s and performed

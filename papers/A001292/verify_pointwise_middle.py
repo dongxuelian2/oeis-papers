@@ -31,6 +31,25 @@ def main():
     assert R % 8 == R % 5 == 1
     print('PASS: actual rotation; nonsingular full cyclic root; Q_2 and Q_5 units.')
 
+    # Complete Lucas primality certificate for the second cyclic-modulus factor.
+    N = delta//9
+    factors = {2: 1, 5: 1, 11: 2, 23: 1, 4093: 1, 8779: 1,
+               21649: 1, 513239: 1}
+    assert math.prod(p**e for p, e in factors.items()) == N-1
+    assert all(all(p % d for d in range(2, math.isqrt(p)+1)) for p in factors)
+    assert pow(11, N-1, N) == 1
+    assert all(math.gcd(pow(11, (N-1)//p, N)-1, N) == 1 for p in factors)
+    assert N % 3 == 2 and R % 9 == 1
+    cubic = subprocess.check_output(
+        [args.binary, '--odd-candidate', '16', '1', '3', '1', '7'], text=True)
+    assert 'ROOT_CLASS 2393321\n' in cubic and 'WINDOW_CANDIDATES=0' in cubic
+    cube_roots = [27393321, 28393321, 29393321, 30393321]
+    assert all(2*10**22 <= y**3 < 3*10**22 and y**3 % 10**6 == R % 10**6
+               for y in cube_roots)
+    assert [y**3//10**6 % 10 for y in cube_roots] == [6, 9, 2, 5]
+    assert R//10**6 % 10 == 1
+    print('PASS: complete Lucas certificate; all-precision local cubes; middle-digit cube exclusion.')
+
     lo = math.isqrt(2*10**22-1)+1
     hi = math.isqrt(3*10**22-1)
     assert (lo, hi) == (141421356238, 173205080756)
@@ -84,6 +103,41 @@ def main():
     assert local_root_audit() == 871
     print(f'PASS: {comparisons} native/reference candidate comparisons, small brute force, 871 unit-root cases.')
 
+    odd_checks = 0
+    for m in range(3, 15):
+        blocks = list(map(str, range(1, m+1)))
+        for k in range(m):
+            word = ''.join(blocks[k:]+blocks[:k])
+            E, value = len(word), int(word)
+            for e in (3, 7, 9, 11):
+                q = min(E, max(3, (E+e-1)//e+2))
+                U = value % 10**q
+                if not U or U % 2**q == 0 or U % 5**q == 0:
+                    continue
+                # Independent digit-by-digit lifting, without inverse exponents.
+                roots, M = [0], 1
+                for _ in range(q):
+                    roots = [r+t*M for r in roots for t in range(10)
+                             if pow(r+t*M, e, 10*M) == U % (10*M)]
+                    M *= 10
+                result = subprocess.check_output(
+                    [args.binary, '--odd-candidate', str(m), str(k), str(e),
+                     '1', str(q)], text=True)
+                classes = list(map(int, re.findall(r'^ROOT_CLASS (\d+)$', result, re.M)))
+                H = int(re.search(r'^H=(\d+)$', result, re.M)[1])
+                lifted = sorted(r+j*H for r in classes for j in range(M//H))
+                assert lifted == sorted(roots), (m, k, e, q)
+                ys = list(map(int, re.findall(r'^CANDIDATE (\d+) POWER', result, re.M)))
+                assert all(str(y**e)[0] == word[0] and len(str(y**e)) == E
+                           and y**e % M == U for y in ys)
+                if E <= 9:
+                    brute = [y for y in range(1, 1001)
+                             if int(word[0])*10**(E-1) <= y**e < (int(word[0])+1)*10**(E-1)
+                             and y**e % M == U]
+                    assert ys == brute, (m, k, e)
+                odd_checks += 1
+    print(f'PASS: {odd_checks} odd-exponent native/digit-lifting comparisons and small brute force.')
+
     result = subprocess.check_output([args.binary, '--late', '10000', '4'], text=True)
     counts = dict(re.findall(r'(\w+)=([\d.]+)', result))
     expected_counts = dict(odd=4442, unit=4861, local=688, branches=5504,
@@ -91,7 +145,7 @@ def main():
                            head_matches=0, squares=0)
     assert all(int(counts[key]) == value for key, value in expected_counts.items())
     print('PASS: native 10,000-cut dispositions agree with the earlier full-prefix certificate.')
-    print('No universal nonexistence or odd-prime-power conclusion is inferred.')
+    print('No uniform nonexistence conclusion is inferred; fifth powers are outside the native root solver.')
 
 
 if __name__ == '__main__':
