@@ -8,7 +8,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We proved Kurkov's endpoint-refined rook-tour conjectures for every positive board size: the numbers of directed Hamilton tours with endpoints in opposite and equal columns are respectively `2*n!*A001040(n)` and `2*n!*A001053(n)`.
 
 - **[A003630](papers/A003630/)**
-  - [A003630](https://oeis.org/A003630): Inert rational primes in Q[sqrt(3)].
+  - [A003630](https://oeis.org/A003630) (published): Inert rational primes in Q[sqrt(3)].
   - **Result:** We proved that the conjectured prime-ordered Euler product converges to `sqrt(3)/2`, with an exact finite-product identity and the exceptional factors at 2 and 3.
 
 - **[A005046](papers/A005046/)**
