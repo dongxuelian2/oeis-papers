@@ -1,0 +1,274 @@
+{
+  "base_commit": "772d6d008c79d5b896ba4befea6acf261ca06d93",
+  "sha256": {
+    "main.tex": "23037d0c74d10c7be4a2129d0bc4f3e703a6b45d971d3143ca8eea88a7ba419d",
+    "appendix.tex": "c7acc208faeff34c9803a6f0f224997d15b70326490f915856be64e90b3f7cf9",
+    "main.pdf": "cae70d8bdac68824d765fd6c0afbe6881d555a7ee911a19dade085e73b8c7da4",
+    "verify_57_plus_templates.py": "0b1779df755dc13846f3addf77b6a958e51063b87859725f7fe1e809ab2a33f3",
+    "FIFTEEN_BLOCK_FAMILY.md": "6247e2418c100a05e6eacdefa0ac6d55f969a67e84953ea08c27e38a418fedcf"
+  },
+  "pdf_pages": 9,
+  "latex_passes": 2,
+  "latex_exit_codes": [
+    0,
+    0
+  ],
+  "latex_warnings": [],
+  "template_witnesses_identical_to_base": true,
+  "theorem_proposition_lemma_statements_unchanged": true,
+  "authors_and_bibliography_unchanged": true,
+  "independent_checks": [
+    {
+      "script": "audit/independent_audit.py",
+      "returncode": 0,
+      "output": "PASS 56 determinants independently using SymPy domain-ge determinant / DM inverse; 784 positive integral lengths and full bijections\nPASS six templates yield exactly 25 disjoint seed lengths via direct prefix sums\nPASS independent greedy forced-neighbor peeling: P173=P174=1, residual exact permanent P175=3\nPASS independent constructive reflection closure: 48 below173 and all192 lengths173..364\nPASS all48 positive and124 Hall-negative records, with exhaustive neighbor scans\nPASS multiplicity: independent Kahn DAG test, 13 small alternating cycles, two distinct alternatives at all190 base sizes plus554,555\nPASS independent pointwise parity shortest-path DP seed7: 2961 intervals at depth13, final [69603,100001]\nPASS independent pointwise parity shortest-path DP seed26: 7047 intervals at depth12, final [228028,303412]\nALL INDEPENDENT FINITE CHECKS PASS\n"
+    },
+    {
+      "script": "audit/check_peeling_tables.py",
+      "returncode": 0,
+      "output": "PASS stated simultaneous peeling batches n= 173 remaining= 0\nPASS stated simultaneous peeling batches n= 174 remaining= 0\nPASS stated simultaneous peeling batches n= 175 remaining= 10\nPASS stated simultaneous peeling batches n= 176 remaining= 68\nPASS stated simultaneous peeling batches n= 177 remaining= 75\nPASS stated simultaneous peeling batches n= 178 remaining= 82\nPASS stated simultaneous peeling batches n= 179 remaining= 89\nPASS stated simultaneous peeling batches n= 180 remaining= 96\nPASS stated simultaneous peeling batches n= 181 remaining= 103\n"
+    },
+    {
+      "script": "audit/check_appendix_math.py",
+      "returncode": 0,
+      "output": "PASS parsed appendix Family V. : exact nominal identities including zero blocks; all allowed instances nonnegative/cubic\nPASS parsed appendix Family VI. : exact nominal identities including zero blocks; all allowed instances nonnegative/cubic\nSource parse checks complete (Families I-IV and peeling tables independently inspected against exact specification).\n"
+    }
+  ],
+  "workflow_steps": [
+    {
+      "command": "python papers/A006063/reproduce.py --report build/a006063-verification.json",
+      "returncode": 0,
+      "seconds": 3.055
+    },
+    {
+      "command": "python papers/A006063/verify.py",
+      "returncode": 0,
+      "seconds": 0.107
+    },
+    {
+      "command": "python papers/A006063/independent_match.py",
+      "returncode": 0,
+      "seconds": 0.15
+    },
+    {
+      "command": "python papers/A006063/verify_extended.py",
+      "returncode": 0,
+      "seconds": 0.618
+    },
+    {
+      "command": "python papers/A006063/verify_word_paths.py",
+      "returncode": 0,
+      "seconds": 0.032
+    },
+    {
+      "command": "python papers/A006063/finite_endpoint_identity.py",
+      "returncode": 0,
+      "seconds": 0.025
+    },
+    {
+      "command": "python papers/A006063/verify_82_seed_proof.py",
+      "returncode": 0,
+      "seconds": 0.024
+    },
+    {
+      "command": "python papers/A006063/verify_74_plus_templates.py",
+      "returncode": 0,
+      "seconds": 0.026
+    },
+    {
+      "command": "python papers/A006063/verify_70_plus_templates.py",
+      "returncode": 0,
+      "seconds": 0.024
+    },
+    {
+      "command": "python papers/A006063/verify_66_plus_templates.py",
+      "returncode": 0,
+      "seconds": 0.025
+    },
+    {
+      "command": "python papers/A006063/verify_60_plus_templates.py",
+      "returncode": 0,
+      "seconds": 0.027
+    },
+    {
+      "command": "python papers/A006063/verify_57_plus_templates.py",
+      "returncode": 0,
+      "seconds": 0.025
+    },
+    {
+      "command": "python papers/A006063/verify_unimodular_factory.py",
+      "returncode": 0,
+      "seconds": 0.072
+    },
+    {
+      "command": "python papers/A006063/verify_forced_peeling.py",
+      "returncode": 0,
+      "seconds": 0.019
+    },
+    {
+      "command": "python papers/A006063/verify_odd_cube_path_quotient.py",
+      "returncode": 0,
+      "seconds": 0.093
+    },
+    {
+      "command": "python papers/A006063/verify_tutte_581.py",
+      "returncode": 0,
+      "seconds": 0.013
+    },
+    {
+      "command": "python papers/A006063/verify_four_cube_boundary_forcing.py",
+      "returncode": 0,
+      "seconds": 0.054
+    },
+    {
+      "command": "python papers/A006063/verify_phase_iii_cascade.py",
+      "returncode": 0,
+      "seconds": 0.122
+    },
+    {
+      "command": "python papers/A006063/verify_dual_reflection_paths.py",
+      "returncode": 0,
+      "seconds": 0.262
+    },
+    {
+      "command": "python papers/A006063/verify_three_rotation_planarity.py",
+      "returncode": 0,
+      "seconds": 0.019
+    },
+    {
+      "command": "python papers/A006063/verify_small_bipartite_core.py",
+      "returncode": 0,
+      "seconds": 0.072
+    },
+    {
+      "command": "python papers/A006063/verify_planar_face_word_templates.py",
+      "returncode": 0,
+      "seconds": 0.019
+    },
+    {
+      "command": "python papers/A006063/verify_near_bipartite_phases.py",
+      "returncode": 0,
+      "seconds": 0.134
+    },
+    {
+      "command": "python papers/A006063/verify_defect_matching_reduction.py",
+      "returncode": 0,
+      "seconds": 0.114
+    },
+    {
+      "command": "python papers/A006063/verify_56_plus_forcing.py",
+      "returncode": 0,
+      "seconds": 0.068
+    },
+    {
+      "command": "python papers/A006063/verify_70_plus_templates.py",
+      "returncode": 0,
+      "seconds": 0.023
+    },
+    {
+      "command": "python papers/A006063/count_236.py",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "command": "python papers/A006063/lift_exponential_subsequence.py",
+      "returncode": 0,
+      "seconds": 0.239
+    },
+    {
+      "command": "python papers/A006063/tensorize_fibers.py",
+      "returncode": 0,
+      "seconds": 0.049
+    },
+    {
+      "command": "python papers/A006063/audit_permutation_code.py",
+      "returncode": 0,
+      "seconds": 0.199
+    },
+    {
+      "command": "python papers/A006063/optimize_terminal_cube.py",
+      "returncode": 0,
+      "seconds": 0.204
+    },
+    {
+      "command": "python papers/A006063/audit_three_cycle_identity.py",
+      "returncode": 0,
+      "seconds": 0.171
+    },
+    {
+      "command": "python papers/A006063/renormalization.py",
+      "returncode": 0,
+      "seconds": 0.094
+    },
+    {
+      "command": "python papers/A006063/global_graph_audit.py",
+      "returncode": 0,
+      "seconds": 0.019
+    },
+    {
+      "command": "python papers/A006063/one_seed_eventual.py",
+      "returncode": 0,
+      "seconds": 0.089
+    },
+    {
+      "command": "python papers/A006063/one_seed_interval_proof.py",
+      "returncode": 0,
+      "seconds": 0.06
+    },
+    {
+      "command": "python papers/A006063/reflection_tree_counts.py",
+      "returncode": 0,
+      "seconds": 0.071
+    },
+    {
+      "command": "python papers/A006063/reflection_entropy_barrier.py",
+      "returncode": 0,
+      "seconds": 0.15
+    },
+    {
+      "command": "python papers/A006063/arithmetic_expansion_audit.py",
+      "returncode": 0,
+      "seconds": 0.089
+    },
+    {
+      "command": "python papers/A006063/involution_tail_audit.py",
+      "returncode": 0,
+      "seconds": 0.095
+    },
+    {
+      "command": "python papers/A006063/parity_minimal_involutions.py",
+      "returncode": 0,
+      "seconds": 1.291
+    },
+    {
+      "command": "python papers/A006063/parity_interval_proof.py",
+      "returncode": 0,
+      "seconds": 1.821
+    },
+    {
+      "command": "python papers/A006063/taxicab_involution_audit.py",
+      "returncode": 0,
+      "seconds": 0.047
+    },
+    {
+      "command": "python papers/A006063/inverse_fiber_involution_audit.py",
+      "returncode": 0,
+      "seconds": 0.231
+    },
+    {
+      "command": "python papers/A006063/verify_362.py",
+      "returncode": 0,
+      "seconds": 0.023
+    },
+    {
+      "command": "python papers/A006063/verify_tensor_recurrence.py",
+      "returncode": 0,
+      "seconds": 0.402
+    },
+    {
+      "command": "python papers/A006063/construct_linear.py",
+      "returncode": 0,
+      "seconds": 0.238
+    }
+  ]
+}

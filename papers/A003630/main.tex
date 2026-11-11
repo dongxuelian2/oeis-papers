@@ -1,0 +1,145 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=.8in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{An Euler Product over the Inert Primes of $\mathbb Q(\sqrt3)$}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 27, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We prove the prime-product conjecture in OEIS A003630. The partial
+product is exactly $9/8$ times a quotient of two partial Dirichlet
+$L$-products. Their convergence in increasing prime order, together
+with two elementary $L$-value integrals, gives the conjectured limit
+$\sqrt3/2$.
+\end{abstract}
+
+\section{The product and its character identity}
+The inert rational primes of $\mathbb Q(\sqrt3)$ are exactly the
+primes congruent to $5$ or $7$ modulo $12$. This classification is
+already established in A003630~\cite{oeis}, including Jianing Song's 2018
+comment. The separate conjecture of Dimitris Valianatos, dated
+March 26, 2017, concerns the following product.
+
+\begin{theorem}\label{thm:main}
+With factors taken in increasing order of the primes,
+\[
+ \prod_{\substack{p\text{ prime}\\p\equiv5,7\ (12)}}
+ \begin{cases}
+ (p-1)/(p+1),&p\equiv1\pmod4,\\
+ (p+1)/(p-1),&p\equiv3\pmod4
+ \end{cases}
+ =\frac{\sqrt3}{2}.
+\]
+\end{theorem}
+
+Define the two real nonprincipal characters
+\[
+ \chi_4(n)=\begin{cases}0,&2\mid n,\\1,&n\equiv1\ (4),\\-1,&n\equiv3\ (4),\end{cases}
+ \qquad
+ \chi_{-3}(n)=\begin{cases}0,&3\mid n,\\1,&n\equiv1\ (3),\\-1,&n\equiv2\ (3).\end{cases}
+\]
+For $X\ge3$, put
+\[
+ L_X(1,\chi)=\prod_{p\le X}\left(1-\frac{\chi(p)}p\right)^{-1},
+ \qquad
+ P(X)=\prod_{\substack{p\le X\\p\equiv5,7\ (12)}}
+ \left(\frac{p-1}{p+1}\right)^{\chi_4(p)}.
+\]
+We first work with finite products. At every prime $p>3$ the local
+factor of $L_X(1,\chi_{-3})/L_X(1,\chi_4)$ is
+\[
+ \frac{1-\chi_4(p)/p}{1-\chi_{-3}(p)/p}.
+\]
+It is one for $p\equiv1,11\pmod{12}$, and is respectively
+$(p-1)/(p+1)$ and its reciprocal for $p\equiv5,7\pmod{12}$.
+The two exceptional factors at $p=2,3$ are $2/3$ and $4/3$.
+Thus the exact identity is
+\begin{equation}\label{eq:finite}
+ P(X)=\frac98\frac{L_X(1,\chi_{-3})}{L_X(1,\chi_4)}
+ \qquad(X\ge3).
+\end{equation}
+
+\section{Convergence and evaluation}
+We justify the ordinary prime-ordered limit, rather than only an
+Abelian limit with exponent $s\downarrow1$.
+\begin{lemma}\label{lem:convergence}
+For either character $\chi=\chi_4,\chi_{-3}$,
+\[
+ \lim_{X\to\infty}L_X(1,\chi)=L(1,\chi)
+ =\sum_{n\ge1}\frac{\chi(n)}n.
+\]
+\end{lemma}
+\begin{proof}
+We use the established prime-number theorem estimate
+\[
+ \theta(x;q,a)=\frac{x}{\varphi(q)}+O_q(x/\log x),
+ \qquad (a,q)=1,
+\]
+for $q=3,4$, supplied, for example, by Theorem 1.2 of
+Bennett--Martin--O'Bryant--Rechnitzer~\cite{bmor}.
+Since a nonprincipal character sums to zero over its unit classes,
+\[
+ \Theta_\chi(x):=\sum_{p\le x}\chi(p)\log p=O(x/\log x).
+\]
+Partial summation with weight $1/(t\log t)$ gives
+\[
+ \sum_{p\le X}\frac{\chi(p)}p
+ =\frac{\Theta_\chi(X)}{X\log X}
+ +\int_2^X\Theta_\chi(t)\frac{\log t+1}{t^2(\log t)^2}\,dt.
+\]
+The endpoint tends to zero and the integral converges, its large-$t$
+integrand being $O(1/(t(\log t)^2))$. Hence the prime sum converges.
+The higher terms in
+\[
+ -\log(1-\chi(p)/p)=\frac{\chi(p)}p+
+       \sum_{k\ge2}\frac{\chi(p)^k}{kp^k}
+\]
+are absolutely summable over primes. The logarithms, and therefore
+the positive partial Euler products, converge to a nonzero limit.
+Abel's theorem applied to the convergent prime sum, with weights
+$p^{-(s-1)}$, identifies the logarithmic limit as
+$\lim_{s\downarrow1}\log L(s,\chi)$: the higher-power terms pass
+to the limit by absolute domination. Finally, bounded partial sums
+of the periodic nonprincipal character give continuity of its
+Dirichlet series from the right at $s=1$. The Euler product for
+$s>1$ therefore identifies the limit with $L(1,\chi)$.
+\end{proof}
+
+Both required values have elementary integral evaluations. Pairing
+terms of the defining character series and summing their geometric
+series under the integral gives
+\begin{align*}
+ L(1,\chi_4)&=\sum_{j\ge0}\left(\frac1{4j+1}-\frac1{4j+3}\right)
+   =\int_0^1\frac{dt}{1+t^2}=\frac\pi4,\\
+ L(1,\chi_{-3})&=\sum_{j\ge0}\left(\frac1{3j+1}-\frac1{3j+2}\right)
+   =\int_0^1\frac{dt}{1+t+t^2}=\frac\pi{3\sqrt3}.
+\end{align*}
+The paired integrands are nonnegative, justifying these exchanges
+by monotone convergence. Taking the limit in \eqref{eq:finite}
+and using Lemma~\ref{lem:convergence} now proves Theorem~\ref{thm:main}:
+\[
+ \lim_{X\to\infty}P(X)=\frac98\frac{\pi/(3\sqrt3)}{\pi/4}
+ =\frac{\sqrt3}{2}.
+\]
+
+The accompanying exact verifier checks all 1000 published prime
+terms and the local quadratic-residue classification, the rational
+identity \eqref{eq:finite} at every prime cutoff through $10000$,
+and the exceptional factors separately. Numerical partial products
+are supplementary controls; convergence follows from the analytic
+argument and the cited prime-number theorem estimate.
+
+\begin{thebibliography}{2}
+\bibitem{oeis} The OEIS Foundation Inc.,
+\href{https://oeis.org/A003630}{A003630}, accessed October 27, 2026.
+\bibitem{bmor} M. A. Bennett, G. Martin, K. O'Bryant and A. Rechnitzer,
+\emph{Explicit bounds for primes in arithmetic progressions},
+Theorem 1.2, \href{https://arxiv.org/abs/1802.00085}{arXiv:1802.00085},
+version 3, 2018.
+\end{thebibliography}
+\end{document}

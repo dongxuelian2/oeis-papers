@@ -1,0 +1,24 @@
+name: Build Lucas PDF
+on:
+  push:
+    paths:
+      - '.github/workflows/build-lucas-pdf.yml'
+permissions:
+  contents: write
+jobs:
+  latex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          working_directory: papers/Lucas-coefficient-families
+      - uses: actions/upload-artifact@v4
+        with:
+          name: revised-lucas-pdf
+          path: papers/Lucas-coefficient-families/main.pdf
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Rebuild Lucas manuscript PDF
+          file_pattern: papers/Lucas-coefficient-families/main.pdf

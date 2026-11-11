@@ -1,0 +1,18 @@
+{
+  "engine": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+  "compile_passes": 2,
+  "compile_exit_codes": [
+    0,
+    0
+  ],
+  "pages": 6,
+  "sha256": {
+    "main.tex": "258ef9e1310e61451b634a87cc7ec79ca3246be7f3a9d6f6e10e5ea65527c407",
+    "main.pdf": "22604df75f382e103b842488972d56a62ab3198ba72b40aec5033bf2ad3d9ca6"
+  },
+  "final_log_warnings": [],
+  "visual_review": "All six rendered pages inspected; readable authors, equations, ledger and references; no clipping or overlap seen.",
+  "build_command": "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build papers/A006063/main.tex (twice); copy build/main.pdf to papers/A006063/main.pdf",
+  "environment_repair": "Installed TeX distribution lacked format and map caches. Built a workspace-local pdflatex.fmt from installed pdflatex.ini and a pdftex.map from installed Latin Modern/AMS maps; TEXMF, TEXFORMATS and TEXFONTMAPS selected these installed/local files. No source fallback or system installation.",
+  "limits": "Review PDF retains existing 9pt extarticle layout; not the required 12pt JIS submission package. Byte-identical PDF builds across TeX versions are not claimed."
+}

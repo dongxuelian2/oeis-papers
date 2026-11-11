@@ -1,0 +1,54 @@
+name: Four-digit OEIS proofs
+
+on:
+  pull_request:
+    paths:
+      - 'papers/A001040-A001053/**'
+      - 'papers/A003630/**'
+      - 'papers/A006154/**'
+      - '.github/workflows/four-digit-oeis.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'papers/A001040-A001053/**'
+      - 'papers/A003630/**'
+      - 'papers/A006154/**'
+      - '.github/workflows/four-digit-oeis.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact arithmetic and independent enumeration
+        run: |
+          for paper in A001040-A001053 A003630 A006154; do
+            python3 "papers/$paper/verify.py"
+          done
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-recommended lmodern
+      - name: Rebuild all three manuscripts and reject warnings
+        shell: bash
+        run: |
+          set -euo pipefail
+          for paper in A001040-A001053 A003630 A006154; do
+            git ls-files --error-unmatch "papers/$paper/main.pdf"
+            (
+              cd "papers/$paper"
+              for pass in 1 2; do
+                pdflatex -interaction=nonstopmode -halt-on-error main.tex > /dev/null
+              done
+              test -s main.pdf
+              if grep -E 'Warning|Overfull|Underfull' main.log; then exit 1; fi
+            )
+          done

@@ -83,8 +83,15 @@ def check_cycle(perm, cycle):
 
 def check_small():
     data = read("exact_classification_below_173.json")
+    if len(data["positive"]) != 48 or len(data["negative"]) != 124:
+        raise AssertionError("incorrect small certificate record counts")
+    if any(type(row["n"]) is not int
+           for rows in (data["positive"], data["negative"]) for row in rows):
+        raise AssertionError("non-integer small certificate index")
     yes = {row["n"]: row["p"] for row in data["positive"]}
     no = {row["n"]: row["S"] for row in data["negative"]}
+    if len(yes) != 48 or len(no) != 124:
+        raise AssertionError("duplicate small certificate index")
     if set(yes) & set(no) or set(yes) | set(no) != set(range(1, 173)):
         raise AssertionError("classification does not partition 1..172")
     for n, perm in yes.items():

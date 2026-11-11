@@ -1,4 +1,11 @@
-# A006063 — final reader's guide and audit (19 October 2026)
+# A006063 — historical reader's guide and audit (19 October 2026)
+
+> **Historical scope:** this guide describes the earlier extended manuscript,
+> now archived as `research_monograph.tex`, not the short current `main.tex`.
+> Start with [README.md](README.md) and the
+> [2026-11-01 review](audit/REVIEW.md) for the current proof dependencies,
+> successful local checks and author/journal readiness gates. Historical CI
+> statuses below are not statuses for the current revision.
 
 > **Primary result:** Every integer `n >= 173` admits a permutation `p` of
 > `{1,...,n}` such that each `i+p(i)` is a perfect cube. This is proved
@@ -108,11 +115,11 @@ The finite multiplicity statements remain computer-assisted.
 
 The exceptional count `P(236)=512` and its non-involution
 claim have a separate alternating-cycle decomposition in
-[main.tex](main.tex), not a logical dependency of the main theorem.
+[research_monograph.tex](research_monograph.tex), not a logical dependency of the main theorem.
 
 ## 3. Additional results and research branches
 
-The extensive [main.tex](main.tex) also develops global graph
+The archived [research_monograph.tex](research_monograph.tex) also develops global graph
 structure, renormalization, reflection trees, enumeration/entropy,
 parity-minimal involutions, Waring-type constructions, taxicab
 switching, exponential subsequence bounds and efficient
@@ -151,7 +158,7 @@ the original 173..466 finite certificate obligations.
 
 ## 4. Final corrections and independent audits
 
-A confusing numerical assertion in `main.tex` was corrected:
+A confusing numerical assertion in the extended manuscript was corrected:
 the minimum number of *new seeds* under the **restricted**
 reflection-only rule, given the 48 known small positive sizes
 and empty seed, is **60**, not 57. The proof itself counts

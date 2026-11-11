@@ -1,0 +1,144 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=.82in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\title{Explicit Modular Periods for Ordered Partitions into Odd Blocks}
+\author{Qichao Wang\\{\small Hebei University of Technology}\\[.3em]
+Daoyu Dong\\{\small University of Electronic Science and Technology of China}}
+\date{October 27, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+The number of ordered set partitions into odd blocks is eventually
+periodic modulo every positive integer. We prove the conjecture in
+OEIS A006154 with an explicit period dividing twice the Euler
+totient of the modulus; for odd moduli the factor two is unnecessary.
+A differential-operator congruence treats all prime powers uniformly.
+The least eventual period modulo ten is four, beginning at index one.
+\end{abstract}
+
+Let $a(n)$ count ordered partitions of an $n$-element set into blocks
+of odd cardinality, with $a(0)=1$. Choosing the first block gives
+\[
+ a(n)=\sum_{\substack{1\le j\le n\\ j\text{ odd}}}
+       \binom nj a(n-j),\qquad
+ F(x)=\sum_{n\ge0}a(n)\frac{x^n}{n!}=\frac1{1-\sinh x}.
+\]
+OEIS A006154 records this sequence and Peter Bala's April 12, 2023
+conjecture that its reduction modulo every positive integer is
+eventually periodic~\cite{oeis}.
+
+\begin{theorem}\label{thm:main}
+Factor $m\ge2$ into prime powers. Define
+\[
+ P(m)=\operatorname{lcm}\left(
+ \{\varphi(p^e):p^e\parallel m,\ p\text{ odd}\}
+ \cup\{2^e:2^e\parallel m\}\right).
+\]
+The second set is empty for odd $m$. For every $n\ge m$,
+\[
+ a(n+P(m))\equiv a(n)\pmod m.
+\]
+In particular $P(m)\mid2\varphi(m)$; for odd $m$,
+$P(m)\mid\varphi(m)$. Modulo one the sequence is constant.
+\end{theorem}
+
+\section{Differential congruences}
+Work in the torsion-free ring
+$A=\mathbb Z[s,c,(1-s)^{-1}]$, and put $u=(1-s)^{-1}$.
+The derivation
+\[
+ D=c\partial_s+s\partial_c
+\]
+preserves $A$, since $D(u)=cu^2$. Substitution
+$(s,c)=(\sinh x,\cosh x)$ turns $D$ into differentiation with
+respect to $x$. Thus, with $\varepsilon(f)=f(0,1)$,
+\begin{equation}\label{eq:evaluation}
+ a(n)=\varepsilon(D^n u).
+\end{equation}
+This formula uses only integer expressions and no division by
+factorials modulo a modulus.
+
+\begin{lemma}\label{lem:prime}
+As endomorphisms of $A$,
+\[
+ D^p\equiv D\pmod p\quad(p\text{ odd prime}),
+ \qquad D^4\equiv D^2\pmod2.
+\]
+\end{lemma}
+\begin{proof}
+In characteristic $p$, the $p$th iterate of a derivation is again
+a derivation, by the iterated product rule and the divisibility
+of $\binom pj$ for $0<j<p$. For odd $p$, the derivations $D^p$
+and $D$ agree on $s,c$, since $Ds=c$ and $Dc=s$. They therefore
+agree on the polynomial ring and its localization. In
+characteristic two both $D^4$ and $D^2$ are derivations; on each
+of $s,c$ they equal the identity. They agree on the localization
+as well. This proves both operator congruences.
+\end{proof}
+
+\begin{lemma}\label{lem:lift}
+Let $X,Y$ be commuting integer-linear endomorphisms of a torsion-free
+abelian group. If $X\equiv Y\pmod{p^r}$, $r\ge1$, then
+$X^p\equiv Y^p\pmod{p^{r+1}}$.
+\end{lemma}
+\begin{proof}
+Write $X=Y+p^rZ$. The endomorphism $Z$ is integer-linear and
+commutes with $Y$, by torsion-freeness. In the binomial expansion
+of $(Y+p^rZ)^p-Y^p$, the first term has factor $p^{r+1}$.
+For $2\le j<p$ the $j$th term has factor $p^{rj+1}$,
+and the last has factor $p^{rp}$, where $rp\ge r+1$.
+Every term is divisible by $p^{r+1}$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Repeatedly apply Lemma~\ref{lem:lift} to the commuting powers of
+$D$ in Lemma~\ref{lem:prime}. This gives
+\[
+ D^{p^e}\equiv D^{p^{e-1}}\pmod{p^e}\quad(p\text{ odd}),
+ \qquad D^{2^{e+1}}\equiv D^{2^e}\pmod{2^e}.
+\]
+Multiplication by further powers of $D$ and
+\eqref{eq:evaluation} prove periods $p^{e-1}(p-1)$ from
+index $p^{e-1}$ for odd $p$, and period $2^e$ from index
+$2^e$ for the power of two. Every threshold is at most $m$.
+The Chinese remainder theorem gives their least common multiple
+as a period modulo $m$. Finally each odd-prime period is the
+corresponding factor of $\varphi(m)$, and the power-of-two period
+is twice that factor, proving the divisibility assertions.
+\end{proof}
+
+\section{The exact period modulo ten}
+Modulo five, Lemma~\ref{lem:prime} gives period four from index
+one. To handle the initial indices modulo two, reduce in
+\[
+ V_2=(\mathbb Z/2\mathbb Z)[s,c]/(s^2,c^2-1).
+\]
+The derivation preserves the ideal and $u=1+s$ in this quotient.
+Consequently
+\[
+ Du=c,\qquad D^2u=s,\qquad D^3u=c=Du.
+\]
+Evaluation at $(0,1)$ descends to $V_2$, proving period two from
+index one. Combining these results gives
+\[
+ a(n)\bmod10=(1,2,7,2)_{\,1+((n-1)\bmod4)}\qquad(n\ge1).
+\]
+The block has neither period one nor period two, so its least
+eventual period is four. This also proves the specific example
+recorded with the general conjecture.
+
+The supplementary verifier compares all 201 published terms with
+the first-block recurrence and independently enumerates literal
+set partitions through eight elements. Finite differential quotients
+check the operator calculation for moduli two through 32. The
+proof above establishes the universal periodicity; the finite
+checks audit its implementation.
+\begin{thebibliography}{1}
+\bibitem{oeis} The OEIS Foundation, A006154, including P. Bala's
+periodicity conjecture (2023) and differential formula (2011),
+\url{https://oeis.org/A006154}, accessed October 27, 2026.
+\end{thebibliography}\end{document}

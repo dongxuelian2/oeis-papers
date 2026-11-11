@@ -2,7 +2,20 @@
 
 **Authors:** Qichao Wang (Hebei University of Technology); 董道豫 / Daoyu Dong (University of Electronic Science and Technology of China)
 **Manuscript date:** October 19, 2026  
-**Status:** six-page mathematical paper with eventual minimal-fixed-point involutions and exact finite certificates, prepared for independent review. This is a **computer-assisted finite-certificate proof**, **not** a case-free classification or a peer-reviewed publication.
+**Status:** mathematical review draft with eventual minimal-fixed-point involutions and exact finite certificates. The authors must supply/verify their own final wording and AI disclosure before journal submission. This is a **computer-assisted finite-certificate proof**, **not** a case-free classification or a peer-reviewed publication.
+
+## Current editorial draft
+
+This is an **AI-assisted editorial working draft**. The current revision adds
+all six algebraic families and the complete critical peeling rounds to the
+paper's mathematical appendices, while retaining the bulk finite data in the
+supplement. Both authors must provide/verify their own final wording, approve
+the mathematics and references, and finalize truthful AI-use disclosure before
+journal submission. See the [point-by-point editorial response](audit/EDITORIAL_RESPONSE.md)
+and its newly dated validation evidence; the first review's reports are retained
+as historical records, not relabeled as fresh checks.
+
+Latest follow-up: [compact polish review and validation](audit/POLISH_REVIEW.md).
 
 ## Main results
 
@@ -17,8 +30,8 @@ The infinite existence argument is purely symbolic. The finite basis still uses 
 
 ## Paper and supporting files
 
-- **[main.pdf](main.pdf)** — final six-page **typeset mathematical paper** (the primary submission document).
-- **[main.tex](main.tex)** — complete editable LaTeX source for the paper.
+- **[main.pdf](main.pdf)** — **typeset mathematical review draft** (not a journal-ready package).
+- **[main.tex](main.tex)** and **[appendix.tex](appendix.tex)** — editable LaTeX source, including all six block families and full critical peeling rounds.
 - **[certificates/finite_56_cubic_order_shapes.txt](certificates/finite_56_cubic_order_shapes.txt)** — the 56 independent algebraic seed parameter choices, with no precomputed interval endpoints.
 - **[verify_56_plus_forcing.py](verify_56_plus_forcing.py)** — independent exact-integer verification of all 56 determinant instances, the 25 symbolic template seeds, forced 173, and the finite reflection closure.
 - **[certificates/exact_classification_below_173.json](certificates/exact_classification_below_173.json)** — 48 explicit positive permutations and 124 explicit Hall-deficient sets.
@@ -32,10 +45,24 @@ The infinite existence argument is purely symbolic. The finite basis still uses 
 
 ## Reproduce the paper
 
-From the `papers/A006063` directory:
+Standard-library Python 3; no matching solver is required. From any directory:
+
+```bash
+python3 /path/to/oeis-papers/papers/A006063/reproduce.py --report verification.json
+```
+
+The report fingerprints every executable dependency and certificate consumed by
+these checks, records outputs and exit codes, and fails if any check fails.
+Do not run the individual assertion-based checkers with `-O` or
+`PYTHONOPTIMIZE`; the aggregate runner rejects that mode. See
+[audit/REVIEW.md](audit/REVIEW.md) for the proof dependencies, independent
+optional SymPy audit, verification record, policy sources and author actions.
+
+The equivalent individual checks and PDF build, from `papers/A006063`:
 
 ```bash
 python3 verify_56_plus_forcing.py
+python3 verify_forced_peeling.py
 python3 verify_extended.py
 python3 verify_eventual_involutions.py
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
