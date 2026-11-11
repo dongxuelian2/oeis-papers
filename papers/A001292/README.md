@@ -1,5 +1,46 @@
 # A001292: cyclic concatenations and perfect powers
 
+## Pointwise middle-digit test and a terminated modular route
+
+The [two-page pointwise note](pointwise_rotation.pdf) and its
+[source](pointwise_rotation.tex) give an explicit counterexample to the
+sufficiency of the full cyclic modulus plus every decimal-adic precision.
+The actual rotation `R_(16,1)=23456789101112131415161` is a square in every
+`Q_p` with `p | 10(10^23-1)`. A nonsingular root modulo `10^23-1` proves
+this without factoring that modulus. Nevertheless the complete eight
+roots of its actual 12-digit suffix miss the real interval forced by
+its first digit. The extra digit comes from the middle block `11`.
+Four explicit squares pass the weaker 11-digit suffix test.
+
+This is a pointwise certificate and a precise failure of one proposed
+route, not another sparsity bound or a uniform nonexistence theorem.
+The note states the general exact root/interval compatibility criterion.
+The integer conjecture and the odd-prime-power cases remain open.
+
+`pointwise_rotation.cpp` uses GMP and OpenMP. From the repository root:
+
+```sh
+mkdir -p build
+g++ -O3 -std=c++17 -fopenmp papers/A001292/pointwise_rotation.cpp -lgmpxx -lgmp -o build/pointwise_rotation
+build/pointwise_rotation --candidate 16 1 1 12
+python papers/A001292/verify_pointwise_middle.py --binary "$PWD/build/pointwise_rotation"
+build/pointwise_rotation --late 100000 8
+```
+
+The independent check passes 148 native/Python comparisons, small
+exhaustive root intervals, 871 unit-root cases and the exact earlier
+10,000-cut disposition counts. The native 10,000-cut run took1.43s;
+the earlier end-to-end Python verifier recorded669.6s and performed
+additional audits, so these are not identical benchmark workloads.
+The 100,000-cut run took369.3s with eight threads: 6,929 locally surviving
+cuts, 55,432 root branches, 50,580 length-gap rejections and 4,852
+length-compatible candidates. Each of the latter had an incorrect
+first integer block. This finite audit covers only `R_(m,k)<H_k^2`
+as in [the late-prefix theorem](LATE_PREFIX_POINTWISE_ENUMERATION.md);
+it does not prove that this first-block mismatch persists for every cut.
+
+## Existing manuscript and global results
+
 Kashihara's integer perfect-power conjecture remains open. The [15-page manuscript](main.pdf) and [LaTeX source](main.tex) prove the following local equivalences and global exclusions.
 
 ## Uniform 18-cut equivalence over Q_3

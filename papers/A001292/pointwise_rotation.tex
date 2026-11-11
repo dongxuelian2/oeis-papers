@@ -1,0 +1,156 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,microtype}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={A Pointwise Digit Certificate and a Cyclic-Modulus Counterexample},pdfauthor={Qichao Wang and Daoyu Dong}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\title{A Pointwise Digit Certificate and a Cyclic-Modulus Counterexample}
+\author{Qichao Wang \and Daoyu Dong}
+\date{November 11, 2026}
+\begin{document}
+\maketitle
+Write $W_j=1\Vert\cdots\Vert j$, $D(j)=\operatorname{digits}(W_j)$,
+and $W_0=D(0)=0$. Moving the first $k$ whole integer blocks to the end gives
+\begin{equation}\label{rotation}
+ R_{m,k}=10^{D(k)}W_m-(10^{D(m)}-1)W_k,\qquad 0\le k<m.
+\end{equation}
+The previous bounds $O(X)$ for square pairs and $O(X^2/\log X)$ for
+perfect-power pairs permit isolated exceptions. No counting bound is
+used below. All integer positions in \eqref{rotation}, including the
+middle blocks, retain their prescribed values.
+
+\section{A complete cyclic modulus does not suffice}
+\begin{proposition}\label{failure}
+The actual rotation
+\[
+ R=R_{16,1}=23456789101112131415161,\qquad \Delta=10^{23}-1,
+\]
+is a square in $\mathbb Q_p$ for every prime $p\mid 10\Delta$, but is
+not an integer square. Consequently it is a square modulo
+$10^a\Delta^b$ for every pair of nonnegative integers $a,b$.
+Thus even the complete cyclic modulus together with arbitrarily precise
+decimal congruences cannot reject every individual rotation.
+\end{proposition}
+\begin{proof}
+The word is $2\Vert3\Vert\cdots\Vert16\Vert1$, with $23$ digits,
+and \eqref{rotation} reads $R=10W_{16}-\Delta$. Direct integer arithmetic gives
+\[
+ r=24515341518503348803133,\qquad r^2\equiv R\pmod\Delta,
+ \qquad \gcd(2r,\Delta)=1.
+\]
+For every prime divisor $p$ of $\Delta$, this is a nonsingular root
+modulo $p$, which lifts to all $p$-adic precisions by Hensel's lemma.
+No factorization of $\Delta$ is needed. Also $R\equiv1\pmod8$ and
+$R\equiv1\pmod5$, giving square roots in $\mathbb Q_2$ and
+$\mathbb Q_5$. These are integral local roots. The Chinese remainder
+theorem proves the assertion for $10^a\Delta^b$. Section~\ref{example}
+proves that $R$ is not an integer square using an actual middle digit.
+\end{proof}
+
+This is a counterexample to the sufficiency of these local conditions,
+not to Kashihara's conjecture. In particular, retaining all middle
+digits in a congruence is different from forcing a root of the required
+real size. No claim that every pointwise method fails follows.
+
+\section{Exact compatibility with the real interval}
+Let a positive integer $R$ have $E$ digits. Prescribe its first $h$
+digits $P$ and its last $q$ digits $U=R\bmod10^q$, with $q\ge3$.
+The digits of $U$ are taken from the actual word, and may extend past
+the original moved prefix into its middle blocks. Put
+\[
+ A=\left\lceil\sqrt{P10^{E-h}}\right\rceil,
+ \qquad B=\left\lfloor\sqrt{(P+1)10^{E-h}-1}\right\rfloor.
+\]
+Assume $v_2(U),v_5(U)<q$. An odd valuation excludes squares immediately.
+Otherwise write $v_2(U)=2a$, $v_5(U)=2b$, and
+\[
+ z=2^a5^b,\qquad H=10^q/z.
+\]
+Solving the two unit congruences at $2$ and $5$ and applying CRT gives
+a complete set $\mathcal A\subset[0,H)$ of at most eight root classes:
+\begin{equation}\label{classes}
+ y^2\equiv U\pmod{10^q}\quad\Longleftrightarrow\quad
+ y\equiv r\pmod H\text{ for some }r\in\mathcal A.
+\end{equation}
+Indeed, division by $p^{2a}$ or $p^{2b}$ gives unit square roots, at most
+four at $2$ and two at $5$. Multiplying back gives root moduli
+$2^{q-a}$ and $5^{q-b}$, whose product is $H$.
+
+\begin{lemma}[Pointwise interval test]\label{test}
+A square with the prescribed length, prefix and suffix exists if and
+only if, for some $r\in\mathcal A$,
+\[
+ \max\left(0,\left\lceil\frac{A-r}{H}\right\rceil\right)
+ \ \le\ \left\lfloor\frac{B-r}{H}\right\rfloor.
+\]
+If $B-A<H$, at most eight possible positive roots occur. Failure of all
+these inequalities excludes the particular rotation supplying the digits.
+\end{lemma}
+\begin{proof}
+The prefix and length are equivalent to $A\le y\le B$; the suffix is
+equivalent to \eqref{classes}. Write $y=r+jH$, with $j\ge0$, and solve
+the two interval inequalities for $j$. An interval shorter than $H$
+contains at most one integer from each root class.
+\end{proof}
+
+The test is exact for the selected windows. If it leaves roots, the
+additional actual middle digits must be checked; their values cannot be
+filled freely. Increasing $q$ preserves every genuine square candidate.
+At $q=E$, the test is an exact square decision, since $y^2<10^E$ and
+$y^2\equiv R\pmod{10^E}$ force equality. This termination observation
+does not prove uniform exclusion for the infinite rotation family.
+
+\section{One middle digit excludes the isolated candidate}\label{example}
+For Proposition~\ref{failure}, the first digit is $2$, so
+\[
+ [A,B]=[141421356238,\,173205080756].
+\]
+At precision $q=12$, the actual suffix is
+\[
+ U=112131415161=1\Vert12\Vert13\Vert14\Vert15\Vert16\Vert1.
+\]
+Its first displayed $1$ is the final digit of the middle block $11$;
+it is not part of the original moved prefix $W_1=1$.
+Here $H=10^{12}$. The complete eight roots modulo $H$ are
+\[
+\begin{array}{rrrr}
+55164164619&104480570869&395519429131&444835835381\\
+555164164619&604480570869&895519429131&944835835381.
+\end{array}
+\]
+Each entry squares to $U$ modulo $10^{12}$. They are distinct, and the
+unit-root bound of eight proves completeness. None belongs to $[A,B]$;
+also $B<H$, so no positive translate of a listed root can belong to the
+interval. Lemma~\ref{test} proves that $R$ is not a square.
+
+The extra middle digit is substantive. The weaker $11$-digit suffix
+$12131415161$ and the same first digit and total length admit the
+following four squares:
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+Root&Square&Twelfth digit from the right\\
+\midrule
+144835835381&20977419210512131415161&5\\
+145519429131&21175904254612131415161&6\\
+154480570869&23864246776012131415161&0\\
+155164164619&24075917981912131415161&9\\
+\bottomrule
+\end{tabular}
+\end{center}
+All four have $23$ digits, start with $2$, and share the actual last
+$11$ digits. The next actual digit is $1$, whereas these completions
+have $5,6,0,9$. The complete $12$-digit calculation above excludes
+every completion, not merely these four examples.
+
+\section{Verification and the remaining problem}
+\texttt{verify\_pointwise\_middle.py} checks every displayed certificate
+exactly and compares \texttt{pointwise\_rotation.cpp} (GMP/OpenMP) with
+the earlier Python root solver and small exhaustive intervals.
+The window and Hensel/CRT tools are standard; no priority claim is made.
+No uniform theorem proves that the interval test rejects every rotation,
+and square tests do not exclude odd prime powers. Kashihara's conjecture
+remains open; the existing sparsity bounds have not been strengthened.
+\end{document}
