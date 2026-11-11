@@ -43,6 +43,35 @@ class CertificateTests(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 extended.check_cycle(p, cycle)
 
+    def test_compact_certificate_keys(self):
+        original_read = extended.read
+        original = original_read("core_109.json")
+        for key in ("0173", "+173", " 173", "not-an-index", "365"):
+            broken = copy.deepcopy(original)
+            broken[key] = ["invalid witness"]
+            with self.subTest(key=key):
+                with patch.object(extended, "read", side_effect=lambda name:
+                                  broken if name == "core_109.json" else original_read(name)):
+                    with self.assertRaises(AssertionError):
+                        extended.check_compact()
+
+        replaced = copy.deepcopy(original)
+        replaced["0173"] = replaced.pop("173")
+        with patch.object(extended, "read", return_value=replaced):
+            with self.assertRaises(AssertionError):
+                extended.check_compact()
+
+        missing = copy.deepcopy(original)
+        del missing["173"]
+        with patch.object(extended, "read", return_value=missing):
+            with self.assertRaises(AssertionError):
+                extended.check_compact()
+
+    def test_compact_certificates(self):
+        constructed, archive = extended.check_compact()
+        self.assertEqual(set(constructed), set(range(173, 365)))
+        self.assertEqual(len(archive), 192)
+
     def test_template_witnesses(self):
         for n, blocks in templates.parametric_rows().items():
             p, start = [], 0
