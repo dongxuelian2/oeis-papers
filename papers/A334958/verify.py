@@ -2,6 +2,7 @@
 """Independent Fraction summation, integer recurrence, and valuation product."""
 from fractions import Fraction as Q
 from math import gcd, factorial, lcm
+from pathlib import Path
 
 def factor(n):
     result={};p=2
@@ -23,6 +24,13 @@ def terms(bound):
         following=(n+1)*a+(-1)**(n+2)*factorial(n)
         yield gcd(a,following)
 
+def audit_table(path):
+    """Check the entire shipped table, including its consecutive indices."""
+    rows = [tuple(map(int, line.split())) for line in path.read_text().splitlines()
+            if line.strip() and not line.lstrip().startswith('#')]
+    expected = list(enumerate(terms(100), 1))
+    assert rows == expected, 'b334958.txt must contain exactly the terms at indices 1..100'
+
 def audit():
     published=[1,1,1,2,2,12,12,48,144,1440,1440,17280,17280,241920,18144000,145152000,145152000,2612736000,2612736000,10450944000,219469824000,4828336128000,4828336128000,115880067072000,579400335360000,15064408719360000,135579678474240000,26573616980951040000,26573616980951040000]
     assert list(terms(29))==published
@@ -39,9 +47,7 @@ def audit():
         assert expected%(f//common)==0
         b=f-int(f*h);bnext=factorial(n+1)-int(factorial(n+1)*(h+Q((-1)**(n+2),n+1)))
         assert gcd(b,bnext)==gcd(b,f)==gcd(int(f*h),b)==expected
-    from pathlib import Path
-    for line,k in zip((x for x in Path(__file__).with_name('b334958.txt').read_text().splitlines() if not x.startswith('#')),terms(100)):
-        n,expected=map(int,line.split());assert k==expected
+    audit_table(Path(__file__).with_name('b334958.txt'))
     print('PASS 29 official terms; 500 independent exact rational/valuation/divisibility controls; 100-row table')
 
 if __name__=='__main__': audit()
