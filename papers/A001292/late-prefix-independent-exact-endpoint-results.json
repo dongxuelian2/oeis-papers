@@ -1,0 +1,5 @@
+{
+  "exact_region_endpoint_boundary_checks": 549,
+  "cut_max": 1000,
+  "result": "Passed: final included and first excluded endpoints checked against literal string rotations."
+}

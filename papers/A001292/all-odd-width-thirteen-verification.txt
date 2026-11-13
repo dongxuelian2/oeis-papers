@@ -1,0 +1,8 @@
+39 width phases and six endpoint classes per phase: PASS
+General mod27 prefix checks: 99999
+Direct linear prefix checks: 15151
+Selected larger-width prefixes: 48
+Three-digit endpoints: [234, 288, 342, 396, 558, 774, 936, 990]
+Selected five-digit endpoints: [10062, 10116, 10386]
+Individual modular rotation checks: 35082
+PASS. Infinite-width and whole-block claims follow from the proof.

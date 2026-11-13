@@ -1,0 +1,13 @@
+{
+  "base_commit": "1f583c8f7404145c25895a8322efac0986a3afb5",
+  "status": "Transfer exponent restriction to37 while all rotations are3-adic units passing every prime-exponent Q3 power test. Fixed e>=5,e!=37; widths3*s*37^a,s1or2 for largea. Main manuscript/PDF unchanged.",
+  "independent_review": "Full text passed: inherited37^(a+1) precision,72 classes, local unit-power automorphisms, all-prime Q3 assertions, CRT density, infinite tail and period error, and distinction from positive-v3 families. Reviewer independently confirmed p412031/order41203 and reran the standard-library verifier successfully. No separate reviewer executable is claimed.",
+  "verification_scope": "Concrete witness,216 selected valuation classes,10000 Q3 residues,295 tail/period inequalities and8 scalar order-step checks. No enormous-width prefixes or whole blocks computationally enumerated.",
+  "sha256": {
+    "valuation-transfer-verification.txt": "e037003b9ebe436ef1b0b9d2af0b03a8cc8156dfa3358e5a12a7d7f26f030c5b",
+    "valuation-transfer-certificate.json": "9bd51442fcbc249539b1409bb5857d14793d8795c9e40a5d42bb06760261bc3b",
+    "README.md": "d9095e994ab37579e412254b544aeee9044013a85faf7556c48bfdded10f40e3",
+    "verify_valuation_transfer.py": "1efda46d504a0f14663b85be1593bb3d1fb3d6f53d6be4f34cb0429fcdcaf054",
+    "THIRTY_SEVEN_VALUATION_TRANSFER.md": "ff7b33fd9d1929ae6c37e023911fe62fc3c9b00d33de78ea666dce5ee803a05a"
+  }
+}

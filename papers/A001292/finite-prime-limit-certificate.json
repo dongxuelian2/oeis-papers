@@ -1,0 +1,76 @@
+{
+  "general_statement": "Any finite prime set admits a positive-lower-density subset of endpoints whose unrotated concatenations are simultaneous local squares.",
+  "joint_count_tests": [
+    {
+      "primes": [
+        7,
+        11
+      ],
+      "period": 9240,
+      "classes": 15,
+      "density": "1/616"
+    },
+    {
+      "primes": [
+        7,
+        13,
+        43
+      ],
+      "period": 469560,
+      "classes": 378,
+      "density": "9/11180"
+    },
+    {
+      "primes": [
+        11,
+        23,
+        47
+      ],
+      "period": 1426920,
+      "classes": 1265,
+      "density": "1/1128"
+    },
+    {
+      "primes": [
+        7,
+        11,
+        13,
+        17
+      ],
+      "period": 4084080,
+      "classes": 1440,
+      "density": "6/17017"
+    }
+  ],
+  "actual_prefix_audits": [
+    {
+      "digits": 9,
+      "period": 152672520,
+      "survivor_classes": 27000,
+      "independent_prime_checks": 135000
+    },
+    {
+      "digits": 11,
+      "period": 152672520,
+      "survivor_classes": 27000,
+      "independent_prime_checks": 5000
+    },
+    {
+      "digits": 31,
+      "period": 152672520,
+      "survivor_classes": 27000,
+      "independent_prime_checks": 5000
+    }
+  ],
+  "eight_prime_example": {
+    "base_endpoint_congruence": "m=1 mod120",
+    "qualifying_widths": "d odd and5 does not divide d",
+    "density_per_qualifying_width": "225/1272271",
+    "classes_per_period": 27000,
+    "endpoint_period": 152672520,
+    "simple_width_progression": "d=1 mod30",
+    "lower_density_bound_from_simple_progression": "75/47121148148148148148148148148101027",
+    "lower_density_bound_using_all_qualifying_widths": "227272725/1413634444303081"
+  },
+  "proof_required": "The arbitrary-finite-set theorem and all-precision conclusions use the argument and Hensel lifting in FINITE_PRIME_LIMIT.md, not finite extrapolation."
+}

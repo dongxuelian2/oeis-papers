@@ -1,0 +1,6 @@
+PASS: 31 all 465 append phases, full affine identity and 961 parameter residue pairs
+PASS: 93 independent arithmetic-geometric prefix checks at widths [168, 633, 1098]
+PASS: 41 all 205 append phases, full affine identity and 1681 parameter residue pairs
+PASS: 123 independent arithmetic-geometric prefix checks at widths [38, 243, 448]
+PASS: simple double-blind subfamilies and 1615441 conditional CRT checks; union 17534/1615441 0.010854002096022077
+PASS: five-prime CRT progression 4200162423 5458042590 union 219416697774/1618673497441 0.1355534010539378

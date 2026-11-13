@@ -7,6 +7,10 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - [A001053](https://oeis.org/A001053): a(n+1) = n*a(n) + a(n-1) with a(0)=1, a(1)=0.
   - **Result:** We proved Kurkov's endpoint-refined rook-tour conjectures for every positive board size: the numbers of directed Hamilton tours with endpoints in opposite and equal columns are respectively `2*n!*A001040(n)` and `2*n!*A001053(n)`.
 
+- **[A001292](papers/A001292/)**
+  - [A001292](https://oeis.org/A001292): Concatenations of cyclic permutations of initial positive integers.
+  - **Result:** We proved full-prefix bounds of `O(X)` for square pairs and `O(X^2/log X)` for perfect-power pairs, and exhibited an actual rotation that passes every square and cube test at the primes of the full cyclic modulus and decimal base, but is excluded by actual middle digits together with real root intervals. Kashihara's integer perfect-power conjecture remains open.
+
 - **[A003630](papers/A003630/)**
   - [A003630](https://oeis.org/A003630) (published): Inert rational primes in Q[sqrt(3)].
   - **Result:** We proved that the conjectured prime-ordered Euler product converges to `sqrt(3)/2`, with an exact finite-product identity and the exceptional factors at 2 and 3.

@@ -1,0 +1,6 @@
+Fifth-power witness and exact order: PASS
+Selected valuation-class checks: 216
+Q3 unit residues: 10000
+Exact tail/period inequalities: 295
+Scalar order-step identities: 8
+PASS. No enormous-width prefixes or full blocks were enumerated.

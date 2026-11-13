@@ -1,0 +1,869 @@
+{
+  "endpoint_interval": [
+    5001,
+    10000
+  ],
+  "endpoints_scanned": 5000,
+  "valuation_eligible": 206,
+  "jacobi_counts": {
+    "-1": 94,
+    "0": 11,
+    "1": 101
+  },
+  "certified_blocks": 94,
+  "by_valuation": {
+    "2": 84,
+    "4": 10
+  },
+  "rotations_covered_by_theorem": 706590,
+  "selected_cut_checks": 188,
+  "optional_sympy_cross_checks": 206,
+  "certificates": [
+    {
+      "endpoint": 5040,
+      "digits": 19053,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5067,
+      "digits": 19161,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5094,
+      "digits": 19269,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5121,
+      "digits": 19377,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5175,
+      "digits": 19593,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5202,
+      "digits": 19701,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5229,
+      "digits": 19809,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5283,
+      "digits": 20025,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5337,
+      "digits": 20241,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5346,
+      "digits": 20277,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 5391,
+      "digits": 20457,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5418,
+      "digits": 20565,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5472,
+      "digits": 20781,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5589,
+      "digits": 21249,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 5607,
+      "digits": 21321,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5661,
+      "digits": 21537,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5715,
+      "digits": 21753,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5742,
+      "digits": 21861,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5769,
+      "digits": 21969,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5850,
+      "digits": 22293,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 5904,
+      "digits": 22509,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6039,
+      "digits": 23049,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6075,
+      "digits": 23193,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 6120,
+      "digits": 23373,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6174,
+      "digits": 23589,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6336,
+      "digits": 24237,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6417,
+      "digits": 24561,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6471,
+      "digits": 24777,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6525,
+      "digits": 24993,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6561,
+      "digits": 25137,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 6660,
+      "digits": 25533,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6741,
+      "digits": 25857,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6768,
+      "digits": 25965,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6822,
+      "digits": 26181,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 6876,
+      "digits": 26397,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7011,
+      "digits": 26937,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7038,
+      "digits": 27045,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7047,
+      "digits": 27081,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 7065,
+      "digits": 27153,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7092,
+      "digits": 27261,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7146,
+      "digits": 27477,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7200,
+      "digits": 27693,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7281,
+      "digits": 28017,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7389,
+      "digits": 28449,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7416,
+      "digits": 28557,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7497,
+      "digits": 28881,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7578,
+      "digits": 29205,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7632,
+      "digits": 29421,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7686,
+      "digits": 29637,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7740,
+      "digits": 29853,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7848,
+      "digits": 30285,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7875,
+      "digits": 30393,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 7902,
+      "digits": 30501,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8010,
+      "digits": 30933,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8019,
+      "digits": 30969,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 8064,
+      "digits": 31149,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8145,
+      "digits": 31473,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8262,
+      "digits": 31941,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 8307,
+      "digits": 32121,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8334,
+      "digits": 32229,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8388,
+      "digits": 32445,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8442,
+      "digits": 32661,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8469,
+      "digits": 32769,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8550,
+      "digits": 33093,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8658,
+      "digits": 33525,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8712,
+      "digits": 33741,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8748,
+      "digits": 33885,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 8766,
+      "digits": 33957,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8793,
+      "digits": 34065,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8820,
+      "digits": 34173,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8874,
+      "digits": 34389,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8901,
+      "digits": 34497,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8928,
+      "digits": 34605,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8982,
+      "digits": 34821,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 8991,
+      "digits": 34857,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 9009,
+      "digits": 34929,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9036,
+      "digits": 35037,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9090,
+      "digits": 35253,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9225,
+      "digits": 35793,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9252,
+      "digits": 35901,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9306,
+      "digits": 36117,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9333,
+      "digits": 36225,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9414,
+      "digits": 36549,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9441,
+      "digits": 36657,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9468,
+      "digits": 36765,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9495,
+      "digits": 36873,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9630,
+      "digits": 37413,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9657,
+      "digits": 37521,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9684,
+      "digits": 37629,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9711,
+      "digits": 37737,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9765,
+      "digits": 37953,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9927,
+      "digits": 38601,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 4,
+      "jacobi": -1,
+      "common_gcd": 9
+    },
+    {
+      "endpoint": 9963,
+      "digits": 38745,
+      "v3_delta": 5,
+      "v3_prefix": 4,
+      "unit_mod9": 1,
+      "jacobi": -1,
+      "common_gcd": 81
+    },
+    {
+      "endpoint": 9981,
+      "digits": 38817,
+      "v3_delta": 4,
+      "v3_prefix": 2,
+      "unit_mod9": 7,
+      "jacobi": -1,
+      "common_gcd": 9
+    }
+  ]
+}

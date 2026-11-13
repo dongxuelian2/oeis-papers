@@ -1,0 +1,12 @@
+{
+  "base_commit": "3eb28998ec8cffae70507e7dade164ce960c8b68",
+  "status": "New infinite counting consequence and precise method obstacle; main manuscript and PDF unchanged",
+  "independent_review": "Passed. Reviewer checked class disjointness, constant/tail, cubic precision, all-exponent exclusion, CRT, exact periods and uniform error. Independently reran the pre-countermodel verifier (800 samples,32 prefixes,45 rational checks), plus union counts/tails and integer periods h=1..7 and eight counterexample moduli including zero symbols. The final script additionally checks300 selected countermodel residues; author reran that final version successfully. No separate reviewer file is claimed.",
+  "sha256": {
+    "jacobi-valuation-union-verification.txt": "d2a85cb32b616e4c42876c0f984a5c9daea8d2cb66d1eb56d9a97f7c9d927327",
+    "README.md": "21a2e7d80da22f77756bfc4159213b261f5c3e1ca7a7250bcc18acb15a8c9416",
+    "jacobi-valuation-union-certificate.json": "affdbbd1df7178f6cb8bb772492d937b8e6cf6dea801496f42cdb4a46b777c34",
+    "verify_jacobi_valuation_union.py": "4013d65a84dd38a538b32a5274a4c3e1c47a05853059aae96e866c794046f930",
+    "JACOBI_VALUATION_UNION.md": "7a6ed5ab0d1824740b9041dcc0f07332cdf91eb44b5c3ae0e82fff7611f08e0c"
+  }
+}

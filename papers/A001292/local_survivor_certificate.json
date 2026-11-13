@@ -1,0 +1,73 @@
+{
+  "width_period": 38168130,
+  "endpoint_period": 152672520,
+  "families": [
+    [
+      31,
+      53392081,
+      "square"
+    ],
+    [
+      32,
+      95797681,
+      "seventeenth"
+    ]
+  ],
+  "prime_certificates": [
+    {
+      "p": 7,
+      "order": 6,
+      "append_period": 42,
+      "boundary_period": 42,
+      "macro_translation": 0,
+      "residues": {
+        "square": 1,
+        "seventeenth": 1
+      }
+    },
+    {
+      "p": 11,
+      "order": 2,
+      "append_period": 22,
+      "boundary_period": 22,
+      "macro_translation": 9,
+      "residues": {
+        "square": 1,
+        "seventeenth": 8
+      }
+    },
+    {
+      "p": 13,
+      "order": 6,
+      "append_period": 78,
+      "boundary_period": 78,
+      "macro_translation": 8,
+      "residues": {
+        "square": 1,
+        "seventeenth": 1
+      }
+    },
+    {
+      "p": 31,
+      "order": 15,
+      "append_period": 465,
+      "boundary_period": 465,
+      "macro_translation": 28,
+      "residues": {
+        "square": 1,
+        "seventeenth": 1
+      }
+    },
+    {
+      "p": 41,
+      "order": 5,
+      "append_period": 205,
+      "boundary_period": 205,
+      "macro_translation": 21,
+      "residues": {
+        "square": 1,
+        "seventeenth": 1
+      }
+    }
+  ]
+}

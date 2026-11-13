@@ -1,0 +1,32 @@
+{"progress_cut": 1000, "elapsed_seconds": 0.661, "root_branches": 520, "comparisons": 191}
+{"progress_cut": 2000, "elapsed_seconds": 4.868, "root_branches": 1080, "comparisons": 361}
+{"progress_cut": 3000, "elapsed_seconds": 18.166, "root_branches": 1648, "comparisons": 519}
+{"progress_cut": 4000, "elapsed_seconds": 38.402, "root_branches": 2192, "comparisons": 672}
+{"progress_cut": 5000, "elapsed_seconds": 80.98, "root_branches": 2736, "comparisons": 842}
+{"progress_cut": 6000, "elapsed_seconds": 144.458, "root_branches": 3272, "comparisons": 997}
+{"progress_cut": 7000, "elapsed_seconds": 221.211, "root_branches": 3872, "comparisons": 1175}
+{"progress_cut": 8000, "elapsed_seconds": 305.433, "root_branches": 4408, "comparisons": 1345}
+{"progress_cut": 9000, "elapsed_seconds": 455.12, "root_branches": 4968, "comparisons": 1508}
+{"progress_cut": 10000, "elapsed_seconds": 669.601, "root_branches": 5504, "comparisons": 1674}
+{
+  "max_cut": 10000,
+  "cut_range_start": 10,
+  "unit_root_exhaustive_cases": 871,
+  "cuts": 9991,
+  "odd_valuation_cuts": 4442,
+  "unit_obstructed_cuts": 4861,
+  "local_survivor_cuts": 688,
+  "root_branches": 5504,
+  "digit_gap_rejections": 3830,
+  "not_after_cut_rejections": 0,
+  "exact_candidate_comparisons": 1674,
+  "guaranteed_pairs_all_cuts": 42672235,
+  "guaranteed_pairs_local_survivor_cuts": 2932566,
+  "square_survivors": [],
+  "width_crossing_survivor_cuts": 369,
+  "naive_crosscheck_pairs": 3554,
+  "elapsed_seconds": 669.601,
+  "algorithm": "precision-doubling prime-power roots; CRT; exact square-digit-length endpoint inversion; exact rotation comparison",
+  "scope": "Complete for each audited k and every m>k with R_(m,k)<H_k^2. Guaranteed subregion D(m)<=2D(k)-2digits(k). Finite audit, not proof of infinite absence.",
+  "script_sha256": "854f26ca8f401d482898bafcf73ce066db8e5c14f9ee423f7d285546309dbdbb"
+}

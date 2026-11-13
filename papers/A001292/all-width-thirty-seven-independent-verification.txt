@@ -1,0 +1,6 @@
+Independent scalar prefix checks: 1596 (widths 2 through 400)
+Full odd-width CRT class phases: 1443
+Exact odd-width count period: 222
+Exact odd-width class-set period: 2886
+Literal integer rotation checks: 3357
+All checks: PASS

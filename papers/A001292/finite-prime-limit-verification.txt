@@ -1,0 +1,9 @@
+PASS: joint-count lemma (7, 11) period 9240 classes 15
+PASS: joint-count lemma (7, 13, 43) period 469560 classes 378
+PASS: joint-count lemma (11, 23, 47) period 1426920 classes 1265
+PASS: joint-count lemma (7, 11, 13, 17) period 4084080 classes 1440
+PASS: actual digit width 9 survivor classes 27000 independent prime checks 135000
+PASS: actual digit width 11 survivor classes 27000 independent prime checks 5000
+PASS: actual digit width 31 survivor classes 27000 independent prime checks 5000
+PASS: exact product density 225/1272271 and positive geometric lower-density bound 75/47121148148148148148148148148101027
+PASS: all eligible width phases give lower-density bound 227272725/1413634444303081 1.6077192085684146e-07

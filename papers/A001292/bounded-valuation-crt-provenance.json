@@ -1,0 +1,13 @@
+{
+  "base_commit": "c5d579931b46254c928e4b4734cc073c2ca36133",
+  "status": "New finite-prime certificate of an infinite bounded-valuation width progression. Main manuscript and PDF unchanged.",
+  "independent_review": "Passed without changes. Independent sieve primality and all324 exponent/character/valuation conditions verified. Reviewer checked972 quadratic discriminant models,900900 actual endpoints at widths3 and6 for inherited prefix congruences, exact L/T and inequalities. Supplied standard-library verifier also passed. No additional reviewer script is claimed to be attached.",
+  "verification_scope": "Finite certificate arithmetic,353 exhaustive quadratic-constant models and six CRT models. No actual enormous-width prefixes or endpoint intervals enumerated. Infinite progression and whole-block statements follow from proof.",
+  "sha256": {
+    "bounded-valuation-crt-certificate.json": "2a5d7f226c6143617b827904b9846d0587e464080df2024caf098d23b0ad493c",
+    "bounded-valuation-crt-verification.txt": "38f28f00e2648e1cec0211e723d1bbb787378009ba24eee763f9efc3bf786a71",
+    "README.md": "ec4c85f0eecea29f1a9401e8b86812f813c922aadf60c3293ebe4c43a6a28cee",
+    "BOUNDED_VALUATION_CRT.md": "f778aee52295fd1c14dc944a1dfc4240965ee6b914ae78c5f556a74c55f06e30",
+    "verify_bounded_valuation_crt.py": "3be70b960416534ed6446e0c54019f0ebc553cbd92c519d1d532dcee1ae97d7c"
+  }
+}

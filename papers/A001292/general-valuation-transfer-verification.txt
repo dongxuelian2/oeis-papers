@@ -1,0 +1,7 @@
+Exponent-37 witness and exact order: PASS
+Admissible prime/P checks through 2000: 80
+Selected valuation-class checks: 4536
+Q3 unit residues: 10000
+Exact tail/period inequalities: 267
+Scalar order-step identities: 8
+PASS. No enormous-width prefixes or full blocks were enumerated.

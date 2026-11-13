@@ -1,0 +1,17 @@
+{
+  "status": "Independently audited; finite verifier rerun successfully.",
+  "base_commit": "20c645d0363eb17ff0b0be71d87e9c15a961d112",
+  "scope": "Effective all-squareclass square-pair bound for 2L<=m<B and L+7<=k<m, including central cuts; not nonexistence.",
+  "theorem": "count < 32*B*(1+floor(log_2(18*d)))",
+  "cumulative": "O(X log log X) only for the stated endpoint/cut domain",
+  "manuscript_pdf": "Unchanged; this is a proof supplement.",
+  "independent_review": "Actual proof and completed verifier reviewed; independent inline symbolic/finite checks documented in CENTRAL_CUT_INDEPENDENT_AUDIT.md.",
+  "files": {
+    "CENTRAL_CUT_DETERMINANT_SPARSITY.md": "484e7b28883e8f40a88e9a4cb1c50edd5e92e59e7ff677a8ef1aede25ecacfee",
+    "CENTRAL_CUT_INDEPENDENT_AUDIT.md": "88a5c1121302c03153bffb224a9e878ab4a4cad6ad42db18d15259942f14ffe1",
+    "verify_central_cut_determinant.py": "bc64f5bac5beeaab547beb9f318627aee17e56fcc6afa03758190361dc9f181c",
+    "central-cut-determinant-certificate.json": "a3c4ea86ca968bcad569420b617c1bf0476d5de75f91d800b4d5a530588e6354",
+    "central-cut-determinant-verification.txt": "6238f9acf665e62b1307f5bf3c62710661e8dba487bf6deb7c74ae909f0c22fb",
+    "README.md": "df80a9ace549f09162a80ed4bdf9408e41695a33e4a776e0435aa0d002a09f65"
+  }
+}

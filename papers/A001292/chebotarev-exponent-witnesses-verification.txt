@@ -1,0 +1,5 @@
+Nine explicit prime/order/quadratic/e-th-power witnesses: PASS
+Exact complete nonpower counts: 9
+Scalar composite-order recurrence checks: 135
+Width coprimality checks: 2700
+PASS. All-exponent witness existence follows from the field/Chebotarev proof, not the nine examples.

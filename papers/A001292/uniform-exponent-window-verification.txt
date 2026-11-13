@@ -1,0 +1,4 @@
+Growing exponent windows checked: 9
+Uniform prime selections, density and period bounds checked: 102
+Exact rational union-density bounds checked: 9
+PASS. No effective Siegel-Walfisz threshold or full conjecture resolution is claimed.

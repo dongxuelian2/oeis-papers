@@ -1,0 +1,7 @@
+Independent direct-prefix comparisons: 201
+Complete p-lift affine counts: 408 across 102 B phases
+Exhaustive triangular valuation residues: 29520
+Independent supplied-prefix checks: 12
+Digit-boundary, midpoint, and late rotation-cut checks: 120
+Tail/period exponent checks: 997
+PASS: independent arithmetic checks passed.

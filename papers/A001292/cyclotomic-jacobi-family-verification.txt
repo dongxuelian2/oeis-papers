@@ -1,0 +1,4 @@
+Exact quadratic-character lemma cases: 40
+h=2 full finite scan: {'h': 2, 'width': 9, 'modulus': 333667, 'negative_residue_classes': 166832, 'endpoint_candidates': 900901, 'certified_endpoints': 450764}
+Selected exact prefix checks across widths 9,27,81: 30
+PASS. Infinite lower bound follows from the proof, not the finite samples.

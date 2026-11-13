@@ -1,0 +1,5 @@
+Complete mod27 root and 37*37 character checks passed.
+Exact rational product identities: 4656
+Sampled endpoints: 1600
+Selected exact prefixes: 48
+PASS. Samples do not establish the infinite bounds or individually test all rotations.

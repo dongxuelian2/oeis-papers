@@ -1,0 +1,255 @@
+{
+  "scope": "Finite audits only; the all-width bound is proved in the note.",
+  "rotations": {
+    "exact_rotation_checks": 3432,
+    "exhaustive_width2": {
+      "pairs": 3400,
+      "early_pairs": 1190,
+      "late_pairs": 1800,
+      "square_pairs": 0,
+      "early_square_pairs": 0,
+      "late_square_pairs": 0
+    },
+    "width3_samples": [
+      [
+        3,
+        200,
+        8
+      ],
+      [
+        3,
+        200,
+        9
+      ],
+      [
+        3,
+        200,
+        18
+      ],
+      [
+        3,
+        200,
+        19
+      ],
+      [
+        3,
+        200,
+        50
+      ],
+      [
+        3,
+        200,
+        81
+      ],
+      [
+        3,
+        200,
+        82
+      ],
+      [
+        3,
+        200,
+        100
+      ],
+      [
+        3,
+        300,
+        8
+      ],
+      [
+        3,
+        300,
+        9
+      ],
+      [
+        3,
+        300,
+        68
+      ],
+      [
+        3,
+        300,
+        69
+      ],
+      [
+        3,
+        300,
+        100
+      ],
+      [
+        3,
+        300,
+        131
+      ],
+      [
+        3,
+        300,
+        132
+      ],
+      [
+        3,
+        300,
+        200
+      ],
+      [
+        3,
+        500,
+        8
+      ],
+      [
+        3,
+        500,
+        9
+      ],
+      [
+        3,
+        500,
+        168
+      ],
+      [
+        3,
+        500,
+        169
+      ],
+      [
+        3,
+        500,
+        200
+      ],
+      [
+        3,
+        500,
+        231
+      ],
+      [
+        3,
+        500,
+        232
+      ],
+      [
+        3,
+        500,
+        400
+      ],
+      [
+        3,
+        999,
+        8
+      ],
+      [
+        3,
+        999,
+        9
+      ],
+      [
+        3,
+        999,
+        417
+      ],
+      [
+        3,
+        999,
+        418
+      ],
+      [
+        3,
+        999,
+        450
+      ],
+      [
+        3,
+        999,
+        481
+      ],
+      [
+        3,
+        999,
+        482
+      ],
+      [
+        3,
+        999,
+        899
+      ]
+    ]
+  },
+  "roots": {
+    "exact_prime_power_and_crt_checks": 3664,
+    "moduli": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024,
+      5,
+      25,
+      125,
+      625,
+      3125,
+      15625,
+      10,
+      100,
+      1000
+    ]
+  },
+  "smooth_sums": [
+    {
+      "d": 2,
+      "cuts": 82,
+      "even_valuation_cuts": 45,
+      "smooth_weights_sum": 67,
+      "congruence_root_sum": 32,
+      "strong_late_theorem_bound": 8400,
+      "smooth_divisors": 14,
+      "h": 2
+    },
+    {
+      "d": 3,
+      "cuts": 892,
+      "even_valuation_cuts": 495,
+      "smooth_weights_sum": 842,
+      "congruence_root_sum": 840,
+      "strong_late_theorem_bound": 108000,
+      "smooth_divisors": 28,
+      "h": 4
+    },
+    {
+      "d": 4,
+      "cuts": 8992,
+      "even_valuation_cuts": 4995,
+      "smooth_weights_sum": 8749,
+      "congruence_root_sum": 8344,
+      "strong_late_theorem_bound": 1320000,
+      "smooth_divisors": 47,
+      "h": 5
+    }
+  ],
+  "width_inequalities": {
+    "width_threshold_checks": 999,
+    "exact_center_checks": 2997,
+    "exact_gap_count_checks": 999
+  },
+  "late_boundary_strips": [
+    {
+      "d": 2,
+      "endpoints": 80,
+      "boundary_pairs": 80
+    },
+    {
+      "d": 3,
+      "endpoints": 800,
+      "boundary_pairs": 800
+    },
+    {
+      "d": 4,
+      "endpoints": 8000,
+      "boundary_pairs": 8000
+    }
+  ]
+}
+PASS. No all-width nonexistence or full-conjecture claim is made.

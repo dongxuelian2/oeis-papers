@@ -1,0 +1,9 @@
+{
+  "e": 5,
+  "p": 412031,
+  "exact_order": 41203,
+  "valuation_class_checks": 216,
+  "q3_unit_checks": 10000,
+  "tail_period_checks": 295,
+  "scalar_order_step_checks": 8
+}

@@ -1,0 +1,17 @@
+{
+  "admissible_prime_checks": 80,
+  "valuation_sample_b": [
+    37,
+    74,
+    1369
+  ],
+  "q": 757,
+  "P": 27,
+  "e": 37,
+  "p": 90947,
+  "exact_order": 1229,
+  "valuation_class_checks": 4536,
+  "q3_unit_checks": 10000,
+  "tail_period_checks": 267,
+  "scalar_order_step_checks": 8
+}
