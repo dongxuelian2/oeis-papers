@@ -161,7 +161,90 @@ For s=1, the exact rational-square leading term is already excluded by the separ
 
 This statement is genuinely global but is not a uniform finiteness theorem over all s. Taking a union over unrestricted s does not preserve finiteness. It neither treats all cuts nor excludes higher prime exponents. It is not an effective finite verification procedure.
 
-## 7. Finite audit and conclusion
+## 7. Newton acceleration loses smooth denominators without improving the height exponent
+
+Rational Newton iteration cannot repair the preceding
+approximation. Put D=10^e J and alpha=sqrt(D), with D nonsquare. Under
+the hypothetical square condition, the reduced initial approximation
+r_0=p_0/q_0=x/Q satisfies
+
+    C divides p_0, q_0 is supported on {2,5}, gcd(D,C)=1.
+
+Indeed x=Cy, Q is a power of ten, and C is coprime to ten. Define
+r_(j+1)=(r_j²+D)/(2r_j), always reducing to coprime positive p_j,q_j.
+
+**Denominator claim.** C divides q_j for every j>=1. The unreduced
+Newton numerator and denominator are
+
+    A_j=p_j²+Dq_j², B_j=2p_jq_j.
+
+For each prime ell dividing C, A_0=Dq_0² is a unit modulo ell, so no
+ell factor of p_0 cancels from B_0. This gives C|q_1. Subsequently,
+C|q_j and coprimality imply that p_j is a unit at every ell|C, and
+A_j=p_j² is a unit modulo ell. All prime powers of C in q_j therefore
+survive into q_(j+1). This proves the claim, including multiplicities.
+Since every prime divisor of C lies outside {2,5}, every accelerated
+approximation loses the original smooth-denominator hypothesis.
+
+For example, take the actual width/cut coefficient d=2, k=17,
+C=99 and D=10*(17*99+100)=17830. The synthetic initial approximation
+r_0=297/2 satisfies the inherited divisibilities; its next two reduced
+values are
+
+    r_1=159529/1188,
+    r_2=50613765361/379040904.
+
+Both denominators contain 99. These rational inputs illustrate the
+lemma; they are not asserted to come from a square rotation.
+
+**Height claim.** Newton preserves the initial approximation exponent
+asymptotically as d grows, uniformly in the number j of iterations. Since gcd(p_j,q_j)=1,
+
+    gcd(A_j,q_j)=1,
+    gcd(A_j,p_j)=gcd(D,p_j),
+    gcd(A_j,B_j) divides 2D.
+
+If alpha/2<=r_j<=2alpha, then p_j>=q_j because D>=B²/10>4,
+and p_j²<=A_j<=5p_j², B_j<=2p_j². Thus, for the usual reduced
+rational height,
+
+    2h(r_j)-log(2D)<=h(r_(j+1))<=2h(r_j)+log5.
+
+The exact error identity gives, with E_j=-log|r_j-alpha|,
+
+    r_(j+1)-alpha=(r_j-alpha)²/(2r_j),
+    log(alpha)<=E_(j+1)-2E_j<=log(4alpha).
+
+Section 2 bounds |r_0-alpha|<=20B^(K-N+1)<=20, whereas
+alpha>=B/sqrt(10); hence r_0/alpha tends to one uniformly as d grows.
+All sufficiently large widths start in the displayed interval. Newton
+maps that interval into [alpha,5alpha/4], so preserves it. Summing the
+preceding recurrences with their geometric weights gives, for every j>=0,
+
+    h(r_0)-log(2D)<=2^(-j)h(r_j)<=h(r_0)+log5,
+    E_0<=2^(-j)E_j<=E_0+log(4alpha).
+
+The constants are independent of j. As log D=O(d), h(r_0) has order at
+least dL, and E_0/h(r_0) is bounded by Section 3, these bounds give
+
+    E_j/h(r_j)=E_0/h(r_0)+O(log D/h(r_0))
+
+uniformly for every j, including a choice of j growing with d. The
+maximum initial exponent tends to 9/5 by Section 3. It therefore remains
+strictly below the ordinary Roth threshold 2 regardless of the number
+of Newton steps. Meanwhile the original {2,5}-denominator hypothesis
+for the Ridout argument is explicitly lost. Allowing an allowed prime
+set that changes with d is not an application of a fixed-prime-set
+theorem. This terminates this particular acceleration argument; it
+neither excludes the putative square nor addresses a different
+Diophantine mechanism.
+
+Run `python papers/A001292/verify_newton_target.py` for the exact integer
+example and 96 reduced-denominator and height-bound checks.
+The asymptotic height argument is proved above, not inferred from these
+finite tests.
+
+## 8. Finite audit and conclusion
 
 The companion verifier checks 18 exact rotation identities and the integer inequalities used in Section 2 for widths 2 and 3. It also counts the squareclasses in Section 4: 23 classes among 23 cuts at d=2, and 292 classes among 293 cuts at d=3; the multiplicity bounds hold. These are finite audits of the ingredients, not searches proving the conjecture. The unconditional finiteness statement depends on the quoted Diophantine-approximation theorem, not on the computation.
 

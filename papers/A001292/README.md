@@ -319,6 +319,8 @@ Run `python papers/A001292/verify_general_valuation_transfer.py`. The certificat
 
 The same proof supplement explains the remaining global obstacles: its supplied approximation exponent has limiting maximum 9/5, and the entire early-cut target domain contains more than sqrt(10^d)/10 squareclasses. This latter count concerns candidate targets, not a claim that actual square counterexamples exist. `MOVING_COEFFICIENT_HEIGHT.md` separately quantifies why the canonical unrotated representation fails a negligible-coefficient-height assumption: the minimum height ratio tends to 1/9. The alternate rotation representation escapes that particular height barrier.
 
+Section 7 of that supplement rules out Newton acceleration of this approximation. Every reduced denominator after the first step contains `10^d-1`, losing the original `{2,5}` support. Exact height and error recurrences preserve the limiting exponent below 2 uniformly for any number of iterations. Run `python papers/A001292/verify_newton_target.py` for the integer example and finite arithmetic checks.
+
 Run `python papers/A001292/verify_coefficient_height.py` and `python papers/A001292/verify_irrational_target.py`. The former checks four widths, 32 exact prefix identities and 1,999 digit-count identities. The latter checks 18 exact rotations and squareclass multiplicities for 23 and 293 early cuts at widths 2 and 3. These are finite audits of proof ingredients, not a computation of the ineffective exceptional set. The main manuscript and PDF remain unchanged.
 
 ## A three-dimensional argument across the cut range
