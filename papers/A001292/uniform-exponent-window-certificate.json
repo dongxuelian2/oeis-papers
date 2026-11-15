@@ -1,0 +1,827 @@
+{
+  "window_cases": [
+    {
+      "base": 2,
+      "width": 100,
+      "window_exponent": 2,
+      "exponent_cap": 21,
+      "C": 3,
+      "primes_per_exponent": 3,
+      "exponents_checked": 8,
+      "sum_density_upper": "27270901/108000000",
+      "details": [
+        {
+          "exponent": 2,
+          "selected": 3,
+          "min_prime": 607,
+          "max_prime": 617,
+          "period_bits": 51
+        },
+        {
+          "exponent": 3,
+          "selected": 3,
+          "min_prime": 907,
+          "max_prime": 937,
+          "period_bits": 53
+        },
+        {
+          "exponent": 5,
+          "selected": 3,
+          "min_prime": 1511,
+          "max_prime": 1571,
+          "period_bits": 57
+        },
+        {
+          "exponent": 7,
+          "selected": 3,
+          "min_prime": 2129,
+          "max_prime": 2213,
+          "period_bits": 58
+        },
+        {
+          "exponent": 11,
+          "selected": 3,
+          "min_prime": 3301,
+          "max_prime": 3389,
+          "period_bits": 61
+        },
+        {
+          "exponent": 13,
+          "selected": 3,
+          "min_prime": 4057,
+          "max_prime": 4447,
+          "period_bits": 61
+        },
+        {
+          "exponent": 17,
+          "selected": 3,
+          "min_prime": 5101,
+          "max_prime": 5407,
+          "period_bits": 62
+        },
+        {
+          "exponent": 19,
+          "selected": 3,
+          "min_prime": 5701,
+          "max_prime": 6271,
+          "period_bits": 60
+        }
+      ]
+    },
+    {
+      "base": 2,
+      "width": 300,
+      "window_exponent": 2,
+      "exponent_cap": 32,
+      "C": 3,
+      "primes_per_exponent": 9,
+      "exponents_checked": 11,
+      "sum_density_upper": "391311957293928469865168101/158687432294400000000000000000",
+      "details": [
+        {
+          "exponent": 2,
+          "selected": 9,
+          "min_prime": 1811,
+          "max_prime": 1877,
+          "period_bits": 170
+        },
+        {
+          "exponent": 3,
+          "selected": 9,
+          "min_prime": 2707,
+          "max_prime": 2803,
+          "period_bits": 180
+        },
+        {
+          "exponent": 5,
+          "selected": 9,
+          "min_prime": 4561,
+          "max_prime": 4831,
+          "period_bits": 164
+        },
+        {
+          "exponent": 7,
+          "selected": 9,
+          "min_prime": 6301,
+          "max_prime": 6679,
+          "period_bits": 175
+        },
+        {
+          "exponent": 11,
+          "selected": 9,
+          "min_prime": 9901,
+          "max_prime": 10847,
+          "period_bits": 185
+        },
+        {
+          "exponent": 13,
+          "selected": 9,
+          "min_prime": 11701,
+          "max_prime": 12637,
+          "period_bits": 192
+        },
+        {
+          "exponent": 17,
+          "selected": 9,
+          "min_prime": 15607,
+          "max_prime": 17137,
+          "period_bits": 181
+        },
+        {
+          "exponent": 19,
+          "selected": 9,
+          "min_prime": 17291,
+          "max_prime": 18773,
+          "period_bits": 194
+        },
+        {
+          "exponent": 23,
+          "selected": 9,
+          "min_prime": 20747,
+          "max_prime": 22679,
+          "period_bits": 203
+        },
+        {
+          "exponent": 29,
+          "selected": 9,
+          "min_prime": 26449,
+          "max_prime": 30161,
+          "period_bits": 191
+        },
+        {
+          "exponent": 31,
+          "selected": 9,
+          "min_prime": 27901,
+          "max_prime": 30071,
+          "period_bits": 193
+        }
+      ]
+    },
+    {
+      "base": 2,
+      "width": 1000,
+      "window_exponent": 2,
+      "exponent_cap": 47,
+      "C": 3,
+      "primes_per_exponent": 25,
+      "exponents_checked": 15,
+      "sum_density_upper": "11106909620529048658748698457817148274560818211425135366784469935244550991257335100975013/341163456359156416512000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "details": [
+        {
+          "exponent": 2,
+          "selected": 25,
+          "min_prime": 6007,
+          "max_prime": 6211,
+          "period_bits": 526
+        },
+        {
+          "exponent": 3,
+          "selected": 25,
+          "min_prime": 9001,
+          "max_prime": 9397,
+          "period_bits": 512
+        },
+        {
+          "exponent": 5,
+          "selected": 25,
+          "min_prime": 15031,
+          "max_prime": 15761,
+          "period_bits": 528
+        },
+        {
+          "exponent": 7,
+          "selected": 25,
+          "min_prime": 21001,
+          "max_prime": 22751,
+          "period_bits": 537
+        },
+        {
+          "exponent": 11,
+          "selected": 25,
+          "min_prime": 33023,
+          "max_prime": 35531,
+          "period_bits": 568
+        },
+        {
+          "exponent": 13,
+          "selected": 25,
+          "min_prime": 39079,
+          "max_prime": 42589,
+          "period_bits": 575
+        },
+        {
+          "exponent": 17,
+          "selected": 25,
+          "min_prime": 51001,
+          "max_prime": 53993,
+          "period_bits": 577
+        },
+        {
+          "exponent": 19,
+          "selected": 25,
+          "min_prime": 57077,
+          "max_prime": 60953,
+          "period_bits": 579
+        },
+        {
+          "exponent": 23,
+          "selected": 25,
+          "min_prime": 69001,
+          "max_prime": 74521,
+          "period_bits": 572
+        },
+        {
+          "exponent": 29,
+          "selected": 25,
+          "min_prime": 87407,
+          "max_prime": 94541,
+          "period_bits": 601
+        },
+        {
+          "exponent": 31,
+          "selected": 25,
+          "min_prime": 93001,
+          "max_prime": 102301,
+          "period_bits": 591
+        },
+        {
+          "exponent": 37,
+          "selected": 25,
+          "min_prime": 111149,
+          "max_prime": 120917,
+          "period_bits": 602
+        },
+        {
+          "exponent": 41,
+          "selected": 25,
+          "min_prime": 123001,
+          "max_prime": 134153,
+          "period_bits": 605
+        },
+        {
+          "exponent": 43,
+          "selected": 25,
+          "min_prime": 129001,
+          "max_prime": 140009,
+          "period_bits": 608
+        },
+        {
+          "exponent": 47,
+          "selected": 25,
+          "min_prime": 141283,
+          "max_prime": 152093,
+          "period_bits": 635
+        }
+      ]
+    },
+    {
+      "base": 3,
+      "width": 100,
+      "window_exponent": 2,
+      "exponent_cap": 21,
+      "C": 4,
+      "primes_per_exponent": 5,
+      "exponents_checked": 8,
+      "sum_density_upper": "31105924806003/655360000000000",
+      "details": [
+        {
+          "exponent": 2,
+          "selected": 5,
+          "min_prime": 809,
+          "max_prime": 827,
+          "period_bits": 88
+        },
+        {
+          "exponent": 3,
+          "selected": 5,
+          "min_prime": 1201,
+          "max_prime": 1249,
+          "period_bits": 85
+        },
+        {
+          "exponent": 5,
+          "selected": 5,
+          "min_prime": 2011,
+          "max_prime": 2141,
+          "period_bits": 95
+        },
+        {
+          "exponent": 7,
+          "selected": 5,
+          "min_prime": 2801,
+          "max_prime": 2969,
+          "period_bits": 96
+        },
+        {
+          "exponent": 11,
+          "selected": 5,
+          "min_prime": 4423,
+          "max_prime": 4973,
+          "period_bits": 98
+        },
+        {
+          "exponent": 13,
+          "selected": 5,
+          "min_prime": 5227,
+          "max_prime": 5851,
+          "period_bits": 102
+        },
+        {
+          "exponent": 17,
+          "selected": 5,
+          "min_prime": 6869,
+          "max_prime": 7481,
+          "period_bits": 103
+        },
+        {
+          "exponent": 19,
+          "selected": 5,
+          "min_prime": 7639,
+          "max_prime": 8171,
+          "period_bits": 105
+        }
+      ]
+    },
+    {
+      "base": 3,
+      "width": 300,
+      "window_exponent": 2,
+      "exponent_cap": 32,
+      "C": 4,
+      "primes_per_exponent": 14,
+      "exponents_checked": 11,
+      "sum_density_upper": "12989789208918872364063883279244942723056801/182309574400794427392000000000000000000000000000",
+      "details": [
+        {
+          "exponent": 2,
+          "selected": 14,
+          "min_prime": 2411,
+          "max_prime": 2539,
+          "period_bits": 270
+        },
+        {
+          "exponent": 3,
+          "selected": 14,
+          "min_prime": 3607,
+          "max_prime": 3793,
+          "period_bits": 268
+        },
+        {
+          "exponent": 5,
+          "selected": 14,
+          "min_prime": 6011,
+          "max_prime": 6451,
+          "period_bits": 279
+        },
+        {
+          "exponent": 7,
+          "selected": 14,
+          "min_prime": 8429,
+          "max_prime": 9059,
+          "period_bits": 274
+        },
+        {
+          "exponent": 11,
+          "selected": 14,
+          "min_prime": 13267,
+          "max_prime": 14411,
+          "period_bits": 297
+        },
+        {
+          "exponent": 13,
+          "selected": 14,
+          "min_prime": 15601,
+          "max_prime": 16927,
+          "period_bits": 287
+        },
+        {
+          "exponent": 17,
+          "selected": 14,
+          "min_prime": 20639,
+          "max_prime": 22543,
+          "period_bits": 306
+        },
+        {
+          "exponent": 19,
+          "selected": 14,
+          "min_prime": 22877,
+          "max_prime": 24967,
+          "period_bits": 308
+        },
+        {
+          "exponent": 23,
+          "selected": 14,
+          "min_prime": 27647,
+          "max_prime": 31051,
+          "period_bits": 309
+        },
+        {
+          "exponent": 29,
+          "selected": 14,
+          "min_prime": 35149,
+          "max_prime": 38803,
+          "period_bits": 305
+        },
+        {
+          "exponent": 31,
+          "selected": 14,
+          "min_prime": 37201,
+          "max_prime": 41851,
+          "period_bits": 311
+        }
+      ]
+    },
+    {
+      "base": 3,
+      "width": 1000,
+      "window_exponent": 2,
+      "exponent_cap": 47,
+      "C": 4,
+      "primes_per_exponent": 39,
+      "exponents_checked": 15,
+      "sum_density_upper": "305192251938205480755159593834719116938368110170905974838899173337179378784722130974045753241899982886670044731371564101404224840907856156001/157845824499458759907327088408290918400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "details": [
+        {
+          "exponent": 2,
+          "selected": 39,
+          "min_prime": 8009,
+          "max_prime": 8353,
+          "period_bits": 789
+        },
+        {
+          "exponent": 3,
+          "selected": 39,
+          "min_prime": 12007,
+          "max_prime": 12703,
+          "period_bits": 803
+        },
+        {
+          "exponent": 5,
+          "selected": 39,
+          "min_prime": 20011,
+          "max_prime": 21611,
+          "period_bits": 829
+        },
+        {
+          "exponent": 7,
+          "selected": 39,
+          "min_prime": 28001,
+          "max_prime": 30661,
+          "period_bits": 816
+        },
+        {
+          "exponent": 11,
+          "selected": 39,
+          "min_prime": 44089,
+          "max_prime": 48313,
+          "period_bits": 880
+        },
+        {
+          "exponent": 13,
+          "selected": 39,
+          "min_prime": 52027,
+          "max_prime": 56993,
+          "period_bits": 921
+        },
+        {
+          "exponent": 17,
+          "selected": 39,
+          "min_prime": 68171,
+          "max_prime": 74699,
+          "period_bits": 908
+        },
+        {
+          "exponent": 19,
+          "selected": 39,
+          "min_prime": 76001,
+          "max_prime": 83563,
+          "period_bits": 898
+        },
+        {
+          "exponent": 23,
+          "selected": 39,
+          "min_prime": 92369,
+          "max_prime": 100787,
+          "period_bits": 958
+        },
+        {
+          "exponent": 29,
+          "selected": 39,
+          "min_prime": 116639,
+          "max_prime": 129631,
+          "period_bits": 943
+        },
+        {
+          "exponent": 31,
+          "selected": 39,
+          "min_prime": 124001,
+          "max_prime": 136463,
+          "period_bits": 935
+        },
+        {
+          "exponent": 37,
+          "selected": 39,
+          "min_prime": 148667,
+          "max_prime": 165317,
+          "period_bits": 938
+        },
+        {
+          "exponent": 41,
+          "selected": 39,
+          "min_prime": 164821,
+          "max_prime": 180811,
+          "period_bits": 978
+        },
+        {
+          "exponent": 43,
+          "selected": 39,
+          "min_prime": 172001,
+          "max_prime": 194017,
+          "period_bits": 958
+        },
+        {
+          "exponent": 47,
+          "selected": 39,
+          "min_prime": 188189,
+          "max_prime": 211313,
+          "period_bits": 951
+        }
+      ]
+    },
+    {
+      "base": 10,
+      "width": 100,
+      "window_exponent": 2,
+      "exponent_cap": 21,
+      "C": 5,
+      "primes_per_exponent": 12,
+      "exponents_checked": 8,
+      "sum_density_upper": "3250843501779844259652545214578013/11000000000000000000000000000000000000",
+      "details": [
+        {
+          "exponent": 2,
+          "selected": 12,
+          "min_prime": 1009,
+          "max_prime": 1069,
+          "period_bits": 201
+        },
+        {
+          "exponent": 3,
+          "selected": 12,
+          "min_prime": 1531,
+          "max_prime": 1669,
+          "period_bits": 211
+        },
+        {
+          "exponent": 5,
+          "selected": 12,
+          "min_prime": 2521,
+          "max_prime": 2851,
+          "period_bits": 211
+        },
+        {
+          "exponent": 7,
+          "selected": 12,
+          "min_prime": 3529,
+          "max_prime": 4159,
+          "period_bits": 211
+        },
+        {
+          "exponent": 11,
+          "selected": 12,
+          "min_prime": 5501,
+          "max_prime": 6689,
+          "period_bits": 221
+        },
+        {
+          "exponent": 13,
+          "selected": 12,
+          "min_prime": 6553,
+          "max_prime": 7541,
+          "period_bits": 221
+        },
+        {
+          "exponent": 17,
+          "selected": 12,
+          "min_prime": 8501,
+          "max_prime": 10303,
+          "period_bits": 236
+        },
+        {
+          "exponent": 19,
+          "selected": 12,
+          "min_prime": 9539,
+          "max_prime": 12161,
+          "period_bits": 242
+        }
+      ]
+    },
+    {
+      "base": 10,
+      "width": 300,
+      "window_exponent": 2,
+      "exponent_cap": 32,
+      "C": 5,
+      "primes_per_exponent": 30,
+      "exponents_checked": 11,
+      "sum_density_upper": "6064324904001137315739052973405902349981449964877702771690381867235246443842476494984495342645031/5970842830744821000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "details": [
+        {
+          "exponent": 2,
+          "selected": 30,
+          "min_prime": 3001,
+          "max_prime": 3257,
+          "period_bits": 529
+        },
+        {
+          "exponent": 3,
+          "selected": 30,
+          "min_prime": 4507,
+          "max_prime": 4987,
+          "period_bits": 561
+        },
+        {
+          "exponent": 5,
+          "selected": 30,
+          "min_prime": 7541,
+          "max_prime": 8741,
+          "period_bits": 566
+        },
+        {
+          "exponent": 7,
+          "selected": 30,
+          "min_prime": 10501,
+          "max_prime": 11831,
+          "period_bits": 589
+        },
+        {
+          "exponent": 11,
+          "selected": 30,
+          "min_prime": 16567,
+          "max_prime": 19427,
+          "period_bits": 619
+        },
+        {
+          "exponent": 13,
+          "selected": 30,
+          "min_prime": 19501,
+          "max_prime": 22621,
+          "period_bits": 607
+        },
+        {
+          "exponent": 17,
+          "selected": 30,
+          "min_prime": 25603,
+          "max_prime": 29989,
+          "period_bits": 630
+        },
+        {
+          "exponent": 19,
+          "selected": 30,
+          "min_prime": 28729,
+          "max_prime": 34543,
+          "period_bits": 631
+        },
+        {
+          "exponent": 23,
+          "selected": 30,
+          "min_prime": 34501,
+          "max_prime": 42643,
+          "period_bits": 641
+        },
+        {
+          "exponent": 29,
+          "selected": 30,
+          "min_prime": 44371,
+          "max_prime": 53593,
+          "period_bits": 663
+        },
+        {
+          "exponent": 31,
+          "selected": 30,
+          "min_prime": 46687,
+          "max_prime": 54437,
+          "period_bits": 651
+        }
+      ]
+    },
+    {
+      "base": 10,
+      "width": 1000,
+      "window_exponent": 2,
+      "exponent_cap": 47,
+      "C": 5,
+      "primes_per_exponent": 83,
+      "exponents_checked": 15,
+      "sum_density_upper": "220769066963449917785803657066482181553933999628277934583516247539168206630185097833367240588201607821399907911169742521953308219447682690583980620226603754942452227090888585880267546716772967857462585643196977749407547299060314326612885617867440126758066807773714140791472833852069563343856503689411583715021/2050000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "details": [
+        {
+          "exponent": 2,
+          "selected": 83,
+          "min_prime": 10007,
+          "max_prime": 10771,
+          "period_bits": 1743
+        },
+        {
+          "exponent": 3,
+          "selected": 83,
+          "min_prime": 15013,
+          "max_prime": 16573,
+          "period_bits": 1718
+        },
+        {
+          "exponent": 5,
+          "selected": 83,
+          "min_prime": 25031,
+          "max_prime": 28541,
+          "period_bits": 1746
+        },
+        {
+          "exponent": 7,
+          "selected": 83,
+          "min_prime": 35099,
+          "max_prime": 39929,
+          "period_bits": 1734
+        },
+        {
+          "exponent": 11,
+          "selected": 83,
+          "min_prime": 55001,
+          "max_prime": 63823,
+          "period_bits": 1877
+        },
+        {
+          "exponent": 13,
+          "selected": 83,
+          "min_prime": 65027,
+          "max_prime": 76207,
+          "period_bits": 1839
+        },
+        {
+          "exponent": 17,
+          "selected": 83,
+          "min_prime": 85103,
+          "max_prime": 101117,
+          "period_bits": 1920
+        },
+        {
+          "exponent": 19,
+          "selected": 83,
+          "min_prime": 95153,
+          "max_prime": 112291,
+          "period_bits": 1926
+        },
+        {
+          "exponent": 23,
+          "selected": 83,
+          "min_prime": 115001,
+          "max_prime": 134873,
+          "period_bits": 1992
+        },
+        {
+          "exponent": 29,
+          "selected": 83,
+          "min_prime": 145349,
+          "max_prime": 170231,
+          "period_bits": 1950
+        },
+        {
+          "exponent": 31,
+          "selected": 83,
+          "min_prime": 155621,
+          "max_prime": 186311,
+          "period_bits": 1977
+        },
+        {
+          "exponent": 37,
+          "selected": 83,
+          "min_prime": 185149,
+          "max_prime": 224443,
+          "period_bits": 2001
+        },
+        {
+          "exponent": 41,
+          "selected": 83,
+          "min_prime": 205493,
+          "max_prime": 246247,
+          "period_bits": 1965
+        },
+        {
+          "exponent": 43,
+          "selected": 83,
+          "min_prime": 215087,
+          "max_prime": 254647,
+          "period_bits": 1981
+        },
+        {
+          "exponent": 47,
+          "selected": 83,
+          "min_prime": 236129,
+          "max_prime": 278147,
+          "period_bits": 2002
+        }
+      ]
+    }
+  ],
+  "total_exponent_selections": 102
+}

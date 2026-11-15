@@ -1,0 +1,6 @@
+Six exact matrix phases/translations and13 width-class counts: PASS
+Direct three-digit even prefix checks: 450
+Selected larger-width prefix checks: 42
+Certified three-digit endpoints: 15
+Individual rotation checks modulo27 and13: 8084
+PASS. Infinite-width claims follow from the proof, not extrapolation.

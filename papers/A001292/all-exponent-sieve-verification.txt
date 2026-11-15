@@ -1,0 +1,4 @@
+Exact quadratic-weight cases: 12
+Exact local-intersection periods: 3
+Exact Euler distributions: 3
+PASS. This audits identities, not the absence of individual perfect powers.

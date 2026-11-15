@@ -1,0 +1,39 @@
+{
+  "families": [
+    {
+      "p": 31,
+      "order": 465,
+      "full_width_period": 14415,
+      "append_period": 14415,
+      "macro_translation": 868,
+      "s": 168,
+      "L": 155,
+      "b": 91,
+      "prefix_coefficients": [
+        28,
+        17,
+        -6
+      ]
+    },
+    {
+      "p": 41,
+      "order": 205,
+      "full_width_period": 8405,
+      "append_period": 8405,
+      "macro_translation": 861,
+      "s": 38,
+      "L": 205,
+      "b": 126,
+      "prefix_coefficients": [
+        5,
+        27,
+        5
+      ]
+    }
+  ],
+  "joint_digit_progression": [
+    9468,
+    19065
+  ],
+  "joint_endpoint_density": "17534/1615441"
+}

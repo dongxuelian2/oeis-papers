@@ -1,0 +1,3 @@
+Exact prefix identity checks: 99958
+Rational-square main term cases checked: 11
+PASS. Each selected rotation has a 2-adic obstruction; this is a method limitation only.

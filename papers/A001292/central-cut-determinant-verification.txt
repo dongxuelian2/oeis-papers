@@ -1,0 +1,241 @@
+{
+  "scope": "Finite component audits. The infinite theorem is established by the written proof.",
+  "rotations": {
+    "width2_pairs": 3400,
+    "width2_central_pairs": 410,
+    "width2_square_pairs": 0,
+    "width3_samples": 42,
+    "width3_sample_m_K": [
+      [
+        200,
+        8
+      ],
+      [
+        200,
+        9
+      ],
+      [
+        200,
+        18
+      ],
+      [
+        200,
+        19
+      ],
+      [
+        200,
+        50
+      ],
+      [
+        200,
+        81
+      ],
+      [
+        200,
+        82
+      ],
+      [
+        200,
+        100
+      ],
+      [
+        201,
+        8
+      ],
+      [
+        201,
+        9
+      ],
+      [
+        201,
+        19
+      ],
+      [
+        201,
+        20
+      ],
+      [
+        201,
+        50
+      ],
+      [
+        201,
+        51
+      ],
+      [
+        201,
+        81
+      ],
+      [
+        201,
+        82
+      ],
+      [
+        201,
+        101
+      ],
+      [
+        300,
+        8
+      ],
+      [
+        300,
+        9
+      ],
+      [
+        300,
+        68
+      ],
+      [
+        300,
+        69
+      ],
+      [
+        300,
+        100
+      ],
+      [
+        300,
+        131
+      ],
+      [
+        300,
+        132
+      ],
+      [
+        300,
+        200
+      ],
+      [
+        500,
+        8
+      ],
+      [
+        500,
+        9
+      ],
+      [
+        500,
+        168
+      ],
+      [
+        500,
+        169
+      ],
+      [
+        500,
+        200
+      ],
+      [
+        500,
+        231
+      ],
+      [
+        500,
+        232
+      ],
+      [
+        500,
+        400
+      ],
+      [
+        999,
+        8
+      ],
+      [
+        999,
+        9
+      ],
+      [
+        999,
+        418
+      ],
+      [
+        999,
+        419
+      ],
+      [
+        999,
+        449
+      ],
+      [
+        999,
+        450
+      ],
+      [
+        999,
+        480
+      ],
+      [
+        999,
+        481
+      ],
+      [
+        999,
+        899
+      ]
+    ],
+    "warning": "The theorem does not depend on these square searches."
+  },
+  "compressed_roots": {
+    "prime_power_compressed_branch_checks": 3154,
+    "decimal_crt_compressed_branch_checks": 979,
+    "individual_root_valuation_checks": 2993
+  },
+  "concavity": {
+    "symbolic_identity": "2 f f''-(f')^2 = A(6lambda-4T)-lambda(2T+lambda)/Q^2",
+    "checked_by": "Exact sparse-polynomial expansion, not numerical samples."
+  },
+  "determinants": {
+    "synthetic_divisibility_checks": 504,
+    "synthetic_nonzero_determinants": 504,
+    "synthetic_error_column_bound_checks": 12,
+    "warning": "Synthetic determinant examples are not rotation-square solutions."
+  },
+  "centered_constants": {
+    "widths_audited": [
+      2,
+      1000
+    ],
+    "width_count": 999,
+    "sample_bound_coefficients": [
+      {
+        "d": 2,
+        "theorem_coefficient_of_B": 192,
+        "uniform_alternative_coefficient_of_B": 256
+      },
+      {
+        "d": 3,
+        "theorem_coefficient_of_B": 192,
+        "uniform_alternative_coefficient_of_B": 288
+      },
+      {
+        "d": 4,
+        "theorem_coefficient_of_B": 224,
+        "uniform_alternative_coefficient_of_B": 288
+      },
+      {
+        "d": 10,
+        "theorem_coefficient_of_B": 256,
+        "uniform_alternative_coefficient_of_B": 320
+      },
+      {
+        "d": 100,
+        "theorem_coefficient_of_B": 352,
+        "uniform_alternative_coefficient_of_B": 448
+      },
+      {
+        "d": 1000,
+        "theorem_coefficient_of_B": 480,
+        "uniform_alternative_coefficient_of_B": 544
+      }
+    ]
+  },
+  "claims_not_made": [
+    "All-width nonexistence",
+    "All rotations covered",
+    "Earlier-width cuts covered",
+    "Integer-power conjecture solved"
+  ]
+}
+PASS. Finite audits support, but do not replace, the theorem proof.

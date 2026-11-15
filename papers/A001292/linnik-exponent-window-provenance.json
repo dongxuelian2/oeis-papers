@@ -1,0 +1,14 @@
+{
+  "kind": "New uniform polynomial exponent-window theorem and finite structural audits",
+  "parent_commit": "7fcce237b0000fa8d69a805c8e41d9c50edfddb5",
+  "analytic_input": "Classical unconditional Linnik least-prime theorem with unspecified admissible absolute constants K,L; fixed-exponent theorem already published",
+  "scope": "Prime exponents <= X^epsilon for fixed epsilon < 1/(4L+1); not all prime exponents",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "LINNIK_EXPONENT_WINDOW.md": "41bed6e4085e0ab116057ab636657951d7c0bfac533c702bac1dab7d67bebf98",
+    "verify_linnik_exponent_window.py": "6070fd2cb0fcbc141fa1f61c93978afffbc2b4c28b4a03d9dbab661c0f91c896",
+    "linnik-exponent-window-certificate.json": "54ecca83ccfd8d7e2b4604c9d54466cc831c7addf2bab6ac0c931bf54909a7b6",
+    "linnik-exponent-window-verification.txt": "37b195278b227d65e251597d32e3691ac2cb0b618898c9f83bde3324672846fa",
+    "README.md": "e66d91dcb5a783737740bebd9c1c9a3fbf6aae7912dc7d7dc4ae05d08ba540a0"
+  }
+}

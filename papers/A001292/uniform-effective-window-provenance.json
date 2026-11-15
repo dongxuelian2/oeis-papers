@@ -1,0 +1,19 @@
+{
+  "base_commit": "ab0cd0e674412787df4d8df3c9ac52051561bd1b",
+  "status": "Explicit uniform growing-prime window5<=e<=h+1 for h>=32, at widths3^h and2*3^h. Separate certified subsets, not all endpoint exclusion. Main manuscript/PDF unchanged.",
+  "external_source": {
+    "title": "Ahn and Kwon, An explicit upper bound for the least prime ideal in the Chebotarev density theorem",
+    "url": "https://www.numdam.org/item/10.5802/aif.3274.pdf",
+    "location": "Theorem1.1, journal page1413",
+    "used_bound": "Unconditional p<=absolute_discriminant^12577 for every nontrivial finite Galois extension and prescribed class, with base fieldQ."
+  },
+  "independent_review": "Passed source applicability, field degrees/intersections, relative/compositum discriminants, exactA301848, triangular-number classes, CRT density and one-period boundary loss, explicit h32 base and induction, and simultaneous quantifiers. Independent rerun of the supplied verifier passed9999 finite induction audits and412 prime/window comparisons. No optimization from conservative32 claimed.",
+  "verification_scope": "Finite verifier audits arithmetic constants and samples of induction inequalities; source theorem and written algebraic/inductive proof establish unbounded scope.",
+  "sha256": {
+    "uniform-effective-window-verification.txt": "5b62c185acf92cc92e7f9cff1b085cc26628944ee34f3599c39f8160c0b477ca",
+    "uniform-effective-window-certificate.json": "138809e270a3dc50a7128ccf86874ffcd5a363e6d15053a178da836c06d783e6",
+    "README.md": "1635ec5929be57571f9d5fe4fa8d9d6f28f93b2e101ef57d4cd6795838e4ea95",
+    "verify_uniform_effective_window.py": "47de1020a50ee1f56ea9981f59527bd93ae592f9ef8a5f5d0889956ed2f3b9a9",
+    "UNIFORM_EFFECTIVE_EXPONENT_WINDOW.md": "e918c9d8b6d79af894e715fe8cd51a4175b7610a5edfd1153a0e4ec23298cb7f"
+  }
+}

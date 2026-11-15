@@ -1,0 +1,79 @@
+{
+  "witnesses": [
+    {
+      "e": 5,
+      "p": 1031,
+      "exact_order": 103,
+      "nonzero_nonpowers": 824,
+      "witness_prime_density": "1/160",
+      "endpoint_density_factor": "8/1031"
+    },
+    {
+      "e": 7,
+      "p": 6203,
+      "exact_order": 443,
+      "nonzero_nonpowers": 5316,
+      "witness_prime_density": "1/336",
+      "endpoint_density_factor": "12/6203"
+    },
+    {
+      "e": 11,
+      "p": 3191,
+      "exact_order": 29,
+      "nonzero_nonpowers": 2900,
+      "witness_prime_density": "1/880",
+      "endpoint_density_factor": "100/3191"
+    },
+    {
+      "e": 13,
+      "p": 7151,
+      "exact_order": 275,
+      "nonzero_nonpowers": 6600,
+      "witness_prime_density": "1/1248",
+      "endpoint_density_factor": "24/7151"
+    },
+    {
+      "e": 17,
+      "p": 239,
+      "exact_order": 7,
+      "nonzero_nonpowers": 224,
+      "witness_prime_density": "1/2176",
+      "endpoint_density_factor": "32/239"
+    },
+    {
+      "e": 19,
+      "p": 43283,
+      "exact_order": 1139,
+      "nonzero_nonpowers": 41004,
+      "witness_prime_density": "1/2736",
+      "endpoint_density_factor": "36/43283"
+    },
+    {
+      "e": 23,
+      "p": 106031,
+      "exact_order": 2305,
+      "nonzero_nonpowers": 101420,
+      "witness_prime_density": "1/4048",
+      "endpoint_density_factor": "44/106031"
+    },
+    {
+      "e": 29,
+      "p": 36947,
+      "exact_order": 637,
+      "nonzero_nonpowers": 35672,
+      "witness_prime_density": "1/6496",
+      "endpoint_density_factor": "56/36947"
+    },
+    {
+      "e": 31,
+      "p": 49787,
+      "exact_order": 803,
+      "nonzero_nonpowers": 48180,
+      "witness_prime_density": "1/7440",
+      "endpoint_density_factor": "60/49787"
+    }
+  ],
+  "exact_nonpower_counts": 9,
+  "scalar_recurrence_checks": 135,
+  "width_coprimality_checks": 2700
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "New proof and finite audits; not recovered historical files",
+  "parent_commit": "26f1bdeedeab1dd970dcf922629fce41b859bbc1",
+  "scope": "Fixed prime exponents; not the full integer conjecture",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "GROWING_PRIME_SIEVE.md": "6d59d729f04a42fcf38b616380ead18330f5175be8bd309ba80dd0cb5ed1da62",
+    "verify_growing_prime_sieve.py": "a61cbe1bbf15d9b948057fc40f84c0ad6e3ec507b402b3f85bcf9e1264c234c7",
+    "growing-prime-sieve-certificate.json": "c0406efb0ffb027367878d3353588d5426dab3278c4c992071d4ae8a962614c0",
+    "growing-prime-sieve-verification.txt": "11d6787836369a6a3011cf1f74d64f9237464ba8388cbacc284cfcef9ad5add1",
+    "README.md": "4e2e1b5f175284573816b93e364ebc195e9aac5a28a2e12d2eb1e31ae1af3586"
+  }
+}

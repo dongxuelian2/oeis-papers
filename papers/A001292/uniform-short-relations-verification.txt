@@ -1,0 +1,12 @@
+{
+  "identity_samples": 3430,
+  "early_bound_samples": 1464,
+  "late_bound_samples": 1963,
+  "vacuous_radius_samples": 3,
+  "rational_root_local_samples": 0,
+  "synthetic_local_samples": 1445,
+  "eta_threshold_samples": 7568,
+  "moving_counterexample_samples": 5,
+  "denominator_clearing_samples": 124
+}
+PASS. Finite ingredient checks only; no square solutions or exceptional subspaces computed.

@@ -1,0 +1,115 @@
+{
+  "exact_prefix_identity_checks": 99958,
+  "leading_square_cases": [
+    {
+      "width": 3,
+      "cut": 164,
+      "endpoint": 166,
+      "J": 164836,
+      "squarefree_part": 1,
+      "root": 406,
+      "v2": 2,
+      "unit_mod8": 7
+    },
+    {
+      "width": 3,
+      "cut": 351,
+      "endpoint": 352,
+      "J": 351649,
+      "squarefree_part": 1,
+      "root": 593,
+      "v2": 0,
+      "unit_mod8": 7
+    },
+    {
+      "width": 3,
+      "cut": 996,
+      "endpoint": 998,
+      "J": 996004,
+      "squarefree_part": 1,
+      "root": 998,
+      "v2": 2,
+      "unit_mod8": 7
+    },
+    {
+      "width": 5,
+      "cut": 12031,
+      "endpoint": 12032,
+      "J": 1203187969,
+      "squarefree_part": 1,
+      "root": 34687,
+      "v2": 0,
+      "unit_mod8": 7
+    },
+    {
+      "width": 5,
+      "cut": 19751,
+      "endpoint": 19752,
+      "J": 1975180249,
+      "squarefree_part": 1,
+      "root": 44443,
+      "v2": 0,
+      "unit_mod8": 7
+    },
+    {
+      "width": 5,
+      "cut": 30864,
+      "endpoint": 30866,
+      "J": 3086469136,
+      "squarefree_part": 1,
+      "root": 55556,
+      "v2": 4,
+      "unit_mod8": 7
+    },
+    {
+      "width": 5,
+      "cut": 42656,
+      "endpoint": 42658,
+      "J": 4265657344,
+      "squarefree_part": 1,
+      "root": 65312,
+      "v2": 10,
+      "unit_mod8": 7
+    },
+    {
+      "width": 5,
+      "cut": 59000,
+      "endpoint": 59001,
+      "J": 5900041000,
+      "squarefree_part": 10,
+      "root": 24290,
+      "v2": 3,
+      "unit_mod8": 3
+    },
+    {
+      "width": 5,
+      "cut": 81436,
+      "endpoint": 81438,
+      "J": 8143618564,
+      "squarefree_part": 1,
+      "root": 90242,
+      "v2": 2,
+      "unit_mod8": 7
+    },
+    {
+      "width": 5,
+      "cut": 97750,
+      "endpoint": 97751,
+      "J": 9775002250,
+      "squarefree_part": 10,
+      "root": 31265,
+      "v2": 1,
+      "unit_mod8": 3
+    },
+    {
+      "width": 5,
+      "cut": 99996,
+      "endpoint": 99998,
+      "J": 9999600004,
+      "squarefree_part": 1,
+      "root": 99998,
+      "v2": 2,
+      "unit_mod8": 7
+    }
+  ]
+}

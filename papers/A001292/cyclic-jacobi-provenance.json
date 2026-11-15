@@ -1,0 +1,15 @@
+{
+  "kind": "Whole-block Jacobi sufficient criterion and ten exact certificates",
+  "parent_commit": "009cd589e6c5ac93ea343472b807083e01a250e7",
+  "scope": "51939 rotations in ten specified blocks; no infinite classification or full conjecture proof",
+  "verification": "Ten block hypotheses, fifty selected cuts and ten optional SymPy symbol cross-checks. Full-block exclusion follows from the theorem.",
+  "review": "Independent mathematical review and independent prefix reconstruction confirmed the criterion and ten certificates. No separate review script is claimed.",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "CYCLIC_JACOBI_CERTIFICATE.md": "251c524f1babd11cbc136abef2bb655ce8c9f609b82ea97b0a873e92ae320394",
+    "verify_cyclic_jacobi_certificate.py": "5c146642aaedb689813ab0886053b618d372f63251f1fc2ea49d9271b59fe7c5",
+    "cyclic-jacobi-certificate.json": "5f85755e61e83032173851bfc3420daac644b60a384e438573cf310054977007",
+    "cyclic-jacobi-verification.txt": "bcbae690cc8c4001ef7c5da22386fd6485339af8125eb1381ff205985f69543c",
+    "README.md": "a8ce86a2eb21a80b2c378c9fbfd08b01200acd9e195c1af34bafd31233a4be2b"
+  }
+}

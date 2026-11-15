@@ -1,0 +1,15 @@
+{
+  "kind": "Infinite growing-modulus Jacobi family proved by character counting",
+  "parent_commit": "7ed498a111754122ef65f2f800ed404c1c2db949",
+  "scope": "Asymptotic endpoint proportion within widths d=3^h; not natural density over all endpoints or full conjecture",
+  "verification": "40 small-modulus character cases; complete nine-digit congruence-restricted scan; 30 selected prefix checks across widths 9,27,81. Infinite assertion follows from proof.",
+  "review": "Independent proof audit confirmed prime factors, degenerate character cases and quantifiers; independent h=2 count matched. No separate review script is claimed.",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "CYCLOTOMIC_JACOBI_FAMILY.md": "0cd42157e17d3b40f890efcc3e4c33d8040a63a5aae70edba566f3517eb26b57",
+    "verify_cyclotomic_jacobi_family.py": "5617d248023a1c9e9ee16db2f5af68abd98a24342c4ae45003f42026e08f2328",
+    "cyclotomic-jacobi-family-certificate.json": "6994cd3a6989a374ffaa141d8fcaa3f86b48afbab3b50e225e4024c8abad3c40",
+    "cyclotomic-jacobi-family-verification.txt": "7f72216151ab8860b99dd9df1a5fdac227abd554d58140a775bec0f283e16d99",
+    "README.md": "20b8ba3bd7dc706283fbbc1490cd803887180d6805d3cd064c29f675a00ceac0"
+  }
+}

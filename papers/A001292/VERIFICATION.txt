@@ -1,0 +1,9 @@
+Current consolidated recovery audit
+===================================
+The manuscript source and 15-page PDF are byte-for-byte identical to the previously reviewed18-cut revision, independently checked against its recorded SHA-256 and Git blob hashes.
+
+The four earlier unpublished18-cut audit scripts were unavailable after workspace recovery. They are not claimed to have been restored. The new verify_recovered_uniform.py independently rechecks the recovered proof and its finite certificates using the published baseline matrix implementation. All checks pass; exact fresh output is in verification-recovered-uniform.txt.
+
+Fresh checks:18 normalized prefixes;24 valuation signatures through n=10000 with every z and unit c modulo81;1,619,892 literal-prefix fixed-cut comparisons;18 fullh=4 sets each containing3674 classes;944,784 independent matrix rotation comparisons at d=9,18,27,54,81,162,243,486.
+
+The density, h=2 and h=3 retained verifiers were also rerun; output is in verification-retained.txt. No new numerical search is presented as proof of the global integer conjecture. Later31/41 and other prime-family research is not incorporated in this manuscript revision.

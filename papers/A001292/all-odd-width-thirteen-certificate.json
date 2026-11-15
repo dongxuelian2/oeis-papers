@@ -1,0 +1,530 @@
+{
+  "width_phases": [
+    {
+      "width_mod78": 1,
+      "alpha": 10,
+      "constant": 0,
+      "classes_mod702": [
+        18,
+        72,
+        180,
+        288,
+        396,
+        450
+      ]
+    },
+    {
+      "width_mod78": 3,
+      "alpha": 7,
+      "constant": 5,
+      "classes_mod702": [
+        72,
+        234,
+        288,
+        342,
+        396,
+        558
+      ]
+    },
+    {
+      "width_mod78": 5,
+      "alpha": 4,
+      "constant": 11,
+      "classes_mod702": [
+        18,
+        126,
+        234,
+        288,
+        558,
+        612
+      ]
+    },
+    {
+      "width_mod78": 7,
+      "alpha": 10,
+      "constant": 5,
+      "classes_mod702": [
+        180,
+        234,
+        342,
+        450,
+        558,
+        612
+      ]
+    },
+    {
+      "width_mod78": 9,
+      "alpha": 7,
+      "constant": 10,
+      "classes_mod702": [
+        18,
+        72,
+        126,
+        288,
+        504,
+        666
+      ]
+    },
+    {
+      "width_mod78": 11,
+      "alpha": 4,
+      "constant": 3,
+      "classes_mod702": [
+        72,
+        180,
+        288,
+        342,
+        612,
+        666
+      ]
+    },
+    {
+      "width_mod78": 13,
+      "alpha": 10,
+      "constant": 10,
+      "classes_mod702": [
+        18,
+        72,
+        342,
+        396,
+        504,
+        612
+      ]
+    },
+    {
+      "width_mod78": 15,
+      "alpha": 7,
+      "constant": 2,
+      "classes_mod702": [
+        18,
+        234,
+        396,
+        450,
+        504,
+        558
+      ]
+    },
+    {
+      "width_mod78": 17,
+      "alpha": 4,
+      "constant": 8,
+      "classes_mod702": [
+        18,
+        126,
+        234,
+        342,
+        396,
+        666
+      ]
+    },
+    {
+      "width_mod78": 19,
+      "alpha": 10,
+      "constant": 2,
+      "classes_mod702": [
+        72,
+        180,
+        234,
+        504,
+        558,
+        666
+      ]
+    },
+    {
+      "width_mod78": 21,
+      "alpha": 7,
+      "constant": 7,
+      "classes_mod702": [
+        126,
+        180,
+        234,
+        288,
+        450,
+        666
+      ]
+    },
+    {
+      "width_mod78": 23,
+      "alpha": 4,
+      "constant": 0,
+      "classes_mod702": [
+        18,
+        72,
+        180,
+        288,
+        396,
+        450
+      ]
+    },
+    {
+      "width_mod78": 25,
+      "alpha": 10,
+      "constant": 7,
+      "classes_mod702": [
+        18,
+        126,
+        234,
+        342,
+        396,
+        666
+      ]
+    },
+    {
+      "width_mod78": 27,
+      "alpha": 7,
+      "constant": 12,
+      "classes_mod702": [
+        18,
+        180,
+        396,
+        558,
+        612,
+        666
+      ]
+    },
+    {
+      "width_mod78": 29,
+      "alpha": 4,
+      "constant": 5,
+      "classes_mod702": [
+        72,
+        126,
+        234,
+        342,
+        450,
+        504
+      ]
+    },
+    {
+      "width_mod78": 31,
+      "alpha": 10,
+      "constant": 12,
+      "classes_mod702": [
+        126,
+        180,
+        288,
+        396,
+        504,
+        558
+      ]
+    },
+    {
+      "width_mod78": 33,
+      "alpha": 7,
+      "constant": 4,
+      "classes_mod702": [
+        126,
+        288,
+        342,
+        396,
+        450,
+        612
+      ]
+    },
+    {
+      "width_mod78": 35,
+      "alpha": 4,
+      "constant": 10,
+      "classes_mod702": [
+        126,
+        180,
+        288,
+        396,
+        504,
+        558
+      ]
+    },
+    {
+      "width_mod78": 37,
+      "alpha": 10,
+      "constant": 4,
+      "classes_mod702": [
+        18,
+        288,
+        342,
+        450,
+        558,
+        666
+      ]
+    },
+    {
+      "width_mod78": 39,
+      "alpha": 7,
+      "constant": 9,
+      "classes_mod702": [
+        18,
+        72,
+        126,
+        180,
+        342,
+        558
+      ]
+    },
+    {
+      "width_mod78": 41,
+      "alpha": 4,
+      "constant": 2,
+      "classes_mod702": [
+        180,
+        234,
+        342,
+        450,
+        558,
+        612
+      ]
+    },
+    {
+      "width_mod78": 43,
+      "alpha": 10,
+      "constant": 9,
+      "classes_mod702": [
+        18,
+        126,
+        180,
+        450,
+        504,
+        612
+      ]
+    },
+    {
+      "width_mod78": 45,
+      "alpha": 7,
+      "constant": 1,
+      "classes_mod702": [
+        72,
+        288,
+        450,
+        504,
+        558,
+        612
+      ]
+    },
+    {
+      "width_mod78": 47,
+      "alpha": 4,
+      "constant": 7,
+      "classes_mod702": [
+        234,
+        288,
+        396,
+        504,
+        612,
+        666
+      ]
+    },
+    {
+      "width_mod78": 49,
+      "alpha": 10,
+      "constant": 1,
+      "classes_mod702": [
+        72,
+        180,
+        288,
+        342,
+        612,
+        666
+      ]
+    },
+    {
+      "width_mod78": 51,
+      "alpha": 7,
+      "constant": 6,
+      "classes_mod702": [
+        18,
+        180,
+        234,
+        288,
+        342,
+        504
+      ]
+    },
+    {
+      "width_mod78": 53,
+      "alpha": 4,
+      "constant": 12,
+      "classes_mod702": [
+        18,
+        288,
+        342,
+        450,
+        558,
+        666
+      ]
+    },
+    {
+      "width_mod78": 55,
+      "alpha": 10,
+      "constant": 6,
+      "classes_mod702": [
+        72,
+        126,
+        234,
+        342,
+        450,
+        504
+      ]
+    },
+    {
+      "width_mod78": 57,
+      "alpha": 7,
+      "constant": 11,
+      "classes_mod702": [
+        18,
+        72,
+        234,
+        450,
+        612,
+        666
+      ]
+    },
+    {
+      "width_mod78": 59,
+      "alpha": 4,
+      "constant": 4,
+      "classes_mod702": [
+        18,
+        72,
+        342,
+        396,
+        504,
+        612
+      ]
+    },
+    {
+      "width_mod78": 61,
+      "alpha": 10,
+      "constant": 11,
+      "classes_mod702": [
+        234,
+        288,
+        396,
+        504,
+        612,
+        666
+      ]
+    },
+    {
+      "width_mod78": 63,
+      "alpha": 7,
+      "constant": 3,
+      "classes_mod702": [
+        180,
+        342,
+        396,
+        450,
+        504,
+        666
+      ]
+    },
+    {
+      "width_mod78": 65,
+      "alpha": 4,
+      "constant": 9,
+      "classes_mod702": [
+        72,
+        126,
+        396,
+        450,
+        558,
+        666
+      ]
+    },
+    {
+      "width_mod78": 67,
+      "alpha": 10,
+      "constant": 3,
+      "classes_mod702": [
+        72,
+        126,
+        396,
+        450,
+        558,
+        666
+      ]
+    },
+    {
+      "width_mod78": 69,
+      "alpha": 7,
+      "constant": 8,
+      "classes_mod702": [
+        72,
+        126,
+        180,
+        234,
+        396,
+        612
+      ]
+    },
+    {
+      "width_mod78": 71,
+      "alpha": 4,
+      "constant": 1,
+      "classes_mod702": [
+        18,
+        126,
+        180,
+        450,
+        504,
+        612
+      ]
+    },
+    {
+      "width_mod78": 73,
+      "alpha": 10,
+      "constant": 8,
+      "classes_mod702": [
+        18,
+        126,
+        234,
+        288,
+        558,
+        612
+      ]
+    },
+    {
+      "width_mod78": 75,
+      "alpha": 7,
+      "constant": 0,
+      "classes_mod702": [
+        126,
+        342,
+        504,
+        558,
+        612,
+        666
+      ]
+    },
+    {
+      "width_mod78": 77,
+      "alpha": 4,
+      "constant": 6,
+      "classes_mod702": [
+        72,
+        180,
+        234,
+        504,
+        558,
+        666
+      ]
+    }
+  ],
+  "general_mod27_checks": 99999,
+  "direct_linear_prefix_checks": 15151,
+  "selected_larger_prefix_checks": 48,
+  "certified_three_digit_endpoints": [
+    234,
+    288,
+    342,
+    396,
+    558,
+    774,
+    936,
+    990
+  ],
+  "selected_five_digit_endpoints": [
+    10062,
+    10116,
+    10386
+  ],
+  "individual_modular_rotation_checks": 35082
+}

@@ -1,0 +1,43 @@
+PASS: strengthened boundary constants, 136 low classes, 18 full 3673-class sets
+PASS: strengthened prefix polynomial, d = 9
+PASS: strengthened prefix polynomial, d = 18
+PASS: strengthened prefix polynomial, d = 27
+PASS: strengthened prefix polynomial, d = 36
+PASS: strengthened prefix polynomial, d = 45
+PASS: strengthened prefix polynomial, d = 54
+PASS: strengthened prefix polynomial, d = 81
+PASS: strengthened prefix polynomial, d = 108
+PASS: strengthened prefix polynomial, d = 135
+PASS: strengthened prefix polynomial, d = 189
+PASS: strengthened prefix polynomial, d = 216
+PASS: exact h=3 classification, d = 27
+PASS: exact h=3 classification, d = 54
+PASS: exact h=3 classification, d = 108
+PASS: exact h=3 classification, d = 135
+PASS: exact h=3 classification, d = 189
+PASS: exact h=3 classification, d = 216
+PASS: 433026 independent rotation checks, including first-two-cut witnesses
+PASS: u = 1 , 3673 excluded classes, all other classes have cut-0/1 witnesses
+PASS: u = 2 , 3673 excluded classes, all other classes have cut-0/1 witnesses
+PASS: u = 4 , 3673 excluded classes, all other classes have cut-0/1 witnesses
+PASS: u = 5 , 3673 excluded classes, all other classes have cut-0/1 witnesses
+PASS: u = 7 , 3673 excluded classes, all other classes have cut-0/1 witnesses
+PASS: u = 8 , 3673 excluded classes, all other classes have cut-0/1 witnesses
+PASS: 354294 normalized rotation residues
+PASS: six complete residue tables, exact prefix constants, full-coset lemma
+PASS: matrix-initialized consecutive prefixes, d = 9
+PASS: matrix-initialized consecutive prefixes, d = 18
+PASS: matrix-initialized consecutive prefixes, d = 36
+PASS: matrix-initialized consecutive prefixes, d = 45
+PASS: 183708 independent bounded-cut checks
+old 0.9553273407215389
+positive_valuation_gain 3.624153533696373e-06
+tail_rows [(6, '1/2187', 0.0004572473708276177), (7, '4/19683', 0.00020322105370116343), (10, '2/531441', 3.7633528463178416e-06), (14, '1/14348907', 6.969171937625632e-08), (16, '2/387420489', 5.162349583426394e-09), (22, '2/282429536481', 7.0814123229442994e-12), (25, '4/7625597484987', 5.24549060958837e-13), (30, '1/617673396283947', 1.618978583206287e-15), (34, '2/150094635296999121', 1.3324926610751334e-17), (46, '2/79766443076872509863361', 2.507320024377369e-23), (52, '2/58149737003040059690390169', 3.4393964669099714e-26), (62, '1/1144561273430837494885949696427', 8.736972176268789e-31), (70, '2/22528399544939174411840147874772641', 8.877683459095452e-35), (79, '4/443426488243037769948249630619149892803', 9.020660934913836e-39), (94, '2/6362685441135942358474828762538534230890216321', 3.1433268523218653e-46)]
+tail_gain 0.0006643066390516523
+new_lower_bound 0.9559952715141242
+enumerated 7 3 4 688 2401 pass
+enumerated 11 5 4 2662 14641 pass
+enumerated 757 7 2 81756 573049 pass
+finite h<=16 lower bound 0.9559952715065166
+baseline reconstruction, rational lower-bound comparison, and shell checks: PASS
+exact finite bound: 377903510052590762238918408516983181421022498919914851934813837000894560506156767859512113196545961078054452664/395298513827444950658134190062728824071600352208526662479460438127079746839607095737512223973874950293732051325

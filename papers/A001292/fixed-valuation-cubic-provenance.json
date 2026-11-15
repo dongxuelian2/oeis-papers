@@ -1,0 +1,15 @@
+{
+  "base_commit": "ff8b8e9a40503a03871911151907c54a00251b67",
+  "status": "Three-cut local equivalence, exact valuation3 phase table, effective37 certificates at bounded width valuations, and general specified-common-valuation criterion. No full integer classification. Main manuscript/PDF unchanged.",
+  "independent_review": "Passed. Corrected X2 normalization to12*10^(-2), and restricted density wording to certified subset. Independent scalar audit verifies90 state-period cases,6561 cells, boundary cycle, general-b congruences, all37 character counts,999 combined width phases and49284 prefix-phase checks. Its included script changes only the certificate path to a relative sibling path and was rerun successfully.",
+  "verification_scope": "Primary verifier checks27 matrix phases,6561 table cells,99999 direct endpoints and101385 modular rotations. Exact local equivalence and finite phase identities, not endpoint extrapolation, justify unbounded scope.",
+  "sha256": {
+    "fixed-valuation-cubic-verification.txt": "558e8ca5d2136541e93e1b19fe5635a4b89e994aabb52de7a7bad6831687aa64",
+    "FIXED_VALUATION_CUBIC_CLASSIFICATION.md": "e798a9ba8738a4eaaa4e3314cfd122b3a214e3d2459f29cacc2f43abdde78d4a",
+    "README.md": "add24c576f0beb84c71f6326d4d8a655cc81b9e4a0304d76f5dc52259c89cf01",
+    "verify_fixed_valuation_cubic.py": "75df768a1a6aeeb4e3f98694214053839cba2a332f5bf978f3ea36ff1f886818",
+    "verify_fixed_valuation_cubic_independent.py": "8460d548f2dbba02a93db278fe43224cadee4c0ea2b3710062e82538b2f0da3c",
+    "fixed-valuation-cubic-certificate.json": "d9a163275301e660a2ebe0363ebcf70cec5bddad3ce731ae83319499dc04ce8c",
+    "fixed-valuation-cubic-independent-verification.txt": "6f0fadd85c7254268a600e3587c7ea46c473bc5bba28777aad2a690677640e5b"
+  }
+}

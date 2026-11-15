@@ -1,0 +1,3 @@
+CRT prime constructions checked: 30
+Exact finite density-tail checks: 9
+PASS. No numerical admissible Linnik constants or resolution of the integer conjecture is claimed.

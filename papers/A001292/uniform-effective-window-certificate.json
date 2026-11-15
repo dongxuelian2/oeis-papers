@@ -1,0 +1,65 @@
+{
+  "A": 301848,
+  "discriminant_constant": 53084160000,
+  "h0": 32,
+  "base_left": 1853020188851841,
+  "base_right": 31556397380,
+  "induction_cases": 9999,
+  "growing_window_cases": [
+    {
+      "h": 32,
+      "prime_exponents": 9,
+      "largest_prime": 31,
+      "sufficient_power3_exponent": 31556397381
+    },
+    {
+      "h": 33,
+      "prime_exponents": 9,
+      "largest_prime": 31,
+      "sufficient_power3_exponent": 34544692583
+    },
+    {
+      "h": 40,
+      "prime_exponents": 11,
+      "largest_prime": 41,
+      "sufficient_power3_exponent": 60888778645
+    },
+    {
+      "h": 64,
+      "prime_exponents": 16,
+      "largest_prime": 61,
+      "sufficient_power3_exponent": 244859097733
+    },
+    {
+      "h": 100,
+      "prime_exponents": 24,
+      "largest_prime": 101,
+      "sufficient_power3_exponent": 923745434605
+    },
+    {
+      "h": 128,
+      "prime_exponents": 29,
+      "largest_prime": 127,
+      "sufficient_power3_exponent": 1928852186373
+    },
+    {
+      "h": 256,
+      "prime_exponents": 53,
+      "largest_prime": 257,
+      "sufficient_power3_exponent": 15311430568453
+    },
+    {
+      "h": 512,
+      "prime_exponents": 95,
+      "largest_prime": 509,
+      "sufficient_power3_exponent": 122015287776261
+    },
+    {
+      "h": 1000,
+      "prime_exponents": 166,
+      "largest_prime": 997,
+      "sufficient_power3_exponent": 907355993546005
+    }
+  ],
+  "prime_window_pairs": 412
+}
