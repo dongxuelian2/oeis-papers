@@ -82,6 +82,64 @@ with a corresponding positive proportional margin, up to the negligible O(d) ter
 
 If alpha is rational, the exact rational-square leading-term case is already addressed by the separate 2-adic obstacle (for K>=8). The approximation discussion concerns the irrational case.
 
+### 3.1 All same-width endpoints, including balanced cancellation
+
+The following exact gap obstruction extends beyond the m>=2L range
+of Sections 1–3. Here allow every
+
+    d>=2, L<=m<=B-1, L+7<=k<m,
+    B=10^d, L=B/10, C=B-1,
+    t=D(L-1), G=10^t, A=C²W_(L-1)+LC+1,
+    N=m-L+1, K=k-L+1>=8, J=kC+B, M=mC+B.
+
+Suppose the actual rotation is y². Put X=Cy, write t+dN=2q+e with
+0<=e<=1, and set Q=10^q, alpha=sqrt(10^e J). Reduce X/Q=p_0/Q_0,
+with g=gcd(X,Q), p_0=X/g and Q_0=Q/g. Then
+
+    |alpha-p_0/Q_0| Q_0² > (B^K-B²)/(7B³) > 1.    (3)
+
+In particular, retaining the exact earlier-width prefix does not
+produce a Roth-strength approximation even when GM nearly cancels A.
+
+**Proof.** The full-word identities give exactly
+
+    X²=10^e J Q²-T, T=(GM-A)B^K+J.
+
+The coefficient valuation v_5(A)=d-1, proved in STRUCTURE.md (4),
+is valid for every d>=2. Since t>d, GM has 5-adic valuation at
+least t, so GM-A is a nonzero integer. Thus
+
+    |T|>=B^K-J>B^K-B².
+
+No estimate discards W_(L-1), and the sign of GM-A is unrestricted.
+For p=2,5 the same identity modulo B^K gives X²=-J modulo B^K.
+Since J<B² and K>=8, v_p(J)<v_p(B^K), forcing
+2v_p(X)=v_p(J). In particular these valuations must be even under
+the square hypothesis, and
+
+    g²<=2^v_2(J) 5^v_5(J)<=J<B².
+
+The rotation has exactly t+dN digits. Therefore both alpha and
+X/Q are less than sqrt(10)B. Factoring their difference of squares
+now gives
+
+    |alpha-p_0/Q_0| Q_0²
+      = |T|/[g²(alpha+X/Q)] > (B^K-B²)/(7B³),
+
+as asserted. This also proves alpha!=p_0/Q_0. If alpha is rational,
+the separate 2-adic exact-main-term argument already excludes the
+putative square in this domain. In the irrational case (3) shows
+that this small-height leading-root approximation is not even a
+regular continued-fraction convergent. The necessary convergent
+with a different, larger coefficient in STRUCTURE.md (7) is unaffected.
+This closes the proposed balanced-endpoint repair of this approximation;
+it does not exclude the rotation itself or settle higher powers.
+
+Run `python papers/A001292/verify_balanced_target_gap.py`. It verifies
+the exact full-word identities, coefficient valuations and gap bounds
+at ordinary, early and nearest-balanced endpoints, without assuming
+that a finite sample contains an integer-square rotation.
+
 ## 4. The changing quadratic fields are a real feature of the parameter domain
 
 At m=B-1, fix the associated e and let K range from 8 through 3L. There are 3L-7 cuts. The targets alpha have at least
