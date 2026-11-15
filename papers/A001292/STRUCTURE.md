@@ -218,6 +218,63 @@ in the **entire** word \(W_{41}\); its coefficient in (3) still has valuations
 counterexample. Any successful use of (3) must exploit the exact prefix
 \(T_{m,k}=(k+1)\Vert\cdots\Vert m\), beyond its size or its terminal suffix.
 
+### Three-block grouping does not remove the earlier-width prefix
+
+There is a strong obstruction for a complete word of exactly three
+consecutive same-width blocks. Put B=10^d, d>=2, and
+M=(B²+B+1)/3. Then no word `n||(n+1)||(n+2)` with all three integers
+of width d is a square. Indeed its residue modulo M is B+2, whose
+Jacobi symbol is -1. To check the latter without factoring M, put
+v=(B+2)/6, an odd integer. Then M=12v²-6v+1 is coprime to 6v,
+M=3 modulo 4, M=7 modulo 12, and M=1 modulo v. Quadratic reciprocity
+and the supplementary laws give
+
+    (v/M)=(-1)^((v-1)/2),
+    (2/M)=(-1)^((v-1)/2), (3/M)=-1,
+    ((B+2)/M)=(6v/M)=-1.
+
+This elementary whole-word argument does not make a containing word
+nonsquare. In the actual prefix W_m, let L=10^(d-1), m have width d,
+and m-L+1=3t+r, with 0<=r<3. Every complete three-block group has
+residue B+2 modulo M and B³=1 modulo M, so the exact grouping formula is
+
+    W_m = B^r [W_(L-1)+t(B+2)] + T_r(m)  (mod M),
+    T_0(m)=0, T_1(m)=m, T_2(m)=(m-1)B+m.          (8)
+
+The earlier-width prefix W_(L-1) survives. Its blocks have different
+bases 10^j, so their grouping cannot be replaced by the same B+2
+identity. The full rotation still obeys the exact integer identity
+
+    R_(m,k)=10^D(k) W_m-(10^D(m)-1) W_k.           (9)
+
+A concrete entire block of actual rotations defeats a uniform
+quadratic-nonresidue conclusion from (8)-(9). Take m=105 and d=3.
+Then B=1000, M=333667, D(105)=207, and direct integer arithmetic gives
+
+    W_99 = 242665 (mod M),
+    W_105 = W_99+2(B+2) = 244669 (mod M),
+    100000² = 10 (mod M),
+    307823² = 244669 (mod M),
+    10^207 = 1 (mod M).                            (10)
+
+Consequently, for EVERY cut 0<=k<105, the actual rotation has the
+explicit square root
+
+    R_(105,k) = [307823 * 100000^D(k)]² (mod M).    (11)
+
+No primality or factorization of M is needed: the three modular
+identities in (10) prove all 105 certificates. The full actual
+intermediate word is included in (9), not filled with arbitrary digits.
+Thus a nonresidue proof for the isolated three-block word cannot be
+promoted to a universal pointwise obstruction by grouping the complete
+rotation modulo this same M. This does not claim that any rotation is
+an integer square or rule out using more information than this modulus.
+
+Run `python papers/A001292/verify_triple_rotation.py` from the repository
+root. It checks the Jacobi identities, all remainder cases of (8), and
+all 105 explicit root certificates against literal full rotations.
+No claim of literature-wide novelty is made for the three-block lemma.
+
 ## Sources and checks
 
 Run `python verify_structure.py`. It checks the old routines against literal

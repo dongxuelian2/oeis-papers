@@ -28,6 +28,14 @@ valuation reduction, so the implementation covers every prime exponent.
 The displayed rotation already fails the fifth-power test modulo 25.
 Uniform rejection and the integer conjecture remain open.
 
+[The structural companion](STRUCTURE.md#three-block-grouping-does-not-remove-the-earlier-width-prefix)
+also checks a full-word grouping route. Three consecutive equal-width
+blocks cannot form a square, but their Jacobi obstruction does not
+propagate through the earlier-width prefix. All 105 actual rotations at
+endpoint 105 have explicit square roots modulo the entire corresponding
+three-block modulus 333667. This closes that proposed uniform modular
+argument; it does not give integer square rotations.
+
 `pointwise_rotation.cpp` uses GMP and OpenMP. From the repository root:
 
 ```sh
