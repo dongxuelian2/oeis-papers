@@ -4,7 +4,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
 
 - **[A001040 / A001053](papers/A001040-A001053/)**
   - [A001040](https://oeis.org/A001040) (published): a(n+1) = n*a(n) + a(n-1) with a(0)=0, a(1)=1.
-  - [A001053](https://oeis.org/A001053): a(n+1) = n*a(n) + a(n-1) with a(0)=1, a(1)=0.
+  - [A001053](https://oeis.org/A001053) (published): a(n+1) = n*a(n) + a(n-1) with a(0)=1, a(1)=0.
   - **Result:** We proved Kurkov's endpoint-refined rook-tour conjectures for every positive board size: the numbers of directed Hamilton tours with endpoints in opposite and equal columns are respectively `2*n!*A001040(n)` and `2*n!*A001053(n)`.
 
 - **[A003630](papers/A003630/)**
@@ -144,7 +144,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We derived the conjectured rational generating function and order-10 recurrence from the exact state-count formula. The recurrence applies from `n=12`, with an exceptional value at `n=11`.
 
 - **[A334595](papers/A334595/)**
-  - [A334595](https://oeis.org/A334595): Binary interpretation of the right diagonal of the XOR-triangle with first row generated from the binary expansion of n.
+  - [A334595](https://oeis.org/A334595) (published): Binary interpretation of the right diagonal of the XOR-triangle with first row generated from the binary expansion of n.
   - **Result:** We proved both XOR-triangle conjectures: the record positions are 1 and `2^m+1`, and the value 1 occurs exactly at powers of 2. We also characterized the finite binary transform.
 
 - **[A334958](papers/A334958/)**
