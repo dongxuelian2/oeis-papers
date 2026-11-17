@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the twenty-paper OEIS batch from any working directory."""
+"""Verify the supported OEIS sequence identities from any working directory."""
 import argparse
 from pathlib import Path
 import subprocess

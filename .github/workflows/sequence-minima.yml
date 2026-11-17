@@ -8,7 +8,7 @@ on:
       - 'papers/A086558/**'
       - 'papers/A346644/**'
       - 'papers/A115038-A115041/**'
-      - '.github/workflows/existence-batch-20261026.yml'
+      - '.github/workflows/sequence-minima.yml'
   push:
     branches: [main, proof/oeis-existence-batch-20261026]
     paths:
@@ -17,7 +17,7 @@ on:
       - 'papers/A086558/**'
       - 'papers/A346644/**'
       - 'papers/A115038-A115041/**'
-      - '.github/workflows/existence-batch-20261026.yml'
+      - '.github/workflows/sequence-minima.yml'
   workflow_dispatch:
 
 permissions:

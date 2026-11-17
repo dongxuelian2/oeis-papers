@@ -23,8 +23,8 @@ on:
       - 'papers/A248520-A248521/**'
       - 'papers/A340138/**'
       - 'papers/A393833/**'
-      - 'papers/verify_batch_20261026.py'
-      - '.github/workflows/parallel-oeis-batch-20261026.yml'
+      - 'scripts/verify_sequence_identities.py'
+      - '.github/workflows/sequence-identities.yml'
   push:
     branches: [main]
     paths:
@@ -48,8 +48,8 @@ on:
       - 'papers/A248520-A248521/**'
       - 'papers/A340138/**'
       - 'papers/A393833/**'
-      - 'papers/verify_batch_20261026.py'
-      - '.github/workflows/parallel-oeis-batch-20261026.yml'
+      - 'scripts/verify_sequence_identities.py'
+      - '.github/workflows/sequence-identities.yml'
   workflow_dispatch:
 
 permissions:
@@ -65,7 +65,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: All twenty problems' exact implementation audits
-        run: python3 papers/verify_batch_20261026.py
+        run: python3 scripts/verify_sequence_identities.py
   papers:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -76,4 +76,4 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends texlive-latex-recommended lmodern
       - name: Compile all twenty papers twice and reject warnings
-        run: python3 papers/verify_batch_20261026.py --compile-papers
+        run: python3 scripts/verify_sequence_identities.py --compile-papers
