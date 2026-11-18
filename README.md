@@ -115,7 +115,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We proved direct piecewise formulas for every term of A191980–A191983, with exact counting and asymptotic growth laws. A191981 has unique positive representations; A191980 and A191982 each have exactly five repeated values; both pairwise intersections are completely classified. For general integer coefficients, we classified infinite-collision families of weighted Lucas sums and reverse differences and bounded all collisions of `L_i-qL_j` for `q>=2`.
 
 - **[A195608](papers/A195608/)**
-  - [A195608](https://oeis.org/A195608): Numbers n such that Sum\_{i=1..n} A(i) = A(n)\*A(n+1)/4, where A(n) = A001969(n).
+  - [A195608](https://oeis.org/A195608) (published): Numbers n such that Sum\_{i=1..n} A(i) = A(n)\*A(n+1)/4, where A(n) = A001969(n).
   - **Result:** We proved an exact binary-parity membership criterion for every index, settling the conjectured gap set `{1,4,6}`, maximal block lengths and the block-start identity.
 
 - **[A236383](papers/A236383/)**
