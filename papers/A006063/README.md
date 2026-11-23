@@ -1,87 +1,30 @@
-# OEIS A006063 / A096680: cube-sum permutations
+# Cube-sum permutations — OEIS A006063 / A096680 / A096904
 
-**Authors:** Qichao Wang (Hebei University of Technology); 董道豫 / Daoyu Dong (University of Electronic Science and Technology of China)
-**Manuscript date:** October 19, 2026  
-**Status:** mathematical review draft with eventual minimal-fixed-point involutions and exact finite certificates. The authors must supply/verify their own final wording and AI disclosure before journal submission. This is a **computer-assisted finite-certificate proof**, **not** a case-free classification or a peer-reviewed publication.
+Authors: Qichao Wang and Daoyu Dong.
 
-## Current editorial draft
+## Canonical manuscript
 
-This is an **AI-assisted editorial working draft**. The current revision adds
-all six algebraic families and the complete critical peeling rounds to the
-paper's mathematical appendices, while retaining the bulk finite data in the
-supplement. Both authors must provide/verify their own final wording, approve
-the mathematics and references, and finalize truthful AI-use disclosure before
-journal submission. See the [point-by-point editorial response](audit/EDITORIAL_RESPONSE.md)
-and its newly dated validation evidence; the first review's reports are retained
-as historical records, not relabeled as fresh checks.
+- [Main paper (PDF)](main.pdf)
+- [LaTeX source](main.tex) and [appendix](appendix.tex)
 
-Latest follow-up: [compact polish review and validation](audit/POLISH_REVIEW.md).
+The paper gives the exact existence classification for cube-sum permutations, the eventual multiplicity theorem, and parity-minimal involution constructions. The classification has 48 admissible sizes below 173 and all sizes at least 173. The multiplicity result proves at least three solutions for every size at least 175.
 
-## Main results
+## Verification
 
-For a positive integer `n`, let `P(n)` count permutations `p` of `{1,...,n}` such that every `i+p(i)` is a perfect cube.
+The main proof uses exact certificates in [certificates](certificates/) and Python verification programs. The checks in `reproduce.py` cover the finite basis, existence and nonexistence certificates, multiplicity, and eventual involutions.
 
-1. **Existence (A006063):** `P(n)>0` for every `n>=173`. Below 173, exactly the 48 sizes recorded in the paper are admissible; the other 124 sizes have explicit Hall-deficient witnesses. In OEIS notation, `A006063(j)=j+124` for `j>=49`.
-2. **Multiplicity (A096680):** `P(173)=P(174)=1`, `P(175)=3`, and `P(n)>=3` for all `n>=175`. Below 173, multiple permutations occur exactly at `112,115,116,117,119,124,125,126,127,128,129,130,133`. Hence `A096680(j)=j+161` for `j>=14`.
+From the repository root:
 
-**Eventual involutions (new theorem):** Every odd `n>=69603` has a cube-sum involution with the unique fixed point `4`; every even `n>=228028` has a fixed-point-free cube-sum involution. These bounds improve the archived research thresholds of 70001/230000. The proof uses strict odd-cube suffix reflections from the elementary seeds `p_7(i)=8-i` and `p_26(i)=27-i`, exact finite parity-interval closure (13 rounds over [69603,100001] and 12 rounds over [228028,303412]), and an integer cube-gap induction. The bounds are sufficient, **not claimed globally optimal**. The certificate requires no matching solver and is independent of the 56-shape existence atlas. This result allows the cube values to grow with `n`; it does not prove the separate finite-palette four-cube conjecture.
-
-The infinite existence argument is purely symbolic. The finite basis still uses **56 determinant-defined root-word/order shapes (784 reflected blocks)**, **25 seed specializations from six symbolic block families**, and a separate forced-neighbor proof for **n=173**. These 82 seeds and 132 additional finite cubic-suffix reflections cover the complete interval `[173,364]`. The interval-overlap avalanche then covers every larger integer.
-
-## Paper and supporting files
-
-- **[main.pdf](main.pdf)** — **typeset mathematical review draft** (not a journal-ready package).
-- **[main.tex](main.tex)** and **[appendix.tex](appendix.tex)** — editable LaTeX source, including all six block families and full critical peeling rounds.
-- **[certificates/finite_56_cubic_order_shapes.txt](certificates/finite_56_cubic_order_shapes.txt)** — the 56 independent algebraic seed parameter choices, with no precomputed interval endpoints.
-- **[verify_56_plus_forcing.py](verify_56_plus_forcing.py)** — independent exact-integer verification of all 56 determinant instances, the 25 symbolic template seeds, forced 173, and the finite reflection closure.
-- **[certificates/exact_classification_below_173.json](certificates/exact_classification_below_173.json)** — 48 explicit positive permutations and 124 explicit Hall-deficient sets.
-- **[certificates/second_solutions.json](certificates/second_solutions.json)** and **[certificates/third_solutions.json](certificates/third_solutions.json)** — alternating-cycle witnesses used for multiplicity.
-- **[verify_extended.py](verify_extended.py)** — full finite existence, nonexistence and multiplicity certificate checks.
-- **[verify_eventual_involutions.py](verify_eventual_involutions.py)** — independent exact interval-union certificate for the two strengthened minimal-fixed-point involution tails.
-- **[COMPRESSED_FINITE_PROOF.md](COMPRESSED_FINITE_PROOF.md)**, **[UNIMODULAR_BLOCK_FACTORY.md](UNIMODULAR_BLOCK_FACTORY.md)**, **[FORCED_REFLECTION_PEELING.md](FORCED_REFLECTION_PEELING.md)** and **[INTERVAL_OVERLAP_AVALANCHE.md](INTERVAL_OVERLAP_AVALANCHE.md)** — detailed supplementary arguments.
-- **[research_monograph.tex](research_monograph.tex)** — archived extended mathematical research manuscript (historical, not the primary submission).
-- **[RESEARCH_LOG.md](RESEARCH_LOG.md)** — historical research log, including additional experimental and structural directions.
-- **[FINAL_READER_GUIDE.md](FINAL_READER_GUIDE.md)** — proof-dependency guide and independent audit summary.
-
-## Reproduce the paper
-
-Standard-library Python 3; no matching solver is required. From any directory:
-
-```bash
-python3 /path/to/oeis-papers/papers/A006063/reproduce.py --report verification.json
+```sh
+python3 papers/A006063/reproduce.py --report build/a006063-verification.json
 ```
 
-The report fingerprints every executable dependency and certificate consumed by
-these checks, records outputs and exit codes, and fails if any check fails.
-Do not run the individual assertion-based checkers with `-O` or
-`PYTHONOPTIMIZE`; the aggregate runner rejects that mode. See
-[audit/REVIEW.md](audit/REVIEW.md) for the proof dependencies, independent
-optional SymPy audit, verification record, policy sources and author actions.
+To compile the manuscript:
 
-The equivalent individual checks and PDF build, from `papers/A006063`:
-
-```bash
-python3 verify_56_plus_forcing.py
-python3 verify_forced_peeling.py
-python3 verify_extended.py
-python3 verify_eventual_involutions.py
+```sh
+cd papers/A006063
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The main existence certificate does not rely on a general matching solver, floating-point computation, or historical endpoint-permutation atlases. The 124 negative Hall certificates and the finite multiplicity assertions have separate exact audits.
-
-**Mathematical distinction:** the minimum of **60** new seeds under the restricted suffix-reflection-only closure (44 in `[173,255]`, 16 in `[339,364]`) is distinct from the **56** currently required algebraic shape certificates. The incorrect historical conflation with **57** was corrected.
-
-## Scope and research status
-
-The 199 experimentally successful **four-cube involution** instances on a higher interval are part of a distinct unfinished research program. Planarity and the near-bipartite/Hall reductions do not establish a uniform perfect matching theorem for that program, and are **not hypotheses** of the A006063 existence proof.
-
-The extended monograph also contains independent results on counting, entropy and involutions; they are not required for the short submission and have not all undergone independent line-by-line review. Literature priority and external mathematical acceptance have not been established, and no OEIS edits are claimed in this PR.
-
-## References
-
-- [OEIS A006063](https://oeis.org/A006063)
-- [OEIS A096680](https://oeis.org/A096680)
-- [OEIS A096904](https://oeis.org/A096904)
-- P. Hall, *On representatives of subsets*, Journal of the London Mathematical Society 10 (1935), 26–30.
+Relevant OEIS entries: [A006063](https://oeis.org/A006063), [A096680](https://oeis.org/A096680), [A096904](https://oeis.org/A096904).

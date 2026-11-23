@@ -1,5 +1,7 @@
 # OEIS papers
 
+The repository keeps **one canonical main manuscript per research group**. Each completed group has a primary PDF and LaTeX source; related OEIS entries may share a paper. Proof certificates, verification scripts, and inputs used by the manuscripts are retained.
+
 Mathematical papers and research notes, ordered by OEIS sequence number. Each entry retains the sequence's OEIS description and briefly states the mathematical result established by its accompanying manuscript. Sequences treated in the same paper are grouped together.
 
 - **[A001040 / A001053](papers/A001040-A001053/)**

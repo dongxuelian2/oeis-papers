@@ -144,23 +144,13 @@ jobs:
           root_file: main.tex
           working_directory: papers/A006063
           latexmk_use_xelatex: false
-      - name: Build standalone elementary finite-interval note
-        uses: xu-cheng/latex-action@v4
-        with:
-          root_file: finite_base_note.tex
-          working_directory: papers/A006063
-          latexmk_use_xelatex: false
       - name: Verify compiled PDF
         run: test -s papers/A006063/main.pdf
-      - name: Verify compiled finite-only note
-        run: test -s papers/A006063/finite_base_note.pdf
       - name: Upload compiled PDF as a workflow artifact
         uses: actions/upload-artifact@v4
         with:
           name: a006063-complete-proof
-          path: |
-            papers/A006063/main.pdf
-            papers/A006063/finite_base_note.pdf
+          path: papers/A006063/main.pdf
       - name: Commit verified PDF on branch push
         if: github.event_name == 'push'
         run: |
@@ -174,7 +164,7 @@ jobs:
             echo "Skip stale PDF: main.tex has changed since checkout."
             exit 0
           fi
-          git add papers/A006063/main.pdf papers/A006063/finite_base_note.pdf
+          git add papers/A006063/main.pdf
           if ! git diff --cached --quiet; then
             git commit -m "paper: compile A006063 A096680 classification PDF"
             git pull --rebase origin "$branch"
