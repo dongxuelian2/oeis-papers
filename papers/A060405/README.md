@@ -67,6 +67,32 @@ A local proof of the unrestricted classification must therefore
 use primes depending on the candidate index, or an independent
 global argument.
 
+## Variable-prime obstructions
+
+The [Frobenius descent theorem](variable-primes.md) gives, for
+even \(k\), primes \(p>5\), and \(e\ge1\),
+\[
+ a_{r+kp^e}\equiv L_{r+(5/p)^e k}+P_{r+(2/p)^e k}\pmod p,
+\]
+where the parentheses denote Legendre symbols. In particular
+\(a_{r+kp^{2j}}\equiv a_{r+k}\pmod p\).
+This allows a variable obstruction from primes dividing an index offset.
+
+Combining the composite and zero-anchor divisibility certificates
+gives final divisor lengths 429, 439, 342 and 3483 for the anchors
+\(3,-3,-2,-1\), respectively. The
+[exact witness certificate](verify_variable_primes.py) proves
+square-class independence for the four mixed recurrence values
+associated with each of these divisors. For indices \(r+D_rp^e\),
+the variable test modulo the multiplier prime excludes a density
+\(1/2\) of primes for either exponent parity and a density \(5/16\)
+for both parities simultaneously.
+
+For every fixed finite set of local primes there are infinitely many
+indices in each anchor branch that pass the entire fixed set of tests
+but fail this variable-prime test. Coverage of every nonzero offset
+is not established; the uniform finite exclusion remains \(10^{341}\).
+
 ## Archimedean separation
 
 The [square-gap theorem](square-gap.md) proves that, for each fixed
