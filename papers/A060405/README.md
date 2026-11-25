@@ -9,17 +9,42 @@ with \(a_n=x^2\). The candidate answer is \((3,3)\).
 
 ## Current square classification
 
-The [four-anchor theorem](anchor-forcing.md) excludes the two exceptional
-classes in the original six-class certificate. Every square index lies
-in one of the four classes \(3,-3,-2,-1\pmod{720720}\).
-Recursive congruence lifting then forces \(n-r\) to be divisible by an
-explicit integer of at least 323 decimal digits for the corresponding
-anchor \(r\). In particular, the only square in the range
-\(0\le n\le10^{322}\) is \(a_3=9\).
-See [the exact verification program](verify_anchor_forcing.py).
-The [zero-anchor valuation argument](extension.md) gives an independent,
-stronger restriction for \(r=-1\).
-The unrestricted classification remains open.
+The [four-anchor theorem](anchor-forcing.md) reduces every square index
+to one of the four classes \(3,-3,-2,-1\pmod{720720}\).
+The [composite-period lifting certificate](period-and-gap.md) then
+forces \(n-r\) to be divisible by an explicit integer of at least 342
+decimal digits, with the smallest of the four divisors exceeding
+\(10^{341}+3\). Thus
+\[
+ 0\le n\le10^{341},\quad a_n=x^2,\quad x\ge0
+ \quad\Longleftrightarrow\quad(n,x)=(3,3).
+\]
+The [exact verification program](verify_composite_lifting.py) reproduces
+this bound. The [zero-anchor valuation argument](extension.md) gives a
+separate, stronger restriction for \(r=-1\).
+The unrestricted square classification remains open.
+
+## Exact periods and elementary gap principle
+
+For \(h\ge1\), set \(G(h)=\gcd_{0\le j<4}(a_{h+j}-a_j)\).
+The [period theorem](period-and-gap.md) gives
+\[
+ G(h)=
+ \begin{cases}
+ 1&h\text{ odd},\\
+ \gcd(L_k,2Q_k)&h=2k,\ k\text{ odd},\\
+ \gcd(5F_k,2P_k)&h=2k,\ k\text{ even}.
+ \end{cases}
+\]
+Here \(Q_k\) is the half companion Pell sequence. A modulus admits
+period \(h\) precisely when it divides \(G(h)\).
+This characterizes all congruence tests with a specified period.
+
+The same note proves, without the Subspace Theorem, that for every
+positive integer \(d\), every \(0\le r<4\) and every integer \(m_0\ge50\),
+at most 14 indices \(m\in[m_0,m_0+\lfloor m_0/5\rfloor]\) satisfy
+\(a_{4m+r}=dx^2\). This is a uniform effective gap principle, not an
+upper bound on the last square index.
 
 ## Archimedean separation
 
@@ -33,6 +58,16 @@ The squarefree kernel tends to infinity. In addition, combining the
 fixed-exponent theorem below with the general Shorey–Stewart–Pethő
 exponent bound yields finiteness of all perfect powers, without fixing
 the exponent. The gap proof gives no effective index threshold.
+
+## Higher-power separation
+
+The [fixed-exponent gap theorem](power-gaps.md) extends the asymptotic
+distance result to all fixed exponents \(k\ge3\), with a cubic resonance
+on \(n=3m\). For every \(m\ge1\), the unique nearest cube to \(a_{3m}\)
+is \((2P_m)^3\), at distance \(L_{3m}+3(-1)^mP_m>0\).
+For all \(k\ge4\), and for cubes on the other two residue classes,
+the logarithmic growth rate of the distance is
+\((1-1/k)\log(1+\sqrt2)\).
 
 ## Quantitative square-index bound
 
