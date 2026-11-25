@@ -176,7 +176,69 @@ There are four choices of \(r\). The number of indices with
 \(m\ge5\) is at most \(56T\); there are only twenty indices
 with \(m<5\). Hence the total is less than \(10^{3739}\).
 
-## 4. Consequence for the classification target
+## 4. Effective zero location in any specified hyperplane
+
+There is a concrete sufficient height bound for completing the
+archimedean route. Normalize a hyperplane by \(d_0=1\) if
+\(d_0\ne0\), or by setting any nonzero coefficient equal to 1
+otherwise. Let \(B\) be the maximum absolute logarithmic height
+of its resulting nonzero coefficients.
+
+**Proposition.** Every square index \(n=4m+r\) whose vector
+belongs to this hyperplane satisfies
+\[
+ n\le 2000(B+1)+3.
+\]
+
+To prove this, write the nonzero exponential polynomial obtained
+in Section 3 as \(f(m)=\sum_i c_i\lambda_i^m\) with real
+coefficients in \(K\) and positive distinct bases. In the
+\(d_0\ne0\) case, each coefficient after squaring is a sum
+of at most six ordered products of two hyperplane coefficients,
+possibly with one original Binet coefficient subtracted.
+The heights of the original Binet coefficients for \(0\le r\le3\)
+are less than 3, so
+\[
+ h(c_i)\le12B+3+\log7<12B+5.
+\]
+The case \(d_0=0\) has the stronger bound \(h(c_i)\le B\).
+Since \([K:\mathbb Q]=4\), every nonzero \(c_i\) satisfies
+\[
+ e^{-4(12B+5)}\le |c_i|\le e^{4(12B+5)}.
+\]
+
+The ratio of any two unequal bases, larger divided by smaller,
+is greater than \(5/4\). For the fifteen squared bases this
+follows by taking differences of their exponent pairs: the
+difference in the \(V\)-exponent is \(0,\pm2,\pm4\), and the
+difference in the \(U\)-exponent is between -4 and 4.
+For a zero \(V\)-exponent the ratio is at least \(U\).
+For absolute \(V\)-exponent 2, the only adjacent powers of
+\(U\) around \(V^2\) are \(U,U^2\); for absolute
+\(V\)-exponent 4 they are \(U^3,U^4\).
+All four ratios of adjacent powers to the intermediate value
+(or its reciprocal, as appropriate) exceed \(5/4\), directly
+from \(6.85<U<6.86\) and \(5.82<V<5.83\).
+The six unsquared bases have exponent differences inside the
+same ranges and satisfy the same bound.
+
+At a zero \(m\ge0\), the largest base with nonzero coefficient
+must be cancelled by the remaining at most fourteen terms.
+Dividing by that largest term gives
+\[
+ 1\le14 e^{96B+40}(4/5)^m.
+\]
+Hence
+\[
+ m\le\frac{96B+40+\log14}{\log(5/4)}
+ <500(B+1).
+\]
+This proves the proposition. In particular, any explicit
+upper bound on the normalized coefficient heights of the
+exceptional hyperplanes in Section 2 immediately gives a
+linear, explicit upper bound on the last square index.
+
+## 5. Consequence for the classification target
 
 The bound is effective as a count, not as an index cutoff.
 The quantitative theorem does not identify the hyperplanes;
