@@ -7,6 +7,20 @@ Write \(a_n=L_n+P_n\), as in [A060405](https://oeis.org/A060405).
 **Classification target.** Determine all \((n,x)\in\mathbb Z_{\ge0}^2\)
 with \(a_n=x^2\). The candidate answer is \((3,3)\).
 
+## Current square classification
+
+The [four-anchor theorem](anchor-forcing.md) excludes the two exceptional
+classes in the original six-class certificate. Every square index lies
+in one of the four classes \(3,-3,-2,-1\pmod{720720}\).
+Recursive congruence lifting then forces \(n-r\) to be divisible by an
+explicit integer of at least 323 decimal digits for the corresponding
+anchor \(r\). In particular, the only square in the range
+\(0\le n\le10^{322}\) is \(a_3=9\).
+See [the exact verification program](verify_anchor_forcing.py).
+The [zero-anchor valuation argument](extension.md) gives an independent,
+stronger restriction for \(r=-1\).
+The unrestricted classification remains open.
+
 ## Theorem 1 (finiteness for every fixed exponent)
 
 For each fixed integer \(d\ge2\), only finitely many nonnegative indices
