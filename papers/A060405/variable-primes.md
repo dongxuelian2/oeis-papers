@@ -1,0 +1,248 @@
+# Variable-prime obstructions by Frobenius descent
+
+Let \(a_n=L_n+P_n\) (A060405), extended to integer indices by
+the two recurrence relations. The earlier finite-prime limitation
+theorem rules out a proof using any fixed finite set of local primes.
+This note establishes a variable-prime test, a quantitative theorem
+for prime-power offsets, and an explicit distinction between these
+tests and fixed finite local sieves.
+
+## 1. Frobenius descent of the index
+
+For a prime \(p>5\) and \(e\ge1\), write
+\[
+ \epsilon_5=\left(\frac5p\right)^e,\qquad
+ \epsilon_2=\left(\frac2p\right)^e,\qquad
+ \eta_i=(-1)^{k(1-\epsilon_i)/2}.
+\]
+The parentheses are Legendre symbols, and \(k\) is an integer.
+
+**Theorem 1.** For any integers \(r,k\),
+\[
+ a_{r+kp^e}\equiv
+ \eta_5L_{r+\epsilon_5k}
+ +\eta_2P_{r+\epsilon_2k}\pmod p.
+\]
+In particular, for even \(k\),
+\[
+ a_{r+kp^e}\equiv
+ L_{r+\epsilon_5k}+P_{r+\epsilon_2k}\pmod p.
+\]
+For even \(e\), regardless of \(k\), this simplifies to
+\(a_{r+kp^e}\equiv a_{r+k}\pmod p\).
+
+**Proof.** Work in \(\mathbb F_{p^2}\), choosing square roots
+of 5 and 2, and set
+\[
+ \alpha=(1+\sqrt5)/2,\quad \alpha'=(1-\sqrt5)/2,\quad
+ \beta=1+\sqrt2,\quad\beta'=1-\sqrt2.
+\]
+All four roots are nonzero. The \(p^e\)-power Frobenius map
+fixes or interchanges the two roots in each pair according to
+\(\epsilon_5,\epsilon_2\). Since
+\(\alpha\alpha'=\beta\beta'=-1\), the factors
+\(\alpha^{kp^e},(\alpha')^{kp^e}\) become respectively
+\(\eta_5\alpha^{\epsilon_5 k},
+\eta_5(\alpha')^{\epsilon_5 k}\), and similarly for the beta pair.
+Apply the Binet expressions
+\(L_n=\alpha^n+(\alpha')^n\) and
+\(P_n=(\beta^n-(\beta')^n)/(2\sqrt2)\), retaining the unchanged
+index \(r\). This gives the claimed identity, including negative
+indices because all roots are invertible. QED.
+
+### Necessary condition for a square index
+
+Let \(n-r\ne0\) and take any prime \(p>5\) dividing the
+offset, with \(e=v_p(n-r)\) and \(k=(n-r)/p^e\).
+If \(a_n\) is an integer square, then the Legendre symbol of
+the right-hand side in Theorem 1 is either 0 or 1.
+A value -1 excludes \(n\) using a prime extracted from the
+index itself. The reduction is exact; it does not assert
+that the smaller-index sequence value is itself a square.
+
+## 2. Prime-power offsets: exact densities of variable obstructions
+
+Let \(r\in\{3,-3,-2,-1\}\). Let \(D_r\) be the divisor
+obtained by the composite-period certificate in
+period-and-gap.md. For \(r=-1\), strengthen it by taking
+the least common multiple with the forced divisor in
+extension.md. Use the symbol \(D_r\) for these four final
+divisors. Their decimal lengths are 429, 439, 342 and 3483,
+respectively, and every square index in the corresponding
+anchor branch satisfies \(D_r\mid n-r\).
+
+Write
+\[
+ C_{s,t}=L_{r+sD_r}+P_{r+tD_r},\qquad
+ (s,t)\in\{1,-1\}^2,\qquad C_0=C_{1,1}.
+\]
+The integers are defined by the recurrence, including negative
+indices. Computing them in full is unnecessary.
+
+**Theorem 2.** For each of the four anchors:
+* For each fixed \(e\ge1\), the set of primes \(p>5\) for which
+  \(a_{r+D_r p^e}\) is a quadratic nonresidue modulo \(p\)
+  has relative natural density \(1/2\) among primes.
+* The set of primes for which this nonresidue test excludes
+  \(r+D_r p^e\) for **every** positive exponent \(e\) has
+  relative natural density \(5/16\).
+* The sets of primes for which exactly one exponent parity,
+  or neither exponent parity, is excluded by this test have
+  densities \(3/8\) and \(5/16\), respectively.
+
+**Proof.** The exact modular certificate verify_variable_primes.py
+verifies the following assertions in the square-class group
+\(\mathbb Q^\times/\mathbb Q^{\times2}\):
+\[
+ [C_{s,t}]\notin\langle[2],[5]\rangle
+ \quad\text{for all four pairs }(s,t),
+\]
+\[
+ [C_0 C_{s,t}]\notin\langle[2],[5]\rangle
+ \quad\text{for }(s,t)\ne(1,1).
+\]
+Indeed, to prove any integer \(C\) lies outside this subgroup,
+it suffices to exhibit, for each \(d=1,2,5,10\), a prime \(q>5\)
+such that \((dC/q)=-1\). Such a test also certifies nonvanishing.
+There are seven quantities to test for each anchor, hence 112
+certified nonresidues in total. Each is computed by modular matrix
+exponentiation with exponents reduced modulo \(q^2-1\).
+All witness primes are at most 2341. The script independently
+reproduces the divisors from the earlier certificates before
+checking the witnesses.
+
+For even \(e\), Theorem 1 says that the relevant symbol is
+\((C_0/p)\). For odd \(e\), it is \((C_{s,t}/p)\), where
+\(s=(5/p)\) and \(t=(2/p)\). All primes dividing any of the
+finitely many nonzero integers in these symbols may be discarded;
+they have relative density zero.
+
+The two independent square classes \([5],[2]\) give four
+equidistributed sign pairs. In each pair, the additional
+square class \([C_{s,t}]\) is independent of these two,
+so its sign is equally distributed. Likewise for \(C_0\).
+For \((s,t)\ne(1,1)\), the second displayed certificate
+also makes \([C_0],[C_{s,t}]\) independent modulo the
+subgroup generated by \([2],[5]\); the two signs are therefore
+jointly uniform within the specified sign pair.
+These equidistribution statements follow from quadratic
+reciprocity and the prime number theorem in arithmetic
+progressions, or from the multiquadratic case of Chebotarev's
+density theorem.
+
+For the pair \((1,1)\), both exponent parities have the same
+symbol, which is -1 half the time. For each of the other
+three pairs, the two symbols are both -1 one quarter of
+the time. Hence the density of simultaneous exclusion is
+\[
+ \frac14\cdot\frac12+\frac34\cdot\frac14=\frac5{16}.
+\]
+The marginal density of exclusion for either parity is \(1/2\).
+The remaining two densities follow by inclusion-exclusion. QED.
+
+These densities describe only the variable test modulo the
+multiplier prime \(p\), not the proportion of genuine squares.
+The family \(r+D_r p^e\) also remains subject to every other
+necessary condition already established for square indices.
+
+## 3. Variable-prime tests strictly extend any fixed finite prime test
+
+**Theorem 3.** Let \(S\) be any finite set of primes and
+\(r\in\{3,-3,-2,-1\}\). There exists a positive integer \(k\)
+divisible by \(D_r\) and a positive-density set of primes
+\(\mathcal P\), disjoint from \(S\), such that for every
+\(p\in\mathcal P\) and every \(j\ge1\),
+\[
+ \begin{split}
+ n&=r+kp^{2j}>0,\\
+ a_n&\in\mathbb Q_q^{\,2}\quad(q\in S),\\
+ \left(\frac{a_n}{p}\right)&=-1.
+ \end{split}
+\]
+Thus infinitely many indices pass all local square tests at
+the entire prescribed prime set but have a direct variable
+prime obstruction, even when every power of each prime
+in \(S\) is allowed.
+
+**Proof.** Enlarge \(S\) to contain \(2,3,5\). Use the
+construction in local-geometry.md, Theorem 4, choosing its
+integer \(h\) divisible by \(D_r\) and so that
+\(T^h\equiv I\pmod q\) for every \(q\in S\), with the
+additional logarithm convergence conditions for the zero
+anchor. The construction works for every sufficiently
+divisible choice of \(h\), and gives infinitely many
+positive integers \(t\) such that \(a_{r+ht}\) is a
+nonzero square in every \(\mathbb Q_q\), \(q\in S\).
+
+By the previously established global finiteness of square
+indices, choose a positive \(t_0\) among these such that
+\(n_0=r+ht_0>0\) and \(C=a_{n_0}\) is not an integer square.
+Put \(k=ht_0\). Write \(C=d y^2\) with \(d>1\) squarefree.
+Since \(C\) is a local square at every \(q\in S\), every
+\(v_q(C)\) is even; in particular \(d\) is odd and coprime
+to every prime of \(S\).
+
+Define
+\[
+ N=8\prod_{q\in S}q^{v_q(C)+3}.
+\]
+This is coprime to \(d\). Let \(\mathcal P\) be the set
+of primes \(p\equiv1\bmod N\) for which \((d/p)=-1\).
+Such primes exist with relative natural density
+\(1/(2\varphi(N))\) among all primes: choose any quadratic
+nonresidue of \(d\)'s nonprincipal quadratic character
+on the units modulo \(d\), and apply the Chinese remainder
+theorem and prime number theorem in arithmetic progressions.
+More explicitly, since \(p\equiv1\bmod4\), reciprocity gives
+\((d/p)=(p/d)\); this Jacobi character is nonprincipal on
+the units modulo the squarefree odd integer \(d>1\).
+Exactly half those units have value -1.
+
+For \(p\in\mathcal P\), write \(t=t_0p^{2j}\).
+For all \(q\in S\), \(t-t_0\) is divisible by
+\(q^{v_q(C)+3}\). Since \(T^h\equiv I\bmod q\), repeated
+binomial expansion gives
+\[
+ T^{h(t-t_0)}\equiv I\pmod{q^{v_q(C)+3}}.
+\]
+Hence \(a_{r+ht}\equiv C\bmod q^{v_q(C)+3}\).
+Its valuation and square-determining unit residue at \(q\)
+are identical to those of \(C\), including the unit residue
+modulo 8 at \(q=2\). Thus \(a_{r+ht}\) passes every local
+test at \(S\).
+
+On the other hand, the exponent \(2j\) is even, so
+Theorem 1 gives \(a_{r+kp^{2j}}\equiv C\bmod p\).
+The symbol of \(C=d y^2\) is -1 for \(p\in\mathcal P\)
+after discarding the finite set of prime factors of \(y\).
+This leaves the same positive density and proves the
+variable obstruction. QED.
+
+## 4. Scope and remaining classification problem
+
+The Frobenius identity reduces a variable-prime test to a
+smaller offset with independent sign choices for the two
+recurrences. The square-class certificates prove positive-density
+exclusion of infinite families and the last theorem demonstrates
+that these obstructions can survive any specified finite local
+sieve. They do not establish that every nonzero offset has an
+obstructing prime among its own factors. In particular, a
+nonsquare value at the reduced index can still be a quadratic
+residue at the prime used for reduction.
+
+The full square-index classification and an effective last-index
+bound remain unresolved. The prior uniform finite exclusion
+through \(10^{341}\) is unchanged. Combining the two earlier
+divisibility certificates does strengthen the necessary divisor
+on the \(-1\) branch from 3230 to 3483 decimal digits.
+
+## Reproduction
+
+Run:
+
+    python3 verify_variable_primes.py
+
+The program checks 3696 sample instances of the Frobenius identity,
+recomputes the composite and zero-anchor divisors, and verifies all
+112 square-class witnesses. The finite sample checks are additional
+tests of the algebraic identity; its proof is independent of them.
