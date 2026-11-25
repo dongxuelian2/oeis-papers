@@ -34,6 +34,18 @@ fixed-exponent theorem below with the general Shorey–Stewart–Pethő
 exponent bound yields finiteness of all perfect powers, without fixing
 the exponent. The gap proof gives no effective index threshold.
 
+## Quantitative square-index bound
+
+The [quantitative count](quantitative-square-count.md) applies Evertse's
+quantitative Subspace Theorem to seven conjugate coordinates.
+Every exceptional hyperplane contains at most fourteen square indices
+within each residue class modulo four, yielding the explicit global
+bound \(10^{3739}\) on the number of square indices. Moreover, if the
+normalized coefficients of such a hyperplane have logarithmic height
+at most \(B\), every square index it contains satisfies
+\(n\le2000(B+1)+3\). An effective bound for the heights of the exceptional
+hyperplanes would give the missing effective index cutoff.
+
 ## Theorem 1 (finiteness for every fixed exponent)
 
 For each fixed integer \(d\ge2\), only finitely many nonnegative indices
