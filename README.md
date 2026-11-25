@@ -64,7 +64,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We proved `A084043(n)=0` exactly when `10` divides `n`, and gave an exact finite-state procedure for the least qualifying palindromic multiple at every other index.
 
 - **[A085124](papers/A085124/)**
-  - [A085124](https://oeis.org/A085124): Smallest multiple of n whose digital product is also a positive multiple of n, or 0 if no such number exists.
+  - [A085124](https://oeis.org/A085124) (published): Smallest multiple of n whose digital product is also a positive multiple of n, or 0 if no such number exists.
   - **Result:** We proved that a positive term exists exactly when `n` is 7-smooth and `10` does not divide `n`. A finite automaton determines every nonzero minimum exactly.
 
 - **[A086558](papers/A086558/)**
@@ -87,7 +87,7 @@ Mathematical papers and research notes, ordered by OEIS sequence number. Each en
   - **Result:** We proved both existence conjectures: every prescribed prime-factor signature has infinitely many representatives whose nontrivial divisors form a prefix-free code in any base, with an explicit witness bound.
 
 - **[A092635](papers/A092635/)**
-  - [A092635](https://oeis.org/A092635): Coefficients in asymptotic expansion of (Pi\*n/16^n)\*binomial(2n,n)^2 in powers of 1/(8n).
+  - [A092635](https://oeis.org/A092635) (published): Coefficients in asymptotic expansion of (Pi\*n/16^n)\*binomial(2n,n)^2 in powers of 1/(8n).
   - **Result:** We proved the Euler-polynomial coefficient formula and all three conjectured generating-function identities, including `H(x)*H(-x)=-x^2`.
 
 - **[A115038 / A115039 / A115041](papers/A115038-A115041/)**
