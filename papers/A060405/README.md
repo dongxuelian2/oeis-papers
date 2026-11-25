@@ -46,6 +46,27 @@ at most 14 indices \(m\in[m_0,m_0+\lfloor m_0/5\rfloor]\) satisfy
 \(a_{4m+r}=dx^2\). This is a uniform effective gap principle, not an
 upper bound on the last square index.
 
+## Exact local square geometry
+
+The [local geometry theorem](local-geometry.md) determines the square
+conditions at all six primes dividing \(720720\). On the zero-anchor
+branch \(n=720720t-1\), the primes \(2,3,7,11,13\) have exact
+valuation and unit formulas in \(t\); at 5 there are two simple
+analytic roots, \(0\) and a nonintegral \(\tau\in1+5\mathbb Z_5\),
+with exact square criteria on both neighborhoods.
+The [local certificate](verify_local_geometry.py) verifies the
+matrix constants and lifts \(\tau\) modulo \(5^{24}\).
+The other three anchors automatically satisfy the local square
+condition at all six base primes.
+
+The same note uses Baker–Brumer logarithmic independence to show
+that each of the four anchor branches contains infinitely many
+nonnegative indices passing the local square test at every prime
+in any specified finite set, even when all prime powers are allowed.
+A local proof of the unrestricted classification must therefore
+use primes depending on the candidate index, or an independent
+global argument.
+
 ## Archimedean separation
 
 The [square-gap theorem](square-gap.md) proves that, for each fixed
