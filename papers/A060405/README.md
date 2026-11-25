@@ -93,6 +93,38 @@ indices in each anchor branch that pass the entire fixed set of tests
 but fail this variable-prime test. Coverage of every nonzero offset
 is not established; the uniform finite exclusion remains \(10^{341}\).
 
+## Offset-prime limitations and global square-class constraints
+
+The [offset-prime counterexample](smooth-support.md) shows that for
+\(r\in\{3,-3,-2,-1\}\) and \(K=(N!)^2\), \(N\ge13\),
+every prime divisor \(p\mid K\) satisfies \(a_{r+K}\equiv a_r\pmod{p^3}\).
+For the nonzero anchors these are actual local squares at all such
+primes. Thus the offset-prime nonresidue test alone cannot cover
+all candidates, even after imposing any fixed forced divisor.
+
+The same note gives an exact square-class criterion on the zero
+anchor for fixed prime supports and sufficiently divisible offsets.
+With \(h_2=48,\ h_3=24,\ h_5=3000,\ h_p=p(p^2-1)\) for \(p>5\),
+let \(H_N=\operatorname{lcm}_{p\le N}h_p\), with prime \(p\).
+The [certificate](verify_smooth_support.py) excludes every positive
+\(N\)-smooth multiple \(k\) of \(H_N\) as a square offset
+\(a_{k-1}\), for every \(13\le N\le100000\).
+
+The [global square-class obstruction](forced-squareclass.md) requires
+no smoothness assumption. Let \(F\) be the 832 previously forced
+primes, \(D=720720\prod_{p\in F}p\), and
+\(E=7\cdot11\cdot13\prod_{p\in F}p\).
+Any square index on the zero anchor must satisfy
+\(n+1=5^\delta E d y^2\), where \(d\) is positive squarefree,
+coprime to \(D\), and has a prime divisor at least 9857.
+Also \(d\equiv17\pmod{24}\) for \(\delta=0\), or
+\(d\equiv13\pmod{24}\) for \(\delta=1\).
+The [dual character certificate](verify_forced_signatures.py)
+combines 838 local quadratic characters, and proves the exclusion
+with an explicit separating vector involving 420 odd primes.
+These are structural restrictions on unbounded indices; the full
+square classification is still open.
+
 ## Archimedean separation
 
 The [square-gap theorem](square-gap.md) proves that, for each fixed
