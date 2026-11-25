@@ -21,6 +21,19 @@ The [zero-anchor valuation argument](extension.md) gives an independent,
 stronger restriction for \(r=-1\).
 The unrestricted classification remains open.
 
+## Archimedean separation
+
+The [square-gap theorem](square-gap.md) proves that, for each fixed
+positive integer \(d\),
+\[
+ \lim_{n\to\infty}\frac1n\log\min_{x\in\mathbb Z}|a_n-dx^2|
+ =\tfrac12\log(1+\sqrt2).
+\]
+The squarefree kernel tends to infinity. In addition, combining the
+fixed-exponent theorem below with the general Shorey–Stewart–Pethő
+exponent bound yields finiteness of all perfect powers, without fixing
+the exponent. The gap proof gives no effective index threshold.
+
 ## Theorem 1 (finiteness for every fixed exponent)
 
 For each fixed integer \(d\ge2\), only finitely many nonnegative indices
