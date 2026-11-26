@@ -5,6 +5,7 @@ from math import gcd, isqrt
 # q, p, sqrt(2), sqrt(5) modulo p, sign, two exact orders,
 # (lambda^q-1)/p modulo p for the active factor.
 ROWS = (
+    (29,1023991,310331,35345,1,170665,29,497979),
     (31,311,66,117,1,31,155,56),
     (31,30071,10262,11959,1,15035,31,28073),
     (53,6679,2879,2199,1,53,371,4829),
