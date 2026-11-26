@@ -182,6 +182,7 @@ The nonzero unit certifies initial valuation exactly one.
 
 | Source \(q\) | Target \(p\) | Sign \(\sigma\) | Orders of \(\sigma\eta,\sigma\xi\) |
 |---:|---:|---:|:---|
+| 29 | 1023991 | + | 170665, 29 |
 | 31 | 311 | + | 31, 155 |
 | 31 | 30071 | + | 15035, 31 |
 | 53 | 6679 | + | 53, 371 |
@@ -192,16 +193,74 @@ The nonzero unit certifies initial valuation exactly one.
 | 97 | 3881 | − | 97, 485 |
 | 6679 | 66791 | − | 6679, 33395 |
 
-All nine implications apply on every odd anchor branch.
+All ten implications apply on every odd anchor branch.
 For example, \(53\mid n\) forces both \(6679\mid n\) and
 \(66791\mid n\), each to odd valuation. Also, \(31\mid n\)
 forces two distinct new primes \(311,30071\) into \(n\).
 It follows, in particular, that no square index on these
 branches can have largest prime factor in
-\(\{31,53,61,71,73,97,6679\}\). These exclusions have no
+\(\{29,31,53,61,71,73,97,6679\}\). These exclusions have no
 upper bound on the index.
 
-## 5. The global research target
+## 5. Three provable terminal vertices: why composite activation is needed
+
+The simple outgoing-edge conjecture of Section 3 is false for these
+two mixed-unit norms. It can be tested exhaustively for specific
+source primes without a bound on the witness prime.
+
+For any odd positive integer \(s\), the four Galois conjugates
+of \(\eta\) are \(\eta,\xi,-\xi^{-1},-\eta^{-1}\). Therefore
+\[
+ \begin{aligned}
+ N_{K/\mathbb Q}(\eta^s-1)
+ &= (\eta^s-\eta^{-s})(\xi^s-\xi^{-s})\\
+ &= (\beta^s-\beta^{-s})^2-(u^s-u^{-s})^2\\
+ &= 4Q_s^2-5F_{2s}^2.
+ \end{aligned}
+\]
+The same norm is obtained for \(\xi,-\eta,-\xi\) in place
+of \(\eta\): swapping \(\eta,\xi\) is Galois conjugation,
+and negation is conjugation followed by inversion of a unit
+whose rational norm is one.
+
+For \(q=17,19,23\) respectively the negative of this norm is
+the rational prime in the following table.
+
+| \(q\) | Unique possible witness prime \(p\) |
+|---:|---:|
+| 17 | 152278105612081 |
+| 19 | 7288288224767761 |
+| 23 | 16454995746349728961 |
+
+The [exact certificate](verify_norm_graph_limits.py) proves
+primality by giving the complete factorization of \(p-1\) and
+an element of order \(p-1\) modulo each prime divisor of \(p\).
+It also verifies that \(p\equiv1\bmod4\) and exhibits square
+roots of 2, 5 and \(2\sqrt2\) for a chosen root of 2 modulo \(p\).
+The first two roots imply complete splitting in \(K\).
+Since \(-1\) is a square, both signs of \(2\sqrt2\) are squares
+at every prime of \(K\) above \(p\).
+
+An order \(q\) at any prime ideal would make that prime divide
+one of the four algebraic numbers \(\lambda^q-1\), so its rational
+prime must be the sole prime in the table. At that prime the
+necessary quadratic nonresidue condition fails. Hence none of
+these three vertices has an outgoing edge in the simple graph,
+even with arbitrarily large witness primes. In fact no order
+\(q\) at such a vertex can activate a bad-prime constraint from
+these two norm identities at all.
+
+This is an obstruction to the single-prime escape criterion,
+not to the full coupled system. A composite divisor \(s\mid n\)
+can activate an order which is not activated by any of its
+prime factors separately. A rule can also combine the two
+orders with parity requirements on the same rational prime.
+A more general escape theorem should therefore concern finite
+sets of prime-exponent thresholds, not just individual prime
+vertices. The \(\pm3\) branches may in particular activate orders
+\(3q\), which were not included in this terminal-vertex theorem.
+
+## 6. The global research target
 
 The one-factor norm descent for even indices succeeds because
 a quadratic character controls an entire quotient of a
@@ -217,19 +276,20 @@ characters of cyclotomic factor ideals and their intersections.
 
 A concrete sufficient target is a primitive-factor theorem
 with **both** a quadratic-character condition and a constraint
-on the order of the other unit. For each allowable prime \(q\),
+on the order of the other unit. For an activated divisor \(s\mid n\),
 one seeks an odd-valuation prime ideal in a factor of
-\(\eta^q-1,\xi^q-1,(-\eta)^q-1\), or \((-\xi)^q-1\)
-whose partner order has a forbidden prime factor. The condition
-can also be relaxed to an escaping system of multiple
-order-and-parity implications, rather than an individual edge
-from every \(q\). The usual existence of a primitive divisor
+\(\eta^s-1,\xi^s-1,(-\eta)^s-1\), or \((-\xi)^s-1\)
+whose partner order is forbidden, or which generates another
+order-and-parity implication. The three terminal vertices show
+that this must be an escaping system of composite activations
+and/or additional norm channels, rather than an individual edge
+from every prime. The usual existence of a primitive divisor
 alone does not give its quadratic character or its partner
 order. The finite calculation in Section 4 neither proves nor
 assumes such a uniform theorem.
 
 This note supplies an exact local rule, a global finite-support
-criterion and nine certified instances. It does not claim
+criterion and ten certified instances. It does not claim
 that the graph has no finite nontrivial model, or that the
 unrestricted square-index classification is complete.
 
@@ -238,7 +298,8 @@ unrestricted square-index classification is complete.
 Run:
 
     python3 verify_norm_order.py
+    python3 verify_norm_graph_limits.py
 
-The verifier uses only the Python standard library and exact modular
-arithmetic. It verifies the witnesses without computing large sequence
+The verifiers use only the Python standard library and exact modular
+arithmetic. They verify the witnesses without computing large sequence
 values or enumerating candidate square indices.
