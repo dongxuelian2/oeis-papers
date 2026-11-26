@@ -11,18 +11,17 @@ with \(a_n=x^2\). The candidate answer is \((3,3)\).
 
 The [four-anchor theorem](anchor-forcing.md) reduces every square index
 to one of the four classes \(3,-3,-2,-1\pmod{720720}\).
-The [composite-period lifting certificate](period-and-gap.md) then
-forces \(n-r\) to be divisible by an explicit integer of at least 342
-decimal digits, with the smallest of the four divisors exceeding
-\(10^{341}+3\). Thus
+The [norm descent](norm-descent.md) excludes the even class at every
+nonnegative index. On the three odd classes, the
+[extended lifting certificate](extended-lifting.md) gives
 \[
- 0\le n\le10^{341},\quad a_n=x^2,\quad x\ge0
+ 0\le n\le10^{902},\quad a_n=x^2,\quad x\ge0
  \quad\Longleftrightarrow\quad(n,x)=(3,3).
 \]
-The [exact verification program](verify_composite_lifting.py) reproduces
-this bound. The [zero-anchor valuation argument](extension.md) gives a
-separate, stronger restriction for \(r=-1\).
-The unrestricted square classification remains open.
+The Gaussian part of the norm descent gives prime-factor conditions
+on divisors of \(n-2\) and \(n+2\). On the branch \(r=-1\), every
+prime factor of \((n-2)/3\) must be a quadratic residue modulo 5.
+The global classification on the three odd branches remains open.
 
 ## Exact periods and elementary gap principle
 
@@ -90,8 +89,8 @@ for both parities simultaneously.
 
 For every fixed finite set of local primes there are infinitely many
 indices in each anchor branch that pass the entire fixed set of tests
-but fail this variable-prime test. Coverage of every nonzero offset
-is not established; the uniform finite exclusion remains \(10^{341}\).
+but fail this variable-prime test. The remaining coverage question is
+the exclusion of every nonzero offset in the three odd classes.
 
 ## Offset-prime limitations and global square-class constraints
 
@@ -150,11 +149,11 @@ the logarithmic growth rate of the distance is
 
 ## Quantitative square-index bound
 
-The [quantitative count](quantitative-square-count.md) applies Evertse's
-quantitative Subspace Theorem to seven conjugate coordinates.
+The [quantitative count](quantitative-square-count.md) applies the
+Evertse–Ferretti quantitative Subspace Theorem to seven conjugate coordinates.
 Every exceptional hyperplane contains at most fourteen square indices
 within each residue class modulo four, yielding the explicit global
-bound \(10^{3739}\) on the number of square indices. Moreover, if the
+bound \(10^{29}\) on the number of square indices. Moreover, if the
 normalized coefficients of such a hyperplane have logarithmic height
 at most \(B\), every square index it contains satisfies
 \(n\le2000(B+1)+3\). An effective bound for the heights of the exceptional

@@ -38,12 +38,16 @@ def flags(r,D,q,h,f):
     a,b,c,d=initial(q,h,r)
     x,y,z,w=mp(A,D%h,q)
     i,j,k,l=mp(B,D%h,q)
-    sq=bytearray(q)
-    for t in range((q+1)//2):
-        sq[t*t%q]=1
+    if q <= 8*f:
+        sq=bytearray(q)
+        for t in range((q+1)//2):
+            sq[t*t%q]=1
+        is_square=lambda value: sq[value]
+    else:
+        is_square=lambda value: pow(value,(q-1)//2,q)!=q-1
     result=[]
     for t in range(f):
-        if sq[(a+c)%q]:
+        if is_square((a+c)%q):
             result.append(t)
         a,b,c,d=(x*a+y*b)%q,(z*a+w*b)%q,(i*c+j*d)%q,(k*c+l*d)%q
     assert 0 in result
@@ -62,7 +66,7 @@ def factor_powers(n):
     return out
 
 
-def generalized_round(r,D,orders,cap=2000):
+def generalized_round(r,D,orders,cap=2000,singleton_cap=128):
     groups=defaultdict(list)
     for q,h in orders:
         f=h//gcd(D,h)
@@ -71,7 +75,7 @@ def generalized_round(r,D,orders,cap=2000):
     constraints={}
     for f,qs in groups.items():
         # Resource filter: omitting constraints cannot invalidate a deduction.
-        if len(qs)==1 and f>128:
+        if len(qs)==1 and f>singleton_cap:
             continue
         ts=None
         for q,h in qs:

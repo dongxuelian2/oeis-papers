@@ -2,13 +2,12 @@
 
 Let \(a_n=L_n+P_n\) be A060405 and let
 \(\alpha=(1+\sqrt5)/2,\ \beta=1+\sqrt2,\ c=1/(2\sqrt2)\).
-The previous square-gap result proves finiteness without giving a
-bound on the number of exceptional indices. The following argument
-gives an explicit, though very large, bound on their number.
-It does not bound their positions.
+The square-gap theorem gives finiteness. The following argument
+bounds the number of square indices using explicit approximation
+weights in the quantitative Subspace Theorem.
 
 **Theorem.** The number of nonnegative integers \(n\) for which
-\(a_n\) is an integer square is less than \(10^{3739}\).
+\(a_n\) is an integer square is less than \(10^{29}\).
 
 ## 1. Explicit approximation and conjugate coordinates
 
@@ -60,74 +59,57 @@ relations gives \(U^{2i}=1\), hence \(i=j=0\).
 
 ## 2. Quantitative subspace theorem
 
-Use the seven-dimensional vector
+Use the vector
 \[
  {\bf z}=(x,(w^m)_{w\in{\cal W}})\in K^7.
 \]
-Let \(S\) be the four archimedean places of \(K\).
-For each place \(v\), with real embedding \(\sigma_v\), choose the
-six coordinate forms \(Z_w\), and one form \(L_{0,v}\) with
-coefficient of \(X\) equal to 1. Its other two nonzero
-coefficients are chosen so that evaluation at that embedding is
-exactly \(x-A_r V^m-B_r(U/V)^m\).
-Explicitly, extend \(\sigma_v\) to an automorphism \(\widetilde\sigma_v\)
-of \(\overline{\mathbb Q}\), and use
+At each real place \(v\) of \(K\), extend its embedding \(\sigma_v\)
+to an automorphism \(\widetilde\sigma_v\) of \(\overline{\mathbb Q}\).
+Take the six coordinate forms \(Z_w\), and take
 \[
  L_{0,v}=X-\widetilde\sigma_v^{-1}(A_r)Z_{\sigma_v^{-1}(V)}
            -\widetilde\sigma_v^{-1}(B_r)Z_{\sigma_v^{-1}(U/V)}.
 \]
-The forms have determinant of absolute value 1 at every place.
-All coordinate bases are units, and \(x\) is integral. Thus at
-every finite place the maximum norm of the vector is 1. The
-product formula cancels the archimedean absolute values of each
-of the six unit coordinates. With absolute values normalized
-as in Evertse [1], the product of the 28 form evaluations is
-therefore
-\[
- \prod_{v\in S}\prod_{i=0}^{6}|L_{i,v}({\bf z})|_v
- =|x-A_rV^m-B_r(U/V)^m|<5\,4^{-m}.
-\]
+At every place the coefficient determinant has absolute value 1.
+The usual maximum-norm height of [1] is \(H({\bf z})=(UV)^m\)
+for \(m\ge600\): all finite-place maxima are 1 since the \(w\)
+are units and \(x\) is integral, and at each real place the largest
+unit coordinate has ordinary absolute value \((UV)^m\), greater
+than \(x<7V^m\).
 
-The Euclidean projective height \(H({\bf z})\) in [1] satisfies
+Set \(\epsilon=3/8\). For the normalized absolute values of [1],
+take weights
 \[
- 5^m<H({\bf z})<150^m\qquad(m\ge1).
+ d_{0,v}=-(1+\epsilon)/4,\qquad
+ d_{w,v}=\big(\log|\sigma_v(w)|/\log(UV)-1\big)/4.
 \]
-For the lower bound use the coordinates \(V^{\pm m}\), whose
-maximum at each embedding is \(V^m>5^m\).
-For the upper bound every conjugate of a base is at most
-\(UV<40\), while \(x<\sqrt3\,\beta^{(4m+3)/2}<7V^m<50^m\).
-Thus \(H({\bf z})<\sqrt7\,50^m<150^m\).
+All weights are nonpositive. They sum over the four places
+to \(-7-\epsilon\), since the product of the six \(w\) is 1.
+The coordinate forms attain the bounds in (3.7) of [1].
+For \(L_{0,v}\) the bound follows from
+\(5\cdot4^{-m}<H({\bf z})^{-\epsilon}\), since \(UV<40\) and
+\((128/125)^{600}>5^8\). The maximum over automorphisms fixing
+\(K\) leaves \({\bf z}\) fixed.
 
-The forms have coefficient-field degree over \(K\) at most 4,
-since the only needed extra generators are square roots of \(c\)
-and \(\beta\) (or their conjugates). Their coefficient-vector
-heights are less than 1000. For clarity, with \(h\) the absolute
-logarithmic scalar height,
+The union of the forms has cardinality at most 10. Their coefficient
+fields over \(K\) have degree at most 2, since \(A_r^2=c\beta^r\)
+and \(2A_r B_r=\alpha^r\). For the inhomogeneous form height,
+\(H^*(L_{0,v})\le \exp(h(A_r)+h(B_r))<1000\), with
 \[
  h(A_r)\le\tfrac14\log 8+\tfrac34\log\beta,\qquad
  h(B_r)\le\log2+\tfrac14\log8+
                  3(\tfrac12\log\alpha+\tfrac14\log\beta).
 \]
-The Euclidean projective height of the three nonzero coefficients
-is at most \(\sqrt3\exp(h(A_r)+h(B_r))<1000\).
-
-For \(m\ge5\), we have \(H({\bf z})>1000\) and
+The Euclidean version of the form height also lies below 1000.
+The lower height threshold of [1, Theorem 3.1] is
+\(\max(1000^{1/60},7^{56/3})\), below \(H({\bf z})\)
+for \(m\ge600\). That theorem covers the vectors for each \(r\)
+by at most
 \[
- 5\,4^{-m}<150^{-m/10}< H({\bf z})^{-1/10}.
+ T=10^9\,2^{14}\,7^{14}\,(8/3)^3
+       \log(160)\log\big((8/3)\log60\big)
 \]
-Since the finite-place norm of the vector is 1, division by the
-archimedean vector norms gives precisely inequality (1.3) of [1]
-with dimension 7, four places, \(\delta=1/10\), coefficient-field
-degree bound 4 and form-height bound 1000.
-By part (i) of the theorem on p. 228, for each fixed \(r\),
-all such vectors are contained in at most
-\[
- T=(2^{60\cdot7^2}10^{7\cdot7})^4
-             \log16\,\log\log16<10^{3737}
-\]
-proper \(K\)-linear subspaces. For the last inequality it suffices
-to note \(\log16\log\log16<3\) and to compare the integers
-\(3\cdot2^{11760}\cdot10^{196}\) and \(10^{3737}\).
+proper linear subspaces defined over \(K\).
 
 ## 3. At most fourteen indices per subspace
 
@@ -172,9 +154,11 @@ It cannot be a square. This contradiction proves nonvanishing.
 Rolle's bound now gives at most fourteen integer indices \(m\)
 on the hyperplane.
 
-There are four choices of \(r\). The number of indices with
-\(m\ge5\) is at most \(56T\); there are only twenty indices
-with \(m<5\). Hence the total is less than \(10^{3739}\).
+The [norm descent](norm-descent.md) restricts \(r\) to 1 and 3.
+The number of indices with \(m\ge600\) is thus at most \(28T\),
+and there are at most 2400 indices with \(m<600\). The logarithmic
+factors in \(T\) are less than \(26/5\) and \(5/2\), respectively.
+The resulting upper bound satisfies \(28T+2400<10^{29}\).
 
 ## 4. Effective zero location in any specified hyperplane
 
@@ -240,23 +224,15 @@ linear, explicit upper bound on the last square index.
 
 ## 5. Consequence for the classification target
 
-The bound is effective as a count, not as an index cutoff.
-The quantitative theorem does not identify the hyperplanes;
-their unknown coefficients prevent application of an effective
-zero-location bound to their exponential polynomials.
-The computation excluding all indices up to \(10^{322}\)
-therefore cannot yet be combined with this count to prove
-that \(n=3\) is the only nonnegative square index.
-
-This reduction isolates the missing effective input in the
-archimedean method: a computable height bound for the relevant
-exceptional hyperplane coefficients, or another effective
-description of their intersection with the exponential curve.
-The local anchor-forcing approach remains independent.
+A uniform bound on the coefficient heights of a covering family
+of hyperplanes would turn the count into an index cutoff by
+the proposition. The explicit cutoff needed to combine this
+approach with the current [finite certificate](extended-lifting.md)
+is \(10^{902}\).
 
 ## Reference
 
-[1] J.-H. Evertse, *An improvement of the quantitative Subspace
-theorem*, Compositio Mathematica 101 (1996), 225–311,
-inequality (1.3) and theorem (i), p. 228.
-https://www.numdam.org/item/CM_1996__101_3_225_0/
+[1] J.-H. Evertse and R. G. Ferretti,
+*A further improvement of the Quantitative Subspace Theorem*,
+Annals of Mathematics 177 (2013), 513–590, Theorem 3.1.
+https://doi.org/10.4007/annals.2013.177.2.4
