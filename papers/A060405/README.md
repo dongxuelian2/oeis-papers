@@ -190,6 +190,26 @@ the \(K^6\) covering hyperplanes (equivalently
 \(\|A_r V^m+B_r(U/V)^m\|_{\mathbb Z}\ge 5(U^2/V^3)^m\) for
 \(r\in\{1,3\}\) and \(m>2.5\times 10^{901}\)).
 
+## Coupled norm descent and finite prime support
+
+The [coupled norm-order rule](coupled-norm-descent.md) records the
+exact valuation-parity condition for products of unit-power factors,
+including cancellations at shared prime ideals. On the three odd
+branches, it gives a constraint system on the finitely supported
+prime-exponent vector of the index. A directed forcing graph is a
+special case: ten [certified implications](verify_norm_order.py)
+include \(53\mid n\Rightarrow6679\mid n\Rightarrow66791\mid n\).
+The new primes in these implications occur to odd valuation.
+
+The [terminal-vertex certificate](verify_norm_graph_limits.py)
+proves that \(17,19,23\) have no outgoing edges in the simple graph
+using orders equal to an individual source prime, even with no
+restriction on the witness prime. This uses the exact rational norm
+\(N_{K/\mathbb Q}(\eta^s-1)=4Q_s^2-5F_{2s}^2\) for odd \(s\).
+The general escape problem requires composite-order activation
+and/or additional coupled norm identities. No new bound on the
+last square index is asserted.
+
 ## Theorem 1 (finiteness for every fixed exponent)
 
 For each fixed integer \(d\ge2\), only finitely many nonnegative indices
