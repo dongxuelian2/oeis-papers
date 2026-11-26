@@ -1,0 +1,540 @@
+{
+  "crt_constructions": [
+    {
+      "base": 2,
+      "width": 6,
+      "exponent": 2,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 1,
+      "largest_prime": 103,
+      "selected": [
+        47,
+        61,
+        23
+      ],
+      "density": "8928/65941",
+      "period": 43521060
+    },
+    {
+      "base": 2,
+      "width": 6,
+      "exponent": 3,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 1,
+      "largest_prime": 127,
+      "selected": [
+        73,
+        61,
+        127
+      ],
+      "density": "22575/565531",
+      "period": 1425138120
+    },
+    {
+      "base": 2,
+      "width": 6,
+      "exponent": 7,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 0,
+      "largest_prime": 1051,
+      "selected": [
+        449,
+        281,
+        113
+      ],
+      "density": "45305/14257097",
+      "period": 31935897280
+    },
+    {
+      "base": 2,
+      "width": 6,
+      "exponent": 23,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 0,
+      "largest_prime": 3313,
+      "selected": [
+        1151,
+        47,
+        139
+      ],
+      "density": "1071/7519483",
+      "period": 25942216350
+    },
+    {
+      "base": 2,
+      "width": 6,
+      "exponent": 101,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 0,
+      "largest_prime": 9697,
+      "selected": [
+        5051,
+        8081,
+        607
+      ],
+      "density": "28917/24775998517",
+      "period": 3002851020260400
+    },
+    {
+      "base": 2,
+      "width": 12,
+      "exponent": 2,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 317,
+      "selected": [
+        73,
+        103,
+        17
+      ],
+      "density": "17316/127823",
+      "period": 18406512
+    },
+    {
+      "base": 2,
+      "width": 12,
+      "exponent": 3,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 691,
+      "selected": [
+        73,
+        103,
+        307
+      ],
+      "density": "875/22411",
+      "period": 2825399592
+    },
+    {
+      "base": 2,
+      "width": 12,
+      "exponent": 7,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 3011,
+      "selected": [
+        421,
+        2017,
+        1583
+      ],
+      "density": "4001783/1344215531",
+      "period": 1531115258430240
+    },
+    {
+      "base": 2,
+      "width": 12,
+      "exponent": 23,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 10903,
+      "selected": [
+        2393,
+        277,
+        829
+      ],
+      "density": "50505/549511769",
+      "period": 11829889363032
+    },
+    {
+      "base": 2,
+      "width": 12,
+      "exponent": 101,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 54541,
+      "selected": [
+        14747,
+        26261,
+        20201
+      ],
+      "density": "7711767/7823260804367",
+      "period": 149970344967554516600
+    },
+    {
+      "base": 2,
+      "width": 24,
+      "exponent": 2,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 0,
+      "largest_prime": 367,
+      "selected": [
+        239,
+        293,
+        29
+      ],
+      "density": "264600/2030783",
+      "period": 70565647684
+    },
+    {
+      "base": 2,
+      "width": 24,
+      "exponent": 3,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 1,
+      "largest_prime": 1039,
+      "selected": [
+        769,
+        823,
+        613
+      ],
+      "density": "14488375/387959731",
+      "period": 2081798123901696
+    },
+    {
+      "base": 2,
+      "width": 24,
+      "exponent": 7,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 0,
+      "largest_prime": 3221,
+      "selected": [
+        239,
+        2731,
+        29
+      ],
+      "density": "68425/18928561",
+      "period": 1756949032020
+    },
+    {
+      "base": 2,
+      "width": 24,
+      "exponent": 23,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 0,
+      "largest_prime": 24749,
+      "selected": [
+        3313,
+        4003,
+        12007
+      ],
+      "density": "13271125/159236101573",
+      "period": 15294309083883504
+    },
+    {
+      "base": 2,
+      "width": 24,
+      "exponent": 101,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 0,
+      "largest_prime": 248461,
+      "selected": [
+        12323,
+        9091,
+        27271
+      ],
+      "density": "3033303/3055126305503",
+      "period": 5082110955415075410
+    },
+    {
+      "base": 10,
+      "width": 6,
+      "exponent": 2,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 2,
+      "largest_prime": 103,
+      "selected": [
+        47,
+        61,
+        23
+      ],
+      "density": "8928/65941",
+      "period": 43521060
+    },
+    {
+      "base": 10,
+      "width": 6,
+      "exponent": 3,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 2,
+      "largest_prime": 127,
+      "selected": [
+        73,
+        61,
+        127
+      ],
+      "density": "22575/565531",
+      "period": 1425138120
+    },
+    {
+      "base": 10,
+      "width": 6,
+      "exponent": 7,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 0,
+      "largest_prime": 1051,
+      "selected": [
+        449,
+        281,
+        113
+      ],
+      "density": "45305/14257097",
+      "period": 31935897280
+    },
+    {
+      "base": 10,
+      "width": 6,
+      "exponent": 23,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 0,
+      "largest_prime": 3313,
+      "selected": [
+        1151,
+        47,
+        139
+      ],
+      "density": "1071/7519483",
+      "period": 25942216350
+    },
+    {
+      "base": 10,
+      "width": 6,
+      "exponent": 101,
+      "auxiliary_prime": 13,
+      "constructed": 6,
+      "ineligible": 0,
+      "largest_prime": 9697,
+      "selected": [
+        5051,
+        8081,
+        607
+      ],
+      "density": "28917/24775998517",
+      "period": 3002851020260400
+    },
+    {
+      "base": 10,
+      "width": 12,
+      "exponent": 2,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 317,
+      "selected": [
+        73,
+        103,
+        17
+      ],
+      "density": "17316/127823",
+      "period": 18406512
+    },
+    {
+      "base": 10,
+      "width": 12,
+      "exponent": 3,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 691,
+      "selected": [
+        73,
+        103,
+        307
+      ],
+      "density": "875/22411",
+      "period": 2825399592
+    },
+    {
+      "base": 10,
+      "width": 12,
+      "exponent": 7,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 3011,
+      "selected": [
+        421,
+        2017,
+        1583
+      ],
+      "density": "4001783/1344215531",
+      "period": 1531115258430240
+    },
+    {
+      "base": 10,
+      "width": 12,
+      "exponent": 23,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 10903,
+      "selected": [
+        2393,
+        277,
+        829
+      ],
+      "density": "50505/549511769",
+      "period": 11829889363032
+    },
+    {
+      "base": 10,
+      "width": 12,
+      "exponent": 101,
+      "auxiliary_prime": 29,
+      "constructed": 14,
+      "ineligible": 0,
+      "largest_prime": 54541,
+      "selected": [
+        14747,
+        26261,
+        20201
+      ],
+      "density": "7711767/7823260804367",
+      "period": 149970344967554516600
+    },
+    {
+      "base": 10,
+      "width": 24,
+      "exponent": 2,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 2,
+      "largest_prime": 367,
+      "selected": [
+        239,
+        293,
+        29
+      ],
+      "density": "264600/2030783",
+      "period": 70565647684
+    },
+    {
+      "base": 10,
+      "width": 24,
+      "exponent": 3,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 1,
+      "largest_prime": 1039,
+      "selected": [
+        769,
+        823,
+        241
+      ],
+      "density": "5724675/152525767",
+      "period": 80240755503360
+    },
+    {
+      "base": 10,
+      "width": 24,
+      "exponent": 7,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 0,
+      "largest_prime": 3221,
+      "selected": [
+        239,
+        2731,
+        29
+      ],
+      "density": "68425/18928561",
+      "period": 1756949032020
+    },
+    {
+      "base": 10,
+      "width": 24,
+      "exponent": 23,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 0,
+      "largest_prime": 24749,
+      "selected": [
+        3313,
+        4003,
+        12007
+      ],
+      "density": "13271125/159236101573",
+      "period": 15294309083883504
+    },
+    {
+      "base": 10,
+      "width": 24,
+      "exponent": 101,
+      "auxiliary_prime": 53,
+      "constructed": 26,
+      "ineligible": 0,
+      "largest_prime": 248461,
+      "selected": [
+        12323,
+        9091,
+        27271
+      ],
+      "density": "3033303/3055126305503",
+      "period": 5082110955415075410
+    }
+  ],
+  "tail_checks": [
+    {
+      "cutoff": 3,
+      "power": 2,
+      "terms": 500,
+      "bound": "16/9"
+    },
+    {
+      "cutoff": 3,
+      "power": 3,
+      "terms": 500,
+      "bound": "20/27"
+    },
+    {
+      "cutoff": 3,
+      "power": 8,
+      "terms": 500,
+      "bound": "2560/45927"
+    },
+    {
+      "cutoff": 10,
+      "power": 2,
+      "terms": 500,
+      "bound": "11/25"
+    },
+    {
+      "cutoff": 10,
+      "power": 3,
+      "terms": 500,
+      "bound": "6/125"
+    },
+    {
+      "cutoff": 10,
+      "power": 8,
+      "terms": 500,
+      "bound": "17/2734375"
+    },
+    {
+      "cutoff": 50,
+      "power": 2,
+      "terms": 500,
+      "bound": "51/625"
+    },
+    {
+      "cutoff": 50,
+      "power": 3,
+      "terms": 500,
+      "bound": "26/15625"
+    },
+    {
+      "cutoff": 50,
+      "power": 8,
+      "terms": 500,
+      "bound": "57/1068115234375"
+    }
+  ]
+}

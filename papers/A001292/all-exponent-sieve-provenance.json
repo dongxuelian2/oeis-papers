@@ -1,0 +1,14 @@
+{
+  "kind": "New all-exponent powerful-value counting improvement",
+  "parent_commit": "91170deee4c5078f2b09554f4dec8997c68a5545",
+  "scope": "All powerful rotations, hence all nontrivial integer power exponents; conjecture remains open",
+  "review": "Independent mathematical review approved the weights, local density, error bound, Mertens estimates and fixed-base hypotheses. No separate review script is claimed.",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "ALL_EXPONENT_QUADRATIC_SIEVE.md": "34e2944f4e2e5cd82e7b802ed14cb375f068c5416b0d359aa7e57b97caa4cc2b",
+    "verify_all_exponent_sieve.py": "9b3c10a8947f9f71292bd1fd11d0059ddc65f8004c2e99504d4110a1958b0396",
+    "all-exponent-sieve-certificate.json": "84b05795e0cb12d17ed6d9d000d52cab284816847aa3422ee13d51a6abfec43e",
+    "all-exponent-sieve-verification.txt": "67660252996460ed73f748c9bec9e6177bef2e67a1ffa58874772d048f9bd54b",
+    "README.md": "96fc930995d253f0f2080873d316998684fb673875cf74ab67b2c5af0a1a2301"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "base_commit": "bef5ca80185bc8331c888116bd79aacd87956f2f",
+  "scope": "General admissible-prime valuation transfer and explicit exponent-37 branch; inherited main manuscript and PDF unchanged.",
+  "review": "Independent mathematical audit passed: admissibility, inherited lift and witness input, CRT, local power claims, density and fixed-parameter quantifiers. Reviewer independently verified witness arithmetic, ran the original verifier and multiplier verifier, and checked 36 modular rotations at manageable widths. No independent checker file is included.",
+  "verification": "Published standard-library verifier: 80 admissibility/P constructions, 4536 selected valuation classes, 10000 Q3 residues, 267 tail/period cases and 8 scalar recurrence identities. Four transition cases added following review recommendation and rerun. No enormous-width prefixes or blocks enumerated.",
+  "sha256": {
+    "GENERAL_VALUATION_TRANSFER.md": "ae8f238f66b6b726bc596bdec19a3721d10b3d6745eaebe15f1c5e37e5c05d36",
+    "README.md": "ff3c13bae211e4ce3dded8cd55b0b946391f1021ee770e943e263b587c8dc076",
+    "general-valuation-transfer-certificate.json": "b4f86ecbecb5e49a5644ae3f7e81b2842acb8854ee2520fa10ac23aaf525643f",
+    "general-valuation-transfer-verification.txt": "dd95c8b65b8cd6fbe8edaf447087a4d4d9143a435df0a2bcfb471561a0836aac",
+    "verify_general_valuation_transfer.py": "f3e581e45c329e1cd63fea40697206faca724bc7a66acd72ba88361e810f69d5"
+  }
+}

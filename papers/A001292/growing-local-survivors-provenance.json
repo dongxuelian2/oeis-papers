@@ -1,0 +1,15 @@
+{
+  "kind": "New growing-prime local-square survivor theorem",
+  "parent_commit": "ab987c6e26ecbbfcfd5456c35266994db24cc2e7",
+  "scope": "Local squares at all primes <= twice a prime digit width; not integer squares",
+  "verification": "Exact class enumeration and endpoint counts for widths 5,7,11, plus 773 selected candidate prime checks. No direct exhaustive check of all candidates is claimed. Asymptotics follow from proof.",
+  "review": "Independent mathematical review approved eligibility, joint density, common period, asymptotics and the primes 2,3,5. No separate review script is claimed.",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "GROWING_LOCAL_SURVIVORS.md": "59e34e43f170d0455bbf7dfd5604fe7bd8912bb232a22fbfbd54834c67af8cea",
+    "verify_growing_local_survivors.py": "cef0e2faad482c7b9a709b731a76a6fa0bd767cb1ebde12e8314514286c581dd",
+    "growing-local-survivors-certificate.json": "6483c37c4522a35db14fd1fe7b6fbaabb44715bf20ab499265698819edd11941",
+    "growing-local-survivors-verification.txt": "0e78a52267f6804b9efd710b60f758c3f84a807148cb034040f2001a4e237ac1",
+    "README.md": "574e0cfeb4d0328cf4f710c3767a0650fa947564b5b4ac2fd5ce669e02b0328d"
+  }
+}

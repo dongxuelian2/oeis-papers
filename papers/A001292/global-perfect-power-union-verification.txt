@@ -1,0 +1,49 @@
+{
+  "checks": {
+    "compressed_roots": {
+      "all_branch_bounds_pass": true,
+      "exponents": [
+        3,
+        5,
+        7,
+        11
+      ],
+      "primes": [
+        2,
+        5
+      ],
+      "right_side_groups": 54401,
+      "root_values": 86304
+    },
+    "constants": {
+      "all_exact_width_inequalities_pass": true,
+      "claimed_odd_constant": 11,
+      "claimed_perfect_constant": 17,
+      "claimed_square_constant": 330,
+      "d2_total_pairs": 4905,
+      "odd_coefficient_upper_rational": "5762/575",
+      "perfect_coefficient_upper_rational": "9442/575",
+      "widths_from": 2,
+      "widths_through": 2000
+    },
+    "prefixes": {
+      "k_from": 10,
+      "k_through": 10000,
+      "minimum_precision_minus_local_valuation": 10,
+      "smooth_part_and_unsaturated_valuations": true
+    },
+    "prime_counts": {
+      "integer_arguments_through": 200000,
+      "low_prime_sum_widths_through": 100,
+      "pi_u_lt_4u_over_log_u_pass": true
+    },
+    "rotation_injection": {
+      "length_and_cut_recovery_pass": true,
+      "m_through": 300,
+      "maximum_observed_same_value_multiplicity": 1,
+      "pairs": 44850
+    }
+  },
+  "scope": "Finite corroboration only; the general theorem uses the written proofs and companion all-cut determinant input.",
+  "status": "PASS"
+}

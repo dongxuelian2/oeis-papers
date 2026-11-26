@@ -1,0 +1,21 @@
+{
+  "base_commit": "0a7c78db2cbd0720b98934ff2287d4fdd04e0b6d",
+  "scope": "Unconditional fixed-squareclass finiteness for square rotations in a fixed-margin early-cut region; ineffective and nonuniform in the squareclass. Includes quantified limitations of two leading-term representations, not a proof of the full conjecture. Main LaTeX/PDF unchanged.",
+  "reviews": [
+    "Independent mathematical and executable audit of the canonical coefficient-height note passed.",
+    "Separate independent audit of fixed-squareclass finiteness, approximation constants/exponents, target squareclass counts and primary Maculan theorem passed. Finite-place normalization and height convention were made explicit following review."
+  ],
+  "finite_verification": "Both standard-library scripts pass: four coefficient widths, 32 prefix identities, 1999 digit-count identities, 18 exact rotation checks, and target squareclass counts 23/23 and 292/293. These do not calculate the ineffective exceptional set. No independent reviewer script is claimed or included.",
+  "source": "https://smf.emath.fr/system/files/2017-08/smf_mem-ns_152.pdf (Chapter 2, Theorem 1.5)",
+  "sha256": {
+    "IRRATIONAL_TARGET_ASSESSMENT.md": "e13bee2862c588310e8a02c70ed3c3cd99a755b879d7b3f452659f7e6d467b84",
+    "MOVING_COEFFICIENT_HEIGHT.md": "5700d07b206f2ae5835fa6736fefd9accd2e25ad0f07a96737f77b63d60ea376",
+    "README.md": "6c0d6191b64aa3a513344a080271913a499be1d1f73061d895a438583005f2c2",
+    "coefficient-height-certificate.json": "40ffb93a2c9cba86d13872adaff098d2daf30ee5e07de71dfc0efcd142fa77c0",
+    "coefficient-height-verification.txt": "e4f9b4073e2e7ef4d5d8fcafdecf978eae4765a663f1e83f53fd71cc3461e867",
+    "irrational-target-certificate.json": "a3e3e9c3d042cd8d4f043e32f4ce27a0e67a96ce478583b968504df171d24055",
+    "irrational-target-verification.txt": "86afc67caaaa2ac373cec63821400b3a77fb96bba159b9adf4d6ca791119a506",
+    "verify_coefficient_height.py": "bb48d66b7376c109b2538afd3896a41cf3a36ae1fa3cb8376039a10b404544a6",
+    "verify_irrational_target.py": "314de655b4258f0252017e9b62bb408d500090460b4b9faf230cf4229aedbf89"
+  }
+}

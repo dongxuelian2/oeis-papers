@@ -1,0 +1,15 @@
+{
+  "kind": "Power-of-two valuation extension and complete finite endpoint certificate scan",
+  "parent_commit": "c6a91e4aa0d60f39bd52b332a98bea0e45aaaac1",
+  "scope": "94 blocks within endpoints 5001..10000; includes prior ten blocks; no infinite classification",
+  "verification": "5000 endpoints scanned, 206 preliminary symbols, 188 selected successful-block cuts. Full rotation coverage is a proof consequence.",
+  "review": "Independent theorem audit and full scan reproduced all counts and overlap totals. No separate review script is claimed.",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "JACOBI_POWER_TWO_VALUATIONS.md": "772e5e358cc15a168e0c5e05cfbd496def47329806f9e905d3894296d8276109",
+    "verify_jacobi_endpoint_range.py": "b87736141ff724edbecb8f9cb799f760e267129bcd80e6e6c0cdddcbfffa46d0",
+    "jacobi-endpoint-range-certificate.json": "a0be858d54f4b0ea8da2d38054101ca4583fe14a47c8f1dbc0ffe9d47dbcdde8",
+    "jacobi-endpoint-range-verification.txt": "c0192b63859cb40c7eb586dc6ffcb6aeeb765c6f3f132c7751a85c160c083ed3",
+    "README.md": "f9d90ca9f76d6fbd0553fcb40ca352a3035b0174119604860bbc19905c68e868"
+  }
+}

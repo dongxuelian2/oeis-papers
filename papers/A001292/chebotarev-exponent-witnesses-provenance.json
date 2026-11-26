@@ -1,0 +1,13 @@
+{
+  "base_commit": "14de16df8d0102f0a2b1d2db47c21e8b9910f23c",
+  "status": "Unconditional witness-existence argument for each fixed prime exponent e>=5 and composite-order extension. No growing-exponent uniformity, no whole-sequence classification; main manuscript/PDF unchanged.",
+  "independent_review": "Passed field degree, quadratic-subfield list including e5 case, trivial intersection with Q(zeta12), central Frobenius density among rational primes, composite-order affine lemma, endpoint CRT and fixed-e/fixed-witness quantifiers. No GRH or numerical first-witness bound assumed. Once a witness is supplied, the explicit interval bound gives a computable h threshold.",
+  "verification_scope": "Author standard-library verifier checks nine explicit witnesses, nine exact nonpower counts,135 scalar recurrence identities and2700 coprimality checks. Infinite witness existence follows from the written Chebotarev proof, not finite examples. No separate independent executable is claimed to be included.",
+  "sha256": {
+    "CHEBOTAREV_EXPONENT_WITNESSES.md": "9d0e6fca923e3b38cbf567504973e51ec8c68b4df92eea65cb71a653d8ca29f6",
+    "README.md": "12dff16b1471761f0c6d953573ed70a1af233376129d74e2a9d3e9134c19e8f4",
+    "chebotarev-exponent-witnesses-verification.txt": "6961fc05ebc51e803e9b6ae70472aa3d6096ac8f8a91f419a427a0fad2cf9d8b",
+    "chebotarev-exponent-witnesses-certificate.json": "e7a8410714f67e56e7d35eedecadcbdc6e0900cbb87ee8f436148e2b640b70df",
+    "verify_chebotarev_exponent_witnesses.py": "930c176c0ede12275cb0c8aa9a0034207a695bd1f439eedd3ef6acb9cd835f21"
+  }
+}

@@ -1,0 +1,6 @@
+Prime/order/fifth-power data and824 nonpowers: PASS
+Exact q-step checks across102 phases: 306
+Exact tail/period inequalities: 147
+Selected actual prefixes: 12
+Selected modular cuts: 48
+PASS. Infinite-family statements follow from proof; no claim for every exponent.

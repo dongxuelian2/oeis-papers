@@ -1,0 +1,40 @@
+{
+  "scope": "Separate proved supplement; main18-cut manuscript unchanged; integer conjecture open.",
+  "newly_assembled_proof": "PRIME_FAMILIES.md",
+  "byte_identical_recovered_verifiers": {
+    "verify_odd_order_families.py": "03e92e4258949d46a8d0f94172d3ea3157f1f3886f7ab3b7fb581b6e56181a1a",
+    "verify_local_survivor_families.py": "90979d07269479838b2090cb924d33c75d6e493051c1f50a68fbedbaeb46d68c"
+  },
+  "ported_recovered_verifiers": [
+    "verify_seven_family.py",
+    "verify_seven_complete.py",
+    "verify_eleven_thirteen.py"
+  ],
+  "portability_changes": "Removed workspace-specific import paths. Published baseline imports resolve beside these scripts. Renamed the period helper and changed its import.",
+  "renamed_recovered_helper": {
+    "from": "explore_more_primes2.py",
+    "to": "prime_period_certificates.py"
+  },
+  "new_recovery_audits_in_main_revision": "verify_recovered_uniform.py is a new audit, not an exact restoration of the four lost18-cut audit files.",
+  "proof_origins": {
+    "7": "Recovered original proof and complete finite table; rerun after recovery.",
+    "11/13": "Consolidated from original full proof/tool-call text; rerun complete finite tables and independent checks.",
+    "31/41": "Recovered proof SHA25682b6a05f02c72b07ba52da1a4566f8843e23c8e1baf673e7cb414697e4038c7f.",
+    "simultaneous_local_powers": "Recovered proof SHA256eb46c6244ef669a8e660e824016553bd8aeb459d648baf393a7c9cdb69f67160."
+  },
+  "published_file_sha256": {
+    "PRIME_FAMILIES.md": "fa68c7520f793fb48bcbbbb1326bd47cbd0ea1fec6910288b056256151bf9b1a",
+    "verify_seven_family.py": "da0fd3af2affb44e3e8e3108e66cdbb9e5ed3f5361c47f597921f6a7d46a1caf",
+    "verify_seven_complete.py": "8ca89284ade2ecf27cdf9f03718588b9de4016a01ee640b51dcd72a245a75e75",
+    "verify_eleven_thirteen.py": "9c2b62015a804a995f503972dcb612f211b2cd799615a0fe2ff789dddff548f4",
+    "prime_period_certificates.py": "f32b92c189d6762a6fec5b5c897c1daba9ba16da10beece70c74d9f16468a007",
+    "verify_odd_order_families.py": "03e92e4258949d46a8d0f94172d3ea3157f1f3886f7ab3b7fb581b6e56181a1a",
+    "verify_local_survivor_families.py": "90979d07269479838b2090cb924d33c75d6e493051c1f50a68fbedbaeb46d68c"
+  },
+  "fresh_logs": [
+    "prime7-verification.txt",
+    "prime11-13-verification.txt",
+    "prime31-41-verification.txt",
+    "local-survivors-verification.txt"
+  ]
+}

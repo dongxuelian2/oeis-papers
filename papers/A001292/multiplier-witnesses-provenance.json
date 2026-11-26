@@ -1,0 +1,13 @@
+{
+  "base_commit": "ca940a08b1020bb5407b9ac6a97f9949d1a2e427",
+  "status": "Witness-order avoidance for arbitrary fixed multiplier u coprime to3 and fixed prime e>=5, followed by certified subsets at d=u*3^h for sufficiently large h. No growing-u/e uniformity; main manuscript/PDF unchanged.",
+  "independent_review": "Passed commutator/maximal-abelian field, exact cyclotomic intersection, CRT compatibility including e5, central Frobenius density1/(e*phi(M)), order avoidance for every prime dividing6u, composite-order transfer and actual-d interval error. Quantifiers fix u,e then p,r before h tends to infinity; eta can depend on u through the witness.",
+  "verification_scope": "Author standard-library verifier checks nine explicit CRT/prime/order witnesses and900 width coprimality cases. Arbitrary fixed multiplier existence follows from field/Chebotarev proof, not examples. No separate reviewer executable is claimed.",
+  "sha256": {
+    "verify_multiplier_witnesses.py": "bd6bb1ff9c5375915188889625fd0e7d4817c1c86b1d13009361f700f8d381fc",
+    "README.md": "ade28f96de00c298fbc1559364bf91d29798cff62c5740f48b53457ebe974149",
+    "ARBITRARY_FIXED_MULTIPLIERS.md": "580331e023a026ecbea4d518f1a825b2bfc13dc4a64fd0bf8fa0a8901ef7114d",
+    "multiplier-witnesses-certificate.json": "c0da3ed96b04808928b118a1f818fdf0bf32e642e855ccf7d4afe81a2102f16d",
+    "multiplier-witnesses-verification.txt": "9470c10c521ab895de17e0b611ff230c38610175962f5331fc0543070f0346fd"
+  }
+}

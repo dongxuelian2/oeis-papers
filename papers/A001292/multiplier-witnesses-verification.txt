@@ -1,0 +1,4 @@
+Nine CRT/prime/exact-order witnesses: PASS
+Quadratic compatibility and exponent-dividing-multiplier cases: PASS
+Fixed-multiplier width coprimality checks: 900
+PASS. Arbitrary fixed multiplier existence follows from proof, not nine samples.

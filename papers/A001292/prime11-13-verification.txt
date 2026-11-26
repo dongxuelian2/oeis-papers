@@ -1,0 +1,33 @@
+p 11 r 22 E 242 T 22 start 2 macro 1 99
+nonempty phases 22 counts Counter({10: 22}) total 220 first [(17, [12, 34, 78, 100, 122, 144, 166, 188, 210, 232]), (23, [0, 22, 44, 66, 88, 110, 132, 154, 176, 220]), (39, [34, 56, 78, 100, 122, 144, 166, 188, 210, 232])]
+PASS: full compact classification and normalized-prefix cover at 11
+p 13 r 78 E 1014 T 78 start 2 macro 1 104
+nonempty phases 78 counts Counter({12: 52, 36: 26}) total 1560 first [(15, [22, 48, 74, 100, 126, 152, 178, 204, 230, 256, 308, 334, 360, 386, 412, 438, 464, 490, 516, 542, 568, 594, 646, 672, 698, 724, 750, 776, 802, 828, 854, 880, 906, 932, 984, 1010]), (17, [24, 102, 258, 336, 414, 492, 570, 648, 726, 804, 882, 960]), (25, [102, 180, 258, 336, 414, 492, 570, 648, 726, 804, 882, 960])]
+PASS: full compact classification and normalized-prefix cover at 13
+PASS:3744 independent closed-form/literal comparisons
+PASS: 726 independent closed-form endpoint checks at 11 widths [17, 259, 501]
+PASS: 3042 independent closed-form endpoint checks at 13 widths [15, 1029, 2043]
+PASS:999000 literal rotation checks for11 and13
+PASS:1002001 exact CRT combinations; union 126320/1002001
+{
+  "1": {
+    "fraction": "20772853/34783749",
+    "decimal": 0.5971999452962934,
+    "increment": "2021120/34783749"
+  },
+  "2": {
+    "fraction": "13378303/22135113",
+    "decimal": 0.6043928034160024,
+    "increment": "1263200/22135113"
+  },
+  "3": {
+    "fraction": "4045161833/6574128561",
+    "decimal": 0.615315291671857,
+    "increment": "364812160/6574128561"
+  },
+  "4": {
+    "fraction": "4046037514/6574128561",
+    "decimal": 0.6154484927481478,
+    "increment": "364685840/6574128561"
+  }
+}

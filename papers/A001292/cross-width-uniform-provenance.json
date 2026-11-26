@@ -1,0 +1,21 @@
+{
+  "base_commit": "d2176599332ffa0c77bfd0ded36ed7ec073bda0b",
+  "scope": "Fixed-squareclass finiteness across a digit-width boundary plus an explicit short-relation obstruction uniform in squareclass. The latter is a necessary constraint, not a universal square exclusion. Main LaTeX and PDF unchanged.",
+  "review": [
+    "Independent cross-width proof/code audit passed: both H branches, window/direction estimates, source hypotheses, endpoint corollary and reported script scope. Reviewer additionally checked 11708 direct rotations and192 tail identities; no separate reviewer script is included.",
+    "Independent uniform-relation proof/code audit passed: early/late argument, local rational-root cases, explicit eta threshold, bounded-degree trace corollary, moving-form counterexample. Publication copy clarifies coefficient logarithmic heights and distinct-triple asymptotics."
+  ],
+  "verification": "Cross-width verifier:32 identities/tails (14 same-width,18 crossing),394 windows. Uniform verifier:3430 identities,1464 early/1963 late bounds,3 vacuous radii,0 actual rational-root cut samples,1445 synthetic local cases,7568 eta thresholds,5 counterexample samples,124 denominator-clearing samples. No square-solution or exceptional-subspace enumeration.",
+  "literature_check": "Evertse fixed-form theorem and Vojta moving-target/ Evertse-Ferretti Absolute Subspace statements were read from cited primary sources. No varying-field theorem sufficient to prove global exclusion is asserted.",
+  "sha256": {
+    "CROSS_WIDTH_FIXED_SQUARECLASS.md": "fdb4b53c5236ed20500729fd0c9f0dfbdb615eee58161dbef575e5c9dd441494",
+    "README.md": "b1bec8d8af3418a30e87792ad3e40fc41d7fd63b5eee2bbb01ae948b0c6e6857",
+    "UNIFORM_SHORT_RELATIONS.md": "8619e4f2f24aa43ee7476c45e8df687b9f5d824502667091faca651882ccdd15",
+    "cross-width-certificate.json": "2aab2ef5ce54ab3f5e5c34572f96223cf89f91e17b6554e03103878e1ed672ad",
+    "cross-width-verification.txt": "841f39f94375a3e00faebc0a7cfaa482844ef3bd76862a9dc3155a94b8af8fc4",
+    "uniform-short-relations-certificate.json": "c84907c72dbd5e3b0af578ef4c1ac80939db8c9d444528878175b5daed12bd52",
+    "uniform-short-relations-verification.txt": "aa80e80dc199e8c8ae04352802d11bf62f7af64a998a1735e65be6fdbd8054cb",
+    "verify_cross_width.py": "ccefb91d827c8c9bedde86fefd87a40e444cff6b210cd9dbca05285e1cd22910",
+    "verify_uniform_short_relations.py": "adf1a8210cb162228ea84a5eb2f18bf659778d53dbab3d2dc86f7b9a29b549c4"
+  }
+}

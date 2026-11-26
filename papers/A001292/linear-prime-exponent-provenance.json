@@ -1,0 +1,15 @@
+{
+  "base_commit": "da1a0d730230d105aa943ca22b496392e6e31ca1",
+  "status": "Conditional general prime-exponent progression lemma with verified e5,p1031,q103 instance and infinite valuation union. No claim of witnesses for every exponent or full conjecture resolution; main manuscript/PDF unchanged.",
+  "independent_review": "Passed. Original verifier and independent201 direct-prefix comparisons,408 complete affine counts,29520 triangular valuation residues,12 supplied prefixes,120 selected cuts and997 tail/period checks passed. Included independent script adapts only its certificate path and final status wording; adapted copy reran successfully.",
+  "verification_scope": "Primary script checks306 q-step cases,147 tail/period inequalities,12 actual prefixes and48 selected cuts. Infinite-family and whole-block assertions follow from proof.",
+  "sha256": {
+    "LINEAR_PRIME_EXPONENT_CERTIFICATE.md": "0378fe99ef2b8de82789731fe614ab267becaece76542f735ce4045dcc9d03a4",
+    "README.md": "ee806fbc69d04e751c2fbb021013eea8b7c5b0080f740b3324232dc516af67fe",
+    "verify_linear_prime_exponent.py": "dffc022e7338d946f69da34778c0543de4e7ad8478351d4cde6bbf29bee5d656",
+    "linear-prime-exponent-certificate.json": "b47f7833962c891f7af39df268459e8095696b9c6b6865d3e6150579e0c902a4",
+    "linear-prime-exponent-verification.txt": "e0740da7948018829a5e5e56afda9038cba3eb512740a1c92f302be5b6916ba8",
+    "verify_linear_prime_exponent_independent.py": "0cdb21a211e22999ee3c9457819c36957885ddc0d3ba33cc5a163fa31ef2edd9",
+    "linear-prime-exponent-independent-verification.txt": "35a8aa8b120666648e291937690154038aa687ce841a9f01aee0b9c715cf0f30"
+  }
+}

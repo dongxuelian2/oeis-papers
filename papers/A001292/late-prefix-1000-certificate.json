@@ -1,0 +1,3532 @@
+{
+  "summary": {
+    "max_cut": 1000,
+    "cut_range_start": 10,
+    "unit_root_exhaustive_cases": 871,
+    "cuts": 991,
+    "odd_valuation_cuts": 442,
+    "unit_obstructed_cuts": 484,
+    "local_survivor_cuts": 65,
+    "root_branches": 520,
+    "digit_gap_rejections": 329,
+    "not_after_cut_rejections": 0,
+    "exact_candidate_comparisons": 191,
+    "guaranteed_pairs_all_cuts": 406544,
+    "guaranteed_pairs_local_survivor_cuts": 26623,
+    "square_survivors": [],
+    "width_crossing_survivor_cuts": 35,
+    "naive_crosscheck_pairs": 3554,
+    "elapsed_seconds": 0.689,
+    "algorithm": "precision-doubling prime-power roots; CRT; exact square-digit-length endpoint inversion; exact rotation comparison",
+    "scope": "Complete for each audited k and every m>k with R_(m,k)<H_k^2. Guaranteed subregion D(m)<=2D(k)-2digits(k). Finite audit, not proof of infinite absence.",
+    "script_sha256": "854f26ca8f401d482898bafcf73ce066db8e5c14f9ee423f7d285546309dbdbb"
+  },
+  "local_survivor_branch_certificates": [
+    {
+      "k": 41,
+      "prefix_digits": 73,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 75,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 144
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 77,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 146
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 146
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 146
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 146
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 146
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 146
+        }
+      ]
+    },
+    {
+      "k": 49,
+      "prefix_digits": 89,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 91,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 92,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 92,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 178
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 178
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 178
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 178
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 178
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 178
+        }
+      ]
+    },
+    {
+      "k": 81,
+      "prefix_digits": 153,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 136,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 305
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 305
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 305
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 138,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 138,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 138,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 138,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 138,
+          "square_minus_rotation_sign": -1
+        }
+      ]
+    },
+    {
+      "k": 89,
+      "prefix_digits": 169,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 147,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 337
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 337
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 337
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 337
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 338
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 338
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 338
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 338
+        }
+      ]
+    },
+    {
+      "k": 104,
+      "prefix_digits": 204,
+      "valuations": [
+        6,
+        0
+      ],
+      "guaranteed_endpoint": 170,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 404
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 171,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 406
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 406
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 406
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 406
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 407
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 407
+        }
+      ]
+    },
+    {
+      "k": 121,
+      "prefix_digits": 255,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 204,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 508
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 509
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 509
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 206,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 206,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 206,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 206,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 206,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 129,
+      "prefix_digits": 279,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 220,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 221,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 557
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 557
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 222,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 222,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 222,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 222,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 222,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 161,
+      "prefix_digits": 375,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 284,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 748
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 748
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 286,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 286,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 286,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 286,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 286,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 286,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 169,
+      "prefix_digits": 399,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 300,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 301,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 797
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 797
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 302,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 302,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 302,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 302,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 302,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 184,
+      "prefix_digits": 444,
+      "valuations": [
+        4,
+        0
+      ],
+      "guaranteed_endpoint": 330,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 331,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 331,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 886
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 887
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 887
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 887
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 887
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 887
+        }
+      ]
+    },
+    {
+      "k": 201,
+      "prefix_digits": 495,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 364,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 986
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 365,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 366,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 366,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 366,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 366,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 366,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 366,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 204,
+      "prefix_digits": 504,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 370,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 371,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 371,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 1007
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 1007
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 1007
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 1007
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 372,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 372,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 209,
+      "prefix_digits": 519,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 380,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1037
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1037
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 1037
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 382,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 382,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 382,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 382,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 382,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 225,
+      "prefix_digits": 567,
+      "valuations": [
+        0,
+        2
+      ],
+      "guaranteed_endpoint": 412,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1129
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 413,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 1132
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 1132
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 1133
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 1133
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 1133
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 1133
+        }
+      ]
+    },
+    {
+      "k": 236,
+      "prefix_digits": 600,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 434,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1198
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1199
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 1199
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 1199
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 1199
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 436,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 436,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 436,
+          "square_minus_rotation_sign": -1
+        }
+      ]
+    },
+    {
+      "k": 241,
+      "prefix_digits": 615,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 444,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 445,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1228
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 446,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 446,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 446,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 446,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 446,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 446,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 249,
+      "prefix_digits": 639,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 460,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1276
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1277
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 1277
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 462,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 462,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 462,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 462,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 462,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 281,
+      "prefix_digits": 735,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 524,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1468
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1469
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 1469
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 526,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 526,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 526,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 526,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 526,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 289,
+      "prefix_digits": 759,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 540,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1516
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1517
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 1517
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 542,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 542,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 542,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 542,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 542,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 296,
+      "prefix_digits": 780,
+      "valuations": [
+        8,
+        0
+      ],
+      "guaranteed_endpoint": 554,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1556
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 555,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 555,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 555,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 1558
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 1558
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 1558
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 1558
+        }
+      ]
+    },
+    {
+      "k": 321,
+      "prefix_digits": 855,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 604,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1709
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1709
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 1709
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 606,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 606,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 606,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 606,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 606,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 329,
+      "prefix_digits": 879,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 620,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1756
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1757
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 622,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 622,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 622,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 622,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 622,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 622,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 361,
+      "prefix_digits": 975,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 684,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 1948
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1949
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 686,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 686,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 686,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 686,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 686,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 686,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 364,
+      "prefix_digits": 984,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 690,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 690,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1966
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 1967
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 1967
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 1967
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 1967
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 692,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 692,
+          "square_minus_rotation_sign": -1
+        }
+      ]
+    },
+    {
+      "k": 369,
+      "prefix_digits": 999,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 700,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 701,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 1997
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 702,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 702,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 702,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 702,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 702,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 702,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 396,
+      "prefix_digits": 1080,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 754,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 2158
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 2158
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 2159
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 2159
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 756,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 756,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 756,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 756,
+          "square_minus_rotation_sign": -1
+        }
+      ]
+    },
+    {
+      "k": 401,
+      "prefix_digits": 1095,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 764,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 765,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 2188
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 766,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 766,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 766,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 766,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 766,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 766,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 409,
+      "prefix_digits": 1119,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 780,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 2237
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 2237
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 2237
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 2237
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 782,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 782,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 782,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 782,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 441,
+      "prefix_digits": 1215,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 844,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 2428
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 2429
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 846,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 846,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 846,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 846,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 846,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 846,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 449,
+      "prefix_digits": 1239,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 860,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 2477
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 2477
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 2477
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 862,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 862,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 862,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 862,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 862,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 481,
+      "prefix_digits": 1335,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 924,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 925,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 2669
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 926,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 926,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 926,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 926,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 926,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 926,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 489,
+      "prefix_digits": 1359,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 940,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 2717
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 2717
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 2717
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 2717
+        },
+        {
+          "branch": 4,
+          "kind": "exact_comparison",
+          "m": 942,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 5,
+          "kind": "exact_comparison",
+          "m": 942,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 6,
+          "kind": "exact_comparison",
+          "m": 942,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 7,
+          "kind": "exact_comparison",
+          "m": 942,
+          "square_minus_rotation_sign": 1
+        }
+      ]
+    },
+    {
+      "k": 521,
+      "prefix_digits": 1455,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1002,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 2907
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1004,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 2910
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 2910
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 2910
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 2910
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 2910
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 2910
+        }
+      ]
+    },
+    {
+      "k": 524,
+      "prefix_digits": 1464,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 1007,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 2923
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 2924
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 2927
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 2927
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 2927
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 2927
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 2928
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 2928
+        }
+      ]
+    },
+    {
+      "k": 529,
+      "prefix_digits": 1479,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1014,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1016,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1016,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1016,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 2958
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 2958
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 2958
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 2958
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 2958
+        }
+      ]
+    },
+    {
+      "k": 556,
+      "prefix_digits": 1560,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 1055,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 3118
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 3118
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 3119
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3119
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3120
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3120
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3120
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3120
+        }
+      ]
+    },
+    {
+      "k": 561,
+      "prefix_digits": 1575,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1062,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 3146
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 3147
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 3150
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3150
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3150
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3150
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3150
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3150
+        }
+      ]
+    },
+    {
+      "k": 569,
+      "prefix_digits": 1599,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1074,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 3194
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 3196
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 3198
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3198
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3198
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3198
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3198
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3198
+        }
+      ]
+    },
+    {
+      "k": 601,
+      "prefix_digits": 1695,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1122,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 3388
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1124,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1124,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3390
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3390
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3390
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3390
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3390
+        }
+      ]
+    },
+    {
+      "k": 609,
+      "prefix_digits": 1719,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1134,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 3436
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1136,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 3438
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3438
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3438
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3438
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3438
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3438
+        }
+      ]
+    },
+    {
+      "k": 616,
+      "prefix_digits": 1740,
+      "valuations": [
+        6,
+        0
+      ],
+      "guaranteed_endpoint": 1145,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1146,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1146,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 3478
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3478
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3478
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3478
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3479
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3479
+        }
+      ]
+    },
+    {
+      "k": 641,
+      "prefix_digits": 1815,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1182,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1184,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1184,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1184,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3630
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3630
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3630
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3630
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3630
+        }
+      ]
+    },
+    {
+      "k": 649,
+      "prefix_digits": 1839,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1194,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1196,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1196,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1196,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 1196,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3678
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3678
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3678
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3678
+        }
+      ]
+    },
+    {
+      "k": 681,
+      "prefix_digits": 1935,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1242,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 3868
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1244,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1244,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3870
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3870
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3870
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3870
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3870
+        }
+      ]
+    },
+    {
+      "k": 684,
+      "prefix_digits": 1944,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 1247,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 3886
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 3886
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 3887
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3887
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3887
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3887
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3888
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3888
+        }
+      ]
+    },
+    {
+      "k": 689,
+      "prefix_digits": 1959,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1254,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 3916
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1256,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 3918
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3918
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3918
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3918
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3918
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3918
+        }
+      ]
+    },
+    {
+      "k": 696,
+      "prefix_digits": 1980,
+      "valuations": [
+        4,
+        0
+      ],
+      "guaranteed_endpoint": 1265,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1266,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 3958
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 3958
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 3958
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 3959
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 3959
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 3959
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 3959
+        }
+      ]
+    },
+    {
+      "k": 716,
+      "prefix_digits": 2040,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 1295,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 4078
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 4079
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 4079
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4079
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4080
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4080
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4080
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4080
+        }
+      ]
+    },
+    {
+      "k": 721,
+      "prefix_digits": 2055,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1302,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 4107
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1304,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1304,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4110
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4110
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4110
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4110
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4110
+        }
+      ]
+    },
+    {
+      "k": 729,
+      "prefix_digits": 2079,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1314,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 4156
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1316,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1316,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4158
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4158
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4158
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4158
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4158
+        }
+      ]
+    },
+    {
+      "k": 761,
+      "prefix_digits": 2175,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1362,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 4346
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1364,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 4350
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4350
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4350
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4350
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4350
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4350
+        }
+      ]
+    },
+    {
+      "k": 769,
+      "prefix_digits": 2199,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1374,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 4396
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1376,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 4398
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4398
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4398
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4398
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4398
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4398
+        }
+      ]
+    },
+    {
+      "k": 801,
+      "prefix_digits": 2295,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1422,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1424,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1424,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1424,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4590
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4590
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4590
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4590
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4590
+        }
+      ]
+    },
+    {
+      "k": 809,
+      "prefix_digits": 2319,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1434,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1436,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1436,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1436,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 1436,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4638
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4638
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4638
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4638
+        }
+      ]
+    },
+    {
+      "k": 824,
+      "prefix_digits": 2364,
+      "valuations": [
+        4,
+        0
+      ],
+      "guaranteed_endpoint": 1457,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 4726
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 4726
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 4726
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4726
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4727
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4727
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4727
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4727
+        }
+      ]
+    },
+    {
+      "k": 841,
+      "prefix_digits": 2415,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1482,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 4828
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1484,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 4830
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4830
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4830
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4830
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4830
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4830
+        }
+      ]
+    },
+    {
+      "k": 844,
+      "prefix_digits": 2424,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 1487,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 4846
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 4846
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 4847
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4847
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4847
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4848
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4848
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4848
+        }
+      ]
+    },
+    {
+      "k": 849,
+      "prefix_digits": 2439,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1494,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1496,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1496,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1496,
+          "square_minus_rotation_sign": 1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 4878
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 4878
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 4878
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 4878
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 4878
+        }
+      ]
+    },
+    {
+      "k": 876,
+      "prefix_digits": 2520,
+      "valuations": [
+        2,
+        0
+      ],
+      "guaranteed_endpoint": 1535,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 5039
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 5039
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 5039
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 5039
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 5040
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 5040
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 5040
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 5040
+        }
+      ]
+    },
+    {
+      "k": 881,
+      "prefix_digits": 2535,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1542,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 5067
+        },
+        {
+          "branch": 1,
+          "kind": "digit_gap",
+          "square_digits": 5068
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 5070
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 5070
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 5070
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 5070
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 5070
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 5070
+        }
+      ]
+    },
+    {
+      "k": 889,
+      "prefix_digits": 2559,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1554,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 5115
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1556,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1556,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 5118
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 5118
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 5118
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 5118
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 5118
+        }
+      ]
+    },
+    {
+      "k": 921,
+      "prefix_digits": 2655,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1602,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 5308
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1604,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 5310
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 5310
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 5310
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 5310
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 5310
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 5310
+        }
+      ]
+    },
+    {
+      "k": 929,
+      "prefix_digits": 2679,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1614,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "digit_gap",
+          "square_digits": 5356
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1616,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1616,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 5358
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 5358
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 5358
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 5358
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 5358
+        }
+      ]
+    },
+    {
+      "k": 961,
+      "prefix_digits": 2775,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1662,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1664,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1664,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "digit_gap",
+          "square_digits": 5550
+        },
+        {
+          "branch": 3,
+          "kind": "digit_gap",
+          "square_digits": 5550
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 5550
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 5550
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 5550
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 5550
+        }
+      ]
+    },
+    {
+      "k": 969,
+      "prefix_digits": 2799,
+      "valuations": [
+        0,
+        0
+      ],
+      "guaranteed_endpoint": 1674,
+      "branches": [
+        {
+          "branch": 0,
+          "kind": "exact_comparison",
+          "m": 1676,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 1,
+          "kind": "exact_comparison",
+          "m": 1676,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 2,
+          "kind": "exact_comparison",
+          "m": 1676,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 3,
+          "kind": "exact_comparison",
+          "m": 1676,
+          "square_minus_rotation_sign": -1
+        },
+        {
+          "branch": 4,
+          "kind": "digit_gap",
+          "square_digits": 5598
+        },
+        {
+          "branch": 5,
+          "kind": "digit_gap",
+          "square_digits": 5598
+        },
+        {
+          "branch": 6,
+          "kind": "digit_gap",
+          "square_digits": 5598
+        },
+        {
+          "branch": 7,
+          "kind": "digit_gap",
+          "square_digits": 5598
+        }
+      ]
+    }
+  ]
+}

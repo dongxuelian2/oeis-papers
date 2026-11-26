@@ -1,0 +1,14 @@
+{
+  "kind": "New structural limitation of an exact-leading-power strategy",
+  "parent_commit": "4d5f0fc34b1aa3252b549efb70d5ec426aa4190a",
+  "scope": "Same-width cuts K>=8; rational odd-prime main powers impossible, rational-square main powers imply an existing 2-adic square obstruction. Not a full conjecture proof.",
+  "verification": "99958 modular prefix identity checks at widths 2..5; 11 selected rational-square main-term/endpoint cases. Not all rotations.",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "EXACT_MAIN_TERM_OBSTACLE.md": "0a913498542f789758931b2a651ab34530cec773c9244f0718a0683c984e612c",
+    "verify_exact_main_term_obstacle.py": "00fe8203cc585245b8cf551869b903e66bb9b1ae9de33211b3284c3de9c1941b",
+    "exact-main-term-obstacle-certificate.json": "dadb46747b7b516ca092766257de9e8b462e982a2b2ec89a0d642827816f05bc",
+    "exact-main-term-obstacle-verification.txt": "08943e97b4508fdb8ba5cc1aeedc171fb30b84719fa1b540344746df2a42dea0",
+    "README.md": "eb61beb2a0298cacec90c8d87ed89fc3d3b8cc4ba0ff99d2e179f30c11da4f75"
+  }
+}

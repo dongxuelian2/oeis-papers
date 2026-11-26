@@ -1,0 +1,3 @@
+Exact joint-period cases checked: 12
+Sharpened interval bounds checked: 3600
+PASS. Infinite theorem uses the proved Linnik prime supply; conjecture remains open.

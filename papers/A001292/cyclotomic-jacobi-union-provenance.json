@@ -1,0 +1,13 @@
+{
+  "base_commit": "a6668e3223ae1c70e0a264cd96c10146457de351",
+  "status": "New proved supplement; main manuscript and PDF unchanged",
+  "verification": "Nine exact CRT models; 200 sampled endpoints at each of five widths; 21 selected exact prefixes. Infinite and uniform coverage follows from proof, not samples.",
+  "independent_review": "Parent reported independent approval of pairwise coprimality, exact CRT counting, period and relative errors, Q_3/Q_37 assertions and exclusion of all prime exponents; additional checks h=2..8 and h=10..200. No independent reviewer script is claimed to be attached.",
+  "sha256": {
+    "CYCLOTOMIC_JACOBI_UNION.md": "64ed217847ef2f596aed921217ee8975c100afe733e511979185c78b02710444",
+    "verify_cyclotomic_jacobi_union.py": "77a205ea34f6df7cb93921437e298075e929f81a882e648ed1b779a5c1c674cf",
+    "cyclotomic-jacobi-union-certificate.json": "5b76de94b15436743da7f40141deff91f7a6a2ce252760e186e674cf0eb98e2b",
+    "cyclotomic-jacobi-union-verification.txt": "a3ed46303aa82e8d9aed24a8547255cef8bba6484bf03d2e48475ebef842f3af",
+    "README.md": "9b488920f31148a3eddd733698e33fb48d4c46dae533809e880f7ac51d152a30"
+  }
+}

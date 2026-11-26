@@ -1,0 +1,13 @@
+{
+  "base_commit": "c083189921608e2bf9697bc15761990c67ecafa2",
+  "status": "New explicit linear-prefix and combined3/13 certificate. Six-width boundary translation and some antiperiodic phases were already known; main manuscript/PDF unchanged.",
+  "independent_review": "Passed. Reviewer reproduced original certificate without writes; independent scalar geometric-sum calculations checked full blocks through width300 and35900 endpoints across50 eligible widths. Direct decimal-string reconstruction checked all8084 rotations for15 three-digit endpoints. No separate reviewer script is claimed to be attached.",
+  "verification_scope": "Published verifier checks six matrix phases,13 width classes,450 direct even three-digit prefixes,42 selected larger-width prefixes and8084 modular rotation tests. Infinite coverage follows from proof.",
+  "sha256": {
+    "verify_antiperiodic_thirteen.py": "b5ef9f3bbbbec97dd0c80aec93812e4700df1239a2548e48b77598ccd93acd60",
+    "ANTIPERIODIC_THIRTEEN.md": "9ef2bfb62d495e8bcfe703e3dd360291931d9d3d242815bde6071441d4156af2",
+    "README.md": "300fcff886be556df337971c70f583437c010b935b23b7429319acde6256bcd5",
+    "antiperiodic-thirteen-certificate.json": "4c71930a4ffb8cb34423438baf8a6fd37aefe6bc814cec2a28078ceb583676b8",
+    "antiperiodic-thirteen-verification.txt": "566e27d6ec1cb945cb6cba3231dbd4dbc775ab4ac5bfad017051605af221052a"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "Finite independent corroboration only; general theorem requires the written proof.",
+  "counts": {
+    "nonzero_local_target_classes": 34366,
+    "exact_derivative_instances": 360,
+    "width_constant_instances": 999,
+    "prime_count_integer_instances": 199999,
+    "width_two_exact_rotation_instances": 3400,
+    "width_two_injection_instances": 3400
+  },
+  "full_odd_union_coefficient": 19.847165762994464
+}

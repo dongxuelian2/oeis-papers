@@ -1,0 +1,18 @@
+{
+  "earlier_width_pairs": 20709,
+  "exact_rational_curvature_cases": 1080,
+  "h_range_widths": [
+    3,
+    1000
+  ],
+  "negative_correction_pairs": 2518,
+  "rotation_identity_pairs": 44814,
+  "same_width_pairs": 24105,
+  "scope": "Finite corroboration only. General proof and every exponent quantifier were reviewed separately.",
+  "status": "PASS",
+  "valuation_prefixes": {
+    "exact_J_equality": true,
+    "first": 10,
+    "last": 10000
+  }
+}

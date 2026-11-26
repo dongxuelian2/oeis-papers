@@ -1,0 +1,4 @@
+Exact rotation/product checks: 23
+Primitive-vector scaling checks: 6000
+Rational decay-margin checks: 985
+PASS. No ineffective exceptional subspaces or square solutions are computed.

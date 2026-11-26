@@ -1,0 +1,30 @@
+{
+  "base_commit": "0c4cdbe0e1dc082ca0122ab7589537c0d2b9fb51",
+  "status": "Both written proofs independently audited at final hashes; both author verifiers and an independent verifier rerun successfully.",
+  "scope": "Every endpoint L<=m<B and every whole-integer prefix cut 0<=k<m, d>=2,B=10^d,L=B/10. Includes smaller endpoints, earlier-width cuts and unrotated concatenations.",
+  "bounds": {
+    "squares": "<330B",
+    "odd_prime_union": "<11B^2/d",
+    "all_nontrivial_perfect_powers": "<17B^2/d",
+    "cumulative_squares": "O(X)",
+    "cumulative_all_perfect_powers": "O(X^2/log X)"
+  },
+  "limitations": "Counts pairs, not necessarily distinct values. Does not cut inside integer blocks, prove nonexistence, or resolve the conjecture.",
+  "main_latex_pdf": "Unchanged; these are supplemental complete proofs, audits and verification materials.",
+  "files": {
+    "UNIFIED_FULL_PREFIX_FIXED_EXPONENT.md": "c3f2e1c7d8419c9a611e95f9702dc9cd4be25e5f0411810fc36eb53740c76b33",
+    "UNIFIED_FULL_PREFIX_INDEPENDENT_AUDIT.md": "bbbbc8ded9c00b2b1a8773917ae2d44034a2bb00f8c8ec75d21b8b7498666d8e",
+    "verify_unified_full_prefix.py": "dbb0f26929191426659de3ff09428c7b06fb3afb5ff803078d0e2f2cf9699572",
+    "unified-full-prefix-certificate.json": "09f647b861babf0616af247cb785dc47578ddb5656cfc000d296063ff9797cee",
+    "unified-full-prefix-verification.txt": "09f647b861babf0616af247cb785dc47578ddb5656cfc000d296063ff9797cee",
+    "verify_independent_full_prefix.py": "fa753d51e12adee13cb1be98281974dc2f3e34c0c64faa4ef2e1d55329047f22",
+    "independent-full-prefix-certificate.json": "c1321b48d11ee59f6c23d4f895175d4ff07a1c8e3df42aeb99cefbc6baa29f4b",
+    "independent-full-prefix-verification.txt": "c1321b48d11ee59f6c23d4f895175d4ff07a1c8e3df42aeb99cefbc6baa29f4b",
+    "GLOBAL_PERFECT_POWER_UNION.md": "b75fb3140ce3673a1ca06f0ef090ec5c67f3feff05d6e58b24a0e6d9325bf28b",
+    "GLOBAL_UNION_INDEPENDENT_AUDIT.md": "47a9c8de4ad492df7f12e2d7fcfdc6bdb5f3792742f7f6aea8180ac6e85d6770",
+    "verify_global_perfect_power_union.py": "bc388cfdefe568e50252dacd1931e1cce774bf3e26986e0981a87ecb1f6fa64c",
+    "global-perfect-power-union-certificate.json": "47c1a988e6f200f4aecf5258450c07ee3e39a362ba0719324b033c7e8454b617",
+    "global-perfect-power-union-verification.txt": "47c1a988e6f200f4aecf5258450c07ee3e39a362ba0719324b033c7e8454b617",
+    "README.md": "3d511f89315b98e2f121596dc06d2e2c860f8329364d016909b42934250e4c4d"
+  }
+}

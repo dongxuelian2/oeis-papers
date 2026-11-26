@@ -1,0 +1,137 @@
+{
+  "cases": [
+    {
+      "exponent": 2,
+      "primes": [
+        3,
+        7
+      ],
+      "trial": 0,
+      "period": 42,
+      "allowed": 16,
+      "density": "8/21"
+    },
+    {
+      "exponent": 2,
+      "primes": [
+        3,
+        7
+      ],
+      "trial": 1,
+      "period": 42,
+      "allowed": 16,
+      "density": "8/21"
+    },
+    {
+      "exponent": 2,
+      "primes": [
+        11,
+        23
+      ],
+      "trial": 0,
+      "period": 2530,
+      "allowed": 720,
+      "density": "72/253"
+    },
+    {
+      "exponent": 2,
+      "primes": [
+        11,
+        23
+      ],
+      "trial": 1,
+      "period": 2530,
+      "allowed": 720,
+      "density": "72/253"
+    },
+    {
+      "exponent": 3,
+      "primes": [
+        7,
+        13
+      ],
+      "trial": 0,
+      "period": 1092,
+      "allowed": 180,
+      "density": "15/91"
+    },
+    {
+      "exponent": 3,
+      "primes": [
+        7,
+        13
+      ],
+      "trial": 1,
+      "period": 1092,
+      "allowed": 180,
+      "density": "15/91"
+    },
+    {
+      "exponent": 3,
+      "primes": [
+        13,
+        19
+      ],
+      "trial": 0,
+      "period": 8892,
+      "allowed": 1260,
+      "density": "35/247"
+    },
+    {
+      "exponent": 3,
+      "primes": [
+        13,
+        19
+      ],
+      "trial": 1,
+      "period": 8892,
+      "allowed": 1260,
+      "density": "35/247"
+    },
+    {
+      "exponent": 5,
+      "primes": [
+        11,
+        31
+      ],
+      "trial": 0,
+      "period": 10230,
+      "allowed": 630,
+      "density": "21/341"
+    },
+    {
+      "exponent": 5,
+      "primes": [
+        11,
+        31
+      ],
+      "trial": 1,
+      "period": 10230,
+      "allowed": 630,
+      "density": "21/341"
+    },
+    {
+      "exponent": 7,
+      "primes": [
+        29,
+        43
+      ],
+      "trial": 0,
+      "period": 104748,
+      "allowed": 2940,
+      "density": "35/1247"
+    },
+    {
+      "exponent": 7,
+      "primes": [
+        29,
+        43
+      ],
+      "trial": 1,
+      "period": 104748,
+      "allowed": 2940,
+      "density": "35/1247"
+    }
+  ],
+  "intervals_checked": 3600
+}

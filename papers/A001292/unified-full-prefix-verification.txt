@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "Finite audit only; global theorems rely on the written proof. Synthetic points are not claimed to be perfect-power rotations.",
+  "checks": {
+    "centered_width_checks": 998,
+    "counting_constants": 3,
+    "decimal_crt_compression": 556,
+    "derivative_identity_samples": 3240,
+    "earlier_width_identity": 5800,
+    "exact_rotation_and_bounds": 11055,
+    "fourteen_small_cases": 14,
+    "negative_corrections": 2543,
+    "prefix_smooth_and_unsaturated": 4991,
+    "prime_power_root_compression": 1540,
+    "same_width_identity": 5255,
+    "synthetic_determinant_divisibility": 120,
+    "synthetic_error_bound": 45
+  },
+  "note_sha256": "c3f2e1c7d8419c9a611e95f9702dc9cd4be25e5f0411810fc36eb53740c76b33",
+  "script_sha256": "dbb0f26929191426659de3ff09428c7b06fb3afb5ff803078d0e2f2cf9699572"
+}

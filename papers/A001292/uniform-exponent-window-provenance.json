@@ -1,0 +1,14 @@
+{
+  "kind": "New uniform-exponent theorem and finite audits",
+  "parent_commit": "0a8c28477f6dcb88bdb8cefd73e6dd791c5efa4c",
+  "scope": "Every fixed power of log log X; not all prime exponents",
+  "analytic_input": "Unconditional Siegel-Walfisz theorem, ineffective threshold",
+  "main_source_and_pdf": "Unchanged",
+  "files": {
+    "UNIFORM_EXPONENT_WINDOW.md": "58718fa0f8642a2486f15363f8e2f3585c632f467f1da69d8e787e86e4aa3528",
+    "verify_uniform_exponent_window.py": "cc7b45ce984712db1dec6cd2eda14e549975b571e8244d8c31c07069fd7661d0",
+    "uniform-exponent-window-certificate.json": "652c7f85aa41071aa6dd80933c738433bab2d2277db36247355dc0de1501a472",
+    "uniform-exponent-window-verification.txt": "9c38bd71764f27f7afa8e32cee016d4deb4355c77ec137f71642143cbe09ffa4",
+    "README.md": "b7502a170f72fb7c9aacdb93f1b3b5892b69ee403d6b58b9ed801c7a893a6ace"
+  }
+}

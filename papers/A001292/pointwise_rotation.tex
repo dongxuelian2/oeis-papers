@@ -1,0 +1,238 @@
+\documentclass[9pt]{extarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,microtype}
+\usepackage[margin=0.78in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdftitle={A Pointwise Digit Certificate and a Cyclic-Modulus Counterexample},pdfauthor={Qichao Wang and Daoyu Dong}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{A Pointwise Digit Certificate and a Cyclic-Modulus Counterexample}
+\author{Qichao Wang\\{\small Hebei University of Technology, Tianjin, China}\\[0.4em]Daoyu Dong\\{\small University of Electronic Science and Technology of China, Chengdu, China}}
+\date{November 11, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+An explicit whole-block rotation is a square in every local field
+associated with the full cyclic modulus and the decimal base, but is
+not an integer square. The same rotation is locally a cube at all these
+primes without being an integer cube. This disproves the sufficiency of
+these congruence tests at every precision. Real-interval tests with the
+complete roots of actual decimal suffixes exclude the candidate: one
+added middle digit eliminates four square completions, and another
+eliminates four cube completions. Kashihara's conjecture remains open.
+\end{abstract}
+Write $W_j=1\Vert\cdots\Vert j$, $D(j)=\operatorname{digits}(W_j)$,
+and $W_0=D(0)=0$. Moving the first $k$ whole integer blocks to the end gives
+\begin{equation}\label{rotation}
+ R_{m,k}=10^{D(k)}W_m-(10^{D(m)}-1)W_k,\qquad 0\le k<m.
+\end{equation}
+The previous bounds $O(X)$ for square pairs and $O(X^2/\log X)$ for
+perfect-power pairs permit isolated exceptions. No counting bound is
+used below. All integer positions in \eqref{rotation}, including the
+middle blocks, retain their prescribed values.
+
+\section{A complete cyclic modulus does not suffice}
+\begin{proposition}\label{failure}
+The actual rotation
+\[
+ R=R_{16,1}=23456789101112131415161,\qquad \Delta=10^{23}-1,
+\]
+is a square in $\mathbb Q_p$ for every prime $p\mid 10\Delta$, but is
+not an integer square. Consequently it is a square modulo
+$10^a\Delta^b$ for every pair of nonnegative integers $a,b$.
+Thus even the complete cyclic modulus together with arbitrarily precise
+decimal congruences cannot reject every individual rotation.
+\end{proposition}
+\begin{proof}
+The word is $2\Vert3\Vert\cdots\Vert16\Vert1$, with $23$ digits,
+and \eqref{rotation} reads $R=10W_{16}-\Delta$. Direct integer arithmetic gives
+\[
+ r=24515341518503348803133,\qquad r^2\equiv R\pmod\Delta,
+ \qquad \gcd(2r,\Delta)=1.
+\]
+For every prime divisor $p$ of $\Delta$, this is a nonsingular root
+modulo $p$, which lifts to all $p$-adic precisions by Hensel's lemma.
+No factorization of $\Delta$ is needed. Also $R\equiv1\pmod8$ and
+$R\equiv1\pmod5$, giving square roots in $\mathbb Q_2$ and
+$\mathbb Q_5$. These are integral local roots. The Chinese remainder
+theorem proves the assertion for $10^a\Delta^b$. Section~\ref{example}
+proves that $R$ is not an integer square using an actual middle digit.
+\end{proof}
+
+This is a counterexample to the sufficiency of these local conditions,
+not to Kashihara's conjecture. In particular, retaining all middle
+digits in a congruence is different from forcing a root of the required
+real size. No claim that every pointwise method fails follows.
+
+\section{Exact compatibility with the real interval}
+Let a positive integer $R$ have $E$ digits. Prescribe its first $h$
+digits $P$ and its last $q$ digits $U=R\bmod10^q$, with $q\ge3$.
+The digits of $U$ are taken from the actual word, and may extend past
+the original moved prefix into its middle blocks. Put
+\[
+ A=\left\lceil\sqrt{P10^{E-h}}\right\rceil,
+ \qquad B=\left\lfloor\sqrt{(P+1)10^{E-h}-1}\right\rfloor.
+\]
+Assume $v_2(U),v_5(U)<q$. An odd valuation excludes squares immediately.
+Otherwise write $v_2(U)=2a$, $v_5(U)=2b$, and
+\[
+ z=2^a5^b,\qquad H=10^q/z.
+\]
+Solving the two unit congruences at $2$ and $5$ and applying CRT gives
+a complete set $\mathcal A\subset[0,H)$ of at most eight root classes:
+\begin{equation}\label{classes}
+ y^2\equiv U\pmod{10^q}\quad\Longleftrightarrow\quad
+ y\equiv r\pmod H\text{ for some }r\in\mathcal A.
+\end{equation}
+Indeed, division by $p^{2a}$ or $p^{2b}$ gives unit square roots, at most
+four at $2$ and two at $5$. Multiplying back gives root moduli
+$2^{q-a}$ and $5^{q-b}$, whose product is $H$.
+
+\begin{lemma}[Pointwise interval test]\label{test}
+A square with the prescribed length, prefix and suffix exists if and
+only if, for some $r\in\mathcal A$,
+\[
+ \max\left(0,\left\lceil\frac{A-r}{H}\right\rceil\right)
+ \ \le\ \left\lfloor\frac{B-r}{H}\right\rfloor.
+\]
+If $B-A<H$, at most eight possible positive roots occur. Failure of all
+these inequalities excludes the particular rotation supplying the digits.
+\end{lemma}
+\begin{proof}
+The prefix and length are equivalent to $A\le y\le B$; the suffix is
+equivalent to \eqref{classes}. Write $y=r+jH$, with $j\ge0$, and solve
+the two interval inequalities for $j$. An interval shorter than $H$
+contains at most one integer from each root class.
+\end{proof}
+
+The test is exact for the selected windows. If it leaves roots, the
+additional actual middle digits must be checked; their values cannot be
+filled freely. Increasing $q$ preserves every genuine square candidate.
+At $q=E$, the test is an exact square decision, since $y^2<10^E$ and
+$y^2\equiv R\pmod{10^E}$ force equality. This termination observation
+does not prove uniform exclusion for the infinite rotation family.
+
+\section{One middle digit excludes the isolated candidate}\label{example}
+For Proposition~\ref{failure}, the first digit is $2$, so
+\[
+ [A,B]=[141421356238,\,173205080756].
+\]
+At precision $q=12$, the actual suffix is
+\[
+ U=112131415161=1\Vert12\Vert13\Vert14\Vert15\Vert16\Vert1.
+\]
+Its first displayed $1$ is the final digit of the middle block $11$;
+it is not part of the original moved prefix $W_1=1$.
+Here $H=10^{12}$. The complete eight roots modulo $H$ are
+\[
+\begin{array}{rrrr}
+55164164619&104480570869&395519429131&444835835381\\
+555164164619&604480570869&895519429131&944835835381.
+\end{array}
+\]
+Each entry squares to $U$ modulo $10^{12}$. They are distinct, and the
+unit-root bound of eight proves completeness. None belongs to $[A,B]$;
+also $B<H$, so no positive translate of a listed root can belong to the
+interval. Lemma~\ref{test} proves that $R$ is not a square.
+
+The extra middle digit is substantive. The weaker $11$-digit suffix
+$12131415161$ and the same first digit and total length admit the
+following four squares:
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+Root&Square&Twelfth digit from the right\\
+\midrule
+144835835381&20977419210512131415161&5\\
+145519429131&21175904254612131415161&6\\
+154480570869&23864246776012131415161&0\\
+155164164619&24075917981912131415161&9\\
+\bottomrule
+\end{tabular}
+\end{center}
+All four have $23$ digits, start with $2$, and share the actual last
+$11$ digits. The next actual digit is $1$, whereas these completions
+have $5,6,0,9$. The complete $12$-digit calculation above excludes
+every completion, not merely these four examples.
+
+\section{The same obstruction and digit mechanism for cubes}
+\begin{proposition}\label{cubes}
+The rotation in Proposition~\ref{failure} is a cube in $\mathbb Q_p$
+for every $p\mid10\Delta$, and hence modulo $10^a\Delta^b$ for all
+$a,b\ge0$, but it is not an integer cube.
+\end{proposition}
+\begin{proof}
+Write $\Delta=9N$, where $N=11111111111111111111111$ is prime.
+For a self-contained primality certificate,
+\[
+ N-1=2\cdot5\cdot11^2\cdot23\cdot4093\cdot8779\cdot21649\cdot513239.
+\]
+Every displayed factor is prime by trial division. Direct modular
+exponentiation gives $11^{N-1}\equiv1\pmod N$ and
+\[
+ \gcd\bigl(11^{(N-1)/p}-1,N\bigr)=1
+ \quad(p=2,5,11,23,4093,8779,21649,513239).
+\]
+Thus for every prime divisor $r$ of $N$, the order of $11$ modulo $r$
+is $N-1$, forcing $r\ge N$ and proving primality. Since $N\equiv2\pmod3$,
+cubing is bijective on $\mathbb F_N^\times$ and its roots lift by Hensel.
+Cubing is also bijective on $\mathbb Z_2^\times$ and
+$\mathbb Z_5^\times$. Finally $R\equiv1\pmod9$, so $R$ is a cube in
+$\mathbb Z_3^\times$: the $3$-adic logarithm identifies cubing on
+$1+3\mathbb Z_3$ with multiplication by $3$, whose image is
+$9\mathbb Z_3$. CRT proves the congruence assertion.
+
+The first digit and length force a positive cube root into
+\[
+ [A_3,B_3]=[27144177,\,31072325].
+\]
+The actual seven-digit suffix is $1415161=14\Vert15\Vert16\Vert1$.
+Cubing is a bijection on the units modulo $10^7$, and the suffix has
+the unique root $2393321$.
+The consecutive representatives $22393321<A_3$ and $32393321>B_3$
+exclude a cube root in this interval. At six digits there are exactly
+four roots in the same interval,
+\[
+ 27393321,\quad28393321,\quad29393321,\quad30393321.
+\]
+Their cubes have seventh digits from the right $6,9,2,5$, respectively.
+The actual seventh digit, the first digit of the middle block $14$,
+is $1$, and eliminates all four completions.
+\end{proof}
+
+More generally, let $e>1$ be coprime to $10$ and suppose $v_p(U)<q$
+for $p=2,5$. Unless both valuations are divisible by $e$, no $e$th
+power is possible. Otherwise put $v_2(U)=ea$ and $v_5(U)=eb$.
+Powering by $e$ is bijective in each of the two unit groups; inversion
+of $e$ modulo the corresponding Euler totient finds its unique root.
+After rescaling and CRT the complete solution is one class modulo
+\[
+ H_e=2^{q-(e-1)a}5^{q-(e-1)b}.
+\]
+Lemma~\ref{test} applies with the real $e$th-root interval in place of
+$[A,B]$. This gives an exact pointwise test for every odd prime exponent
+except $5$, without claiming that its interval is always empty.
+
+For $e=5$, the same valuation reduction applies. Fifth powering is
+bijective on the $2$-adic unit group. A unit $u$ modulo $5^n$, $n\ge2$,
+has fifth roots exactly when $u^4\equiv1\pmod{25}$, and then has five
+roots; at $n=1$ it has one root. This follows from the unit group
+$C_4\times C_{5^{n-1}}$. To compute the five roots, start with the
+unique $r\in\{1,2,3,4\}$ satisfying $r^5\equiv u\pmod{25}$ and lift
+using the derivative $5r^4$; the five final roots differ by $5^{n-1}$.
+Thus at most five CRT classes require the same interval test.
+The displayed rotation already fails modulo $25$: $R\equiv11$, whose
+fourth power is $16$, not $1$. The implementation therefore covers
+every prime exponent, subject to the stated suffix-valuation hypothesis.
+
+\section{Verification and the remaining problem}
+The independent Python verifier checks every displayed certificate
+exactly and compares the GMP/OpenMP implementation with
+the earlier Python square-root solver, independent decimal digit lifting
+for odd exponents, and small exhaustive intervals. It also checks the
+complete Lucas primality certificate used in Proposition~\ref{cubes}.
+The window and Hensel/CRT tools are standard; no priority claim is made.
+No uniform theorem proves that the interval tests reject every rotation.
+Kashihara's conjecture remains open; the existing sparsity bounds are unchanged.
+\end{document}

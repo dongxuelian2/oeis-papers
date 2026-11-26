@@ -1,0 +1,5 @@
+Exact endpoint certificates: 10
+Rotations covered by the theorem: 51939
+Selected cuts checked: 50
+Optional SymPy Jacobi cross-checks: 10
+PASS. A sufficient whole-block certificate, not a proof for every endpoint.

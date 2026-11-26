@@ -1,0 +1,6 @@
+Exhaustive residue root checks at valuations 2,4,8 passed.
+Uniform-character countermodels: 3 moduli, 100 selected residues each.
+Rational period/error checks: 45
+Sampled endpoints: 800
+Selected exact prefixes: 32
+PASS. Infinite counts and all-rotation conclusions are proved, not inferred from samples.

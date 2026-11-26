@@ -1,0 +1,13 @@
+{
+  "base_commit": "c7f539bb8ad078109aa3b1fe8dcac00ce9060af8",
+  "status": "New proof supplement; main manuscript and PDF unchanged",
+  "verification": "Complete mod27 roots and 37x37 phase counts; 4656 rational identities; 1600 sampled endpoints; 48 selected exact prefixes. Infinite and whole-block claims follow from the proof.",
+  "independent_review": "Approved after checking periods, error constants, all-width hypotheses, character degeneracies, cutoff asymptotics and all37 phases. Reviewer independently reran the script and reproduced the JSON, and additionally checked d=243, h=J=5 in both mod27 classes. Reviewer did not modify or supply separate deliverable files.",
+  "sha256": {
+    "UNIVERSAL_JACOBI_WIDTHS.md": "52b324414f4a5d1c7b602346f0080477cc09678b5bb3c444446b4c5b47428d3b",
+    "universal-jacobi-widths-verification.txt": "a0cf52a9fe138e7fa182e99dfcbf35ff4216bcc9e10a143eb5ba5bc923eb0d4f",
+    "README.md": "df3b4976d86ceb274c5c621924e3629ac6b597f4b3991041aec54a99c96e29a2",
+    "universal-jacobi-widths-certificate.json": "7d341e7f07ed50f7dcbcff56d84feca8d917a55a91fd3a1a30c0c8bbd2749ed1",
+    "verify_universal_jacobi_widths.py": "e91cac085ce6b6516ea329e1ea578bffe31540ab6dc8a31f3412034760e9658c"
+  }
+}
