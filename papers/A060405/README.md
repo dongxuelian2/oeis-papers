@@ -150,14 +150,45 @@ the logarithmic growth rate of the distance is
 ## Quantitative square-index bound
 
 The [quantitative count](quantitative-square-count.md) applies the
-Evertse–Ferretti quantitative Subspace Theorem to seven conjugate coordinates.
-Every exceptional hyperplane contains at most fourteen square indices
-within each residue class modulo four, yielding the explicit global
-bound \(10^{29}\) on the number of square indices. Moreover, if the
-normalized coefficients of such a hyperplane have logarithmic height
-at most \(B\), every square index it contains satisfies
-\(n\le2000(B+1)+3\). An effective bound for the heights of the exceptional
-hyperplanes would give the missing effective index cutoff.
+Evertse–Ferretti quantitative Subspace Theorem to a minimal-dimension
+six-coordinate embedding with three approximation places. Every
+exceptional hyperplane contains at most eleven square indices within each
+residue class modulo four, yielding the explicit global bound \(10^{27}\)
+(below \(7.2\times 10^{26}\)) on the number of square indices. Moreover,
+if the normalized coefficients of such a hyperplane have logarithmic
+height at most \(B\), every square index it contains satisfies
+\(n\le 1150(B+1)+3\).
+
+## Unified algebraic–analytic structure and new exclusions
+
+The [unified structure note](unified-norm-classification.md) classifies
+all monomial splitting curves on the odd-index double cover
+\(x^2=(u-u^{-1})+\frac{1}{2\sqrt2}(v+v^{-1})\), proving that arbitrary-degree
+binomial-factor norm identities occur precisely in the four families
+\((0,1)\), \((1,0)\), \((1,\pm1)\), and \((2,\pm1)\). Families \((1,0)\)
+and \((1,\pm1)\) yield the dual \(\mathbb Z[\sqrt2]\) identity and two
+new mixed-unit norm identities over \(K=\mathbb Q(\sqrt2,\sqrt5)\).
+
+The same note and its certificate
+[verify_unified_structure.py](verify_unified_structure.py) establish:
+* strengthened §2 exclusions including \(125\nmid n\pm2\),
+  \(49,121\nmid n+2\), and \(59,61\nmid(n-2)/3\) on \(r=-1\);
+* §3 common-factor characterization \(\gcd(Q_n,5F_nL_n)\) and
+  unconditional one-step prime forcing \(33\mid n\implies1321\mid n\),
+  \(35\mid n\implies7001\mid n\), and \(17\mid n\implies51511\mid n\) on
+  \(r\in\{3,-3,-1\}\);
+* all-parity Frobenius descent (excluding \(n+2=p^e\) when \((5/p)=-1,\
+  (2/p)=+1\) and \(n-2=3p^e\) when \((5/p)=+1,\ (2/p)=-1\) for odd \(e\));
+* the Round-1 Wieferich-type double-root geometry at \(p=19,307\), and
+  6-round forced-prime closure with the 5-adic split raising the outside
+  cutoff of [forced square classes](forced-squareclass.md) to \(9949\)
+  (\(\delta=0\)) and \(9967\) (\(\delta=1\)).
+
+Across the three odd branches simultaneously, the global classification
+reduces to the single-line closing bound \(B\le 8.6\times 10^{898}\) on
+the \(K^6\) covering hyperplanes (equivalently
+\(\|A_r V^m+B_r(U/V)^m\|_{\mathbb Z}\ge 5(U^2/V^3)^m\) for
+\(r\in\{1,3\}\) and \(m>2.5\times 10^{901}\)).
 
 ## Theorem 1 (finiteness for every fixed exponent)
 

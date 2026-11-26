@@ -3,13 +3,14 @@
 Let \(a_n=L_n+P_n\) be A060405 and let
 \(\alpha=(1+\sqrt5)/2,\ \beta=1+\sqrt2,\ c=1/(2\sqrt2)\).
 The square-gap theorem gives finiteness. The following argument
-bounds the number of square indices using explicit approximation
-weights in the quantitative Subspace Theorem.
+sharpens the quantitative bound using a minimal-dimension six-coordinate
+embedding in the quantitative Subspace Theorem.
 
 **Theorem.** The number of nonnegative integers \(n\) for which
-\(a_n\) is an integer square is less than \(10^{29}\).
+\(a_n\) is an integer square is less than \(10^{27}\) (explicitly
+below \(8\times 10^{26}\)).
 
-## 1. Explicit approximation and conjugate coordinates
+## 1. Explicit approximation and five-unit coordinates
 
 For \(n\ge1\), Binet's formulas give
 \[
@@ -43,192 +44,179 @@ Write \(n=4m+r\), \(0\le r\le3\), and put
 \]
 Then if \(a_{4m+r}=x^2\), \(x\ge0\), the error satisfies
 \[
- |x-A_r V^m-B_r(U/V)^m|<5\,4^{-m}.
+ |x-A_r V^m-B_r(U/V)^m|<5(U^2/V^3)^m<5\,4^{-m}.
 \]
 
 The real biquadratic field \(K=\mathbb Q(\sqrt2,\sqrt5)\) has four
-archimedean places. The six distinct positive algebraic units
+archimedean places \(v_1=(+,+)\), \(v_2=(+,-)\), \(v_3=(-,+)\),
+and \(v_4=(-,-)\), labeled by the signs of \((\sqrt2,\sqrt5)\) under
+\(\sigma_v\). Use the five-element unit subset
 \[
- {\cal W}=\{V,V^{-1},UV,U/V,V/U,(UV)^{-1}\}
+ {\cal W}_5=\{V,V^{-1},U/V,(UV)^{-1},UV\},
 \]
-are exactly the union of the conjugates of \(V\) and \(U/V\).
-They are distinct because \(U,V\) are multiplicatively independent.
-To see this, conjugate a proposed relation \(U^iV^j=1\) by the
-automorphism that inverts \(U\) and fixes \(V\); dividing the
-relations gives \(U^{2i}=1\), hence \(i=j=0\).
+omitting \(V/U\). The units in \({\cal W}_5\) are distinct because
+\(U,V\) are multiplicatively independent: conjugating a relation
+\(U^iV^j=1\) by the automorphism inverting \(U\) and fixing \(V\)
+gives \(U^{2i}=1\), hence \(i=j=0\).
 
-## 2. Quantitative subspace theorem
+## 2. Minimal-dimension quantitative subspace theorem
 
-Use the vector
+Use the six-coordinate vector
 \[
- {\bf z}=(x,(w^m)_{w\in{\cal W}})\in K^7.
+ {\bf y}=(x,(w^m)_{w\in{\cal W}_5})\in K^6.
 \]
-At each real place \(v\) of \(K\), extend its embedding \(\sigma_v\)
-to an automorphism \(\widetilde\sigma_v\) of \(\overline{\mathbb Q}\).
-Take the six coordinate forms \(Z_w\), and take
+At each real place \(v\in\{v_1,v_2,v_3,v_4\}\), let
+\(M_v=\max_i|\sigma_v(y_i)|\). For \(m\ge600\) and odd \(r\in\{1,3\}\),
+the unit magnitudes at the four places are:
+* at \(v_1\): \(|\sigma_{v_1}(w)|\in\{V,V^{-1},U/V,(UV)^{-1},UV\}\), maximum \(UV\);
+* at \(v_2\): \(|\sigma_{v_2}(w)|\in\{V,V^{-1},(UV)^{-1},U/V,V/U\}\), maximum \(V\);
+* at \(v_3\): \(|\sigma_{v_3}(w)|\in\{V^{-1},V,UV,V/U,U/V\}\), maximum \(UV\);
+* at \(v_4\): \(|\sigma_{v_4}(w)|\in\{V^{-1},V,V/U,UV,(UV)^{-1}\}\), maximum \(UV\).
+
+Since \(x\le 2.3\,V^m\) for \(m\ge600\), one has \(M_{v_1}=M_{v_3}=M_{v_4}=(UV)^m\)
+and \(V^m\le M_{v_2}\le 2.3\,V^m\). All finite-place maxima equal 1 because
+the \(w\) are units and \(x\) is integral. Hence the maximum-norm height of
+[1] satisfies
+\[
+ (U^{3/4}V)^m\le H({\bf y})=(M_{v_2}(UV)^{3m})^{1/4}\le 2.3^{1/4}(U^{3/4}V)^m.
+\]
+
+At each place \(v\), extend \(\sigma_v\) to an automorphism
+\(\widetilde\sigma_v\) of \(\overline{\mathbb Q}\). Take the five
+coordinate forms \(Z_w\) at all four places; for the sixth form, take
 \[
  L_{0,v}=X-\widetilde\sigma_v^{-1}(A_r)Z_{\sigma_v^{-1}(V)}
-           -\widetilde\sigma_v^{-1}(B_r)Z_{\sigma_v^{-1}(U/V)}.
+           -\widetilde\sigma_v^{-1}(B_r)Z_{\sigma_v^{-1}(U/V)}
 \]
+at \(v\in\{v_1,v_2,v_3\}\), and take \(X\) at \(v=v_4\).
 At every place the coefficient determinant has absolute value 1.
-The usual maximum-norm height of [1] is \(H({\bf z})=(UV)^m\)
-for \(m\ge600\): all finite-place maxima are 1 since the \(w\)
-are units and \(x\) is integral, and at each real place the largest
-unit coordinate has ordinary absolute value \((UV)^m\), greater
-than \(x<7V^m\).
-
-Set \(\epsilon=3/8\). For the normalized absolute values of [1],
-take weights
+Put \(L=\log(U^3 V^4)\) and \(\eta=199/200\).
+For the normalized absolute values of [1], set
 \[
- d_{0,v}=-(1+\epsilon)/4,\qquad
- d_{w,v}=\big(\log|\sigma_v(w)|/\log(UV)-1\big)/4.
+ d_{w,v}=\frac{\eta}{L}\log\frac{|\sigma_v(w)|}{\tau_v}\qquad
+ \bigl(w\in{\cal W}_5,\ \tau_{v_1}=\tau_{v_3}=\tau_{v_4}=UV,\ \tau_{v_2}=V\bigr),
 \]
-All weights are nonpositive. They sum over the four places
-to \(-7-\epsilon\), since the product of the six \(w\) is 1.
-The coordinate forms attain the bounds in (3.7) of [1].
-For \(L_{0,v}\) the bound follows from
-\(5\cdot4^{-m}<H({\bf z})^{-\epsilon}\), since \(UV<40\) and
-\((128/125)^{600}>5^8\). The maximum over automorphisms fixing
-\(K\) leaves \({\bf z}\) fixed.
-
-The union of the forms has cardinality at most 10. Their coefficient
-fields over \(K\) have degree at most 2, since \(A_r^2=c\beta^r\)
-and \(2A_r B_r=\alpha^r\). For the inhomogeneous form height,
-\(H^*(L_{0,v})\le \exp(h(A_r)+h(B_r))<1000\), with
+and set
 \[
- h(A_r)\le\tfrac14\log 8+\tfrac34\log\beta,\qquad
- h(B_r)\le\log2+\tfrac14\log8+
-                 3(\tfrac12\log\alpha+\tfrac14\log\beta).
+ d_{0,v_1}=d_{0,v_3}=\frac{\eta}{L}\log\frac{U}{V^4},\qquad
+ d_{0,v_2}=\frac{\eta}{L}\log\frac{U^2}{V^4},\qquad
+ d_{0,v_4}=\frac{\eta}{L}\log\frac{1}{U}.
 \]
-The Euclidean version of the form height also lies below 1000.
-The lower height threshold of [1, Theorem 3.1] is
-\(\max(1000^{1/60},7^{56/3})\), below \(H({\bf z})\)
-for \(m\ge600\). That theorem covers the vectors for each \(r\)
-by at most
+Every weight is nonpositive. Since \(\prod_{v}|\sigma_v(w)|=1\) for each
+\(w\in{\cal W}_5\),
 \[
- T=10^9\,2^{14}\,7^{14}\,(8/3)^3
-       \log(160)\log\big((8/3)\log60\big)
+ \sum_{v}\sum_{w\in{\cal W}_5}d_{w,v}=-5\eta,\qquad
+ \sum_{v}d_{0,v}=\eta\frac{\log(U^3/V^{12})}{L}=-\eta+\eta\frac{\log(U^6/V^8)}{L}.
+\]
+Because \(U^6/V^8<0.078<1\), the total weight sum over all four places is
+\[
+ -6\eta+\eta\frac{\log(U^6/V^8)}{L}<-6.168<-6-\frac{1}{6}.
+\]
+Choosing \(\epsilon=1/6\) preserves the required nonpositive weight sum \(-6-\epsilon\).
+For each form \(L_{i,v}\), the slack factor \((1-\eta)\) absorbs the bounded
+constant factor \(2.3^{1/4}\) in \(H({\bf y})\) and the leading constants
+\(5\) and \(2.3\) for all \(m\ge600\); for forms with \(|\sigma_v(w)|=\tau_v\)
+one has \(d_{w,v}=0\) and \(|Z_w({\bf y})|_v/M_v\le 1\).
+Thus all bounds in (3.7) of [1] hold for \(m\ge600\). The maximum over
+automorphisms fixing \(K\) leaves \({\bf y}\) fixed.
+
+Using only one or two approximation places gives product exponents
+\(U^{2m}>1\) or \((U/V)^{4m}>1\), so three approximation places and
+\(N=6\) coordinates are minimal for this construction over \(K\).
+
+The union of the forms has cardinality at most 9, and their coefficient
+fields over \(K\) have degree at most 2. As before, \(H^*(L_{0,v})<1000\)
+(and likewise for the Euclidean form height). The lower height threshold
+of [1, Theorem 3.1] is \(\max(1000^{1/60},6^{16})\), below \(H({\bf y})\)
+for \(m\ge600\). That theorem covers the vectors for each \(r\) by at most
+\[
+ T=10^9\,2^{12}\,6^{12}\,6^3\log(144)\log\big(6\log 144\big)
+ <3.25\times 10^{25}
 \]
 proper linear subspaces defined over \(K\).
 
-## 3. At most fourteen indices per subspace
+## 3. At most eleven indices per subspace
 
 Each proper subspace lies in a hyperplane
 \[
- d_0X+\sum_{w\in{\cal W}}d_w Z_w=0
+ d_0 X+\sum_{w\in{\cal W}_5}d_w Z_w=0
 \]
 with coefficients in \(K\), not all zero.
 
-If \(d_0=0\), the resulting equation is a nonzero exponential
-polynomial in \(m\) with at most six distinct positive bases.
-It has at most five real zeros. In general, a nonzero real
-linear combination of \(k\) distinct positive exponential bases
-has at most \(k-1\) distinct real zeros: divide by the smallest
-exponential and apply Rolle's theorem to the derivative, then
-use induction.
+If \(d_0=0\), the equation is a nonzero exponential polynomial in \(m\)
+with at most five distinct positive bases, hence at most four real zeros
+by Rolle's theorem and induction.
 
-If \(d_0\ne0\), the hyperplane gives
-\(x=\sum_w b_w w^m\). Squaring and comparing with \(a_{4m+r}\)
-gives an exponential polynomial with at most fifteen distinct
-positive bases. In fact the exponent pairs of \({\cal W}\) in
-\((U,V)\) are \(\{0,1,-1\}\times\{1,-1\}\); their pairwise
-sums belong to \(\{-2,-1,0,1,2\}\times\{-2,0,2\}\).
-The four original bases \(U,U^{-1},V^2,V^{-2}\) also lie
-in this set of fifteen.
-
-This exponential polynomial is nonzero. Otherwise independence
-of distinct positive exponential bases and of \(U,V\) gives
-a Laurent polynomial identity
-\[
- C_1 u+C_2u^{-1}+C_3v^2+C_4v^{-2}=G(u,v)^2
-\]
-with all \(C_i\ne0\).
-Assign weight 2 to \(u\) and weight 1 to \(v\). The maximal
-weight part on the left is \(C_1u+C_3v^2\); on the right
-it is the square of the maximal weight part of \(G\).
-The binomial \(C_1u+C_3v^2\) has an irreducible factor of
-multiplicity one in \(\overline{\mathbb Q}[u^{\pm1},v^{\pm1}]\):
-as a polynomial in \(u\) it is linear, with nonzero root
-\(-C_3v^2/C_1\) in \(\overline{\mathbb Q}(v)\).
-It cannot be a square. This contradiction proves nonvanishing.
-Rolle's bound now gives at most fourteen integer indices \(m\)
-on the hyperplane.
+If \(d_0\ne0\), the hyperplane gives \(x=\sum_{w\in{\cal W}_5}b_w w^m\).
+The exponent pairs of \({\cal W}_5\) in \((U,V)\) are
+\(\{(0,1),(0,-1),(1,-1),(-1,-1),(1,1)\}\). Their pairwise sums together
+with the four Binet pairs \((1,0),(-1,0),(0,2),(0,-2)\) form a set of
+12 distinct pairs: \((-2,2)\), \((-1,2)\), and \((-2,0)\) are absent
+from the 15-element grid \(\{-2,-1,0,1,2\}\times\{-2,0,2\}\).
+Squaring and comparing with \(a_{4m+r}\) gives an exponential polynomial
+with at most 12 distinct positive bases. It is nonzero by the same weight
+argument on \(C_1 u+C_2 u^{-1}+C_3 v^2+C_4 v^{-2}=G(u,v)^2\), so Rolle's
+bound yields at most 11 integer indices \(m\) on the hyperplane.
 
 The [norm descent](norm-descent.md) restricts \(r\) to 1 and 3.
-The number of indices with \(m\ge600\) is thus at most \(28T\),
-and there are at most 2400 indices with \(m<600\). The logarithmic
-factors in \(T\) are less than \(26/5\) and \(5/2\), respectively.
-The resulting upper bound satisfies \(28T+2400<10^{29}\).
+The number of square indices with \(m\ge600\) is thus at most \(22T\),
+and there are at most 1200 indices with \(m<600\). Hence the total
+number of square indices is at most \(22T+1200<7.2\times 10^{26}<10^{27}\).
 
 ## 4. Effective zero location in any specified hyperplane
 
-There is a concrete sufficient height bound for completing the
-archimedean route. Normalize a hyperplane by \(d_0=1\) if
-\(d_0\ne0\), or by setting any nonzero coefficient equal to 1
-otherwise. Let \(B\) be the maximum absolute logarithmic height
-of its resulting nonzero coefficients.
+Normalize a hyperplane by \(d_0=1\) if \(d_0\ne0\), or by setting any
+nonzero coefficient equal to 1 otherwise. Let \(B\) be the maximum
+absolute logarithmic height of its resulting nonzero coefficients.
 
-**Proposition.** Every square index \(n=4m+r\) whose vector
-belongs to this hyperplane satisfies
+**Proposition.** Every square index \(n=4m+r\) whose vector belongs to
+this hyperplane satisfies
 \[
- n\le 2000(B+1)+3.
+ n\le 1150(B+1)+3.
 \]
 
-To prove this, write the nonzero exponential polynomial obtained
-in Section 3 as \(f(m)=\sum_i c_i\lambda_i^m\) with real
-coefficients in \(K\) and positive distinct bases. In the
-\(d_0\ne0\) case, each coefficient after squaring is a sum
-of at most six ordered products of two hyperplane coefficients,
-possibly with one original Binet coefficient subtracted.
-The heights of the original Binet coefficients for \(0\le r\le3\)
-are less than 3, so
+To prove this, write the nonzero exponential polynomial obtained in
+Section 3 as \(f(m)=\sum_i c_i\lambda_i^m\) with real coefficients in
+\(K\) and positive distinct bases. In \({\cal W}_5\), the maximum number
+of ordered pairs summing to any given exponent pair is 4 (attained at
+\((0,0)\) and \((1,0)\)). Each coefficient \(c_i\) after squaring is a
+sum of at most four ordered products of two hyperplane coefficients,
+with at most one original Binet coefficient subtracted. The heights of
+the original Binet coefficients for \(0\le r\le3\) are less than 3, so
 \[
- h(c_i)\le12B+3+\log7<12B+5.
+ h(c_i)\le 8B+3+\log 5<8B+5.
 \]
-The case \(d_0=0\) has the stronger bound \(h(c_i)\le B\).
+The case \(d_0=0\) satisfies the stronger bound \(h(c_i)\le B\).
 Since \([K:\mathbb Q]=4\), every nonzero \(c_i\) satisfies
 \[
- e^{-4(12B+5)}\le |c_i|\le e^{4(12B+5)}.
+ e^{-4(8B+5)}\le |c_i|\le e^{4(8B+5)}.
 \]
 
-The ratio of any two unequal bases, larger divided by smaller,
-is greater than \(5/4\). For the fifteen squared bases this
-follows by taking differences of their exponent pairs: the
-difference in the \(V\)-exponent is \(0,\pm2,\pm4\), and the
-difference in the \(U\)-exponent is between -4 and 4.
-For a zero \(V\)-exponent the ratio is at least \(U\).
-For absolute \(V\)-exponent 2, the only adjacent powers of
-\(U\) around \(V^2\) are \(U,U^2\); for absolute
-\(V\)-exponent 4 they are \(U^3,U^4\).
-All four ratios of adjacent powers to the intermediate value
-(or its reciprocal, as appropriate) exceed \(5/4\), directly
-from \(6.85<U<6.86\) and \(5.82<V<5.83\).
-The six unsquared bases have exponent differences inside the
-same ranges and satisfy the same bound.
-
-At a zero \(m\ge0\), the largest base with nonzero coefficient
-must be cancelled by the remaining at most fourteen terms.
-Dividing by that largest term gives
+As verified on the \(\{-2,-1,0,1,2\}\times\{-2,0,2\}\) grid from
+\(6.85<U<6.86\) and \(5.82<V<5.83\), the ratio of any two unequal bases,
+larger divided by smaller, exceeds \(5/4\). At a zero \(m\ge0\), the
+largest base with nonzero coefficient is cancelled by the remaining at
+most 11 terms. Dividing by that largest term gives
 \[
- 1\le14 e^{96B+40}(4/5)^m.
+ 1\le 11 e^{64B+40}(4/5)^m.
 \]
 Hence
 \[
- m\le\frac{96B+40+\log14}{\log(5/4)}
- <500(B+1).
+ m\le\frac{64B+40+\log 11}{\log(5/4)}<287.5(B+1),
 \]
-This proves the proposition. In particular, any explicit
-upper bound on the normalized coefficient heights of the
-exceptional hyperplanes in Section 2 immediately gives a
-linear, explicit upper bound on the last square index.
+and \(n=4m+r\le 1150(B+1)+3\). This proves the proposition.
 
-## 5. Consequence for the classification target
+## 5. Single-line closing targets
 
-A uniform bound on the coefficient heights of a covering family
-of hyperplanes would turn the count into an index cutoff by
-the proposition. The explicit cutoff needed to combine this
-approach with the current [finite certificate](extended-lifting.md)
-is \(10^{902}\).
+Combining the proposition with the [finite certificate](extended-lifting.md)
+through \(10^{902}\) reduces the complete infinite square classification
+to either of two single-line statements across the surviving odd classes:
+
+1. An explicit bound \(B\le 8.6\times 10^{898}\) on the normalized
+   coefficient heights of the \(K^6\) covering hyperplanes in Section 2.
+2. Directly in terms of the binary approximation, the inequality
+   \(\|A_r V^m+B_r (U/V)^m\|_{\mathbb Z}\ge 5(U^2/V^3)^m\) for
+   \(r\in\{1,3\}\) and all \(m>2.5\times 10^{901}\).
 
 ## Reference
 
