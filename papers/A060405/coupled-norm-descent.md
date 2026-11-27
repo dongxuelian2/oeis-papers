@@ -1325,6 +1325,132 @@ The resulting positive \(n=2k-1\) have
 \((n+1)/2^{202}\equiv3\pmod8\). The small-prime sieve agrees
 with the zero anchor by the same period bound as in Section 8.
 
+## 14. Prime support of the shared mixed-unit norm
+
+For an odd square index \(n=2m+1\), put \(s=\sqrt2\) and
+\[
+ W_n=64P_n^2+56L_nP_n-8L_n^2-81
+     =8(8P_n-L_n)a_n-81.
+\]
+Every rational prime \(p>3\) dividing \(W_n\) satisfies
+\(p\equiv\pm1\pmod{16}\). If \(v_p(W_n)\) is odd, then
+\(p\) also splits in \(\mathbb Q(\sqrt5)\). In fact every
+prime \(p>3\) dividing \(W_n\) with \(p\equiv-1\pmod{16}\)
+splits in \(\mathbb Q(\sqrt5)\), regardless of valuation.
+There is at least one such prime of odd valuation, hence
+at least one prime \(p\equiv31,79\pmod{80}\) of odd valuation.
+
+To see this, use the [mixed-unit identities](unified-norm-classification.md#1-complete-classification-of-monomial-splitting-curves)
+in the two quadratic fields. Define
+\[
+ U_n=16x^2-18\alpha^n=(7L_n+16P_n)-9F_n\sqrt5,\qquad
+ V_n=2s x^2-9\beta^n=-9Q_n+(2L_n-7P_n)s.
+\]
+Taking their respective rational norms, using
+\(5F_n^2=L_n^2+4\) and \(Q_n^2=2P_n^2-1\), gives
+\(N(U_n)=4W_n\) and \(N(V_n)=W_n\).
+At any prime above \(p>3\) dividing \(U_n\), the identity
+\(U_n=(4x)^2-(2\alpha)(3\alpha^m)^2\) forces \(2\alpha\)
+to be a square in the residue field, since \(3\alpha^m\)
+is a unit there. At any prime above \(p>3\) dividing \(V_n\),
+the same argument applied to
+\[
+ V_n=2s\bigl(x^2-(2+s)(3\beta^m/2)^2\bigr)
+\]
+forces \(2+s\) to be a square. Thus each such prime of
+\(\mathbb Q(s)\) splits in the real cyclic quartic field
+\(\mathbb Q(\sqrt{2+s})\) of conductor 16. For a rational
+prime inert in \(\mathbb Q(s)\), the Frobenius in this
+quartic field has order four, so the relative residue
+degree is two and such splitting is impossible. For a
+rational prime split in \(\mathbb Q(s)\), the relative
+splitting requires trivial Frobenius, equivalent to
+\(p\equiv\pm1\pmod{16}\).
+
+If \(p\ne5\) is inert in \(\mathbb Q(\sqrt5)\), the norm
+of \(U_n\) has even \(p\)-adic valuation. If in addition
+\(p\equiv-1\pmod{16}\), then \(2\alpha\) is nonsquare in
+\(\mathbb F_{p^2}\) because its norm \(-4\) to \(\mathbb F_p\)
+is nonsquare. Hence this prime cannot divide \(U_n\) at all.
+The prime 5 was already excluded by the mod-16 restriction.
+
+At 3, which is inert in \(\mathbb Q(s)\), the valuation of
+\(V_n\) is zero when \(3\nmid x\), and is two when \(9\mid x\).
+If \(v_3(x)=1\), then \(V_n/9\equiv2s-\beta^n\pmod3\).
+Here \(\beta^2\equiv2s\pmod3\) and the residue of \(\beta\)
+has order eight, so the difference is nonzero for odd \(n\).
+Thus \(v_3(W_n)\in\{0,4\}\). Also \(P_n\) is odd, so
+\(W_n\equiv8L_n(P_n-L_n)-1\equiv-1\pmod{16}\).
+For positive odd \(n\), \(W_n>0\), using \(W_1=31\) and
+\(P_n\ge L_n\) for \(n\ge3\) by the recurrences.
+Removing the factor at 3 leaves a positive integer congruent
+to \(-1\pmod{16}\) with all prime factors \(\pm1\pmod{16}\).
+This proves the existence claim.
+
+For any \(p\equiv-1\pmod{16}\) dividing \(W_n\), choose a
+prime above \(p\) in \(K\) whose restrictions divide \(U_n\)
+and \(V_n\), respectively. This can be done since \(p\) splits
+in both quadratic fields. At that prime the two equations
+give the simultaneous phase
+\[
+ \alpha^n=\tfrac89 x^2,\qquad \beta^n=\tfrac{2s}{9}x^2,
+ \qquad (\alpha/\beta)^n=2s\pmod p.
+\]
+In particular \(\alpha\) has odd order at this prime, since
+\(2\alpha\) and 2 are squares and \(v_2(p-1)=1\).
+On the zero anchor, this prime cannot have the order of
+\(\alpha/\beta\) dividing \(n+1\). Otherwise the last equation
+would give \(\alpha=\beta/(2s)=1/2+1/(2s)\), whose value
+in the polynomial \(X^2-X-1\) is \(-9/8\), nonzero at \(p>3\).
+
+**Triplication and a cubic residue condition.** The first
+mixed-unit identity also gives
+\[
+ W_n=-N_{K/\mathbb Q}\big((\alpha\beta)^n-s^3\big).
+\]
+For \(n=3j\) put \(z=(\alpha\beta)^j\). Then
+\[
+ W_{3j}=W_j^{(1)}W_j^{(2)},\quad
+ W_j^{(1)}=-N_{K/\mathbb Q}(z-s)=16P_j^2+4L_jP_j-2L_j^2-9,
+ \quad W_j^{(2)}=N_{K/\mathbb Q}(z^2+sz+2).
+\]
+For the formula for \(W_j^{(1)}\), first take the norm to
+\(\mathbb Q(s)\). Dividing the resulting expression by
+\(\beta^j\) gives \(-3Q_j+(P_j-L_j)s\), and
+\(N_{\mathbb Q(s)/\mathbb Q}(\beta^j)=-1\).
+The quadratic \(z^2+sz+2\) is positive at every real
+embedding because its discriminant is \(-6\). In particular
+\(W_j^{(2)}>0\). The same norm computation, dividing the
+intermediate result by \(\beta^{2j}\), gives
+\[
+ W_j^{(2)}=(20P_j^2+2L_jP_j+2L_j^2-3)^2
+              -18Q_j^2(2P_j+L_j)^2.
+\]
+
+Suppose the square index belongs to \(r=3\) or \(r=-3\).
+Then \(j\equiv 1\) or \(-1\), respectively, modulo \(240240\).
+The Lucas and Pell matrix periods modulo 16 divide 24
+and 16, respectively, so \(W_j^{(1)}\equiv9\) or \(1\pmod{16}\)
+on these two classes. Modulo 3 both matrix periods divide 8.
+On the first class, \(3\mid P_j-L_j\), \(3\nmid Q_j\), and
+\(W_j^{(1)}/9=Q_j^2-2((P_j-L_j)/3)^2\) is a unit modulo 3.
+On the second class, \(3\nmid P_j-L_j\) and \(3\nmid W_j^{(1)}\).
+Thus the part of \(W_j^{(1)}\) coprime to 3 is \(1\pmod{16}\) in
+both cases. The part of \(W_j^{(2)}\) coprime to 3 is consequently
+\(-1\pmod{16}\), and it has a prime \(p\equiv-1\pmod{16}\)
+of odd valuation, because it is positive and its other
+prime factors are all \(\pm1\pmod{16}\).
+
+At each such prime, the residue field of \(K\) is
+\(\mathbb F_p\) by the preceding splitting result. At a prime
+ideal dividing the quadratic factor, \(z/s\) is a primitive
+cube root of unity. It follows that \(p\equiv1\pmod3\), so
+there is a prime \(p\equiv31,79\pmod{240}\) with odd
+valuation in \(W_j^{(2)}\). On the zero anchor \(3\nmid n\).
+At each prime above \(p>3\) dividing \((\alpha\beta)^n-s^3\),
+the unit \(\alpha\beta\) is a cube in the residue field,
+because its \(n\)-th power is a cube and \(3\nmid n\).
+
 ## Reproduction
 
 Run:

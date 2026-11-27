@@ -734,6 +734,27 @@ def check_displaced_zero_phase_witness():
     print(f"Displaced zero-phase valuation-one witness at p={p} verified.")
 
 
+def check_shared_mixed_norm():
+    for n in range(-41, 42, 2):
+        lucas, pell = lp_exact(n)
+        companion, _ = qp_exact(n)
+        value = 8 * (8 * pell - lucas) * (pell + lucas) - 81
+        assert (7 * lucas + 16 * pell)**2 - 81 * (lucas**2 + 4) == 4 * value
+        assert 81 * companion**2 - 2 * (2 * lucas - 7 * pell)**2 == value
+        assert value % 16 == 15
+        linear = 16 * pell**2 + 4 * lucas * pell - 2 * lucas**2 - 9
+        quadratic = (20 * pell**2 + 2 * lucas * pell + 2 * lucas**2 - 3)**2
+        quadratic -= 18 * companion**2 * (2 * pell + lucas)**2
+        lucas3, pell3 = lp_exact(3 * n)
+        assert linear * quadratic == 8 * (8 * pell3 - lucas3) * (pell3 + lucas3) - 81
+    for n, expected in ((-3, 271), (-1, -81), (3, 2511)):
+        lucas, pell = lp_exact(n)
+        assert 8 * (8 * pell - lucas) * (pell + lucas) - 81 == expected
+    assert mat_pow(A_MAT, 24, 16) == mat_pow(B_MAT, 16, 16) == I_MAT
+    assert mat_pow(A_MAT, 8, 3) == mat_pow(B_MAT, 8, 3) == I_MAT
+    print("Shared mixed-unit norm, triplication, and signed anchor values verified.")
+
+
 if __name__ == "__main__":
     check_n6_subspace_constants()
     check_new_norm_identities()
@@ -747,3 +768,4 @@ if __name__ == "__main__":
     check_companion_boundary_symbols()
     check_shifted_anchor_tangent_witnesses()
     check_displaced_zero_phase_witness()
+    check_shared_mixed_norm()
