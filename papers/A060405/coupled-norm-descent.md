@@ -1163,13 +1163,27 @@ in (23) is
 At a Gaussian prime of residue characteristic \(p>7\)
 dividing \(H_-\) or \(H_+\), a square index requires
 \(W_{r,k}\) to be a square in the residue field, including
-the zero residue. Equation (24) gives the corresponding
-test in \(\mathbb Q(\sqrt2)\) with target
-\(a_r-\frac{5((d-L_r)^2+4)}{4d}F_k^2\).
+the zero residue. With the same even \(k\) on \(r=\pm3\),
+equation (24) gives the corresponding test at primes above
+\(p>7\) in \(\mathbb Q(\sqrt2)\) with target
+\(a_r-\frac{5((d-L_r)^2+4)}{4d}F_k^2\). The only primes to
+exclude when forming the two quotients for general odd \(r\)
+divide \(10F_r^2\) and \(2Q_r^2\), respectively, by taking
+norms of \(d\) and accounting for the denominator at 2.
+
+For \(r=\pm3\), a prime \(p>7\) inert in the coefficient
+field of either identity cannot give a nonresidue. In the
+quadratic residue field, the irrational part of \(d\) is
+nonzero, so \(H_\mp=0\) implies \(L_k\mp2Q_k=0\) and
+\(5F_rF_k\pm2Q_rP_k=0\). Squaring and using the norm
+equations gives \(5F_k^2=8P_k^2\) and
+\(4(10F_r^2-Q_r^2)P_k^2=0\) modulo \(p\). Since
+\(10F_r^2-Q_r^2=-9\), both \(P_k,F_k\) vanish and each
+target reduces to \(a_r\), which is a square.
 
 **Witnesses at the two nonzero anchors.** The following
 data are certified by exact modular exponentiation. In
-each row \(p=8q+1\), \(q\) is prime, \(i=i_0\bmod p\),
+each row \(p=8q+1\), both \(p,q\) are prime, \(i=i_0\bmod p\),
 and the residue \(k\equiv k_0\pmod{p-1}\) gives
 \(H_-=0\bmod p\) with \(W_{r,k}\) a nonresidue.
 \[
@@ -1179,8 +1193,9 @@ and the residue \(k\equiv k_0\pmod{p-1}\) gives
   3&8059049&1007381&7557665&8053768&5802682
  \end{array}
 \]
-For each \(r\), define \(H\) as in Section 9 using \(D_r\)
-and put \(S=2^{201}H\). The two congruences
+For each \(r\), define the odd integer \(H\) as in Section 9
+using \(D_r\) and put \(S=2^{201}H\). The certificate verifies
+\(v_2(D_r)\le201\), so \(D_r\mid S\). The two congruences
 \[
  n\equiv r+S\pmod{2S},\qquad n\equiv r+2k_0\pmod{16q}
 \]

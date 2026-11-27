@@ -818,6 +818,84 @@ Consequently the total number of square indices is bounded by
  1+3\cdot6\cdot21\,m_0 < 8\times10^{23}.
 \]
 
+## 8. Integral coordinates for the one-place inequality
+
+The symmetric approximation has an integral model with six
+forms coming from two unit norms. Keep the notation from
+Section 7, and put \(K=\mathbb Q(\alpha,\beta)\). For odd
+\(n=2m+1\), let
+\[
+ U_m=\beta^m=u_0+u_1\beta,\qquad
+ W_m=\alpha^n\beta^{-m-1}
+     =(w_0+w_1\alpha)+(w_2+w_3\alpha)\beta.
+\]
+All coefficients are integers since \(\alpha\) and \(\beta\)
+are units in the orders they generate. Use the integral vector
+\(\mathbf t=(2x,u_0,u_1,w_0,w_1,w_2,w_3)\).
+Its last six entries are determined by the recurrence even
+at an index without an integer square root.
+
+The six unit forms are the two evaluations of the polynomial
+\(u_0+u_1\beta\) and the four evaluations of the polynomial
+\((w_0+w_1\alpha)+(w_2+w_3\alpha)\beta\) at conjugate pairs.
+Use \(\ell_U,\ell_W\) for the evaluations at the identity.
+The seventh form is
+\[
+ F_0(\mathbf t)=2x-\theta\ell_U(\mathbf t)-s\theta\ell_W(\mathbf t).
+\]
+Their determinant has absolute value
+\((2\sqrt2)(\sqrt5)^2(2\sqrt2)^2=80\sqrt2\). Indeed the
+change of basis uses a two-element embedding matrix for
+\(\mathbb Q(\beta)\) and the tensor product of that matrix
+with the two-element embedding matrix for \(\mathbb Q(\alpha)\).
+The vector \(\mathbf y\) of Section 7 is obtained by scaling
+the unit forms by constants, with signs chosen so that
+\(y_1=\theta U_m\), \(y_2=-\theta'\tau(U_m)\),
+\((y_3,y_4)=s\theta(W_m,\eta(W_m))\), and
+\((y_5,y_6)=s\theta'(\tau(W_m),\tau\eta(W_m))\).
+
+Write \(H(\mathbf t)=\max_j|t_j|\). This is the absolute
+projective height because \(u_0,u_1\) are coprime, as any
+common divisor divides the unit norm of \(U_m\). Inverting
+each two-element embedding matrix has operator norm at most
+1 for the maximum norm, since for each positive root \(q\)
+among \(\alpha,\beta\) the other root is \(-q^{-1}\) and
+\(q+q^{-1}>2\). Inverting the tensor product has the same
+bound. Hence the maximum of the six coefficients is at most
+the maximum of the six conjugate values. In particular
+\(H(\mathbf t)\le2\exp(\lambda_5n)\) for \(n\ge5\), using
+\(2x=2^{1/4}\beta^{n/2}\sqrt{1+t}\) from Section 7.
+
+The product of the absolute values of the six unit forms
+is \(|N_{\mathbb Q(\beta)/\mathbb Q}U_m|\,|N_{K/\mathbb Q}W_m|=1\).
+With (22), all seven forms therefore satisfy
+\[
+ \prod_{i=0}^6 \frac{|F_i(\mathbf t)|}{H(\mathbf t)}
+ < H(\mathbf t)^{-7-1/3}\qquad(n\ge100).
+ \tag{26}
+\]
+Here \(F_1,\ldots,F_6\) are the unit forms. The numerical
+inequality follows from \(\lambda_0+\lambda_5/3<-0.049\)
+and \((7/5)2^{1/3}<2\). Equation (26) is one real-place
+inequality on rational integer vectors with fixed algebraic
+coefficients.
+
+In these coordinates the exact square-root expansion involves
+two small arguments rather than one unconstrained rational
+argument. With \(Z=(\alpha/\beta)^n\) and
+\(W=(\alpha\beta)^{-n}\), it is
+\[
+ \frac{2x}{\theta U_m}=\sqrt{1+2sZ-2sW+ZW}.
+ \tag{27}
+\]
+Every fixed polynomial auxiliary expression in these arguments
+and \(x\), with coefficients in a fixed number field, becomes
+a regular Laurent expression after writing \(n=4j+r\) for
+\(r=1,3\). The norm calculation in Section 6 applies to each
+such expression. To use (27) for an effective last-index bound,
+an auxiliary construction must supply more than norm decay
+for a fixed regular Laurent expression.
+
 ## Reference
 
 [1] J.-H. Evertse and R. G. Ferretti,
