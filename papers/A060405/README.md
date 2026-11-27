@@ -164,6 +164,12 @@ height at most \(B\), every square index it contains satisfies
 The [fixed Laurent norm calculation](quantitative-square-count.md#6-norms-of-fixed-laurent-expressions)
 gives nonnegative norm growth for every fixed regular expression
 on the square cover, over every finite coefficient extension.
+The [Galois-symmetric approximation](quantitative-square-count.md#7-the-canonical-exceptional-subspace-in-a-symmetric-approximation)
+has zero canonical exceptional subspace in the Evertse–Ferretti
+interval theorem. In this seven-coordinate representation, a specified
+hyperplane of absolute projective logarithmic height \(B_0\) contains
+square indices only for \(n\le200B_0+105\). The interval theorem gives
+no effective upper limit on the locations of the intervals.
 
 ## Unified algebraic–analytic structure and new exclusions
 
