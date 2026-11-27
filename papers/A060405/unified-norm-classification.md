@@ -626,6 +626,67 @@ require \(\alpha^{-r}=c\beta^{\pm r}\). Norm to
 \(\mathbb Q(\sqrt5)\) would give \(\alpha^{-2r}=1/8\),
 impossible for the quadratic unit of nonzero exponent.
 
+## 8. Units over either mixed diagonal
+
+Consider the power model \(S_M\) with equation
+\[
+ x^2=aU^M+bU^{-M}+c_1V^M+c_2V^{-M},\qquad
+ a b=-1,\quad c_1c_2=1/8,
+\]
+where \(M\ge1\) and all coefficients are nonzero. Put
+\(T=UV\) or \(T=U/V\). After localizing at any factors in
+\(T\) alone, every unit of the square surface is of the
+form \(U^k R(T)\). Here \(R\) is a rational function whose
+zeros and poles are at zero, infinity, or the removed
+values of \(T\). This holds over the algebraic closure and
+thus in particular after any fixed coefficient extension.
+
+Work first over the field of rational functions in \(T\).
+The square equation becomes
+\(x^2=A(T)U^M+B(T)U^{-M}\), where in the case \(T=UV\)
+the coefficients are \(A=a+c_2T^{-M}\), \(B=b+c_1T^M\).
+For \(T=U/V\) they are \(A=a+c_1T^{-M}\), \(B=b+c_2T^M\).
+Each has simple nonzero zeros and is nonsquare in the
+rational function field.
+
+If \(M\) is even, the transformation \(Y=U^{M/2}x\)
+gives \(Y^2=A(T)U^{2M}+B(T)\). The smooth projective
+completion has a single closed point of degree two
+over \(U=0\), by the nonsquareness of \(B\), and a single
+closed point of degree two over infinity, by that of \(A\).
+The coordinate \(U\) has a simple zero and a simple pole
+there. The divisor of a unit on the affine fiber is
+supported at these two closed points and has degree zero,
+so is an integer multiple of the divisor of \(U\).
+
+If \(M\) is odd, use \(Y=U^{(M+1)/2}x\) to obtain
+\(Y^2=U(A(T)U^{2M}+B(T))\). The completion has genus
+\(M\ge1\), and the two rational points over zero and
+infinity are ramification points. The divisor of
+\(U\) is twice their difference. That difference is not
+principal, since a function with such a divisor would have
+degree one on a curve of positive genus. Therefore any
+principal divisor supported at these two points is again
+an integer multiple of the divisor of \(U\).
+
+Dividing by the corresponding power of \(U\) gives a
+function with no divisor on the complete generic fiber,
+so it is a scalar in the rational function field in \(T\).
+At any nonzero finite value of \(T\) that has not been removed,
+the square cover has a nonempty fiber with a divisor and
+\(U\) remains a unit there. A zero or pole of \(R\) at that
+value would give a zero or pole of the original function.
+This proves the asserted unit description.
+
+In particular, if a Laurent expression on the square cover
+has norm to the torus supported only on one family of mixed
+diagonal fibers, it becomes a unit on inverting those fibers.
+The unit description makes it independent of \(x\), so its
+quadratic norm has even order on every such fiber. This
+explains why the two explicit factors of the shared norm in
+[coupled norm descent](coupled-norm-descent.md#14-prime-support-of-the-shared-mixed-unit-norm)
+require cofactors from the other diagonal.
+
 ## Reproduction
 
 Run:

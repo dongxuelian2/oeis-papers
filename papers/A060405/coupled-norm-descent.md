@@ -1617,6 +1617,37 @@ independent. The biquadratic Hasse norm criterion with a
 noncyclic decomposition group therefore gives the global
 norm. [Frei, Loughran and Newton, *The Hasse norm principle for abelian extensions*](https://pure.manchester.ac.uk/ws/portalfiles/portal/55657924/HNP.pdf)
 
+**A norm in the offset index.** Set \(z=\alpha\beta\),
+\(\delta=\sqrt{2\alpha}\,\theta\), and \(F=K(\delta)\),
+the field fixed by the simultaneous sign change in \(E\).
+Then \(\delta^2=Cz\), and with \(k=(n+1)/2\) put
+\(J_n=z^k-\delta\). One has
+\[
+ A-B=BJ_n/\delta,\qquad N_{F/K}(J_n)=zH_n.
+\]
+The ideal calculation above gives \(N_{E/F}(\mathfrak g)
+=(J_n)\) away from 2 and 3, because both sides extend
+to \((A-B)\) in the localized ring of \(E\), up to units.
+
+Also \(J_n\) is an element norm from \(E/F\). At odd places
+away from 3 its support is split and its other valuations
+are zero. At 3 the two conjugates of \(J_n\) over \(K\)
+cannot vanish at the same prime because \(2\delta\) is an
+odd-prime unit. Where \(H_n\) vanishes the two quadratic
+radicands of \(E/K\) are both nonsquares in \(\mathbb F_9\)
+and their product is a square. Indeed the norm of \(2\alpha\)
+to \(\mathbb F_3\) is \(-4\), and \(2+s\) is nonsquare by
+the conductor-16 splitting computation. Thus \(F/K\)
+splits there, and the unique prime of \(F\) dividing
+\(J_n\) has valuation two. At each real place of \(F\),
+\(E/F\) splits, since \(\delta^2=Cz\) is negative at the
+embeddings where \(\alpha<0\). The full dyadic decomposition
+group above implies that \(F\) has a unique dyadic place.
+Reciprocity and the cyclic Hasse norm theorem now give
+the claimed element norm. This places a necessary
+quadratic norm condition directly on \(z^k-\delta\)
+for the zero-anchor offset \(k\).
+
 ## Reproduction
 
 Run:
