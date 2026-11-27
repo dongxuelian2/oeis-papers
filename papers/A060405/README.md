@@ -161,6 +161,10 @@ if the normalized coefficients of such a hyperplane have logarithmic
 height at most \(B\), every square index it contains satisfies
 \(n\le 1150(B+1)+3\).
 
+The [fixed Laurent norm calculation](quantitative-square-count.md#6-norms-of-fixed-laurent-expressions)
+gives nonnegative norm growth for every fixed regular expression
+on the square cover, over every finite coefficient extension.
+
 ## Unified algebraic–analytic structure and new exclusions
 
 The [unified structure note](unified-norm-classification.md) classifies

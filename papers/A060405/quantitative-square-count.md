@@ -230,6 +230,127 @@ to either of two single-line statements across the surviving odd classes:
    \(\|A_r V^m+B_r (U/V)^m\|_{\mathbb Z}\ge 5(U^2/V^3)^m\) for
    \(r\in\{1,3\}\) and all \(m\ge2.5\times 10^{901}\).
 
+## 6. Norms of fixed Laurent expressions
+
+The approximation in Section 1 uses a different linear form
+at each place. The following calculation describes the scope
+of a single Laurent expression evaluated at all places.
+
+Let \(r\in\{1,3\}\), put \(u_m=\alpha^m\), \(v_m=\beta^m\),
+and use \(U,V\) as indeterminates in this section. Define
+the Laurent polynomial
+\[
+ f_r(U,V)=\alpha^r U^4-\alpha^{-r}U^{-4}
+   +c\bigl(\beta^r V^4+\beta^{-r}V^{-4}\bigr).
+\]
+Then \(f_r(u_m,v_m)=a_{4m+r}\). For any finite extension
+\(E/K\), let
+\[
+ \mathcal R_E=
+ E[U^{\pm1},V^{\pm1},X]/(X^2-f_r(U,V)).
+\]
+Given a nonzero \(H\in\mathcal R_E\), evaluate \(H^\sigma\)
+at each embedding \(\sigma:E\hookrightarrow\mathbb C\) on the tuple
+\((\sigma(u_m),\sigma(v_m),x_m)\), with the same positive real
+root \(x_m=\sqrt{a_{4m+r}}\) at every embedding. Write \(J_H(m)\)
+for the product of the absolute values of these evaluations.
+At a square index this is the absolute algebraic norm
+of \(H(u_m,v_m,x_m)\).
+
+**Proposition.** The limit
+\(\lim_{m\to\infty}m^{-1}\log J_H(m)\) exists and is
+nonnegative. If it is zero, \(J_H(m)\) is a positive
+constant, the absolute norm of a nonzero algebraic number
+in \(K\).
+
+**Proof.** First consider \(E=K\) and write \(H=P+XQ\)
+with \(P,Q\) Laurent polynomials. At a real embedding
+of \(K\), write \(s_5,s_2\in\{-1,1\}\) for the signs of
+\(\sqrt5,\sqrt2\). A monomial \(U^iV^j\) then has growth
+exponent
+\[
+ w_\sigma(i,j)=s_5i\log\alpha+s_2j\log\beta.
+\]
+The weights of distinct monomials differ. Indeed, an
+integer relation between \(\log\alpha\) and \(\log\beta\)
+would give \(\alpha^i\beta^j=1\). Conjugating only
+\(\sqrt5\) then gives \(\alpha^{2i}=(-1)^i\),
+forcing \(i=j=0\). Thus each nonzero Laurent polynomial
+has a unique leading monomial at each embedding.
+
+By Binet's formula \(x_m\sim A_r\beta^{2m}\), using \(A_r\)
+from Section 1. The constant
+\[
+ A_1=\frac{\sqrt{2+\sqrt2}}2=\frac{\zeta_{16}+\zeta_{16}^{-1}}2
+\]
+generates the cyclic quartic real cyclotomic field of
+conductor 16. The field \(K\) is biquadratic, so \(A_1\)
+lies outside \(K\). Since \(A_3=\beta A_1\), the same
+holds for \(A_3\).
+
+If the leading exponents of \(P\) and of \(x_mQ\) coincide,
+cancellation would require \(A_r\) to equal a signed ratio
+of the embedded leading coefficients of \(P\) and \(Q\).
+That ratio belongs to \(K\), so the leading exponent
+of \(P+x_mQ\) is the larger of the two exponents, including
+the case of equality. Considering even and odd \(m\)
+accounts for signs of conjugate units and gives the
+same exponent on both subsequences.
+
+If \(Q\ne0\), fix any monomial in \(Q\). At each embedding
+the leading exponent of \(P+x_mQ\) is at least that
+monomial's weight plus \(2\log\beta\). The four weights
+sum to zero, so the total exponent is at least
+\(8\log\beta>0\). If \(Q=0\), each opposite pair of
+embeddings gives the width of the support of \(P\) in
+that weight direction. If the support has at least two
+monomials, each width is positive by the distinct weights.
+For a single monomial the product of the unit factors
+has absolute value 1, giving precisely the norm of its
+nonzero coefficient.
+
+For general \(E\), the polynomial \(X^2-f_r(U,V)\)
+remains irreducible over \(\overline K(U,V)\).
+To see this, multiply \(f_r\) by \(U^4\) and view the
+result as a polynomial in \(U\) over \(\overline K(V)\).
+It is quadratic in \(U^4\), with nonzero constant and
+leading coefficients and a nonconstant linear
+coefficient. The two roots in \(U^4\) are distinct and
+nonzero because the discriminant is a nonconstant
+rational function of \(V\). Hence the polynomial in \(U\)
+has eight distinct roots and cannot be a square.
+Consequently the product over the embeddings of \(E/K\)
+of the nonzero expression \(H\) is a nonzero element of
+\(\mathcal R_K\). Its four-place product equals \(J_H(m)\),
+and the preceding computation applies. \(\square\)
+
+This rules out a norm tending to zero from any fixed
+regular Laurent expression, or a fixed finite collection
+of such expressions, on this model. An effective argument
+can still use rational functions with additional
+denominators whose arithmetic is controlled on square
+solutions, or a different effective reduction.
+
+**Units on the original double cover.** Before the
+substitution \(u=\alpha^rU^4,\ v=\beta^rV^4\), set
+\[
+ f(u,v)=u-u^{-1}+c(v+v^{-1}).
+\]
+Over any extension of \(K\), the units of the Laurent ring
+with \(x^2=f(u,v)\) are exactly the nonzero scalar multiples
+of \(u^iv^j\). Indeed, if \(P+xQ\) is a unit, then
+\(P^2-fQ^2\) is a unit in the coefficient Laurent ring.
+If \(Q\ne0\), every generic weight selects a leading
+exponent in \(fQ^2\) outside \(2\mathbb Z^2\), because
+all four exponents of \(f\) lie outside that sublattice.
+The leading exponent in \(P^2\), when \(P\ne0\), lies
+in \(2\mathbb Z^2\), so these leading terms survive in the
+difference whenever they are maximal. Hence the Newton
+polygon of the difference contains the Newton polygon
+of \(fQ^2\), which is two-dimensional. A Laurent unit
+has a single exponent. Thus \(Q=0\), and \(P\) is a Laurent
+monomial.
+
 ## Reference
 
 [1] J.-H. Evertse and R. G. Ferretti,
