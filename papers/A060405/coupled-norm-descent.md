@@ -1,10 +1,10 @@
 # Coupled norm descent as a finite-support problem
 
-This note develops the odd-index norm identities into a coupled
-order-and-valuation system. Unlike a descent that requires two factors
-to be coprime, this system retains the possibility that odd valuations
-in the two factors cancel. The desired global contradiction is the
-nonexistence of a nontrivial finite prime-support model.
+The odd-index norm identities give a coupled system of order and
+valuation constraints on the prime factorization of the index.
+Section 6 uses the square equation to rule out cancellation at the
+primes relevant to a rational norm descent and excludes several index
+divisors for every odd square index.
 
 ## 1. A general norm-valuation rule
 
@@ -260,38 +260,119 @@ sets of prime-exponent thresholds, not just individual prime
 vertices. The \(\pm3\) branches may in particular activate orders
 \(3q\), which were not included in this terminal-vertex theorem.
 
-## 6. The global research target
+## 6. Rational norm descent at primes congruent to 7 or 9 modulo 16
 
-The one-factor norm descent for even indices succeeds because
-a quadratic character controls an entire quotient of a
-divisibility sequence. The character forces a new prime with
-strictly larger index relevance. In the mixed-unit odd-index
-norms, a bad prime can instead appear in both factors and its
-valuation can cancel. Equation (1) identifies the two exact
-ways such a defect can be resolved: a parity condition on
-the index, or activation of a second order constraint.
-The next problem is to find a uniform arithmetic principle
-governing these alternatives, possibly through quadratic
-characters of cyclotomic factor ideals and their intersections.
+For positive odd \(s\), put
+\[
+ M_s=\left|N_{K/\mathbb Q}(\eta^s-1)\right|=5F_{2s}^2-4Q_s^2.
+\]
+The sign follows from \(0<\eta<1<\xi\) and the conjugates in Section 5.
 
-A concrete sufficient target is a primitive-factor theorem
-with **both** a quadratic-character condition and a constraint
-on the order of the other unit. For an activated divisor \(s\mid n\),
-one seeks an odd-valuation prime ideal in a factor of
-\(\eta^s-1,\xi^s-1,(-\eta)^s-1\), or \((-\xi)^s-1\)
-whose partner order is forbidden, or which generates another
-order-and-parity implication. The three terminal vertices show
-that this must be an escaping system of composite activations
-and/or additional norm channels, rather than an individual edge
-from every prime. The usual existence of a primitive divisor
-alone does not give its quadratic character or its partner
-order. The finite calculation in Section 4 neither proves nor
-assumes such a uniform theorem.
+**Theorem.** If \(n\) is a positive odd square index, then for
+every divisor \(s\mid n\) and every prime \(p\equiv7,9\pmod{16}\),
+the valuation \(v_p(M_s)\) is even. Every such prime dividing
+\(M_s\) splits in \(\mathbb Q(\sqrt3,\sqrt5)\).
 
-This note supplies an exact local rule, a global finite-support
-criterion and ten certified instances. It does not claim
-that the graph has no finite nontrivial model, or that the
-unrestricted square-index classification is complete.
+**Character of the odd part.** Every odd prime divisor of \(M_s\)
+splits in \(\mathbb Q(\sqrt2)\). Suppose 2 is a nonsquare modulo \(p\)
+and reduce at a prime ideal dividing \(\eta^s-1\). Then
+\(\beta^s=u^s\) and \(\beta^{p+1}=-1\). If 5 is a nonsquare modulo
+\(p\), then \(u^{p+1}=1\), contradicting that \(s\) is odd.
+If 5 is a square or \(p=5\), then \(u\) is a square in
+\(\mathbb F_p\), and \((u^s)^2=(\beta^s)^{p+1}=-1\).
+A square of order four in \(\mathbb F_p^\times\) requires
+\(8\mid p-1\), whereas \(p\equiv3,5\pmod8\).
+
+On \(\{1,7,9,15\}\subset(\mathbb Z/16\mathbb Z)^\times\)
+let \(\chi\) take value \(+1\) at \(1,15\) and \(-1\) at \(7,9\).
+The Fibonacci state modulo 8 repeats after 12 steps and the
+companion Pell state after four steps. For odd \(s\), they give
+\(Q_s^2\equiv1\pmod{16}\) and \(F_{2s}\equiv\pm1\pmod8\) when
+\(3\nmid s\), or \(8\mid F_{2s}\) when \(3\mid s\).
+Thus \(M_s\equiv1\pmod{16}\) when \(3\nmid s\), and
+\(v_2(M_s)=2\) with \(M_s/4\equiv15\pmod{16}\) when \(3\mid s\).
+The odd part of \(M_s\) has character \(+1\).
+
+**Uniqueness over each prime of character \(-1\).** Let
+\(p\equiv7,9\pmod{16}\) divide \(M_n\) for an odd square index \(n\).
+For either root \(r\) of 2 in \(\mathbb F_p\), the element \(2+r\)
+is a nonsquare. Choose a primitive sixteenth root \(z\) with
+\(r=z^2+z^{-2}\). The square root \(z+z^{-1}\) of \(2+r\)
+belongs to \(\mathbb F_p\) precisely when Frobenius sends \(z\)
+to \(z\) or \(z^{-1}\), equivalently \(p\equiv\pm1\pmod{16}\).
+
+Suppose 5 is a nonsquare modulo \(p\). At a prime ideal
+dividing \(\eta^n-1\) one has \(\beta^n=u^n\in\mathbb F_p\).
+As \(u^{p+1}=1\), one gets \(u^n=\pm1\).
+For \(p\equiv7\pmod{16}\), the relation
+\(u^{(p+1)/2}=\alpha^{p+1}=-1\) gives
+\(v_2(\operatorname{ord}(u))=v_2(p+1)\ge3\), which precludes
+\(u^n=\pm1\) at odd \(n\).
+For \(p\equiv9\pmod{16}\), both values of \(\beta^n=\pm1\) are
+squares in \(\mathbb F_p\), so \(\beta\) is a square there.
+Since \(\sqrt2\beta=2+\sqrt2\), the twist \(2\sqrt2\) is a
+nonsquare in \(\mathbb F_p\). The positive-sign identity of Section 2
+lies in \(\mathbb Q(\sqrt2)\) and then forces \(L_n+\sqrt2=0\)
+in \(\mathbb F_p\). This gives \(L_n^2=2\), whereas \(u^n=\pm1\)
+gives \(L_n^2=(\alpha^n-\alpha^{-n})^2\in\{0,-4\}\).
+Hence \(p\) splits completely in \(K\).
+
+Work in one of the residue fields \(\mathbb F_p\).
+If \(\eta^n=\sigma\) or \(\xi^n=\sigma\) for \(\sigma\in\{1,-1\}\),
+then \(\beta^n=\sigma u^n\) or \(\beta^n=\sigma u^{-n}\),
+respectively. Thus \(\sigma\beta\) is a square in \(\mathbb F_p\)
+and the twist \(\sigma\,2\sqrt2\) has the square class of
+\(2\sqrt2\beta=2(2+\sqrt2)\), a nonsquare.
+The corresponding identity in Section 2 forces
+\(L_n+\sigma\sqrt2=0\).
+If both \(\eta^n,\xi^n\) equal the same \(\sigma\), then
+\(u^n=\pm1\), again giving \(L_n^2\in\{0,-4\}\) instead of 2.
+If they equal opposite signs, one gets both
+\(L_n+\sqrt2=0\) and \(L_n-\sqrt2=0\).
+Thus at most one of \(\eta^n,\xi^n\) belongs to \(\{1,-1\}\).
+The conjugate list in Section 5 shows that exactly one prime
+ideal above \(p\) divides \(\eta^n-1\). At this ideal the
+positive-sign norm has a unit partner and its twist is a
+nonsquare, so \(v_p(M_n)\) is even. Also, \(w=\alpha^n\) satisfies
+\(w^2+\sqrt2w-1=0\) in \(\mathbb F_p\), by \(L_n+\sqrt2=0\).
+Its discriminant is 6, so \(p\) splits in \(\mathbb Q(\sqrt3)\).
+By divisibility, the same splitting condition holds at each
+prime of character \(-1\) dividing any \(M_s\) with \(s\mid n\).
+
+**Descent.** Suppose \(p\equiv7,9\pmod{16}\) has odd valuation
+in \(M_s\) for a divisor \(s\mid n\). Since \(\eta^s-1\) divides
+\(\eta^n-1\), uniqueness applies at \(p\). The binomial valuation
+formula gives \(v_p(M_n)=v_p(M_s)+v_p(n/s)\), so \(sp\mid n\).
+The positive integer \(M_{sp}/M_s\) has odd-part character \(+1\)
+and valuation one at \(p\). It has a prime divisor \(q\ne p\)
+of character \(-1\) and odd valuation. By uniqueness, \(q\)
+splits completely and the unique ideal above \(q\) dividing
+\(\eta^{sp}-1\) is new at \(sp\), since multiplying the index
+by \(p\) preserves the valuations at old ideals above \(q\).
+Its order in \(\mathbb F_q^\times\) is divisible by \(p\), so
+\(q>p\), and \(v_q(M_{sp})\) is odd. Iterating from \((sp,q)\)
+forces infinitely many distinct primes to divide \(n\). \(\square\)
+
+### Consequences and remaining arithmetic target
+
+The witnesses in Section 4 have odd valuation at primes
+\(p\equiv7,9\pmod{16}\). Through the conjugate list in Section 5
+and uniqueness above, each such valuation equals \(v_p(M_s)\)
+when \(s\mid n\) and \(n\) is an odd square index.
+Consequently each of
+\[
+ 29,\ 31,\ 53,\ 61,\ 71,\ 73,\ 97,\ 6679
+\]
+is excluded as a divisor of \(n\).
+The [witness at 51511](unified-norm-classification.md) for
+\(s=51\) also excludes \(17\mid n\) when \(n\equiv\pm3\pmod{720720}\).
+
+A sufficient global target is to exhibit, for each remaining
+candidate \(n>10^{902}\), a divisor \(s\mid n\) and a prime
+\(p\equiv7,9\pmod{16}\) of odd valuation in \(M_s\).
+The examples \(M_{17},M_{19},M_{23}\) in Section 5 give prime
+indices \(s\) at which a witness must come from another divisor
+of the candidate or from another norm identity.
 
 ## Reproduction
 

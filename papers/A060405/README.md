@@ -153,8 +153,8 @@ The [quantitative count](quantitative-square-count.md) applies the
 Evertse–Ferretti quantitative Subspace Theorem to a minimal-dimension
 six-coordinate embedding with three approximation places. Every
 exceptional hyperplane contains at most eleven square indices within each
-residue class modulo four, yielding the explicit global bound \(10^{27}\)
-(below \(7.2\times 10^{26}\)) on the number of square indices. Moreover,
+residue class modulo four, yielding an explicit global bound below
+\(2.9\times10^{28}\) on the number of square indices. Moreover,
 if the normalized coefficients of such a hyperplane have logarithmic
 height at most \(B\), every square index it contains satisfies
 \(n\le 1150(B+1)+3\).
@@ -173,10 +173,10 @@ The same note and its certificate
 [verify_unified_structure.py](verify_unified_structure.py) establish:
 * strengthened §2 exclusions including \(125\nmid n\pm2\),
   \(49,121\nmid n+2\), and \(59,61\nmid(n-2)/3\) on \(r=-1\);
-* §3 common-factor characterization \(\gcd(Q_n,5F_nL_n)\) and
+* §3 common-factor bound \(\gcd(Q_n,5F_nL_n)\) and
   unconditional one-step prime forcing \(33\mid n\implies1321\mid n\),
   \(35\mid n\implies7001\mid n\), and \(17\mid n\implies51511\mid n\) on
-  \(r\in\{3,-3,-1\}\);
+  \(n\equiv\pm3\pmod{720720}\) for the last implication;
 * all-parity Frobenius descent (excluding \(n+2=p^e\) when \((5/p)=-1,\
   (2/p)=+1\) and \(n-2=3p^e\) when \((5/p)=+1,\ (2/p)=-1\) for odd \(e\));
 * the Round-1 Wieferich-type double-root geometry at \(p=19,307\), and
@@ -184,11 +184,11 @@ The same note and its certificate
   cutoff of [forced square classes](forced-squareclass.md) to \(9949\)
   (\(\delta=0\)) and \(9967\) (\(\delta=1\)).
 
-Across the three odd branches simultaneously, the global classification
-reduces to the single-line closing bound \(B\le 8.6\times 10^{898}\) on
-the \(K^6\) covering hyperplanes (equivalently
-\(\|A_r V^m+B_r(U/V)^m\|_{\mathbb Z}\ge 5(U^2/V^3)^m\) for
-\(r\in\{1,3\}\) and \(m>2.5\times 10^{901}\)).
+Each of two estimates would settle all three odd branches. The first
+is the coefficient-height bound \(B\le 8.6\times10^{898}\) for the
+\(K^6\) covering hyperplanes. The second is
+\(\|A_r V^m+B_r(U/V)^m\|_{\mathbb Z}\ge 5(U^2/V^3)^m\)
+for \(r\in\{1,3\}\) and \(m\ge2.5\times10^{901}\).
 
 ## Coupled norm descent and finite prime support
 
@@ -206,9 +206,14 @@ proves that \(17,19,23\) have no outgoing edges in the simple graph
 using orders equal to an individual source prime, even with no
 restriction on the witness prime. This uses the exact rational norm
 \(N_{K/\mathbb Q}(\eta^s-1)=4Q_s^2-5F_{2s}^2\) for odd \(s\).
-The general escape problem requires composite-order activation
-and/or additional coupled norm identities. No new bound on the
-last square index is asserted.
+The [rational norm descent](coupled-norm-descent.md#6-rational-norm-descent-at-primes-congruent-to-7-or-9-modulo-16)
+proves that for every divisor \(s\) of an odd square index \(n\), each
+prime \(p\equiv7,9\pmod{16}\) in \(5F_{2s}^2-4Q_s^2\) has even valuation
+and splits in \(\mathbb Q(\sqrt3,\sqrt5)\). The proof uses the square
+condition to show that each such prime has a single active prime ideal,
+then descends through rational norm quotients. It excludes
+\(29,31,53,61,71,73,97,6679\) as divisors of every square index, and
+\(17\) as a divisor on \(n\equiv\pm3\pmod{720720}\).
 
 ## Theorem 1 (finiteness for every fixed exponent)
 

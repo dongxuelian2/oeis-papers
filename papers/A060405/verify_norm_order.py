@@ -45,6 +45,7 @@ def verify():
     graph={}
     for q,p,r2,r5,sign,h,j,unit in ROWS:
         assert prime(q) and prime(p) and p>q>13
+        assert p % 16 in (7, 9)
         mod=p*p
         beta=(1+lift(r2,2,p))%mod
         alpha=(1+lift(r5,5,p))*pow(2,-1,mod)%mod

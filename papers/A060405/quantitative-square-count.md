@@ -7,8 +7,7 @@ sharpens the quantitative bound using a minimal-dimension six-coordinate
 embedding in the quantitative Subspace Theorem.
 
 **Theorem.** The number of nonnegative integers \(n\) for which
-\(a_n\) is an integer square is less than \(10^{27}\) (explicitly
-below \(8\times 10^{26}\)).
+\(a_n\) is an integer square is less than \(2.9\times10^{28}\).
 
 ## 1. Explicit approximation and five-unit coordinates
 
@@ -112,7 +111,9 @@ Because \(U^6/V^8<0.078<1\), the total weight sum over all four places is
 \[
  -6\eta+\eta\frac{\log(U^6/V^8)}{L}<-6.168<-6-\frac{1}{6}.
 \]
-Choosing \(\epsilon=1/6\) preserves the required nonpositive weight sum \(-6-\epsilon\).
+Take \(\epsilon=1/6\). Increasing the weights by interpolating toward
+the zero vector gives sum \(-6-\epsilon\), preserves nonpositivity, and
+weakens the individual upper bounds required in (3.7) of [1].
 For each form \(L_{i,v}\), the slack factor \((1-\eta)\) absorbs the bounded
 constant factor \(2.3^{1/4}\) in \(H({\bf y})\) and the leading constants
 \(5\) and \(2.3\) for all \(m\ge600\); for forms with \(|\sigma_v(w)|=\tau_v\)
@@ -124,16 +125,27 @@ Using only one or two approximation places gives product exponents
 \(U^{2m}>1\) or \((U/V)^{4m}>1\), so three approximation places and
 \(N=6\) coordinates are minimal for this construction over \(K\).
 
-The union of the forms has cardinality at most 9, and their coefficient
-fields over \(K\) have degree at most 2. As before, \(H^*(L_{0,v})<1000\)
-(and likewise for the Euclidean form height). The lower height threshold
-of [1, Theorem 3.1] is \(\max(1000^{1/60},6^{16})\), below \(H({\bf y})\)
-for \(m\ge600\). That theorem covers the vectors for each \(r\) by at most
+The union of the forms has cardinality at most \(R=9\).
+Since \(A_r^2\in K\) and \(B_r/A_r\in K\), each coefficient field
+over \(K\) has degree at most \(D=2\). The inhomogeneous form height
+satisfies \(H^*(L_{0,v})\le \exp(h(A_r)+h(B_r))<1000\). Indeed,
 \[
- T=10^9\,2^{12}\,6^{12}\,6^3\log(144)\log\big(6\log 144\big)
- <3.25\times 10^{25}
+ h(A_r)\le\tfrac12(h(c)+r h(\beta)),\qquad
+ h(B_r)\le\log 2+\tfrac12 h(c)+r h(\alpha)+\tfrac r2 h(\beta),
+\]
+where \(h(c)=\tfrac32\log 2\), \(h(\alpha)=\tfrac12\log\alpha\),
+and \(h(\beta)=\tfrac12\log\beta\).
+The height threshold of [1, Theorem 3.1] is at most
+\(\max(1000^{1/54},6^{36})\), below \(H({\bf y})\) for \(m\ge600\).
+With dimension six, that theorem covers the vectors for each \(r\) by at most
+\[
+ T=10^9\,2^{12}\,6^{14}\,6^3\log(324)\log\big(6\log 54\big)
+ <1.3\times 10^{27}
 \]
 proper linear subspaces defined over \(K\).
+The numerical inequality follows from \(\log 324<5.8\),
+\(\log 54<4\), and \(\log 24<3.18\), each of which follows from
+the exponential series.
 
 ## 3. At most eleven indices per subspace
 
@@ -161,7 +173,7 @@ bound yields at most 11 integer indices \(m\) on the hyperplane.
 The [norm descent](norm-descent.md) restricts \(r\) to 1 and 3.
 The number of square indices with \(m\ge600\) is thus at most \(22T\),
 and there are at most 1200 indices with \(m<600\). Hence the total
-number of square indices is at most \(22T+1200<7.2\times 10^{26}<10^{27}\).
+number of square indices is at most \(22T+1200<2.9\times10^{28}\).
 
 ## 4. Effective zero location in any specified hyperplane
 
@@ -216,7 +228,7 @@ to either of two single-line statements across the surviving odd classes:
    coefficient heights of the \(K^6\) covering hyperplanes in Section 2.
 2. Directly in terms of the binary approximation, the inequality
    \(\|A_r V^m+B_r (U/V)^m\|_{\mathbb Z}\ge 5(U^2/V^3)^m\) for
-   \(r\in\{1,3\}\) and all \(m>2.5\times 10^{901}\).
+   \(r\in\{1,3\}\) and all \(m\ge2.5\times 10^{901}\).
 
 ## Reference
 

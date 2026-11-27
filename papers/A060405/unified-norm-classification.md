@@ -70,13 +70,19 @@ Substituting \(P_n=x^2-L_n\) yields
  (\beta w_+)^2-(\sqrt2\beta)\,x^2=-\beta(\sqrt2 L_n-1).
 \]
 At any odd prime ideal \(\mathfrak p\mid(\sqrt2 L_n-1)\), one has
-\(\sqrt2\beta\equiv(2L_n+1)/L_n\pmod p\). Since \(L_{2m+1}\not\equiv2\pmod4\),
-quadratic reciprocity gives the global Jacobi symbol
+\(\sqrt2\beta\equiv(2L_n+1)/L_n\pmod{\mathfrak p}\).
+For positive odd \(n\), put \(N=2L_n^2-1\). Then
 \[
- \left(\frac{(2L_n+1)L_n}{2L_n^2-1}\right)
- =\left(\frac{L_n+1}{2L_n^2-1}\right)=+1
+ \left(\frac{(2L_n+1)L_n}{N}\right)
+ =\left(\frac{L_n+1}{N}\right)=+1.
 \]
-for every odd \(n\), verified directly across odd \(n\in[-7,19]\).
+The first equality uses \(2L_n^2\equiv1\pmod N\). Write
+\(L_n+1=2^e d\) with \(d\) odd. If \(L_n\) is odd, then
+\(N\equiv1\pmod8\). If \(L_n\) is even, the Lucas recurrence
+modulo four has period six and gives \(4\mid L_n\) at every odd index
+with even \(L_n\), so \(e=0\) and \(d\equiv1\pmod4\).
+In both cases reciprocity yields \((d/N)=(N/d)=1\), since
+\(L_n\equiv-1\pmod d\).
 
 **Mixed-unit identities (Family 3).** For odd \(n=2m+1\), expanding in
 \(K\) gives
@@ -87,11 +93,12 @@ for every odd \(n\), verified directly across odd \(n\in[-7,19]\).
 \]
 \[
  2\sqrt2\,x^2-9\beta(\beta^m)^2
- =-2\sqrt2\,\beta^{-n}N_{K/\mathbb Q(\sqrt2)}\!\left((\alpha\beta)^n+\frac{1}{2\sqrt2}\right)
+ =8\beta^{-n}N_{K/\mathbb Q(\sqrt2)}\!\left((\alpha\beta)^n+\frac{1}{2\sqrt2}\right)
  =-9Q_n+(2L_n-7P_n)\sqrt2.
 \]
-The two right-hand norms coincide for all odd \(n\) and carry no
-cyclotomic divisibility chain because \(2\sqrt2\) is non-unit.
+With \(c=1/(2\sqrt2)\), the norms on the right expand to
+\(-u^2+c^{-1}u(v+v^{-1})-c^{-2}\) and
+\(-v^2+cv(u-u^{-1})+c^2\), respectively.
 
 ## 2. Strengthened Gaussian and mixed-unit divisor constraints
 
@@ -119,17 +126,20 @@ square modulo any \(\mathfrak p\mid(\eta^s-1)\) for odd \(s\).
 
 **Proposition 2 (One-step prime forcing from §3).** Whenever an odd
 divisor \(s\mid n\) has a prime ideal \(\mathfrak p\mid(\eta^s-1)\) of
-odd valuation with \((2\sqrt2/\mathfrak p)_2=-1\) and every prime factor
-of \(\operatorname{ord}_{\mathfrak p}(\xi)\) (or \(2\) if even) is
-coprime to \(n\), \(\mathfrak p\nmid(\xi^n-1)\) and therefore \(p\mid n\).
+odd valuation with \((2\sqrt2/\mathfrak p)_2=-1\) and
+\(\operatorname{ord}_{\mathfrak p}(\xi)\nmid n\), the rational prime
+\(p\) below \(\mathfrak p\) divides \(n\). Indeed, if \(p\nmid n\),
+the quotient \((\eta^n-1)/(\eta^s-1)\) reduces to the unit \(n/s\)
+modulo \(\mathfrak p\). The product \((\eta^n-1)(\xi^n-1)\) then has
+odd valuation, contradicting the norm condition in [norm descent](norm-descent.md) §3.
 In particular:
 * for every odd square index \(n\ge3\), \(33\mid n\implies 1321\mid n\)
   (\(\operatorname{ord}_{\mathfrak p}(\xi)=110\)) and
   \(35\mid n\implies 7001\mid n\) (\(\operatorname{ord}_{\mathfrak p}(\xi)=250\));
-* on the three odd branches \(r\in\{3,-3,-1\}\) (where \(5\nmid n\)),
-  \(s=51=3\cdot 17\) yields the bad prime \(p=51511\) with
-  \(\operatorname{ord}_{\mathfrak p}(\xi)=8585=5\cdot 17\cdot 101\), forcing
-  \(17\mid n\implies 51511\mid n\).
+* on the two branches \(n\equiv\pm3\pmod{720720}\), the condition
+  \(17\mid n\) implies \(s=51\mid n\). The witness above \(51511\) has
+  \(\operatorname{ord}_{\mathfrak p}(\xi)=8585=5\cdot17\cdot101\);
+  since \(5\nmid n\), it forces \(51511\mid n\).
 
 ## 3. All-parity Frobenius descent and zero-anchor double-root geometry
 
@@ -182,7 +192,7 @@ The infinite classification reduces to either:
    [quantitative square count](quantitative-square-count.md) §5
    (\(B\le 8.6\times 10^{898}\) for the \(K^6\) covering hyperplanes,
    or equivalently \(\|A_r V^m+B_r(U/V)^m\|_{\mathbb Z}\ge 5(U^2/V^3)^m\)
-   for \(r\in\{1,3\}\) and \(m>2.5\times 10^{901}\)), covering all
+   for \(r\in\{1,3\}\) and \(m\ge2.5\times 10^{901}\)), covering all
    three odd branches simultaneously; or
 2. for the zero-anchor branch \(r=-1\) independently, non-termination
    of the forced-prime closure (for every finite divisor \(D\) in the

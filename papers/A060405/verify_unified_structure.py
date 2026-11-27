@@ -217,11 +217,19 @@ def check_n6_subspace_constants():
     assert bases.isdisjoint({(-2, 2), (-1, 2), (-2, 0)})
 
     # Evertse-Ferretti count and height bridge
-    eps = 1.0 / 6.0
-    t6 = 1e9 * (2**12) * (6**12) * (eps ** -3) * math.log(144.0) * math.log((1.0 / eps) * math.log(144.0))
-    assert t6 < 3.25e25
-    assert 22.0 * t6 + 1200.0 < 7.2e26 < 1e27
-    assert m0 * math.log((u_val ** 0.75) * v_val) > max(math.log(1000.0) / 60.0, 16.0 * math.log(6.0))
+    # Theorem 3.1 has dimension 6, at most 9 forms, and coefficient degree at most 2.
+    dimension, form_count, coefficient_degree, inv_epsilon = 6, 9, 2, 6
+    rd = form_count * coefficient_degree
+    t6 = (
+        10**9 * 2**(2 * dimension) * dimension**14 * inv_epsilon**3
+        * math.log(3 * inv_epsilon * rd) * math.log(inv_epsilon * math.log(3 * rd))
+    )
+    assert t6 < 1.3e27
+    assert 22 * t6 + 1200 < 2.9e28
+    height_threshold = max(
+        math.log(1000) / (3 * rd), dimension * inv_epsilon * math.log(dimension)
+    )
+    assert m0 * math.log(u_val**0.75 * v_val) > height_threshold
     assert 4.0 * 64.0 / math.log(5.0 / 4.0) < 1150.0
     assert 4.0 * (40.0 + math.log(11.0)) / math.log(5.0 / 4.0) < 1150.0
     print("N=6 Subspace Theorem constants and bounds verified.")
@@ -294,20 +302,21 @@ def check_new_norm_identities():
         an_k = pow_k(alpha, n)
         bn_k = pow_k(beta, n)
         abn_k = pow_k(ab, n)
-        abinv_k = pow_k(ab, -n)
 
         f1 = tuple(u - v for u, v in zip(abn_k, two_s2))
-        f2 = tuple(u - v for u, v in zip(bn_k, mul_k(inv_2s2, an_k)))
+        f0, f_s2, f_s5, f_s10 = f1
+        norm1 = mul_k(f1, (f0, -f_s2, f_s5, -f_s10))
         lhs1 = tuple(u - v for u, v in zip((Fraction(16 * a_val), Fraction(0), Fraction(0), Fraction(0)),
                                            tuple(18 * z for z in an_k)))
-        rhs1 = mul_k((Fraction(0), Fraction(4), Fraction(0), Fraction(0)), mul_k(abinv_k, mul_k(f1, f2)))
+        rhs1 = tuple(2 * z for z in mul_k(pow_k(alpha, -n), norm1))
         assert lhs1 == rhs1
 
-        g1 = tuple(u - v for u, v in zip(an_k, mul_k(two_s2, bn_k)))
         g2 = tuple(u + v for u, v in zip(abn_k, inv_2s2))
+        g0, g_s2, g_s5, g_s10 = g2
+        norm2 = mul_k(g2, (g0, g_s2, -g_s5, -g_s10))
         lhs2 = tuple(u - v for u, v in zip((Fraction(0), Fraction(2 * a_val), Fraction(0), Fraction(0)),
                                            tuple(9 * z for z in bn_k)))
-        rhs2 = mul_k((Fraction(0), Fraction(2), Fraction(0), Fraction(0)), mul_k(abinv_k, mul_k(g1, g2)))
+        rhs2 = tuple(8 * z for z in mul_k(pow_k(beta, -n), norm2))
         assert lhs2 == rhs2
     print("Dual Z[sqrt(2)] and (1,+-1) mixed-unit norm identities verified for odd n in [-7, 19].")
 
