@@ -760,6 +760,64 @@ and the error have total absolute value at most
 \(16e^{8B_0}e^{-0.08n}\). This implies (25), since
 \(\log(4096)/0.08<105\).
 
+**Seven-index determinant and a smaller global count.** For
+square indices \(n_1<\cdots<n_7\) in one of the three odd
+anchor classes, let \(D\) be the determinant of their seven
+columns \(\mathbf y(n_j)\). It is a rational integer. Each
+entry is integral, and conjugation multiplies the determinant
+by \(\det \rho(g)=1\), since \(\rho(\tau)\) is a rotation on
+each of three coordinate pairs and \(\rho(\eta)\) is the
+product of two transpositions. Replacing row zero by \(L_0\)
+preserves the determinant.
+
+At the identity embedding the resulting entries in row \(i\)
+and column \(j\) are \(d_{ij}\exp(\lambda_i n_j)\). For
+\(n_1\ge3000\), each \(|d_{ij}|\) is between \(1/2\) and 2.
+For row zero this uses the Taylor remainder from the proof
+of (25), since the leading coefficient is \(-2^{1/4}\).
+The other rows have their exact constants. The exponents in
+increasing order are \(\lambda_4,\lambda_2,\lambda_0,\lambda_6,
+\lambda_3,\lambda_1,\lambda_5\); consecutive differences
+exceed \(0.08\). The ordering of the columns maximizes the
+exponent sum \(S=\sum_{j=1}^7\lambda_{(j)} n_j\) by pairing
+increasing exponents with increasing indices. Here \(\lambda_{(j)}\)
+denotes the \(j\)-th exponent in increasing order. Every
+other permutation loses at least \(0.08\cdot720720\), since
+removing one inversion increases its sum by more than that
+amount. The leading permutation contributes at least
+\(2^{-7}e^S\), and all others together contribute at most
+\(7!2^7 e^{S-0.08\cdot720720}<2^{-7} e^S\). Hence \(D\ne0\).
+
+If all seven indices are in \([N,5N/4]\) for \(N\ge3000\),
+then \(S\le N(\lambda_0+ (2a+b/2)/4)\), since
+\(\sum_i\lambda_i=\lambda_0\) and the positive exponents
+sum to \(2a+b/2\). The rational log bounds give
+\(\lambda_0+(2a+b/2)/4<-0.006\), so
+\[
+ |D|\le7!2^7 e^{-0.006N}<1.
+\]
+This contradicts \(D\in\mathbb Z\setminus\{0\}\). Thus at
+most six square indices in each anchor fall in such a window.
+
+In the notation of [1, (2.22)] the number of exceptional
+intervals is at most
+\[
+ m_0=\left\lfloor 10^5 2^{14}7^{10}25^2\log(1125)\right\rfloor
+ <2.1\times10^{21},\qquad \omega_0=25\log45<100.
+\]
+The initial cutoff \(C_0\) for \(Q\) is less than \(e^{100}\):
+the factor \(H_{\mathcal L}^{1/R}\) is at most \((7!)^{1/R}\)
+because all forms have integer coefficients of absolute value
+at most 1, and \(7^{25}<e^{100}\). Taking logarithms, each
+remaining interval is covered by 21 windows of ratio \(5/4\),
+since \((5/4)^{21}>100\). Intersecting a window with
+\([3000,\infty)\) preserves this ratio bound. The initial
+finite certificate leaves only \(n=3\) below 3000.
+Consequently the total number of square indices is bounded by
+\[
+ 1+3\cdot6\cdot21\,m_0 < 8\times10^{23}.
+\]
+
 ## Reference
 
 [1] J.-H. Evertse and R. G. Ferretti,

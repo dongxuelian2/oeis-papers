@@ -155,8 +155,7 @@ The [quantitative count](quantitative-square-count.md) applies the
 Evertse–Ferretti quantitative Subspace Theorem to a minimal-dimension
 six-coordinate embedding with three approximation places. Every
 exceptional hyperplane contains at most eleven square indices within each
-residue class modulo four, yielding an explicit global bound below
-\(2.9\times10^{28}\) on the number of square indices. Moreover,
+residue class modulo four. Moreover,
 if the normalized coefficients of such a hyperplane have logarithmic
 height at most \(B\), every square index it contains satisfies
 \(n\le 1150(B+1)+3\).
@@ -168,8 +167,10 @@ The [Galois-symmetric approximation](quantitative-square-count.md#7-the-canonica
 has zero canonical exceptional subspace in the Evertse–Ferretti
 interval theorem. In this seven-coordinate representation, a specified
 hyperplane of absolute projective logarithmic height \(B_0\) contains
-square indices only for \(n\le200B_0+105\). The interval theorem gives
-no effective upper limit on the locations of the intervals.
+square indices only for \(n\le200B_0+105\). An integer determinant
+limits each interval of ratio \(5/4\) to six indices per anchor, giving
+a global count below \(8\times10^{23}\). The interval theorem gives no
+effective upper limit on the locations of the intervals.
 
 ## Unified algebraic–analytic structure and new exclusions
 
