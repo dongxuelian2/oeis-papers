@@ -599,8 +599,8 @@ and Binet's formula gives
 \[
  \frac{4x^2}{y_1^2}=1+t,\qquad t=2s z^n-2s u+\beta^{-2n}.
 \]
-Here \(0<t<2s z^n<1\). The inequalities
-\(1+t/2-t^2/8\le\sqrt{1+t}\le 1+t/2\) give
+Here \(0<t<2s z^n<1\) and \(t/2-sz^n=-su+\beta^{-2n}/2<0\).
+The inequalities \(1+t/2-t^2/8\le\sqrt{1+t}\le 1+t/2\) give
 \[
  \frac{|L_0(\mathbf y)|}{y_1}\le z^{2n}+s u,\qquad
  |L_0(\mathbf y)|<\frac75\left(\frac{\alpha^2}{\beta^{3/2}}\right)^n.
@@ -696,7 +696,9 @@ The remaining \(k=4\) case is a graph plus the negative plane.
 Use \(v_3=(Y_3+Y_4)/2\), \(v_5=(Y_5+Y_6)/2\) on the graph,
 so \(Y_1=A v_3+B' v_5\) and \(Y_2=-B'v_3+A v_5\) for some
 \(A,B'\in\mathbb Q\). The map has this form because it commutes
-with the rotation. The three restrictions \(Y_3,Y_4,Y_6\) are
+with the rotation. Both relations also hold on the negative
+plane, where \(Y_1,Y_2,v_3,v_5\) vanish. The three restrictions
+\(Y_3,Y_4,Y_6\) are
 independent and their span excludes \(v_5\), which has a nonzero
 coefficient of \(Y_5\) in the free coordinates \(Y_3,Y_4,Y_5,Y_6\).
 If \(A\ne0\), add \(Y_2\) for exponent sum \(-a-b\).
@@ -743,7 +745,8 @@ If \(c_0=-1\), Taylor's formula additionally gives
 In fact the first-order error from \(t-2s z^n\) is at most
 \(s u\), the error in the quadratic term is at most \(2u z^n\),
 and the third-order remainder is at most \(s z^{3n}\).
-Use \(u<z^{3n}\) and \(z<7/10\). If \(c_0=-1\), the term
+Use \(u<z^{3n}\), \(z<7/10\), and \(n\ge5\), so
+\(2s+2z^n<4\). If \(c_0=-1\), the term
 with base \(z^2\) has coefficient 1 and guarantees a nonzero
 term preceding the error. Otherwise the distinct exact ratios
 give a nonzero term without an error. The bases in decreasing
@@ -752,7 +755,8 @@ order, inserting \(z^3\) for the error, are
  \alpha>1>z>\alpha^{-1}>z^2>\beta^{-1}>z^3>(\alpha\beta)^{-1}.
 \]
 The difference of the logarithms of any successive pair is
-greater than \(0.08\), by the bounds on \(a,b\). In the equation
+greater than \(0.08\), since both bounds on \(a,b\) are strict
+and hence \(2a-b>2(0.481)-0.882=0.08\). In the equation
 for the hyperplane, divide by the largest base to the power \(n\)
 among terms with nonzero coefficient. Its coefficient has
 absolute value at least \(2^{-8}e^{-8B_0}\). The other terms
@@ -982,5 +986,5 @@ be a scalar Laurent monomial.
 
 [1] J.-H. Evertse and R. G. Ferretti,
 *A further improvement of the Quantitative Subspace Theorem*,
-Annals of Mathematics 177 (2013), 513–590, Theorems 2.3 and 3.1.
+Annals of Mathematics 177 (2013), 513–590.
 https://doi.org/10.4007/annals.2013.177.2.4

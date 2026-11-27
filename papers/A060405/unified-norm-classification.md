@@ -199,6 +199,196 @@ The infinite classification reduces to either:
    closure, existence of \(p\nmid D\) with \(h_p\mid D\) and
    \(v_p(a_{h_p-1})=1\)).
 
+## 5. Finite étale covers of the odd square surface
+
+Let \(T=(\mathbb G_m)^2\) over the coefficient field \(K\).
+The affine square surface \(S\) over \(T\) has equation
+\[
+ x^2=f(u,v),\qquad f(u,v)=u-u^{-1}+c(v+v^{-1}),\qquad
+ c=1/(2\sqrt2).
+\]
+Every finite étale cover of \(S\) is the pullback of a unique
+finite étale cover of \(T\), up to isomorphism. The same holds
+for each square surface obtained by a monomial isogeny of
+the two torus coordinates, including the fourth-power model
+of the [quantitative analysis](quantitative-square-count.md#6-norms-of-fixed-laurent-expressions).
+
+Over \(\mathbb C\), the Newton polytope of \(x^2-f\) is the
+three-dimensional pyramid with a diamond base in the plane
+of \(u,v\) and the apex at the exponent of \(x^2\). A face
+containing the apex has nonzero logarithmic \(x\)-derivative
+on the torus. Each edge of the base is a binomial with two
+distinct exponents, hence has a smooth zero set on the torus.
+At a critical point of \(f\) on the torus, \(u^2=-1\) and
+\(v^2=1\), so \(f=\pm2i\pm2c\ne0\). These checks give
+Newton nondegeneracy, both for \(x^2-f\) in three variables
+and for its restriction \(-f\) at \(x=0\) in two. A monomial
+isogeny or a nonzero rescaling of the torus coordinates
+preserves the checks by étale pullback and invertible real
+transformation of the exponent planes.
+
+These are the hypotheses of Oka's full nondegenerate
+complete-intersection theorem with the single polynomial
+coordinate \(x\). For dimension three and one equation it
+gives an isomorphism on topological fundamental groups for
+the inclusion \(S(\mathbb C)\hookrightarrow (\mathbb C^*)^2\times
+\mathbb C\). Composing with the projection to \(T(\mathbb C)\)
+thus gives \(\pi_1^{\mathrm{top}}(S(\mathbb C))\cong\mathbb Z^2\)
+and identifies the projection with that isomorphism.
+[Oka, Nagoya Mathematical Journal 121 (1991), Theorem (1.1)](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0027763000003421)
+
+The comparison of finite étale and topological coverings and
+invariance under algebraically closed field extension give
+the isomorphism of geometric étale fundamental groups. Over
+\(K\), the morphism of étale fundamental-group exact sequences
+induces that isomorphism on the geometric kernels and the
+identity on \(\operatorname{Gal}(\overline K/K)\). It is therefore
+also an isomorphism in the middle, proving the cover statement.
+In particular a lifting condition through such a cover at a
+square index depends only on \((u,v)=(\alpha^n,\beta^n)\).
+
+The geometric Picard group of \(S\) has no torsion. For every
+positive integer \(m\), the Kummer sequence puts its
+\(m\)-torsion in the quotient of
+\(H^1_{\mathrm{\acute et}}(S_{\overline K},\mu_m)\) by the classes
+of units. The two torus units already generate this cohomology
+by the isomorphism above. Thus a Kummer cover produced by a
+torsion divisor does not add any further étale descent.
+
+## 6. Elliptic division and varying ramification
+
+Put \(C=c(v+v^{-1})\) and set \(Y=ux\) on the surface.
+The fibration in \(v\) has elliptic equation
+\(Y^2=u^3+Cu^2-u\), with the rational point \((0,0)\) of
+order two. The isogeny with this kernel maps to
+\[
+ E'_v: Y'^2=X((X-C)^2+4),\qquad
+ X=x^2,\quad Y'=x(u+u^{-1}).
+ \tag{10}
+\]
+In particular these formulas satisfy the target equation,
+since \(X-C=u-u^{-1}\). The target has full two-torsion over
+\(K(i)\), at \(X=0,C-2i,C+2i\).
+
+Let \(n\ge1\) be an odd square index and specialize
+\(u=\alpha^n,v=\beta^n\), so \(C=P_n\). Write \(M=K(i,\sqrt\alpha)\)
+and \(\vartheta=\alpha^{n/2}\in M\). The three
+differences of \(X\) from the roots of the target cubic
+are squares in \(M\), with respective square roots up to sign
+\[
+ x,\qquad A_+=\vartheta+i\vartheta^{-1},\qquad
+ A_-=\vartheta-i\vartheta^{-1}.
+\]
+Their squares are \(a_n,L_n+2i,L_n-2i\), respectively.
+Consequently the point in (10) can be halved over \(M\).
+For any half point with first coordinate \(X_1\), choose the
+signs of the three roots \(r_1,r_2,r_3\) so that
+\(r_1r_2r_3=-Y'\). The explicit halving formula gives
+\[
+ X_1-(C-2i)=(r_1+r_2)(r_2+r_3),\qquad
+ r_2+r_3\in\{\pm2\vartheta,\ \pm2i\vartheta^{-1}\}.
+ \tag{11}
+\]
+The formula follows by adding \(r_2^2=X-(C-2i)\) to the
+correction \(r_1r_2+r_1r_3+r_2r_3\) in the half point's first
+coordinate. [Bekker and Zarhin, *Division by 2 of rational points on elliptic curves*](https://doi.org/10.1090/spmj/1512)
+
+For every finite set of rational primes \(S_0\) containing
+2 and 5, there is an effective bound \(N(S_0)\) such that
+for every odd square index \(n>N(S_0)\), no half point
+in (11) can be halved in an extension of \(M\) unramified
+outside \(S_0\).
+
+To prove it, first consider an arbitrary positive odd index.
+If \(P_n^2+4\) has even valuation outside \(S_0\), write
+\(P_n^2+4=d z^2\) with \(d>0\) squarefree and supported on
+\(S_0\). The Pell identity gives \(Q_n^2=2P_n^2-1\), so
+\((P_n,dzQ_n)\) is an integral point on
+\[
+ W^2=d(T^2+4)(2T^2-1).
+\]
+The quartic has four distinct roots for every such \(d\),
+and there are finitely many \(d\). The effective bound for
+integral solutions of hyperelliptic equations therefore bounds
+\(P_n\), hence \(n\), in terms of \(S_0\).
+[Bérczes, Evertse and Győry, *Effective results for hyper- and superelliptic equations over number fields*, Theorem 2.2](https://arxiv.org/abs/1301.7168)
+
+For odd \(n\), \(P_n\) is odd, and the Gaussian factors
+\(P_n\pm2i\) are coprime. At a rational prime outside \(S_0\)
+of odd valuation in \(P_n^2+4\), the unique Gaussian prime
+\(\pi\) dividing \(P_n-2i\) has that same odd valuation.
+By the [Gaussian square identity](norm-descent.md#2-a-gaussian-factorization-for-the-odd-indices),
+\(A_+\) lies in \(J=\mathbb Q(i,\sqrt{1+2(-1)^{(n-1)/2}i})\)
+and the norm of either \(x+A_+\) or \(x-A_+\) from \(J\)
+to \(\mathbb Q(i)\) is \(P_n-2i\).
+The extension is unramified at \(\pi\). Since the norm
+valuation is odd, at least one prime over \(\pi\) has odd
+valuation in the factor \(r_1+r_2\), irrespective of the
+sign choice. Also \(M/\mathbb Q(i)\) is unramified at
+primes above \(p\notin S_0\), since it is built from the
+units \(\alpha\), \(i\) and the radicals \(\sqrt2,\sqrt5\).
+In (11) the factor \(r_2+r_3\) is a unit at every odd
+prime. Thus \(X_1-(C-2i)\) has odd valuation at a prime
+of \(M\) outside \(S_0\). It cannot become a square in an
+extension unramified at that prime, as would be required
+for a second halving.
+
+**The other fibration.** Write \(t=u-u^{-1}\). The change
+\((V,Z)=(cv,cvx)\) gives \(Z^2=V^3+tV^2+c^2V\), with
+the order-two point \((0,0)\). Its corresponding isogeny
+gives the point
+\[
+ X=x^2,\quad Z'=cx(v-v^{-1})\qquad\text{on}\qquad
+ Z'^2=X\big((X-t)^2-4c^2\big).
+\]
+At an odd square index put \(n=2m+1\). The square roots
+of \(X\), \(X-(t-2c)\) and \(X-(t+2c)\) are, up to sign,
+\[
+ x,\qquad B_+=\tfrac12(\theta\beta^m+\theta'\beta^{-m}),\qquad
+ B_-=\tfrac12(\theta\beta^m-\theta'\beta^{-m}),
+\]
+with \(\theta=\sqrt{2+\sqrt2}\), \(\theta'=\sqrt{2-\sqrt2}\).
+Here \(B_\pm^2=P_n\pm2c\). The first halving is defined
+over \(K(\theta)\). In the corresponding version of (11),
+the sum of the signed roots from \(B_+,B_-\) is a unit at
+every odd prime, and the relative norm of \(x\pm B_+\) to \(K\) is
+\(L_n-2c\). The conjugate factor is \(L_n+2c\).
+At odd primes their valuation supports are disjoint in
+\(K\), and the product is \((2L_n^2-1)/2\).
+
+In the quadratic field \(\mathbb Q(\sqrt2)\), a rational
+prime \(p>2\) dividing \(2L_n^2-1\) splits, because
+\(2L_n^2\equiv1\pmod p\). At the prime dividing
+\(L_n-2c\), the valuation is \(v_p(2L_n^2-1)\).
+The same parity holds after extension to \(K\) if \(p>5\),
+since that extension is unramified there. Thus an odd
+valuation in \(2L_n^2-1\) forces ramification in the
+second halving of every half point in this fibration.
+Conversely at any \(p>5\) not dividing \(2L_n^2-1\),
+the coordinates required for the second halving are units
+at all primes above \(p\), by the same formulas. Adjoining
+their square roots is unramified there.
+
+As in the first fibration, the ramification cannot be
+confined to any fixed \(S_0\) at sufficiently large square
+indices, with effective threshold. If
+\(2L_n^2-1=d z^2\) has squarefree part supported in \(S_0\),
+use \(L_n^2+4=5F_n^2\) to obtain the integral point
+\((L_n,5dF_nz)\) on \(W^2=5d(T^2+4)(2T^2-1)\).
+
+On the two nonzero anchors there is a rational prime
+\(p>5\) that must ramify in the second halving for the first
+fibration and is unramified for the second fibration.
+Indeed \(P_n^2+4\equiv5\pmod8\), so some prime with odd
+valuation in it is \(5\bmod8\) because all its primes are
+\(1\bmod4\). The prime 5 itself does not divide
+\(P_n^2+4\) on either nonzero anchor, since the Pell
+matrix has period dividing 12 modulo 5 and
+\(P_{\pm3}\equiv0\pmod5\). A prime \(5\bmod8\) cannot
+divide \(2L_n^2-1\). This distinguishes the two division
+extensions even after passing to the compositum of their
+fixed fields, which is unramified at that prime.
+
 ## Reproduction
 
 Run:
