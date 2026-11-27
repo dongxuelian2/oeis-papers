@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Verify the prime range for the shifted dyadic residue criterion."""
 
-from verify_anchor_forcing import A, B, I, mp
+from verify_anchor_forcing import A, B, I, mp, val
 from verify_norm_order import prime
 
 
@@ -14,7 +14,52 @@ def order_depth(matrix, odd_part, depth_bound, modulus):
     raise AssertionError("The split matrix order must divide p - 1.")
 
 
+def verify_base_characters():
+    for lucas, pell_companion, p, root in (
+        (2207, 577, 3361, 977),
+        (4870847, 665857, 6202561, 2073677),
+    ):
+        assert p == lucas + 2 * pell_companion and prime(p)
+        assert root * root % p == 5
+        alpha = (1 + root) * pow(2, -1, p) % p
+        assert pow(alpha, (p - 1) // 2, p) == p - 1
+
+
+def verify_next_layer_example():
+    p, root, odd_part = 590232001, 217849727, 9222375
+    assert prime(p) and p - 1 == 64 * odd_part and odd_part % 2
+    assert root * root % p == 5
+    lucas, companion = mp(A, 64, p), mp(B, 32, p)
+    assert (lucas[0] + lucas[3] + companion[0] + companion[3]) % p == 0
+    alpha = (1 + root) * pow(2, -1, p) % p
+    assert pow(alpha, (p - 1) // 2, p) == p - 1
+    for anchor in (3, -3, -1):
+        assert pow(val(anchor + 16 * odd_part, p), (p - 1) // 2, p) == p - 1
+
+
+def verify_excluded_valuations():
+    p, root = 167772161, 4943721
+    power = 2**25
+    assert prime(p) and p - 1 == 5 * power
+    assert root * root % p == 5
+    lucas, companion = mp(A, power, p), mp(B, power // 2, p)
+    assert (lucas[0] + lucas[3] + companion[0] + companion[3]) % p == 0
+    alpha = (root + 1) * pow(2, -1, p) % p
+    assert pow(alpha, power // 2, p) == p - 1
+
+    p = 230686721
+    period = 44 * 2**20
+    assert prime(p) and mp(A, period, p) == mp(B, period, p) == I
+    for anchor in (3, -3):
+        for multiplier in (11, 33):
+            value = val(anchor + 2**20 * multiplier, p)
+            assert pow(value, (p - 1) // 2, p) == p - 1
+
+
 def verify():
+    verify_base_characters()
+    verify_next_layer_example()
+    verify_excluded_valuations()
     bound = 10**8
     depth_start = 14
     prime_step = 2 ** (depth_start + 2)
