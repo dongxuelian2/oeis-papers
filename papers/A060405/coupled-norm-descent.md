@@ -563,8 +563,9 @@ The rational part \(((5/2)F_k-P_k)/2^v\) is congruent to
 is \(-d(L_k-2Q_k)/(4\cdot2^v)\), of valuation \(2v-1\)
 in \(\mathbb Q_2(\sqrt2)\) with uniformizer \(\sqrt2\).
 The rational part is a square in \(\mathbb Q_2\), and a relative
-perturbation of valuation greater than 4 is a square by Hensel's
-lemma. Also \(2^v\) is a square in \(\mathbb Q_2(\sqrt2)\).
+perturbation of valuation greater than 4 preserves its square
+class by Hensel's lemma. Also \(2^v\) is a square in
+\(\mathbb Q_2(\sqrt2)\).
 
 For 5, write \(k=60h\), put \(w=v_5(h)\), and write
 \(h_0=h/5^w\). The sequence values at 60 give
@@ -605,7 +606,8 @@ follows from Hilbert reciprocity.
 [Milne, *Class Field Theory*, Chapters III and V](https://www.jmilne.org/math/CourseNotes/CFT.pdf)
 
 **Tangent witness on the zero-anchor branch.** Let \(D_{-1}\)
-be the extended forced divisor. Let \(H\) be the least common
+be the extended forced divisor, with \(v_2(D_{-1})=14\).
+Let \(H\) be the least common
 multiple of the odd part of \(D_{-1}\) and the odd parts of
 \(1,\ldots,1000001\), and put \(S=2^{202}H\). Choose
 \(c\) with \(cH\equiv1\pmod8\). The congruences
@@ -615,14 +617,17 @@ multiple of the odd part of \(D_{-1}\) and the odd parts of
 \]
 give infinitely many positive indices with \(D_{-1}\mid n+1\),
 \(v_2(n+1)=202\), and \((n+1)/2^{202}\equiv3\pmod8\).
-Indeed \(q\) is prime, the sources of the odd prime factors of \(D_{-1}\)
-are bounded by 30000, and both residues are \(-1\bmod4\).
+Indeed \(q\) is prime, every odd prime factor of \(D_{-1}\) is below
+30000 by the two lifting certificates, and both residues are
+\(-1\bmod4\).
 The index agrees with \(-1\) modulo the matrix periods at
 each prime at most \(10^6\), so \(a_n\) is zero modulo all
 of them.
 
-The prime \(p=2q+1=2005799\) splits in \(\mathbb Q(\sqrt2)\);
-take the prime specified by \(\sqrt2\equiv938842\pmod p\).
+The prime \(p=2q+1=2005799\) splits in \(K\), as
+\((2/p)=1\) and \(p\equiv4\bmod5\). Thus both matrix periods
+divide \(p-1\). Take the prime specified by
+\(\sqrt2\equiv938842\pmod p\).
 The certificate gives \(\ell\equiv0\), \(F_k\ne0\), and
 \(5d\) a nonresidue there for \(k\equiv1358742\pmod{p-1}\),
 the class imposed by \(n\bmod4q\). This contradicts (10)
@@ -727,13 +732,16 @@ The dyadic norm character of \(\alpha^n-\sqrt2\) for
 \(N_{K/\mathbb Q}(\alpha^n-\sqrt2)=-T_n\), by compatibility of
 local reciprocity with norms. Here \(K\) has a single place above
 2: adjoining \(\sqrt5\) is unramified quadratic at 2, and adjoining
-\(\sqrt2\) is ramified quadratic. The character is trivial exactly
+\(\sqrt2\) is ramified quadratic. The real cyclotomic field has
+totally ramified dyadic completion, whose intersection with the
+completion of \(K\) is \(\mathbb Q_2(\sqrt2)\).
+The character is trivial exactly
 when \(T_n\equiv\pm1\pmod {16}\), by the cyclotomic character of
-conductor 16 on odd units. In the three remaining branches, the
-Lucas matrix modulo 16 has period dividing 24 and the anchors give
-\(T_n\equiv-1,-1,1\pmod {16}\) for \(r=3,-3,-1\), respectively.
-Thus the dyadic character only imposes that the total multiplicity
-of primes in (12) is even on these branches.
+conductor 16 on odd units. For every odd \(n\), the Lucas
+recurrence modulo 4 gives either \(L_n\) odd or \(4\mid L_n\).
+Thus \(T_n\equiv1\) or \(-1\pmod{16}\), respectively.
+The total multiplicity of primes in (12) is therefore even
+for every odd \(n\).
 [Milne, *Class Field Theory*, Chapters I and V](https://www.jmilne.org/math/CourseNotes/CFT.pdf)
 
 **Relation to the Gaussian fibration.** The corresponding Lucas
@@ -747,8 +755,8 @@ and \(\alpha^n(\alpha^n-L_n)=1\).
 If \(a_n=x^2\), equation (13) is a norm from
 \(\mathbb Q(\sqrt5,\sqrt\alpha)\) to \(\mathbb Q(\sqrt5)\).
 At a common prime divisor \(p\) of the two right sides, \(p\) splits
-in \(K(i)\), since \(P_n^2\equiv-4\pmod p\). If both right sides
-have odd valuation at \(p\), conditions (11) and (13) require
+in \(K(i)\), since \(P_n^2\equiv-4\pmod p\). If \(a_n=x^2\) and both
+right sides have odd valuation at \(p\), the two norm equations require
 \(p\equiv1\pmod {16}\) and \(\alpha\) to be a square modulo either
 prime of \(\mathbb Q(\sqrt5)\) above \(p\). These conditions follow
 separately from the two norm equations.
@@ -782,8 +790,9 @@ square conditions at 2 and 5. The separate Gaussian and dual
 norm memberships then hold exactly when their parity tests
 hold at every odd place of residue characteristic other than 5.
 Indeed the local square roots yield the prescribed norm
-representations at 2 and 5. All other finite places are
-unramified for the respective quadratic extensions. The
+representations at 2 and 5, including both Gaussian primes
+above 5. All other finite places are unramified for the
+respective quadratic extensions. The
 Gaussian base field has a complex infinite place, and the
 dual right side is positive. Again the quadratic local-global
 norm theorem gives the independent memberships.
@@ -797,7 +806,8 @@ Thus for \(n=sb\) the polynomial in \(\alpha^{2s}\) that gives
 \(\alpha^{2n}-2\) stays irreducible over the mixed field.
 
 **Witness beyond the extended sieve.** Let \(D_3\) be the forced
-divisor for the anchor \(3\) from the [extended certificate](extended-lifting.md).
+divisor for the anchor \(3\) from the [extended certificate](extended-lifting.md),
+with \(v_2(D_3)=14\).
 Let \(H\) be the least common multiple of the odd part of \(D_3\)
 and the odd parts of \(1,\ldots,1000001\). Put \(S=2^{201}H\).
 Take \(p=2002919\), with \(p-1=2q\) for the prime \(q=1001459\).
@@ -814,6 +824,8 @@ For \(t>5\) each matrix period divides one of \(t-1\) and
 \(2(t+1)\), both of which divide \(S\). For \(t=2,3,5\) the
 periods divide the base modulus \(720720\), which also divides \(S\).
 
+Here \(p\equiv4\pmod5\), so the Lucas characteristic polynomial
+splits into distinct roots modulo \(p^2\) by Hensel's lemma.
 The Lucas matrix \(A\) satisfies \(A^{p(p-1)}=I\bmod p^2\).
 At the displayed residue the certificate gives
 \(T_n\equiv108083p\bmod p^2\). Thus every solution has
@@ -892,6 +904,30 @@ The first phase in each row gives \(F_k=0\), and the second
 gives \(F_{k-1}=0\), since \(k-1\) is odd. Thus every such
 prime divides \(\gcd(P_k,F_kF_{k-1})\).
 
+For the two signs define \(X_\pm=5F_k\pm2P_k\) and
+\(Y_\pm=L_k\pm2Q_k\). The two tangent identities apply the
+same linear form to both signs:
+\[
+ \begin{aligned}
+ 2(2+\sqrt2)\ell &=(2+\sqrt2)X_--Y_-,&
+ 2z_2&=Y_+-(2+\sqrt2)X_+,\\
+ \widetilde\ell&=DY_--X_-,&
+ 4\widetilde z&=X_+-DY_+ .
+ \end{aligned}
+\]
+These expressions follow from the definitions in Section 8
+and \(d(2+\sqrt2)=2\).
+At a square index with even \(k\), suppose a rational prime
+\(p>5\) is nonsplit for both quadratic twists at primes above \(p\)
+in their respective base fields. Then the minus factor of
+either identity and the plus factor of the other have disjoint
+support at those primes. If both vanished, the phase restrictions
+would give \(F_k=P_k=0\) and \(\alpha^k,\beta^k\in\{1,-1\}\)
+at a prime of the mixed field. The minus factor would require the
+two signs to agree, and the plus factor would require them to differ.
+Indeed, for \(F_k=P_k=0\) both linear forms reduce to a unit
+times \(Y_-\) or \(Y_+\), which are rational modulo \(p\).
+
 On the zero-anchor branch, \(\widetilde z/(-D)\) is a local
 square at 2 and at both primes above 5. At 2, the divisibility
 of \(P_k,X,Y,Q_k-1\) from Section 8 gives
@@ -944,6 +980,8 @@ members at finite \(\lambda\) having rank four.
 \(i\equiv2990643\pmod p\). At
 \(k\equiv6113696\pmod {p-1}\) the exact certificate gives
 \(\widetilde\ell=0\), \(P_k\ne0\), and \(D\) nonsquare.
+The prime splits in \(K\), as \(p\equiv1\pmod8\) and
+\(p\equiv4\pmod5\), so both matrix periods divide \(p-1\).
 With \(S,c\) as in the witness in Section 8, impose
 \(n\equiv-1+3cS\pmod{8S}\) and \(n\equiv12227391\pmod{16q}\).
 The moduli have gcd 16 and both residues are \(-1\pmod{16}\).

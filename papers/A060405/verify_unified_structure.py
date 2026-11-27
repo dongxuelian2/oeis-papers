@@ -667,6 +667,21 @@ def check_gaussian_tangent_identity():
     print("Gaussian tangent identity verified at 41 signed indices.")
 
 
+def check_companion_boundary_symbols():
+    for depth in (4, 5):
+        index = 2**depth
+        lucas, pell = lp_exact(index)
+        prev_lucas, _ = lp_exact(index - 1)
+        fib = (lucas + 2 * prev_lucas) // 5
+        companion, _ = qp_exact(index)
+        for phase in (1, -1):
+            assert jacobi(5 * (1 + phase * fib), lucas) == phase * (-1)**(depth + 1)
+            assert jacobi(2 + phase * 5 * fib, lucas) == 1
+            assert jacobi(4 + phase * 7 * pell, companion) == 1
+            assert jacobi(-1 + phase * pell, companion) == 1
+    print("Companion Jacobi symbols verified at the base depths 4 and 5.")
+
+
 if __name__ == "__main__":
     check_n6_subspace_constants()
     check_new_norm_identities()
@@ -677,3 +692,4 @@ if __name__ == "__main__":
     check_tangent_local_constants()
     check_offset_norm_witnesses()
     check_gaussian_tangent_identity()
+    check_companion_boundary_symbols()

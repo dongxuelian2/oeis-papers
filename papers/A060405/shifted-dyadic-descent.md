@@ -551,4 +551,110 @@ unbounded classification now concerns valuations above
 200, and a uniform bound or a candidate-dependent witness
 is still required there.
 
+## Jacobi symbols at the companion boundary
+
+Fix \(a\ge4\), \(d=2^a\), \(t=d/2\), and odd \(m\). Put
+\(\delta=(-1)^{(m-1)/2}\). If the Pell matrix raised to
+\(dm\) is the identity modulo \(L_d\), then
+\[
+ \left(\frac{a_{n_0+dm}}{L_d}\right)=
+ \begin{cases}
+ \delta(-1)^{a+1},&n_0=\pm3,\\
+ 1,&n_0=-1.
+ \end{cases}
+\]
+If the Lucas matrix raised to \(dm\) is the identity modulo
+\(Q_d\), then
+\[
+ \left(\frac{a_{n_0+dm}}{Q_d}\right)=1
+ \qquad(n_0=3,-3,-1).
+\]
+The parentheses in these two displays are Jacobi symbols.
+
+Modulo \(L_d\) one has \(\alpha^d=F_d\sqrt5/2\) and
+\(\alpha^{2d}=-1\). Thus the Lucas term of \(a_{n_0+dm}\)
+is \(\delta\,5F_dF_{n_0}/2\) and the assumed Pell term is
+\(P_{n_0}\). In particular, for \(n_0=\pm3\) the two symbols
+are \(\left(\frac{5(1\pm F_d)}{L_d}\right)\).
+Since \(L_d\equiv7\pmod8\), a power of 2 in the numerator
+has character \(+1\). The identities
+\[
+ F_d+1=F_{t-1}L_{t+1},\quad
+ L_d+3=5F_{t-1}F_{t+1},\quad
+ L_d-3=L_{t-1}L_{t+1}
+\]
+give
+\[
+ \left(\frac{1+F_d}{L_d}\right)
+ =\left(\frac3{F_{t-1}^{\mathrm{odd}}}\right)
+  \left(\frac{-3}{L_{t+1}^{\mathrm{odd}}}\right).
+\]
+Here the superscript denotes the odd part, and the formula
+uses reciprocity with \(L_d\equiv3\pmod4\).
+The second character is \(+1\) because \(t\equiv0\pmod8\),
+\(L_{t+1}\equiv1\pmod3\), and its 2-adic valuation is 0 or 2.
+For the first, \(t-1\equiv7,15\pmod{24}\) as \(a\) is even
+or odd. The Fibonacci period modulo 24 divides 24.
+The odd parts in the two cases are \(1,5\pmod{12}\), respectively.
+Thus the first character is \((-1)^a\). Now \(L_d\equiv2\pmod5\)
+gives \((5/L_d)=-1\), and the product of the two signed
+symbols is \((45/L_d)=-1\) by \(5F_d^2\equiv-4\pmod{L_d}\).
+This proves both signs for \(n_0=\pm3\).
+
+For \(n_0=-1\), use \(z=\sqrt{-5}\) in \(J=\mathbb Q(z)\).
+The element \(w=L_t+F_t z\) has norm \(2L_d\).
+At every odd prime \(p\mid L_d\), exactly one prime above \(p\)
+divides \(w\). Indeed \(L_t,F_t\) are coprime at odd primes
+by their norm equation, which forces the splitting and uniqueness.
+At that prime \(z=-L_t/F_t=5F_d/2\).
+The Jacobi symbol for \(\delta=1\) is the product of the
+quadratic norm characters of \(w\) for \(J(\sqrt{1+z})/J\)
+over the odd places away from 3. The element \(1+z\) has norm 6,
+so the only other places to consider lie above 2 and 3.
+At 3 only the prime with \(z\equiv-1\) can have nontrivial
+character, and \(w\equiv L_t-F_t\equiv2\pmod3\) there.
+At 2 the unique prime has \(v_{\mathfrak p}(w)=1\).
+The Lucas and Fibonacci period modulo 8 divides 12, so
+\(w\bmod8\) depends only on the parity of \(a\).
+Two such elements in the same class have a quotient
+congruent to 1 modulo \(\mathfrak p^5\), hence a square
+in \(J_{\mathfrak p}\). Thus the dyadic norm character is
+constant in each parity class. Hilbert reciprocity reduces
+the Jacobi symbol to the bases \(a=4,5\), where
+\[
+ \left(\frac{2+5F_{16}}{L_{16}}\right)
+ =\left(\frac{2+5F_{32}}{L_{32}}\right)=1.
+\]
+The other sign has the same character since the product is
+\((6/L_d)=1\), using \(L_d\equiv11\pmod{12}\) and \(L_d\equiv7\pmod8\).
+
+Modulo \(Q_d\) one has \(\beta^d=\sqrt2 P_d\) and
+\(\beta^{2d}=-1\), so the Pell term is \(\delta P_dQ_{n_0}\).
+All primes dividing \(Q_d\) are \(1\bmod8\): they split
+in \(\mathbb Q(\sqrt2)\) by the 2-part of the order of \(\beta\),
+and the exact order there is \(4d\). For \(n_0=\pm3\),
+the change of sign of \(L_{n_0}\) contributes a square class.
+The identity \(4+7P_d=2P_d(2-P_d)^2\bmod Q_d\) follows from
+\(2P_d^2=-1\bmod Q_d\). Its conjugate treats \(4-7P_d\).
+Neither square factor vanishes, since \(Q_d\) is coprime to 3.
+The symbol is \((P_d/Q_d)=1\), by \(P_d=2P_tQ_t\) and
+\(Q_d=4P_t^2+1=2Q_t^2-1\). Reciprocity reduces the
+two odd parts to \((1/P_t^{\mathrm{odd}})\) and
+\((-1/Q_t)\), both \(+1\).
+
+For \(n_0=-1\) use \(z'=\sqrt{-2}\) in \(J'=\mathbb Q(z')\)
+and \(w'=Q_t+P_t z'\), of norm \(Q_d\).
+At the unique prime above \(p\mid Q_d\) that divides \(w'\),
+one has \(z'=2P_d\). The elements \(z'-2\) and \(-z'-2\)
+both have norm 6. For either quadratic twist, the local
+character of \(w'\) is trivial at 2 because \(w'\equiv1\pmod8\),
+and trivial at 3 because \(Q_t\equiv1\) and \(P_t\equiv0\bmod3\).
+Hilbert reciprocity gives both symbols \(+1\).
+
+Thus in these companion tests a negative total symbol occurs
+at the Lucas boundary for one class of \(m\bmod4\) on the
+two nonzero anchors, subject to the specified Pell period.
+The [unified verifier](verify_unified_structure.py) checks
+the base Jacobi symbols for both companion factors.
+
 Run \(\texttt{python verify_shifted_dyadic.py}\) from this directory.
