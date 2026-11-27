@@ -690,6 +690,34 @@ def check_companion_boundary_symbols():
     print("Companion Jacobi symbols verified at the base depths 4 and 5.")
 
 
+def check_shifted_anchor_tangent_witnesses():
+    rows = (
+        (-3, 8_015_849, 1_001_981, 7_705_988, 2_193_968, 1_336_023),
+        (3, 8_059_049, 1_007_381, 7_557_665, 8_053_768, 5_802_682),
+    )
+    for anchor, p, q, i, k, expected in rows:
+        assert p == 8 * q + 1 and q > 1_000_001 and k % 8 == 0
+        for prime in (p, q):
+            assert all(prime % d for d in range(3, math.isqrt(prime) + 1, 2))
+        assert i * i % p == p - 1
+        assert mat_pow(A_MAT, p - 1, p) == mat_pow(B_MAT, p - 1, p) == I_MAT
+        lucas_r, pell_r = lp_exact(anchor)
+        companion_r, _ = qp_exact(anchor)
+        lucas, pell = lp_mod(k, p)
+        prev_lucas, _ = lp_mod(k - 1, p)
+        _, next_pell = lp_mod(k + 1, p)
+        five_fib = lucas + 2 * prev_lucas
+        companion = next_pell - pell
+        d = lucas_r + 2 * i
+        factor = d * (lucas - 2 * companion) + 2 * five_fib + 2 * companion_r * pell
+        assert factor % p == 0
+        square_r = lucas_r + pell_r
+        coefficient = (2 * (square_r + 2 * i)**2 - 1) * pow(d, -1, p)
+        value = (square_r + coefficient * pell**2) % p
+        assert value == expected and leg(value, p) == -1
+        print(f"Shifted tangent witness at anchor {anchor}, p={p} verified.")
+
+
 if __name__ == "__main__":
     check_n6_subspace_constants()
     check_new_norm_identities()
@@ -701,3 +729,4 @@ if __name__ == "__main__":
     check_offset_norm_witnesses()
     check_gaussian_tangent_identity()
     check_companion_boundary_symbols()
+    check_shifted_anchor_tangent_witnesses()

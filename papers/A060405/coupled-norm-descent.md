@@ -1103,6 +1103,96 @@ The moduli have gcd 2, so this gives infinitely many positive
 indices that pass the sieve through \(10^6\) and have
 \(v_p(T_n)=2\). The dual row of (18) excludes all of them.
 
+## 12. A single shifted tangent identity for all odd anchors
+
+Let \(r\) be odd and write \(n=r+2k\). Put
+\(\Delta=a_{r+2k}-(-1)^k a_r\). For a parameter \(d\)
+define the two linear factors
+\[
+ \begin{aligned}
+ H_-&=d(L_k-2Q_k)+5F_rF_k+2Q_rP_k,\\
+ H_+&=d(L_k+2Q_k)+5F_rF_k-2Q_rP_k.
+ \end{aligned}
+\]
+Then
+\[
+ \begin{aligned}
+ H_-H_+={}&4d\Delta
+ +5\big((d-L_r)^2+4\big)F_k^2\\
+ &-8\big((d+P_r)^2-\tfrac12\big)P_k^2 .
+ \end{aligned}
+ \tag{22}
+\]
+The addition formulas give
+\[
+ \Delta=5F_kF_{k+r}+2P_kQ_{k+r}
+ =\tfrac52 L_r F_k^2+\tfrac52 F_r L_kF_k
+    +4P_rP_k^2+2Q_rP_kQ_k .
+\]
+The first equality follows by multiplying the Binet
+differences for the Fibonacci factors and the Binet
+difference and sum for the Pell factors. The second follows
+from \(2F_{k+r}=L_rF_k+F_rL_k\) and
+\(Q_{k+r}=Q_rQ_k+2P_rP_k\).
+Expanding
+\[
+ H_-H_+=(dL_k+5F_rF_k)^2-(2dQ_k-2Q_rP_k)^2
+\]
+and using \(L_k^2-4Q_k^2=5F_k^2-8P_k^2\) gives (22).
+The coefficients of \(F_k^2\) and \(P_k^2\) use
+\(L_r^2-5F_r^2=-4\) and \(Q_r^2-2P_r^2=-1\), respectively.
+
+For \(d=L_r+2i\), (22) gives the Gaussian identity
+\[
+ H_-H_+=4d\Delta-4\big(2(a_r+2i)^2-1\big)P_k^2.
+ \tag{23}
+\]
+For \(d=-P_r+\sqrt2/2\), it gives
+\[
+ H_-H_+=4d\Delta+5\big((d-L_r)^2+4\big)F_k^2.
+ \tag{24}
+\]
+Conjugating gives the other two choices of \(d\) at the
+rank-three members. On the zero-anchor branch
+\(a_r=0\), these are the two fixed twists of Sections 8 and 10.
+For \(r=\pm3\) and even \(k\), the twisted square target
+in (23) is
+\[
+ W_{r,k}=a_r+\frac{2(a_r+2i)^2-1}{L_r+2i}P_k^2.
+\]
+At a Gaussian prime of residue characteristic \(p>7\)
+dividing \(H_-\) or \(H_+\), a square index requires
+\(W_{r,k}\) to be a square in the residue field, including
+the zero residue. Equation (24) gives the corresponding
+test in \(\mathbb Q(\sqrt2)\) with target
+\(a_r-\frac{5((d-L_r)^2+4)}{4d}F_k^2\).
+
+**Witnesses at the two nonzero anchors.** The following
+data are certified by exact modular exponentiation. In
+each row \(p=8q+1\), \(q\) is prime, \(i=i_0\bmod p\),
+and the residue \(k\equiv k_0\pmod{p-1}\) gives
+\(H_-=0\bmod p\) with \(W_{r,k}\) a nonresidue.
+\[
+ \begin{array}{r|r|r|r|r|r}
+ r&p&q&i_0&k_0&W_{r,k}\bmod p\\ \hline
+ -3&8015849&1001981&7705988&2193968&1336023\\
+  3&8059049&1007381&7557665&8053768&5802682
+ \end{array}
+\]
+For each \(r\), define \(H\) as in Section 9 using \(D_r\)
+and put \(S=2^{201}H\). The two congruences
+\[
+ n\equiv r+S\pmod{2S},\qquad n\equiv r+2k_0\pmod{16q}
+\]
+are compatible. Their moduli have gcd 16, since \(q>1000001\)
+and the odd prime factors of \(D_r\) are at most 2000.
+Both residues are \(r\bmod16\). Every positive solution
+has \(D_r\mid n-r\), \(v_2(n-r)=201\), and passes the
+square-residue tests at every prime at most \(10^6\).
+The second congruence fixes \(k=(n-r)/2\bmod(p-1)\).
+Both matrix periods divide \(p-1\), as each \(p\) splits
+in \(K\). Thus (23) excludes every index in both progressions.
+
 ## Reproduction
 
 Run:
