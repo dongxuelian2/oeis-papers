@@ -223,7 +223,10 @@ then descends through rational norm quotients. It excludes
 
 The [tangent norm](coupled-norm-descent.md#8-a-tangent-norm-at-the-zero-anchor)
 gives valuation and divisibility conditions on a factor indexed by
-\(k=(n+1)/2\). The [dual Lucas norm](coupled-norm-descent.md#9-a-dual-norm-of-the-lucas-term)
+\(k=(n+1)/2\). The [Gaussian tangent norm](coupled-norm-descent.md#10-the-gaussian-tangent-norm-at-the-zero-anchor)
+gives the interchanged Pell and Fibonacci phase restrictions and an
+exact identity linking the two tangent norms. The
+[dual Lucas norm](coupled-norm-descent.md#9-a-dual-norm-of-the-lucas-term)
 requires even valuations for every prime \(p\equiv7,9\pmod{16}\)
 in \(2L_n^2-1\) at a square index.
 

@@ -609,7 +609,9 @@ def check_offset_norm_witnesses():
     assert p == 2 * q + 1 and p % 16 == 7
     tangent_p, tangent_q = 2_005_799, 1_002_899
     assert tangent_p == 2 * tangent_q + 1
-    for prime in (p, q, tangent_p, tangent_q):
+    gaussian_p, gaussian_q = 8_035_529, 1_004_441
+    assert gaussian_p == 8 * gaussian_q + 1
+    for prime in (p, q, tangent_p, tangent_q, gaussian_p, gaussian_q):
         assert all(prime % d for d in range(3, math.isqrt(prime) + 1, 2))
     modulus = p * p
     assert mat_pow(A_MAT, p * (p - 1), modulus) == I_MAT
@@ -632,6 +634,38 @@ def check_offset_norm_witnesses():
     print("Dual Lucas norm witness at p=2002919 verified.")
     print("Tangent norm witness at p=2005799 verified.")
 
+    p, i, k = gaussian_p, 2_990_643, 6_113_696
+    assert i * i % p == p - 1 and 2 * k - 1 == 12_227_391
+    d = 1 + 2 * i
+    assert leg(d, p) == -1
+    for matrix in (A_MAT, B_MAT):
+        assert mat_pow(matrix, p - 1, p) == I_MAT
+    lucas, pell = lp_mod(k, p)
+    prev_lucas, _ = lp_mod(k - 1, p)
+    _, next_pell = lp_mod(k + 1, p)
+    x = lucas + 2 * prev_lucas - 2 * pell
+    y = lucas - 2 * (next_pell - pell)
+    assert pell != 0 and (d * y - x) % p == 0
+    print("Gaussian tangent norm witness at p=8035529 verified.")
+
+
+def check_gaussian_tangent_identity():
+    for k in range(-20, 21):
+        lucas, pell = lp_exact(k)
+        prev_lucas, _ = lp_exact(k - 1)
+        companion, _ = qp_exact(k)
+        x = lucas + 2 * prev_lucas - 2 * pell
+        y = lucas - 2 * companion
+        ell_real, ell_imag = y - x, 2 * y
+        four_z_real = 4 * (pell - companion) - ell_real
+        four_z_imag = -8 * companion - ell_imag
+        addition = sum(lp_exact(2 * k - 1))
+        product_real = ell_real * four_z_real - ell_imag * four_z_imag
+        product_imag = ell_real * four_z_imag + ell_imag * four_z_real
+        assert product_real == 4 * addition - 36 * pell**2
+        assert product_imag == 8 * addition
+    print("Gaussian tangent identity verified at 41 signed indices.")
+
 
 if __name__ == "__main__":
     check_n6_subspace_constants()
@@ -642,3 +676,4 @@ if __name__ == "__main__":
     check_6round_5adic_split()
     check_tangent_local_constants()
     check_offset_norm_witnesses()
+    check_gaussian_tangent_identity()

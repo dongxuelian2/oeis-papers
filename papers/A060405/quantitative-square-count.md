@@ -291,7 +291,8 @@ holds for \(A_3\).
 If the leading exponents of \(P\) and of \(x_mQ\) coincide,
 cancellation would require \(A_r\) to equal a signed ratio
 of the embedded leading coefficients of \(P\) and \(Q\).
-That ratio belongs to \(K\), so the leading exponent
+That ratio belongs to \(K\), since \(K/\mathbb Q\) is Galois.
+The leading exponent
 of \(P+x_mQ\) is the larger of the two exponents, including
 the case of equality. Considering even and odd \(m\)
 accounts for signs of conjugate units and gives the
@@ -306,7 +307,7 @@ embeddings gives the width of the support of \(P\) in
 that weight direction. If the support has at least two
 monomials, each width is positive by the distinct weights.
 For a single monomial the product of the unit factors
-has absolute value 1, giving precisely the norm of its
+has absolute value 1, giving precisely the absolute norm of its
 nonzero coefficient.
 
 For general \(E\), the polynomial \(X^2-f_r(U,V)\)
@@ -315,13 +316,17 @@ To see this, multiply \(f_r\) by \(U^4\) and view the
 result as a polynomial in \(U\) over \(\overline K(V)\).
 It is quadratic in \(U^4\), with nonzero constant and
 leading coefficients and a nonconstant linear
-coefficient. The two roots in \(U^4\) are distinct and
-nonzero because the discriminant is a nonconstant
-rational function of \(V\). Hence the polynomial in \(U\)
+coefficient. Its discriminant is a nonconstant rational
+function of \(V\), giving distinct roots in \(U^4\).
+The constant term makes both roots nonzero.
+Hence the polynomial in \(U\)
 has eight distinct roots and cannot be a square.
-Consequently the product over the embeddings of \(E/K\)
-of the nonzero expression \(H\) is a nonzero element of
-\(\mathcal R_K\). Its four-place product equals \(J_H(m)\),
+Irreducibility makes \(\mathcal R_{\overline K}\) a domain.
+The product of the conjugates of \(H\) over the embeddings
+of \(E/K\) is therefore nonzero and Galois-invariant, so it
+lies in \(\mathcal R_K\). Extending each embedding of \(K\)
+to \(E\) accounts for every factor of \(J_H(m)\) exactly once.
+Thus its four-place product equals \(J_H(m)\),
 and the preceding computation applies. \(\square\)
 
 This rules out a norm tending to zero from any fixed
@@ -345,9 +350,11 @@ exponent in \(fQ^2\) outside \(2\mathbb Z^2\), because
 all four exponents of \(f\) lie outside that sublattice.
 The leading exponent in \(P^2\), when \(P\ne0\), lies
 in \(2\mathbb Z^2\), so these leading terms survive in the
-difference whenever they are maximal. Hence the Newton
-polygon of the difference contains the Newton polygon
-of \(fQ^2\), which is two-dimensional. A Laurent unit
+difference whenever they are maximal. The support function
+of the difference is the maximum of the two support functions
+for generic weights, and then for all weights by continuity.
+Its Newton polygon therefore contains that of \(fQ^2\),
+which is two-dimensional. A Laurent unit
 has a single exponent. Thus \(Q=0\), and \(P\) is a Laurent
 monomial.
 
