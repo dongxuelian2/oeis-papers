@@ -734,6 +734,33 @@ def check_displaced_zero_phase_witness():
     print(f"Displaced zero-phase valuation-one witness at p={p} verified.")
 
 
+def check_zero_phase_expansion():
+    phases = set()
+    for p in (7, 13, 19, 23, 31):
+        modulus = p**3
+        h = (p * p - 1) // 2
+        lambda_coeff = mat_pow(A_MAT, 2 * h, modulus)[1] * pow(2 * h, -1, modulus)
+        mu_coeff = mat_pow(B_MAT, 2 * h, modulus)[1] * pow(h, -1, modulus)
+        inv_two = pow(2, -1, modulus)
+        for k in range(h):
+            lucas, pell = lp_mod(2 * k - 1, p)
+            if (lucas, pell) != (p - 1, 1):
+                continue
+            epsilon = int(mat_pow(A_MAT, 2 * k, p) != I_MAT)
+            nu = int(mat_pow(B_MAT, 2 * k, p) != I_MAT)
+            phases.add((epsilon, nu))
+            g = (-1)**epsilon * 5 * lambda_coeff + (2 * nu - 1) * mu_coeff
+            for lifted_k in (k, k + h, k + p * h):
+                t = lifted_k - epsilon
+                expected = g * t - abs(nu - epsilon) * mu_coeff
+                expected -= 5 * lambda_coeff**2 * t**2 * inv_two
+                expected += mu_coeff**2 * (lifted_k - nu)**2
+                lucas, pell = lp_mod(2 * lifted_k - 1, modulus)
+                assert (lucas + pell - expected) % modulus == 0
+    assert phases == {(0, 0), (0, 1), (1, 0), (1, 1)}
+    print("Quadratic expansions at all four zero-anchor phases verified.")
+
+
 def check_shared_mixed_norm():
     for n in range(-41, 42, 2):
         lucas, pell = lp_exact(n)
@@ -768,4 +795,5 @@ if __name__ == "__main__":
     check_companion_boundary_symbols()
     check_shifted_anchor_tangent_witnesses()
     check_displaced_zero_phase_witness()
+    check_zero_phase_expansion()
     check_shared_mixed_norm()

@@ -1208,7 +1208,7 @@ The second congruence fixes \(k=(n-r)/2\bmod(p-1)\).
 Both matrix periods divide \(p-1\), as each \(p\) splits
 in \(K\). Thus (23) excludes every index in both progressions.
 
-## 13. Exact local square classes at the two zero-value phases
+## 13. Exact local square classes at the zero-anchor phases
 
 Let \(p>5\) be prime, and let \(A_p,B_p\) be the orders of
 \(\alpha^2,\beta^2\) in the residue field of \(K\) at a prime
@@ -1226,86 +1226,105 @@ This is immediate when the respective quadratic field splits;
 in the inert case the nontrivial conjugation inverts the
 unit and negates its logarithm.
 
-Consider the phases, for \(\nu=0,1\),
+The phases with \((L_{2k-1},P_{2k-1})\equiv(-1,1)\pmod p\)
+are indexed by \(\epsilon,\nu\in\{0,1\}\). They are
 \[
- k\equiv0\pmod{A_p},\qquad k\equiv\nu\pmod{B_p}.
+ k\equiv\nu\pmod{B_p},\qquad
+ \begin{cases}
+ k\equiv0\pmod{A_p}, & \epsilon=0,\\
+ k\equiv1+A_p/2\pmod{A_p}, & \epsilon=1, 2\mid A_p .
+ \end{cases}
  \tag{25}
 \]
-They give \(L_{2k-1}\equiv-1\) and \(P_{2k-1}\equiv1\pmod p\).
-Write \(s=\sqrt2\),
-\(g_\nu=\sqrt5\lambda+(2\nu-1)\mu/s\), and
-\(c_p=(\mu^2-\lambda^2)/2\). The square classes below are
-square classes in \(\mathbb Q_p\), with zero included separately.
+The second Lucas phase requires \(A_p\) even. Each pair of
+congruences is subject to the usual gcd compatibility. In
+particular \((\epsilon,\nu)=(0,1)\) requires \(\gcd(A_p,B_p)=1\).
+Indeed, the roots for \(\alpha^{2k-1}\) giving Lucas value
+\(-1\) are \(\alpha^{-1},-\alpha\), and the roots for
+\(\beta^{2k-1}\) giving Pell value 1 are \(\beta^{-1},\beta\).
 
-- **Phase \(\nu=0\).** If \(v_p(g_0)<2b_p\), the local square
-  condition is exactly that \(g_0 k\) be a square. If
-  \(v_p(g_0)\ge2b_p\), then \(v_p(c_p)=2b_p\), and the
-  unit part of \(c_p\) has character \((10/p)\). There is a
-  unique \(t_0\in\mathbb Z_p\) with
-  \(v_p(t_0)=v_p(g_0)-2b_p\), where \(t_0=0\) if \(g_0=0\).
-  The square condition is exactly that \(c_p k(k-t_0)\)
-  be a square.
-- **Phase \(\nu=1\).** If \(v_p(g_1)=b_p\), there is a unique
-  \(t_1\in\mathbb Z_p\) such that the square condition is
-  exactly that \(g_1(k-t_1)\) be a square. If \(v_p(g_1)>b_p\),
-  every value in the phase has the same square class as
-  \(-\mu/s\), with valuation \(b_p\). In particular an odd
-  \(b_p\) excludes the entire phase, including every lift
-  of it modulo powers of \(p\).
+Write \(s=\sqrt2\), \(T=k-\epsilon\), and
+\(g=(-1)^\epsilon\sqrt5\lambda+(2\nu-1)\mu/s\).
+Put \(c_p=(\mu^2-\lambda^2)/2\). The following local
+square conditions include zero.
 
-To prove the assertions, on each phase (25) the value
-\(a_{2k-1}\) is the evaluation at \(T=k\) of
+- If \(\epsilon=\nu\) and \(v_p(g)<2b_p\), the condition is
+  that \(gT\) be a square. If \(v_p(g)\ge2b_p\), then
+  \(v_p(c_p)=2b_p\), its unit part has character \((10/p)\),
+  and the condition is that \(c_pT(T-t_0)\) be a square.
+  Here \(t_0\) is a unique root of the remaining factor
+  with \(v_p(t_0)=v_p(g)-2b_p\).
+- If \(\epsilon\ne\nu\) and \(v_p(g)=b_p\), the condition
+  is that \(g(T-t_1)\) be a square, for a unique root
+  \(t_1\in\mathbb Z_p\). If \(v_p(g)>b_p\), the value
+  has the constant square class of \(-\mu/s\), of
+  valuation \(b_p\). Thus odd valuation or a nonsquare
+  unit part excludes this entire phase.
+
+To prove this, set \(\delta=\nu-\epsilon\), \(\gamma_0=\alpha^{-1}\)
+and \(\gamma_1=-\alpha\). At integer \(k\) in the phase,
+\(a_{2k-1}=A_{\epsilon,\nu}(k-\epsilon)\), where
 \[
- A_\nu(T)=\alpha^{-1}e^{\lambda T}-\alpha e^{-\lambda T}
- +\frac{\beta^{2\nu-1}e^{\mu(T-\nu)}+
-        \beta^{1-2\nu}e^{-\mu(T-\nu)}}{2s}.
+ A_{\epsilon,\nu}(T)=\gamma_\epsilon e^{\lambda T}
+ -\gamma_\epsilon^{-1}e^{-\lambda T}
+ +\frac{\beta^{2\nu-1}e^{\mu(T-\delta)}+
+        \beta^{1-2\nu}e^{-\mu(T-\delta)}}{2s}.
 \]
-Indeed the reduction of \(\alpha^{2k}\) is 1, so raising
-\(\alpha^{2k}\) and \(e^{\lambda k}\) to \(h\) gives
-the same value and raising to \(h\) is injective on units
-congruent to 1. Apply the same argument to \(\beta^{2(k-\nu)}\).
-The coefficients of the series are rational over \(\mathbb Q_p\)
-by the respective quadratic conjugations. The terms of
-degrees zero, one, and two in the exponentials give
+This follows from the Binet formulas. For example,
+\((-1)^\epsilon\alpha^{2(k-\epsilon)}\) and
+\(e^{\lambda(k-\epsilon)}\) are both congruent to 1 and
+their \(h\)-th powers agree. Raising to \(h\) is injective
+on such units, since \(p\nmid h\). The sign disappears
+in the \(h\)-th power when \(\epsilon=1\), because then
+\(A_p\) is even. The Pell exponential follows in the
+same way. The series has coefficients in \(\mathbb Q_p\)
+by the quadratic conjugations, and its degree-zero,
+linear, and quadratic exponential terms give
 \[
- A_\nu(T)=g_\nu T-\nu\mu/s
-        -\lambda^2 T^2/2+\mu^2(T-\nu)^2/2+R_\nu(T).
+ A_{\epsilon,\nu}(T)=gT-|\delta|\mu/s
+        -\lambda^2 T^2/2+\mu^2(T-\delta)^2/2+R(T).
 \]
-Here \(R_\nu\in p^{3b_p}\mathbb Z_p\langle T\rangle\) and
-\(T^3\mid R_0\), where angle brackets denote restricted power
-series. Indeed \(j b_p-v_p(j!)\ge3b_p\) for \(j\ge3\)
-and the valuations tend to infinity. Translating by 1
-preserves the divisibility of the coefficients.
+Here \(R\in p^{3b_p}\mathbb Z_p\langle T\rangle\), and
+\(T^3\mid R\) if \(\delta=0\). Indeed
+\(j b_p-v_p(j!)\ge3b_p\) for \(j\ge3\) and the
+valuations tend to infinity. Integer translations preserve
+coefficient divisibility in restricted power series.
 
-For \(\nu=0\) and \(v_p(g_0)<2b_p\), division by \(g_0 T\)
-leaves a factor in \(1+p\mathbb Z_p\langle T\rangle\), hence
-a square at every \(T\in\mathbb Z_p\). If \(v_p(g_0)\ge2b_p\),
-then cancellation forces \(v_p(\lambda)=v_p(\mu)=b_p\) and
-\(\mu^2\equiv10\lambda^2\pmod{p^{2b_p+1}}\).
-Thus \(c_p\equiv9\lambda^2/2\pmod{p^{2b_p+1}}\), with
-the stated valuation and character since \(\lambda/\sqrt5\)
-is rational over \(\mathbb Q_p\). Divide \(A_0(T)\) by
-\(c_p T\) to get a series of the form
-\(T+g_0/c_p+pT^2 U(T)\). It has a unique root \(t_0\)
-in \(\mathbb Z_p\) by Hensel's lemma. Substituting the root
-shows \(v_p(t_0)=v_p(g_0/c_p)\). The divided difference
-relative to \(t_0\) is congruent to 1 modulo \(p\).
+When \(\delta=0\), divide by \(gT\) if \(v_p(g)<2b_p\),
+leaving a factor in \(1+p\mathbb Z_p\langle T\rangle\).
+If \(v_p(g)\ge2b_p\), cancellation forces
+\(v_p(\lambda)=v_p(\mu)=b_p\) and
+\(\mu^2\equiv10\lambda^2\pmod{p^{2b_p+1}}\). Thus
+\(c_p\equiv9\lambda^2/2\pmod{p^{2b_p+1}}\) with the
+stated character since \(\lambda/\sqrt5\in\mathbb Q_p\).
+Division by \(c_pT\) gives \(T+g/c_p+pT^2U(T)\),
+which has a unique root \(t_0\) by Hensel's lemma. At the
+root, \(t_0(1+pt_0U(t_0))=-g/c_p\), giving its valuation.
+The divided difference at \(t_0\) is congruent to 1 modulo \(p\).
 
-For \(\nu=1\) and \(v_p(g_1)=b_p\), division by \(g_1\)
-leaves a series reducing to \(T-\mu/(s g_1)\) modulo
-\(p\). The same root and divided-difference argument gives
-the result for \(t_1\). If \(v_p(g_1)>b_p\), cancellation
-requires \(v_p(\mu)=b_p\), so \(-\mu/s\) has strictly
-lower valuation than the other terms for every \(T\).
-This proves the constant square class in that case.
+When \(\delta\ne0\) and \(v_p(g)=b_p\), division by \(g\)
+leaves the reduction \(T-\mu/(s g)\) modulo \(p\). The
+same root and divided-difference argument gives \(t_1\).
+If \(v_p(g)>b_p\), cancellation requires \(v_p(\mu)=b_p\),
+so \(-\mu/s\) has strictly lower valuation than all other
+terms for every \(T\). In all cases the discarded factors
+take values in \(1+p\mathbb Z_p\), which are squares.
 
-**Uniform exclusion on an offset-prime phase.** In the phase
-\(\nu=1\), if \(p\mid k\) and \(v_p(\mu)=1\), then
+The logarithmic independence argument in the
+[local proximity theorem](local-geometry.md#4-finite-prime-limitation-theorem)
+also gives \(g\ne0\). In a phase with \(\epsilon=\nu\) and
+\(v_p(T)>\max(0,v_p(g)-2b_p)\), the square class is that
+of \(gT\). Indeed the correction to \(g\) in \(A/T\) is
+then strictly smaller in the \(p\)-adic absolute value.
+
+**Uniform exclusion on a displaced phase.** If \(\epsilon\ne\nu\),
+\(p\mid k-\epsilon\) and \(v_p(\mu)=1\), then
 \(v_p(a_{2k-1})=1\). Indeed the displayed expansion reduces
 to \(-\mu/s\) modulo \(p^2\). This excludes the index even
 though the original square-residue test modulo \(p\) passes.
 
-For example, take the primes \(q=1000151\), \(p=2q+1=2000303\).
+For example, take \((\epsilon,\nu)=(0,1)\) and the primes
+\(q=1000151\), \(p=2q+1=2000303\).
 Here \((5/p)=-1\), \((2/p)=+1\), so \(A_p\mid p+1\)
 and \(B_p\mid q\). Use the common multiple \(h=(p+1)q\)
 in the log definition. The exact certificate gives
@@ -1314,16 +1333,67 @@ All indices with \(k\equiv0\pmod{p(p+1)}\) and
 \(k\equiv1\pmod q\) are therefore excluded.
 
 These congruences hold on an infinite progression of the
-zero anchor that passes the sieve at all primes at most
+zero anchor that passes the square-residue sieve modulo all primes at most
 \(10^6\). Use the odd \(H\) and \(c\) of Section 8 and require
 \(k\equiv3c2^{201}H\pmod{2^{204}H}\).
 The odd part of \(p+1\) is 125019, and \(v_2(p+1)=4\),
 so the first congruence on \(k\) is compatible with this
-requirement. The prime \(q\) divides neither modulus.
+requirement. Its odd gcd with \(2^{204}H\) divides \(H\),
+and \(3c2^{201}H\) is already divisible by that gcd.
+The prime \(q\) divides neither modulus.
 The resulting positive \(n=2k-1\) have
 \(D_{-1}\mid n+1\), \(v_2(n+1)=202\), and
 \((n+1)/2^{202}\equiv3\pmod8\). The small-prime sieve agrees
 with the zero anchor by the same period bound as in Section 8.
+
+**Density of the offset-prime exclusions.** On the progression
+\(k=Dm\), \(D=2^{201}H\), \(m\equiv3c\pmod8\) just used,
+the union of both displaced-phase tests over every prime
+\(p>5\) removes a set of upper relative density less than
+\(0.35\). This bound counts even tests for which \(v_p(\mu)=1\)
+has not been imposed, and applies to all lifts simultaneously.
+
+For \(5<p\le10^6\), both \(A_p,B_p\) divide \(D\), since
+they divide \(p-(5/p)\) and \(p-(2/p)\), respectively.
+The \((0,1)\) phase is then empty on this progression since
+\(B_p>1\). In the \((1,0)\) phase, \(A_p>2\): the equality
+\(\alpha^2=-1\) would imply \(\alpha=-2\) and \(p=5\).
+Thus \(1+A_p/2\) is not divisible by \(A_p\) when the
+second phase exists. This excludes those small primes as well.
+
+For \(p>10^6\), \(p\) is coprime to \(D\). Restrict to
+\(m\le X\) and first consider the \((0,1)\) test. It
+requires \(p\mid m\) and \(Dm\equiv1\pmod{B_p}\), so
+\(p\le X\). If \(B_p\) is coprime to \(D\), these
+requirements and \(m\equiv3c\pmod8\) define one class
+modulo \(8pB_p\). Otherwise there are no such \(m\).
+This gives an upper count of \(X/(8pB_p)+1\) at this prime.
+
+For the \((1,0)\) test, evenness of \(k\) requires
+\(A_p/2\) odd, since \(k\equiv1+A_p/2\pmod{A_p}\).
+The test requires \(p\mid Dm-1\) and
+\(Dm\equiv1\pmod{A_p/2}\), so \(p\le DX\). As above
+the count is at most \(X/(8p(A_p/2))+1\), since
+\(p\nmid A_p\). Summing the two counts and dividing by
+\(X/8+O(1)\) gives the upper relative density bound
+\[
+ \sum_{p>10^6}\left(\frac1{pB_p}+\frac2{pA_p}\right).
+\]
+In taking the limit, the errors are at most
+\(\pi(X)+\pi(DX)=o(X)\), with \(D\) fixed.
+
+For either squared unit, its period gives the elementary
+lower bound \(B_p>\log p/(2\log\beta)\) or
+\(A_p>\log p/(2\log\alpha)\). For example, \(p\) divides
+\(|N_{\mathbb Q(s)/\mathbb Q}(\beta^{2B_p}-1)|
+=\beta^{2B_p}+\beta^{-2B_p}-2<\beta^{2B_p}\).
+Partial summation with \(\pi(t)<1.25506t/\log t\) shows that
+the displayed sum is less than
+\[
+ 1.25506(2\log\beta+4\log\alpha)
+ \left(\frac1{\log(10^6)}+\frac1{2\log^2(10^6)}\right)<0.35.
+\]
+[Rosser and Schoenfeld, *Approximate formulas for some functions of prime numbers*, (3.6)](https://doi.org/10.1215/ijm/1255631807)
 
 ## 14. Prime support of the shared mixed-unit norm
 
