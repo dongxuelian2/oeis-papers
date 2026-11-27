@@ -718,6 +718,22 @@ def check_shifted_anchor_tangent_witnesses():
         print(f"Shifted tangent witness at anchor {anchor}, p={p} verified.")
 
 
+def check_displaced_zero_phase_witness():
+    q, p = 1_000_151, 2_000_303
+    assert p == 2 * q + 1 and is_prime(q) and is_prime(p)
+    assert leg(5, p) == -1 and leg(2, p) == 1
+    assert mat_pow(A_MAT, 2 * (p + 1), p) == I_MAT
+    assert mat_pow(B_MAT, 2 * q, p) == I_MAT
+    h = (p + 1) * q
+    assert mat_pow(B_MAT, 2 * h, p * p)[1] == 247_316 * p
+    k_modulus = p * (p + 1)
+    k = k_modulus * pow(k_modulus, -1, q)
+    lucas, pell = lp_mod(2 * k - 1, p * p)
+    assert (lucas + pell) % (p * p) == 989_413_873_496
+    assert (lucas + pell) % p == 0 and (lucas + pell) % (p * p) != 0
+    print(f"Displaced zero-phase valuation-one witness at p={p} verified.")
+
+
 if __name__ == "__main__":
     check_n6_subspace_constants()
     check_new_norm_identities()
@@ -730,3 +746,4 @@ if __name__ == "__main__":
     check_gaussian_tangent_identity()
     check_companion_boundary_symbols()
     check_shifted_anchor_tangent_witnesses()
+    check_displaced_zero_phase_witness()

@@ -762,13 +762,15 @@ and the error have total absolute value at most
 
 **Seven-index determinant and a smaller global count.** For
 square indices \(n_1<\cdots<n_7\) in one of the three odd
-anchor classes, let \(D\) be the determinant of their seven
+anchor classes modulo 720720, let \(D\) be the determinant of their seven
 columns \(\mathbf y(n_j)\). It is a rational integer. Each
 entry is integral, and conjugation multiplies the determinant
 by \(\det \rho(g)=1\), since \(\rho(\tau)\) is a rotation on
 each of three coordinate pairs and \(\rho(\eta)\) is the
 product of two transpositions. Replacing row zero by \(L_0\)
-preserves the determinant.
+preserves the determinant. The classes come from the
+[anchor theorem](anchor-forcing.md), and [norm descent](norm-descent.md)
+excludes its even class.
 
 At the identity embedding the resulting entries in row \(i\)
 and column \(j\) are \(d_{ij}\exp(\lambda_i n_j)\). For
@@ -811,8 +813,9 @@ because all forms have integer coefficients of absolute value
 at most 1, and \(7^{25}<e^{100}\). Taking logarithms, each
 remaining interval is covered by 21 windows of ratio \(5/4\),
 since \((5/4)^{21}>100\). Intersecting a window with
-\([3000,\infty)\) preserves this ratio bound. The initial
-finite certificate leaves only \(n=3\) below 3000.
+\([3000,\infty)\) preserves this ratio bound. The
+[finite certificate](extended-lifting.md) leaves only
+\(n=3\) below 3000.
 Consequently the total number of square indices is bounded by
 \[
  1+3\cdot6\cdot21\,m_0 < 8\times10^{23}.
@@ -979,5 +982,5 @@ be a scalar Laurent monomial.
 
 [1] J.-H. Evertse and R. G. Ferretti,
 *A further improvement of the Quantitative Subspace Theorem*,
-Annals of Mathematics 177 (2013), 513–590, Theorem 3.1.
+Annals of Mathematics 177 (2013), 513–590, Theorems 2.3 and 3.1.
 https://doi.org/10.4007/annals.2013.177.2.4
