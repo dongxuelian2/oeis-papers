@@ -229,6 +229,10 @@ exact identity linking the two tangent norms. The
 [dual Lucas norm](coupled-norm-descent.md#9-a-dual-norm-of-the-lucas-term)
 requires even valuations for every prime \(p\equiv7,9\pmod{16}\)
 in \(2L_n^2-1\) at a square index.
+The [common valuation formulas](coupled-norm-descent.md#11-common-square-root-valuations-in-the-norm-equations)
+couple the Gaussian, dual Lucas, and mixed norms through the
+same square root. Their nonsplit prime powers have disjoint
+support and their product divides the square term.
 
 The [shifted dyadic calculation](shifted-dyadic-descent.md)
 studies the exact valuation \(a=v_2(n-r)\ge14\).

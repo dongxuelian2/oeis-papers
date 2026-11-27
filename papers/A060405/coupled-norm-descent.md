@@ -1002,6 +1002,107 @@ order argument applies to \(\beta\); for \(p\equiv7\),
 \(\beta\in\mathbb F_p^\times\) and \(v_2(p-1)=1\), which
 again precludes \(\beta^{2k}=-1\).
 
+## 11. Common square-root valuations in the norm equations
+
+Suppose \(n\ge3\) is an odd square index and \(a_n=x^2\).
+The inert-place norm calculations constrain the same integer \(x\).
+In fact, at each indicated prime \(p>5\) the following equalities hold:
+\[
+ \begin{array}{c|c|c}
+ \text{prime condition}&\text{source valuation}&\text{value}\\ \hline
+ \pi\mid R_{n\pm2},\ \chi_\pm(\pi)=-1
+   &v_p(P_{n\pm2})&2\min(v_p(x),v_p(F_n))\\
+ p\mid T_n,\ p\equiv7,9\pmod{16}
+   &v_p(T_n)&2\min(v_p(x),v_p(Q_n))\\
+ p\mid M_n,\ p\equiv7,9\pmod{16}
+   &v_p(M_n)&2\min(v_p(x),v_p(L_n^2-2)).
+ \end{array}
+ \tag{18}
+\]
+Here \(\pi\) is a Gaussian prime over \(p\) and the signs
+refer to the two factors in Section 2 of [the norm descent](norm-descent.md#2-a-gaussian-factorization-for-the-odd-indices).
+
+For the first row, after the conjugation in that factorization
+the relevant prime divides \(P_n-2i=x^2-d_0z_0^2\), where
+\(L_n+2i=d_0z_0^2\) and \(d_0\) is a nonsquare unit.
+Its valuation is \(2\min(v_p(x),v_\pi(z_0))\). It is positive,
+so \(L_n+2i=0\bmod\pi\), and \(L_n-2i\) is a unit there.
+Since \((L_n+2i)(L_n-2i)=5F_n^2\), this gives
+\(v_\pi(z_0)=v_p(F_n)\). The coprime Gaussian factorization
+identifies the source valuation with \(v_p(P_{n\pm2})\).
+
+For the second row, use the norm in (11). At a prime over
+\(p\) its two coordinates are \(Q_n+\sqrt2 x^2\) and a unit
+times \(x\). The minimum of their valuations is
+\(\min(v_p(Q_n),v_p(x))\): adding \(\sqrt2 x^2\) leaves the
+valuation of \(Q_n\) unchanged when it is less than \(v_p(x)\),
+and preserves the lower bound \(v_p(x)\) otherwise.
+
+For the third row, use the unique prime of \(K\) above \(p\)
+that divides \(\eta^n-1\), as proved in Section 6.
+In the positive-sign norm the partner \(\xi^n-1\) is a unit
+and the twist \(2\sqrt2\) is a nonsquare unit. The valuation
+is twice the minimum of \(v_p(x)\) and the valuation of
+\(L_n+\sqrt2\). The latter equals \(v_p(L_n^2-2)\), since
+\(L_n-\sqrt2\) is a unit there.
+
+Let \(B_G,B_T,B_M\) be the products of the full \(p\)-powers in
+the respective three rows, using each rational prime once
+for each row where it occurs. Then their prime supports are
+pairwise disjoint and
+\[
+ B_GB_TB_M\mid a_n .
+ \tag{19}
+\]
+Indeed the three rows force \(L_n^2\equiv-4,1/2,2\pmod p\),
+respectively. These residues are pairwise distinct for \(p>5\),
+and each source valuation is at most \(2v_p(x)\).
+
+**Concurrent order constraints.** In the first row of (18),
+\(\alpha^{2n}=\beta^{2(n\pm2)}=-1\) modulo primes over \(p\).
+The odd parts of the two unit orders divide \(n\) and
+\(n\pm2\), respectively, and are coprime. This is a condition
+on every such prime dividing \(R_s\) for \(s\mid n\pm2\),
+because (4) of the Gaussian factorization shows that \(R_s\)
+divides \(R_{n\pm2}\).
+For example, \(7\mid n-2\) is excluded: \(R_7=12+5i\) has
+valuation two above \(13\) at \(i\equiv8\pmod{13}\), where
+\(1-2i\equiv11\) is a nonresidue. The prime 13 is inert in both
+quadratic fields, and the unit orders divide 28 with valuation
+two at 2.
+Neither has order four, since substituting a root of \(X^2+1\)
+into its quadratic unit polynomial is possible only in
+characteristic 5 or 2, respectively. Thus both have odd
+order part 7, contradicting the coprimality condition.
+Likewise, if \(p\equiv1\pmod8\) and \((5/p)=1\), such a
+Gaussian prime cannot occur. In that case the character
+of \(1\pm2i\) is the character of \(\alpha\), by
+\((\alpha\pm i)^2=\alpha(1\pm2i)\). A nonsquare \(\alpha\)
+has 2-primary order at least eight modulo \(p\), whereas
+\(\alpha^{2n}=-1\) at odd \(n\) gives 2-primary order four.
+
+In the dual row, the valuation forces \(Q_n=0\bmod p\).
+At the prime of \(K\) with \(\alpha^n=\sqrt2\), one then has
+\(L_n=1/\sqrt2\), \(P_n=-L_n\), and \(\beta^n=-1\).
+Thus at the prime \(p=2002919=2q+1\) of Section 9, no index with
+\(p\mid T_n\) can be a square index, even if the valuation of
+\(T_n\) is even. The order of \(\beta\) in \(\mathbb F_p^\times\)
+is divisible by \(q\), since \(\beta\ne\pm1\) and \(q\) is prime.
+But \(\alpha^{2n}=2\) in the specified residue field precludes
+\(q\mid n\).
+
+The exact verifier exhibits this improvement at depth 201.
+With the same \(S\) as in Section 9, impose \(n\equiv3+S\bmod2S\)
+and
+\[
+ n\equiv2901680796375\pmod {p^2(p-1)}.
+\]
+The latter modulus is a Lucas period modulo \(p^3\), and the
+residue gives \(T_n\equiv113915p^2\pmod {p^3}\).
+The moduli have gcd 2, so this gives infinitely many positive
+indices that pass the sieve through \(10^6\) and have
+\(v_p(T_n)=2\). The dual row of (18) excludes all of them.
+
 ## Reproduction
 
 Run:

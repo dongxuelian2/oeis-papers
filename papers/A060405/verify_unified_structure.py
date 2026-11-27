@@ -617,6 +617,14 @@ def check_offset_norm_witnesses():
     assert mat_pow(A_MAT, p * (p - 1), modulus) == I_MAT
     lucas, _ = lp_mod(1_413_907, modulus)
     assert (2 * lucas * lucas - 1) % modulus == 108_083 * p
+    modulus = p**3
+    period = p * p * (p - 1)
+    index = 2_901_680_796_375
+    assert index % 2 == 1 and mat_pow(A_MAT, period, modulus) == I_MAT
+    lucas, _ = lp_mod(index, modulus)
+    assert (2 * lucas * lucas - 1) % modulus == 113_915 * p * p
+    companion_state = mat_pow(B_MAT, index, p)
+    assert (companion_state[0] + companion_state[1]) % p == 1_024_522
 
     p, s, k = tangent_p, 938_842, 1_358_742
     assert s * s % p == 2 and 2 * k - 1 == 2_717_483
@@ -631,7 +639,7 @@ def check_offset_norm_witnesses():
     companion = (next_pell - pell) % p
     assert five_fib != 0
     assert (-d * (lucas - 2 * companion) + 2 * five_fib - 4 * pell) % p == 0
-    print("Dual Lucas norm witness at p=2002919 verified.")
+    print("Dual Lucas witnesses of valuation one and two at p=2002919 verified.")
     print("Tangent norm witness at p=2005799 verified.")
 
     p, i, k = gaussian_p, 2_990_643, 6_113_696
