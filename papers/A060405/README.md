@@ -219,11 +219,15 @@ then descends through rational norm quotients. It excludes
 
 The [shifted dyadic calculation](shifted-dyadic-descent.md)
 studies the exact valuation \(a=v_2(n-r)\ge14\).
-At each fixed \(a\), the lower mixed and companion dyadic layers
-can jointly exclude the stratum by square-residue tests only through
+At each fixed \(a\), the mixed dyadic layers through \(a\)
+and the companion layers below \(a\) can jointly exclude
+the stratum by square-residue tests only through
 completely split primes with recurrence order of valuation at least
 \(a+2\) at 2.
 The exact test finds no such prime through \(10^8\).
+For the mixed factors, a character-sum estimate also constrains
+the odd part of the period at any prime that excludes a fixed
+2-primary residue of the multiplier.
 
 ## Theorem 1 (finiteness for every fixed exponent)
 

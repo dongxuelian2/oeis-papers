@@ -34,15 +34,17 @@ def verify():
             continue
 
         lucas, pell_companion = 3, 3
-        for layer in range(1, depth - 2):
+        for layer in range(1, depth - 1):
             next_lucas = (lucas * lucas - 2) % p
             mixed = (next_lucas + 2 * pell_companion) % p
-            assert lucas and pell_companion and mixed, (p, layer, depth)
+            assert mixed, (p, layer, depth, "mixed")
+            if layer < depth - 2:
+                assert lucas and pell_companion, (p, layer, depth, "companion")
             lucas = next_lucas
             pell_companion = (2 * pell_companion * pell_companion - 1) % p
 
     assert tested == 80
-    print(f"{tested} split primes tested. No qualifying lower dyadic factor.")
+    print(f"{tested} split primes tested. No qualifying dyadic factor.")
 
 
 if __name__ == "__main__":

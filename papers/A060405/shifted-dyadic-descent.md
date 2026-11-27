@@ -25,6 +25,28 @@ For \(j=0\), the norm of \(\eta+1\) is \(-1\) by the odd norm
 formula in [coupled norm descent](coupled-norm-descent.md) §6.
 The Lucas and Pell companion factors at \(j=0\) are both 1.
 
+**Splitting lemma.** For \(j\ge3\), every prime divisor \(p\)
+of \(C_j\) splits completely in \(\mathbb Q(\sqrt2,\sqrt5)\)
+and satisfies \(p\equiv1\pmod{2^{j+1}}\).
+
+Indeed \(C_1=13\), \(C_2=81\), and Lucas and Pell doubling show
+\(C_j\) is odd and \(C_j\equiv1\pmod5\) for \(j\ge2\).
+At an ideal above any \(p\mid C_j\), the order of \(\eta\)
+is \(2^{j+1}\). If \((2/p)=-1\), the residue degree is two
+and \(v_2(p^2-1)=3\), which precludes \(j\ge3\).
+If \((2/p)=1\) and \((5/p)=-1\), Frobenius exchanges
+\(\eta,\xi\), giving \(\eta^d=\xi^d=-1\). Hence
+\(\beta^{2d}=\alpha^{4d}=1\). For \(p\equiv7\pmod8\),
+this gives \(\beta=\pm1\) in \(\mathbb F_p\), incompatible
+with \(\beta=1+\sqrt2\) at odd \(p\). For \(p\equiv1\pmod8\),
+the identities \(\alpha^{p+1}=-1\) and \(\alpha^{4d}=1\)
+give order four for \(\alpha\). Both elements of order four
+lie in \(\mathbb F_p\), contradicting \((5/p)=-1\).
+Thus the residue field is \(\mathbb F_p\), where the order
+of \(\eta\) divides \(p-1\). In particular every prime of
+\(C_j\) for \(j\ge3\) has character \(+1\) under the mod-16
+character used in [rational norm descent](coupled-norm-descent.md).
+
 Let \(p\mid C_j\) with \(j<a\), and choose a prime ideal
 over \(p\) where \(\eta^d=-1\). The order of \(\eta\) is
 \(2d\), so \(\eta^k=1\). Put \(t=\alpha^k\),
@@ -54,7 +76,8 @@ recurrence matrices modulo \(p\).
 
 **Proposition.** Fix \(a\ge4\). Consider any finite collection
 of moduli \(p^h\), where every \(p\) divides \(C_jL_{2^j}Q_{2^j}\)
-for some \(1\le j<a\). Suppose \(e_p\le a+1\) for each \(p\)
+for some \(1\le j<a\), or divides \(C_a\).
+Suppose \(e_p\le a+1\) for each \(p\)
 that splits completely in \(\mathbb Q(\sqrt2,\sqrt5)\).
 For each anchor \(n_0\), infinitely many positive \(n\) satisfy
 \(v_2(n-n_0)=a\) and make \(a_n\) a square modulo every chosen
@@ -78,9 +101,8 @@ If 2 is a square and 5 a nonsquare, then
 For \(p\equiv1\pmod8\), the order of \(\alpha\) has
 valuation 2 at 2. For \(p\equiv7\pmod8\), the order of
 \(\beta\) has valuation at most 1 at 2.
-At a prime dividing \(C_j\), Frobenius exchanges
-\(\eta,\xi\), so \(\eta^d=\xi^d=-1\). Hence
-\(\beta^{2d}=\alpha^{4d}=1\), giving \(e_p\le j+2\).
+The splitting lemma and the values \(C_1=13,C_2=81\)
+cover the mixed factors.
 At a prime dividing \(L_d\) or \(Q_d\), the order of
 the indicated unit is \(4d\). If \(p\equiv1\pmod8\),
 only \(Q_d\) can vanish, and if \(p\equiv7\pmod8\),
@@ -118,7 +140,8 @@ All positive odd multiples of the resulting odd modulus for
 ## Exact range of the prime test
 
 **Corollary.** For every fixed \(a\ge14\) the preceding proposition
-applies to all primes \(p\le10^8\) in the layers \(1\le j<a\).
+applies to all primes \(p\le10^8\) from the layers \(1\le j<a\)
+and from \(C_a\).
 In particular, the prescribed odd integer can be
 \(720720/16\), or the odd part of the larger forced divisor for
 the chosen anchor.
@@ -128,8 +151,9 @@ A possible exception must split completely and satisfy
 \(p\equiv1\pmod{2^{16}}\). For each such prime up to \(10^8\),
 it computes \(e_p\) by removing the odd part of \(p-1\) from
 the matrix orders. An exception would have \(14\le a\le e_p-2\)
-and consequently \(1\le j\le e_p-3\). The certificate tests
-that finite range by doubling modulo \(p\). It finds zero
+and consequently \(1\le j\le e_p-3\) for the companion factors
+and \(1\le j\le e_p-2\) for the mixed factor. The certificate
+tests these ranges by doubling modulo \(p\). It finds zero
 exceptions among the 80 primes tested.
 
 The local coverage question for this approach is whether
@@ -137,5 +161,63 @@ the deeper order condition \(e_p\ge a+2\) can supply
 obstructions uniformly in \(a\ge14\). For the families above,
 this condition confines the search to completely split primes
 with \(p\equiv1\pmod{2^{a+2}}\).
+
+## The odd part of the mixed residue period
+
+Let \(j\le a\), \(j\ge3\), and \(p\mid C_j\). At the chosen
+prime above \(p\), use the definitions of \(t,b,c\) above and
+set \(\delta=1\) for \(j<a\), \(\delta=-1\) for \(j=a\).
+Since \(m\) is odd, \(\beta^k=\delta t^2\). The square test
+is governed by the quadratic character of
+\[
+ G(t)=\frac{\delta(c t^4+c^{-1})}{2\sqrt2}
+      +b t^3-b^{-1}t.
+\]
+This quartic has an odd-multiplicity root over
+\(\overline{\mathbb F}_p\). Otherwise it would be a square
+\((\lambda t^2+\mu t+\nu)^2\) over that field. Comparing the
+cubic and linear coefficients gives \(\nu/\lambda=-b^{-2}\).
+The leading and constant coefficients then give
+\(c^{-2}=b^{-4}\), or \(\eta^{n_0}=c/b^2=\pm1\), impossible
+because \(\eta\) has order \(2^{j+1}\) and \(n_0\) is odd.
+The nonzero constant coefficient shows that every root is
+nonzero.
+
+Fix an odd divisor \(D_0\) required to divide \(m\), and let
+\(h\) be the odd part of the multiplicative order of \(\alpha\)
+in \(\mathbb F_p^\times\). Fixing a compatible residue of \(m\)
+modulo the power of 2 in the order of \(\alpha^{2^a}\) fixes
+its 2-primary component. As the remaining residue of \(m\)
+varies subject to \(D_0\mid m\), the values of \(t\) form a
+coset of a subgroup of cardinality \(h/\gcd(h,D_0)\).
+
+For any coset \(J\) of a subgroup of \(\mathbb F_p^\times\),
+the classical multiplicative Weil bound gives
+\[
+ \left|\sum_{t\in J}\left(\frac{G(t)}p\right)\right|\le4\sqrt p.
+\]
+Indeed, express the coset indicator as the average of the
+characters trivial on the subgroup, multiplied by their
+values at a representative. With \(\omega\) a character of
+order \(p-1\), each complete sum over \(\mathbb F_p^\times\)
+has summand \(\omega(t^i G(t)^{(p-1)/2})\) for
+\(0\le i<p-1\). At the odd-multiplicity nonzero root,
+the multiplicity of this polynomial is nonzero modulo
+\(p-1\), so the Weil bound for order \(p-1\) applies.
+The polynomial has at most five distinct roots,
+including a possible root at zero. If \(i>0\), the term at
+zero vanishes. If \(i=0\), at most four roots occur and
+removing the term at zero gives the bound \(3\sqrt p+1\).
+Both bounds give the displayed estimate.
+
+In particular, if \(h/\gcd(h,D_0)>4\sqrt p\), then for
+each fixed 2-primary residue class of the multiplier,
+some \(m\) produces \(a_n\) square modulo \(p\).
+This constrains a single-prime square-residue obstruction
+from either a lower mixed layer or the boundary layer.
+It leaves the simultaneous square tests at several primes
+as an arithmetic condition on the shared odd residues.
+
+The multiplicative estimate is due to [André Weil, *On Some Exponential Sums*](https://doi.org/10.1073/pnas.34.5.204).
 
 Run \(\texttt{python verify_shifted_dyadic.py}\) from this directory.
