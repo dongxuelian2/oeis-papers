@@ -472,8 +472,8 @@ is governed by the quadratic character of
 \]
 This quartic has an odd-multiplicity root over
 \(\overline{\mathbb F}_p\). Otherwise it would be a square
-\((\lambda t^2+\mu t+\nu)^2\) over that field. Comparing the
-cubic and linear coefficients gives \(\nu/\lambda=-b^{-2}\).
+\((u t^2+\mu t+\nu)^2\) over that field. Comparing the
+cubic and linear coefficients gives \(\nu/u=-b^{-2}\).
 The leading and constant coefficients then give
 \((\lambda c)^{-2}=b^{-4}\), or \(\eta^{n_0+k}=\lambda c/b^2=\pm1\),
 impossible because \(\eta\) has order \(2^{j+1}\) and \(n_0+k\)
@@ -541,6 +541,8 @@ The certificate checks both matrix periods at \(16\cdot32H\)
 and verifies square residues at all ten primes for
 \(m\equiv3\pmod{32}\), \(H\mid m\). The Chinese remainder
 theorem permits any further odd divisibility condition.
+The residue is zero at \(3,7,13,17\) and is a nonzero square
+at each of the other six primes.
 Also \(m\equiv3\pmod8\), which gives a square in \(\mathbb Q_2\)
 on this branch by the exact 2-adic condition.
 

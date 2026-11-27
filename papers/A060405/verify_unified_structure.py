@@ -585,6 +585,54 @@ def check_6round_5adic_split():
     print("6-round forced closure (837 primes) and 5-adic split cutoffs (9949, 9967) verified.")
 
 
+def check_tangent_local_constants():
+    assert mat_pow(A_MAT, 48, 32) == I_MAT
+    for m in (3, 9, 15, 21):
+        lucas, _ = lp_exact(2 * m)
+        previous, _ = lp_exact(2 * m - 1)
+        fib = (lucas + 2 * previous) // 5
+        assert lp_exact(m)[0] % 4 == 0
+        assert fib % 32 == (-8 * m) % 32
+    assert mat_pow(B_MAT, 32, 32) == I_MAT
+    for m in (1, 3, 5, 7):
+        assert qp_exact(4 * m)[1] % 32 == (12 * m) % 32
+    lucas, pell = lp_exact(60)
+    prev_lucas, _ = lp_exact(59)
+    five_fib = lucas + 2 * prev_lucas
+    assert (five_fib - 2 * pell) % 625 == 375
+    assert (lucas - 2) % 625 == 500
+    print("Tangent norm constants at 2 and 5 verified.")
+
+
+def check_offset_norm_witnesses():
+    p, q = 2_002_919, 1_001_459
+    assert p == 2 * q + 1 and p % 16 == 7
+    tangent_p, tangent_q = 2_005_799, 1_002_899
+    assert tangent_p == 2 * tangent_q + 1
+    for prime in (p, q, tangent_p, tangent_q):
+        assert all(prime % d for d in range(3, math.isqrt(prime) + 1, 2))
+    modulus = p * p
+    assert mat_pow(A_MAT, p * (p - 1), modulus) == I_MAT
+    lucas, _ = lp_mod(1_413_907, modulus)
+    assert (2 * lucas * lucas - 1) % modulus == 108_083 * p
+
+    p, s, k = tangent_p, 938_842, 1_358_742
+    assert s * s % p == 2 and 2 * k - 1 == 2_717_483
+    d = 2 - s
+    assert leg(5 * d, p) == -1
+    for matrix in (A_MAT, B_MAT):
+        assert mat_pow(matrix, p - 1, p) == I_MAT
+    lucas, pell = lp_mod(k, p)
+    prev_lucas, _ = lp_mod(k - 1, p)
+    _, next_pell = lp_mod(k + 1, p)
+    five_fib = (lucas + 2 * prev_lucas) % p
+    companion = (next_pell - pell) % p
+    assert five_fib != 0
+    assert (-d * (lucas - 2 * companion) + 2 * five_fib - 4 * pell) % p == 0
+    print("Dual Lucas norm witness at p=2002919 verified.")
+    print("Tangent norm witness at p=2005799 verified.")
+
+
 if __name__ == "__main__":
     check_n6_subspace_constants()
     check_new_norm_identities()
@@ -592,3 +640,5 @@ if __name__ == "__main__":
     check_section3_forcing()
     check_frobenius_and_double_roots()
     check_6round_5adic_split()
+    check_tangent_local_constants()
+    check_offset_norm_witnesses()

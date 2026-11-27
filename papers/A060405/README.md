@@ -221,6 +221,12 @@ then descends through rational norm quotients. It excludes
 \(29,31,53,61,71,73,97,6679\) as divisors of every square index, and
 \(17\) as a divisor on \(n\equiv\pm3\pmod{720720}\).
 
+The [tangent norm](coupled-norm-descent.md#8-a-tangent-norm-at-the-zero-anchor)
+gives valuation and divisibility conditions on a factor indexed by
+\(k=(n+1)/2\). The [dual Lucas norm](coupled-norm-descent.md#9-a-dual-norm-of-the-lucas-term)
+requires even valuations for every prime \(p\equiv7,9\pmod{16}\)
+in \(2L_n^2-1\) at a square index.
+
 The [shifted dyadic calculation](shifted-dyadic-descent.md)
 studies the exact valuation \(a=v_2(n-r)\ge14\).
 At each fixed \(a\), the mixed dyadic layers through \(a\)

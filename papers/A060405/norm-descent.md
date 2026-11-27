@@ -227,8 +227,8 @@ cancel, proving (8).
 Suppose a prime \(p\mid T\) has \((p/5)=-1\). By (8),
 \(R_{3p}/R_3\) has a Gaussian prime of odd exponent and symbol
 \(-1\). Its rational prime \(q\) differs from 5, because \(d_-\)
-divides \(R_{3p}\), and the conjugate of \(d_-\) is coprime to
-\(R_{3p}\). It also differs from \(p\), since \(p\nmid P_3=5\)
+has character zero and its conjugate is coprime to \(R_{3p}\).
+It also differs from \(p\), since \(p\nmid P_3=5\)
 and the Frobenius argument following (7) gives \(p\nmid P_{3p}\).
 The order of \(\gamma\) at a prime above this witness divides
 \(3p\) and fails to divide 3, so it is divisible by \(p\).

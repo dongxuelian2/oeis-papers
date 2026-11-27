@@ -418,12 +418,371 @@ of \(n-2\) therefore satisfy the valuation tests.
 This criterion specifies a primality pattern
 under which the three divisor tests agree.
 
+## 8. A tangent norm at the zero anchor
+
+The following norm identity has a factor indexed by
+\((n+1)/2\), the offset from the zero anchor divided by two.
+It gives a variable-prime condition for those offsets.
+
+Write \(n=2j+1\), \(k=j+1\), \(s=\sqrt2\), and set
+\[
+ \theta=\frac{2+s}{8},\quad d=2-s,\quad
+ b=4\theta,\quad h=d-1,\quad \gamma=\frac34+\theta.
+\]
+Define, over \(\mathbb Q(\sqrt2)\),
+\[
+ \begin{aligned}
+ g&=L_j+F_j=2F_k,\\
+ \ell&=(2\theta-1)(L_k-2Q_k)+\frac52F_k-P_k,\\
+ z_2&=2F_j+\frac{d}{h^2}(\ell-2\gamma g).
+ \end{aligned}
+\]
+
+**Proposition.** For every odd \(n\),
+\[
+ a_n-5d\left(\frac{3\beta}{4s}g\right)^2=\ell z_2.
+ \tag{9}
+\]
+If \(n\ge1\) is a square index and the residue characteristic
+of a prime ideal \(\mathfrak p\) is greater than 5, then
+at every \(\mathfrak p\) where \(5d\) is a quadratic
+nonresidue, \(\ell\) and \(z_2\) have even valuations.
+Consequently a single odd valuation of \(\ell\) at such
+a prime excludes the candidate.
+On the zero-anchor branch \(k\) is even. If
+\(\mathfrak p\mid\ell\) at one of these prime ideals, its
+rational prime divides \(F_k\). Reducing the units at any
+prime above \(\mathfrak p\) in \(K\) gives
+\[
+  \alpha^k=\varepsilon,\qquad
+  \beta^k\in\{\varepsilon,-\varepsilon\beta\},
+  \qquad \varepsilon\in\{1,-1\}.
+ \tag{10}
+\]
+In particular the rational prime divides
+\(\gcd(F_k,P_k Q_{k-1})\).
+
+**Proof.** Suppress the index \(j\) on \(L,F,P,Q\).
+Addition gives \(a_{2j+1}=L_jL_{j+1}+2P_jQ_{j+1}\), since
+the constants from \(L_j L_{j+1}=L_{2j+1}+(-1)^j\) and
+\(2P_jQ_{j+1}=P_{2j+1}-(-1)^j\) cancel. Expanding the two
+next terms gives
+\[
+ a_{2j+1}=\tfrac12L^2+\tfrac52LF+4P^2+2PQ.
+\]
+Subtract \(\theta(L^2-5F^2)\) and add
+\(4\theta(Q^2-2P^2)\). These changes cancel by the
+Lucas and Pell norm identities. The result is the
+ternary quadratic form
+\[
+ (\tfrac12-\theta)L^2+\tfrac52 LF+5\theta F^2+dZ^2,
+ \qquad Z=bQ+P,
+\]
+using \(db=1\) and \(4-8\theta=d\).
+
+The state at \(j=-1\) has \(L=-1,F=1,Z=1-b\)
+and is isotropic for this form. Substitute
+\(L=g-F\) and \(Z=z+(1-b)F\). The \(F^2\) term drops out,
+and the form becomes
+\[
+ (\tfrac12-\theta)g^2+dz^2+2F(\gamma g+h z).
+\]
+Using \(L_{k-1}=(5F_k-L_k)/2\),
+\(F_{k-1}=(L_k-F_k)/2\),
+\(P_{k-1}=Q_k-P_k\), and \(Q_{k-1}=2P_k-Q_k\)
+shows that \(\gamma g+h z=\ell\) as defined above.
+Substituting \(z=(\ell-\gamma g)/h\) gives
+\[
+ a_{2j+1}=\left(\tfrac12-\theta+\frac{d\gamma^2}{h^2}\right)g^2
+           +\ell \left(2F+\frac d{h^2}(\ell-2\gamma g)\right).
+\]
+Here \(h=-\beta^{-1}\) and
+\(\tfrac12-\theta+d\gamma^2/h^2=45d\beta^2/32\).
+This proves (9).
+
+For a square index the right side of (9) is the norm
+of \(x+(3\beta g/(4s))\sqrt{5d}\) from the quadratic
+extension. The element \(5d\) is nonsquare in
+\(\mathbb Q(\sqrt2)\), because it has valuation one
+at the prime above 5. Both factors are nonzero at a
+positive square value. At the stated prime ideals the
+norm has even valuation by reduction of the two squares
+after removing their common prime power.
+If both factors vanished modulo \(\mathfrak p\), (9)
+and the nonsquare twist would force \(g=0\) there.
+Then \(z_2=0\) gives \(F=0\), and \(g=0\) gives \(L=0\),
+contradicting \(L^2-5F^2=4(-1)^j\) modulo \(\mathfrak p\).
+Thus the valuations of the two factors cannot cancel
+at these prime ideals.
+
+If \(\mathfrak p\mid\ell\), the same nonsquare condition
+forces \(g=0\) in the residue field, hence \(F_k=0\).
+For even \(k\) this gives \(\alpha^k=\varepsilon\) and
+\(L_k=2\varepsilon\). Put \(W=\beta^k\).
+Since \(Q_k=(W+W^{-1})/2\) and
+\(P_k=(W-W^{-1})/(2s)\), the equation \(\ell=0\) becomes
+\[
+ d(W-\varepsilon)^2=s(W-\varepsilon)(W+\varepsilon).
+\]
+The alternatives are \(W=\varepsilon\) and
+\(W=\varepsilon(d+s)/(d-s)=-\varepsilon\beta\).
+The first gives \(P_k=0\), and the second gives
+\(\beta^{k-1}=-\varepsilon\) and \(Q_{k-1}=0\).
+This proves (10). \(\square\)
+
+**Ramified places of the tangent norm.** Suppose \(n\ge0\),
+\(n\equiv-1\pmod{720720}\), \(v_2(n+1)\ge14\), and \(a_n\)
+is a local square at 2 and 5. Then \(\ell\) is a square in
+\(\mathbb Q_2(\sqrt2)\) and is a local norm at 5 for the
+quadratic twist \(5d\). Consequently the product of the
+quadratic norm characters of \(\ell\) over the unramified
+odd places is \(+1\).
+
+For 2, write \(k=2^v m\) with \(m\) odd. Then \(3\mid m\),
+and the local square condition gives \(m\equiv3\pmod8\)
+by the [exact dyadic valuation](shifted-dyadic-descent.md).
+Doubling in the two recurrences gives, for \(v\ge2\),
+\[
+ L_k\equiv2\pmod {2^{2v+2}},\quad
+ v_2(Q_k-1)=2v,\quad
+ \frac{F_k}{2^{v+2}}\equiv-m\pmod4,\quad
+ \frac{P_k}{2^v}\equiv3m\pmod8.
+\]
+For the Lucas congruences, \(L_{2m}=L_m^2+2\),
+\(4\mid L_m\), and \(L_{2j}-2=(L_j-2)(L_j+2)\)
+at even \(j\). The doubling formula \(F_{2j}=F_j L_j\)
+starts from \(F_{2m}/8\equiv-m\pmod4\), checked on
+\(m=3,9,15,21\bmod24\) using the Fibonacci period modulo 32.
+For the Pell congruences, \(Q_{2m}=2Q_m^2+1\equiv3\pmod8\),
+\(Q_{2j}-1=2(Q_j-1)(Q_j+1)\) at even \(j\), and
+\(P_{2j}=2P_jQ_j\). The formula for \(P_k\) starts from
+\(P_{4m}/4\equiv3m\pmod8\), checked on \(m=1,3,5,7\bmod8\)
+using the Pell period modulo 32.
+The rational part \(((5/2)F_k-P_k)/2^v\) is congruent to
+\(3m\equiv1\pmod8\). The remaining part of \(\ell/2^v\)
+is \(-d(L_k-2Q_k)/(4\cdot2^v)\), of valuation \(2v-1\)
+in \(\mathbb Q_2(\sqrt2)\) with uniformizer \(\sqrt2\).
+The rational part is a square in \(\mathbb Q_2\), and a relative
+perturbation of valuation greater than 4 is a square by Hensel's
+lemma. Also \(2^v\) is a square in \(\mathbb Q_2(\sqrt2)\).
+
+For 5, write \(k=60h\), put \(w=v_5(h)\), and write
+\(h_0=h/5^w\). The sequence values at 60 give
+\[
+ 5F_{60}-2P_{60}\equiv375,\qquad L_{60}-2\equiv500
+ \pmod{625}.
+\]
+Use \(v_5(\log\alpha^{60})=3/2\) and
+\(v_5(\log\beta^{60})\ge2\) in the corresponding quadratic
+extensions of \(\mathbb Q_5\). These valuations follow by
+taking fifth powers of \(\alpha^{12}=161+72\sqrt5\) and
+\(\beta^{12}=19601+13860\sqrt2\). In the differences
+of the two exponential series for \(F_{60h}\) and \(P_{60h}\),
+all terms after the linear one have degree at least three.
+In the sums for \(L_{60h}-2\) and \(Q_{60h}-1\), the first
+term has degree two and all later terms have degree at least
+four. The bound \(v_5(j!)\le j/4\) then gives
+\[
+ \frac{5F_k-2P_k}{5^{w+3}}\equiv3h_0,\qquad
+ \frac{L_k-2Q_k}{5^{2w+3}}\equiv4h_0^2\pmod5.
+\]
+Thus for \(w\ge1\), \(v_5(\ell)=w+3\) and its unit is
+rational modulo 5. For \(w=0\), the local square condition
+on \(a_n\) requires \(h\equiv1\pmod5\), since
+\(h=6006(n+1)/720720\). The unit of \(\ell\) is then
+\(4-d=2+\sqrt2\) after dividing by \(5^3\).
+At the prime above 5, the ramified quadratic norm character
+of \(5^e u\) for \(5d\) is the quadratic character of
+\(u(-d)^e\) in \(\mathbb F_{25}\).
+Both \(d\) and \(2+\sqrt2\) have norm 2 to \(\mathbb F_5\)
+and are nonsquares. When \(w=0\) the two characters cancel.
+When \(w\ge1\), the [local square condition](local-geometry.md#2-two-simple-5-adic-roots)
+requires \(w\) odd, so \(e=w+3\) is even and the rational
+unit is a square in \(\mathbb F_{25}\).
+This proves the local norm condition at 5. The twist \(5d\)
+is positive at both real embeddings, so the product assertion
+follows from Hilbert reciprocity.
+[Milne, *Class Field Theory*, Chapters III and V](https://www.jmilne.org/math/CourseNotes/CFT.pdf)
+
+**Tangent witness on the zero-anchor branch.** Let \(D_{-1}\)
+be the extended forced divisor. Let \(H\) be the least common
+multiple of the odd part of \(D_{-1}\) and the odd parts of
+\(1,\ldots,1000001\), and put \(S=2^{202}H\). Choose
+\(c\) with \(cH\equiv1\pmod8\). The congruences
+\[
+ n\equiv-1+3cS\pmod {8S},\qquad
+ n\equiv2717483\pmod{4q},\qquad q=1002899
+\]
+give infinitely many positive indices with \(D_{-1}\mid n+1\),
+\(v_2(n+1)=202\), and \((n+1)/2^{202}\equiv3\pmod8\).
+Indeed \(q\) is prime, the sources of the odd prime factors of \(D_{-1}\)
+are bounded by 30000, and both residues are \(-1\bmod4\).
+The index agrees with \(-1\) modulo the matrix periods at
+each prime at most \(10^6\), so \(a_n\) is zero modulo all
+of them.
+
+The prime \(p=2q+1=2005799\) splits in \(\mathbb Q(\sqrt2)\);
+take the prime specified by \(\sqrt2\equiv938842\pmod p\).
+The certificate gives \(\ell\equiv0\), \(F_k\ne0\), and
+\(5d\) a nonresidue there for \(k\equiv1358742\pmod{p-1}\),
+the class imposed by \(n\bmod4q\). This contradicts (10)
+for every index in the progression.
+
+## 9. A dual norm of the Lucas term
+
+Write \(T_n=2L_n^2-1\) for odd \(n\). The Pell norm identity
+gives a rational norm form of the
+[dual splitting-curve identity](unified-norm-classification.md#1-complete-classification-of-monomial-splitting-curves):
+\[
+ (\beta^n+\sqrt2 L_n)^2-2\sqrt2\,\beta^n a_n=T_n.
+ \tag{11}
+\]
+Indeed the first square is \((Q_n+\sqrt2 a_n)^2\), and
+subtracting the second term gives
+\(Q_n^2+2a_n^2-4P_na_n=2L_n^2-1\).
+If \(a_n=x^2\), equation (11) represents \(T_n\) as the norm
+of
+\[
+ Q_n+\sqrt2 x^2+\sqrt2\,x\beta^{(n-1)/2}\sqrt{2+\sqrt2}
+\]
+from \(\mathbb Q(\zeta_{16})^+\) to \(\mathbb Q(\sqrt2)\), where
+the superscript \(+\) denotes the maximal real subfield.
+
+**Prime-factor test.** Every prime \(p\mid T_n\) splits in
+\(K=\mathbb Q(\sqrt2,\sqrt5)\). If \(n\) is a square index, then
+\[
+ p\equiv7,9\pmod {16},\quad p\mid T_n
+ \quad\Longrightarrow\quad v_p(T_n)\equiv0\pmod2.
+ \tag{12}
+\]
+In fact \(T_n=10F_n^2-9\) is coprime to 30. Its congruences
+\(2L_n^2\equiv1\) and \(10F_n^2\equiv9\pmod p\) give the
+splitting in \(K\). At either prime of \(\mathbb Q(\sqrt2)\)
+above \(p\), \(2+\sqrt2\) is a nonresidue precisely for
+\(p\equiv7,9\pmod {16}\), by the action of Frobenius on
+\(\zeta_{16}+\zeta_{16}^{-1}\). A norm from this unramified
+quadratic extension has even valuation. This applies also if
+\(p\mid x\). For example, \(T_{13}=41\cdot13241\) has
+\(v_{41}(T_{13})=1\), while \(T_7=41^2\) passes (12).
+
+**Transfer to the mixed field.** The factors
+\(\alpha^n-\sqrt2\) and \(\alpha^n+\sqrt2\) have relative norms
+\(1-\sqrt2 L_n\) and \(1+\sqrt2 L_n\) to \(\mathbb Q(\sqrt2)\).
+Their absolute norms are both \(-T_n\). For each prime \(p\mid T_n\)
+there is exactly one prime of \(K\) above \(p\) dividing
+\(\alpha^n-\sqrt2\). In fact the two choices of \(\alpha^n\) at
+\(p\) are \(u\) and \(-u^{-1}\), and precisely one has square 2,
+since \(2\ne2^{-1}\pmod p\). The sign of \(\sqrt2\) then specifies
+the prime uniquely. Its valuation is \(v_p(T_n)\).
+At this prime the quadratic characters of \(\alpha\) and
+\(\sqrt2\) coincide, since \(n\) is odd. When \(p\equiv\pm1\pmod {16}\),
+the character of \(\beta\) also agrees, by
+\(\sqrt2\,\beta=2+\sqrt2\).
+
+The dyadic norm character of \(\alpha^n-\sqrt2\) for
+\(K\mathbb Q(\zeta_{16})^+/K\) is determined by the local norm
+\(N_{K/\mathbb Q}(\alpha^n-\sqrt2)=-T_n\), by compatibility of
+local reciprocity with norms. Here \(K\) has a single place above
+2: adjoining \(\sqrt5\) is unramified quadratic at 2, and adjoining
+\(\sqrt2\) is ramified quadratic. The character is trivial exactly
+when \(T_n\equiv\pm1\pmod {16}\), by the cyclotomic character of
+conductor 16 on odd units. In the three remaining branches, the
+Lucas matrix modulo 16 has period dividing 24 and the anchors give
+\(T_n\equiv-1,-1,1\pmod {16}\) for \(r=3,-3,-1\), respectively.
+Thus the dyadic character only imposes that the total multiplicity
+of primes in (12) is even on these branches.
+[Milne, *Class Field Theory*, Chapters I and V](https://www.jmilne.org/math/CourseNotes/CFT.pdf)
+
+**Relation to the Gaussian fibration.** The corresponding Lucas
+square completion is
+\[
+ (a_n+\sqrt5 F_n)^2-4\alpha^n a_n=P_n^2+4=P_{n-2}P_{n+2}.
+ \tag{13}
+\]
+The first equality follows from \(\sqrt5 F_n=2\alpha^n-L_n\)
+and \(\alpha^n(\alpha^n-L_n)=1\).
+If \(a_n=x^2\), equation (13) is a norm from
+\(\mathbb Q(\sqrt5,\sqrt\alpha)\) to \(\mathbb Q(\sqrt5)\).
+At a common prime divisor \(p\) of the two right sides, \(p\) splits
+in \(K(i)\), since \(P_n^2\equiv-4\pmod p\). If both right sides
+have odd valuation at \(p\), conditions (11) and (13) require
+\(p\equiv1\pmod {16}\) and \(\alpha\) to be a square modulo either
+prime of \(\mathbb Q(\sqrt5)\) above \(p\). These conditions follow
+separately from the two norm equations.
+
+The two separate norm-membership tests over their respective
+base fields are equivalent to their odd-prime parity tests.
+Indeed, both quadratic extensions are unramified at odd finite
+places: for (11) this follows from the cyclotomic conductor,
+and for (13) from the fact that \(\alpha\) is a unit. At every
+real place each right side is positive and is a local norm.
+Each base field has only one dyadic place. Once all the other
+local norm characters are trivial, Hilbert reciprocity makes the
+dyadic character trivial there as well. The quadratic local-global
+norm theorem then gives the two independent norm representations.
+Equations (11) and (13) with their prescribed coordinates in
+terms of a common \(x\) impose the original square equation.
+[Milne, *Class Field Theory*, Chapter VIII, Theorem 3.1](https://www.jmilne.org/math/CourseNotes/CFT.pdf)
+
+The independent memberships also allow nonsquare values
+when the Gaussian norm from Section 2 of [the norm descent](norm-descent.md#2-a-gaussian-factorization-for-the-odd-indices)
+is used in place of (13). For instance \(n=5\) has \(a_5=40\) and
+the two representations
+\[
+ \begin{aligned}
+ 241&=(7-16\sqrt2)^2-(2+\sqrt2)(16-12\sqrt2)^2,\\
+ 29-2i&=(7+4i)^2-(1+2i)(5+i)^2.
+ \end{aligned}
+\]
+On the three remaining branches, let \(n\) satisfy the local
+square conditions at 2 and 5. The separate Gaussian and dual
+norm memberships then hold exactly when their parity tests
+hold at every odd place of residue characteristic other than 5.
+Indeed the local square roots yield the prescribed norm
+representations at 2 and 5. All other finite places are
+unramified for the respective quadratic extensions. The
+Gaussian base field has a complex infinite place, and the
+dual right side is positive. Again the quadratic local-global
+norm theorem gives the independent memberships.
+
+There is also a factorization difference. For every odd \(b>1\),
+\(X^b-2\) is irreducible over \(K\). At the dyadic prime of \(K\),
+every root has valuation \(2/b\) in the normalization in which
+2 has valuation 2. The constant term of a degree-\(d\) monic factor
+would have integral valuation \(2d/b\), forcing \(b\mid d\).
+Thus for \(n=sb\) the polynomial in \(\alpha^{2s}\) that gives
+\(\alpha^{2n}-2\) stays irreducible over the mixed field.
+
+**Witness beyond the extended sieve.** Let \(D_3\) be the forced
+divisor for the anchor \(3\) from the [extended certificate](extended-lifting.md).
+Let \(H\) be the least common multiple of the odd part of \(D_3\)
+and the odd parts of \(1,\ldots,1000001\). Put \(S=2^{201}H\).
+Take \(p=2002919\), with \(p-1=2q\) for the prime \(q=1001459\).
+The two congruences
+\[
+ n\equiv3+S\pmod {2S},\qquad n\equiv1413907\pmod {p(p-1)}
+\]
+have infinitely many positive solutions by the Chinese remainder
+theorem. The two moduli have gcd 2, since all odd prime factors
+of \(D_3\) are at most 2000 by the lifting cap, and the two residues
+are odd. Every solution has \(D_3\mid n-3\), \(v_2(n-3)=201\),
+and \(a_n\equiv9\pmod t\) for every prime \(t\le10^6\).
+For \(t>5\) each matrix period divides one of \(t-1\) and
+\(2(t+1)\), both of which divide \(S\). For \(t=2,3,5\) the
+periods divide the base modulus \(720720\), which also divides \(S\).
+
+The Lucas matrix \(A\) satisfies \(A^{p(p-1)}=I\bmod p^2\).
+At the displayed residue the certificate gives
+\(T_n\equiv108083p\bmod p^2\). Thus every solution has
+\(v_p(T_n)=1\), and (12) excludes it since \(p\equiv7\pmod {16}\).
+
 ## Reproduction
 
 Run:
 
     python3 verify_norm_order.py
     python3 verify_norm_graph_limits.py
+    python3 verify_unified_structure.py
 
 The verifiers use only the Python standard library and exact modular
 arithmetic. They verify the witnesses without computing large sequence
