@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Verify the prime range for the shifted dyadic residue criterion."""
 
+from math import lcm
+
 from verify_anchor_forcing import A, B, I, mp, val
 from verify_norm_order import prime
 
@@ -15,14 +17,20 @@ def order_depth(matrix, odd_part, depth_bound, modulus):
 
 
 def verify_base_characters():
-    for lucas, pell_companion, p, root in (
-        (2207, 577, 3361, 977),
-        (4870847, 665857, 6202561, 2073677),
-    ):
-        assert p == lucas + 2 * pell_companion and prime(p)
-        assert root * root % p == 5
-        alpha = (1 + root) * pow(2, -1, p) % p
-        assert pow(alpha, (p - 1) // 2, p) == p - 1
+    roots = {3: (3361, 977), 4: (6202561, 2073677)}
+    lucas, companion, half_companion, fibonacci = 3, 3, 1, 1
+    for layer in range(1, 5):
+        doubled_lucas = lucas * lucas - 2
+        if layer in roots:
+            p, root = roots[layer]
+            assert p == doubled_lucas + 2 * companion and prime(p)
+            assert p == 5 * fibonacci**2 + 4 * half_companion**2
+            assert root * root % p == 5
+            alpha = (1 + root) * pow(2, -1, p) % p
+            assert pow(alpha, (p - 1) // 2, p) == p - 1
+        fibonacci *= lucas
+        half_companion, companion = companion, 2 * companion * companion - 1
+        lucas = doubled_lucas
 
 
 def verify_next_layer_example():
@@ -56,10 +64,56 @@ def verify_excluded_valuations():
             assert pow(value, (p - 1) // 2, p) == p - 1
 
 
+def verify_offset_depths(divisors):
+    """Use the forced odd divisors to exclude depths 14 through 200."""
+    for anchor, divisor in divisors.items():
+        choices = [ell for ell in range(1, 12000, 2) if divisor % ell == 0]
+        for depth in range(14, 201):
+            if anchor == -1 and depth % 2:
+                continue
+            remaining = {3} if anchor == -1 else {1, 3}
+            for ell in choices:
+                modulus = 1 + (ell << (depth + 2))
+                if modulus % 5 not in (1, 4):
+                    continue
+                for residue in tuple(remaining):
+                    multiplier = ell * ((residue * ell) % 4)
+                    value = val(anchor + (multiplier << depth), modulus)
+                    if pow(value, (modulus - 1) // 2, modulus) == modulus - 1:
+                        remaining.remove(residue)
+                if not remaining:
+                    break
+            assert not remaining, (anchor, depth, sorted(remaining))
+        print(f"Anchor {anchor}: all offset depths 14 through 200 excluded.")
+
+
+def verify_small_boundary():
+    factors = set()
+    lucas, companion = 3, 3
+    for _ in range(4):
+        doubled_lucas = lucas * lucas - 2
+        factors.update((lucas, companion, doubled_lucas + 2 * companion))
+        lucas, companion = doubled_lucas, 2 * companion * companion - 1
+    assert 81 in factors and 3 in factors
+    factors.remove(81)
+    assert all(prime(p) for p in factors)
+    period = 45045
+    for p in factors:
+        group_order = p * p - 1
+        period = lcm(period, group_order // (group_order & -group_order))
+    multiplier = period * (3 * pow(period, -1, 32) % 32)
+    for p in factors:
+        shift = 16 * 32 * period
+        assert mp(A, shift, p) == mp(B, shift, p) == I
+        value = val(16 * multiplier - 1, p)
+        assert pow(value, (p - 1) // 2, p) in (0, 1)
+
+
 def verify():
     verify_base_characters()
     verify_next_layer_example()
     verify_excluded_valuations()
+    verify_small_boundary()
     bound = 10**8
     depth_start = 14
     prime_step = 2 ** (depth_start + 2)

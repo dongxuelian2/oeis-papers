@@ -238,15 +238,101 @@ are primes, with \(\chi_\alpha(C_3)=\chi_\alpha(C_4)=-1\)
 by the [exact certificate](verify_shifted_dyadic.py). \(\square\)
 
 There is also a character \(\chi_5(p)=(\sqrt5\bmod p\,/\,p)\)
-on the same primes. Choose a primitive fifth root \(\zeta\)
+on the same primes. Pair the root choices by \(\sqrt5=2\alpha-1\),
+and let \(i\in\mathbb F_p\) be a square root of \(-1\).
+Choose a primitive fifth root \(\zeta\)
 with \(\zeta+\zeta^{-1}=\alpha^{-1}\) in
 \(\overline{\mathbb F}_p\). Then
 \(((\zeta-\zeta^{-1})/i)^2=\alpha\sqrt5\).
 Frobenius acts on this square root by \(+1\) when
 \(p\equiv1\pmod5\) and by \(-1\) when \(p\equiv-1\pmod5\).
-Since \(C_j\equiv1\pmod5\), multiplication over its prime
+The recurrence gives \(Q_{2^{j-1}}\equiv Q_4\equiv2\pmod5\),
+so \(C_j\equiv4Q_{2^{j-1}}^2\equiv1\pmod5\). Multiplying over its prime
 factors gives
 \(\prod_{p\mid C_j}\chi_5(p)^{v_p(C_j)}=-1\) as well.
+
+For \(p\mid C_j\), put \(e=v_2(p-1)\) and
+\(\chi_\beta(p)=(\beta\bmod p\,/\,p)\).
+Since \(\eta=\beta/\alpha^2\) has order \(2^{j+1}\) at a
+prime above \(p\), \(\chi_\beta(p)=-1\) precisely when
+\(e=j+1\). For \(j\ge2\), doubling from \(L_4=7,Q_4=17\)
+gives \(v_2(L_{2^{j+1}}+1)=j+2\) and
+\(v_2(Q_{2^j}-1)=2j\), so \(v_2(C_j-1)=j+2\).
+For \(j\ge3\), reducing the prime factorization of \(C_j\)
+modulo \(2^{j+2}\) now shows
+\[
+ \sum_{\substack{p\mid C_j\\ v_2(p-1)=j+1}}v_p(C_j)
+ \equiv0\pmod2.
+\]
+Thus \(\prod_{p\mid C_j}\chi_\beta(p)^{v_p(C_j)}=1\),
+while the product for \(\chi_\alpha\) is \(-1\).
+
+## Prime moduli with fourth-root phases
+
+Consider any prime \(p=1+2^{a+2}\ell\) with \(a\ge4\), \(\ell\)
+odd and \(p\equiv\pm1\pmod5\). Write \(t=\alpha^{2^a m}\)
+and \(v=\beta^{2^a m}\) for odd \(m\) divisible by the odd
+parts of both orders. In particular \(\ell\mid m\) suffices.
+The values \(t,v\) are fourth roots of unity. They have
+order four precisely when \(\chi_\alpha(p)=-1\) and
+\(\chi_\beta(p)=-1\), respectively. All fourth roots
+are squares in \(\mathbb F_p\).
+
+For \(n_0=\pm3\), the square class of \(a_{n_0+2^a m}\)
+is independent of the signs of these phases:
+
+| \(\chi_\alpha(p)\) | \(\chi_\beta(p)\) | Quadratic character of the shifted term |
+|:---:|:---:|:---:|
+| \(+1\) | \(+1\) | \(+1\) |
+| \(-1\) | \(+1\) | \(\chi_5(p)\) |
+| \(+1\) | \(-1\) | \(-1\) |
+| \(-1\) | \(-1\) | \(-1\) |
+
+When both phases are signs, the values are \(\pm1,\pm9\).
+For \(t\) of order four and \(v\) a sign, put \(z=t/v\).
+The value is \(v(5+2z\sqrt5)\), and
+\(5+2z\sqrt5=\sqrt5(\alpha+z\alpha^{-1})^2\).
+For \(v\) of order four and \(t\) a sign, put \(z=v/t\).
+After scaling by \(\pm t/\sqrt2\), the relevant value is
+\(4\sqrt2+7z=z(2\sqrt2-z)^2\), so its character is
+\((\sqrt2/p)=\chi_\beta(p)\). When both phases have order
+four, the same character follows from
+\((\sqrt5\pm\sqrt2)^2=7\pm2\sqrt{10}\).
+
+For \(n_0=-1\), the corresponding four exact characters are
+\[
+ \begin{array}{c|c|c}
+ \chi_\alpha & \chi_\beta & (a_{-1+2^a m}/p)\\ \hline
+ +1 & +1 & 0\text{ or }1\\
+ -1 & +1 & (\,1+(t/v)\sqrt5\,/\,p)\\
+ +1 & -1 & -(\,\sqrt2+v/t\,/\,p)\\
+ -1 & -1 & -1 .
+ \end{array}
+\]
+The first row gives \(0,\pm2\). The middle rows follow
+from \(L_{-1}=-1\), \(P_{-1}=1\), \(Q_{-1}=-1\),
+and \(F_{-1}=1\). In the last row the identity
+\[
+ (\sqrt{10}+1)\alpha\beta
+ =\left(\frac{\beta^2+\sqrt5}{2}\right)^2
+\]
+and \((\sqrt{10}+1)(\sqrt{10}-1)=9\) give the character
+\(\chi_\alpha(p)=-1\).
+
+For the same anchor there is an exact valuation formula.
+Writing \(n=2b-1\), addition gives
+\[
+ a_{2b-1}=5F_bF_{b-1}+2P_bQ_{b-1}.
+\]
+For \(b=2^{a-1}m\) with \(3\mid m\), \(m\) odd and \(a\ge2\),
+the two summands have valuations \(a+1\) and \(a\).
+Indeed, the Fibonacci and Lucas recurrences modulo \(4\)
+and \(8\) give \(v_2(F_c)=1\), \(v_2(L_c)=2\) for odd
+multiples \(c\) of 3, and \(v_2(L_c)=1\) for even
+multiples of 3. Iterating \(F_{2c}=F_cL_c\) gives
+\(v_2(F_b)=v_2(b)+2\) and \(F_{b-1}\) is odd.
+The identities \(P_{2c}=2P_cQ_c\) and \(2\nmid Q_c\)
+give \(v_2(P_b)=v_2(b)\). Thus \(v_2(a_{2b-1})=a\).
 
 ## A square obstruction one layer above the offset valuation
 
@@ -315,15 +401,73 @@ The uniform application of the one-layer obstruction
 requires a prime with the stated valuation at 2 and
 with odd order divisor \(h\mid m\) for each candidate.
 
+## Exclusion of every offset valuation from 14 through 200
+
+For \(n_0=\pm3\), any nonzero offset at a square index satisfies
+\(v_2(n-n_0)\ge201\). On the zero-anchor branch it satisfies
+\(v_2(n+1)\ge202\) and \(v_2(n+1)\) is even.
+
+Let \(D\) be the final divisor for the anchor in the
+[extended lifting certificate](extended-lifting.md).
+For \(a=v_2(n-n_0)\ge14\) and an odd divisor \(\ell\) of \(D\),
+one has \(\ell\mid m\). For a fixed odd residue \(c=m\bmod4\),
+put \(m_0=\ell(c\ell\bmod4)\) and \(p=1+2^{a+2}\ell\).
+If \(p\) is prime and \(p\equiv\pm1\pmod5\), both matrices
+split over \(\mathbb F_p\), and their periods divide \(p-1\).
+Since \(m,m_0\) agree modulo \(4\ell\), the recurrence gives
+\[
+ a_{n_0+2^a m}\equiv a_{n_0+2^a m_0}\pmod p.
+\]
+
+The certificate searches odd \(\ell<12000\) dividing \(D\).
+A witness is an exact calculation \(b^{(p-1)/2}\equiv-1
+\pmod p\) for \(b=a_{n_0+2^a m_0}\bmod p\).
+This equation certifies primality at the same time.
+At every prime divisor \(q\) of \(p\), the order of \(b\)
+has valuation \(a+2\) at 2. Thus \(q\equiv1\pmod{2^{a+2}}\),
+and \(q\ge2^{a+2}+1>\sqrt p\) because \(\ell<2^{a+2}\).
+It follows that \(p\) is prime and \(b\) is a nonresidue.
+
+For \(n_0=-1\), the [exact 2-adic condition](local-geometry.md)
+says that \(-2^{a-4}m/(720720/16)\) is a square in
+\(\mathbb Q_2\). It gives \(a\) even and \(m\equiv3\pmod8\),
+using \(720720/16\equiv5\pmod8\). Hence only \(c=3\) is needed
+on this branch, while both \(c=1,3\) are checked on the other
+two. Running the extended lifting certificate verifies a
+witness for every required residue and every depth from
+14 through 200. The search ranges over finite moduli
+depending on the valuation and applies to unbounded indices
+at each tested valuation.
+
+**Limit of fixed coefficients.** For any finite set of positive
+odd coefficients \(\ell\), there is an infinite arithmetic
+progression of valuations \(a\) on which every integer
+\(1+2^{a+2}\ell\) in that family is composite. In particular,
+using the odd divisors of a fixed \(D\) leaves valuations
+for which this family supplies no prime witness.
+
+Fix \(a_0\ge14\) and put \(d_\ell=1+2^{a_0+2}\ell\).
+Each \(d_\ell\) is odd, so 2 has a multiplicative order
+modulo it. Choose a common positive multiple \(T\) of
+these orders. For every \(a=a_0+kT\) with \(k>0\),
+\(1+2^{a+2}\ell\) is divisible by \(d_\ell\) and strictly
+larger than \(d_\ell\). For the zero-anchor branch, taking
+\(a_0\) and \(T\) even restricts the progression to even
+valuations. The same argument covers a finite set of
+offsets of the exponent \(a+2\) by starting with \(a_0\)
+large enough for every exponent to be positive.
+
 ## The odd part of the mixed residue period
 
-Let \(j\le a\), \(j\ge3\), and \(p\mid C_j\). At the chosen
+Let \(j\ge3\) and \(p\mid C_j\). At the chosen
 prime above \(p\), use the definitions of \(t,b,c\) above and
-set \(\delta=1\) for \(j<a\), \(\delta=-1\) for \(j=a\).
-Since \(m\) is odd, \(\beta^k=\delta t^2\). The square test
+set \(\lambda=\eta^{2^a m}\). This phase is 1 for \(j<a\),
+\(-1\) for \(j=a\), and a root of unity of order
+\(2^{j+1-a}\) for \(j>a\). Then \(\beta^k=\lambda t^2\).
+The square test
 is governed by the quadratic character of
 \[
- G(t)=\frac{\delta(c t^4+c^{-1})}{2\sqrt2}
+ G_\lambda(t)=\frac{\lambda c t^4+\lambda^{-1}c^{-1}}{2\sqrt2}
       +b t^3-b^{-1}t.
 \]
 This quartic has an odd-multiplicity root over
@@ -331,29 +475,31 @@ This quartic has an odd-multiplicity root over
 \((\lambda t^2+\mu t+\nu)^2\) over that field. Comparing the
 cubic and linear coefficients gives \(\nu/\lambda=-b^{-2}\).
 The leading and constant coefficients then give
-\(c^{-2}=b^{-4}\), or \(\eta^{n_0}=c/b^2=\pm1\), impossible
-because \(\eta\) has order \(2^{j+1}\) and \(n_0\) is odd.
+\((\lambda c)^{-2}=b^{-4}\), or \(\eta^{n_0+k}=\lambda c/b^2=\pm1\),
+impossible because \(\eta\) has order \(2^{j+1}\) and \(n_0+k\)
+is odd.
 The nonzero constant coefficient shows that every root is
 nonzero.
 
 Fix an odd divisor \(D_0\) required to divide \(m\), and let
-\(h\) be the odd part of the multiplicative order of \(\alpha\)
-in \(\mathbb F_p^\times\). Fixing a compatible residue of \(m\)
-modulo the power of 2 in the order of \(\alpha^{2^a}\) fixes
-its 2-primary component. As the remaining residue of \(m\)
-varies subject to \(D_0\mid m\), the values of \(t\) form a
-coset of a subgroup of cardinality \(h/\gcd(h,D_0)\).
+\(h\) be the odd part of the order of \(\alpha\) modulo \(p\).
+The relation \(\beta=\eta\alpha^2\) shows that \(\beta\) has
+the same odd order part. Fix an odd residue class of \(m\)
+modulo a power of 2 large enough to determine both \(\lambda\)
+and the 2-primary part of \(t\). As the remaining residue
+of \(m\) varies subject to \(D_0\mid m\), the possible values
+of \(t\) form a coset of a subgroup of size \(h/\gcd(h,D_0)\).
 
 For any coset \(J\) of a subgroup of \(\mathbb F_p^\times\),
 the classical multiplicative Weil bound gives
 \[
- \left|\sum_{t\in J}\left(\frac{G(t)}p\right)\right|\le4\sqrt p.
+ \left|\sum_{t\in J}\left(\frac{G_\lambda(t)}p\right)\right|\le4\sqrt p.
 \]
 Indeed, express the coset indicator as the average of the
 characters trivial on the subgroup, multiplied by their
 values at a representative. With \(\omega\) a character of
 order \(p-1\), each complete sum over \(\mathbb F_p^\times\)
-has summand \(\omega(t^i G(t)^{(p-1)/2})\) for
+has summand \(\omega(t^i G_\lambda(t)^{(p-1)/2})\) for
 \(0\le i<p-1\). At the odd-multiplicity nonzero root,
 the multiplicity of this polynomial is nonzero modulo
 \(p-1\), so the Weil bound for order \(p-1\) applies.
@@ -363,14 +509,44 @@ zero vanishes. If \(i=0\), at most four roots occur and
 removing the term at zero gives the bound \(3\sqrt p+1\).
 Both bounds give the displayed estimate.
 
-In particular, if \(h/\gcd(h,D_0)>4\sqrt p\), then for
-each fixed 2-primary residue class of the multiplier,
-some \(m\) produces \(a_n\) square modulo \(p\).
-This constrains a single-prime square-residue obstruction
-from either a lower mixed layer or the boundary layer.
-It leaves the simultaneous square tests at several primes
-as an arithmetic condition on the shared odd residues.
+If \(h/\gcd(h,D_0)>4\sqrt p\), some \(m\) in each fixed
+2-primary residue class gives \(a_n\) square modulo \(p\).
+The stronger inequality \(h/\gcd(h,D_0)>4\sqrt p+4\)
+ensures a nonzero square because \(G_\lambda\) has at most
+four roots. Such a residue gives a square in \(\mathbb Q_p\)
+by Hensel's lemma.
+
+For a finite set of these primes, fix a common odd phase
+modulo a sufficiently large power of 2. If
+\(h_p/\gcd(h_p,D_0)\) are pairwise coprime and each local
+coset admits a square, the Chinese remainder theorem on
+\(m/D_0\) realizes the square residues simultaneously.
+Shared factors of the reduced odd orders therefore matter
+when individual cosets all admit squares.
 
 The multiplicative estimate is due to [André Weil, *On Some Exponential Sums*](https://doi.org/10.1073/pnas.34.5.204).
+
+## A simultaneous solution for the small boundary family
+
+At \(a=4\) and \(n_0=-1\), the full family of primes dividing
+\(\prod_{j=1}^4 L_{2^j}Q_{2^j}C_j\) admits simultaneous square
+residues, even with any prescribed odd divisor of \(m\).
+The primes are
+\[
+ 3,7,13,17,47,577,2207,3361,665857,6202561.
+\]
+Let \(H\) be the least common multiple of \(45045\) and
+the odd parts of \(p^2-1\) at the displayed primes.
+The certificate checks both matrix periods at \(16\cdot32H\)
+and verifies square residues at all ten primes for
+\(m\equiv3\pmod{32}\), \(H\mid m\). The Chinese remainder
+theorem permits any further odd divisibility condition.
+Also \(m\equiv3\pmod8\), which gives a square in \(\mathbb Q_2\)
+on this branch by the exact 2-adic condition.
+
+This tests the boundary family at a small valuation. The
+unbounded classification now concerns valuations above
+200, and a uniform bound or a candidate-dependent witness
+is still required there.
 
 Run \(\texttt{python verify_shifted_dyadic.py}\) from this directory.

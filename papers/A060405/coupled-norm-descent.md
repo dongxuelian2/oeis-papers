@@ -406,15 +406,16 @@ Indeed, \(M_n\equiv1\pmod{16}\) and \(M_1=1\), so the divisors
 of \(n\) satisfy the rational norm condition. Since \(z\ne3\)
 and \(N(R_z)=P_z\) is prime, the factor of \(R_z\) has
 character \(\chi_+(R_z)=1\). On the other side
-\(t\equiv-1\pmod5\). The factors \(R_3\) and \(R_t\) divide
+\(t\equiv-1\pmod{15}\). The factors \(R_3\) and \(R_t\) divide
 \(R_{3t}\) and are coprime, since \(N(R_3)=5\) and \(5\nmid P_t\).
 For odd \(t\), the identity \(P_{3t}=P_t(8P_t^2-3)\)
 gives the prime norm \((8P_t^2-3)/5\) for
 \(R_{3t}/(R_3 R_t)\). The two factors \(R_t\) and
 \(R_{3t}/(R_3 R_t)\) each have prime norm and
 character \(\chi_-=1\), by (6) and (8) of the Gaussian descent.
-The divisors \(1,3,t,3t\) of \(n-2\) therefore satisfy the
-valuation tests. This criterion specifies a primality pattern
+The factor \(R_3\) has character zero. The divisors \(1,3,t,3t\)
+of \(n-2\) therefore satisfy the valuation tests.
+This criterion specifies a primality pattern
 under which the three divisor tests agree.
 
 ## Reproduction

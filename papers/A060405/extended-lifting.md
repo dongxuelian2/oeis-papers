@@ -40,5 +40,6 @@ Consequently the only possible nonnegative index in range is
 \(n=r=3\). Direct evaluation gives \(L_3+P_3=4+5=9\). \(\square\)
 
 Run `python verify_extended_lifting.py` to reproduce the exact
-integer calculations. The remaining global problem is the
-exclusion of the three odd branches above this range.
+integer calculations and the [valuation exclusion](shifted-dyadic-descent.md#exclusion-of-every-offset-valuation-from-14-through-200)
+through depth 200. The remaining global problem is to exclude square
+indices above this range with \(v_2(n-r)\ge201\).

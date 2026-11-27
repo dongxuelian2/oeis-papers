@@ -5,6 +5,7 @@ from math import lcm
 from verify_anchor_forcing import A, B, I, M, ANCHORS, factors, four_anchors, mp, primes
 from verify_composite_lifting import generalized_round
 from verify_extension import forced_divisor
+from verify_shifted_dyadic import verify_offset_depths
 
 
 PRIME_BOUND = 1_000_000
@@ -56,6 +57,7 @@ def certificate():
     limit = min(divisor + r - 1 for r, divisor in divisors.items())
     assert limit >= 10**902
     print("Together with the even-index theorem, only index 3 survives in [0, 10^902].")
+    verify_offset_depths(divisors)
     return divisors
 
 

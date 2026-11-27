@@ -210,7 +210,7 @@ over a strictly larger rational prime \(q\). Its exponent in
 divisors of \(S\).
 
 **Divisors of \(n-2\) divisible by 3.** Suppose \(n-2=3T\)
-with \(5\nmid T\). Here \(T\) is odd.
+with \(5\nmid T\), and put \(S=n-2\). Here \(T\) is odd.
 For odd \(b\) coprime to 5 one has
 \[
 \chi_-(R_{3b}/R_3)=\left(\frac b5\right).                     \tag{8}
@@ -226,10 +226,14 @@ cancel, proving (8).
 
 Suppose a prime \(p\mid T\) has \((p/5)=-1\). By (8),
 \(R_{3p}/R_3\) has a Gaussian prime of odd exponent and symbol
-\(-1\). This prime lies over \(q>p\) since \(p\nmid P_3=5\)
-and its order first activates at \(3p\), as in the argument
-after (7). Its exponent in
-\(R_{3p}\) is odd and (7) forces \(q\mid T\).
+\(-1\). Its rational prime \(q\) differs from 5, because \(d_-\)
+divides \(R_{3p}\), and the conjugate of \(d_-\) is coprime to
+\(R_{3p}\). It also differs from \(p\), since \(p\nmid P_3=5\)
+and the Frobenius argument following (7) gives \(p\nmid P_{3p}\).
+The order of \(\gamma\) at a prime above this witness divides
+\(3p\) and fails to divide 3, so it is divisible by \(p\).
+The argument after (7) gives \(q>p\). The odd exponent in
+\(R_{3p}\) then forces \(q\mid T\) by (7).
 
 Maintain an odd-symbol prime of odd exponent in \(R_s\) with
 \(3\mid s\mid S\), above a rational prime \(q\mid T\). If
@@ -243,7 +247,7 @@ strict increase contradicts the finiteness of its prime factors.
 Thus every prime factor of \(T\) has symbol \(+1\), which
 also gives \(3\nmid T\).
 
-Now take \(3\mid s\mid S\) and a Gaussian prime over \(p\) with
+Now take \(3\mid s\mid S\) and a Gaussian prime \(\pi\) over \(p\) with
 \(\chi_-(\pi)=-1\) and odd valuation in \(R_s\). This prime is absent
 from \(R_3=2+i\), an associate of \(d_-\), and its rational prime
 satisfies \(p\ne3,5\). For \(p=3\), this follows from the splitting

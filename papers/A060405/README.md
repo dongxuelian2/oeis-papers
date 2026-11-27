@@ -230,7 +230,9 @@ the odd part of the period at any prime that excludes a fixed
 2-primary residue of the multiplier.
 Artin reciprocity gives a prime of odd valuation with full
 2-primary Lucas order in every mixed factor \(C_j\) for \(j\ge3\).
-Two explicit witnesses exclude valuations 20 and 23 on \(r=\pm3\).
+The exact certificate excludes every offset valuation through 200.
+Remaining offsets have \(v_2(n-r)\ge201\) on \(r=\pm3\) and even
+\(v_2(n+1)\ge202\) on \(r=-1\).
 
 ## Theorem 1 (finiteness for every fixed exponent)
 
