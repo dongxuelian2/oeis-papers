@@ -1361,7 +1361,9 @@ The \((0,1)\) phase is then empty on this progression since
 Thus \(1+A_p/2\) is not divisible by \(A_p\) when the
 second phase exists. This excludes those small primes as well.
 
-For \(p>10^6\), \(p\) is coprime to \(D\). Restrict to
+For \(p>10^6\), \(p\) is coprime to \(D\): all prime factors
+of \(D_{-1}\) are below 30000 and \(1000001\) is composite.
+Restrict to
 \(m\le X\) and first consider the \((0,1)\) test. It
 requires \(p\mid m\) and \(Dm\equiv1\pmod{B_p}\), so
 \(p\le X\). If \(B_p\) is coprime to \(D\), these
@@ -1520,6 +1522,13 @@ valuation in \(W_j^{(2)}\). On the zero anchor \(3\nmid n\).
 At each prime above \(p>3\) dividing \((\alpha\beta)^n-s^3\),
 the unit \(\alpha\beta\) is a cube in the residue field,
 because its \(n\)-th power is a cube and \(3\nmid n\).
+On this branch there is also a prime \(p\equiv2\pmod3\)
+of odd valuation in \(W_n/81\). The local formula at 3
+gives \(81\mid a_n\), and \(8P_n-L_n\equiv-a_n\equiv0\pmod3\),
+so \(W_n/81=8(8P_n-L_n)(a_n/81)-1\equiv-1\pmod3\).
+Positivity gives the assertion by multiplying the prime
+characters. This prime splits in \(K\) by the valuation
+constraint above.
 
 **A common ideal in the two norm extensions.** At an odd
 square index write \(u=\alpha^n\), \(v=\beta^n\), \(C=2\sqrt2\)

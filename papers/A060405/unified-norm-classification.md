@@ -302,6 +302,93 @@ the torus Laurent ring by \(f-x_0^2\). This makes it possible
 to cancel \((x-x_0)^2\) from the norm identity. Otherwise the
 two norm components share no divisor.
 
+On the half-index and triple-index models this conclusion
+also holds for \(A=x-x_r U^iV^j\), for any integers \(i,j\)
+and either nonzero anchor \(r=\pm3\) with \(x_r^2=a_r\).
+Set \(u=\alpha^r U^M\), \(v=\beta^r V^M\) where \(M=2\)
+or \(3\). The curve of interest is
+\[
+ f(u,v)-a_r U^{2i}V^{2j}=0.
+ \tag{9}
+\]
+We prove it is Newton nondegenerate, hence smooth and
+irreducible by Oka's theorem as above.
+
+The additional monomial cannot cancel a vertex coefficient,
+since those coefficients are nonrational. For \(M=3\) it
+cannot be collinear with an edge of the original diamond,
+whose line has equation \(\pm e_1\pm e_2=3\) in the two
+exponent coordinates. For \(M=2\) a three-term face can be
+written, up to a monomial factor, as \(A_0+B_0 t-a_r t^q\),
+where \(q\ne0,1\). Here \(A_0\) is one of the two Lucas
+coefficients and \(B_0\) is one of the two Pell coefficients.
+A multiple nonzero root would give
+\(t=-q A_0/((q-1)B_0)\) by the derivative equation. Substitution
+then expresses rational \(a_r\) as a nonzero rational multiple
+of \(A_0^{1-q}B_0^q\). Flipping \(\sqrt5\) preserves \(B_0\)
+and changes the absolute value of \(A_0^{1-q}\), a
+contradiction. All other proper faces are binomials or monomials.
+
+For the full face, if \(i=j=0\) use the critical values of
+\(f\) above. Otherwise suppose there is a critical zero and put
+\(w=a_r U^{2i}V^{2j}\ne0\), \(I=2i/M\), \(J=2j/M\).
+The logarithmic derivative equations for (9) give
+\(u+u^{-1}=Iw\) and \(c(v-v^{-1})=Jw\).
+Consequently, for \(X=u-u^{-1}\) and \(Y=c(v+v^{-1})\),
+\[
+ X^2+4=I^2w^2,\qquad Y^2-1/2=J^2w^2,\qquad X+Y=w.
+\]
+Writing \(d=1+I^2-J^2\), one obtains
+\(X=(2dw^2-9)/(4w)\). Substitution into the first equation
+gives the even polynomial equation
+\[
+ 4(d^2-4I^2)w^4+(64-36d)w^2+81=0.
+\]
+Under \(w\mapsto-w\), the rational expressions for
+\(X,Y,u=(X+Iw)/2\), and \(v/s=(Y+Jw)\) all change sign,
+where \(s=\sqrt2\). In particular the even powers of \(u\)
+and \(v\) lie in \(\mathbb Q(w^2)\). Raising the definition
+of \(w\) to the \(M\)-th power yields
+\[
+ \alpha^{2ir}\beta^{2jr}=a_r^M u^{2i}v^{2j}/w^M.
+\]
+The left side is totally positive and generates \(K\) when
+\(ij\ne0\), which follows by independently inverting the two
+even powers under Galois conjugation and using multiplicative
+independence. If just one exponent is nonzero it generates
+the corresponding quadratic field.
+
+For \(M=3\), the equation already puts the left side in
+\(\mathbb Q(w)\). This field has degree four when \(ij\ne0\).
+If \(i=0\), then \(u=\pm\sqrt{-1}\), which
+also lies in \(\mathbb Q(w)\) together with \(\sqrt2\),
+again giving degree four. If \(j=0\), then \(v=\pm1\),
+so \(Y=\pm1/s\) gives \(\sqrt2\) in \(\mathbb Q(w)\)
+along with \(\sqrt5\). In each case the degree-four
+minimal polynomial of \(w\) is even. The embedding sending
+\(w\) to \(-w\) negates the right side of the last display,
+contradicting total positivity of the left side.
+
+For \(M=2\), that display puts the left side in
+\(\mathbb Q(w^2)\), which has degree at most two. This is
+impossible for \(ij\ne0\). If \(i=0\) and \(j\ne0\),
+then \(\mathbb Q(w^2)=\mathbb Q(\sqrt2)\). The discriminant
+of the displayed polynomial in \(w^2\) is
+\(64(9I^2+72J^2-8)\). Since \(I=0\), this would require
+\(9j^2-1\) to be a rational square, impossible between
+\((3|j|-1)^2\) and \((3|j|)^2\). If \(j=0\) and
+\(i\ne0\), then \(\mathbb Q(w^2)=\mathbb Q(\sqrt5)\),
+so \(9i^2-8\) would be five times a rational square.
+The latter number is a unit at 3 and reduces to 1 there,
+whereas five times the square of a 3-adic unit reduces to 2.
+This proves nondegeneracy for \(M=2\) as well.
+
+Thus \(x-x_rU^iV^j\) defines a prime divisor in these
+models. A Laurent polynomial in \(U,V\) vanishing along
+it is divisible by (9), allowing the common square factor
+to be canceled from the norm identity. The coprime case
+again yields an unramified symbol.
+
 **Local values of unramified classes.** On the original
 odd square surface, each real component with specified signs
 of \(u,v\) is parametrized by \((v,x)\): the function
@@ -321,6 +408,14 @@ to any prescribed precision and choose the local square
 roots close to the anchor root. At the real primes the
 values agree by connectedness. Thus arbitrarily large indices
 pass the local evaluations of every class in the fixed list.
+On the half-index and triple-index models, a specified sign
+of each new torus coordinate again selects a sign of \(u,v\).
+The same parametrization applies there. The high dyadic
+divisibility of \(n-r\) makes the shifted exponent even on
+both models, so the real components again match the anchor.
+At finite places one chooses the initial period so that the
+new torus coordinates are close to 1. The same conclusion
+therefore holds on both pullbacks.
 
 ## 6. Elliptic division and varying ramification
 
@@ -455,6 +550,81 @@ matrix has period dividing 12 modulo 5 and
 divide \(2L_n^2-1\). This distinguishes the two division
 extensions even after passing to the compositum of their
 fixed fields, which is unramified at that prime.
+
+## 7. Divisibility evaluated along an index offset
+
+Let \(q(U,V)\ne0\) be a Laurent polynomial over a number
+field. If
+\[
+ \frac{q(\alpha^{2k},\beta^{2k})}{q(\alpha^k,\beta^k)}
+\]
+is integral outside a fixed finite set of places for all
+sufficiently large \(k\), then every geometric irreducible
+factor of \(q\) cuts out a monomial equation
+\(U^aV^b=\zeta\) with \(\zeta\) a root of unity.
+
+The denominator is eventually nonzero by its distinct
+positive exponential bases, since \(\alpha,\beta\) are
+multiplicatively independent. By the Hadamard quotient
+theorem, the given quotient is eventually a sum of powers
+of algebraic numbers with polynomial coefficients in \(k\).
+[Van der Poorten, *Hadamard operations on rational functions*, Theorem A](https://www.numdam.org/article/GAU_1982-1983__10_1_A3_0.pdf)
+
+Pass to \(k=dj\), with \(d\) a multiple of the torsion order
+of the multiplicative group generated by all the bases and
+\(\alpha,\beta\). Their \(d\)-th powers generate a torsion-free
+group \(G\). In the group algebra of \(G\) with an additional
+polynomial variable \(j\), the identity giving the quotient
+holds formally by linear independence of the distinct
+polynomial-exponential terms on the infinite tail. The two
+evaluations of \(q\) are in the subgroup generated by
+\(\alpha^d,\beta^d\). The group algebra is a domain, and
+multiplication by the denominator preserves each coset of
+that subgroup and the polynomial degree in \(j\). The
+quotient therefore belongs to that same subgroup algebra
+and has polynomial degree zero. Identifying the two
+independent generators with \(U,V\) shows that
+\(q(U,V)\mid q(U^2,V^2)\) over the algebraic closure.
+
+Thus squaring sends every geometric component of the
+zero locus into another component. Consider a periodic
+component, whose return map is coordinate-wise raising
+to \(m=2^e>1\). On its smooth projective completion this
+map has degree \(m\), by composing with any nonconstant
+torus coordinate. Let \(B\) contain all zeros and poles
+of the two coordinates. Its inverse image under the
+map equals itself, giving total ramification at those
+points equal to \((m-1)|B|\). Riemann–Hurwitz gives
+\((m-1)(2-2g)\ge(m-1)|B|\). Since \(|B|\ge2\), the curve
+has genus zero and just two boundary points. Both torus
+coordinates are then monomials in a parameter, up to
+scalars. The constant in their primitive relation must
+be a root of unity by periodicity. A preperiodic component
+maps to a periodic one by a power map. The preimage of
+the resulting monomial equation factors into equations
+of the same kind, so the conclusion holds for it as well.
+
+In particular, let a Laurent factor through \((1,1)\) be
+used in a primitive norm identity on a shifted square
+surface with \(u=\alpha^r U^M\), \(v=\beta^r V^M\), for
+\(r=\pm3,-1\). Suppose a component through \((1,1)\) has
+\(f(u,v)\) square in its geometric function field, as occurs
+when the factor divides \(A^2-D f(u,v)B^2\) and \(B\) is
+nonzero generically on that component. The factor cannot
+satisfy the eventual divisibility above. Indeed a torsion
+monomial component through \((1,1)\) maps to a monomial
+curve through \((\alpha^r,\beta^r)\). A power map preserves
+the multiplicities of zeros in the torus, so such a curve
+must occur in the splitting classification in Section 1.
+Families 1 and 2 fail at the anchor since \(P_r\) is real
+and \(L_r\) integral. Family 4 fails by multiplicative
+independence of \(\alpha,\beta\). In Family 3 the two
+exponents on the curve are opposite. Their coefficients
+could give a square up to a monomial only if one vanishes.
+The positive sum cannot vanish, and the other would
+require \(\alpha^{-r}=c\beta^{\pm r}\). Norm to
+\(\mathbb Q(\sqrt5)\) would give \(\alpha^{-2r}=1/8\),
+impossible for the quadratic unit of nonzero exponent.
 
 ## Reproduction
 
