@@ -896,6 +896,85 @@ such expression. To use (27) for an effective last-index bound,
 an auxiliary construction must supply more than norm decay
 for a fixed regular Laurent expression.
 
+**Uniform separation for auxiliary expressions of bounded height.**
+In the notation of Section 6 write \(n=4j+r\) with \(r=1,3\).
+Take a nonzero expression \(H=P+XQ\) over \(K\). Suppose its
+Laurent exponents in each variable are between \(-D\) and \(D\),
+where \(D\ge1\), and its nonzero coefficients have absolute
+logarithmic height at most \(B\). Put
+\[
+ \varepsilon_D=\frac{e^{-9(D+1)}}{24},\qquad N_D=2(2D+1)^2.
+\]
+For every \(H\) other than a scalar Laurent monomial,
+\[
+ j\varepsilon_D\ge100(B+1)+\log(24N_D)
+ \quad\Longrightarrow\quad J_H(j)>1.
+ \tag{28}
+\]
+The auxiliary coefficients and Laurent support may vary with
+the candidate index under the stated bounds.
+
+To bound the separation of exponents, let
+\(w=\alpha^i\beta^k\ne1\), with \(|i|,|k|\le2(D+1)\).
+The algebraic integer \(w-1\) has nonzero integer norm.
+At each of the three other embeddings its absolute value
+is at most \(2e^{2(D+1)(a+b)}\). The mean-value theorem
+gives \(|w-1|\le e|\log w|\) when \(|\log w|\le1\).
+It follows that \(|\log w|\ge\varepsilon_D\), using
+\(6(a+b)<9\) and \(e<3\). This applies to all distinct
+exponents in \(P\) and in the leading approximation to \(XQ\),
+because multiplication by \(X\sim A_r\beta^{2j}\) shifts
+the exponent in the \(\beta\) direction by 2.
+
+At any one embedding, divide by the exponential with the
+largest exponent \(\mu\) in these leading terms. Its coefficient
+is \(p+A_rq\) with \(p,q\in K\), at least one nonzero, each
+of height at most \(B\) if nonzero. The signs of the embedded
+monomials are included in \(p,q\). This coefficient is nonzero
+since \(A_r\notin K\). Its absolute value is at least
+\(e^{-16B-24}\), because \(h(p+A_rq)\le2B+h(A_r)+\log2<2B+3\)
+and its degree is at most eight. Here \(h(A_r)<2\) follows
+from \(A_r=\beta^{(r-1)/2}\theta/2\).
+The other terms in the leading approximation have total
+absolute value at most \(4N_De^{4B}e^{-j\varepsilon_D}\).
+Each original coefficient is at most \(e^{4B}\) at each
+embedding and \(A_r<4\). Binet's formula as in Section 7
+also gives \(|x_j/(A_r\beta^{2j})-1|\le2e^{-j}\), using
+\(4(b-a)>1\). The error in replacing \(XQ\) by the leading
+approximation is therefore at most \(8N_De^{4B}e^{-j}\)
+after the same division. Under the condition in (28), the
+sum of both errors is at most \(e^{-16B-24}/2\).
+
+Multiplying the four lower bounds gives
+\(J_H(j)\ge 2^{-4}e^{-64B-96}\exp(j\sum_\sigma\mu_\sigma)\).
+If \(Q\ne0\), fix any monomial of \(Q\) to get
+\(\sum_\sigma\mu_\sigma\ge8b\), just as in Section 6.
+If \(Q=0\), then \(P\) has at least two monomials and each
+opposite pair of embedding weights gives a width at least
+\(\varepsilon_D\). Thus \(\sum_\sigma\mu_\sigma\ge2\varepsilon_D\)
+in both cases, and (28) follows.
+
+For the indices beyond the existing finite certificate,
+\(n>10^{902}\) gives \(j>10^{902}/5\). Thus (28) holds when
+\(D\le220\) and \(B\le10^{12}\), since \(e^9<10^4\)
+gives \(j\varepsilon_D>10^{18}/120\).
+It also rules out norm decay for an auxiliary expression over
+\(L\) with exponents bounded by 108 and coefficient heights
+at most \(10^6\), other than a scalar Laurent monomial.
+In fact, with \(g=\tau^2\), the relative norm is
+\[
+ P g(P)+ f_r Q g(Q)+X\big(Pg(Q)+g(P)Q\big).
+\]
+Its exponents are bounded by \(2D+4\). Each coefficient sums
+at most \(M=6(2D+1)^2\) products of height at most \(2B+4\),
+since each coefficient of \(f_r\) has height less than 4.
+Thus its coefficient heights are at most \(M(2B+4)+\log M\),
+which is less than \(10^{12}\) at the stated bounds.
+If this relative norm were a scalar Laurent monomial,
+it would be a unit and so would \(H\). The Laurent unit
+classification in Section 6 then forces \(H\) itself to
+be a scalar Laurent monomial.
+
 ## Reference
 
 [1] J.-H. Evertse and R. G. Ferretti,
