@@ -334,6 +334,7 @@ def check_section2_witnesses():
     witnesses = [
         (17, 137, None),
         (19, None, 37),
+        (21, 45697, None),
         (31, 61, 61),
         (37, 78737, 593),
         (43, 11437, None),

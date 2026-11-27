@@ -49,6 +49,7 @@ def certificate():
             assert (len(forced), len(str(divisor))) == (count, digits)
             print(f"Anchor {r}: {count} prime powers, {digits} digits", flush=True)
         assert multiplier == 1
+        assert (divisor & -divisor) == 2**14
         divisors[r] = divisor
 
     # The norm descent excludes the even anchor -2.

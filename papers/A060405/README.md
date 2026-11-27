@@ -21,6 +21,8 @@ nonnegative index. On the three odd classes, the
 The Gaussian part of the norm descent gives prime-factor conditions
 on divisors of \(n-2\) and \(n+2\). On the branch \(r=-1\), every
 prime factor of \((n-2)/3\) must be a quadratic residue modulo 5.
+The parity conclusion on this branch applies to every divisor of
+\(n-2\), including divisors divisible by 3.
 The global classification on the three odd branches remains open.
 
 ## Exact periods and elementary gap principle
@@ -214,6 +216,14 @@ condition to show that each such prime has a single active prime ideal,
 then descends through rational norm quotients. It excludes
 \(29,31,53,61,71,73,97,6679\) as divisors of every square index, and
 \(17\) as a divisor on \(n\equiv\pm3\pmod{720720}\).
+
+The [shifted dyadic calculation](shifted-dyadic-descent.md)
+studies the exact valuation \(a=v_2(n-r)\ge14\).
+At each fixed \(a\), the lower mixed and companion dyadic layers
+can jointly exclude the stratum by square-residue tests only through
+completely split primes with recurrence order of valuation at least
+\(a+2\) at 2.
+The exact test finds no such prime through \(10^8\).
 
 ## Theorem 1 (finiteness for every fixed exponent)
 

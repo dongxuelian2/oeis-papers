@@ -92,13 +92,13 @@ For an odd Gaussian prime \(\pi\) coprime to \(d_\pm\), write
 Extend it multiplicatively to Gaussian elements of odd norm coprime
 to \(d_\pm\), and assign value zero when \(d_\pm\) divides the element.
 
-**Theorem.** Let \(n\ge3\) be an odd square index. For any positive
-divisor \(s\) of \(n-2\) with \(3\nmid s\), the exponent of every
-Gaussian prime with \(\chi_-(\pi)=-1\) in \(R_s\) is even. For any
-positive divisor \(s\) of \(n+2\) with \(3\nmid s\), the corresponding
-statement holds with \(\chi_+\). In addition, if
-\(n\equiv-1\pmod{720720}\), then every prime dividing \((n-2)/3\)
-is a quadratic residue modulo 5.
+**Theorem.** Let \(n\ge3\) be an odd square index. Then \(3\nmid n+2\),
+and at every positive divisor \(s\mid n+2\), the valuation of \(R_s\)
+at each Gaussian prime with \(\chi_+(\pi)=-1\) is even. For
+\(s\mid n-2\), the corresponding conclusion holds with \(\chi_-\)
+if \(3\nmid s\) or \(5\nmid n-2\).
+If \(3\mid n-2\) and \(5\nmid n-2\), then \(v_3(n-2)=1\)
+and every prime dividing \((n-2)/3\) is a quadratic residue modulo 5.
 
 **Factorization.** For \(n=2m+1\), set \(d=d_+\) for even \(m\)
 and \(d=d_-\) for odd \(m\). One has \(L_n+2i=dz^2\) with
@@ -162,6 +162,9 @@ both residue fields of size 5. The values of \(i\) modulo
 \((Q_h,P_h)\) has period 12, since \(\beta^6\equiv-1\). Formula
 (6) gives \((\chi_+(R_s),\chi_-(R_s))=(1,1)\) when \(3\nmid s\)
 and \((-1,0)\) when \(3\mid s\).
+The norm condition for \(R_{n+2}\) forces \(\chi_+(R_{n+2})=1\),
+since (6) gives a nonzero character and all its \(-1\) primes
+have even valuation. Hence \(3\nmid n+2\).
 
 The symmetry of the quadratic symbol on primary elements also
 follows by squaring the quartic reciprocity law.
@@ -206,8 +209,8 @@ over a strictly larger rational prime \(q\). Its exponent in
 \(R_{sp}\) is odd. Repetition would give infinitely many prime
 divisors of \(S\).
 
-**The zero-anchor branch.** Suppose \(n\equiv-1\pmod{720720}\)
-and set \(S=n-2=3T\). Here \(T\) is odd and \(\gcd(T,15)=1\).
+**Divisors of \(n-2\) divisible by 3.** Suppose \(n-2=3T\)
+with \(5\nmid T\). Here \(T\) is odd.
 For odd \(b\) coprime to 5 one has
 \[
 \chi_-(R_{3b}/R_3)=\left(\frac b5\right).                     \tag{8}
@@ -221,10 +224,11 @@ and \(\beta^3=-i\). The quotient therefore reduces to
 \(R_{3b}/R_3\bmod2\). The two signs in its quadratic symbol
 cancel, proving (8).
 
-Suppose an odd prime \(p\mid T\) has \((p/5)=-1\). By (8),
+Suppose a prime \(p\mid T\) has \((p/5)=-1\). By (8),
 \(R_{3p}/R_3\) has a Gaussian prime of odd exponent and symbol
 \(-1\). This prime lies over \(q>p\) since \(p\nmid P_3=5\)
-and the order argument after (7) applies. Its exponent in
+and its order first activates at \(3p\), as in the argument
+after (7). Its exponent in
 \(R_{3p}\) is odd and (7) forces \(q\mid T\).
 
 Maintain an odd-symbol prime of odd exponent in \(R_s\) with
@@ -236,6 +240,21 @@ The prime above \(q\) occurs once in this quotient, so there is
 a second odd-symbol prime of odd exponent above a larger one.
 In both cases the new prime divides \(T\) by (7). The resulting
 strict increase contradicts the finiteness of its prime factors.
+Thus every prime factor of \(T\) has symbol \(+1\), which
+also gives \(3\nmid T\).
+
+Now take \(3\mid s\mid S\) and a Gaussian prime over \(p\) with
+\(\chi_-(\pi)=-1\) and odd valuation in \(R_s\). This prime is absent
+from \(R_3=2+i\), an associate of \(d_-\), and its rational prime
+satisfies \(p\ne3,5\). For \(p=3\), this follows from the splitting
+of primes dividing \(N(R_s)=P_s\) proved above. For \(p=5\), only \(d_-\)
+can divide \(R_s\), since \(d_-\mid R_s\) by (6) and
+\(\gcd(R_s,\overline{R_s})=1\).
+The parity at \(R_S\) forces \(sp\mid S\), so \(p\mid T\).
+The preceding argument for primes with \((p/5)=1\) now yields a
+larger prime of odd valuation at \(R_{sp}\) with the same character.
+Iteration again contradicts finite support. In particular
+\(\chi_-(R_s/R_3)=1\) when \(3\mid s\mid S\).
 \(\square\)
 
 For example, \(R_{17}=985+408i\) has an odd exponent at the prime
@@ -243,6 +262,9 @@ over 137 with \(\chi_-=-1\), and \(R_{19}=2378+985i\) has an odd
 exponent at the prime over 37 with \(\chi_+=-1\). Thus every odd
 square index \(n\ge3\) satisfies \(17\nmid n-2\) and
 \(19\nmid n+2\).
+Also, \(R_{21}=5741+2378i\) has an odd exponent at the prime over
+45697 with \(\chi_-=-1\). This gives \(21\nmid n-2\) when \(5\nmid n-2\).
+The [certificate](verify_unified_structure.py) checks each witness.
 
 ## 3. Mixed-unit norm identities
 

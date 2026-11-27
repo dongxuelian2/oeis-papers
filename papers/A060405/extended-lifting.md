@@ -34,6 +34,8 @@ of a certified relation. The verifier obtains these divisor lengths.
 | \(-1\) | 3230 | 3760 | 3777 | 3777 |
 
 For each odd anchor the verifier checks \(D+r-1\ge10^{902}\).
+It also gives \(v_2(D)=14\) on every odd anchor, so every
+nonzero square-index offset from its anchor is divisible by \(2^{14}\).
 Consequently the only possible nonnegative index in range is
 \(n=r=3\). Direct evaluation gives \(L_3+P_3=4+5=9\). \(\square\)
 

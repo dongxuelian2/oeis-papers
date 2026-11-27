@@ -275,11 +275,13 @@ the valuation \(v_p(M_s)\) is even. Every such prime dividing
 
 **Character of the odd part.** Every odd prime divisor of \(M_s\)
 splits in \(\mathbb Q(\sqrt2)\). Suppose 2 is a nonsquare modulo \(p\)
-and reduce at a prime ideal dividing \(\eta^s-1\). Then
+and reduce in \(\mathbb F_{p^2}\) at a prime ideal dividing
+\(\eta^s-1\). Then
 \(\beta^s=u^s\) and \(\beta^{p+1}=-1\). If 5 is a nonsquare modulo
 \(p\), then \(u^{p+1}=1\), contradicting that \(s\) is odd.
 If 5 is a square or \(p=5\), then \(u\) is a square in
-\(\mathbb F_p\), and \((u^s)^2=(\beta^s)^{p+1}=-1\).
+\(\mathbb F_p\), so \(u^{p+1}=u^2\) and
+\((u^s)^2=(\beta^s)^{p+1}=-1\).
 A square of order four in \(\mathbb F_p^\times\) requires
 \(8\mid p-1\), whereas \(p\equiv3,5\pmod8\).
 
@@ -295,6 +297,7 @@ The odd part of \(M_s\) has character \(+1\).
 
 **Uniqueness over each prime of character \(-1\).** Let
 \(p\equiv7,9\pmod{16}\) divide \(M_n\) for an odd square index \(n\).
+Then \(p\ge7\) and \((2/p)=1\).
 For either root \(r\) of 2 in \(\mathbb F_p\), the element \(2+r\)
 is a nonsquare. Choose a primitive sixteenth root \(z\) with
 \(r=z^2+z^{-2}\). The square root \(z+z^{-1}\) of \(2+r\)
@@ -332,8 +335,8 @@ If they equal opposite signs, one gets both
 Thus at most one of \(\eta^n,\xi^n\) belongs to \(\{1,-1\}\).
 The conjugate list in Section 5 shows that exactly one prime
 ideal above \(p\) divides \(\eta^n-1\). At this ideal the
-positive-sign norm has a unit partner and its twist is a
-nonsquare, so \(v_p(M_n)\) is even. Also, \(w=\alpha^n\) satisfies
+positive-sign norm is nonzero and has a unit partner. Its
+nonsquare twist forces \(v_p(M_n)\) to be even. Also, \(w=\alpha^n\) satisfies
 \(w^2+\sqrt2w-1=0\) in \(\mathbb F_p\), by \(L_n+\sqrt2=0\).
 Its discriminant is 6, so \(p\) splits in \(\mathbb Q(\sqrt3)\).
 By divisibility, the same splitting condition holds at each
@@ -349,8 +352,9 @@ of character \(-1\) and odd valuation. By uniqueness, \(q\)
 splits completely and the unique ideal above \(q\) dividing
 \(\eta^{sp}-1\) is new at \(sp\), since multiplying the index
 by \(p\) preserves the valuations at old ideals above \(q\).
-Its order in \(\mathbb F_q^\times\) is divisible by \(p\), so
-\(q>p\), and \(v_q(M_{sp})\) is odd. Iterating from \((sp,q)\)
+Thus \(v_q(M_s)=0\), and \(\eta^s\) has exact order \(p\) in
+\(\mathbb F_q^\times\). Hence \(q>p\) and
+\(v_q(M_{sp})=v_q(M_{sp}/M_s)\) is odd. Iterating from \((sp,q)\)
 forces infinitely many distinct primes to divide \(n\). \(\square\)
 
 ### Consequences and remaining arithmetic target
@@ -369,10 +373,49 @@ The [witness at 51511](unified-norm-classification.md) for
 
 A sufficient global target is to exhibit, for each remaining
 candidate \(n>10^{902}\), a divisor \(s\mid n\) and a prime
-\(p\equiv7,9\pmod{16}\) of odd valuation in \(M_s\).
+\(p\equiv7,9\pmod{16}\) dividing \(M_s\) that has odd valuation
+or is inert in \(\mathbb Q(\sqrt3)\) or \(\mathbb Q(\sqrt5)\).
 The examples \(M_{17},M_{19},M_{23}\) in Section 5 give prime
 indices \(s\) at which a witness must come from another divisor
 of the candidate or from another norm identity.
+
+## 7. Joint rational and Gaussian divisor tests
+
+The [Gaussian descent](norm-descent.md#2-a-gaussian-factorization-for-the-odd-indices)
+forces even valuations at the relevant Gaussian primes for every
+divisor of \(n\pm2\) on the three odd anchor classes. The total
+Gaussian character is \(+1\) for divisors coprime to 3. For
+\(3\mid s\mid n-2\) on the \(-1\) branch, the quotient
+has \(\chi_-(R_s/R_3)=\left(\frac{s/3}{5}\right)=1\).
+The terminal inputs \(17,19,23\) of the rational norm test are
+each detected when used as an index in the Gaussian tests:
+\(n=17\) has \(s=19\mid n+2\), \(n=19\) has \(s=17\mid n-2\),
+and \(n=23\) has \(s=21\mid n-2\).
+
+**Conditional compatibility on the zero-anchor branch.**
+Suppose \(n\equiv-1\pmod{720720}\) is a positive prime, and set
+\(t=(n-2)/3\), \(z=n+2\). If all six integers
+\[
+ t,\quad z,\quad M_n,\quad P_t,\quad P_z,\quad
+ \frac{8P_t^2-3}{5}
+\]
+are prime, the rational norm test of Section 6 and both Gaussian
+divisor tests admit \(n\).
+
+Indeed, \(M_n\equiv1\pmod{16}\) and \(M_1=1\), so the divisors
+of \(n\) satisfy the rational norm condition. Since \(z\ne3\)
+and \(N(R_z)=P_z\) is prime, the factor of \(R_z\) has
+character \(\chi_+(R_z)=1\). On the other side
+\(t\equiv-1\pmod5\). The factors \(R_3\) and \(R_t\) divide
+\(R_{3t}\) and are coprime, since \(N(R_3)=5\) and \(5\nmid P_t\).
+For odd \(t\), the identity \(P_{3t}=P_t(8P_t^2-3)\)
+gives the prime norm \((8P_t^2-3)/5\) for
+\(R_{3t}/(R_3 R_t)\). The two factors \(R_t\) and
+\(R_{3t}/(R_3 R_t)\) each have prime norm and
+character \(\chi_-=1\), by (6) and (8) of the Gaussian descent.
+The divisors \(1,3,t,3t\) of \(n-2\) therefore satisfy the
+valuation tests. This criterion specifies a primality pattern
+under which the three divisor tests agree.
 
 ## Reproduction
 
